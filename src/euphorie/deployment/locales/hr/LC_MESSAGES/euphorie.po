@@ -7349,7 +7349,7 @@ msgid "label_value"
 msgstr "Vrijednost"
 
 msgid "label_on"
-msgstr "Na"
+msgstr "Uključeno"
 
 msgid "label_loading"
 msgstr "Učitaj"
@@ -7847,6 +7847,48 @@ msgstr "Neodgovoren"
 
 msgid "yes_acceptable"
 msgstr "Da, preostali rizik je prihvatljiv"
+
+msgid "label_start_imp"
+msgstr "Pokreni"
+
+msgid "label_update_imp"
+msgstr "Ažuriraj"
+
+msgid "label_create_imp"
+msgstr "Stvori"
+
+msgid "label_tag"
+msgstr "Oznaka"
+
+msgid "message_clone_or_start_new"
+msgstr ""
+"Možete kopirati sadržaj iz postojeće procjene izrađene pomoću alata {0} ili "
+"započeti ispočetka."
+
+msgid "label_new_risk_assessment"
+msgstr "Nova procjena rizika"
+
+msgid "label_start_new_risk_assessment_imp"
+msgstr "Pokreni novu procjenu rizika"
+
+msgid "message_help_intro"
+msgstr ""
+"Odaberite jednu od dolje navedenih tema kako biste se upoznali s radom "
+"OiRA-e."
+
+msgid "message_invite_for_training"
+msgstr ""
+"Pozovite kolegu da se upozna s relevantnim rizicima i mjerama procjene "
+"“{0}”. Pozvani korisnik automatski dobiva pristup ovoj procjeni rizika u "
+"svrhu obuke."
+
+msgid "message_include_ellipsis"
+msgstr "Uključi…"
+
+msgid "message_report_downloads_intro"
+msgstr ""
+"Odaberite između nekoliko formata za pregled ili preuzimanje izvješća o "
+"procjeni rizika."
 
 #~ msgid "Official OiRA Logo"
 #~ msgstr "Službeni OiRA logotip"

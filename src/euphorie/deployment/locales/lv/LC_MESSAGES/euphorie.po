@@ -7334,7 +7334,7 @@ msgid "label_value"
 msgstr "Vērtība"
 
 msgid "label_on"
-msgstr "Uz"
+msgstr "Ieslēgts"
 
 msgid "label_loading"
 msgstr "Lejupielādēt"
@@ -7798,6 +7798,46 @@ msgstr "Neatbildēts"
 
 msgid "yes_acceptable"
 msgstr "Jā, atlikušais risks ir pieņemams"
+
+msgid "label_start_imp"
+msgstr "Sākt"
+
+msgid "label_update_imp"
+msgstr "Atjaunināt"
+
+msgid "label_create_imp"
+msgstr "Izveidot"
+
+msgid "label_tag"
+msgstr "Taga"
+
+msgid "message_clone_or_start_new"
+msgstr ""
+"Jūs varat nokopēt saturu no esoša novērtējuma, kas veikts ar rīku {0}, vai "
+"sākt no jauna."
+
+msgid "label_new_risk_assessment"
+msgstr "Jauns riska novērtējums"
+
+msgid "label_start_new_risk_assessment_imp"
+msgstr "Sākt jaunu riska novērtējumu"
+
+msgid "message_help_intro"
+msgstr "Izvēlieties kādu no tēmām zemāk, lai iepazītos ar OiRA darbību."
+
+msgid "message_invite_for_training"
+msgstr ""
+"Uzaicini kolēģi iepazīties ar attiecīgajiem riskiem un pasākumiem “{0}”. "
+"Uzaicinātais lietotājs automātiski saņems piekļuvi šim novērtējumam "
+"apmācības nolūkos."
+
+msgid "message_include_ellipsis"
+msgstr "Iekļaut…"
+
+msgid "message_report_downloads_intro"
+msgstr ""
+"Izvēlies kādu no vairākiem formātiem, lai skatītu vai lejupielādētu sava "
+"riska novērtējuma pārskatu."
 
 #~ msgid "Official OiRA Logo"
 #~ msgstr "Oficiālais OiRA logotips"

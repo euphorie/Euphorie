@@ -6326,7 +6326,9 @@ msgstr ""
 #. Default: "You don't have any risk assessments yet."
 #: euphorie/client/browser/templates/portlet_my_ras.pt:98
 msgid "message_you_dont_have_any_risk_assessments_yet"
-msgstr "M’għandekx valutazzjonijiet tar-riskji s’issa. Ibda billi toħloq waħda ġdida."
+msgstr ""
+"M’għandekx valutazzjonijiet tar-riskji s’issa. Ibda billi toħloq waħda "
+"ġdida."
 
 #. Default: "You have reviewed and validated this risk assessment."
 #: euphorie/client/browser/templates/consultancy.pt:113
@@ -7399,7 +7401,7 @@ msgid "label_value"
 msgstr "Valur"
 
 msgid "label_on"
-msgstr "Fuq"
+msgstr "Mixgħul"
 
 msgid "label_loading"
 msgstr "Tella'"
@@ -7873,6 +7875,46 @@ msgstr "Ma saritx żjara"
 
 msgid "yes_acceptable"
 msgstr "Iva, ir-riskju li jifdal huwa aċċettabbli"
+
+msgid "label_start_imp"
+msgstr "Ibda'"
+
+msgid "label_update_imp"
+msgstr "Aġġorna"
+
+msgid "label_create_imp"
+msgstr "Oħloq"
+
+msgid "label_tag"
+msgstr "Tag"
+
+msgid "message_clone_or_start_new"
+msgstr ""
+"Tistaʼ tikkopja kontenut minn valutazzjoni eżistenti magħmula bl-għodda {0} "
+"jew tibda mill-bidu."
+
+msgid "label_new_risk_assessment"
+msgstr "Valutazzjoni tar-riskju ġdida"
+
+msgid "label_start_new_risk_assessment_imp"
+msgstr "Ibda valutazzjoni tar-riskju ġdida"
+
+msgid "message_help_intro"
+msgstr "Agħżel wieħed mis-suġġetti hawn taħt biex titgħallem kif jaħdem OiRA."
+
+msgid "message_invite_for_training"
+msgstr ""
+"Stieden lil kollega biex jitgħallem dwar ir-riskji u l-miżuri rilevanti ta’ "
+"“{0}”. L-utent mistieden se jingħata aċċess awtomatiku għal din il-"
+"valutazzjoni għall-fini tat-taħriġ."
+
+msgid "message_include_ellipsis"
+msgstr "Inkludi…"
+
+msgid "message_report_downloads_intro"
+msgstr ""
+"Agħżel minn diversi formati biex tara jew tniżżel ir-rapport tal-"
+"valutazzjoni tar-riskju tiegħek."
 
 #~ msgid "Official OiRA Logo"
 #~ msgstr "Logo Uffiċjali ta' OiRA"

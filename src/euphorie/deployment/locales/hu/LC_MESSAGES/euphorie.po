@@ -6371,7 +6371,8 @@ msgstr ""
 #. Default: "You don't have any risk assessments yet."
 #: euphorie/client/browser/templates/portlet_my_ras.pt:98
 msgid "message_you_dont_have_any_risk_assessments_yet"
-msgstr "Még nincs egyetlen kockázatértékelése sem. Kezdje egy új létrehozásával."
+msgstr ""
+"Még nincs egyetlen kockázatértékelése sem. Kezdje egy új létrehozásával."
 
 #. Default: "You have reviewed and validated this risk assessment."
 #: euphorie/client/browser/templates/consultancy.pt:113
@@ -7442,7 +7443,7 @@ msgid "label_value"
 msgstr "Érték"
 
 msgid "label_on"
-msgstr "Rajta"
+msgstr "Bekapcsolva"
 
 msgid "label_loading"
 msgstr "Feltöltés"
@@ -7550,10 +7551,8 @@ msgstr "Finomítsa ennek a kockázatértékelésnek a beállításait."
 
 msgid "message_report_downloads_intro"
 msgstr ""
-"Mentse el a jelentést a számítógépére és nyomtassa ki. Módosíthatja is, vagy"
-" hozzáadhat további információkat. Kérjük, vegye figyelembe, hogy a "
-"számítógépén végrehajtott módosítások NEM kerülnek mentésre az OiRA "
-"kockázatértékelésben."
+"Válasszon a különböző formátumok közül a kockázatértékelési jelentés "
+"megtekintéséhez vagy letöltéséhez."
 
 msgid "unlocked_risk_assessments"
 msgstr "Feloldott kockázatelemzések"
@@ -7846,7 +7845,7 @@ msgid "label_this_is_a"
 msgstr "Ez egy prioritású kockázat"
 
 msgid "label_this_is_a_xx_priority_risk"
-msgstr "Ez egy prioritású kockázat."
+msgstr "Ez egy prioritású kockázat"
 
 msgid "label_topics"
 msgstr "Témák"
@@ -7962,6 +7961,41 @@ msgstr "Megválaszolatlan"
 
 msgid "yes_acceptable"
 msgstr "Igen, a fentmaradó kockázat elfogadható."
+
+msgid "label_start_imp"
+msgstr "Indítás"
+
+msgid "label_update_imp"
+msgstr "Frissítés"
+
+msgid "label_create_imp"
+msgstr "Létrehozás"
+
+msgid "label_tag"
+msgstr "Címke"
+
+msgid "message_clone_or_start_new"
+msgstr ""
+"Átmásolhatja a tartalmat egy meglévő értékelésből, amelyet a(z) {0} "
+"eszközzel készítettek, vagy kezdheti elölről."
+
+msgid "label_new_risk_assessment"
+msgstr "Új kockázatértékelés"
+
+msgid "label_start_new_risk_assessment_imp"
+msgstr "Új kockázatértékelés indítása"
+
+msgid "message_help_intro"
+msgstr "Válasszon az alábbi témák közül, hogy megismerje az OiRA működését."
+
+msgid "message_invite_for_training"
+msgstr ""
+"Hívjon meg egy munkatársat, hogy ismerje meg a „{0}” releváns kockázatait és"
+" intézkedéseit. A meghívott felhasználó automatikusan hozzáférést kap az "
+"értékeléshez oktatási célból."
+
+msgid "message_include_ellipsis"
+msgstr "Tartalmazza…"
 
 #~ msgid "Official OiRA Logo"
 #~ msgstr "Hivatalos OiRA Logo"

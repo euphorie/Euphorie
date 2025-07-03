@@ -6829,7 +6829,7 @@ msgid "label_value"
 msgstr "Værdi"
 
 msgid "label_on"
-msgstr "På"
+msgstr "Til"
 
 msgid "label_loading"
 msgstr "Indlæser"
@@ -6990,9 +6990,8 @@ msgstr "Finjuster indstillingerne for denne risikovurdering."
 
 msgid "message_report_downloads_intro"
 msgstr ""
-"Gem rapporten på din computer og udskriv den. Du kan også ændre den eller "
-"tilføje flere oplysninger. Bemærk venligst, at ændringer foretaget på din pc"
-" IKKE vil blive gemt i OiRA-risikovurderingen."
+"Vælg mellem flere formater for at se eller downloade din "
+"risikovurderingsrapport."
 
 msgid "unlocked_risk_assessments"
 msgstr "Oplåste risikovurderinger"
@@ -7035,6 +7034,42 @@ msgstr "Navn på risikovurdering"
 
 msgid "label_ra_title"
 msgstr "Navn på risikovurdering"
+
+msgid "label_start_imp"
+msgstr "Start"
+
+msgid "label_update_imp"
+msgstr "Opdater"
+
+msgid "label_create_imp"
+msgstr "Opret"
+
+msgid "label_tag"
+msgstr "Tag"
+
+msgid "message_clone_or_start_new"
+msgstr ""
+"Du kan kopiere indhold fra en eksisterende vurdering lavet med værktøjet "
+"{0}, eller starte fra bunden."
+
+msgid "label_new_risk_assessment"
+msgstr "Ny risikovurdering"
+
+msgid "label_start_new_risk_assessment_imp"
+msgstr "Start ny risikovurdering"
+
+msgid "message_help_intro"
+msgstr ""
+"Vælg et af emnerne nedenfor for at lære mere om, hvordan OiRA fungerer."
+
+msgid "message_invite_for_training"
+msgstr ""
+"Inviter en kollega til at lære om de relevante risici og foranstaltninger i "
+"“{0}”. Den inviterede bruger får automatisk adgang til denne vurdering til "
+"træningsformål."
+
+msgid "message_include_ellipsis"
+msgstr "Inkludér…"
 
 #~ msgid "This tool deserves to be known by the world! Share it!"
 #~ msgstr "Alle bør have glæde af dette værktøj. Del det med andre."

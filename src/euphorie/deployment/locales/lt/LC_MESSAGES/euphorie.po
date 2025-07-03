@@ -7333,7 +7333,7 @@ msgid "label_value"
 msgstr "Vertė"
 
 msgid "label_on"
-msgstr "Ant"
+msgstr "Įjungta"
 
 msgid "label_loading"
 msgstr "Kraunama"
@@ -7803,6 +7803,47 @@ msgstr "Neatsakyta"
 
 msgid "yes_acceptable"
 msgstr "Taip, likusi rizika yra priimtina"
+
+msgid "label_start_imp"
+msgstr "Pradėti"
+
+msgid "label_update_imp"
+msgstr "Atnaujinti"
+
+msgid "label_create_imp"
+msgstr "Kurti"
+
+msgid "label_tag"
+msgstr "Žyma"
+
+msgid "message_clone_or_start_new"
+msgstr ""
+"Galite nukopijuoti turinį iš esamo vertinimo, atlikto su įrankiu {0}, arba "
+"pradėti nuo pradžių."
+
+msgid "label_new_risk_assessment"
+msgstr "Naujas rizikos vertinimas"
+
+msgid "label_start_new_risk_assessment_imp"
+msgstr "Pradėti naują rizikos vertinimą"
+
+msgid "message_help_intro"
+msgstr ""
+"Pasirinkite vieną iš toliau pateiktų temų ir susipažinkite su OiRA veikimu."
+
+msgid "message_invite_for_training"
+msgstr ""
+"Pakvieskite kolegą susipažinti su rizikos vertinimo „{0}“ pavojais ir "
+"priemonėmis. Pakviestas naudotojas automatiškai gaus prieigą prie šio "
+"vertinimo mokymo tikslais."
+
+msgid "message_include_ellipsis"
+msgstr "Įtraukti…"
+
+msgid "message_report_downloads_intro"
+msgstr ""
+"Pasirinkite vieną iš kelių formatų savo rizikos vertinimo ataskaitai "
+"peržiūrėti arba atsisiųsti."
 
 #~ msgid "Official OiRA Logo"
 #~ msgstr "Oficialus OiRA logotipas"

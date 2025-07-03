@@ -7455,7 +7455,7 @@ msgid "label_value"
 msgstr "Valore"
 
 msgid "label_on"
-msgstr "Su"
+msgstr "Attivo"
 
 msgid "label_loading"
 msgstr "Caricamento"
@@ -7563,9 +7563,8 @@ msgstr "Affina le impostazioni di questa valutazione del rischio."
 
 msgid "message_report_downloads_intro"
 msgstr ""
-"Salva il rapporto sul tuo computer e stampalo. Puoi anche modificarlo o "
-"aggiungere altre informazioni. Si prega di notare che le modifiche apportate"
-" sul tuo pc NON verranno salvate nella valutazione dei rischi OiRA."
+"Scegli tra diversi formati per visualizzare o scaricare il rapporto della "
+"tua valutazione dei rischi."
 
 msgid "unlocked_risk_assessments"
 msgstr "Valutazioni del rischio sbloccate"
@@ -7955,6 +7954,43 @@ msgid "yes_acceptable"
 msgstr ""
 "No, il rischio è gestito con le misure già adottate e non sono previste "
 "ulteriori misure di miglioramento"
+
+msgid "label_start_imp"
+msgstr "Inizia"
+
+msgid "label_update_imp"
+msgstr "Aggiorna"
+
+msgid "label_create_imp"
+msgstr "Crea"
+
+msgid "label_tag"
+msgstr "Tag"
+
+msgid "message_clone_or_start_new"
+msgstr ""
+"Puoi copiare il contenuto da una valutazione esistente creata con lo "
+"strumento {0} oppure iniziare da zero."
+
+msgid "label_new_risk_assessment"
+msgstr "Nuova valutazione dei rischi"
+
+msgid "label_start_new_risk_assessment_imp"
+msgstr "Avvia una nuova valutazione dei rischi"
+
+msgid "message_help_intro"
+msgstr ""
+"Seleziona uno degli argomenti qui sotto per familiarizzare con il "
+"funzionamento di OiRA."
+
+msgid "message_invite_for_training"
+msgstr ""
+"Invita un collega a conoscere i rischi e le misure pertinenti di “{0}”. "
+"L’utente invitato riceverà automaticamente l’accesso a questa valutazione "
+"dei rischi a scopo formativo."
+
+msgid "message_include_ellipsis"
+msgstr "Includi…"
 
 #~ msgid "Official OiRA Logo"
 #~ msgstr "Logo ufficiale OiRA"
