@@ -27,7 +27,6 @@ msgstr "In beoordeling"
 msgid "message_assessment_under_review"
 msgstr "Deze risicobeoordeling wordt momenteel beoordeeld door ${user}."
 
-
 #: euphorie/client/browser/templates/login.pt:327
 msgid ""
 "${action-plan} In the fourth stage of the assessment you can decide what "
@@ -241,7 +240,8 @@ msgid ""
 "Are you sure you want to delete this session? This action can not be "
 "reverted."
 msgstr ""
-"Weet u zeker dat u deze Risicoanalyse wilt verwijderen? Deze actie is onomkeerbaar."
+"Weet u zeker dat u deze Risicoanalyse wilt verwijderen? Deze actie is "
+"onomkeerbaar."
 
 #: euphorie/client/browser/templates/confirmation-clone-session.pt:28
 msgid "Are you sure you want to proceed?"
@@ -1296,8 +1296,8 @@ msgid ""
 "this text brief so it will easily fit on screens of small devices such as "
 "phones and PDAs."
 msgstr ""
-"De introductietekst wordt weergegeven bij het starten van een nieuwe OIRA"
-"-tool Risicoanalyse. Als hier geen introductie wordt gegeven, wordt een "
+"De introductietekst wordt weergegeven bij het starten van een nieuwe OIRA-"
+"tool Risicoanalyse. Als hier geen introductie wordt gegeven, wordt een "
 "standaardtekst weergegeven. Houd deze tekst kort, zodat deze gemakkelijk op "
 "schermen van kleine apparaten zoals telefoons en PDA's past."
 
@@ -1595,15 +1595,13 @@ msgstr "De broncode van de OiRA-applicatie heeft een ${GPL}-licentie."
 #: euphorie/client/browser/templates/about.pt:185
 msgid "about_licenses_2"
 msgstr ""
-"De inhoud van sectoriële OiRA-tools zijn gelicenceerd onder een "
-"${license}"
+"De inhoud van sectoriële OiRA-tools zijn gelicenceerd onder een ${license}"
 
 #. Default: "The OiRA sectoral tools can be used for free by all users."
 #: euphorie/client/browser/templates/about.pt:191
 msgid "about_licenses_3"
 msgstr ""
-"De sectoriële OiRA-tools kunnen gratis worden gebruikt door alle "
-"gebruikers."
+"De sectoriële OiRA-tools kunnen gratis worden gebruikt door alle gebruikers."
 
 #. Default: "More information about the OiRA project (in English)"
 #: euphorie/client/browser/templates/about.pt:97
@@ -1677,9 +1675,9 @@ msgstr "stapsgewijs risicobeoordelingsproces"
 #: euphorie/client/browser/templates/about.pt:76
 msgid "about_paragraph_2"
 msgstr ""
-"Met de OiRA-webapplicatie krijgt u toegang tot Risicobeoordelingtools"
-" voor uw sector die worden samengesteld en bijgewerkt door sectoriële "
-"organisaties op nationaal niveau."
+"Met de OiRA-webapplicatie krijgt u toegang tot Risicobeoordelingtools voor "
+"uw sector die worden samengesteld en bijgewerkt door sectoriële organisaties"
+" op nationaal niveau."
 
 #. Default: "The ${agency} calls for the development of simple tools to
 #. facilitate risk assessment. Since the adoption of the European Framework
@@ -2081,8 +2079,8 @@ msgid "company_report_intro"
 msgstr ""
 "Dank u voor het gebruik van OiRA. Voordat we naar het rapport gaan, willen "
 "we u vriendelijk vragen om ons wat feedback te geven via de enquête "
-"hieronder. Deze informatie is bedoeld om de tools en de verleende "
-"diensten te verbeteren. <strong>Deze gegevens zullen niet in uw rapporten "
+"hieronder. Deze informatie is bedoeld om de tools en de verleende diensten "
+"te verbeteren. <strong>Deze gegevens zullen niet in uw rapporten "
 "verschijnen.</strong>"
 
 #. Default: "For any further information regarding the handling of their
@@ -2342,8 +2340,8 @@ msgstr "De rechten van betrokkenen"
 msgid "conditions_part8_entry"
 msgstr ""
 "Wij bewaren uw gegevens, die niet voor externe gebruikers toegankelijk zijn,"
-" tot u uw account en/of uw Risicoanalyse(s) verwijdert. EU-OSHA bewaart de gegevens"
-" op zijn servers, die op het grondgebied van de Europese Unie staan "
+" tot u uw account en/of uw Risicoanalyse(s) verwijdert. EU-OSHA bewaart de "
+"gegevens op zijn servers, die op het grondgebied van de Europese Unie staan "
 "opgesteld."
 
 #. Default: "Information on the conservation period of data"
@@ -3033,19 +3031,19 @@ msgstr ""
 #: euphorie/client/browser/templates/surveys.pt:32
 msgid "explanation_try_oira"
 msgstr ""
-"U kunt de onderstaande tools anoniem testen door te klikken op de "
-"knop “Proefsessie” van het hulpmiddel van uw keuze. Tijdens een proefsessie "
-"kunt u niet opslaan wat u invoert. Alle ingevoerde gegevens gaan verloren "
-"als u zich niet ${label_link_register}."
+"U kunt de onderstaande tools anoniem testen door te klikken op de knop "
+"“Proefsessie” van het hulpmiddel van uw keuze. Tijdens een proefsessie kunt "
+"u niet opslaan wat u invoert. Alle ingevoerde gegevens gaan verloren als u "
+"zich niet ${label_link_register}."
 
 #: euphorie/client/browser/session.py:474
 msgid "extra_text_identification"
 msgstr ""
 "In eerste instantie staat er bij elke vraag ‘dit risico is nog niet "
-"beoordeeld’, maar bij het vullen van de Risicoanalyse worden hier ook de antwoorden "
-"zichtbaar. Als alles is ingevuld kunt u dit bestand printen als volledige "
-"rapportage, die u samen met het plan aan aanpak eventueel ook kunt "
-"voorleggen aan degene die de Risicoanalyse gaat toetsen."
+"beoordeeld’, maar bij het vullen van de Risicoanalyse worden hier ook de "
+"antwoorden zichtbaar. Als alles is ingevuld kunt u dit bestand printen als "
+"volledige rapportage, die u samen met het plan aan aanpak eventueel ook kunt"
+" voorleggen aan degene die de Risicoanalyse gaat toetsen."
 
 #. Default: "Report ${title}"
 #: euphorie/client/docx/views.py:303
@@ -4238,10 +4236,10 @@ msgstr ""
 #: euphorie/client/browser/templates/tooltips.pt:89
 msgid "info_osh_session_menu"
 msgstr ""
-"Vanuit dit menu kunt u een nieuwe Risicoanalyse van een OiRA-tool starten of verder"
-" werken aan een eerdere Risicoanalyse. Als u nog geen account hebt voor de OiRA-"
-"applicatie, kunt u een proefsessie starten om de applicatie onmiddellijk uit"
-" te proberen."
+"Vanuit dit menu kunt u een nieuwe Risicoanalyse van een OiRA-tool starten of"
+" verder werken aan een eerdere Risicoanalyse. Als u nog geen account hebt "
+"voor de OiRA-applicatie, kunt u een proefsessie starten om de applicatie "
+"onmiddellijk uit te proberen."
 
 #. Default: "This menu lets you navigate over all steps of your risk
 #. assessment. When you enter <em>Identification + Evaluation</em> or
@@ -6247,8 +6245,7 @@ msgstr ""
 #. Default: "You can not delete a sector that contains published OiRA Tools."
 #: euphorie/content/browser/sector.py:89
 msgid "message_not_delete_published_sector"
-msgstr ""
-"U kunt geen sector verwijderen die gepubliceerde OiRA-tools bevat."
+msgstr "U kunt geen sector verwijderen die gepubliceerde OiRA-tools bevat."
 
 #. Default: "No information available"
 #: euphorie/client/browser/templates/consultants.pt:52
@@ -6404,7 +6401,9 @@ msgstr "U wordt verzocht deze risicoanalyse te controleren en te valideren."
 #. Default: "You don't have any risk assessments yet."
 #: euphorie/client/browser/templates/portlet_my_ras.pt:98
 msgid "message_you_dont_have_any_risk_assessments_yet"
-msgstr "U heeft nog geen risico-inventarisaties. Begin met het aanmaken van een nieuwe."
+msgstr ""
+"U heeft nog geen risico-inventarisaties. Begin met het aanmaken van een "
+"nieuwe."
 
 #. Default: "You have reviewed and validated this risk assessment."
 #: euphorie/client/browser/templates/consultancy.pt:113
@@ -6997,14 +6996,15 @@ msgstr ""
 #: euphorie/client/browser/session.py:84
 msgid "session_title_tooltip"
 msgstr ""
-"Eens u met een Risicoanalyse op het OiRA-instrument bent gestart, zult u voor het "
-"einde kunnen stoppen. U kunt de Risicoanalyse op een later tijdstip opnieuw "
-"opstarten door de titel van de Risicoanalyse op het OiRA-instrument te selecteren. "
-"U kunt meer dan één Risicoanalyse opslaan, op voorwaarde dat u deze verschillende "
-"titels heeft toegekend. Gelieve uw e-mailadres, wachtwoord en de titel die u"
-" aan de Risicoanalyse op het OiRA-instrument hebt gegeven, te onthouden. Door op de"
-" knop Uitloggen te klikken, bent u actief uitgelogd. U bent ook uitgelogd "
-"door uw browser te sluiten, maar het is beter om actief uit te loggen."
+"Eens u met een Risicoanalyse op het OiRA-instrument bent gestart, zult u "
+"voor het einde kunnen stoppen. U kunt de Risicoanalyse op een later tijdstip"
+" opnieuw opstarten door de titel van de Risicoanalyse op het OiRA-instrument"
+" te selecteren. U kunt meer dan één Risicoanalyse opslaan, op voorwaarde dat"
+" u deze verschillende titels heeft toegekend. Gelieve uw e-mailadres, "
+"wachtwoord en de titel die u aan de Risicoanalyse op het OiRA-instrument "
+"hebt gegeven, te onthouden. Door op de knop Uitloggen te klikken, bent u "
+"actief uitgelogd. U bent ook uitgelogd door uw browser te sluiten, maar het "
+"is beter om actief uit te loggen."
 
 #. Default: "Not very severe"
 #: euphorie/client/browser/templates/webhelpers.pt:494
@@ -7396,8 +7396,8 @@ msgstr ""
 msgid "warning_account_delete_surveys"
 msgstr ""
 "Houd er rekening mee dat u door het verwijderen van uw account, ook al uw "
-"Risicoanalyses verwijdert. Zorg ervoor dat u uw rapporten downloadt van Rapporten "
-"voordat u uw account verwijderd, als u de rapport wilt behouden."
+"Risicoanalyses verwijdert. Zorg ervoor dat u uw rapporten downloadt van "
+"Rapporten voordat u uw account verwijderd, als u de rapport wilt behouden."
 
 #. Default: "Yes"
 #: euphorie/content/browser/templates/risk_view.pt:89
@@ -7781,6 +7781,12 @@ msgstr "Onbeantwoord"
 msgid "yes_acceptable"
 msgstr "Ja, het resterende risico is aanvaardbaar"
 
+msgid "label_new_risk_assessment"
+msgstr "Nieuwe risico-inventarisatie"
+
+msgid "label_start_new_risk_assessment_imp"
+msgstr "Nieuwe risico-inventarisatie starten"
+
 #~ msgid "Official OiRA Logo"
 #~ msgstr "Officieel OiRA-logo"
 
@@ -7795,8 +7801,8 @@ msgstr "Ja, het resterende risico is aanvaardbaar"
 
 #~ msgid "help_sector_contactperson"
 #~ msgstr ""
-#~ "Geef de naam van de persoon die verantwoordelijk is voor de OiRA-"
-#~ "tools van deze sector."
+#~ "Geef de naam van de persoon die verantwoordelijk is voor de OiRA-tools van "
+#~ "deze sector."
 
 #~ msgid "help_sector_logo"
 #~ msgstr ""
@@ -8157,9 +8163,9 @@ msgstr "Ja, het resterende risico is aanvaardbaar"
 
 #~ msgid "company_details_intro"
 #~ msgstr ""
-#~ "Onderaan kunt u informatie invoeren. Deze informatie is bedoeld om de "
-#~ "tools en de geleverde diensten te verbeteren. Deze gegevens worden "
-#~ "niet in het rapport opgenomen."
+#~ "Onderaan kunt u informatie invoeren. Deze informatie is bedoeld om de tools "
+#~ "en de geleverde diensten te verbeteren. Deze gegevens worden niet in het "
+#~ "rapport opgenomen."
 
 #~ msgid "hader_company_details"
 #~ msgstr ""

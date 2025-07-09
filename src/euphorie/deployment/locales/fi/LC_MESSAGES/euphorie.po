@@ -7483,9 +7483,7 @@ msgstr "Hienosäädä tämän riskinarvioinnin asetukset."
 
 msgid "message_report_downloads_intro"
 msgstr ""
-"Tallenna raportti tietokoneellesi ja tulosta se. Voit myös muokata sitä tai "
-"lisätä lisätietoja. Huomaa, että tietokoneellasi tehdyt muutokset EIVÄT "
-"tallennu OiRA-riskinarviointiin."
+"Valitse useista muodoista riskinarviointiraportin katseluun tai lataamiseen."
 
 msgid "unlocked_risk_assessments"
 msgstr "Avatut riskiarvioinnit"
@@ -7850,6 +7848,41 @@ msgstr "vastaus puuttuu"
 
 msgid "yes_acceptable"
 msgstr "Kyllä, jäljellä oleva riski on hyväksyttävissä"
+
+msgid "label_start_imp"
+msgstr "Aloita"
+
+msgid "label_update_imp"
+msgstr "Päivitä"
+
+msgid "label_create_imp"
+msgstr "Luo"
+
+msgid "label_tag"
+msgstr "Tunniste"
+
+msgid "message_clone_or_start_new"
+msgstr ""
+"Voit kopioida sisällön olemassa olevasta arvioinnista, joka on tehty "
+"työkalulla {0}, tai aloittaa alusta."
+
+msgid "label_new_risk_assessment"
+msgstr "Uusi riskinarviointi"
+
+msgid "label_start_new_risk_assessment_imp"
+msgstr "Aloita uusi riskinarviointi"
+
+msgid "message_help_intro"
+msgstr "Valitse jokin alla olevista aiheista tutustuaksesi OiRA:n toimintaan."
+
+msgid "message_invite_for_training"
+msgstr ""
+"Kutsu työtoveri tutustumaan arvioinnin “{0}” riskeihin ja toimenpiteisiin. "
+"Kutsuttu käyttäjä saa automaattisesti pääsyn tähän riskinarviointiin "
+"koulutustarkoituksessa."
+
+msgid "message_include_ellipsis"
+msgstr "Sisällytä…"
 
 #~ msgid "Official OiRA Logo"
 #~ msgstr "Virallinen OiRA-logo"
