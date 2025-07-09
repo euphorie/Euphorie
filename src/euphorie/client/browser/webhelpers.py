@@ -248,9 +248,13 @@ class WebHelpers(BrowserView):
 
     @property
     @memoize
+    @deprecate(
+        "Deprecated in version 18.2.1.dev0. "
+        "The feature will be always enabled in the future."
+    )
     def use_clone_feature(self):
         return api.portal.get_registry_record(
-            "euphorie.use_clone_feature", default=False
+            "euphorie.use_clone_feature", default=True
         )
 
     @property
