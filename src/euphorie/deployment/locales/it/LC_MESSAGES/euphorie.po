@@ -2823,8 +2823,8 @@ msgstr ""
 #: euphorie/client/browser/templates/notify-request-validation.pt:12
 msgid "email_request_validation_intro"
 msgstr ""
-"${REQUESTER} ha richiesto di convalidare la valutazione del rischio \"$ "
-"{valutazione}\"."
+"${REQUESTER} ha richiesto di convalidare la valutazione del rischio \""
+"${valutazione}\"."
 
 #. Default: "10 to 49 employees"
 #: euphorie/client/browser/company.py:43
@@ -3081,7 +3081,7 @@ msgstr ""
 
 #: euphorie/client/browser/session.py:474
 msgid "extra_text_identification"
-msgstr "extra_text_identification"
+msgstr ""
 
 #. Default: "Report ${title}"
 #: euphorie/client/docx/views.py:303
@@ -6224,8 +6224,8 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-validate-risk-assessment.pt:33
 msgid "message_click_to_validate"
 msgstr ""
-"Facendo clic su \"Convalida\" bloccerà la valutazione del rischio \"$ "
-"{valutazione}\" e gli darà uno stato convalidato ufficiale."
+"Facendo clic su \"Convalida\" bloccerà la valutazione del rischio \""
+"${valutazione}\" e gli darà uno stato convalidato ufficiale."
 
 #. Default: "This is the only version of the OiRA Tool and can therefore not
 #. be deleted. Did you perhaps want to remove the OiRA Tool itself?"
@@ -6473,8 +6473,8 @@ msgstr ""
 #: euphorie/client/browser/templates/consultancy.pt:72
 msgid "message_session_under_review"
 msgstr ""
-"Questa valutazione del rischio è attualmente in fase di revisione da $ "
-"{consulente}."
+"Questa valutazione del rischio è attualmente in fase di revisione da "
+"${consulente}."
 
 #. Default: "${validation_time}: ${consultant} has reviewed and validated this
 #. risk assessment"
@@ -6639,10 +6639,12 @@ msgstr ""
 "<a class = 'add-clone' Id = 'add-in-seasure-button'> ${text_add_measures} "
 "</a>"
 
-#. Default: "<a href='%s/@@report'>${text_download_section}</a>"
+#. Default: ""
+#: Artistic construct that translates a dynamically created link
+#: Default needs to stay empty.
 #: euphorie/client/browser/session.py:178
 msgid "no_translate_link_download_section"
-msgstr "<a href = '%s/@@ report'> ${text_download_section} </a>"
+msgstr ""
 
 #. Default: "${text_message_preview_success}: <a href=\"${url}\">${url}</a>."
 #: euphorie/client/browser/publish.py:364
@@ -6673,8 +6675,8 @@ msgstr "Ci sono ${link_filters} attivi in questa pagina."
 #: euphorie/client/notifications/notification__ra_not_modified.py:77
 msgid "notification_description__ra_not_modified"
 msgstr ""
-"Notificare quando una valutazione del rischio non è stata modificata per $ "
-"{giorni} giorni."
+"Notificare quando una valutazione del rischio non è stata modificata per $"
+"${giorni} giorni."
 
 #. Default: "You have not modified your risk assessment for ${reminder_days}
 #. days. Please remember to keep your risk assessment up to date.\nWith this
@@ -6919,9 +6921,12 @@ msgstr "un'organizzazione sindacale"
 msgid "register_teaser"
 msgstr "Non avete un account? Innanzitutto ${register_link} ."
 
+#. Default: ""
+#: This is a way to provide some text in case the customer 
+#: wants it, by giving a translation. Needs to stay empty.
 #: euphorie/client/browser/templates/confirm-email.pt:24
 msgid "reminder_email_footer"
-msgstr "Reminder_Email_footer"
+msgstr ""
 
 #. Default: "Required expertise:"
 #: euphorie/client/docx/compiler.py:752
