@@ -405,6 +405,11 @@ class SurveyImporter:
         module.description = el_unicode(
             node, "description", is_etranslate_compatible=self.is_etranslate_compatible
         )
+        module.recommendation = el_unicode(
+            node,
+            "recommendation",
+            is_etranslate_compatible=self.is_etranslate_compatible,
+        )
         module.external_id = attr_unicode(node, "external-id")
         if module.optional:
             module.question = str(node.question)
