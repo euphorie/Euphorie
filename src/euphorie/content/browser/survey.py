@@ -1,3 +1,4 @@
+from ..choice import IChoice
 from ..interfaces import IQuestionContainer
 from ..module import IModule
 from ..profilequestion import IProfileQuestion
@@ -76,7 +77,7 @@ class SurveyBase(BrowserView):
         return [
             self._morph(child)
             for child in self.context.values()
-            if IRisk.providedBy(child)
+            if IRisk.providedBy(child) or IChoice.providedBy(child)
         ]
 
     @property

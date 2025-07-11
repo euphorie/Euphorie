@@ -59,6 +59,18 @@ class IModule(model.Schema, IRichDescription, IBasic):
     directives.widget(description=WysiwygFieldWidget)
     directives.order_after(description="title")
 
+    recommendation = HtmlText(
+        title=_("label_module_recommendation", "Recommendation"),
+        description=_(
+            "help_module_recommendation",
+            default="If this module is used as part of an inventory tool, this"
+            "recommendation text will be used as in introduction in the report"
+            "before individual recommendations are listed.",
+        ),
+        required=False,
+    )
+    directives.widget(recommendation=WysiwygFieldWidget)
+
     optional = schema.Bool(
         title=_("label_module_optional", default="This module is optional"),
         description=_(
