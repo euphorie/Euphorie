@@ -143,6 +143,24 @@ class ISurvey(model.Schema, IBasic):
         default=False,
     )
 
+    report_completion_threshold = schema.Int(
+        title=_(
+            "label_report_completion_threshold",
+            default="Completion threshold for report availability",
+        ),
+        description=_(
+            "description_report_completion_threshold",
+            default="Please enter the completion percentage above which the report is "
+            "available on this tool. The user will be unable to view or download a "
+            "report until the assessment is completed to the given percentage. Enter "
+            "“0” to always have the report available.",
+        ),
+        required=True,
+        default=0,
+        min=0,
+        max=100,
+    )
+
     enable_web_training = schema.Bool(
         title=_("label_enable_web_training", default="Enable Web Based Training?"),
         description=_(
