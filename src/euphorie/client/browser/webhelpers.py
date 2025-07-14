@@ -846,6 +846,14 @@ class WebHelpers(BrowserView):
 
     @property
     @memoize
+    def report_completion_threshold(self):
+        survey = self._survey
+        if not survey:
+            return None
+        return survey.report_completion_threshold or 0
+
+    @property
+    @memoize
     def in_session(self):
         """Check if there is an active survey session."""
         return self._survey is not None
