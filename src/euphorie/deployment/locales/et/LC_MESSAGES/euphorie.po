@@ -6828,7 +6828,7 @@ msgid "label_value"
 msgstr "Väärtus"
 
 msgid "label_on"
-msgstr "Peal"
+msgstr "Sees"
 
 msgid "label_loading"
 msgstr "Laadimine"
@@ -6964,6 +6964,47 @@ msgstr "Riskihindamise nimi"
 
 msgid "label_ra_title"
 msgstr "Riskihindamise nimi"
+
+msgid "label_start_imp"
+msgstr "Alusta"
+
+msgid "label_update_imp"
+msgstr "Uuenda"
+
+msgid "label_create_imp"
+msgstr "Loo"
+
+msgid "label_tag"
+msgstr "Silt"
+
+msgid "message_clone_or_start_new"
+msgstr ""
+"Võite kopeerida sisu olemasolevast hindamisest, mis on tehtud tööriistaga "
+"{0}, või alustada nullist."
+
+msgid "label_new_risk_assessment"
+msgstr "Uus riskianalüüs"
+
+msgid "label_start_new_risk_assessment_imp"
+msgstr "Alusta uut riskianalüüsi"
+
+msgid "message_help_intro"
+msgstr ""
+"Valige üks allpool olevatest teemadest, et tutvuda OiRA tööpõhimõtetega."
+
+msgid "message_invite_for_training"
+msgstr ""
+"Kutsu töökaaslane tutvuma hindamise „{0}” riskide ja meetmetega. Kutsutud "
+"kasutaja saab automaatselt juurdepääsu sellele riskihindamisele koolituse "
+"eesmärgil."
+
+msgid "message_include_ellipsis"
+msgstr "Lisa…"
+
+msgid "message_report_downloads_intro"
+msgstr ""
+"Vali mitme vormingu hulgast, et vaadata või alla laadida oma riskihindamise "
+"aruanne."
 
 #~ msgid "This tool deserves to be known by the world! Share it!"
 #~ msgstr "See vahend väärib tutvustamist maailmale! Jagage seda!"

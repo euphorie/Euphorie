@@ -7402,7 +7402,7 @@ msgid "label_value"
 msgstr "Стойност"
 
 msgid "label_on"
-msgstr "На"
+msgstr "Включено"
 
 msgid "label_loading"
 msgstr "Качете"
@@ -7872,6 +7872,48 @@ msgstr "Без отговор"
 
 msgid "yes_acceptable"
 msgstr "Да, оставащият риск е приемлив."
+
+msgid "label_start_imp"
+msgstr "Започнете"
+
+msgid "label_update_imp"
+msgstr "Актуализиране"
+
+msgid "label_create_imp"
+msgstr "Създаване"
+
+msgid "label_tag"
+msgstr "Етикет"
+
+msgid "message_clone_or_start_new"
+msgstr ""
+"Можете да копирате съдържание от съществуваща оценка, направена с "
+"инструмента {0}, или да започнете отначало."
+
+msgid "label_new_risk_assessment"
+msgstr "Нова оценка на риска"
+
+msgid "label_start_new_risk_assessment_imp"
+msgstr "Започнете нова оценка на риска"
+
+msgid "message_help_intro"
+msgstr ""
+"Изберете някоя от темите по-долу, за да научите повече за начина на работа "
+"на OiRA."
+
+msgid "message_invite_for_training"
+msgstr ""
+"Поканете колега да се запознае с релевантните рискове и мерки на „{0}“. "
+"Поканеният потребител автоматично ще получи достъп до тази оценка за целите "
+"на обучението."
+
+msgid "message_include_ellipsis"
+msgstr "Включи…"
+
+msgid "message_report_downloads_intro"
+msgstr ""
+"Изберете между няколко формата, за да видите или изтеглите отчета от вашата "
+"оценка на риска."
 
 #~ msgid "Official OiRA Logo"
 #~ msgstr "Официално лого на OiRA"

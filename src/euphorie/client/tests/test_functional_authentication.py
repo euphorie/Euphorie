@@ -64,8 +64,8 @@ class AuthenticationPluginTests(EuphorieIntegrationTestCase):
 
     This requires the user to have a valid email address.
 
-    The missing row in the SQL database will be created automatically
-    if the user has a valid email address.
+    The row in the SQL database must have been created already
+    with the email address of the user.
     """
 
     def setUp(self):
@@ -78,50 +78,51 @@ class AuthenticationPluginTests(EuphorieIntegrationTestCase):
         euphorie_plugin = acl_users.euphorie
         return euphorie_plugin.authenticateCredentials(credentials)
 
-    def test_authentication_backend_user_no_email(self):
-        credentials = {
-            "login": TEST_USER_NAME,
-            "password": TEST_USER_PASSWORD,
-            "extractor": "credentials_cookie_auth",
-        }
-
-        with self.assertLogs("euphorie.client.authentication") as cm:
-            self.assertIsNone(self._call_authenticateCredentials(credentials))
-
-        self.assertListEqual(
-            cm.output,
-            [
-                f"WARNING:euphorie.client.authentication:No email address set for user {TEST_USER_NAME!r}. Cannot look for SQL account."  # noqa: E501
-            ],
+    def create_client_account(self):
+        authenticator = api.content.get_view(
+            "authenticator", context=self.portal, request=self.request
         )
+        token = authenticator.token()
+        request = self.app.REQUEST.clone()
+        request.method = "POST"
+        request.form["_authenticator"] = token
+        view = api.content.get_view(
+            "create-client-account", context=self.portal, request=request
+        )
+        view()
 
     def test_authentication_backend_user_proper_email(self):
-        api.user.get(username=TEST_USER_NAME).setProperties(
-            {"email": "foo@example.com"}
-        )
+        email = "foo@example.com"
+        api.user.get_current().setMemberProperties({"email": email})
 
+        # We try to login with email address, but at first this fails.
         credentials = {
-            "login": TEST_USER_NAME,
+            "login": email,
             "password": TEST_USER_PASSWORD,
             "extractor": "credentials_cookie_auth",
         }
-        with self.assertLogs("euphorie.client.authentication") as cm:
-            self.assertTupleEqual(
-                (1, "foo@example.com"),
-                self._call_authenticateCredentials(credentials),
-            )
+        self.assertIsNone(self._call_authenticateCredentials(credentials))
 
-        self.assertListEqual(
-            cm.output,
-            [
-                "INFO:euphorie.client.authentication:An SQL account 'foo@example.com' was created for user 'test-user'.",  # noqa: E501
-            ],
-        )
-
+        # We call the create-client-account view.
+        self.create_client_account()
         session = Session()
         self.assertEqual(
             session.query(Account).filter_by(loginname="foo@example.com").one().id, 1
         )
+
+        # TODO something is wrong here.  TEST_USER_NAME is test-user,
+        # TEST_USER_ID is test_user_1_, but when our plugin calls
+        # pas.searchUsers(email='foo@example.com', exact_match=True)
+        # it finds a user with both id and login test_user_1_.
+        # This means that self._validate_credentials_on_others a few lines
+        # further on finds nothing.  So something in the setup may be wrong.
+        # We should probably just test with a user where user id and login
+        # name are the same.
+        self.assertTupleEqual(
+            (1, "foo@example.com"),
+            self._call_authenticateCredentials(credentials),
+        )
+
         self.assertEqual(credentials["login"], TEST_USER_NAME)
 
     def test_authentication_backend_user_proper_email_account_already_existing(self):
@@ -158,7 +159,6 @@ class AuthenticationPluginTests(EuphorieIntegrationTestCase):
         api.user.get(username=TEST_USER_NAME).setProperties(
             {"email": "foo@example.com"}
         )
-
         with self.assertLogs("euphorie.client.authentication") as cm:
             self.assertIsNone(
                 self._call_authenticateCredentials(credentials),

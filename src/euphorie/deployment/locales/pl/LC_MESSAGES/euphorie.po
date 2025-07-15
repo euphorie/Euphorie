@@ -6904,7 +6904,7 @@ msgid "label_value"
 msgstr "Wartość"
 
 msgid "label_on"
-msgstr "W"
+msgstr "Włączone"
 
 msgid "label_loading"
 msgstr "Prześlij"
@@ -7002,9 +7002,7 @@ msgstr "Dopracuj ustawienia tej oceny ryzyka."
 
 msgid "message_report_downloads_intro"
 msgstr ""
-"Zapisz raport na swoim komputerze i wydrukuj go. Możesz również go "
-"zmodyfikować lub dodać więcej informacji. Należy pamiętać, że zmiany "
-"dokonane na Państwa komputerze NIE zostaną zapisane w ocenie ryzyka OiRA."
+"Wybierz jeden z formatów, aby wyświetlić lub pobrać raport z oceny ryzyka."
 
 msgid "unlocked_risk_assessments"
 msgstr "Odblokowane oceny ryzyka"
@@ -7049,6 +7047,41 @@ msgstr "Nazwa oceny ryzyka"
 
 msgid "label_ra_title"
 msgstr "Nazwa oceny ryzyka"
+
+msgid "label_start_imp"
+msgstr "Rozpocznij"
+
+msgid "label_update_imp"
+msgstr "Aktualizuj"
+
+msgid "label_create_imp"
+msgstr "Utwórz"
+
+msgid "label_tag"
+msgstr "Tag"
+
+msgid "message_clone_or_start_new"
+msgstr ""
+"Możesz skopiować zawartość z istniejącej oceny wykonanej za pomocą narzędzia"
+" {0} lub rozpocząć od zera."
+
+msgid "label_new_risk_assessment"
+msgstr "Nowa ocena ryzyka"
+
+msgid "label_start_new_risk_assessment_imp"
+msgstr "Rozpocznij nową ocenę ryzyka"
+
+msgid "message_help_intro"
+msgstr "Wybierz jeden z poniższych tematów, aby lepiej poznać działanie OiRA."
+
+msgid "message_invite_for_training"
+msgstr ""
+"Zaproś współpracownika do zapoznania się z istotnymi zagrożeniami i środkami"
+" w „{0}”. Zaproszony użytkownik automatycznie uzyska dostęp do tej oceny "
+"ryzyka w celach szkoleniowych."
+
+msgid "message_include_ellipsis"
+msgstr "Dołącz…"
 
 #~ msgid "This tool deserves to be known by the world! Share it!"
 #~ msgstr ""

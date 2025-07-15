@@ -273,17 +273,8 @@ class PublishSurvey(form.Form):
 
     def client_url(self):
         """Return the URL this survey will have after it is published."""
-        client_url = api.portal.get_registry_record("euphorie.client_url", default="")
-        if client_url:
-            client_url = client_url.rstrip("/")
-        else:
-            client_url = getPortal(self.context).client.absolute_url()
-
-        source = aq_inner(self.context)
-        surveygroup = aq_parent(source)
-        sector = aq_parent(surveygroup)
-        country = aq_parent(sector)
-        return "/".join([client_url, country.id, sector.id, surveygroup.id])
+        view = api.content.get_view("survey-client-url", self.context, self.request)
+        return view()
 
     @button.buttonAndHandler(_("button_cancel", default="Cancel"))
     def handleCancel(self, action):
@@ -337,18 +328,8 @@ class PreviewSurvey(form.Form):
 
     def preview_url(self):
         """Return the URL the preview will have."""
-        client_url = api.portal.get_registry_record("euphorie.client_url", default="")
-        if client_url:
-            client_url = client_url.rstrip("/")
-        else:
-            client_url = getPortal(self.context).client.absolute_url()
-
-        source = aq_inner(self.context)
-        surveygroup = aq_parent(source)
-        sector = aq_parent(surveygroup)
-        country = aq_parent(sector)
-
-        return "/".join([client_url, country.id, sector.id, "preview"])
+        view = api.content.get_view("survey-client-url", self.context, self.request)
+        return view(preview=True)
 
     @button.buttonAndHandler(_("button_cancel", default="Cancel"))
     def handleCancel(self, action):

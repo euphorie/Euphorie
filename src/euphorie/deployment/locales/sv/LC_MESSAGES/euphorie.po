@@ -2410,7 +2410,7 @@ msgstr ""
 #: euphorie/content/browser/templates/documentation_view.pt:30
 msgid "documentation_appendix"
 msgstr ""
-"Sidor som skapas i $ {appendix}-mappen är tillgängliga via länkarna i "
+"Sidor som skapas i ${appendix}-mappen är tillgängliga via länkarna i "
 "online-klientens sidfot."
 
 #. Default: "appendix"
@@ -7131,9 +7131,8 @@ msgstr "Finjustera inställningarna för denna riskbedömning."
 
 msgid "message_report_downloads_intro"
 msgstr ""
-"Spara rapporten på din dator och skriv ut den. Du kan också ändra den eller "
-"lägga till mer information. Observera att ändringar som gjorts på din dator "
-"INTE kommer att sparas i OiRA-riskbedömningen."
+"Välj mellan flera format för att visa eller ladda ner din "
+"riskbedömningsrapport."
 
 msgid "unlocked_risk_assessments"
 msgstr "Upplåsta riskbedömningar"
@@ -7178,6 +7177,41 @@ msgstr "Namn på riskbedömning"
 
 msgid "label_ra_title"
 msgstr "Namn på riskbedömning"
+
+msgid "label_start_imp"
+msgstr "Starta"
+
+msgid "label_update_imp"
+msgstr "Uppdatera"
+
+msgid "label_create_imp"
+msgstr "Skapa"
+
+msgid "label_tag"
+msgstr "Tagg"
+
+msgid "message_clone_or_start_new"
+msgstr ""
+"Du kan kopiera innehåll från en befintlig bedömning som gjorts med verktyget"
+" {0} eller börja från början."
+
+msgid "label_new_risk_assessment"
+msgstr "Ny riskbedömning"
+
+msgid "label_start_new_risk_assessment_imp"
+msgstr "Starta ny riskbedömning"
+
+msgid "message_help_intro"
+msgstr "Välj något av ämnena nedan för att lära dig mer om hur OiRA fungerar."
+
+msgid "message_invite_for_training"
+msgstr ""
+"Bjud in en kollega att lära sig om relevanta risker och åtgärder i “{0}”. "
+"Den inbjudna användaren får automatiskt åtkomst till denna bedömning i "
+"träningssyfte."
+
+msgid "message_include_ellipsis"
+msgstr "Inkludera…"
 
 #~ msgid "button_save_changes"
 #~ msgstr "Spara ändringar"
