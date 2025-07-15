@@ -116,26 +116,53 @@
         </article>
 
 
-        <form class="pat-validation"
-              accept-charset="UTF-8"
-              action="${request/URL}"
-              enctype="multipart/form-data"
+        <form class="pat-form pat-validation"
+              id="registration"
+              action="${context/absolute_url}/@@login#registration"
               method="post"
               data-pat-validation="${webhelpers/pat_validation_messages}"
               tal:define="
                 errors view/errors;
               "
         >
+          <input name="action"
+                 type="hidden"
+                 value="register"
+          />
+
           <input name="came_from"
                  type="hidden"
                  value="${request/came_from}"
                  tal:condition="request/came_from|nothing"
           />
-          <input name="action"
-                 type="hidden"
-                 value="register"
-          />
+
           <fieldset class="vertical">
+
+            <label class="${python:'error' if 'first_name' in errors else None}">
+              <i18n:msg translate="label_first_name_optional">First name (optional)</i18n:msg>
+              <input class="pat-autofocus"
+                     name="first_name"
+                     type="text"
+                     value="${request/first_name|nothing}"
+              />
+              <em class="message warning"
+                  tal:condition="exists:errors/first_name"
+                  tal:content="errors/first_name"
+              >Invalid first name</em>
+            </label>
+
+            <label class="${python:'error' if 'last_name' in errors else None}">
+              <i18n:msg translate="label_last_name_optional">Last name (optional)</i18n:msg>
+              <input class="pat-autofocus"
+                     name="last_name"
+                     type="text"
+                     value="${request/last_name|nothing}"
+              />
+              <em class="message warning"
+                  tal:condition="exists:errors/last_name"
+                  tal:content="errors/last_name"
+              >Invalid last name</em>
+            </label>
 
             <label class="${python:'error' if 'email' in errors else None}">
               <i18n:msg translate="label_email">Email address</i18n:msg>
@@ -183,16 +210,19 @@
 
             <fieldset class="pat-checklist">
               <label>
-                <tal:i18n i18n:translate="label_agree_terms_conditions">
-                I agree with the
-                  <a class="pat-modal"
-                     href="${base_url}/terms-conditions#document-content"
-                     data-pat-modal="class: sheet"
-                     i18n:name="link_terms_conditions"
-                     i18n:translate="label_terms_conditions"
-                  >
-                    Terms and conditions</a>
-                </tal:i18n>
+                <span class="label-fragment-title">
+                  <tal:i18n i18n:translate="label_agree_terms_conditions">
+
+                    I agree with the
+                    <a class="pat-modal"
+                       href="${base_url}/terms-conditions#document-content"
+                       data-pat-modal="class: sheet"
+                       i18n:name="link_terms_conditions"
+                       i18n:translate="label_data_protection_notice"
+                    >
+                      Data protection notice</a>
+                  </tal:i18n>
+                </span>
                 <input name="terms"
                        required
                        type="checkbox"
@@ -206,6 +236,7 @@
 
             <p class="button-bar">
               <button class="default pat-button"
+                      name="register"
                       type="submit"
                       i18n:translate="header_register"
               >Register</button>
