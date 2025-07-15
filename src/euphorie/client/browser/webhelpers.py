@@ -77,6 +77,7 @@ NAME_TO_PHASE = {
     "disclaimer": "help",
     "terms-and-conditions": "help",
     "training": "training",
+    "email-reminder": "reminder",
 }
 
 
@@ -854,6 +855,14 @@ class WebHelpers(BrowserView):
 
     @property
     @memoize
+    def use_email_reminder(self):
+        survey = self._survey
+        if not survey:
+            return None
+        return survey.enable_email_reminder
+
+    @property
+    @memoize
     def in_session(self):
         """Check if there is an active survey session."""
         return self._survey is not None
@@ -1354,7 +1363,7 @@ class WebHelpers(BrowserView):
             return (
                 self.phase in ("", "preparation") and self.is_new_session
             ) or not self.can_inspect_session
-        if section in ("consultancy", "report", "training", "status"):
+        if section in ("consultancy", "report", "training", "status", "reminder"):
             # These menu items should be active even if user cannot edit or inspect.
             return self.phase in ("", "preparation") and self.is_new_session
 
@@ -1529,6 +1538,23 @@ class WebHelpers(BrowserView):
                 "has_tree": False,
             }
         )
+
+        if self.use_email_reminder:
+            active, disabled = self.get_active_and_disabled_for_section("reminder")
+            data.append(
+                {
+                    "active": active,
+                    "disabled": disabled,
+                    "class": f'{"active" if active else ""} {"disabled" if disabled else ""}',  # noqa: E501
+                    "id": "reminder",
+                    "name": "involve",
+                    "href": f"{url}/@@email-reminder#content",
+                    "title": api.portal.translate(
+                        _("navigation_email_reminder", default="Email reminder")
+                    ),
+                    "has_tree": False,
+                }
+            )
 
         return data
 

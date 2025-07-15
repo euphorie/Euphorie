@@ -1,10 +1,21 @@
+from euphorie import MessageFactory as _
 from euphorie.client import utils
 from euphorie.client.browser.country import SessionsView
 from euphorie.client.model import get_current_account
+from euphorie.client.utils import CreateEmailTo
+from plone import api
 from plone.memoize.view import memoize
 from Products.Five import BrowserView
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from Products.MailHost.MailHost import MailHostError
 from z3c.saconfig import Session
 from zExceptions import Unauthorized
+
+import logging
+import smtplib
+
+
+logger = logging.getLogger(__name__)
 
 
 class SurveySessionsView(SessionsView):
@@ -68,3 +79,57 @@ class DefaultIntroductionView(BrowserView):
     """
 
     pass
+
+
+class EmailReminder(BrowserView):
+    """View that allows sending a reminder email with a link to the session"""
+
+    variation_class = "variation-risk-assessment"
+    email_template = ViewPageTemplateFile("templates/email_reminder_body.pt")
+
+    def send_email(self):
+        start_url = f"{self.context.absolute_url()}/@@start"
+        body = self.email_template(
+            tool_name=self.context.aq_parent.title, url=start_url
+        )
+        subject = api.portal.translate(_("OiRA tool reminder"))
+        account = get_current_account()
+        email_from_name = api.portal.get_registry_record("plone.email_from_name")
+        email_from_address = api.portal.get_registry_record("plone.email_from_address")
+        mail = CreateEmailTo(
+            email_from_name,
+            email_from_address,
+            account.email,
+            subject,
+            body,
+        )
+        try:
+            api.portal.send_email(
+                body=mail,
+                subject=subject,
+                recipient=account.email,
+                immediate=True,
+            )
+            logger.info(
+                "Sent email reminder to %s",
+                account.email,
+            )
+        except MailHostError as e:
+            return self.log_error(
+                "MailHost error sending email reminder to %s: %s", account.email, e
+            )
+        except smtplib.SMTPException as e:
+            return self.log_error(
+                "smtplib error sending email reminder to %s: %s", account.email, e
+            )
+        except OSError as e:
+            return self.log_error(
+                "Socket error sending email reminder to %s: %s", account.email, e[1]
+            )
+        api.portal.show_message("Email reminder has been sent", type="info")
+        return self.request.response.redirect(start_url)
+
+    def __call__(self):
+        if self.request.method == "POST":
+            self.send_email()
+        return super().__call__()

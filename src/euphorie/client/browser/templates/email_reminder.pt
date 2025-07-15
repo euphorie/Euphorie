@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      id="sessions"
+      meta:interpolation="true"
+      metal:use-macro="context/@@shell/macros/shell"
+      tal:define="
+        webhelpers nocall:context/@@webhelpers;
+      "
+      i18n:domain="euphorie"
+>
+
+  <body>
+    <metal:slot fill-slot="content">
+
+      <form class="pat-form"
+            id="email_reminder_form"
+            accept-charset="UTF-8"
+            action="${context/absolute_url}/@@email-reminder"
+            method="post"
+      >
+        <div class="pat-scroll-box"
+             id="content-pane"
+        >
+          <metal:call use-macro="webhelpers/macros/toolbar" />
+          <tal:block replace="tile:statusmessages" />
+          <article class="pat-rich">
+            <h1 i18n:translate="header_email_reminder">Email reminder</h1>
+            <p i18n:translate="email_reminder_intro">
+              If you would like to continue using this tool at a later point in time, we can send you a reminder email with a link to this assessment.
+            </p>
+          </article>
+
+          <p class="button-bar">
+            <button class="pat-button default"
+                    id="email_reminder_submit"
+                    name="next"
+                    type="submit"
+                    value="next"
+                    i18n:translate="label_send_email_reminder"
+            >Send email reminder</button>
+          </p>
+
+        </div>
+      </form>
+    </metal:slot>
+  </body>
+</html>
