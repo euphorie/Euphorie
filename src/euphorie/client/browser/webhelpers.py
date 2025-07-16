@@ -111,13 +111,6 @@ class WebHelpers(BrowserView):
     survey_session_model = SurveySession
     dashboard_tabs = ["surveys", "assessments", "certificates", "organisation"]
 
-    navigation_tree_legend = [
-        {"class": "unvisited", "title": _("Unvisited")},
-        {"class": "postponed", "title": _("Postponed")},
-        {"class": "answered", "title": _("Risk not present")},
-        {"class": "answered risk", "title": _("Risk present")},
-    ]
-
     # Inspection is meant for showing an edit-form in read-only/display mode.
     allow_inspecting_archived_sessions = False
     allow_inspecting_locked_sessions = False
@@ -690,10 +683,11 @@ class WebHelpers(BrowserView):
         survey = self._survey
         if not survey:
             return None
-        if getattr(self, "session", None) and "/".join(
-            survey.getPhysicalPath()
-        ).endswith(self.session.zodb_path):
-            return self.session.title
+        # XXX broken and probably obsolete
+        # if getattr(self, "session", None) and "/".join(
+        #     survey.getPhysicalPath()
+        # ).endswith(self.session.zodb_path):
+        #     return self.session.title
         return survey.title
 
     def get_phase(self):
@@ -1360,6 +1354,19 @@ class WebHelpers(BrowserView):
 
         # Default to not disable unknown sections.
         return False
+
+    def navigation_tree_legend(self):
+        if self._survey.tool_type != "inventory":
+            return [
+                {"class": "unvisited", "title": _("Unvisited")},
+                {"class": "postponed", "title": _("Postponed")},
+                {"class": "answered", "title": _("Risk not present")},
+                {"class": "answered risk", "title": _("Risk present")},
+            ]
+        return [
+            {"class": "unvisited", "title": _("Not yet answered")},
+            {"class": "answered", "title": _("Answered")},
+        ]
 
     def get_active_and_disabled_for_section(self, section):
         """Is the section active or disabled in this phase?
