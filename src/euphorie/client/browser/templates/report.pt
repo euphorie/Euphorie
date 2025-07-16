@@ -11,6 +11,9 @@
         webhelpers nocall:context/@@webhelpers;
         tools nocall:context/@@tools;
         client nocall:request/client;
+        completion_percentage here/session/completion_percentage|python:0;
+        completion_threshold webhelpers/report_completion_threshold|python:0;
+        is_complete python: completion_percentage >= completion_threshold;
       "
       i18n:domain="euphorie"
 >
@@ -31,16 +34,25 @@
           <tal:block replace="tile:statusmessages" />
           <article class="pat-rich">
             <h1 i18n:translate="header_reporting">Reporting</h1>
-            <p i18n:translate="report_intro">
+            <p tal:condition="is_complete"
+               i18n:translate="report_intro"
+            >
             Now that you have finished identifying all the risks in your organisation
             and created an action plan you can create a report which lists all your
             results. You can, if desired, add some extra comments that should be
             included in this report in the field below.
             </p>
+            <p tal:condition="not:is_complete"
+               i18n:translate="report_intro_incomplete"
+            >
+            When you have finished the assessment to at least
+              <tal:number i18n:name="completion_threshold">${completion_threshold}</tal:number>% you will be able to create a report.
+            </p>
           </article>
 
           <fieldset class="vertical"
                     id="comments"
+                    tal:condition="is_complete"
           >
             <label>
               <textarea id="commentsField"
@@ -54,7 +66,9 @@
               </textarea>
             </label>
           </fieldset>
-          <p class="button-bar">
+          <p class="button-bar"
+             tal:condition="is_complete"
+          >
             <button class="pat-button default"
                     id="report_comment_submit"
                     name="next"

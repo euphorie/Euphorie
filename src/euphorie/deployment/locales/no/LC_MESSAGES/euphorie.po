@@ -6753,6 +6753,9 @@ msgstr ""
 msgid "label_risk_assessments"
 msgstr "Risikovurderinger"
 
+msgid "label_this_is_a_xx_priority_risk"
+msgstr "prioritert risiko."
+
 #~ msgid "This tool deserves to be known by the world! Share it!"
 #~ msgstr "Hele verden bør bli kjent med dette verktøyet! Del det med andre!"
 

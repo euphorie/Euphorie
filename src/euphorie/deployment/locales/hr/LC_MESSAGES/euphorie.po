@@ -533,7 +533,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/training_certificate_inner.pt:34
 msgid "For successfully finishing the training for ${session} on ${date}."
-msgstr "Za uspješno završavanje osposobljavanja za $ {session} dana ${date}. "
+msgstr "Za uspješno završavanje osposobljavanja za ${session} dana ${date}. "
 
 #: euphorie/client/browser/templates/report_landing.pt:104
 msgid "Format: Office Open XML Workbook (.xlsx)"
@@ -4116,7 +4116,7 @@ msgstr "Jesu li prethodno odabrane mjere dovoljne?"
 msgid "incorrect_login"
 msgstr ""
 "Vaše korisničko ime i / ili lozinka nisu ispravno uneseni. Provjerite i "
-"pokušajte ponovo ili $ {reset_your_password}."
+"pokušajte ponovo ili ${reset_your_password}."
 
 #. Default: "The menu toggle lets you hide and show the risk assessment
 #. browser to find previously made risk assessments. Hide the menu when you
@@ -6741,7 +6741,7 @@ msgstr "Odgovoran: ${responsible_name}"
 #: euphorie/client/docx/compiler.py:231
 msgid "report_survey_revision"
 msgstr ""
-"Ovo izvješće temelji se na OiRA alatu '$ {title}' s datumom revizije $ "
+"Ovo izvješće temelji se na OiRA alatu '${title}' s datumom revizije $ "
 "{date}."
 
 #. Default: "Comments"
@@ -7127,7 +7127,7 @@ msgstr "OiRA alat je ažuriran"
 #. Default: "Status of &ldquo; ${survey_title}&rdquo;"
 #: euphorie/client/browser/templates/status_info.pt:32
 msgid "title_with_vowel_status_of"
-msgstr "Status $ {survey_title}"
+msgstr "Status ${survey_title}"
 
 #. Default: "Contents"
 #: euphorie/client/browser/templates/risks_overview.pt:172
@@ -7349,7 +7349,7 @@ msgid "label_value"
 msgstr "Vrijednost"
 
 msgid "label_on"
-msgstr "Na"
+msgstr "Uključeno"
 
 msgid "label_loading"
 msgstr "Učitaj"
@@ -7848,6 +7848,48 @@ msgstr "Neodgovoren"
 msgid "yes_acceptable"
 msgstr "Da, preostali rizik je prihvatljiv"
 
+msgid "label_start_imp"
+msgstr "Pokreni"
+
+msgid "label_update_imp"
+msgstr "Ažuriraj"
+
+msgid "label_create_imp"
+msgstr "Stvori"
+
+msgid "label_tag"
+msgstr "Oznaka"
+
+msgid "message_clone_or_start_new"
+msgstr ""
+"Možete kopirati sadržaj iz postojeće procjene izrađene pomoću alata {0} ili "
+"započeti ispočetka."
+
+msgid "label_new_risk_assessment"
+msgstr "Nova procjena rizika"
+
+msgid "label_start_new_risk_assessment_imp"
+msgstr "Pokreni novu procjenu rizika"
+
+msgid "message_help_intro"
+msgstr ""
+"Odaberite jednu od dolje navedenih tema kako biste se upoznali s radom "
+"OiRA-e."
+
+msgid "message_invite_for_training"
+msgstr ""
+"Pozovite kolegu da se upozna s relevantnim rizicima i mjerama procjene "
+"“{0}”. Pozvani korisnik automatski dobiva pristup ovoj procjeni rizika u "
+"svrhu obuke."
+
+msgid "message_include_ellipsis"
+msgstr "Uključi…"
+
+msgid "message_report_downloads_intro"
+msgstr ""
+"Odaberite između nekoliko formata za pregled ili preuzimanje izvješća o "
+"procjeni rizika."
+
 #~ msgid "Official OiRA Logo"
 #~ msgstr "Službeni OiRA logotip"
 
@@ -8244,8 +8286,8 @@ msgstr "Da, preostali rizik je prihvatljiv"
 
 #~ msgid "label_create_account"
 #~ msgstr ""
-#~ "Ako još nemate račun za aplikaciju OiRA, molimo $ {register_link} kako biste"
-#~ " stvarno započeli $ {tooltip_register}."
+#~ "Ako još nemate račun za aplikaciju OiRA, molimo ${register_link} kako biste"
+#~ " stvarno započeli ${tooltip_register}."
 
 #~ msgid "label_login_here"
 #~ msgstr "Ako ste već registrirani korisnik, možete se ${log_in} ovdje."

@@ -2067,8 +2067,8 @@ msgid "company_report_intro"
 msgstr ""
 "Dank u voor het gebruik van OiRA. Voordat we naar het rapport gaan, willen "
 "we u vriendelijk vragen om ons wat feedback te geven via de enquête "
-"hieronder. Deze informatie is bedoeld om de tools en de verleende "
-"diensten te verbeteren. <strong>Deze gegevens zullen niet in uw rapporten "
+"hieronder. Deze informatie is bedoeld om de tools en de verleende diensten "
+"te verbeteren. <strong>Deze gegevens zullen niet in uw rapporten "
 "verschijnen.</strong>"
 
 #. Default: "For any further information regarding the handling of their
@@ -3033,10 +3033,10 @@ msgstr ""
 #: euphorie/client/browser/templates/surveys.pt:32
 msgid "explanation_try_oira"
 msgstr ""
-"U kunt de onderstaande tools anoniem testen door te klikken op de "
-"knop “Proef-RI&E” van het hulpmiddel van uw keuze. Tijdens een proef-RI&E "
-"kunt u niet opslaan wat u invoert. Alle ingevoerde gegevens gaan verloren "
-"als u zich niet ${label_link_register}."
+"U kunt de onderstaande tools anoniem testen door te klikken op de knop "
+"“Proef-RI&E” van het hulpmiddel van uw keuze. Tijdens een proef-RI&E kunt u "
+"niet opslaan wat u invoert. Alle ingevoerde gegevens gaan verloren als u "
+"zich niet ${label_link_register}."
 
 #: euphorie/client/browser/session.py:474
 msgid "extra_text_identification"
@@ -4399,9 +4399,9 @@ msgstr ""
 #: euphorie/client/browser/templates/default_introduction.pt:24
 msgid "intro_oira_tool"
 msgstr ""
-"De branche RI&E tools zijn met name bedoeld voor MKB bedrijven. "
-"Bedrijven met maximaal 25 werknemers hoeven, indien het branche RI&E "
-"instrument erkend is, hun RI&E niet te laten toetsen."
+"De branche RI&E tools zijn met name bedoeld voor MKB bedrijven. Bedrijven "
+"met maximaal 25 werknemers hoeven, indien het branche RI&E instrument erkend"
+" is, hun RI&E niet te laten toetsen."
 
 #. Default: "Are you sure you want to create a preview of this OiRA Tool? You
 #. can give the URL for the preview to others so they can test the OiRA Tool.
@@ -4882,7 +4882,7 @@ msgstr "Voeg een extra maatregel toe"
 #. Default: "Content file"
 #: euphorie/content/module.py:132 euphorie/content/risk.py:333
 msgid "label_file"
-msgstr "Bestand voor inhoud"
+msgstr "Bestand"
 
 #. Default: "Content caption"
 #: euphorie/content/module.py:142 euphorie/content/risk.py:343
@@ -6405,7 +6405,9 @@ msgstr "U wordt verzocht deze risicobeoordeling te bekijken en te valideren."
 #. Default: "You don't have any risk assessments yet."
 #: euphorie/client/browser/templates/portlet_my_ras.pt:98
 msgid "message_you_dont_have_any_risk_assessments_yet"
-msgstr "U heeft nog geen risico-inventarisaties. Begin met het aanmaken van een nieuwe."
+msgstr ""
+"U heeft nog geen risico-inventarisaties. Begin met het aanmaken van een "
+"nieuwe."
 
 #. Default: "You have reviewed and validated this risk assessment."
 #: euphorie/client/browser/templates/consultancy.pt:113
@@ -8171,9 +8173,8 @@ msgstr "Verfijn de instellingen van deze risicobeoordeling."
 
 msgid "message_report_downloads_intro"
 msgstr ""
-"Sla het rapport op uw computer op en druk het af. U kunt het ook wijzigen of"
-" meer informatie toevoegen. Houd er rekening mee dat wijzigingen die op uw "
-"pc worden aangebracht NIET worden opgeslagen in de OiRA-risicobeoordeling."
+"Kies uit verschillende formaten om het rapport van uw risicobeoordeling te "
+"bekijken of te downloaden."
 
 msgid "unlocked_risk_assessments"
 msgstr "Ontgrendelde RI&Eʼs"
@@ -8862,6 +8863,43 @@ msgstr "Niet bekekeken"
 
 msgid "yes_acceptable"
 msgstr "Ja, het resterende risico is aanvaardbaar"
+
+msgid "label_start_imp"
+msgstr "Start"
+
+msgid "label_update_imp"
+msgstr "Werk bij"
+
+msgid "label_create_imp"
+msgstr "Maak aan"
+
+msgid "label_tag"
+msgstr "Tag"
+
+msgid "message_clone_or_start_new"
+msgstr ""
+"U kunt inhoud kopiëren van een bestaande beoordeling die is gemaakt met de "
+"tool {0}, of helemaal opnieuw beginnen."
+
+msgid "label_new_risk_assessment"
+msgstr "Nieuwe risico-inventarisatie"
+
+msgid "label_start_new_risk_assessment_imp"
+msgstr "Start nieuwe risico-inventarisatie"
+
+msgid "message_help_intro"
+msgstr ""
+"Selecteer een van de onderstaande onderwerpen om vertrouwd te raken met de "
+"werking van OiRA."
+
+msgid "message_invite_for_training"
+msgstr ""
+"Nodig een collega uit om meer te leren over de relevante risico’s en "
+"maatregelen van “{0}”. De uitgenodigde gebruiker krijgt automatisch toegang "
+"tot deze risicobeoordeling voor trainingsdoeleinden."
+
+msgid "message_include_ellipsis"
+msgstr "Voeg toe…"
 
 #~ msgid "Official OiRA Logo"
 #~ msgstr "Officieel OiRA-logo"

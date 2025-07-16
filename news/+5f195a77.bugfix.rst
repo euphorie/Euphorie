@@ -1,3 +1,0 @@
-Do not break if we have unexpected fieldsets.
-This might happen, e.g., if you add a behavior to your content type.
-[@ale-rt]

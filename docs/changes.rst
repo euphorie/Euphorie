@@ -8,6 +8,74 @@ Changelog
 
 .. towncrier release notes start
 
+19.0.0 (2025-07-15)
+-------------------
+
+Breaking changes:
+
+
+- Activate duplication feature if not already active (`Issue #3674 <https://github.com/syslabcom/scrum/issues/3674>`_)
+
+
+New features:
+
+
+- Allow hiding the report phase until assessment is completed to a certain percentage (`Issue #3237 <https://github.com/syslabcom/scrum/issues/3237>`_)
+- Training is not shown at all in the client if disabled on the tool (`Issue #3645 <https://github.com/syslabcom/scrum/issues/3645>`_)
+- Update plone.patternslib to 9.10.3.
+  [thet]
+
+
+Bug fixes:
+
+
+- Fixed wording (“unpublished” → “unlocked”) (`Issue #3574 <https://github.com/syslabcom/scrum/issues/3574>`_)
+- Fix reporting page for guest sessions (`Issue #3709 <https://github.com/syslabcom/scrum/issues/3709>`_)
+
+
+Tests
+
+
+- Test Products.membrane 7.0.0
+
+
+18.2.0 (2025-05-26)
+-------------------
+
+New features:
+
+
+- Matomo custom dimensions endpoint (`Issue #3351 <https://github.com/syslabcom/scrum/issues/3351>`_)
+
+
+Bug fixes:
+
+
+- Fix the default language when installing Euphorie
+
+
+18.1.0 (2025-05-19)
+-------------------
+
+Breaking changes:
+
+
+- Change the logo widget
+
+  Do not use anymore the logo widget because the help text is not updated anymore.
+  Update the field help text.
+
+
+Bug fixes:
+
+
+- Do not break if we have unexpected fieldsets.
+  This might happen, e.g., if you add a behavior to your content type.
+  [@ale-rt]
+- Hide external editor action.
+  And fix its condition to not fail when the ``externalEditorEnabled`` skin script is not available.
+
+
 18.0.0 (2025-04-30)
 -------------------
 
@@ -218,9 +286,6 @@ New features:
   (`#3015 <https://github.com/syslabcom/scrum/issues/3015>`_)
   [reinhardt]
 - Support openpyxl 3.x
-  [reinhardt]
-- List links in tool
-  (`#2757 <https://github.com/syslabcom/scrum/issues/2757>`_)
   [reinhardt]
 
 
