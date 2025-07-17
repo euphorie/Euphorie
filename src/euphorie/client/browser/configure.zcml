@@ -1007,6 +1007,15 @@
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
+  <browser:page
+      name="email-reminder"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      class=".survey.EmailReminder"
+      template="templates/email_reminder.pt"
+      permission="zope2.View"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
   <!-- Consultancy -->
   <browser:page
       name="consultancy"
