@@ -29,11 +29,29 @@ def FindFirstQuestion(dbsession, filter=None):
 
 
 def FindNextQuestion(after, dbsession, filter=None):
+    # Filter out Choice objects where condition is not met,
+    # i.e. either tree item is not a choice,
+    # or it is a Choice and the condition is blank,
+    # or an option that is referred to in the condition has been picked
+    # XXX simplify?
+    condition = sql.or_(
+        ~sql.exists().where(model.Choice.id == model.SurveyTreeItem.id),
+        sql.exists().where(
+            sql.and_(
+                model.Choice.id == model.SurveyTreeItem.id,
+                sql.or_(
+                    model.Choice.condition == None,  # noqa: E711
+                    model.Choice.condition == model.Option.zodb_path,  # noqa: E711
+                ),
+            ),
+        ),
+    )
     query = (
         Session.query(model.SurveyTreeItem)
         .filter(model.SurveyTreeItem.session == dbsession)
         .filter(model.SurveyTreeItem.path > after.path)
         .filter(sql.not_(model.SKIPPED_PARENTS))
+        .filter(condition)
     )
     # Skip modules without a description.
     if filter is None:
@@ -150,7 +168,10 @@ class TreeDataCreator(BrowserView):
                     cls.append(key)
 
             if obj.postponed:
-                cls.append("postponed")
+                if isinstance(obj, model.Choice):
+                    cls.append("answered")
+                else:
+                    cls.append("postponed")
             else:
                 if isinstance(obj, model.Risk):
                     if obj.identification or obj.scaled_answer:
@@ -159,6 +180,9 @@ class TreeDataCreator(BrowserView):
                         cls.append("risk")
                     if obj.scaled_answer:
                         info["scaled_answer"] = obj.scaled_answer
+                if isinstance(obj, model.Choice):
+                    if obj.options:
+                        cls.append("answered")
 
             info["class"] = cls and " ".join(cls) or None
             return info
@@ -175,6 +199,8 @@ class TreeDataCreator(BrowserView):
         result["class"] = None
         children = []
         for obj in element.siblings(filter=filter):
+            if not getattr(obj, "is_visible", True):
+                continue
             info = morph(obj)
             if obj.type != "risk" and obj.zodb_path.find("custom-risks") > -1:
                 info["title"] = title_custom_risks
@@ -204,6 +230,8 @@ class TreeDataCreator(BrowserView):
                 me = first(lambda x: x["current"], result["children"])
                 children = []
                 for obj in element.children(filter=filter):
+                    if not getattr(obj, "is_visible", True):
+                        continue
                     info = morph(obj)
                     # XXX: The check for SurveySession is due to Euphorie tests which
                     # don't have a proper canonical ZODB survey object and don't test
@@ -226,11 +254,13 @@ class TreeDataCreator(BrowserView):
                 types = {c["type"] for c in me["children"]}
                 me["leaf_module"] = "risk" in types
 
-        elif isinstance(element, model.Risk):
+        elif isinstance(element, (model.Risk, model.Choice)):
             # For a risk we also want to include all siblings of its module parent
             parent = parents.pop()
             siblings = []
             for obj in parent.siblings(model.Module, filter=filter):
+                if not getattr(obj, "is_visible", True):
+                    continue
                 info = morph(obj)
                 if obj.zodb_path.find("custom-risks") > -1:
                     info["title"] = title_custom_risks
@@ -264,6 +294,8 @@ class TreeDataCreator(BrowserView):
                                 info["type"] = "location"
                                 children = []
                                 for child in sibling.children(filter=filter):
+                                    if not getattr(child, "is_visible", True):
+                                        continue
                                     child_info = morph(child)
                                     children.append(child_info)
                                 info["children"] = children
