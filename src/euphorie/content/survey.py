@@ -173,6 +173,15 @@ class ISurvey(model.Schema, IBasic):
         required=False,
     )
 
+    enable_email_reminder = schema.Bool(
+        title=_("label_enable_email_reminder", default="Enable email reminder?"),
+        description=_(
+            "help_enable_email_reminder",
+            default="Offer to send an email reminder about this tool",
+        ),
+        required=False,
+    )
+
     depends("num_training_questions", "enable_web_training", "on")
     num_training_questions = schema.Int(
         title=_(

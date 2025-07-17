@@ -1,0 +1,12 @@
+<tal:root xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+          xmlns:meta="http://xml.zope.org/namespaces/meta"
+          xmlns:tal="http://xml.zope.org/namespaces/tal"
+          meta:interpolation="true"
+          i18n:domain="euphorie"
+><tal:span i18n:translate="email_change_header">Dear user,</tal:span>
+
+  <tal:span i18n:translate="email_reminder_main">This is your reminder to continue your assessment with the tool "<tal:tool i18n:name="tool_name">${options/tool_name}</tal:tool>":</tal:span>
+
+  <tal:span replace="options/url" />
+
+</tal:root>
