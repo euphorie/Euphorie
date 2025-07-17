@@ -7365,7 +7365,7 @@ msgid "label_value"
 msgstr "Valor"
 
 msgid "label_on"
-msgstr "Em"
+msgstr "Ligado"
 
 msgid "label_loading"
 msgstr "Carregando"
@@ -7471,9 +7471,8 @@ msgstr "Ajuste as configurações desta avaliação de risco."
 
 msgid "message_report_downloads_intro"
 msgstr ""
-"Guarde o relatório no seu computador e imprima-o. Também pode modificá-lo ou"
-" adicionar mais informações. Por favor, note que as alterações feitas no seu"
-" pc NÃO serão salvas na avaliação de risco OiRA."
+"Escolha entre vários formatos para visualizar ou descarregar o relatório da "
+"sua avaliação de riscos."
 
 msgid "unlocked_risk_assessments"
 msgstr "Avaliações de risco desbloqueadas"
@@ -7837,6 +7836,43 @@ msgstr "Sem resposta"
 
 msgid "yes_acceptable"
 msgstr "Sim, o risco remanescente é aceitável"
+
+msgid "label_start_imp"
+msgstr "Iniciar"
+
+msgid "label_update_imp"
+msgstr "Atualizar"
+
+msgid "label_create_imp"
+msgstr "Criar"
+
+msgid "label_tag"
+msgstr "Etiqueta"
+
+msgid "message_clone_or_start_new"
+msgstr ""
+"Pode copiar conteúdo de uma avaliação existente feita com a ferramenta {0} "
+"ou começar do zero."
+
+msgid "label_new_risk_assessment"
+msgstr "Nova avaliação de riscos"
+
+msgid "label_start_new_risk_assessment_imp"
+msgstr "Iniciar nova avaliação de riscos"
+
+msgid "message_help_intro"
+msgstr ""
+"Selecione um dos tópicos abaixo para se familiarizar com o funcionamento do "
+"OiRA."
+
+msgid "message_invite_for_training"
+msgstr ""
+"Convide um colega para conhecer os riscos e medidas relevantes de “{0}”. O "
+"utilizador convidado terá automaticamente acesso a esta avaliação para fins "
+"de formação."
+
+msgid "message_include_ellipsis"
+msgstr "Incluir…"
 
 #~ msgid "Official OiRA Logo"
 #~ msgstr "Logótipo oficial da OiRA"

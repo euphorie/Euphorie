@@ -13,4 +13,9 @@
       directory="v1"
       />
 
+  <upgrade-step:directory
+      profile="euphorie.deployment:default"
+      directory="v18"
+      />
+
 </configure>

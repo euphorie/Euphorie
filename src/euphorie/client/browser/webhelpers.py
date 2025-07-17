@@ -185,7 +185,11 @@ class WebHelpers(BrowserView):
         if not globally_enabled:
             return False
         country_enabled = self.content_country_obj.enable_web_training
-        return country_enabled
+        if not country_enabled:
+            return False
+        if self._survey is None:
+            return True
+        return self._survey.enable_web_training
 
     @property
     def display_training_module(self):
@@ -237,9 +241,13 @@ class WebHelpers(BrowserView):
 
     @property
     @memoize
+    @deprecate(
+        "Deprecated in version 18.2.1.dev0. "
+        "The feature will be always enabled in the future."
+    )
     def use_clone_feature(self):
         return api.portal.get_registry_record(
-            "euphorie.use_clone_feature", default=False
+            "euphorie.use_clone_feature", default=True
         )
 
     @property
@@ -418,6 +426,7 @@ class WebHelpers(BrowserView):
         for obj in aq_chain(aq_inner(self.context)):
             if IClientSector.providedBy(obj):
                 return obj.Title()
+        return ""
 
     @property
     @memoize

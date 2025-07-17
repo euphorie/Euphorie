@@ -7270,7 +7270,7 @@ msgid "label_value"
 msgstr "Hodnota"
 
 msgid "label_on"
-msgstr "Na"
+msgstr "Zapnuto"
 
 msgid "label_loading"
 msgstr "Nahrát"
@@ -7377,9 +7377,8 @@ msgstr "Doladit nastavení tohoto hodnocení rizik."
 
 msgid "message_report_downloads_intro"
 msgstr ""
-"Uložte zprávu do svého počítače a vytiskněte ji. Můžete ji také upravit nebo"
-" přidat další informace. Vezměte prosím na vědomí, že změny provedené na "
-"vašem počítači NEBUDOU uloženy v hodnocení rizik OiRA."
+"Vyberte si z několika formátů pro zobrazení nebo stažení zprávy o hodnocení "
+"rizik."
 
 msgid "unlocked_risk_assessments"
 msgstr "Odemčená hodnocení rizik"
@@ -7744,6 +7743,42 @@ msgstr "Nezodpovězeno"
 
 msgid "yes_acceptable"
 msgstr "Ano, zbývající riziko je přijatelné."
+
+msgid "label_start_imp"
+msgstr "Spustit"
+
+msgid "label_update_imp"
+msgstr "Aktualizovat"
+
+msgid "label_create_imp"
+msgstr "Vytvořit"
+
+msgid "label_tag"
+msgstr "Štítek"
+
+msgid "message_clone_or_start_new"
+msgstr ""
+"Můžete zkopírovat obsah z existujícího hodnocení vytvořeného pomocí nástroje"
+" {0} nebo začít od začátku."
+
+msgid "label_new_risk_assessment"
+msgstr "Nové hodnocení rizik"
+
+msgid "label_start_new_risk_assessment_imp"
+msgstr "Spustit nové hodnocení rizik"
+
+msgid "message_help_intro"
+msgstr ""
+"Vyberte jedno z níže uvedených témat a seznamte se s tím, jak OiRA funguje."
+
+msgid "message_invite_for_training"
+msgstr ""
+"Pozvěte kolegu, aby se seznámil s relevantními riziky a opatřeními „{0}“. "
+"Pozvaný uživatel získá automaticky přístup k tomuto hodnocení rizik pro "
+"účely školení."
+
+msgid "message_include_ellipsis"
+msgstr "Zahrnout…"
 
 #~ msgid "Official OiRA Logo"
 #~ msgstr "Oficiální logo OiRA"

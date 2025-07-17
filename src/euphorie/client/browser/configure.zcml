@@ -1208,4 +1208,18 @@
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
+  <browser:page
+      name="piwikmock.php"
+      for="*"
+      class=".matomo.MockTrackingView"
+      permission="zope.Public"
+      />
+
+  <browser:page
+      name="piwikvars.json"
+      for="*"
+      class=".matomo.JSONTrackingVariablesView"
+      permission="zope.Public"
+      />
+
 </configure>

@@ -9,6 +9,9 @@
       metal:use-macro="context/@@shell/macros/shell"
       tal:define="
         webhelpers nocall:context/@@webhelpers;
+        completion_percentage here/session/completion_percentage|python:0;
+        completion_threshold webhelpers/report_completion_threshold|python:0;
+        is_complete python: completion_percentage >= completion_threshold;
       "
       i18n:domain="euphorie"
 >
@@ -18,7 +21,9 @@
       <div class="pat-scroll-box"
            id="content-pane"
       >
-        <div class="download-blocks">
+        <div class="download-blocks"
+             tal:condition="is_complete"
+        >
           <div class="download-block">
             <div class="download-block-header">
               <h2>Report</h2>
@@ -46,7 +51,9 @@
                 i18n:translate="label_report_inventory_short"
             >Short questionnaire report</h1>
 
-            <tal:module tal:repeat="module modules">
+            <tal:module tal:condition="is_complete"
+                        tal:repeat="module modules"
+            >
               <p tal:condition="python:len(modules) &gt; 1"
                  tal:replace="structure python:view.get_intro(module, idx=repeat.module.index)"
               ></p>
@@ -61,6 +68,13 @@
                 </p>
               </tal:recom>
             </tal:module>
+
+            <p tal:condition="not:is_complete"
+               i18n:translate="report_intro_incomplete"
+            >
+            When you have finished the assessment to at least
+              <tal:number i18n:name="completion_threshold">${completion_threshold}</tal:number>% you will be able to create a report.
+            </p>
 
           </article>
 

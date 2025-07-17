@@ -56,7 +56,13 @@ section.cover img {
         <section class="cover">
           <img src="data:image/png;base64,${view/cover}" />
         </section>
-        <metal:macro use-macro="here/report_inventory/macros/report_inventory" />
+        <tal:vars tal:define="
+                    completion_percentage here/session/completion_percentage|python:0;
+                    completion_threshold webhelpers/report_completion_threshold|python:0;
+                    is_complete python: completion_percentage >= completion_threshold;
+                  ">
+          <metal:macro use-macro="here/report_inventory/macros/report_inventory" />
+        </tal:vars>
       </metal:slot>
     </div>
   </body>

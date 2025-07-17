@@ -6524,7 +6524,8 @@ msgstr ""
 #. Default: "You don't have any risk assessments yet."
 #: euphorie/client/browser/templates/portlet_my_ras.pt:98
 msgid "message_you_dont_have_any_risk_assessments_yet"
-msgstr "Δεν έχετε ακόμη καμία εκτίμηση κινδύνου. Ξεκινήστε δημιουργώντας μία νέα."
+msgstr ""
+"Δεν έχετε ακόμη καμία εκτίμηση κινδύνου. Ξεκινήστε δημιουργώντας μία νέα."
 
 #. Default: "You have reviewed and validated this risk assessment."
 #: euphorie/client/browser/templates/consultancy.pt:113
@@ -7615,7 +7616,7 @@ msgid "label_value"
 msgstr "Τιμή"
 
 msgid "label_on"
-msgstr "Σε"
+msgstr "Ενεργό"
 
 msgid "label_loading"
 msgstr "Φόρτωση"
@@ -8097,6 +8098,48 @@ msgstr "Υπό εξέταση κίνδυνος"
 
 msgid "yes_acceptable"
 msgstr "Ναι, ο εναπομένων κίνδυνος είναι αποδεκτός"
+
+msgid "label_start_imp"
+msgstr "Έναρξη"
+
+msgid "label_update_imp"
+msgstr "Ενημέρωση"
+
+msgid "label_create_imp"
+msgstr "Δημιουργία"
+
+msgid "label_tag"
+msgstr "Ετικέτα"
+
+msgid "message_clone_or_start_new"
+msgstr ""
+"Μπορείτε να αντιγράψετε περιεχόμενο από μια υπάρχουσα αξιολόγηση που έγινε "
+"με το εργαλείο {0} ή να ξεκινήσετε από την αρχή."
+
+msgid "label_new_risk_assessment"
+msgstr "Νέα αξιολόγηση κινδύνου"
+
+msgid "label_start_new_risk_assessment_imp"
+msgstr "Ξεκινήστε νέα αξιολόγηση κινδύνου"
+
+msgid "message_help_intro"
+msgstr ""
+"Επιλέξτε ένα από τα παρακάτω θέματα για να εξοικειωθείτε με τον τρόπο "
+"λειτουργίας του OiRA."
+
+msgid "message_invite_for_training"
+msgstr ""
+"Προσκαλέστε έναν συνάδελφο να μάθει για τους σχετικούς κινδύνους και τα "
+"μέτρα της «{0}». Ο προσκεκλημένος χρήστης θα αποκτήσει αυτόματα πρόσβαση "
+"στην αξιολόγηση αυτή για εκπαιδευτικούς σκοπούς."
+
+msgid "message_include_ellipsis"
+msgstr "Συμπερίλαβε…"
+
+msgid "message_report_downloads_intro"
+msgstr ""
+"Επιλέξτε από διάφορες μορφές για να δείτε ή να κατεβάσετε την έκθεση της "
+"αξιολόγησης κινδύνου σας."
 
 #~ msgid "Official OiRA Logo"
 #~ msgstr "Επίσημο λογότυπο του OiRA"

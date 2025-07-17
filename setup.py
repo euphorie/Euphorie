@@ -2,7 +2,7 @@ from setuptools import find_packages
 from setuptools import setup
 
 
-version = "18.0.1.dev0"
+version = "19.0.1.dev0"
 
 setup(
     name="Euphorie",
@@ -72,7 +72,6 @@ setup(
         "weasyprint",
         "z3c.form",
         "z3c.saconfig",
-        "z3c.schema",
         "zope.configuration",
         "zope.i18nmessageid",
         "zope.interface",
