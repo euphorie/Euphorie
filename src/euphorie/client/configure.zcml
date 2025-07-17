@@ -20,6 +20,11 @@
       file="permissions.zcml"
       />
 
+  <browser:resourceDirectory
+      name="dsetool.resources"
+      directory="dsetool-resources"
+      />
+
   <interface
       interface=".interfaces.IClientSkinLayer"
       type="zope.publisher.interfaces.browser.IBrowserSkinType"
