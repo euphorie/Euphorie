@@ -1561,7 +1561,7 @@ class WebHelpers(BrowserView):
                     "disabled": disabled,
                     "class": f'{"active" if active else ""} {"disabled" if disabled else ""}',  # noqa: E501
                     "id": "reminder",
-                    "name": "involve",
+                    "name": "reminder",
                     "href": f"{url}/@@email-reminder#content",
                     "title": api.portal.translate(
                         _("navigation_email_reminder", default="Email reminder")
