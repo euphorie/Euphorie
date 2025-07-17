@@ -1,3 +1,6 @@
 #toolbar {
     background-color: fuchsia;
 }
+#steps>li>a.reminder:not(.onscreen-help):before {
+    content:"\e894";
+}
