@@ -505,7 +505,11 @@ class SurveyImporter:
         survey.classification_code = el_unicode(node, "classification-code")
         survey.language = el_string(node, "language")
         tti = getUtility(IToolTypesInfo)
+        survey.report_completion_threshold = attr_int(
+            node, "report_completion_threshold", "value"
+        )
         survey.enable_web_training = attr_bool(node, "enable_web_training", "value")
+        survey.enable_email_reminder = attr_bool(node, "enable_email_reminder", "value")
         survey.num_training_questions = attr_int(
             node, "num_training_questions", "value"
         )

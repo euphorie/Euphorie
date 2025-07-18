@@ -310,9 +310,21 @@ class ExportSurvey(AutoExtensibleForm, form.Form):
                 survey.classification_code
             )
         etree.SubElement(node, "language").text = survey.language
+        report_completion_threshold = getattr(
+            survey, "report_completion_threshold", False
+        )
+        if report_completion_threshold:
+            etree.SubElement(
+                node,
+                "report_completion_threshold",
+                attrib={"value": str(report_completion_threshold)},
+            )
         enable_web_training = getattr(survey, "enable_web_training", False)
         if enable_web_training:
             etree.SubElement(node, "enable_web_training", attrib={"value": "true"})
+        enable_email_reminder = getattr(survey, "enable_email_reminder", False)
+        if enable_email_reminder:
+            etree.SubElement(node, "enable_email_reminder", attrib={"value": "true"})
         num_training_questions = getattr(survey, "num_training_questions", False)
         if num_training_questions:
             etree.SubElement(
