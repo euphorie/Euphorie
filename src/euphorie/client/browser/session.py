@@ -1120,7 +1120,7 @@ class StatusInventory(SessionMixin, BrowserView, _StatusHelper):
         answered = dict(
             total_query.filter(
                 sql.or_(
-                    choice_alias.postponed == True,  # noqa: E711
+                    choice_alias.postponed == True,  # noqa: E711 E712
                     choice_alias.options.any(),
                 )
             )
