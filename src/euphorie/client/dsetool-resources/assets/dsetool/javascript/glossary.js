@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function loadGlossaryAndMark() {
 
-        const DEBUG = true; // or false in production
+        const DEBUG = false; // or false in production
         function debugLog(...args) {
             if (DEBUG) {
                 console.log('[DEBUG]', ...args);
@@ -62,7 +62,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     element: "span",
                     className: "glossary-term",
                     separateWordSearch: false,
-                    caseSensitive: false, 
+                    caseSensitive: false,
+                    exclude: [".glossary-term", ".tippy-content"],
                     each: function(node) {
                         debugLog("Marked: ", node);
                         const text = node.textContent;
@@ -73,11 +74,17 @@ document.addEventListener("DOMContentLoaded", () => {
                     },
                     done: function(counter){
                         debugLog("Total marks:", counter);
-                        tippy('.glossary-term', {
-                            theme: 'light',
-                            animation: 'shift-away',
-                            delay: [100, 0],
-                            maxWidth: 300,
+                        document.querySelectorAll('.glossary-term').forEach(term => {
+                            if (!term._tippy) {
+                                tippy(term, {
+                                    theme: 'light-border',
+                                    animation: 'shift-away',
+                                    delay: [100, 0],
+                                    maxWidth: 450,
+                                    trigger: 'click',
+                                    interactive: true,
+                                });
+                            }
                         });
                     }
                 };
@@ -92,7 +99,6 @@ document.addEventListener("DOMContentLoaded", () => {
     loadGlossaryAndMark();
 
     document.addEventListener("click", () => {
-        console.log("Click event detected, running glossary marking...");
         setTimeout(() => {
             loadGlossaryAndMark();
         }, 300);
