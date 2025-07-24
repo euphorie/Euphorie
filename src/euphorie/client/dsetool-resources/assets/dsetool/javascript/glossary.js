@@ -18,68 +18,84 @@
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    const DEBUG = false; // or false in production
-    function debugLog(...args) {
-        if (DEBUG) {
-            console.log('[DEBUG]', ...args);
+
+    function loadGlossaryAndMark() {
+
+        const DEBUG = true; // or false in production
+        function debugLog(...args) {
+            if (DEBUG) {
+                console.log('[DEBUG]', ...args);
+            }
         }
+
+        const glossary_terms = {};
+        const terms = [];
+        const instance = new Mark(document.querySelector(".pat-rich"));
+        const language = document.documentElement.lang || 'en'; 
+        debugLog("Language for glossaries set to:", language);
+
+        const currentScript = document.currentScript || Array.from(document.getElementsByTagName('script')).find(script => script.src.includes('glossary.js'));
+        const currentScriptUrl = currentScript ? currentScript.src : '';
+        const basePath = currentScriptUrl.substring(0, currentScriptUrl.lastIndexOf('/'));
+        const glossaryFile = `${basePath}/json/glossary_${language}.json`;
+        debugLog("Glossary file path:", glossaryFile);
+
+
+        fetch(glossaryFile)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Couldn't fetch glossary file, aborting glossary marking: ${glossaryFile}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                Object.assign(glossary_terms, data); // Merge fetched glossary terms with existing ones
+                Object.assign(terms, Object.keys(glossary_terms));
+                debugLog("Glossary terms loaded:", glossary_terms);
+            })
+            .catch(error => {
+                console.warn("Could not load glossary file, aborting glossary marking:", error);
+                return; 
+            })
+            .then(() => {
+                const options = {
+                    element: "span",
+                    className: "glossary-term",
+                    separateWordSearch: false,
+                    caseSensitive: false, 
+                    each: function(node) {
+                        debugLog("Marked: ", node);
+                        const text = node.textContent;
+                        const matchedKey = terms.find(key => text.toLowerCase() === key.toLowerCase());
+                        if (matchedKey) {
+                            node.setAttribute("data-tippy-content", glossary_terms[matchedKey]);
+                        }
+                    },
+                    done: function(counter){
+                        debugLog("Total marks:", counter);
+                        tippy('.glossary-term', {
+                            theme: 'light',
+                            animation: 'shift-away',
+                            delay: [100, 0],
+                            maxWidth: 300,
+                        });
+                    }
+                };
+                if (DEBUG) {
+                    options.debug = true;
+                }
+                instance.mark(terms, options);
+            });
     }
 
-    const glossary_terms = {};
-    const terms = [];
-    const instance = new Mark(document.querySelector("#main-content"));
-    const language = document.documentElement.lang || 'en'; 
-    debugLog("Language for glossaries set to:", language);
+    // Run on DOMContentLoaded
+    loadGlossaryAndMark();
 
-    const currentScript = document.currentScript || Array.from(document.getElementsByTagName('script')).find(script => script.src.includes('glossary.js'));
-    const currentScriptUrl = currentScript ? currentScript.src : '';
-    const basePath = currentScriptUrl.substring(0, currentScriptUrl.lastIndexOf('/'));
-    const glossaryFile = `${basePath}/json/glossary_${language}.json`;
-    debugLog("Glossary file path:", glossaryFile);
-
-    fetch(glossaryFile)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Couldn't fetch glossary file, aborting glossary marking: ${glossaryFile}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            Object.assign(glossary_terms, data); // Merge fetched glossary terms with existing ones
-            Object.assign(terms, Object.keys(glossary_terms));
-            debugLog("Glossary terms loaded:", glossary_terms);
-        })
-        .catch(error => {
-            console.warn("Could not load glossary file, aborting glossary marking:", error);
-            return; 
-        })
-        .then(() => {
-            options = {
-                element: "span",
-                className: "glossary-term",
-                separateWordSearch: false,
-                caseSensitive: false, 
-                each: function(node) {
-                    debugLog("Marked: ", node);
-                    const text = node.textContent;
-                    const matchedKey = terms.find(key => text.toLowerCase() === key.toLowerCase());
-                    if (matchedKey) {
-                        node.setAttribute("data-tippy-content", glossary_terms[matchedKey]);
-                    }
-                },
-                done: function(counter){
-                    debugLog("Total marks:", counter);
-                    tippy('.glossary-term', {
-                        theme: 'light',
-                        animation: 'shift-away',
-                        delay: [100, 0],
-                        maxWidth: 300,
-                    });
-                }
-            };
-            if (DEBUG) {
-                options.debug = true;
-            }
-            instance.mark(terms, options);
-        });
+    document.addEventListener("click", () => {
+        console.log("Click event detected, running glossary marking...");
+        setTimeout(() => {
+            loadGlossaryAndMark();
+        }, 300);
     });
+
+});
