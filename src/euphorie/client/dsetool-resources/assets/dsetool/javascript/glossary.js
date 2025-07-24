@@ -466,7 +466,7 @@ const glossary_terms = {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-    const instance = new Mark(document.querySelector(".main-container"));
+    const instance = new Mark(document.querySelector("#main-content"));
     const terms = Object.keys(glossary_terms);
 
     instance.mark(terms, {
