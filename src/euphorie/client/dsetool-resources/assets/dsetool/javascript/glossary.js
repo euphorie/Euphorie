@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const glossary_terms = {};
         const terms = [];
-        const instance = new Mark(document.querySelector(".pat-rich"));
+        const instance = new Mark(document.querySelectorAll(".pat-rich"));
         const language = document.documentElement.lang || 'en'; 
         debugLog("Language for glossaries set to:", language);
 
