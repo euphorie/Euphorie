@@ -1,0 +1,1 @@
+Create the `euphorie.use_clone_feature` registry record if it is not there
