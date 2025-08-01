@@ -258,8 +258,15 @@ class _StatusHelper:
                 # Only a "Yes" answer on the module will be considered as "do
                 # not skip children"
                 zodb_elem = self.context.aq_parent.restrictedTraverse(
-                    elem.zodb_path.split("/")
+                    elem.zodb_path.split("/"), None
                 )
+                if not zodb_elem:
+                    log.error(
+                        "Cannot traverse to %r from %r",
+                        elem.zodb_path,
+                        self.context.aq_parent,
+                    )
+                    return
                 if getattr(zodb_elem, "optional", False):
                     if (
                         elem.postponed in (True, None) or elem.skip_children

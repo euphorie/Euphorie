@@ -306,7 +306,7 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
         )
         module.addChild(model.Risk(zodb_path="2/3/4", risk_id="1", identification="no"))
         survey = view.context.aq_parent
-        survey.restrictedTraverse = lambda x: object
+        survey.restrictedTraverse = lambda x, y: object
         survey.ProfileQuestions = lambda: []
 
         measures = view.get_measures()
@@ -330,7 +330,7 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
             )
         )
         survey = view.context.aq_parent
-        survey.restrictedTraverse = lambda x: object
+        survey.restrictedTraverse = lambda x, y: object
         survey.ProfileQuestions = lambda: []
 
         measures = view.get_measures()
@@ -366,7 +366,7 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
             )
 
         survey = view.context.aq_parent
-        survey.restrictedTraverse = lambda x: object
+        survey.restrictedTraverse = lambda x, y: object
         survey.ProfileQuestions = lambda: []
 
         measures = view.get_measures()
@@ -401,7 +401,7 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
         )
 
         survey = view.context.aq_parent
-        survey.restrictedTraverse = lambda x: object
+        survey.restrictedTraverse = lambda x, y: object
         survey.ProfileQuestions = lambda: []
 
         measures = view.get_measures()
