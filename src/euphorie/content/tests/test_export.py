@@ -309,6 +309,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         module = Module()
         module.title = "Office buildings"
         module.description = "<p>Owning property brings risks.</p>"
+        module.recommendation = "It is recommended to lock your windows."
         module.optional = True
         module.question = "Do you have an office building?"
         module.solution_direction = None
@@ -322,6 +323,8 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
             "    <title>Office buildings</title>\n"
             "    <description>&lt;p&gt;Owning property brings risks."
             "&lt;/p&gt;</description>\n"
+            "    <recommendation>It is recommended to lock your windows."
+            "</recommendation>\n"
             "    <question>Do you have an office building?</question>\n"
             "  </module>\n"
             "</root>\n",
@@ -331,6 +334,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         module = Module()
         module.title = "Office buildings"
         module.description = "<p>Owning property brings risks.</p>"
+        module.recommendation = "It is recommended to lock your windows."
         module.optional = False
         module.solution_direction = "<p><br/></p>"
         root = self.root()
@@ -343,6 +347,8 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
             "    <title>Office buildings</title>\n"
             "    <description>&lt;p&gt;Owning property brings risks."
             "&lt;/p&gt;</description>\n"
+            "    <recommendation>It is recommended to lock your windows."
+            "</recommendation>\n"
             "  </module>\n"
             "</root>\n",
         )
@@ -375,6 +381,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         module = Module()
         module.title = "Office buildings"
         module.description = "<p>Owning property brings risks.</p>"
+        module.recommendation = "It is recommended to lock your windows."
         module.optional = False
         module.solution_direction = None
         risk = Risk()
@@ -395,6 +402,8 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
             "    <title>Office buildings</title>\n"
             "    <description>&lt;p&gt;Owning property brings risks."
             "&lt;/p&gt;</description>\n"
+            "    <recommendation>It is recommended to lock your windows."
+            "</recommendation>\n"
             '    <risk type="top5">\n'
             "      <title>Can your windows be locked?</title>\n"
             "      <problem-description>Not all your windows can be "
@@ -424,7 +433,6 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         root = self.root()
         view = ExportSurvey(None, None)
         view.exportModule(root, module)
-        breakpoint()
         self.assertEqual(
             safe_text(etree.tostring(root, pretty_print=True)),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
