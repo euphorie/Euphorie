@@ -1335,7 +1335,7 @@ class SurveySession(BaseObject):
         answered_choices = float(
             total_choices_query.filter(
                 sql.or_(
-                    Choice.postponed == True,  # noqa: E711
+                    Choice.postponed == True,  # noqa: E711 E712
                     Choice.options.any(),
                 )
             ).count()

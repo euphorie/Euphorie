@@ -57,6 +57,9 @@
     <script src="${webhelpers/client_url}/++resource++plone.session.refreshsupport.js"
             type="text/javascript"
     ></script>
+    <script src="${webhelpers/client_url}/++resource++dsetool.resources/assets/dsetool/javascript/glossary.js"
+            type="text/javascript"
+    ></script>
     <tal:custom_js replace="structure webhelpers/custom_js|nothing" />
 
     <link href="${webhelpers/css_url}"

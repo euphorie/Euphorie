@@ -443,7 +443,10 @@ class ExportSurvey(AutoExtensibleForm, form.Form):
         etree.SubElement(node, "title").text = module.title
         if self.include_module_description_texts and HasText(module.description):
             node = self._add_string_or_html(node, module.description, "description")
-        node = self._add_string_or_html(node, module.recommendation, "recommendation")
+        if getattr(module, "recommendation", None):
+            node = self._add_string_or_html(
+                node, module.recommendation, "recommendation"
+            )
         if module.optional:
             etree.SubElement(node, "question").text = module.question
         if self.include_module_solution_texts and StripMarkup(
