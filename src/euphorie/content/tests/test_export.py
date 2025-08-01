@@ -293,6 +293,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         module = Module()
         module.title = "Office buildings"
         module.description = "<p>Owning property brings risks.</p>"
+        module.recommendation = "It is recommended to lock your windows."
         module.solution_direction = None
         module.optional = False
         root = self.root()
@@ -410,17 +411,20 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         module = Module()
         module.title = "Office buildings"
         module.description = "<p>Owning property brings risks.</p>"
+        module.recommendation = "It is recommended to lock your windows."
         module.optional = False
         module.solution_direction = None
         submodule = Module()
         submodule.title = "Parking"
         submodule.description = "<p>All about parking garages.</p>"
+        submodule.recommendation = "It is recommended to park your car in a garage."
         submodule.optional = False
         submodule.solution_direction = None
         module._setOb("1", submodule)
         root = self.root()
         view = ExportSurvey(None, None)
         view.exportModule(root, module)
+        breakpoint()
         self.assertEqual(
             safe_text(etree.tostring(root, pretty_print=True)),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
@@ -428,10 +432,14 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
             "    <title>Office buildings</title>\n"
             "    <description>&lt;p&gt;Owning property brings risks."
             "&lt;/p&gt;</description>\n"
+            "    <recommendation>It is recommended to lock your windows."
+            "</recommendation>\n"
             '    <module optional="false">\n'
             "      <title>Parking</title>\n"
             "      <description>&lt;p&gt;All about parking garages."
             "&lt;/p&gt;</description>\n"
+            "      <recommendation>It is recommended to park your "
+            "car in a garage.</recommendation>\n"
             "    </module>\n"
             "  </module>\n"
             "</root>\n",
@@ -566,6 +574,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         module = Module()
         module.title = "Office buildings"
         module.description = "<p>Owning property brings risks.</p>"
+        module.recommendation = "It is recommended to lock your windows."
         module.optional = False
         module.solution_direction = None
         profile._setOb("1", module)
@@ -585,6 +594,8 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
             "      <title>Office buildings</title>\n"
             "      <description>&lt;p&gt;Owning property brings "
             "risks.&lt;/p&gt;</description>\n"
+            "      <recommendation>It is recommended to lock your "
+            "windows.</recommendation>\n"
             "    </module>\n"
             "  </profile-question>\n"
             "</root>\n",
@@ -724,6 +735,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         module = Module()
         module.title = "Office buildings"
         module.description = "<p>Owning property brings risks.</p>"
+        module.recommendation = "It is recommended to lock your windows."
         module.optional = False
         module.solution_direction = None
         survey._setOb("1", module)
@@ -745,6 +757,8 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
             "      <title>Office buildings</title>\n"
             "      <description>&lt;p&gt;Owning property brings "
             "risks.&lt;/p&gt;</description>\n"
+            "      <recommendation>It is recommended to lock "
+            "your windows.</recommendation>\n"
             "    </module>\n"
             "  </survey>\n"
             "</root>\n",
