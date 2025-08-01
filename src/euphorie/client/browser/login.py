@@ -97,6 +97,12 @@ class Login(BrowserView):
         For this reason we can know from the session plugin who he is even
         if during the request process we are now logged in as a new user.
         """
+        new_account = get_current_account()
+        if new_account is None:
+            # We are not logged in with a postgres account,
+            # so we cannot transfer any session
+            return
+
         plugin = self.context.acl_users.session
         old_credentials = plugin.authenticateCredentials(
             plugin.extractCredentials(self.request)
@@ -106,6 +112,15 @@ class Login(BrowserView):
             return
 
         old_authenticated_account_id = old_credentials[0]
+
+        try:
+            old_authenticated_account_id = int(old_authenticated_account_id)
+        except (ValueError, TypeError):
+            # This happens when we login as a backend user
+            # and the account id happens to be the email address
+            # These users are never guests accounts, so we can skip the transfer
+            return
+
         old_account = (
             Session.query(model.Account)
             .filter(
@@ -122,7 +137,6 @@ class Login(BrowserView):
             # and then all the sessions are transferred to B
             return
 
-        new_account = get_current_account()
         sessions = Session.query(model.SurveySession).filter(
             model.SurveySession.account_id == old_authenticated_account_id
         )
@@ -241,6 +255,51 @@ class Login(BrowserView):
         trigger_extra_pageview(self.request, v_url)
         return account
 
+    def get_or_create_account_for_backend_user(self):
+        """Get or create an account for the currently logged in backend user.
+
+        This is used when a backend user tries to log in to the client.
+
+        The account will be created if there is no record in the database
+        with the same email address as the backend user.
+
+        The account will be returned when the record exists but the password used
+        is different to the one stored in the database (e.g. is an ldap password).
+        """
+        form_email = self.request.form.get("__ac_name", "")
+        if not form_email:
+            return
+
+        user = api.user.get_current()
+        pas_email = user.getProperty("email", "")
+
+        if form_email != pas_email:
+            return
+
+        account = (
+            Session()
+            .query(model.Account)
+            .filter(model.Account.loginname == form_email)
+            .first()
+        )
+        if account:
+            return account
+
+        password = self.request.form.get("__ac_password", "")
+        if not password:
+            reg = api.portal.get_tool(name="portal_registration")
+            password = reg.generatePassword()
+
+        account = model.Account(
+            loginname=form_email,
+            tc_approved=1,
+            password=password,
+            account_type=config.FULL_ACCOUNT,
+        )
+        Session().add(account)
+        Session().flush()
+        return account
+
     def __call__(self):
         context = aq_inner(self.context)
         self.errors = {}
@@ -251,6 +310,7 @@ class Login(BrowserView):
         self.setLanguage(came_from)
 
         account = get_current_account()
+
         self.allow_guest_accounts = api.portal.get_registry_record(
             "euphorie.allow_guest_accounts", default=False
         )
@@ -264,6 +324,11 @@ class Login(BrowserView):
 
         if self.request.method == "POST":
             if form.get("action") == "login":
+
+                # Handle backend users that login to the client
+                if not account and not api.user.is_anonymous():
+                    account = self.get_or_create_account_for_backend_user()
+
                 if (
                     isinstance(account, model.Account)
                     and account.getUserName() == form.get("__ac_name", "").lower()
