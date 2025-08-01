@@ -313,7 +313,9 @@ class EuphorieAccountPlugin(BasePlugin):
             # )
             return
 
-        return sql_account.id, email
+        # return sql_account.id, email
+        # In our test with an LDAP user it seems we need the id in both cases.
+        return sql_account.id, sql_account.id
 
     @security.private
     @graceful_recovery(log_args=False)
