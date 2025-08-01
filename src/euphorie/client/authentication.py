@@ -9,6 +9,8 @@ from . import model
 from .interfaces import IClientSkinLayer
 from AccessControl import ClassSecurityInfo
 from AccessControl.class_init import InitializeClass
+from Acquisition import aq_base
+from Acquisition import aq_chain
 from Acquisition import aq_parent
 from euphorie.content.user import IUser
 from plone import api
@@ -185,14 +187,155 @@ class EuphorieAccountPlugin(BasePlugin):
         else:
             return None
 
+    def _validate_credentials_on_others(self, credentials):
+        """Validate the credentials on other plugins.
+
+        This is used to check if the credentials are valid according to other
+        plugins. If the credentials are not valid, we do not authenticate.
+        We try the acl_users at the Plone and Zope level.
+
+        The credentials are not the original credentials that were extracted.
+        We have updated them to have a valid 'login', other than the email
+        address.
+        """
+        context = api.portal.get()
+        for obj in aq_chain(context):
+            if not hasattr(aq_base(obj), "acl_users"):
+                return
+            pas = obj.acl_users
+            authenticators = pas.plugins.listPlugins(IAuthenticationPlugin)
+            for authenticator_id, authenticator in authenticators:
+                if authenticator_id != self.id:
+                    log.info("Checking %s at %s", authenticator_id, obj)
+                    uid_and_name = authenticator.authenticateCredentials(credentials)
+                    if uid_and_name is not None:
+                        log.info(
+                            "User %r authenticated by %s plugin.",
+                            credentials["login"],
+                            authenticator_id,
+                        )
+                        return uid_and_name
+
+    def _maybe_let_backend_account_login_on_client(self, credentials):
+        """Maybe let a backend account login on the client side.
+
+        Scenario:
+
+        * Susy is an editor.  She has an account on the backend with
+          email address susy@example.com
+        * She first logs in on the backend, with login name 'susy',
+          and password 'secret'.
+        * She improves a survey, and publishes it to the client.
+        * Then she goes to the client side to check how the survey looks.
+        * Problem: on the client side she needs to authenticate with
+          an email address and password, but she has no client side account.
+
+        We help here in the following way:
+
+        * We check if the credentials are valid according to some other
+          PAS plugin.
+        * We check if there is an SQL account linked to her email.
+        * We make her authenticated.  We ignore the password, because one
+          of the other plugins has already told us the credentials are valid.
+
+        This was introduced in https://github.com/euphorie/Euphorie/pull/857
+        """
+        # Only continue if the credentials are extracted by the
+        # credentials_cookie_auth extractor.  Basically: only do this when
+        # we are at the login form.
+        extractor = credentials.get("extractor")
+        if extractor != "credentials_cookie_auth":
+            return
+
+        # We should have a login name, and it should be an email address.
+        email = credentials.get("login")
+        if email is None:
+            return
+        # Let's be safe.
+        email = email.strip()
+        if not email or "@" not in email:
+            return
+
+        # Try to find a user with this email address.
+        # Note: this does not find anything for root Zope users.
+        pas = self._getPAS()
+        result = pas.searchUsers(email=email, exact_match=True)
+        if not result:
+            return
+
+        user = result[0]
+        # Sanity check: does the email really match?  Not every plugin
+        # may handle the search correctly.
+        if "email" in user and user["email"] != email:
+            log.warning(
+                "Found user, but email %r does not match requested %r",
+                user["email"],
+                email,
+            )
+            return
+
+        # Now we can update the credentials to try authenticating as this user.
+        new_credentials = credentials.copy()
+        new_credentials["login"] = user.get("login")
+
+        # Check if the credentials are valid according to the other plugins.
+        uid_and_name = self._validate_credentials_on_others(new_credentials)
+        if not uid_and_name:
+            log.warning(
+                "Credentials for user %r are not valid according to other plugins. "
+                "Refusing to login as a client SQL account.",
+                email,
+            )
+            return
+
+        # Take the validated login name.
+        login = uid_and_name[1]
+
+        # Check if we have a matching SQL account.
+        sa_session = Session()
+        sql_account = (
+            sa_session.query(model.Account)
+            .filter(model.Account.loginname == email)
+            .first()
+        )
+
+        if not sql_account:
+            log.warning(
+                "No SQL account found for email %r. "
+                "Maybe user %r needs to trigger creating an account first.",
+                email,
+                login,
+            )
+            # Maybe show a status message?  But if the user is not actually
+            # a backend user, this might be confusing.
+            # api.portal.show_message(
+            #     "Please go to the backend and trigger creating an account."
+            # )
+            return
+
+        # return sql_account.id, email
+        # In our test with an LDAP user it seems we need the id in both cases.
+        return sql_account.id, sql_account.id
+
     @security.private
     @graceful_recovery(log_args=False)
     def authenticateCredentials(self, credentials):
         if not IClientSkinLayer.providedBy(self.REQUEST):
             return None
+
         uid_and_login = self._authenticate_login(credentials)
         if uid_and_login is None:
             uid_and_login = self._authenticate_token(credentials)
+        if uid_and_login is None:
+            # Handles the use case of a backend user that visits the client
+            # side.  We do this after the previous checks, so we don't mess
+            # with the standard client login.
+            uid_and_login = self._maybe_let_backend_account_login_on_client(credentials)
+            if uid_and_login:
+                log.debug(
+                    "Successfully authenticated backend user on client: %r",
+                    uid_and_login,
+                )
         if uid_and_login is not None:
             session = self._get_survey_session()
             if session is not None:
@@ -241,6 +384,8 @@ class EuphorieAccountPlugin(BasePlugin):
     ):
         """IUserEnumerationPlugin implementation."""
         if not exact_match:
+            return []
+        if not (id or login):
             return []
         if not IClientSkinLayer.providedBy(self.REQUEST):
             return []

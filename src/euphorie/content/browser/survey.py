@@ -520,3 +520,80 @@ class FindToolsWithDuplications(BrowserView):
                 # we're done if we found at least one measure
                 break
         return tools
+
+
+class SurveyClientUrl(BrowserView):
+    """Return the URL this survey (group) will have after it is published.
+
+    The context should be a survey group or anything within it.
+    If the context is outside, we return an empty string.
+    """
+
+    def get_survey_group(self):
+        """Find the survey group in the context"""
+        for obj in aq_chain(self.context):
+            try:
+                if obj.portal_type == "euphorie.surveygroup":
+                    return obj
+            except AttributeError:
+                break
+
+    def path_on_client(self, surveygroup, preview):
+        """Determine the path on the client.
+
+        The path need not exist.
+        """
+        sector = aq_parent(surveygroup)
+        country = aq_parent(sector)
+        final_segment = "preview" if preview else surveygroup.id
+        return "/".join([country.id, sector.id, final_segment])
+
+    def get_survey_on_client(self, path):
+        portal = api.portal.get()
+        survey = portal.client.unrestrictedTraverse(path, None)
+        if survey is None:
+            return
+        # When we traverse to "eu/covid-19/covid-19" and this does not exist,
+        # the magic of acquisition and inheritance happily finds the sector
+        # at "eu/covid-19".  So check if it really is a survey.
+        if survey.portal_type == "euphorie.survey":
+            return survey
+
+    def get_client_url(self):
+        """Get url of the client folder."""
+        client_url = api.portal.get_registry_record("euphorie.client_url", default="")
+        if client_url:
+            return client_url.rstrip("/")
+        portal = api.portal.get()
+        return portal.client.absolute_url()
+
+    def __call__(self, must_exist=False, preview=False):
+        """Return the survey url on the client side.
+
+        * must_exist: if True, we only return a url if the content exists.
+        * preview: if True, we return the url of the preview.
+
+        Note that there can only be one preview per sector.
+
+        Any combination of values of `must_exist` and `preview` should be fine.
+
+        Normal usage is to get this view in Python code and call it with
+        options, but you can call it in a browser as well.  Best is to pass
+        the options explicitly as booleans, like this:
+
+            @@survey-client-url?preview:boolean=True&must_exist:boolean=True
+        """
+        # Find the survey group.
+        surveygroup = self.get_survey_group()
+        if surveygroup is None:
+            return ""
+
+        # Determine the path on the client.
+        path = self.path_on_client(surveygroup, preview)
+
+        if must_exist and self.get_survey_on_client(path) is None:
+            return ""
+
+        # Return the survey url on the client.
+        client_url = self.get_client_url()
+        return "/".join([client_url, path])
