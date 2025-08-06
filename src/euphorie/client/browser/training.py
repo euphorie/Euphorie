@@ -55,9 +55,16 @@ class TrainingSlide(BrowserView):
     def zodb_elem(self):
         if self.is_custom:
             return None
-        return self.context.aq_parent.restrictedTraverse(
-            self.context.zodb_path.split("/")
+        obj = self.context.aq_parent.restrictedTraverse(
+            self.context.zodb_path.split("/"), None
         )
+        if obj is None:
+            logger.warning(
+                "Could not traverse to: %r from %r",
+                self.context.zodb_path,
+                self.context.aq_parent,
+            )
+        return obj
 
     @property
     @memoize
@@ -124,7 +131,7 @@ class TrainingSlide(BrowserView):
             return markdown.markdown(
                 getattr(self.context, "custom_description", "") or ""
             )
-        return self.zodb_elem.description or ""
+        return getattr(self.zodb_elem, "description", "") or ""
 
     @property
     def training_notes(self):
