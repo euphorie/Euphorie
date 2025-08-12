@@ -3,12 +3,31 @@
     --colour-accent: #076a6d;
 }
 
+#portal #welcome #intro .title-group h1{
+    background-image: url("EN_OSHA_Logo_Small Scale_RGB.svg");
+}
+
 #toolbar {
     background-color: #076a6d;
 }
 
-.tooltip-container ul.menu li>a.tooltip-active-click, .tooltip-container ul.menu li>a:active, .tooltip-container ul.menu li>label.tooltip-active-click, .tooltip-container ul.menu li>label:active, .tooltip-container ul.menu li>form>label.tooltip-active-click, .tooltip-container ul.menu li>form>label:active, .tooltip-container ul.menu li>form>button.tooltip-active-click, .tooltip-container ul.menu li>form>button:active, .tooltip-container ul.menu li>form>fieldset>label.tooltip-active-click, .tooltip-container ul.menu li>form>fieldset>label:active, .tooltip-container ul.menu li>fieldset.pat-checklist label.tooltip-active-click, .tooltip-container ul.menu li>fieldset.pat-checklist label:active, .tooltip-container ul.menu li>button.tooltip-active-click, .tooltip-container ul.menu li>button:active {
-    background-color: #076a6d;
+.tooltip-container ul.menu li>a.tooltip-active-click, 
+.tooltip-container ul.menu li>a:active, 
+.tooltip-container ul.menu li>label.tooltip-active-click, 
+.tooltip-container ul.menu li>label:active, 
+.tooltip-container ul.menu li>form>label.tooltip-active-click, 
+.tooltip-container ul.menu li>form>label:active, 
+.tooltip-container ul.menu li>form>button.tooltip-active-click, 
+.tooltip-container ul.menu li>form>button:active, 
+.tooltip-container ul.menu li>form>fieldset>label.tooltip-active-click, 
+.tooltip-container ul.menu li>form>fieldset>label:active, 
+.tooltip-container ul.menu li>fieldset.pat-checklist label.tooltip-active-click, 
+.tooltip-container ul.menu li>fieldset.pat-checklist label:active, 
+.tooltip-container ul.menu li>button.tooltip-active-click, 
+.tooltip-container ul.menu li>button:active,
+.pat-button.default, 
+.pat-button.default:hover {
+        background-color: #076a6d;
 }
 .select2-results .select2-highlighted {
     background: #076a6d;
@@ -22,6 +41,12 @@
 .pie-graph {
     --pie-graph-segment-colour: #076a6d;
     --pie-graph-line-colour: #076a6d;
+}
+
+a, button.link, 
+.pat-button.link,
+.pat-rich a, article.rich a {
+    color: #076a6d; 
 }
 
 /* styles for tippy / Glossary */
