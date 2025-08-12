@@ -3,6 +3,10 @@
     --colour-accent: #076a6d;
 }
 
+#portal #welcome #intro .title-group h1{
+    background-image: url("EN_OSHA_Logo_Small Scale_RGB.svg");
+}
+
 #toolbar {
     background-color: #076a6d;
 }
