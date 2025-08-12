@@ -70,7 +70,7 @@ class ISector(model.Schema, IUser, IBasic):
     logo = filefield.NamedBlobImage(
         title=_("label_logo", default="Logo"),
         description=_(
-            "help_image_upload",
+            "help_logo_upload",
             default=(
                 "The logo will appear on the sector overview page of your country. "
                 "Make sure your image is of format png, jpg or gif and "
