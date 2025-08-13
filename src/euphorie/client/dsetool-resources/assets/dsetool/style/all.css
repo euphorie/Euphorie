@@ -1,0 +1,72 @@
+/* custom style sheet with ds etool colors for OiRA */
+:root {
+    --colour-accent: #076a6d;
+}
+
+#portal {
+    background: #cecece;
+    background: linear-gradient(0deg, #cecece 20%, #fff 100%);
+}
+
+#portal #welcome #intro .title-group h1{
+    background-image: url("EN_OSHA_Logo_Small Scale_RGB.svg");
+}
+
+#portal #welcome {
+    background-image: url("portal-curve.svg");
+}
+
+#portal #welcome:before {
+    background: #076a6d;
+}
+#toolbar {
+    background-color: #076a6d;
+}
+
+.tooltip-container ul.menu li>a.tooltip-active-click, 
+.tooltip-container ul.menu li>a:active, 
+.tooltip-container ul.menu li>label.tooltip-active-click, 
+.tooltip-container ul.menu li>label:active, 
+.tooltip-container ul.menu li>form>label.tooltip-active-click, 
+.tooltip-container ul.menu li>form>label:active, 
+.tooltip-container ul.menu li>form>button.tooltip-active-click, 
+.tooltip-container ul.menu li>form>button:active, 
+.tooltip-container ul.menu li>form>fieldset>label.tooltip-active-click, 
+.tooltip-container ul.menu li>form>fieldset>label:active, 
+.tooltip-container ul.menu li>fieldset.pat-checklist label.tooltip-active-click, 
+.tooltip-container ul.menu li>fieldset.pat-checklist label:active, 
+.tooltip-container ul.menu li>button.tooltip-active-click, 
+.tooltip-container ul.menu li>button:active,
+.pat-button.default, 
+.pat-button.default:hover {
+        background-color: #076a6d;
+}
+.select2-results .select2-highlighted {
+    background: #076a6d;
+}
+#steps>li.active {
+    border-color: #076a6d;
+}
+#steps>li>a.reminder:not(.onscreen-help):before {
+    content:"\e894";
+}
+.pie-graph {
+    --pie-graph-segment-colour: #076a6d;
+    --pie-graph-line-colour: #076a6d;
+}
+
+a, button.link, 
+.pat-button.link,
+.pat-rich a, article.rich a {
+    color: #076a6d; 
+}
+
+/* styles for tippy / Glossary */
+.tippy-box[data-theme~=light]{color:#26323d;box-shadow:0 0 20px 4px rgba(154,161,177,.15),0 4px 80px -8px rgba(36,40,47,.25),0 4px 4px -2px rgba(91,94,105,.15);background-color:#fff}.tippy-box[data-theme~=light][data-placement^=top]>.tippy-arrow:before{border-top-color:#fff}.tippy-box[data-theme~=light][data-placement^=bottom]>.tippy-arrow:before{border-bottom-color:#fff}.tippy-box[data-theme~=light][data-placement^=left]>.tippy-arrow:before{border-left-color:#fff}.tippy-box[data-theme~=light][data-placement^=right]>.tippy-arrow:before{border-right-color:#fff}.tippy-box[data-theme~=light]>.tippy-backdrop{background-color:#fff}.tippy-box[data-theme~=light]>.tippy-svg-arrow{fill:#fff}
+.tippy-content { font-weight: 400 !important; font-width: 75% !important;}
+.glossary-term {
+  border-bottom: 1px dotted #00696C;
+  color: #00696C;
+  cursor: help;
+  text-decoration: none;
+}
