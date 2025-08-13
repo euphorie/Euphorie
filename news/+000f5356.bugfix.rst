@@ -1,0 +1,1 @@
+Survey upload: check for errors before handling upload.

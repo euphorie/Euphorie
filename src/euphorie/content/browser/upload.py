@@ -573,6 +573,8 @@ class ImportSurvey(AutoExtensibleForm, form.Form):
     @button.buttonAndHandler(_("Upload"))
     def handleUpload(self, action):
         (data, errors) = self.extractData()
+        if errors:
+            return
         input = data["file"].data
         importer = self.importer_factory(self.context)
         try:
