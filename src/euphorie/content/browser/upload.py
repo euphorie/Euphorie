@@ -596,3 +596,10 @@ class ImportSurvey(AutoExtensibleForm, form.Form):
         )
         state = getMultiAdapter((survey, self.request), name="plone_context_state")
         self.request.response.redirect(state.view_url())
+
+    @button.buttonAndHandler(_("button_cancel", default="Cancel"))
+    def handleCancel(self, action):
+        state = getMultiAdapter(
+            (aq_inner(self.context), self.request), name="plone_context_state"
+        )
+        self.request.response.redirect(state.view_url())
