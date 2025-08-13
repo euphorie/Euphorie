@@ -3,10 +3,22 @@
     --colour-accent: #076a6d;
 }
 
+#portal {
+    background: #cecece;
+    background: linear-gradient(0deg, #cecece 20%, #fff 100%);
+}
+
 #portal #welcome #intro .title-group h1{
     background-image: url("EN_OSHA_Logo_Small Scale_RGB.svg");
 }
 
+#portal #welcome {
+    background-image: url("portal-curve.svg");
+}
+
+#portal #welcome:before {
+    background: #076a6d;
+}
 #toolbar {
     background-color: #076a6d;
 }
