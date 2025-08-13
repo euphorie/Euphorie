@@ -16,7 +16,8 @@
     background-image: url("portal-curve.svg");
 }
 
-#portal #welcome:before {
+#portal #welcome:before,
+#portal #welcome #more-information:before {
     background: #076a6d;
 }
 #toolbar {
