@@ -141,7 +141,7 @@ class SurveyGroup(Container):
     def _delObject(self, obj_id, dp=1, suppress_events=False):  # type: ignore[override]
         """Do not allow to delete a published survey.
 
-        If the survey is published, we raise an error.
+        If the survey is published or the last one, we raise an error.
         """
         try:
             obj = self[obj_id]
@@ -150,6 +150,10 @@ class SurveyGroup(Container):
 
         if obj is not None and obj == self.published_survey:
             raise ValueError("You cannot delete a published survey.")
+
+        surveys = [_ for _ in self.objectValues() if obj.portal_type == "euphorie.survey"]  # type: ignore[assignment]  # noqa: E501
+        if len(surveys) == 1:
+            raise ValueError("You cannot delete the last survey in a survey group.")
 
         return super(self.__class__, self)._delObject(obj_id, dp, suppress_events)
 
