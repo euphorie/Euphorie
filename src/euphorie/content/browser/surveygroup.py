@@ -260,8 +260,7 @@ class AddView(DefaultAddView):
 
 class Unpublish(BrowserView):
     def unpublish(self):
-        context = aq_inner(self.context)
-        published_survey = context[context.published]
+        published_survey = self.context.published_survey
 
         wt = api.portal.get_tool("portal_workflow")
         if wt.getInfoFor(published_survey, "review_state") != "published":

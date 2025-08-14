@@ -95,6 +95,24 @@ class HandleSurveyPublishTests(EuphorieIntegrationTestCase):
         unpublishview.unpublish()
         self.assertEqual(surveygroup.published, None)
 
+    def testUndeletableSurveys(self):
+        surveygroup = self.createSurveyGroup()
+        one = self._create(surveygroup, "euphorie.survey", "one")
+
+        # If you have just one survey, it cannot be deleted
+        with self.assertRaises(ValueError):
+            api.content.delete(one)
+
+        two = self._create(surveygroup, "euphorie.survey", "two")
+        # Unpublished surveys can be deleted
+        api.content.delete(two)
+
+        # Published surveys cannot be deleted
+        three = self._create(surveygroup, "euphorie.survey", "three")
+        notify(ActionSucceededEvent(three, None, "update", None))
+        with self.assertRaises(ValueError):
+            api.content.delete(three)
+
 
 class HandleSurveyDeleteVerificationTests(EuphorieIntegrationTestCase):
     def setUp(self):
