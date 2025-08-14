@@ -22,7 +22,6 @@ Code reference
    content/documentation
    content/help
    content/user
-   content/colour
    content/browser/library
    content/browser/export
    content/browser/upload
