@@ -76,10 +76,6 @@ def GetSector(country, xml_sector, options):
             data=open(options.logo).read(),
             filename=safe_text(os.path.basename(options.logo)),
         )
-    if options.main_colour:
-        sector.main_colour = options.main_colour
-    if options.support_colour:
-        sector.support_colour = options.support_colour
     return sector
 
 
