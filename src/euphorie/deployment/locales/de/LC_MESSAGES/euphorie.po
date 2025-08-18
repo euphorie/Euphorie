@@ -6177,7 +6177,6 @@ msgstr "Sperre entfernt"
 #. Default: "Handling of measures text (if measures-in-place are used)"
 #: euphorie/content/survey.py:114
 msgid "measures_text_handling"
-msgstr ""
 msgstr "Handhabung des Maßnahmen-Textes (wenn Maßnahmen in Kraft sind)"
 
 #. Default: "Admin"
