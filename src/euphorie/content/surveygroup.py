@@ -8,6 +8,7 @@ https://admin.oiraproject.eu/sectors/eu/eu-private-security/private-security-eu
 """
 
 from .. import MessageFactory as _
+from Acquisition import aq_base
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from plone.app.dexterity.behaviors.metadata import IBasic
@@ -119,6 +120,46 @@ class SurveyGroup(Container):
     def _canCopy(self, op=0):
         """Tell Zope2 that this object can not be copied."""
         return op
+
+    @property
+    def published_survey(self):
+        """Return the published survey object or None if it does not exist."""
+        published_id = getattr(aq_base(self), "published", "")
+        if not published_id:
+            return None
+
+        try:
+            published_obj = self[published_id]
+        except KeyError:
+            return None
+
+        if published_obj.portal_type != "euphorie.survey":
+            return None
+
+        return published_obj
+
+    def _delObject(self, obj_id, dp=1, suppress_events=False):  # type: ignore[override]
+        """Do not allow to delete a published survey.
+
+        If the survey is published or the last one, we raise an error.
+        """
+        try:
+            obj = self[obj_id]
+        except KeyError:
+            obj = None
+
+        if obj is not None and obj.portal_type == "euphorie.survey":
+            if obj == self.published_survey:
+                raise ValueError("You cannot delete a published survey.")
+            surveys = [
+                item
+                for item in self.objectValues()
+                if item.portal_type == "euphorie.survey"
+            ]  # type: ignore[assignment]
+            if len(surveys) == 1:
+                raise ValueError("You cannot delete the last survey in a survey group.")
+
+        return super(self.__class__, self)._delObject(obj_id, dp, suppress_events)
 
 
 def handleSurveyPublish(survey, event):
