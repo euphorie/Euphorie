@@ -3,6 +3,7 @@ from euphorie.content.browser.surveygroup import AddForm
 from euphorie.testing import EuphorieFunctionalTestCase
 from euphorie.testing import EuphorieIntegrationTestCase
 from plone import api
+from plone.base.utils import unrestricted_construct_instance
 from plone.folder.interfaces import IExplicitOrdering
 from Products.CMFCore.WorkflowCore import ActionSucceededEvent
 from zope import component
@@ -100,6 +101,12 @@ class HandleSurveyPublishTests(EuphorieIntegrationTestCase):
         one = self._create(surveygroup, "euphorie.survey", "one")
 
         # If you have just one survey, it cannot be deleted
+        with self.assertRaises(ValueError):
+            api.content.delete(one)
+
+        # A survey group should only contain surveys, but theoretically there
+        # could be other content.  You still cannot delete the only survey
+        unrestricted_construct_instance("Image", surveygroup, "pretty")
         with self.assertRaises(ValueError):
             api.content.delete(one)
 

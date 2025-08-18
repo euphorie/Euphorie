@@ -148,12 +148,16 @@ class SurveyGroup(Container):
         except KeyError:
             obj = None
 
-        if obj is not None and obj == self.published_survey:
-            raise ValueError("You cannot delete a published survey.")
-
-        surveys = [_ for _ in self.objectValues() if obj.portal_type == "euphorie.survey"]  # type: ignore[assignment]  # noqa: E501
-        if len(surveys) == 1:
-            raise ValueError("You cannot delete the last survey in a survey group.")
+        if obj is not None and obj.portal_type == "euphorie.survey":
+            if obj == self.published_survey:
+                raise ValueError("You cannot delete a published survey.")
+            surveys = [
+                item
+                for item in self.objectValues()
+                if item.portal_type == "euphorie.survey"
+            ]  # type: ignore[assignment]
+            if len(surveys) == 1:
+                raise ValueError("You cannot delete the last survey in a survey group.")
 
         return super(self.__class__, self)._delObject(obj_id, dp, suppress_events)
 
