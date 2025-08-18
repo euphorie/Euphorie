@@ -51,7 +51,8 @@ def translate_po_files(
     for lang in languages:
         lang_path = os.path.join(i18n_path, lang, "LC_MESSAGES")
         if not os.path.isdir(lang_path):
-            continue
+            os.makedirs(lang_path, exist_ok=True)
+            print(f"Created missing directory: {lang_path}")
         print(f"Translating to {lang}...")
         for file in os.listdir(lang_path):
             if file.endswith(".po"):
@@ -125,7 +126,7 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    i18n_euphorie = "src/Euphorie/src/euphorie/deployment/locales"
+    i18n_euphorie = "src/euphorie/deployment/locales"
 
     if args.all:
         translate_po_files(
