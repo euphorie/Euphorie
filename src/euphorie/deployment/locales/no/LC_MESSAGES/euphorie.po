@@ -3208,7 +3208,7 @@ msgstr "Kjære ${recipient},"
 #: euphorie/client/browser/templates/notify-invite-accept.pt:14
 msgid "email_invite_accept_main"
 msgstr ""
-"${invitee} har akseptert din invitasjon til å bli med i ${organisasjon}."
+"${invitee} har akseptert din invitasjon til å bli med i ${organisation}."
 
 #. Default: "Dear ${recipient},"
 #. AI-generated
@@ -4908,7 +4908,7 @@ msgstr "Er de tiltakene som allerede er implementert tilstrekkelige?"
 msgid "incorrect_login"
 msgstr ""
 "Ditt brukernavn og/eller passord ble skrevet inn feil. Vennligst sjekk og "
-"prøv igjen eller ${be_om_en_e-post_påminnelse}."
+"prøv igjen eller ${request_an_email_reminder}."
 
 #. Default: "The menu toggle lets you hide and show the risk assessment
 #. browser to find previously made risk assessments. Hide the menu when you
@@ -5074,7 +5074,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/content/browser/templates/documentation_view.pt:25
 msgid "intro_documenation"
-msgstr "Her kan du administrere dokumentasjonen for ${klienten}."
+msgstr "Her kan du administrere dokumentasjonen for ${client}."
 
 #. Default: "online client"
 #. AI-generated
