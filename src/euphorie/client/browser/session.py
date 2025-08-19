@@ -8,6 +8,7 @@ from euphorie.client import utils
 from euphorie.client.adapters.json import SAJsonEncoder
 from euphorie.client.model import ACTION_PLAN_FILTER
 from euphorie.client.model import ActionPlan
+from euphorie.client.model import Choice
 from euphorie.client.model import get_current_account
 from euphorie.client.model import Module
 from euphorie.client.model import MODULE_WITH_RISK_OR_TOP5_FILTER
@@ -34,6 +35,8 @@ from plone.protect.utils import addTokenToUrl
 from plone.supermodel import model
 from Products.CMFPlone import PloneLocalesMessageFactory
 from Products.Five import BrowserView
+from sqlalchemy import func
+from sqlalchemy import orm
 from sqlalchemy import sql
 from sqlalchemy.orm import object_session
 from z3c.form.form import EditForm
@@ -1075,9 +1078,61 @@ class Status(SessionMixin, BrowserView, _StatusHelper):
     def __call__(self):
         if self.webhelpers.redirectOnSurveyUpdate():
             return
+        if self.context.aq_parent.tool_type == "inventory":
+            url = f"{self.context.absolute_url()}/@@status_inventory"
+            self.request.response.redirect(url)
+            return None
         utils.setLanguage(self.request, self.survey, self.survey.language)
         self.update()
         self.getStatus()
+        return super().__call__()
+
+
+class StatusInventory(SessionMixin, BrowserView, _StatusHelper):
+    """Show status information for an inventory tool session."""
+
+    variation_class = "variation-risk-assessment"
+    module_url_schema = "{0}/{1}/@@identification"
+
+    def get_module_url(self, module):
+        return self.module_url_schema.format(
+            self.context.absolute_url(), "/".join(self.slicePath(module.path))
+        )
+
+    def get_inventory_status(self):
+        session = Session()
+        choice_alias = orm.aliased(Choice, name="choice_tree")
+        total_query = (
+            session.query(SurveyTreeItem, func.count(choice_alias.id))
+            .filter(
+                SurveyTreeItem.id == choice_alias.parent_id,
+            )
+            .filter(SurveyTreeItem.session_id == self.context.session.id)
+            .filter(SurveyTreeItem.type == "module")
+            .filter(choice_alias.condition == None)  # noqa: E711
+            .group_by(SurveyTreeItem.id)
+        )
+        answered = dict(
+            total_query.filter(
+                sql.or_(
+                    choice_alias.postponed == True,  # noqa: E711
+                    choice_alias.options.any(),
+                )
+            )
+        )
+        total = dict(total_query)
+        status = []
+        for module in total:
+            num_answered = answered.get(module, 0)
+            num_unvisited = total[module] - num_answered
+            status.append((module, num_answered, num_unvisited))
+        return status
+
+    def __call__(self):
+        if self.webhelpers.redirectOnSurveyUpdate():
+            return
+        utils.setLanguage(self.request, self.survey, self.survey.language)
+        self.verify_view_permission()
         return super().__call__()
 
 

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      id="account-settings"
+      meta:interpolation="true"
+      metal:use-macro="context/@@shell/macros/shell"
+      tal:define="
+        client nocall:request/client;
+        webhelpers nocall:context/@@webhelpers;
+      "
+      i18n:domain="euphorie"
+>
+  <body>
+    <metal:content fill-slot="content">
+      <div class="pat-scroll-box"
+           id="content-pane"
+           tal:define="
+             language view/preferred_language;
+             toLocalizedTime nocall: context/@@plone/toLocalizedTime;
+             session context/session;
+             last_modifier session/last_modifier|nothing;
+             creator session/account|nothing;
+           "
+      >
+        <metal:call use-macro="webhelpers/macros/toolbar" />
+        <article id="status-report"
+                 tal:define="
+                   title session/title|string:;
+                   title_initial python:title.lower() if title else '';
+                 "
+        >
+
+          <h1 tal:condition="python:title_initial not in ('a', 'e', 'i', 'o', 'u')">
+            <tal:title i18n:translate="title_status_of">Status of
+              &ldquo;<tal:name i18n:name="survey_title">${title}</tal:name>&rdquo;
+            </tal:title>
+          </h1>
+          <h1 tal:condition="python:title_initial in ('a', 'e', 'i', 'o', 'u')"><tal:title i18n:translate="title_with_vowel_status_of">Status of
+          &ldquo;
+              <tal:name i18n:name="survey_title">${title}</tal:name>&rdquo;</tal:title>
+          </h1>
+
+          <section class="pat-rich">
+            <h2 i18n:translate="label_general_information">
+            General information
+            </h2>
+            <dl class="pat-grid-list">
+              <metal:used_tool define-slot="used_tool">
+                <dt i18n:translate="label_used_tool">
+              Used tool
+                </dt>
+                <dd>
+                  <p>
+                    <a href="${webhelpers/survey_url}#content"
+                       title="TOOL Name"
+                    >${webhelpers/get_survey_title}</a>
+                  </p>
+                </dd>
+              </metal:used_tool>
+              <metal:started define-slot="started">
+                <dt i18n:translate="label_started">
+                Started
+                </dt>
+                <dd>
+                  <p>
+                    <time class="last-saved"
+                          date-time="${value}"
+                          tal:define="
+                            value session/created/isoformat|nothing;
+                          "
+                    >${python:toLocalizedTime(value)}</time>
+                    <tal:by condition="creator">
+                      <tal:i18n i18n:translate="label_modified_by">by</tal:i18n>
+                      <a href="mailto:${creator/email}">${creator/email}</a>
+                    </tal:by>
+                  </p>
+                </dd>
+              </metal:started>
+              <metal:last_modified define-slot="last_modified">
+                <dt i18n:translate="">
+                Last saved
+                </dt>
+                <dd>
+                  <p>
+                    <time class="last-modified"
+                          date-time="${value}"
+                          tal:define="
+                            value session/modified/isoformat|nothing;
+                          "
+                    >${python:toLocalizedTime(value)}</time>
+                    <tal:by condition="last_modifier">
+                      <tal:i18n i18n:translate="label_modified_by">by</tal:i18n>
+                      <a href="mailto:${last_modifier/email}">${last_modifier/email}</a>
+                    </tal:by>
+                  </p>
+                </dd>
+              </metal:last_modified>
+            </dl>
+          </section>
+          <metal:modules define-slot="modules">
+            <section class="pat-rich">
+              <h2>
+                <tal:translate i18n:translate="header_questions_answered">Questions answered per module</tal:translate>
+              </h2>
+
+              <dl class="status">
+                <tal:loop repeat="row view/get_inventory_status">
+                  <tal:defs tal:define="
+                              module python:row[0];
+                              num_answered python:row[1];
+                              num_unvisited python:row[2];
+                              num_total python:num_answered + num_unvisited;
+                              perc_answered python:not num_total and 100 or (num_answered / num_total * 100);
+                              perc_unvisited python:not num_total and 100 or (num_unvisited / num_total * 100);
+                            ">
+                    <dt>
+                      <a href="${python:view.get_module_url(module)}">${module/title}</a>
+                    </dt>
+                    <dd>
+                      <section class="graph">
+                        <p class="range answered"
+                           style="width: ${perc_answered}%"
+                        >
+                          <strong class="number">${num_answered}</strong>
+                          <em class="label">questions answered</em>
+                        </p>
+                        <p class="range unanswered"
+                           style="width: ${perc_unvisited}%"
+                        >
+                          <strong class="number">${num_unvisited}</strong>
+                          <em class="label">questions aren't answered yet</em>
+                        </p>
+                      </section>
+                    </dd>
+                  </tal:defs>
+                </tal:loop>
+              </dl>
+            </section>
+          </metal:modules>
+        </article>
+      </div>
+      <tal:block replace="tile:client-analytics" />
+
+    </metal:content>
+  </body>
+</html>

@@ -72,6 +72,14 @@
       />
 
   <browser:page
+      name="navigation"
+      for="*"
+      class="euphorie.client.browser.navigation.NavigationView"
+      permission="zope.Public"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="risk_macros"
       for="*"
       class="euphorie.client.browser.webhelpers.WebHelpers"
@@ -345,6 +353,15 @@
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       class=".session.Status"
       template="templates/status_info.pt"
+      permission="euphorie.client.ViewSurvey"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="status_inventory"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      class=".session.StatusInventory"
+      template="templates/status_inventory.pt"
       permission="euphorie.client.ViewSurvey"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
@@ -698,6 +715,16 @@
       for="euphorie.client.model.Risk"
       class=".risk.ActionPlanView"
       template="templates/risk_actionplan.pt"
+      permission="euphorie.client.ViewSurvey"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <!-- Choice -->
+  <browser:page
+      name="identification"
+      for="euphorie.client.model.Choice"
+      class=".choice.IdentificationView"
+      template="templates/choice_identification.pt"
       permission="euphorie.client.ViewSurvey"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
