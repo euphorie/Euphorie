@@ -26,9 +26,14 @@
         >
           <h1>${context/Title}</h1>
           <tal:block replace="tile:statusmessages" />
-          <tal:block-etoolspecific tal:condition="python:len(context.aq_parent.objectIds()) &gt;= 3">
-            <p i18n:translate="intro_identification_dsetool">The questions are divided into 3 parts. The first part is about identifying potential chemical risks in your company. The second part is about the routines for chemical risk management. And the third part is about control measures to reduce chemical risks.</p>
-          </tal:block-etoolspecific>
+          <p i18n:translate="intro_print_identification_1">It is possible for you to print out the contents of the tool to enable you to look for the information at the relevant workplace (by walking around and looking at what could cause harm, or by consulting the workers and/or their representatives about problems they have encountered). You can then introduce the information into the tool.</p>
+          <p i18n:translate="intro_print_identification_2">You may also wish to distribute the contents among the workers and/or their representatives and invite them to participate in identifying the hazards/problems, evaluating the risks and deciding on preventive action.Their feedback should be taken into account when filling in this tool.</p>
+          <p i18n:translate="intro_identification">
+            You can print the
+            <tal:span i18n:name="list-of-risks"><a href="${here/absolute_url}/@@identification-report.docx"
+                 i18n:translate="list_of_risks"
+              >contents of the tool</a></tal:span>.
+          </p>
           <p tal:condition="extra_text">${extra_text}</p>
         </article>
         <p class="button-bar pat-bumper">
