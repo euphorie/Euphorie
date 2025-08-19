@@ -57,16 +57,9 @@
     <script src="${webhelpers/client_url}/++resource++plone.session.refreshsupport.js"
             type="text/javascript"
     ></script>
-    <script src="${webhelpers/client_url}/++resource++dsetool.resources/assets/dsetool/javascript/glossary.js"
-            type="text/javascript"
-    ></script>
     <tal:custom_js replace="structure webhelpers/custom_js|nothing" />
 
     <link href="${webhelpers/css_url}"
-          rel="stylesheet"
-          type="text/css"
-    />
-    <link href="${webhelpers/client_url}/++resource++dsetool.resources/assets/dsetool/style/all.css"
           rel="stylesheet"
           type="text/css"
     />
@@ -75,6 +68,7 @@
           rel="stylesheet"
           type="text/css"
     />
+    <tal:custom_css replace="structure webhelpers/custom_css|nothing" />
 
     <meta name="description"
           content="${webhelpers/tool_description}"
@@ -147,23 +141,26 @@
            i18n:attributes="title home_link"
         >
           <h1 class="logo">
-			OiRA
+          OiRA
           </h1>
         </a>
         <tal:anon condition="python:not is_anonymous or webhelpers.is_guest_account">
           <style>
-              @media only screen and (max-width: 768px) {
-                  #toolbar > a#toggle-osc, #toolbar > button#toggle-osc {
-                      /* Hotfix: Show the OSC menu in mobile nav. */
-                      /* Ref: scrum-1036. */
-                      display: inline-block;
-                  }
-                  #toolbar .title-group {
-                      /* Needed for Shrome/Safari but not Firefox. */
-                      /* For Firefox the logo is pushed a bit too far from the hamburger menu. */
-                      margin-left: 50px;
-                  }
-              }
+          @media only screen and (max-width: 768px) {
+
+            #toolbar>a#toggle-osc,
+            #toolbar>button#toggle-osc {
+              /* Hotfix: Show the OSC menu in mobile nav. */
+              /* Ref: scrum-1036. */
+              display: inline-block;
+            }
+
+            #toolbar .title-group {
+              /* Needed for Shrome/Safari but not Firefox. */
+              /* For Firefox the logo is pushed a bit too far from the hamburger menu. */
+              margin-left: 50px;
+            }
+          }
           </style>
           <a class="iconified pat-toggle"
              id="toggle-osc"
@@ -172,7 +169,7 @@
              data-pat-toggle="selector: body; value: osc-on osc-off; store: local &amp;&amp; selector: body; value: osc-s-on osc-s-off;"
              i18n:attributes="title tooltip_menu_toggle"
           >
-                Menu
+          Menu
           </a>
 
           <p id="warning-bar"
@@ -299,7 +296,8 @@
            href="${here/absolute_url}/@@session-browser-sidebar"
            data-pat-inject="source: #osc::element; target: #osc::element; trigger: autoload;"
            i18n:translate=""
-        >Loading Risk Assessments&hellip;</a>
+        >Loading
+          Risk Assessments&hellip;</a>
       </aside>
       <tal:logo condition="webhelpers/show_logo">
         <metal:logo use-macro="context/logo/macros/logo" />
@@ -365,7 +363,8 @@
              href=""
              target="_blank"
              i18n:translate=""
-          >Visit linked web page</a>
+          >Visit linked web
+            page</a>
         </li>
         <li>
           <a class="icon-pencil close-panel tiptap-edit-link"
@@ -392,4 +391,5 @@
 
 
   </body>
+
 </html>
