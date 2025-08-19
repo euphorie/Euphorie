@@ -1,0 +1,2 @@
+Translated empty msgstr for all languages using AI
+https://pypi.org/project/gpt-po-translator/
