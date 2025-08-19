@@ -333,21 +333,20 @@ msgid ""
 "Contains: Concise information and input provided by you throughout the risk "
 "assessment process."
 msgstr ""
-"Enthält: Alle notwendigen Informationen sowie Anmerkungen, die Sie während der "
-"Gefährdungsbeurteilung eingegeben haben."
+"Enthält: Alle notwendigen Informationen sowie Anmerkungen, die Sie während "
+"der Gefährdungsbeurteilung eingegeben haben."
 
 #: euphorie/client/browser/templates/report_landing.pt:77
 msgid ""
 "Contains: all the information and input provided by you throughout the risk "
 "assessment process."
 msgstr ""
-"Enthält: Alle Informationen, die Sie während der "
-"Gefährdungsbeurteilung eingegeben haben."
+"Enthält: Alle Informationen, die Sie während der Gefährdungsbeurteilung "
+"eingegeben haben."
 
 #: euphorie/client/browser/templates/report_landing.pt:167
 msgid "Contains: an overview of the measures to be implemented."
-msgstr ""
-"Enthält: Einen Überblick über die geplanten Maßnahmen."
+msgstr "Enthält: Einen Überblick über die geplanten Maßnahmen."
 
 #: euphorie/client/browser/templates/report_landing.pt:137
 msgid "Contains: an overview of the risks identified"
@@ -1072,13 +1071,11 @@ msgstr "Vorhandenes Logo entfernen"
 
 #: euphorie/client/browser/templates/slide_question_try_again.pt:41
 msgid "Repeat the questions to find the correct answer and try again."
-msgstr ""
-"Wiederholen Sie die Fragen, um die richtige Antwort zu finden."
+msgstr "Wiederholen Sie die Fragen, um die richtige Antwort zu finden."
 
 #: euphorie/client/browser/templates/slide_question_try_again.pt:46
 msgid "Repeat the questions to find the correct answers and try again."
-msgstr ""
-"Wiederholen Sie die Fragen, um die richtigen Antworten zu finden."
+msgstr "Wiederholen Sie die Fragen, um die richtigen Antworten zu finden."
 
 #: euphorie/client/browser/templates/panel-edit-organisation.pt:84
 msgid "Replace the existing logo"
@@ -1112,7 +1109,8 @@ msgstr "Gefährdungsbeurteilungen"
 
 #: euphorie/client/browser/templates/tool_sessions.pt:136
 msgid "Risk assessments made with this tool"
-msgstr "Vorhandene Gefährdungsbeurteilungen, die mit dieser Vorlage erstellt wurden"
+msgstr ""
+"Vorhandene Gefährdungsbeurteilungen, die mit dieser Vorlage erstellt wurden"
 
 #: euphorie/client/browser/webhelpers.py:117
 msgid "Risk not present"
@@ -1285,7 +1283,8 @@ msgid ""
 msgstr ""
 "Der aktuelle Text in den Feldern \"Aktionsplan\", \"Präventionsplan\" und "
 "\"Anforderungen\" dieser Maßnahme werden überschrieben. Diese Aktion kann "
-"nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie weitermachen möchten?"
+"nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie weitermachen "
+"möchten?"
 
 #: euphorie/client/browser/templates/login.pt:344
 msgid ""
@@ -1299,7 +1298,8 @@ msgstr ""
 
 #: euphorie/client/browser/templates/status_info.pt:147
 msgid "The following certificates were awarded for this assessment."
-msgstr "Die folgenden Zertifikate wurden für diese Gefährdungsbeurteilung vergeben."
+msgstr ""
+"Die folgenden Zertifikate wurden für diese Gefährdungsbeurteilung vergeben."
 
 #: euphorie/content/survey.py:62
 msgid ""
@@ -1785,20 +1785,21 @@ msgstr ""
 #: euphorie/client/browser/risk.py:356
 msgid "action_measures_false_solutions_true"
 msgstr ""
-"Wählen Sie die spezifischen Maßnahmen aus oder beschreiben Sie diese, um die "
-"Gefährdung zu verringern."
+"Wählen Sie die spezifischen Maßnahmen aus oder beschreiben Sie diese, um die"
+" Gefährdung zu verringern."
 
 #. Default: "Describe any further measure to reduce the risk."
 #: euphorie/client/browser/risk.py:347
 msgid "action_measures_true_solutions_false"
-msgstr "Beschreiben Sie eine weitere Maßnahme, um die Gefährdung zu verringern."
+msgstr ""
+"Beschreiben Sie eine weitere Maßnahme, um die Gefährdung zu verringern."
 
 #. Default: "Select or describe any further measure to reduce the risk."
 #: euphorie/client/browser/risk.py:339
 msgid "action_measures_true_solutions_true"
 msgstr ""
-"Wählen Sie eine weitere Maßnahme aus oder beschreiben Sie, um die Gefährdung zu "
-"verringern."
+"Wählen Sie eine weitere Maßnahme aus oder beschreiben Sie, um die Gefährdung"
+" zu verringern."
 
 #. Default: "Although some measures do not cost any money, most do. The
 #. measures should therefore be budgeted for; include them in the annual
@@ -1902,15 +1903,14 @@ msgstr "Vorteile"
 #: euphorie/client/browser/organisation.py:264
 msgid "body_add_user_to_organisation_email"
 msgstr ""
-"            Ich lade Sie hiermit ein, sich unserer Organisation "
-"            in Oira anzuschließen.\n"
+"            Ich lade Sie hiermit ein, sich unserer Organisation             in Oira anzuschließen.\n"
 "\n"
 "            Sobald Sie Ihre Mitgliedschaft akzeptiert haben,\n"
-"            können wir gemeinsam an Gefährdungsbeurteilungen arbeiten."
-"            Bitte melden Sie sich über den folgenden Link an\n"
+"            können wir gemeinsam an Gefährdungsbeurteilungen arbeiten.            Bitte melden Sie sich über den folgenden Link an\n"
 "            und akzeptieren Sie Ihre Mitgliedschaft.\n"
 "            Dieser Link bleibt für ${Days_to_keep} Tage gültig.\n"
-"${link}\n            "
+"${link}\n"
+"            "
 
 #. Default: "${Modules} (and potentially sub-modules): containers providing a
 #. logical structure"
@@ -2117,9 +2117,9 @@ msgstr ""
 #: euphorie/client/browser/templates/conditions-bare.pt:110
 msgid "conditions_part10_entry"
 msgstr ""
-"Für weitere Informationen zum Umgang mit ihren personenbezogenen Daten können "
-"Sie eine Anfrage an den EU-OSHA-Datenschutzbeauftragten unter: DPO (AT) "
-"OSHA.Europa.eu richten."
+"Für weitere Informationen zum Umgang mit ihren personenbezogenen Daten "
+"können Sie eine Anfrage an den EU-OSHA-Datenschutzbeauftragten unter: DPO "
+"(AT) OSHA.Europa.eu richten."
 
 #. Default: "Request for information"
 #: euphorie/client/browser/templates/conditions-bare.pt:108
@@ -2133,8 +2133,8 @@ msgstr "Informationsanfrage"
 msgid "conditions_part11_entry"
 msgstr ""
 "Die betroffenen Personen sind berechtigt, auf den europäischen "
-"Datenschutzbeauftragten unter ${url} zuzugehen, falls sie der Meinung sein sollten, "
-"dass die Verarbeitungsvorgänge der Verordnung nicht entsprechen."
+"Datenschutzbeauftragten unter ${url} zuzugehen, falls sie der Meinung sein "
+"sollten, dass die Verarbeitungsvorgänge der Verordnung nicht entsprechen."
 
 #. Default: "Recourse to the EDPS"
 #: euphorie/client/browser/templates/conditions-bare.pt:114
@@ -2160,9 +2160,7 @@ msgstr "Datum des Beginns der Verarbeitung"
 #. (information(at)osha.europa.eu)"
 #: euphorie/client/browser/templates/conditions-bare.pt:34
 msgid "conditions_part1_entry"
-msgstr ""
-"Head of Unit Prevention and Research"
-"(Information (AT) OSHA.Europa.eu)"
+msgstr "Head of Unit Prevention and Research(Information (AT) OSHA.Europa.eu)"
 
 #. Default: "Organisational part of the Agency entrusted with the processing
 #. of personal data"
@@ -2186,11 +2184,12 @@ msgstr ""
 "Diese Privacypolicy gilt für alle Produkte, Dienstleistungen und Websites, "
 "die von EU-OSHA im Rahmen der OIRA-Anwendung angeboten werden.Der Zweck des "
 "Verarbeitungsvorgangs ist die Erstellung von Andlog-In in Ihr OIRA-Konto "
-"(Online Interactive Risk Assessment), Thecreation von Gefährdungsbeurteilungen, "
-"Aktionsplanen und Berichten. E -Mail -Adressenmächte werden zum Senden von "
-"Newslettern verwendet (falls die Option von BEENSELTETET wurde). Der OIRA-"
-"Antrag ist ein Instrument, das der Europäischen Agentur für Sicherheit und "
-"Gesundheit bei der Arbeit (EU-OSHA) zur Verfügung stellt."
+"(Online Interactive Risk Assessment), Thecreation von "
+"Gefährdungsbeurteilungen, Aktionsplanen und Berichten. E -Mail "
+"-Adressenmächte werden zum Senden von Newslettern verwendet (falls die "
+"Option von BEENSELTETET wurde). Der OIRA-Antrag ist ein Instrument, das der "
+"Europäischen Agentur für Sicherheit und Gesundheit bei der Arbeit (EU-OSHA) "
+"zur Verfügung stellt."
 
 #. Default: "Purpose"
 #: euphorie/client/browser/templates/conditions-bare.pt:38
@@ -2235,11 +2234,11 @@ msgstr ""
 #: euphorie/client/browser/templates/conditions-bare.pt:55
 msgid "conditions_part4_2_entry"
 msgstr ""
-"Alle Informationen, die Sie in den kostenlosen Textfeldern der "
-"Anwendung der OIRA-Tools und im Aktionsplan Ihrer Gefährdungsbeschreibung "
-"bereitstellen - (z. B. wenn Sie eine Maßnahme zur Bekämpfung einer Gefährdung, "
-"die für diese Maßnahme verantwortungsvolle Personen usw. eingeben). Die "
-"Eingabe von Informationen in den Freitextfeldern, genau wie alle anderen "
+"Alle Informationen, die Sie in den kostenlosen Textfeldern der Anwendung der"
+" OIRA-Tools und im Aktionsplan Ihrer Gefährdungsbeschreibung bereitstellen -"
+" (z. B. wenn Sie eine Maßnahme zur Bekämpfung einer Gefährdung, die für "
+"diese Maßnahme verantwortungsvolle Personen usw. eingeben). Die Eingabe von "
+"Informationen in den Freitextfeldern, genau wie alle anderen "
 "personenbezogenen Daten, die in das Tool eingerichtet sind, sind aktiv und "
 "basieren auf der Einwilligung."
 
@@ -2262,8 +2261,8 @@ msgstr ""
 msgid "conditions_part4_4_entry"
 msgstr ""
 "Die OIRA-Software sammelt Statistiken von angemeldeten Benutzern, die in "
-"aggregierten Daten zu Anzahl der Konten und Gefährdungsbeurteilungen pro Tool "
-"nach Land und Monaten unterteilt sind."
+"aggregierten Daten zu Anzahl der Konten und Gefährdungsbeurteilungen pro "
+"Tool nach Land und Monaten unterteilt sind."
 
 #. Default: "Type of data processed"
 #: euphorie/client/browser/templates/conditions-bare.pt:51
@@ -2453,8 +2452,8 @@ msgstr "Organisation von ${Name}"
 #: euphorie/content/risk.py:103
 msgid "deprecated_label_existing_measures"
 msgstr ""
-"Die bereits vorhandenen Maßnahmen (Nur hier dargestellt. Verwenden Sie den Knopf "
-"„Maßnahme hinzufügen“ während der Identifizierung."
+"Die bereits vorhandenen Maßnahmen (Nur hier dargestellt. Verwenden Sie den "
+"Knopf „Maßnahme hinzufügen“ während der Identifizierung."
 
 #. Default: "Please tick anything that you might like to exclude from the
 #. training. Items that are greyed out will not be displayed on the training
@@ -2503,8 +2502,8 @@ msgstr ""
 msgid "description_integrated_action_plan"
 msgstr ""
 "Wenn ausgewählt, wird die Option zur Planung von Maßnahmen direkt auf der "
-"Seite „Identifikation“ angeboten. Die Navigation enthält dann keinen separaten "
-"Punkt „Aktionsplan“ mehr."
+"Seite „Identifikation“ angeboten. Die Navigation enthält dann keinen "
+"separaten Punkt „Aktionsplan“ mehr."
 
 #. Default: "The default export escapes HTML, which is not supportedby
 #. eTranslate"
@@ -2571,8 +2570,8 @@ msgstr ""
 msgid "description_role_admin__training_disabled"
 msgstr ""
 "Administratoren können Benutzerkonten erstellen, bearbeiten und entfernen. "
-"Administratoren können auch Gefährdungsbeurteilungen vornehmen, vorhandene bearbeiten und "
-"sperren."
+"Administratoren können auch Gefährdungsbeurteilungen vornehmen, vorhandene "
+"bearbeiten und sperren."
 
 #. Default: "Consultants can make, edit, validate and approve risk
 #. assessments."
@@ -2580,8 +2579,8 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:108
 msgid "description_role_consultant__training_disabled"
 msgstr ""
-"Berater können Gefährdungsbeurteilungen erstellen, bearbeiten, validieren und "
-"genehmigen."
+"Berater können Gefährdungsbeurteilungen erstellen, bearbeiten, validieren "
+"und genehmigen."
 
 #. Default: "Managers/Policy makers can make, edit and lock risk assessments."
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:87
@@ -2605,9 +2604,9 @@ msgstr "Mitglieder können Gefährdungsbeurteilungen vornehmen."
 msgid "description_survey_export_include_images"
 msgstr ""
 "Alle im OIRA-Tool enthaltenen Bilder können zusammen mit dem Textinhalt "
-"exportiert werden. Wenn das OIRA-Tool dann erneut importiert wird, sind "
-"alle Bilder vorhanden. Bitte beachten Sie, dass die Einbeziehung von Bildern"
-" zu einer größeren Dateigröße führen kann."
+"exportiert werden. Wenn das OIRA-Tool dann erneut importiert wird, sind alle"
+" Bilder vorhanden. Bitte beachten Sie, dass die Einbeziehung von Bildern zu "
+"einer größeren Dateigröße führen kann."
 
 #. Default: "The introduction text describes the general purpose of the OiRA
 #. tool. It usually gives the end users an idea what to expect in the tool and
@@ -2617,8 +2616,8 @@ msgid "description_survey_export_include_intro_text"
 msgstr ""
 "Der Einführungstext beschreibt den allgemeinen Zweck des Oira-Tools. "
 "Normalerweise gibt es den Endbenutzern eine Vorstellung davon, was im Tool "
-"zu erwarten ist, und ob es für sie relevant ist. Standardeinstellung ist"
-", diesen Text einzuschließen."
+"zu erwarten ist, und ob es für sie relevant ist. Standardeinstellung ist, "
+"diesen Text einzuschließen."
 
 #. Default: "For each risk, a number of common measures – sometimes also
 #. referred to as “Solutions” – can be defined. While the default setting is
@@ -2627,9 +2626,9 @@ msgstr ""
 #: euphorie/content/browser/export.py:138
 msgid "description_survey_export_include_measures"
 msgstr ""
-"Für jede Gefährdung können eine Reihe gemeinsamer Maßnahmen - manchmal auch als"
-" „Lösungen“ - definiert werden. Während die Standardeinstellung sie in den "
-"Export einbezieht, können sie bei Bedarf ausgeschlossen werden, um ein "
+"Für jede Gefährdung können eine Reihe gemeinsamer Maßnahmen - manchmal auch "
+"als „Lösungen“ - definiert werden. Während die Standardeinstellung sie in "
+"den Export einbezieht, können sie bei Bedarf ausgeschlossen werden, um ein "
 "begrenztes Übersetzungsbudget aufzunehmen."
 
 #. Default: "Every module comes with an introductive description. The default
@@ -2655,10 +2654,10 @@ msgstr ""
 #: euphorie/content/browser/export.py:127
 msgid "description_survey_export_include_risk_legal_texts"
 msgstr ""
-"Wenn das OIRA-Tool exportiert wird, da es für ein anderes Land zur "
-"Verfügung gestellt werden sollte, gelten die rechtlichen Texte "
-"möglicherweise nicht dort. Daher besteht die Standardeinstellung darin, "
-"diese Texte zu überspringen."
+"Wenn das OIRA-Tool exportiert wird, da es für ein anderes Land zur Verfügung"
+" gestellt werden sollte, gelten die rechtlichen Texte möglicherweise nicht "
+"dort. Daher besteht die Standardeinstellung darin, diese Texte zu "
+"überspringen."
 
 #. Default: "Select one or more categories to which this OiRA tool is
 #. relevant. The user will then find this tool under the chosen categories."
@@ -2841,17 +2840,18 @@ msgstr "Lieber ${Empfänger},"
 #: euphorie/client/browser/templates/notify-request-validation.pt:17
 msgid "email_request_validation_instructions"
 msgstr ""
-"Bitte klicken Sie auf den Link unten, um die Gefährdungsbeurteilung zu öffnen. "
-"Wenn Sie den Inhalt der Gefährdungsbeurteilung genehmigen, klicken Sie bitte auf "
-"\"Validate\" im Abschnitt „Beratung“, um der Gefährdungsbeurteilung einen "
-"offiziellen validierten Status zu geben."
+"Bitte klicken Sie auf den Link unten, um die Gefährdungsbeurteilung zu "
+"öffnen. Wenn Sie den Inhalt der Gefährdungsbeurteilung genehmigen, klicken "
+"Sie bitte auf \"Validate\" im Abschnitt „Beratung“, um der "
+"Gefährdungsbeurteilung einen offiziellen validierten Status zu geben."
 
 #. Default: "${requester} requested to validate the risk assessment
 #. &lsquo;${assessment}&rsquo;."
 #: euphorie/client/browser/templates/notify-request-validation.pt:12
 msgid "email_request_validation_intro"
 msgstr ""
-"${Antragsteller} gebeten, die Gefährdungsbeurteilung „${Assessment}“ zu validieren."
+"${Antragsteller} gebeten, die Gefährdungsbeurteilung „${Assessment}“ zu "
+"validieren."
 
 #. Default: "10 to 49 employees"
 #: euphorie/client/browser/company.py:43
@@ -2998,8 +2998,8 @@ msgid "expl_actionplan_1"
 msgstr ""
 "Nachdem Sie die Gefährdungen identifiziert haben, müssen Sie einen "
 "Aktionsplan erstellen, um sie zu bewältigen. Zur Beseitigung oder "
-"Verringerung der Gefährdungen müssen Sie festlegen, welche Präventions- "
-"und Schutzmaßnahmen ergriffen werden sollen."
+"Verringerung der Gefährdungen müssen Sie festlegen, welche Präventions- und "
+"Schutzmaßnahmen ergriffen werden sollen."
 
 #. Default: "Among the things to be considered for this step are:"
 #: euphorie/client/browser/templates/actionplan.pt:33
@@ -3013,8 +3013,8 @@ msgstr ""
 #: euphorie/client/browser/templates/actionplan.pt:39
 msgid "expl_actionplan_3"
 msgstr ""
-"Ist eine Gefährdung vermeidbar? Kann es vollständig entfernt werden? Dies könnte "
-"beispielsweise erreicht werden durch: ${expl_actionplan_4_and_5}"
+"Ist eine Gefährdung vermeidbar? Kann es vollständig entfernt werden? Dies "
+"könnte beispielsweise erreicht werden durch: ${expl_actionplan_4_and_5}"
 
 #. Default: "considering whether the task or job is necessary"
 #: euphorie/client/browser/templates/actionplan.pt:40
@@ -3031,8 +3031,8 @@ msgstr "die Gefährdung entfernen"
 #: euphorie/client/browser/templates/actionplan.pt:44
 msgid "expl_actionplan_6"
 msgstr ""
-"Wenn bestimmte Gefährdungen nicht vermeidbar sind, wie können sie dann auf ein "
-"Niveau reduziert werden, auf dem die Gesundheit und Sicherheit der "
+"Wenn bestimmte Gefährdungen nicht vermeidbar sind, wie können sie dann auf "
+"ein Niveau reduziert werden, auf dem die Gesundheit und Sicherheit der "
 "exponierten Personen nicht beeinträchtigt werden?"
 
 #. Default: "Once you have decided how to eliminate or reduce a particular
@@ -3045,8 +3045,8 @@ msgstr ""
 "Sobald Sie festgelegt haben, wie eine bestimmte Gefährdung beseitigt oder "
 "reduziert werden soll, beschreiben Sie die dafür erforderlichen konkreten "
 "Maßnahme(n). Geben Sie außerdem an, welches Qualifikations- bzw. "
-"Fachwissensniveau und ggf. welche sonstigen Anforderungen erforderlich sind, "
-"damit diese Maßnahmen wirksam umgesetzt werden."
+"Fachwissensniveau und ggf. welche sonstigen Anforderungen erforderlich sind,"
+" damit diese Maßnahmen wirksam umgesetzt werden."
 
 #. Default: "No risks were identified. Please proceed directly to the report."
 #: euphorie/client/browser/templates/actionplan.pt:54
@@ -3437,7 +3437,9 @@ msgstr "Werkzeugnavigation"
 #. Plan"
 #: euphorie/client/docx/views.py:231
 msgid "header_present_risks"
-msgstr "Gefährdungen, die identifiziert und bewertet wurden und einen Aktionsplan haben"
+msgstr ""
+"Gefährdungen, die identifiziert und bewertet wurden und einen Aktionsplan "
+"haben"
 
 #. Default: "Preview OiRA Tool"
 #: euphorie/client/browser/templates/preview.pt:15
@@ -3594,12 +3596,14 @@ msgstr "Unterweisungsfragen"
 #. dealt with"
 #: euphorie/client/docx/views.py:245
 msgid "header_unanswered_risks"
-msgstr "Gefährdungen, die \"geparkt wurden\" und immer noch behandelt werden müssen."
+msgstr ""
+"Gefährdungen, die \"geparkt wurden\" und immer noch behandelt werden müssen."
 
 #. Default: "Risks that have been identified but do NOT have an Action Plan"
 #: euphorie/client/docx/views.py:238
 msgid "header_unevaluated_risks"
-msgstr "Gefährdungen, die identifiziert wurden aber noch keinen Aktionsplan haben"
+msgstr ""
+"Gefährdungen, die identifiziert wurden aber noch keinen Aktionsplan haben"
 
 #. Default: "Manage users in ${country}"
 #: euphorie/content/browser/templates/user_mgmt.pt:16
@@ -3807,9 +3811,9 @@ msgstr ""
 msgid "help__risk_default_collapsible_sections"
 msgstr ""
 "Definieren Sie, welche Informationsabschnitte standardmäßig auf der Seite "
-"zur Gefährdungsermittlung geöffnet sein sollen. Nicht ausgewählte Abschnitte "
-"werden zunächst im eingeklappten Modus angezeigt, können jedoch vom Benutzer "
-"jederzeit per Klick geöffnet werden."
+"zur Gefährdungsermittlung geöffnet sein sollen. Nicht ausgewählte Abschnitte"
+" werden zunächst im eingeklappten Modus angezeigt, können jedoch vom "
+"Benutzer jederzeit per Klick geöffnet werden."
 
 #. Default: "This text should explain how to fill in the Action plan."
 #: euphorie/content/help.py:83
@@ -3914,17 +3918,17 @@ msgstr ""
 msgid "help_enable_web_training"
 msgstr ""
 "Wenn diese Option aktiviert ist, können Benutzer mit diesem OiRA-Tool eine "
-"Online-Schulung absolvieren. Eine erfolgreiche Schulung wird aufgezeichnet und "
-"mit einem Zertifikat im Dashboard des Benutzers angezeigt. Sie werden gebeten, "
-"Trainingsfragen für die Abschlussprüfung bereitzustellen."
+"Online-Schulung absolvieren. Eine erfolgreiche Schulung wird aufgezeichnet "
+"und mit einem Zertifikat im Dashboard des Benutzers angezeigt. Sie werden "
+"gebeten, Trainingsfragen für die Abschlussprüfung bereitzustellen."
 
 #. Default: "If this option is activated, an online training can be enabled on
 #. OiRA tools in this country."
 #: euphorie/content/country.py:145
 msgid "help_enable_web_training_country"
 msgstr ""
-"Wenn diese Option aktiviert ist, kann für OiRA-Tools in diesem Land "
-"ein Online-Training angeboten werden."
+"Wenn diese Option aktiviert ist, kann für OiRA-Tools in diesem Land ein "
+"Online-Training angeboten werden."
 
 #. Default: "This text should explain how to evaluate the identified risks."
 #: euphorie/content/help.py:73
@@ -3954,7 +3958,10 @@ msgstr ""
 #: euphorie/content/risk.py:109
 msgid "help_existing_measures"
 msgstr ""
-"Verwenden Sie dieses Feld, um (gemeinsame) Maßnahmen zu definieren, die der Benutzer möglicherweise bereits umgesetzt hat. Trennen Sie einzelne Maßnahmen durch einen Zeilenumbruch (Enter). Der Benutzer kann Maßnahmen, die für seine Situation nicht zutreffen, abwählen."
+"Verwenden Sie dieses Feld, um (gemeinsame) Maßnahmen zu definieren, die der "
+"Benutzer möglicherweise bereits umgesetzt hat. Trennen Sie einzelne "
+"Maßnahmen durch einen Zeilenumbruch (Enter). Der Benutzer kann Maßnahmen, "
+"die für seine Situation nicht zutreffen, abwählen."
 
 #. Default: "General final recommendations."
 #: euphorie/content/help.py:103
@@ -4045,7 +4052,10 @@ msgstr "Helfen"
 #: euphorie/content/solution.py:73
 msgid "help_measure_action"
 msgstr ""
-"Beschreiben Sie Ihren allgemeinen Ansatz, um die Gefährdung zu beseitigen oder (wenn sie nicht vermeidbar ist) zu verringern. + Beschreiben Sie die spezifischen Maßnahmen, die zur Umsetzung dieses Ansatzes erforderlich sind (zur Beseitigung oder Verringerung der Gefährdung)."
+"Beschreiben Sie Ihren allgemeinen Ansatz, um die Gefährdung zu beseitigen "
+"oder (wenn sie nicht vermeidbar ist) zu verringern. + Beschreiben Sie die "
+"spezifischen Maßnahmen, die zur Umsetzung dieses Ansatzes erforderlich sind "
+"(zur Beseitigung oder Verringerung der Gefährdung)."
 
 #. Default: "Describe your general approach to eliminate or (if the risk is
 #. not avoidable) reduce the risk."
@@ -4115,9 +4125,10 @@ msgstr ""
 #: euphorie/content/survey.py:164
 msgid "help_num_training_questions"
 msgstr ""
-"Bitte geben Sie die Anzahl der Fragen ein, die am Ende Ihrer "
-"Schulung angezeigt werden sollen. Ist die Anzahl niedriger als die vorhandenen Fragen, "
-"werden die Fragen zufällig ausgewählt. Lassen Sie das Feld leer, um alle Fragen anzuzeigen."
+"Bitte geben Sie die Anzahl der Fragen ein, die am Ende Ihrer Schulung "
+"angezeigt werden sollen. Ist die Anzahl niedriger als die vorhandenen "
+"Fragen, werden die Fragen zufällig ausgewählt. Lassen Sie das Feld leer, um "
+"alle Fragen anzuzeigen."
 
 #. Default: "The password needs to be at least 12 characters long and needs to
 #. contain at least one lower case letter, one upper case letter and one
@@ -4126,8 +4137,8 @@ msgstr ""
 #: euphorie/client/browser/templates/register_session.pt:176
 msgid "help_password_requirements"
 msgstr ""
-"Das Passwort muss mindestens 12 Zeichen lang sein und mindestens "
-"einen Kleinbuchstaben, einen Großbuchstaben und eine Ziffer enthalten."
+"Das Passwort muss mindestens 12 Zeichen lang sein und mindestens einen "
+"Kleinbuchstaben, einen Großbuchstaben und eine Ziffer enthalten."
 
 #. Default: "This text should explain the 2 types of profile questions."
 #: euphorie/content/help.py:53
@@ -4181,11 +4192,11 @@ msgstr ""
 #: euphorie/content/risk.py:147
 msgid "help_risk_type"
 msgstr ""
-"Die „Prioritätsgefährdung“ ist eine der Gefährdungen mit hoher Gefährdung in der"
-" Branche. „Gefährdung“ bezieht sich auf Gefährdungen am Arbeitsplatz oder "
-"solche, die mit der auszuführenden Arbeit verbunden sind. „Firmenpolitik“ "
-"bezieht sich auf Vereinbarungen, Abläufe und Entscheidungen der "
-"Unternehmensleitung."
+"Die „Prioritätsgefährdung“ ist eine der Gefährdungen mit hoher Gefährdung in"
+" der Branche. „Gefährdung“ bezieht sich auf Gefährdungen am Arbeitsplatz "
+"oder solche, die mit der auszuführenden Arbeit verbunden sind. "
+"„Firmenpolitik“ bezieht sich auf Vereinbarungen, Abläufe und Entscheidungen "
+"der Unternehmensleitung."
 
 #. Default: "If you do not specify a title it will be taken from the input
 #. file."
@@ -4246,7 +4257,8 @@ msgstr ""
 msgid "help_survey_evaluation_algorithm_simplified"
 msgstr ""
 "Diese Methode beinhaltet die Risikobewertung nach Schwere x Exposition, "
-"wobei diese wie folgt zu verstehen sind: Schwere der Verletzung, die mit der Gefahr verbunden ist – Exposition (Häufigkeit) gegenüber der Gefahr."
+"wobei diese wie folgt zu verstehen sind: Schwere der Verletzung, die mit der"
+" Gefahr verbunden ist – Exposition (Häufigkeit) gegenüber der Gefahr."
 
 #. Default: "This method involves risk assessment by Severity x Exposure x
 #. Probability, whereas these have to be understood as follows; Severity of
@@ -4255,8 +4267,11 @@ msgstr ""
 #: euphorie/content/surveygroup.py:75
 msgid "help_survey_evaluation_algorithm_standard"
 msgstr ""
-"Diese Methode beinhaltet die Risikobewertung nach Schwere x Exposition x Wahrscheinlichkeit, "
-"wobei diese wie folgt zu verstehen sind: Schwere der Verletzung, die mit der Gefahr verbunden ist – Exposition (Häufigkeit) gegenüber der Gefahr – Wahrscheinlichkeit, dass die Gefahr bei Exposition eintritt."
+"Diese Methode beinhaltet die Risikobewertung nach Schwere x Exposition x "
+"Wahrscheinlichkeit, wobei diese wie folgt zu verstehen sind: Schwere der "
+"Verletzung, die mit der Gefahr verbunden ist – Exposition (Häufigkeit) "
+"gegenüber der Gefahr – Wahrscheinlichkeit, dass die Gefahr bei Exposition "
+"eintritt."
 
 #. Default: "This OiRA Tool is obsolete; it has been retired or replaced with
 #. another OiRA Tool."
@@ -4338,10 +4353,11 @@ msgstr ""
 #: euphorie/client/browser/templates/tooltips.pt:110
 msgid "info_osh_ra_browser"
 msgstr ""
-"Mit dem Gefährdungsbeurteilungs-Browser können Sie vorhandene Beurteilungen finden. "
-"Starten Sie eine neue Gefährdungsbeurteilung, indem Sie auf das '+' klicken oder "
-"machen Sie eine Kopie einer bestehenden Beurteilung, indem Sie auf das Dreipunkt-Symbol "
-"neben einer Beurteilung klicken und 'Klonen' auswählen."
+"Mit dem Gefährdungsbeurteilungs-Browser können Sie vorhandene Beurteilungen "
+"finden. Starten Sie eine neue Gefährdungsbeurteilung, indem Sie auf das '+' "
+"klicken oder machen Sie eine Kopie einer bestehenden Beurteilung, indem Sie "
+"auf das Dreipunkt-Symbol neben einer Beurteilung klicken und 'Klonen' "
+"auswählen."
 
 #. Default: "From this menu you can start a new session of an OiRA tool, or
 #. pick up a previous session to continue working on it. If you do not have an
@@ -4363,8 +4379,9 @@ msgstr ""
 #: euphorie/client/browser/templates/tooltips.pt:98
 msgid "info_osh_tool_navigation"
 msgstr ""
-"Im <em>Aktionsplan</em> sehen Sie die Module und Risiken dieser Beurteilung als Unternavigation. "
-"Mit der Navigation können Sie beliebig zwischen allen Teilen des Tools wechseln."
+"Im <em>Aktionsplan</em> sehen Sie die Module und Risiken dieser Beurteilung "
+"als Unternavigation. Mit der Navigation können Sie beliebig zwischen allen "
+"Teilen des Tools wechseln."
 
 #. Default: "The European Agency for Safety and Health at Work, European
 #. social partners, etc."
@@ -4449,8 +4466,9 @@ msgstr ""
 msgid "intro_consultation_of_workers"
 msgstr ""
 "Arbeitnehmer oder Arbeitnehmervertreter mit besonderer Verantwortung für "
-"Sicherheit und Gesundheit sollen in ausgewogener Weise beteiligt werden oder "
-"vom Arbeitgeber rechtzeitig im Voraus zur Gefährdungsbeurteilung konsultiert werden."
+"Sicherheit und Gesundheit sollen in ausgewogener Weise beteiligt werden oder"
+" vom Arbeitgeber rechtzeitig im Voraus zur Gefährdungsbeurteilung "
+"konsultiert werden."
 
 #. Default: "Here you can manage the documentation for the ${client}."
 #: euphorie/content/browser/templates/documentation_view.pt:25
@@ -4495,17 +4513,18 @@ msgstr ""
 "Anspruch. Außerdem ist die Gefährdungsbeurteilung wichtig – so wichtig, dass"
 " sie gesetzlich vorgeschrieben ist. Und das aus gutem Grund. Wenn "
 "Gefährdungen nicht beurteilt werden, oder der Umgang mit ihnen nicht "
-"fachgerecht ist, ist ein angemessenes Gefährdungsmanagement nicht möglich und die"
-" Feststellung und Umsetzung von angemessenen Präventivmaßnahmen sehr schwer "
-"möglich."
+"fachgerecht ist, ist ein angemessenes Gefährdungsmanagement nicht möglich "
+"und die Feststellung und Umsetzung von angemessenen Präventivmaßnahmen sehr "
+"schwer möglich."
 
 #. Default: "This risk assessment tool is mainly intended for micro (less than
 #. 10 workers) and small (less than 50 workers) enterprises/organisations."
 #: euphorie/client/browser/templates/default_introduction.pt:24
 msgid "intro_oira_tool"
 msgstr ""
-"Dieses Gefährdungsbeurteilungs-Tool ist hauptsächlich für Kleinstunternehmen (weniger als 10 Beschäftigte) "
-"und kleine Unternehmen (weniger als 50 Beschäftigte/Organisationen) gedacht."
+"Dieses Gefährdungsbeurteilungs-Tool ist hauptsächlich für Kleinstunternehmen"
+" (weniger als 10 Beschäftigte) und kleine Unternehmen (weniger als 50 "
+"Beschäftigte/Organisationen) gedacht."
 
 #. Default: "Are you sure you want to create a preview of this OiRA Tool? You
 #. can give the URL for the preview to others so they can test the OiRA Tool.
@@ -4545,9 +4564,9 @@ msgid "intro_print_identification_2"
 msgstr ""
 "Sie können den Inhalt auch mit dem Personal und/oder den Vorgesetzten teilen"
 " und sie dazu einladen, bei der Ermittlung von Gefährdungen/Problemen "
-"mitzuarbeiten, indem die Gefährdungen bewertet und Präventivmaßnahmen beschlossen"
-" werden. Die Rückmeldungen sollten bei der Eingabe in dieses Tool "
-"berücksichtigt werden."
+"mitzuarbeiten, indem die Gefährdungen bewertet und Präventivmaßnahmen "
+"beschlossen werden. Die Rückmeldungen sollten bei der Eingabe in dieses Tool"
+" berücksichtigt werden."
 
 #. Default: "Are you sure you want to publish this OiRA Tool? After
 #. publication the OiRA Tool will appear in the online client and be
@@ -4583,9 +4602,11 @@ msgstr ""
 #: euphorie/client/browser/templates/publish.pt:36
 msgid "intro_publish_survey_structure_changed"
 msgstr ""
-"Die Struktur Ihres OiRA-Tools hat sich geändert. Wenn Sie jetzt veröffentlichen, "
-"verlieren bestehende Nutzer dieses OiRA-Tools Teile ihrer Antworten. Bitte kontaktieren Sie das OiRA-Team, "
-"wenn Sie Unterstützung benötigen. Sie können auch das Kapitel „Überarbeitung eines veröffentlichten OiRA-Tools“ im OiRA-Handbuch konsultieren."
+"Die Struktur Ihres OiRA-Tools hat sich geändert. Wenn Sie jetzt "
+"veröffentlichen, verlieren bestehende Nutzer dieses OiRA-Tools Teile ihrer "
+"Antworten. Bitte kontaktieren Sie das OiRA-Team, wenn Sie Unterstützung "
+"benötigen. Sie können auch das Kapitel „Überarbeitung eines veröffentlichten"
+" OiRA-Tools“ im OiRA-Handbuch konsultieren."
 
 #. Default: "Including the risks to your employees and your equipment? What if
 #. there is an accident with one of the machines? What if an employee is
@@ -5511,7 +5532,8 @@ msgstr "Lesen Sie mehr"
 #: euphorie/client/browser/templates/report_company.pt:242
 msgid "label_recommend_tool"
 msgstr ""
-"Würden Sie dieses OiRA-Tool einem Unternehmen mit ähnlichem Bedarf empfehlen?"
+"Würden Sie dieses OiRA-Tool einem Unternehmen mit ähnlichem Bedarf "
+"empfehlen?"
 
 #. Default: "Through which channel did you learn about this tool?"
 #: euphorie/client/browser/company.py:88
@@ -5853,7 +5875,8 @@ msgstr "Fügen Sie Lösungstexte auf Modulen ein"
 #. Default: "Include “Legal and policy references” texts on risks"
 #: euphorie/content/browser/export.py:123
 msgid "label_survey_export_include_risk_legal_texts"
-msgstr "Fügen Sie rechtliche und politische Referenzen-Texte zu Gefährdungen ein"
+msgstr ""
+"Fügen Sie rechtliche und politische Referenzen-Texte zu Gefährdungen ein"
 
 #. Default: "Obsolete OiRA tool"
 #: euphorie/content/surveygroup.py:53
@@ -6285,11 +6308,12 @@ msgstr "Erforderliche Eingabe fehlt."
 #: euphorie/client/browser/templates/consultancy.pt:37
 msgid "message_find_consultants"
 msgstr ""
-"Es ist möglich, Unterstützung beim Abschluss einer Gefährdungsbeurteilung zu "
-"beantragen oder eine Gefährdungsanalyse durch Sie durchzuführen und von einem OSH"
-"-Berater zu validieren. Ein OSH-Berater kann Ihrer Gefährdungsbeurteilung eine "
-"offizielle Validierung geben. Eine Validierung kann nur von Benutzern mit "
-"der Berechtigungsstufe „Verwalten“ oder höher angefordert werden."
+"Es ist möglich, Unterstützung beim Abschluss einer Gefährdungsbeurteilung zu"
+" beantragen oder eine Gefährdungsanalyse durch Sie durchzuführen und von "
+"einem OSH-Berater zu validieren. Ein OSH-Berater kann Ihrer "
+"Gefährdungsbeurteilung eine offizielle Validierung geben. Eine Validierung "
+"kann nur von Benutzern mit der Berechtigungsstufe „Verwalten“ oder höher "
+"angefordert werden."
 
 #. Default: "When you invalidate this risk assessment, it will lose its
 #. validated status. You can still request for re-validation at a later time."
@@ -6297,8 +6321,8 @@ msgstr ""
 msgid "message_invalidate_ra"
 msgstr ""
 "Wenn Sie diese Gefährdungsbeurteilung ungültig machen, verliert sie den "
-"validierten Status. Sie können weiterhin zu einem späteren Zeitpunkt "
-"eine Neubewertung beantragen."
+"validierten Status. Sie können weiterhin zu einem späteren Zeitpunkt eine "
+"Neubewertung beantragen."
 
 #. Default: "Decide on the best way to involve your staff! You can for example
 #. conduct a meeting or a focus group with workers and go through the
@@ -6310,8 +6334,8 @@ msgid "message_involve_workers_how_to"
 msgstr ""
 "Entscheiden Sie sich für den besten Weg, um Ihre Mitarbeiter einzubeziehen! "
 "Sie können ein Meeting oder eine Fokusgruppe mit Arbeitnehmern für Beispiele"
-" für die Gefährdungsbeurteilung zusammenstellen. Sie können auch den Inhalt des "
-"Tools oder die Teile davon herunterladen und es für Informationen und "
+" für die Gefährdungsbeurteilung zusammenstellen. Sie können auch den Inhalt "
+"des Tools oder die Teile davon herunterladen und es für Informationen und "
 "Feedback mit Ihren Mitarbeitern teilen."
 
 #. Default: "One of the keys to good OSH leadership is getting workers
@@ -6325,8 +6349,15 @@ msgstr ""
 #: euphorie/client/browser/templates/involve.pt:30
 msgid "message_involve_workers_requirement"
 msgstr ""
-"Einer der Schlüssel zu guter Führung im Arbeitsschutz ist die Einbeziehung der Beschäftigten. Arbeitgeber haben eine <a href=\"https://osha.europa.eu/de/legislation/directives/the-osh-framework-directive/the-osh-framework-directive-introduction\">gesetzliche Pflicht</a>, die Beschäftigten zu Fragen der Sicherheit und Gesundheit zu konsultieren. Es lohnt sich jedoch, über die Mindestanforderungen hinauszugehen. Das Arbeitsschutzmanagement ist erfolgreicher, wenn es die aktive Beteiligung der Beschäftigten fördert und einen Dialog zwischen Beschäftigten und Führungskräften ermöglicht."
-
+"Einer der Schlüssel zu guter Führung im Arbeitsschutz ist die Einbeziehung "
+"der Beschäftigten. Arbeitgeber haben eine <a "
+"href=\"https://osha.europa.eu/de/legislation/directives/the-osh-framework-"
+"directive/the-osh-framework-directive-introduction\">gesetzliche "
+"Pflicht</a>, die Beschäftigten zu Fragen der Sicherheit und Gesundheit zu "
+"konsultieren. Es lohnt sich jedoch, über die Mindestanforderungen "
+"hinauszugehen. Das Arbeitsschutzmanagement ist erfolgreicher, wenn es die "
+"aktive Beteiligung der Beschäftigten fördert und einen Dialog zwischen "
+"Beschäftigten und Führungskräften ermöglicht."
 
 #. Default: "Learn more about certificates."
 #: euphorie/client/browser/templates/certificates.pt:34
@@ -6349,8 +6380,8 @@ msgstr ""
 #: euphorie/content/user.py:212
 msgid "message_lock_warn"
 msgstr ""
-"Bitte beachten Sie, dass Sie noch %s Anmeldeversuche haben, bevor Ihr "
-"Konto gesperrt wird."
+"Bitte beachten Sie, dass Sie noch %s Anmeldeversuche haben, bevor Ihr Konto "
+"gesperrt wird."
 
 #. Default: "Members can view and edit all risk assessments of the
 #. organisation."
@@ -6358,8 +6389,8 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:92
 msgid "message_member_see_all"
 msgstr ""
-"Mitglieder können alle Gefährdungsbeurteilungen der Organisation anzeigen und "
-"bearbeiten."
+"Mitglieder können alle Gefährdungsbeurteilungen der Organisation anzeigen "
+"und bearbeiten."
 
 #. Default: "You cannot delete an OiRA Tool version that is published. Please
 #. unpublish it first."
@@ -6407,9 +6438,9 @@ msgstr ""
 #: euphorie/client/browser/reset_password.py:189
 msgid "message_password_recovery_email_sent"
 msgstr ""
-"Eine E-Mail wird an ${email} gesendet, wenn wir ein Konto für die E-Mail"
-"-Adresse finden können. Bitte verwenden Sie den Link innerhalb der E-Mail, "
-"um Ihr Passwort zurückzusetzen."
+"Eine E-Mail wird an ${email} gesendet, wenn wir ein Konto für die E-Mail-"
+"Adresse finden können. Bitte verwenden Sie den Link innerhalb der E-Mail, um"
+" Ihr Passwort zurückzusetzen."
 
 #. Default: "Additional costs may be charged by your consultant."
 #: euphorie/client/browser/templates/panel-invalidate-risk-assessment.pt:34
@@ -6434,8 +6465,8 @@ msgstr "OiRA-Tool erfolgreich veröffentlicht. Es kann hier betrachtet werden"
 #: euphorie/client/browser/templates/panel-validate-risk-assessment.pt:39
 msgid "message_read_and_reviewd_assessment_and_approve"
 msgstr ""
-"Ich habe diese Gefährdungsbeurteilung gelesen und überprüft und gegebenenfalls "
-"korrigiert, und ich genehmige Ihren Inhalt."
+"Ich habe diese Gefährdungsbeurteilung gelesen und überprüft und "
+"gegebenenfalls korrigiert, und ich genehmige Ihren Inhalt."
 
 #. Default: "Click on 'Send validation request' to ask the selected OSH
 #. consultant to review and validate your risk assessment."
@@ -6443,8 +6474,8 @@ msgstr ""
 msgid "message_request_validation"
 msgstr ""
 "Klicken Sie auf \"Validierungsanfrage senden\", um den ausgewählten "
-"OshConsultant zu fragen, um Ihre Gefährdungsbeurteilung zu überprüfen und zu "
-"validieren."
+"OshConsultant zu fragen, um Ihre Gefährdungsbeurteilung zu überprüfen und zu"
+" validieren."
 
 #. Default: "Administrators can create, edit and remove user accounts.
 #. Administrators can also make risk assessments and edit existing ones, lock
@@ -6454,9 +6485,9 @@ msgstr ""
 msgid "message_role_administrator"
 msgstr ""
 "Administratoren können Benutzerkonten erstellen, bearbeiten und entfernen. "
-"Administratoren können auch Gefährdungsbeurteilungen vornehmen und vorhandene "
-"bearbeiten, Gefährdungsbeurteilungen zu sperren, Schulungen zu erstellen und "
-"Schulungen zu machen."
+"Administratoren können auch Gefährdungsbeurteilungen vornehmen und "
+"vorhandene bearbeiten, Gefährdungsbeurteilungen zu sperren, Schulungen zu "
+"erstellen und Schulungen zu machen."
 
 #. Default: "Consultants can make and edit risk assessments, validate and
 #. approve risk assessments and create trainings."
@@ -6473,19 +6504,22 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:82
 msgid "message_role_manager"
 msgstr ""
-"Manager/politische Entscheidungsträger können Gefährdungsbeurteilungen erstellen, editieren und sperren sowie Schulungen erstellen und Schulungen "
+"Manager/politische Entscheidungsträger können Gefährdungsbeurteilungen "
+"erstellen, editieren und sperren sowie Schulungen erstellen und Schulungen "
 "machen."
 
 #. Default: "Members can make risk assessments and take trainings."
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:70
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:91
 msgid "message_role_member"
-msgstr "Mitglieder können Gefährdungsbeurteilungen vornehmen und Schulungen machen."
+msgstr ""
+"Mitglieder können Gefährdungsbeurteilungen vornehmen und Schulungen machen."
 
 #. Default: "This risk assessment is currently under review by ${consultant}."
 #: euphorie/client/browser/templates/consultancy.pt:72
 msgid "message_session_under_review"
-msgstr "Diese Gefährdungsbeurteilung wird derzeit von ${Consultant} überprüft."
+msgstr ""
+"Diese Gefährdungsbeurteilung wird derzeit von ${Consultant} überprüft."
 
 #. Default: "${validation_time}: ${consultant} has reviewed and validated this
 #. risk assessment"
@@ -6493,8 +6527,8 @@ msgstr "Diese Gefährdungsbeurteilung wird derzeit von ${Consultant} überprüft
 #: euphorie/client/browser/templates/locking_menu.pt:37
 msgid "message_session_validated"
 msgstr ""
-"${validation_time}: ${Consultant} hat diese Gefährdunsbeurteilung überprüft und "
-"validiert"
+"${validation_time}: ${Consultant} hat diese Gefährdunsbeurteilung überprüft "
+"und validiert"
 
 #. Default: "If you want to continue working on a copy of this assessment, for
 #. instance to report on a new year, then you can use the option 'Duplicate'.
@@ -6503,8 +6537,9 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-invalidate-risk-assessment.pt:41
 msgid "message_unlock_or_duplicate"
 msgstr ""
-"Wenn Sie eine Kopie dieser Gefährdungsbeurteilung erstellen möchten, zum Beispiel um "
-"diese im neuen Jahr zu erneuern, können Sie die Option 'Duplizieren' verwenden."
+"Wenn Sie eine Kopie dieser Gefährdungsbeurteilung erstellen möchten, zum "
+"Beispiel um diese im neuen Jahr zu erneuern, können Sie die Option "
+"'Duplizieren' verwenden."
 
 #. Default: "Cancelled unpublish action."
 #: euphorie/content/browser/surveygroup.py:291
@@ -6532,22 +6567,24 @@ msgstr "Das Konto „${title}“ wurde entsperrt."
 #: euphorie/client/browser/templates/panel-request-validation.pt:49
 msgid "message_warning_locking_after_validation"
 msgstr ""
-"Nachdem Ihr Berater diese Gefährdungsbeurteilung validiert hat, wird sie gesperrt. "
-"Wenn Sie die Gefährdungsbeurteilung erneut bearbeiten möchten, können Sie diese "
-"Bewertung immer zu einem späteren Zeitpunkt ein Duplikat dieser Bewertung "
-"durchführen."
+"Nachdem Ihr Berater diese Gefährdungsbeurteilung validiert hat, wird sie "
+"gesperrt. Wenn Sie die Gefährdungsbeurteilung erneut bearbeiten möchten, "
+"können Sie diese Bewertung immer zu einem späteren Zeitpunkt ein Duplikat "
+"dieser Bewertung durchführen."
 
 #. Default: "You are requested to review and validate this risk assessment."
 #: euphorie/client/browser/templates/consultancy.pt:98
 msgid "message_you_are_requested_to_validate_assessment"
 msgstr ""
-"Sie werden gebeten, diese Gefährdungsbeurteilung zu überprüfen und zu validieren."
+"Sie werden gebeten, diese Gefährdungsbeurteilung zu überprüfen und zu "
+"validieren."
 
 #. Default: "You don't have any risk assessments yet."
 #: euphorie/client/browser/templates/portlet_my_ras.pt:98
 msgid "message_you_dont_have_any_risk_assessments_yet"
 msgstr ""
-"Sie haben noch keine Gefährdungsbeurteilungen. Erstellen Sie zunächst eine neue."
+"Sie haben noch keine Gefährdungsbeurteilungen. Erstellen Sie zunächst eine "
+"neue."
 
 #. Default: "You have reviewed and validated this risk assessment."
 #: euphorie/client/browser/templates/consultancy.pt:113
@@ -6790,16 +6827,16 @@ msgstr ""
 #: euphorie/client/browser/risk.py:386
 msgid "placeholder_comment_field"
 msgstr ""
-"Diese Notizen sind im Bericht sichtbar. Verwenden Sie sie für alles, was Sie "
-"ggf. über diese Gefährdung notieren möchten."
+"Diese Notizen sind im Bericht sichtbar. Verwenden Sie sie für alles, was Sie"
+" ggf. über diese Gefährdung notieren möchten."
 
 #. Default: "These notes will be visible in the report and the training. Use
 #. it for anything else you might want to write about this risk."
 #: euphorie/client/browser/risk.py:380
 msgid "placeholder_comment_field_training"
 msgstr ""
-"Diese Notizen sind im Bericht und im Training sichtbar. Verwenden Sie sie für alles "
-"andere, was Sie vielleicht über diese Gefährdung notieren möchten."
+"Diese Notizen sind im Bericht und im Training sichtbar. Verwenden Sie sie "
+"für alles andere, was Sie vielleicht über diese Gefährdung notieren möchten."
 
 #. Default: "Describe a measure that is already in place but not yet listed
 #. here."
@@ -6922,9 +6959,10 @@ msgstr "eine gewerkschaftliche Organisation"
 msgid "register_teaser"
 msgstr "Sie haben kein Konto? Dann ${register_link} Sie sich bitte zunächst."
 
+#. AI-generated
 #: euphorie/client/browser/templates/confirm-email.pt:24
 msgid "reminder_email_footer"
-msgstr ""
+msgstr "Erinnerungs-E-Mail-Fußzeile"
 
 #. Default: "Required expertise:"
 #: euphorie/client/docx/compiler.py:752
@@ -6990,9 +7028,7 @@ msgstr "Situation"
 #. date ${date}."
 #: euphorie/client/docx/compiler.py:991
 msgid "report_identification_revision"
-msgstr ""
-"Dieses Dokument basiert auf dem OIRA Tool '${title}' datiert "
-"${Date}."
+msgstr "Dieses Dokument basiert auf dem OIRA Tool '${title}' datiert ${Date}."
 
 #. Default: "Now that you have finished identifying all the risks in your
 #. organisation and created an action plan you can create a report which lists
@@ -7396,8 +7432,8 @@ msgstr "Status von “${survey_title}”"
 #: euphorie/client/browser/templates/modal-template.pt:21
 msgid "title_tool"
 msgstr ""
-"OiRA – Online interactive Risk Assessment – das interaktive Online-Tool "
-"zur Gefährdungsbeurteilung"
+"OiRA – Online interactive Risk Assessment – das interaktive Online-Tool zur "
+"Gefährdungsbeurteilung"
 
 #. Default: "Tool category"
 #: euphorie/content/behaviors/toolcategory.py:12
@@ -8310,16 +8346,17 @@ msgstr "Sie haben noch keine Zertifikate erhalten."
 
 msgid "message_you_dont_have_any_risk_assessments_yet"
 msgstr ""
-"Sie haben noch keine Gefährdungsbeurteilungen. Erstellen Sie zunächst eine neue."
+"Sie haben noch keine Gefährdungsbeurteilungen. Erstellen Sie zunächst eine "
+"neue."
 
 msgid "message_training_enabled"
 msgstr ""
 "Durch das Aktivieren des Trainings werden Trainingsfunktionen für diese "
-"Gefährdungsbeurteilung freigeschaltet. Das Training ist für alle Benutzer in Ihrer "
-"Organisation über den Tab 'Schulung' in der Seitenleiste links zugänglich. "
-"Benutzer mit der Berechtigungsstufe 'Basis' können nur an einem Training "
-"teilnehmen und ein Zertifikat erhalten, wenn die Gefährdungsbeurteilung gesperrt "
-"ist."
+"Gefährdungsbeurteilung freigeschaltet. Das Training ist für alle Benutzer in"
+" Ihrer Organisation über den Tab 'Schulung' in der Seitenleiste links "
+"zugänglich. Benutzer mit der Berechtigungsstufe 'Basis' können nur an einem "
+"Training teilnehmen und ein Zertifikat erhalten, wenn die "
+"Gefährdungsbeurteilung gesperrt ist."
 
 msgid "message_training_promoted"
 msgstr ""
@@ -8399,7 +8436,8 @@ msgid "label_learn_about_consultancy"
 msgstr "Erfahren Sie mehr über Beratung"
 
 msgid "message_consultant_has_reviewed"
-msgstr "${user} hat diese Gefährdungsbeurteilung überprüft, validiert und gesperrt."
+msgstr ""
+"${user} hat diese Gefährdungsbeurteilung überprüft, validiert und gesperrt."
 
 msgid "label_role_administrator"
 msgstr "Administrator"
@@ -8427,16 +8465,17 @@ msgstr "Bearbeiten"
 
 msgid "message_permission_level_edit"
 msgstr ""
-"Benutzer kann Schulungen absolvieren und alle Gefährdungsbeurteilungen einsehen und"
-" bearbeiten."
+"Benutzer kann Schulungen absolvieren und alle Gefährdungsbeurteilungen "
+"einsehen und bearbeiten."
 
 msgid "label_permission_level_manage"
 msgstr "Verwalten"
 
 msgid "message_permission_level_manage"
 msgstr ""
-"Der Benutzer kann Schulungen absolvieren, alle Gefährdungsbeurteilungen einsehen "
-"und bearbeiten, Validierungen anfordern und Gefährdungsbeurteilungen sperren."
+"Der Benutzer kann Schulungen absolvieren, alle Gefährdungsbeurteilungen "
+"einsehen und bearbeiten, Validierungen anfordern und "
+"Gefährdungsbeurteilungen sperren."
 
 msgid "label_permission_level_validate"
 msgstr "Validieren"
@@ -8449,8 +8488,8 @@ msgstr "Validierung zurückziehen"
 
 msgid "message_permission_level_validate"
 msgstr ""
-"Der Benutzer kann Schulungen absolvieren, alle Gefährdungsbeurteilungen einsehen "
-"und bearbeiten sowie Gefährdungsbeurteilungen validieren."
+"Der Benutzer kann Schulungen absolvieren, alle Gefährdungsbeurteilungen "
+"einsehen und bearbeiten sowie Gefährdungsbeurteilungen validieren."
 
 msgid "label_permission_level_full"
 msgstr "Vollständig"
@@ -8483,15 +8522,15 @@ msgstr "Einladen per E-Mail"
 
 msgid "message_unlock_ra"
 msgstr ""
-"Wenn Sie diese Gefährdungsbeurteilung entsperren, verliert sie ihren validierten "
-"Status. Sie können zu einem späteren Zeitpunkt immer noch eine "
+"Wenn Sie diese Gefährdungsbeurteilung entsperren, verliert sie ihren "
+"validierten Status. Sie können zu einem späteren Zeitpunkt immer noch eine "
 "Rückbestätigung anfordern."
 
 msgid "message_unlock_and_invalidate_by_consultant"
 msgstr ""
-"Sie sind dabei, diese Gefährdungsbeurteilung zu entwerten und zu entsperren. Wenn "
-"Sie nur einige Korrekturen vornehmen möchten, vergessen Sie nicht, sie "
-"erneut zu validieren, wenn Sie fertig sind."
+"Sie sind dabei, diese Gefährdungsbeurteilung zu entwerten und zu entsperren."
+" Wenn Sie nur einige Korrekturen vornehmen möchten, vergessen Sie nicht, sie"
+" erneut zu validieren, wenn Sie fertig sind."
 
 msgid "message_training"
 msgstr ""
@@ -9459,9 +9498,10 @@ msgstr ""
 
 msgid "message_invite_for_training"
 msgstr ""
-"Laden Sie eine Kollegin oder einen Kollegen ein, um die relevanten Gefährdungen "
-"und Maßnahmen von „{0}“ kennenzulernen. Der eingeladene Benutzer erhält "
-"automatisch Zugriff auf diese Gefährdungsbeurteilung zu Schulungszwecken."
+"Laden Sie eine Kollegin oder einen Kollegen ein, um die relevanten "
+"Gefährdungen und Maßnahmen von „{0}“ kennenzulernen. Der eingeladene "
+"Benutzer erhält automatisch Zugriff auf diese Gefährdungsbeurteilung zu "
+"Schulungszwecken."
 
 msgid "message_include_ellipsis"
 msgstr "Einfügen…"

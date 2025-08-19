@@ -111,9 +111,10 @@ msgstr ""
 msgid "A short summary of the content."
 msgstr "Σύντομη σύνοψη του περιεχομένου."
 
+#. AI-generated
 #: euphorie/content/profiles/default/types/euphorie.solution.xml
 msgid "A standard measure for a risk."
-msgstr ""
+msgstr "Ένα τυπικό μέτρο για έναν κίνδυνο."
 
 #: euphorie/client/browser/templates/tool-more-info.pt:36
 msgid "About this tool"
@@ -123,17 +124,20 @@ msgstr "Σχετικά με αυτό το εργαλείο"
 msgid "Accept"
 msgstr "ΑποδοχήF"
 
+#. AI-generated
 #: euphorie/content/country.py:91
 msgid "Action plan (Excel spreadsheet)"
-msgstr ""
+msgstr "Δράσης (Υπολογιστικό φύλλο Excel)"
 
+#. AI-generated
 #: euphorie/content/browser/module.py:38
 msgid "Add %s"
-msgstr ""
+msgstr "Προσθέστε %s"
 
+#. AI-generated
 #: euphorie/deployment/tiles/templates/addbar.pt:47
 msgid "Add Measure"
-msgstr ""
+msgstr "Προσθήκη Μέτρου"
 
 #: euphorie/deployment/tiles/templates/addbar.pt:23
 msgid "Add Module"
@@ -174,9 +178,10 @@ msgstr "Προσθήκη επιχείρησης/οργανισμού"
 msgid "Add user"
 msgstr "Προσθήκη χρήστη"
 
+#. AI-generated
 #: euphorie/content/browser/library.py:208
 msgid "Added a copy of \"${title}\" to your OiRA tool."
-msgstr ""
+msgstr "Προστέθηκε ένα αντίγραφο του \"${title}\" στο εργαλείο OiRA σας."
 
 #: euphorie/client/browser/templates/webhelpers.pt:1002
 msgid "Additional Measure"
@@ -198,37 +203,47 @@ msgstr "Όλες οι γλώσσες"
 msgid "Almost done&hellip;"
 msgstr "Σχεδόν ολοκληρώσατε&hellip;"
 
+#. AI-generated
 #: euphorie/client/browser/login.py:225
 msgid "An account was created for you with email address ${email}"
 msgstr ""
+"Δημιουργήθηκε ένας λογαριασμός για εσάς με την διεύθυνση email ${email}"
 
 #: euphorie/client/browser/settings.py:361
 msgid "An error occured while sending the confirmation email."
 msgstr "Σημειώθηκε ένα σφάλμα κατά την αποστολή του email επιβεβαίωσης."
 
+#. AI-generated
 #: euphorie/client/browser/reset_password.py:113
 msgid "An error occured while sending the password reset instructions"
 msgstr ""
+"Παρουσιάστηκε σφάλμα κατά την αποστολή των οδηγιών επαναφοράς του κωδικού "
+"πρόσβασης"
 
+#. AI-generated
 #: euphorie/client/browser/templates/risk_actionplan.pt:65
 msgid "Answer:"
-msgstr ""
+msgstr "Απάντηση:"
 
+#. AI-generated
 #: euphorie/client/browser/templates/more_menu.pt:53
 msgid "Archive"
-msgstr ""
+msgstr "Αρχείο"
 
+#. AI-generated
 #: euphorie/client/browser/templates/confirmation-archive-session.pt:13
 msgid "Archive risk assessment"
-msgstr ""
+msgstr "Αρχειοθέτηση αξιολόγησης κινδύνου"
 
+#. AI-generated
 #: euphorie/client/browser/country.py:456
 msgid "Archived"
-msgstr ""
+msgstr "Αρχειοθετημένο"
 
+#. AI-generated
 #: euphorie/client/browser/templates/confirmation-archive-session.pt:25
 msgid "Are you sure you want to archive this session?"
-msgstr ""
+msgstr "Είστε σίγουροι ότι θέλετε να αρχειοθετήσετε αυτήν τη συνεδρία;"
 
 #: euphorie/client/browser/templates/confirmation-delete-risk.pt:29
 msgid "Are you sure you want to continue? This action can not be reverted."
@@ -270,10 +285,11 @@ msgstr "Διαθέσιμα εργαλεία OiRA"
 msgid "Awarded certificates"
 msgstr "Απονεμηθέντα πιστοποιητικά"
 
+#. AI-generated
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:34
 #: euphorie/client/browser/templates/sessions-dashboard.pt:164
 msgid "Back"
-msgstr ""
+msgstr "Πίσω"
 
 #: euphorie/client/browser/templates/confirmation-clone-session.pt:25
 #: euphorie/client/browser/templates/more_menu.pt:62
@@ -300,9 +316,10 @@ msgstr "Υποψήφιες χώρες "
 msgid "Candidate country"
 msgstr "Υποψήφια χώρα "
 
+#. AI-generated
 #: euphorie/client/browser/templates/training_certificate_inner.pt:13
 msgid "Certificate"
-msgstr ""
+msgstr "Πιστοποιητικό"
 
 #: euphorie/client/browser/settings.py:75
 msgid "Change email address"
@@ -312,9 +329,10 @@ msgstr "Αλλαγή διεύθυνσης email "
 msgid "Classic OiRA Tool with positive and negative statements."
 msgstr "Κλασικό εργαλείο OiRA με θετικές και αρνητικές δηλώσεις."
 
+#. AI-generated
 #: euphorie/client/browser/templates/training-slides.pt:95
 msgid "Click to edit"
-msgstr ""
+msgstr "Κάντε κλικ για επεξεργασία"
 
 #: euphorie/content/browser/templates/profilequestion_add.pt:104
 #: euphorie/content/browser/templates/profilequestion_edit.pt:111
@@ -336,9 +354,10 @@ msgstr "Κλείσιμο"
 msgid "Comments"
 msgstr "Σχόλια"
 
+#. AI-generated
 #: euphorie/content/country.py:86
 msgid "Compact report (Word document)"
-msgstr ""
+msgstr "Συμπαγές αναφορά (Έγγραφο Word)"
 
 #: euphorie/client/browser/settings.py:386
 msgid "Confirm OiRA email address change"
@@ -384,9 +403,10 @@ msgstr "Συνέχεια"
 msgid "Continue to action plan"
 msgstr "Μετάβαση στο Σχέδιο Δράσης"
 
+#. AI-generated
 #: euphorie/client/browser/templates/module_identification_custom.pt:69
 msgid "Continue to report"
-msgstr ""
+msgstr "Συνέχεια στην αναφορά"
 
 #: euphorie/client/browser/templates/surveys.pt:54
 #: euphorie/client/browser/templates/training_certificate_inner.pt:51
@@ -418,9 +438,10 @@ msgstr "Διαγραφή λογαριασμού"
 msgid "Delete custom risk"
 msgstr "Διαγραφή πρόσθετου κινδύνου (από τον χρήστη)"
 
+#. AI-generated
 #: euphorie/client/browser/templates/risk_identification_custom.pt:39
 msgid "Delete risk"
-msgstr ""
+msgstr "Διαγραφή κινδύνου"
 
 #: euphorie/client/browser/templates/confirmation-delete-session.pt:15
 msgid "Delete risk assessment"
@@ -434,13 +455,15 @@ msgstr "Διαγράψτε αυτή τη μελέτη Εκτίμησης Κιν�
 msgid "Describe the risk..."
 msgstr "Περιγράψτε τον κίνδυνο…"
 
+#. AI-generated
 #: euphorie/content/country.py:121
 msgid "Description of measures"
-msgstr ""
+msgstr "Περιγραφή των μέτρων"
 
+#. AI-generated
 #: euphorie/content/country.py:118
 msgid "Description of risks"
-msgstr ""
+msgstr "Περιγραφή των κινδύνων"
 
 #: euphorie/client/browser/templates/report_landing.pt:199
 msgid "Did you like this tool? Share it with your colleagues and friends!"
@@ -486,9 +509,10 @@ msgstr "Επεξεργασία ${name} "
 msgid "Edit Profile question"
 msgstr "Επεξεργασία Ερώτηση προφίλ"
 
+#. AI-generated
 #: euphorie/client/browser/templates/shell.pt:363
 msgid "Edit link"
-msgstr ""
+msgstr "Επεξεργασία συνδέσμου"
 
 #: euphorie/client/browser/templates/organisation.pt:133
 msgid "Edit organisation"
@@ -514,44 +538,51 @@ msgstr "Εισαγωγή ονομασίας κάθε τοποθεσίας"
 msgid "European Union"
 msgstr "Ευρωπαϊκή Ένωση "
 
+#. AI-generated
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:66
 #: euphorie/client/browser/templates/sessions-dashboard.pt:196
 msgid "Expand sidebar"
-msgstr ""
+msgstr "Ανάπτυξη πλευρικής γραμμής"
 
+#. AI-generated
 #: euphorie/content/browser/export.py:207
 msgid "Export"
-msgstr ""
+msgstr "Εξαγωγή"
 
+#. AI-generated
 #: euphorie/content/browser/export.py:187
 msgid "Export OiRA Tool"
-msgstr ""
+msgstr "Εξαγωγή Εργαλείου OiRA"
 
 #: euphorie/content/utils.py:49
 msgid "F.Y.R. Macedonia"
 msgstr "ΠΓΔ Μακεδονίας"
 
+#. AI-generated
 #: euphorie/client/browser/templates/assessments.pt:23
 msgid "Filter"
-msgstr ""
+msgstr "Φίλτρο"
 
+#. AI-generated
 #: euphorie/client/browser/templates/portlet-my-ras.pt:32
 #: euphorie/client/browser/templates/surveys.pt:46
 msgid "Filters"
-msgstr ""
+msgstr "Φίλτρα"
 
 #: euphorie/client/browser/templates/consultancy.pt:125
 msgid "Find an OSH consultant."
 msgstr "Αναζητείστε παρόχους συμβουλευτικών υπηρεσιών για την ΕΑΥ."
 
+#. AI-generated
 #: euphorie/content/browser/templates/training_question.pt:19
 #: euphorie/content/training_question.py:18
 msgid "First wrong answer"
-msgstr ""
+msgstr "Πρώτη λάθος απάντηση"
 
+#. AI-generated
 #: euphorie/client/browser/templates/shell.pt:317
 msgid "Follow"
-msgstr ""
+msgstr "Ακολούθησε"
 
 #: euphorie/client/browser/templates/training_certificate_inner.pt:34
 msgid "For successfully finishing the training for ${session} on ${date}."
@@ -567,21 +598,24 @@ msgstr "Τύπος: Excel (.xls)"
 msgid "Format: Portable Document Format (.pdf)"
 msgstr "Μορφή: PDF (.pdf)"
 
+#. AI-generated
 #: euphorie/content/utils.py:237
 msgid "Full (show Description and General Approach)"
-msgstr ""
+msgstr "Πλήρης (εμφάνιση Περιγραφής και Γενικής Προσέγγισης)"
 
+#. AI-generated
 #: euphorie/content/country.py:88
 msgid "Full report (Word document)"
-msgstr ""
+msgstr "Πλήρης αναφορά (Έγγραφο Word)"
 
 #: euphorie/client/browser/templates/about.pt:160
 msgid "Germany"
 msgstr "Γερμανία"
 
+#. AI-generated
 #: euphorie/client/browser/templates/portlet-my-ras.pt:53
 msgid "Hide archived risk assessments"
-msgstr ""
+msgstr "Απόκρυψη αρχειοθετημένων αξιολογήσεων κινδύνου"
 
 #: euphorie/client/browser/templates/login.pt:334
 msgid "How long will it take?"
@@ -621,9 +655,10 @@ msgstr "Θέλω να μοιραστώ μαζί σας τα παρακάτω"
 msgid "Identifier"
 msgstr "Αναγνωριστικό"
 
+#. AI-generated
 #: euphorie/content/browser/upload.py:565
 msgid "Import OiRA Tool version"
-msgstr ""
+msgstr "Εισαγωγή έκδοσης εργαλείου OiRA"
 
 #: euphorie/client/browser/templates/tooltips.pt:21
 msgid "Important"
@@ -638,9 +673,10 @@ msgstr "Πληροφορίες"
 msgid "Information"
 msgstr "Πληροφορίες"
 
+#. AI-generated
 #: euphorie/client/browser/templates/shell.pt:338
 msgid "Insert"
-msgstr ""
+msgstr "Εισαγωγή"
 
 #: euphorie/client/browser/risk.py:1140
 msgid "Invalid file format for image. Please use PNG, JPEG or GIF."
@@ -652,13 +688,15 @@ msgstr ""
 msgid "Invalid password"
 msgstr "Μη αποδεκτός κωδικός πρόσβασης"
 
+#. AI-generated
 #: euphorie/client/browser/reset_password.py:239
 msgid "Invalid security token, try to request a new one"
-msgstr ""
+msgstr "Μη έγκυρο ασφαλές μάρκερ, προσπαθήστε να ζητήσετε ένα καινούργιο"
 
+#. AI-generated
 #: euphorie/client/browser/training.py:731
 msgid "It seems you missed a slide"
-msgstr ""
+msgstr "Φαίνεται ότι έχετε χάσει μια διαφάνεια"
 
 #: euphorie/client/browser/templates/login.pt:336
 msgid ""
@@ -697,13 +735,15 @@ msgstr "Μάθετε περισσότερα σχετικά με αυτό το ε
 msgid "Legal and policy references"
 msgstr "Νομικές αναφορές και αναφορές πολιτικής"
 
+#. AI-generated
 #: euphorie/client/browser/templates/shell.pt:328
 msgid "Link text"
-msgstr ""
+msgstr "Κείμενο συνδέσμου"
 
+#. AI-generated
 #: euphorie/client/browser/templates/shell.pt:289
 msgid "Loading Risk Assessments&hellip;"
-msgstr ""
+msgstr "Φόρτωση Αξιολογήσεων Κινδύνου&hellip;"
 
 #: euphorie/content/browser/templates/user_mgmt.pt:42
 msgid "Login"
@@ -718,22 +758,25 @@ msgstr "Λογότυπο (Προαιρετικό)"
 msgid "Manage"
 msgstr "Για τη διαχείριση"
 
+#. AI-generated
 #: euphorie/content/browser/similar_titles.py:35
 msgid "Maximum similarity"
-msgstr ""
+msgstr "Μέγιστη ομοιότητα"
 
+#. AI-generated
 #: euphorie/content/browser/similar_titles.py:36
 msgid "Maximum similarity between titles"
-msgstr ""
+msgstr "Μέγιστη ομοιότητα μεταξύ τίτλων"
 
 #: euphorie/client/browser/templates/webhelpers.pt:999
 #: euphorie/content/profiles/default/types/euphorie.solution.xml
 msgid "Measure"
 msgstr "Μέτρο"
 
+#. AI-generated
 #: euphorie/content/country.py:125
 msgid "Measure responsible and date"
-msgstr ""
+msgstr "Υπεύθυνος μέτρου και ημερομηνία"
 
 #: euphorie/client/browser/templates/measures_overview.pt:85
 msgid "Measure to be implemented by"
@@ -751,13 +794,15 @@ msgstr "Διαγραφή μέλους"
 msgid "Member updated"
 msgstr "Επικαιροποίηση μέλους"
 
+#. AI-generated
 #: euphorie/content/browser/similar_titles.py:26
 msgid "Minimum similarity"
-msgstr ""
+msgstr "Ελάχιστη ομοιότητα"
 
+#. AI-generated
 #: euphorie/content/browser/similar_titles.py:27
 msgid "Minimum similarity between titles"
-msgstr ""
+msgstr "Ελάχιστη ομοιότητα μεταξύ τίτλων"
 
 #: euphorie/content/profiles/default/types/euphorie.module.xml
 #: euphorie/deployment/browser/search.py:13
@@ -784,15 +829,17 @@ msgstr "Παρακολούθηση της σωστής ή μη διαχείρι�
 msgid "Montenegro"
 msgstr "Μαυροβούνιο"
 
+#. AI-generated
 #: euphorie/client/browser/templates/assessments.pt:211
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:167
 #: euphorie/client/browser/templates/tool_sessions.pt:174
 msgid "More"
-msgstr ""
+msgstr "Περισσότερα"
 
+#. AI-generated
 #: euphorie/client/browser/templates/training.pt:85
 msgid "More&hellip;"
-msgstr ""
+msgstr "Περισσότερα&hellip;"
 
 #: euphorie/content/browser/templates/profilequestion_view.pt:32
 msgid "Multiple Item Question"
@@ -834,30 +881,35 @@ msgstr "Νέος χρήστης"
 msgid "No"
 msgstr "Όχι"
 
+#. AI-generated
 #: euphorie/client/browser/templates/portlet-my-trainings.pt:72
 msgid "No certificates yet"
-msgstr ""
+msgstr "Δεν υπάρχουν ακόμη πιστοποιητικά"
 
+#. AI-generated
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:176
 msgid "No risk assessments are available for this selection."
-msgstr ""
+msgstr "Δεν υπάρχουν διαθέσιμες αξιολογήσεις κινδύνου για αυτήν την επιλογή."
 
+#. AI-generated
 #: euphorie/client/browser/templates/training-slides.pt:300
 #: euphorie/client/browser/templates/training.pt:391
 msgid "No training content is available"
-msgstr ""
+msgstr "Δεν υπάρχει διαθέσιμο περιεχόμενο εκπαίδευσης"
 
 #: euphorie/content/browser/templates/profilequestion_view.pt:33
 msgid "Not provided"
 msgstr "Δεν παρέχεται"
 
+#. AI-generated
 #: euphorie/deployment/browser/search.py:17
 msgid "OiRA Tool"
-msgstr ""
+msgstr "Εργαλείο OiRA"
 
+#. AI-generated
 #: euphorie/content/browser/upload.py:189
 msgid "OiRA Tool import"
-msgstr ""
+msgstr "Εισαγωγή εργαλείου OiRA"
 
 #: euphorie/deployment/browser/search.py:16
 msgid "OiRA Tool version"
@@ -906,17 +958,19 @@ msgstr ""
 "Κινδύνου, δηλαδή πώς να αναγνωρίζετε και να αξιολογείτε τους κινδύνους για "
 "την υγεία και την ασφάλεια στον χώρο εργασίας σας. "
 
+#. AI-generated
 #: euphorie/content/browser/similar_titles.py:192
 msgid "Operation cancelled."
-msgstr ""
+msgstr "Η λειτουργία ακυρώθηκε."
 
 #: euphorie/client/browser/templates/sessions-dashboard.pt:63
 msgid "Organisation"
 msgstr "Επιχείρηση/Οργανισμός"
 
+#. AI-generated
 #: euphorie/client/browser/organisation.py:187
 msgid "Organisation added"
-msgstr ""
+msgstr "Προστέθηκε οργανισμός"
 
 #: euphorie/client/browser/templates/panel-add-organisation.pt:34
 #: euphorie/client/browser/templates/panel-edit-organisation.pt:37
@@ -929,9 +983,10 @@ msgstr "Όνομα επιχείρησης/οργανισμού"
 msgid "Overview of measures"
 msgstr "Κατάλογος επισκόπησης των μέτρων"
 
+#. AI-generated
 #: euphorie/content/country.py:98
 msgid "Overview of measures (PDF)"
-msgstr ""
+msgstr "Επισκόπηση μέτρων (PDF)"
 
 #: euphorie/client/browser/session.py:1087
 #: euphorie/client/browser/templates/report_landing.pt:124
@@ -939,9 +994,10 @@ msgstr ""
 msgid "Overview of risks"
 msgstr "Κατάλογος επισκόπησης των κινδύνων"
 
+#. AI-generated
 #: euphorie/content/country.py:94
 msgid "Overview of risks (PDF)"
-msgstr ""
+msgstr "Επισκόπηση κινδύνων (PDF)"
 
 #: euphorie/client/browser/templates/organisation.pt:100
 msgid "Owner"
@@ -1053,9 +1109,10 @@ msgstr "παρέχετε στοιχεία στις ελεγκτικές αρχέ
 msgid "Question"
 msgstr "Ερώτηση"
 
+#. AI-generated
 #: euphorie/client/browser/templates/slide_question_try_again.pt:53
 msgid "Re-run the questions"
-msgstr ""
+msgstr "Επαναλάβετε τις ερωτήσεις"
 
 #: euphorie/client/browser/templates/risk_macros.pt:160
 msgid "Read more"
@@ -1100,13 +1157,19 @@ msgstr "Αφαίρεση "
 msgid "Remove the existing logo"
 msgstr "Διαγραφή υφιστάμενου λογότυπου"
 
+#. AI-generated
 #: euphorie/client/browser/templates/slide_question_try_again.pt:41
 msgid "Repeat the questions to find the correct answer and try again."
 msgstr ""
+"Επαναλάβετε τις ερωτήσεις για να βρείτε τη σωστή απάντηση και δοκιμάστε "
+"ξανά."
 
+#. AI-generated
 #: euphorie/client/browser/templates/slide_question_try_again.pt:46
 msgid "Repeat the questions to find the correct answers and try again."
 msgstr ""
+"Επαναλάβετε τις ερωτήσεις για να βρείτε τις σωστές απαντήσεις και δοκιμάστε "
+"ξανά."
 
 #: euphorie/client/browser/templates/panel-edit-organisation.pt:84
 msgid "Replace the existing logo"
@@ -1116,14 +1179,16 @@ msgstr "Αντικατάσταση υφιστάμενου λογότυπου"
 msgid "Republic of Serbia"
 msgstr "Δημοκρατία της Σερβίας"
 
+#. AI-generated
 #: euphorie/content/country.py:65
 msgid "Resources: Legal references and attachments"
-msgstr ""
+msgstr "Πηγές: Νομικές αναφορές και επισυνάψεις"
 
+#. AI-generated
 #: euphorie/content/browser/templates/training_question.pt:17
 #: euphorie/content/training_question.py:17
 msgid "Right answer"
-msgstr ""
+msgstr "Σωστή απάντηση"
 
 #: euphorie/content/profiles/default/types/euphorie.risk.xml
 #: euphorie/deployment/browser/search.py:15
@@ -1150,9 +1215,10 @@ msgstr "Ασφαλής κατάσταση"
 msgid "Risk present"
 msgstr "Προσοχή κίνδυνος!"
 
+#. AI-generated
 #: euphorie/content/browser/similar_titles_details.py:35
 msgid "Risks similar to ${title}"
-msgstr ""
+msgstr "Κίνδυνοι παρόμοιοι με ${title}"
 
 #: euphorie/client/browser/templates/training.pt:81
 msgid "Run slideshow"
@@ -1181,15 +1247,17 @@ msgstr ""
 "πληροφορίες. Παρακαλώ σημειώστε ότι οι αλλαγές που έγιναν στον υπολογιστή "
 "σας ΔΕΝ θα αποθηκευτούν στο εργαλείο OiRA."
 
+#. AI-generated
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:103
 #: euphorie/content/browser/similar_titles.py:176
 msgid "Search"
-msgstr ""
+msgstr "Αναζήτηση"
 
+#. AI-generated
 #: euphorie/content/browser/templates/training_question.pt:21
 #: euphorie/content/training_question.py:19
 msgid "Second wrong answer"
-msgstr ""
+msgstr "Δεύτερη λανθασμένη απάντηση"
 
 #: euphorie/content/browser/templates/user_mgmt.pt:41
 #: euphorie/content/profiles/default/types/euphorie.sector.xml
@@ -1205,9 +1273,10 @@ msgstr "Επιλογή ρόλου για τα νέα μέλη"
 msgid "Send e-mail"
 msgstr "Αποστολή ηλεκτρονικού μηνύματος"
 
+#. AI-generated
 #: euphorie/client/browser/session.py:697
 msgid "Session `${name}` has been archived."
-msgstr ""
+msgstr "Η σύνοδος `${name}` έχει αρχειοθετηθεί."
 
 #: euphorie/client/browser/session.py:643
 msgid "Session `${name}` has been deleted."
@@ -1217,21 +1286,24 @@ msgstr "Η μελέτη Εκτίμησης Κινδύνου `${name}` διαγρ
 msgid "Show library from ${dropdown}."
 msgstr "Προβολή βιβλιοθήκης από ${dropdown}."
 
+#. AI-generated
 #: euphorie/content/browser/similar_titles.py:186
 msgid "Show stored result"
-msgstr ""
+msgstr "Εμφάνιση αποθηκευμένου αποτελέσματος"
 
 #: euphorie/client/browser/templates/webhelpers.pt:68
 msgid "Sign in"
 msgstr "Συνδεθείτε"
 
+#. AI-generated
 #: euphorie/content/browser/similar_titles.py:51
 msgid "Similar Titles OiRA Tool"
-msgstr ""
+msgstr "Παρόμοιοι Τίτλοι Εργαλείου OiRA"
 
+#. AI-generated
 #: euphorie/content/utils.py:238
 msgid "Simple (show only General Approach)"
-msgstr ""
+msgstr "Απλή (εμφάνιση μόνο Γενικής Προσέγγισης)"
 
 #: euphorie/content/browser/templates/profilequestion_view.pt:36
 #: euphorie/content/profilequestion.py:80
@@ -1250,19 +1322,23 @@ msgstr "Προτεινόμενα μέτρα"
 msgid "Standard solution"
 msgstr "Στάνταρ λύση "
 
+#. AI-generated
 #: euphorie/client/browser/templates/training-slides.pt:50
 #: euphorie/client/browser/templates/training.pt:124
 msgid "Start"
-msgstr ""
+msgstr "Εκκίνηση"
 
 #: euphorie/client/browser/templates/slide_question_intro.pt:37
 msgid "Start the questions"
 msgstr "Έναρξη ερωτήσεων"
 
+#. AI-generated
 #: euphorie/client/browser/login.py:409
 #: euphorie/client/browser/templates/new-session-test.pt:119
 msgid "Starting a test session is not available in this OiRA application."
 msgstr ""
+"Η έναρξη μιας δοκιμαστικής συνόδου δεν είναι διαθέσιμη σε αυτή την εφαρμογή "
+"OiRA."
 
 #: euphorie/content/browser/module.py:20
 #: euphorie/deployment/tiles/addbar.py:19
@@ -1332,6 +1408,7 @@ msgstr ""
 msgid "The following certificates were awarded for this assessment."
 msgstr "Τα ακόλουθα πιστοποιητικά απονεμήθηκαν για αυτήν την αξιολόγηση."
 
+#. AI-generated
 #: euphorie/content/survey.py:62
 msgid ""
 "The introduction text is shown when starting a new OiRA Tool session. If no "
@@ -1339,14 +1416,19 @@ msgid ""
 "this text brief so it will easily fit on screens of small devices such as "
 "phones and PDAs."
 msgstr ""
+"Το κείμενο εισαγωγής εμφανίζεται κατά την έναρξη μιας νέας συνόδου OiRA "
+"Tool. Εάν δεν παρέχεται εισαγωγή εδώ, θα εμφανιστεί ένα πρότυπο κείμενο. "
+"Παρακαλώ διατηρήστε αυτό το κείμενο σύντομο, ώστε να χωράει ευκολότερα σε "
+"οθόνες μικρών συσκευών όπως τηλέφωνα και PDAs."
 
 #: euphorie/client/browser/session.py:785
 msgid "The risk assessment has been cloned"
 msgstr "Η αξιολόγηση κινδύνου έχει διπλασιαστεί."
 
+#. AI-generated
 #: euphorie/client/browser/organisation.py:324
 msgid "The role is invalid"
-msgstr ""
+msgstr "Ο ρόλος είναι άκυρος"
 
 #: euphorie/content/colour.py:21
 msgid "The specified colour is not valid."
@@ -1358,13 +1440,16 @@ msgstr ""
 "Υπάρχουν τέσσερα βασικά στάδια για την ολοκλήρωση της διαδικασίας εκπόνησης "
 "μιας μελέτης εκτίμησης των επαγγελματικών κινδύνων:"
 
+#. AI-generated
 #: euphorie/content/browser/templates/survey_view.pt:118
 msgid "There are no training questions yet"
-msgstr ""
+msgstr "Δεν υπάρχουν ακόμη ερωτήματα εκπαίδευσης"
 
+#. AI-generated
 #: euphorie/client/browser/session.py:620
 msgid "There is not enough information to proceed to the identification phase"
 msgstr ""
+"Δεν υπάρχει αρκετή πληροφορία για να προχωρήσετε στη φάση ταυτοποίησης"
 
 #: euphorie/client/browser/settings.py:265
 msgid "There were no changes to be saved."
@@ -1374,13 +1459,15 @@ msgstr "Δεν υπάρχουν αλλαγές για αποθήκευση."
 msgid "This OiRA tool was offered to you by ${external_site}"
 msgstr "Το παρόν εργαλείο OiRA σάς παρέχεται από ${external_site}"
 
+#. AI-generated
 #: euphorie/client/browser/reset_password.py:284
 msgid "This URL has expired, try to request a new one"
-msgstr ""
+msgstr "Αυτό το URL έχει λήξει, δοκιμάστε να ζητήσετε ένα καινούριο"
 
+#. AI-generated
 #: euphorie/client/browser/templates/training_certificate_inner.pt:18
 msgid "This certificate is presented to"
-msgstr ""
+msgstr "Αυτό το πιστοποιητικό παρουσιάζεται σε"
 
 #: euphorie/client/browser/settings.py:441
 msgid "This email address is not available."
@@ -1403,35 +1490,50 @@ msgstr ""
 "Αυτός είναι ο συνιστώμενος αλγόριθμος αξιολόγησης, που βασίζεται στη μέθοδο "
 "Kinney"
 
+#. AI-generated
 #: euphorie/content/profilequestion.py:81
 msgid "This must ask the user for the name of the relevant location."
 msgstr ""
+"Αυτό πρέπει να ζητήσει από τον χρήστη το όνομα της σχετικής τοποθεσίας."
 
+#. AI-generated
 #: euphorie/content/profilequestion.py:91
 msgid "This must ask the user for the names of all relevant locations."
 msgstr ""
+"Αυτό πρέπει να ζητήσει από τον χρήστη τα ονόματα όλων των σχετικών "
+"τοποθεσιών."
 
+#. AI-generated
 #: euphorie/content/profilequestion.py:71
 msgid ""
 "This question must ask the user if the service is offered in more than one "
 "location."
 msgstr ""
+"Αυτή η ερώτηση πρέπει να ρωτήσει τον χρήστη εάν η υπηρεσία προσφέρεται σε "
+"περισσότερες από μία τοποθεσίες."
 
+#. AI-generated
 #: euphorie/content/profilequestion.py:43
 msgid "This question must ask the user if this profile applies to them."
 msgstr ""
+"Αυτή η ερώτηση πρέπει να ρωτήσει τον χρήστη εάν αυτό το προφίλ ισχύει για "
+"αυτούς."
 
+#. AI-generated
 #: euphorie/client/browser/settings.py:472
 msgid "This request could not be processed."
-msgstr ""
+msgstr "Αυτό το αίτημα δεν μπόρεσε να επεξεργαστεί."
 
+#. AI-generated
 #: euphorie/content/browser/similar_titles.py:55
 msgid "This tool allows you to find objects with similar titles."
 msgstr ""
+"Αυτό το εργαλείο σας επιτρέπει να βρείτε αντικείμενα με παρόμοιους τίτλους."
 
+#. AI-generated
 #: euphorie/client/browser/session.py:171
 msgid "This value must be greater than or equal to 1"
-msgstr ""
+msgstr "Αυτή η τιμή πρέπει να είναι μεγαλύτερη ή ίση με 1"
 
 #: euphorie/client/browser/templates/tooltips.pt:58
 msgid "Tip"
@@ -1449,18 +1551,21 @@ msgstr "Εργαλείο"
 msgid "Training"
 msgstr "Πρόγραμμα εκπαίδευσης"
 
+#. AI-generated
 #: euphorie/content/profiles/default/types/euphorie.training_question.xml
 #: euphorie/upgrade/deployment/v1/20220318135716_add_training_question/types/euphorie.training_question.xml
 msgid "Training question"
-msgstr ""
+msgstr "Ερώτημα εκπαίδευσης"
 
+#. AI-generated
 #: euphorie/client/browser/templates/shell.pt:309
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
+#. AI-generated
 #: euphorie/client/browser/templates/shell.pt:368
 msgid "Unlink"
-msgstr ""
+msgstr "Κατάργηση σύνδεσης"
 
 #: euphorie/client/browser/webhelpers.py:115
 msgid "Unvisited"
@@ -1478,9 +1583,10 @@ msgstr "Φόρτωση εικόνας που αποτυπώνει τον κίν�
 msgid "Upload image"
 msgstr "Φόρτωση  εικόνας"
 
+#. AI-generated
 #: euphorie/content/browser/templates/risk_view.pt:122
 msgid "Use scaled answers instead of Yes/No"
-msgstr ""
+msgstr "Χρησιμοποίηση κλιμακωτών απαντήσεων αντί για Ναι / Όχι"
 
 #: euphorie/client/browser/templates/report_landing.pt:180
 msgid "Use the report to:"
@@ -1490,13 +1596,15 @@ msgstr "Χρησιμοποιήστε την έκθεση για να:"
 msgid "View the history of this risk assessment."
 msgstr "Δείτε το ιστορικό αυτής της μελέτης Εκτίμησης Κινδύνου."
 
+#. AI-generated
 #: euphorie/client/browser/templates/shell.pt:356
 msgid "Visit linked web page"
-msgstr ""
+msgstr "Επίσκεψη σε συνδεδεμένη ιστοσελίδα"
 
+#. AI-generated
 #: euphorie/client/browser/templates/shell.pt:317
 msgid "Visit this URL"
-msgstr ""
+msgstr "Επισκεφτείτε αυτό το URL"
 
 #: euphorie/client/browser/templates/report_landing.pt:190
 msgid ""
@@ -1545,17 +1653,20 @@ msgstr "Ναι"
 msgid "Yes, clone risk assessment"
 msgstr "Ναι, να δημιουγηθεί ένα πιστό αντίγραφο της Εκτίμησης Κινδύνου"
 
+#. AI-generated
 #: euphorie/client/browser/organisation.py:176
 msgid "You already have an organisation."
-msgstr ""
+msgstr "Έχετε ήδη έναν οργανισμό."
 
+#. AI-generated
 #: euphorie/client/browser/templates/slide_question_try_again.pt:26
 msgid "You are almost there. The following question was answered wrongly."
-msgstr ""
+msgstr "Είσαι σχεδόν εκεί. Η επόμενη ερώτηση απαντήθηκε λανθασμένα."
 
+#. AI-generated
 #: euphorie/client/browser/templates/slide_question_try_again.pt:31
 msgid "You are almost there. The following questions were answered wrongly."
-msgstr ""
+msgstr "Είσαι σχεδόν εκεί. Οι ακόλουθες ερωτήσεις απαντήθηκαν λανθασμένα."
 
 #: euphorie/client/browser/templates/slide_question_intro.pt:32
 msgid ""
@@ -1607,13 +1718,15 @@ msgstr ""
 "διάθεσή σας μιαν τυπωμένη, αξιόπιστη, ολοκληρωμένη ως προς το περιεχόμενό "
 "της και επικαιροποιημένη μελέτη Εκτίμησης Κινδύνου (νομική απαίτηση)."
 
+#. AI-generated
 #: euphorie/client/browser/organisation.py:172
 msgid "You need to specify a title for the organisation."
-msgstr ""
+msgstr "Πρέπει να καθορίσετε έναν τίτλο για τον οργανισμό."
 
+#. AI-generated
 #: euphorie/client/browser/training.py:729
 msgid "You should start the training from the beginning"
-msgstr ""
+msgstr "Πρέπει να ξεκινήσετε την εκπαίδευση από την αρχή"
 
 #: euphorie/client/browser/templates/slide_question_intro.pt:29
 msgid "You're done with the training slides!"
@@ -1903,9 +2016,10 @@ msgstr "Σχετικά"
 msgid "appendix_produced_by"
 msgstr "Δημιουργία EU-OSHA."
 
+#. AI-generated
 #: euphorie/client/adapters/history_item.py:58
 msgid "archived"
-msgstr ""
+msgstr "αρχειοθετημένο"
 
 #: euphorie/client/browser/templates/new-session-test.pt:75
 msgid "benefits"
@@ -1987,9 +2101,10 @@ msgid "button_add_version"
 msgstr "Αντίγραφο"
 
 #. Default: "Yes, archive session"
+#. AI-generated
 #: euphorie/client/browser/templates/confirmation-archive-session.pt:31
 msgid "button_archive_session"
-msgstr ""
+msgstr "button_archive_session"
 
 #. Default: "Cancel"
 #: euphorie/client/browser/publish.py:288
@@ -2064,9 +2179,10 @@ msgid "button_publish"
 msgstr "Δημοσίευση"
 
 #. Default: "Remove this existing measure"
+#. AI-generated
 #: euphorie/content/utils.py:123
 msgid "button_remove_existing_measure"
-msgstr ""
+msgstr "button_remove_existing_measure"
 
 #. Default: "Search"
 #: euphorie/deployment/browser/templates/search.pt:24
@@ -2437,9 +2553,10 @@ msgid "conductor_third_party"
 msgstr "εξωτερικός σύμβουλος ή πάροχος υπηρεσιών"
 
 #. Default: "Search in context"
+#. AI-generated
 #: euphorie/deployment/tiles/templates/search.pt:11
 msgid "context_search"
-msgstr ""
+msgstr "context_search"
 
 #. Default: "There are no country managers for this country."
 #: euphorie/content/browser/templates/user_mgmt.pt:80
@@ -2469,9 +2586,10 @@ msgstr "Επιχείρηση/Οργανισμός του χρήστη ${name}"
 #. Default: "Measures that are already in place (Only shown here for
 #. reference! Use the “Add Measure” button on the Risk for adding measures
 #. that are shown to the user during Identification.)"
+#. AI-generated
 #: euphorie/content/risk.py:103
 msgid "deprecated_label_existing_measures"
-msgstr ""
+msgstr "deprecated_label_existing_measures"
 
 #. Default: "Please tick anything that you might like to exclude from the
 #. training. Items that are greyed out will not be displayed on the training
@@ -2506,30 +2624,34 @@ msgstr ""
 #. Default: "The plain text file will contain all translatable text without
 #. formatting. This file can be used to determine a word count for estimating
 #. the cost of translation."
+#. AI-generated
 #: euphorie/content/browser/export.py:155
 msgid "description_export_as_plain_text"
-msgstr ""
+msgstr "description_export_as_plain_text"
 
 #. Default: "If selected, the option to plan measures will be offered directly
 #. on the “Identification” page. There will be no separate “Action Plan” step
 #. in the navigation."
+#. AI-generated
 #: euphorie/content/survey.py:136
 msgid "description_integrated_action_plan"
-msgstr ""
+msgstr "description_integrated_action_plan"
 
 #. Default: "The default export escapes HTML, which is not supportedby
 #. eTranslate"
+#. AI-generated
 #: euphorie/content/browser/export.py:169
 msgid "description_is_etranslate_compatible"
-msgstr ""
+msgstr "description_is_etranslate_compatible"
 
 #. Default: "Defines how the “Measures in place” options are displayed to the
 #. user. Choose “Simple” if the texts for Description and General Approach are
 #. identical in your measures. Choose “Full” if the texts in General Approach
 #. provide more details than the Description."
+#. AI-generated
 #: euphorie/content/survey.py:118
 msgid "description_measures_text_handling"
-msgstr ""
+msgstr "description_measures_text_handling"
 
 #. Default: "Find an OSH consultant you want to contact or add to your
 #. organisation to provide support."
@@ -2548,9 +2670,10 @@ msgstr ""
 "Εάν αναγνωρίσατε κινδύνους που δεν έχουν συμπεριληφθεί στο εργαλείο, "
 "μπορείτε να τους προσθέσετε τώρα:"
 
+#. AI-generated
 #: euphorie/client/browser/reset_password.py:226
 msgid "description_reset_password_form"
-msgstr ""
+msgstr "περιγραφή_φόρμας_επαναφοράς_κωδικού"
 
 #. Default: "We will send you an email with the instructions to reset your
 #. password."
@@ -2563,9 +2686,10 @@ msgstr ""
 #. Default: "If selected, the user will not be able to answer \"Yes\" or
 #. \"No\", since the risk is considered to be always present. The Evaluation
 #. and Action Plan will behave in the same way as for regular risks."
+#. AI-generated
 #: euphorie/content/risk.py:168
 msgid "description_risk_always_present"
-msgstr ""
+msgstr "περιγραφή_κινδύνου_πάντα_παρόν"
 
 #. Default: "Administrators can create, edit and remove user accounts.
 #. Administrators can also make risk assessments, edit existing ones and lock
@@ -2590,10 +2714,11 @@ msgstr ""
 "εκτίμησης κινδύνου."
 
 #. Default: "Managers/Policy makers can make, edit and lock risk assessments."
+#. AI-generated
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:87
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:102
 msgid "description_role_manager__training_disabled"
-msgstr ""
+msgstr "περιγραφή_διαχειριστή_ρόλων__εκπαίδευση_απενεργοποιημένη"
 
 #. Default: "Members can make risk assessments."
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:102
@@ -2605,49 +2730,56 @@ msgstr "Τα &ldquo;Μέλη&rdquo; μπορούν να εκπονούν μελ�
 #. the textual content. When the OiRA tool is then imported again, all images
 #. will be present. Please note that including images may result in a
 #. considerably larger file size."
+#. AI-generated
 #: euphorie/content/browser/export.py:71
 msgid "description_survey_export_include_images"
-msgstr ""
+msgstr "περιγραφή_εξαγωγής_έρευνας_περιλαμβάνει_εικόνες"
 
 #. Default: "The introduction text describes the general purpose of the OiRA
 #. tool. It usually gives the end users an idea what to expect in the tool and
 #. whether it will be relevant for them. The default is to include this text."
+#. AI-generated
 #: euphorie/content/browser/export.py:86
 msgid "description_survey_export_include_intro_text"
-msgstr ""
+msgstr "περιγραφή_εξαγωγής_έρευνας_περιλαμβάνει_εισαγωγικό_κείμενο"
 
 #. Default: "For each risk, a number of common measures – sometimes also
 #. referred to as “Solutions” – can be defined. While the default setting is
 #. to include them in the export, they may be excluded if required, for
 #. example to accommodate for a limited translation budget."
+#. AI-generated
 #: euphorie/content/browser/export.py:138
 msgid "description_survey_export_include_measures"
-msgstr ""
+msgstr "περιγραφή_εξαγωγής_έρευνας_περιλαμβάνει_μέτρα"
 
 #. Default: "Every module comes with an introductive description. The default
 #. is to include this text."
+#. AI-generated
 #: euphorie/content/browser/export.py:114
 msgid "description_survey_export_include_module_description_texts"
-msgstr ""
+msgstr "περιγραφή_εξαγωγής_έρευνας_περιλαμβάνει_κείμενα_περιγραφής_ενοτήτων"
 
 #. Default: "The “Solution” description” on modules is a deprecated kind of
 #. text that is no longer being used. The default is to skip this."
+#. AI-generated
 #: euphorie/content/browser/export.py:101
 msgid "description_survey_export_include_module_solution_texts"
-msgstr ""
+msgstr "περιγραφή_εξαγωγής_έρευνας_περιλαμβάνει_κείμενα_λύσεων_ενοτήτων"
 
 #. Default: "If the OiRA tool is exported because it should be made available
 #. for a different country, the legal texts might not apply there. Therefore
 #. the default is to skip these texts."
+#. AI-generated
 #: euphorie/content/browser/export.py:127
 msgid "description_survey_export_include_risk_legal_texts"
-msgstr ""
+msgstr "περιγραφή_εξαγωγής_έρευνας_περιλαμβάνει_κείμενα_νομικού_κινδύνου"
 
 #. Default: "Select one or more categories to which this OiRA tool is
 #. relevant. The user will then find this tool under the chosen categories."
+#. AI-generated
 #: euphorie/content/behaviors/toolcategory.py:13
 msgid "description_tool_category"
-msgstr ""
+msgstr "περιγραφή_κατηγορίας_εργαλείων"
 
 #. Default: "If you enter text here, it will be shown to users in a pop-up
 #. when they open the tool. It can be used for notifying users about changes."
@@ -2670,9 +2802,10 @@ msgstr ""
 #. of all locations for which this module applies. This means, the module will
 #. be repeated as many times as there are locations. If you do not need this
 #. repeatable behaviour, untick the checkbox to turn it off."
+#. AI-generated
 #: euphorie/content/profilequestion.py:55
 msgid "description_use_location_question"
-msgstr ""
+msgstr "περιγραφή_χρήσης_τοποθεσίας_ερώτηση"
 
 #. Default: "After the technical development of the tool in 2009, in 2010
 #. (until the first half of 2011) the Agency is piloting the development and
@@ -2911,9 +3044,10 @@ msgstr ""
 
 #. Default: "An accout can only be created for you if you accept the terms and
 #. conditions."
+#. AI-generated
 #: euphorie/client/browser/login.py:181
 msgid "error_terms_not_accepted"
-msgstr ""
+msgstr "σφάλμα_όροι_μη_αποδεκτοί"
 
 #. Default: "This date must be on or after the start date."
 #: euphorie/client/browser/risk.py:81
@@ -2928,24 +3062,28 @@ msgstr ""
 "Αυτή η ημερομηνία δεν πρέπει να είναι μεταγενέστερη της ημερομηνίας λήξης."
 
 #. Default: "This value must be a valid date"
+#. AI-generated
 #: euphorie/client/browser/webhelpers.py:1285
 msgid "error_validation_date"
-msgstr ""
+msgstr "σφάλμα_επικύρωσης_ημερομηνίας"
 
 #. Default: "This value must be a valid date and time"
+#. AI-generated
 #: euphorie/client/browser/webhelpers.py:1289
 msgid "error_validation_datetime"
-msgstr ""
+msgstr "σφάλμα_επικύρωσης_ημερομηνίας_και_ώρας"
 
 #. Default: "This value must be a valid email address"
+#. AI-generated
 #: euphorie/client/browser/webhelpers.py:1296
 msgid "error_validation_email"
-msgstr ""
+msgstr "σφάλμα_επικύρωσης_email"
 
 #. Default: "This value must be a number"
+#. AI-generated
 #: euphorie/client/browser/webhelpers.py:1303
 msgid "error_validation_number"
-msgstr ""
+msgstr "σφάλμα_επικύρωσης_αριθμού"
 
 #. Default: "This value must be a positive whole number."
 #: euphorie/client/browser/risk.py:91
@@ -3080,9 +3218,10 @@ msgstr ""
 
 #. Default: "This risk was automatically set as being present. You cannot
 #. change this."
+#. AI-generated
 #: euphorie/client/browser/templates/webhelpers.pt:288
 msgid "explanation_risk_always_present"
-msgstr ""
+msgstr "εξήγηση_κινδύνου_πάντα_παρόν"
 
 #. Default: "Try any of the tools below anonymously by clicking on the button
 #. 'Test session' of the tool of your choice. In a test session you cannot
@@ -3096,9 +3235,10 @@ msgstr ""
 "δοκιμαστική συνεδρία δεν μπορείτε να αποθηκεύσετε το έργο σας. Εάν δεν "
 "${label_link_register}, ό,τι έχετε κάνει ως τώρα θα χαθεί."
 
+#. AI-generated
 #: euphorie/client/browser/session.py:474
 msgid "extra_text_identification"
-msgstr ""
+msgstr "επιπλέον_κείμενο_ταυτοποίησης"
 
 #. Default: "Report ${title}"
 #: euphorie/client/docx/views.py:303
@@ -3116,14 +3256,16 @@ msgid "filename_report_timeline"
 msgstr "Σχέδιο Δράσης ${title}"
 
 #. Default: "Compact report ${title}"
+#. AI-generated
 #: euphorie/client/docx/views.py:318
 msgid "filename_short_report_actionplan"
-msgstr ""
+msgstr "όνομα_αρχείου_συνοπτικής_αναφοράς_σχεδίου_δράσης"
 
 #. Default: "Contents of OIRA tool ${title}"
+#. AI-generated
 #: euphorie/content/browser/survey.py:478
 msgid "filename_tool_contents"
-msgstr ""
+msgstr "όνομα_αρχείου_περιεχομένων_εργαλείου"
 
 #. Default: "This folder is empty."
 #: euphorie/content/browser/templates/folder_view.pt:21
@@ -3211,9 +3353,10 @@ msgstr ""
 "γωνία της σελίδας."
 
 #. Default: "Actions"
+#. AI-generated
 #: euphorie/client/browser/templates/risk_identification_custom.pt:183
 msgid "header_actions"
-msgstr ""
+msgstr "επικεφαλίδα_ενέργειες"
 
 #. Default: "Additional content"
 #: euphorie/content/module.py:113 euphorie/content/risk.py:314
@@ -3522,9 +3665,10 @@ msgid "header_search_results"
 msgstr "Αποτελέσματα αναζήτησης"
 
 #. Default: "Search results for"
+#. AI-generated
 #: euphorie/deployment/browser/templates/context_search.pt:18
 msgid "header_search_results_for"
-msgstr ""
+msgstr "επικεφαλίδα_αποτελέσματα_αναζήτησης_για"
 
 #. Default: "Secondary images"
 #: euphorie/content/risk.py:266
@@ -3532,9 +3676,10 @@ msgid "header_secondary_images"
 msgstr "Δευτερεύουσες εικόνες"
 
 #. Default: "Download spreadsheet"
+#. AI-generated
 #: euphorie/content/browser/templates/country_tools.pt:20
 msgid "header_sector_survey_download"
-msgstr ""
+msgstr "επικεφαλίδα_κατέβασμα_έρευνας_τομέα"
 
 #. Default: "OiRA Tools"
 #: euphorie/content/browser/templates/country_tools.pt:15
@@ -3543,9 +3688,10 @@ msgid "header_sector_survey_list"
 msgstr "Εργαλεία OiRA"
 
 #. Default: "OiRA Tool versions"
+#. AI-generated
 #: euphorie/content/browser/templates/surveygroup_view.pt:15
 msgid "header_sector_tool_version_list"
-msgstr ""
+msgstr "επικεφαλίδα_λίστα_εκδόσεων_εργαλείου_τομέα"
 
 #. Default: "Sectors"
 #: euphorie/content/browser/templates/user_mgmt.pt:31
@@ -3568,9 +3714,10 @@ msgid "header_terms"
 msgstr "Όροι και προϋποθέσεις"
 
 #. Default: "Training Questions"
+#. AI-generated
 #: euphorie/content/browser/templates/survey_view.pt:105
 msgid "header_training_questions"
-msgstr ""
+msgstr "επικεφαλίδα_ερωτήσεις_εκπαίδευσης"
 
 #. Default: "Hazards/problems that have been \"parked\" and are still to be
 #. dealt with"
@@ -3603,9 +3750,10 @@ msgid "header_why_oira"
 msgstr "Γιατί το έργο OiRA"
 
 #. Default: "Browser warning"
+#. AI-generated
 #: euphorie/client/browser/templates/browser-warning.pt:17
 msgid "heading_browser_warning"
-msgstr ""
+msgstr "επικεφαλίδα_προειδοποίησης_περιηγητή"
 
 #. Default: "Certification"
 #: euphorie/client/browser/templates/status_info.pt:141
@@ -3779,16 +3927,18 @@ msgid "heading_present_risks_5_or_more"
 msgstr "${num_present_risks} Αναγνωρισμένοι κίνδυνοι"
 
 #. Default: "Define which reports are offered to the user on the Report page."
+#. AI-generated
 #: euphorie/content/country.py:78
 msgid "help__default_reports"
-msgstr ""
+msgstr "βοήθεια__προεπιλεγμένες_αναφορές"
 
 #. Default: "Define, which information sections should be open by default on a
 #. risk identification page. Sections not checked will be shown intially in
 #. collapsed mode, but the user can always open those sections with a click."
+#. AI-generated
 #: euphorie/content/country.py:50
 msgid "help__risk_default_collapsible_sections"
-msgstr ""
+msgstr "βοήθεια__προεπιλογή_συμπτυγμένων_ενοτήτων_κινδύνου"
 
 #. Default: "This text should explain how to fill in the Action plan."
 #: euphorie/content/help.py:83
@@ -3828,16 +3978,18 @@ msgstr ""
 "προτύπου NACE."
 
 #. Default: "Select which optional elements are used in the compact report"
+#. AI-generated
 #: euphorie/content/country.py:111
 msgid "help_compact_report_options"
-msgstr ""
+msgstr "βοήθεια_επιλογές_συμπαγούς_αναφοράς"
 
 #. Default: "Upload a file that contains additional information, like a PDF,
 #. Word document or spreadsheet. Optionally provide a descriptive caption for
 #. your file."
+#. AI-generated
 #: euphorie/content/module.py:133 euphorie/content/risk.py:334
 msgid "help_content_upload"
-msgstr ""
+msgstr "βοήθεια_ανέβασμα_περιεχομένου"
 
 #. Default: "Start to write a new OiRA Tool. You will be asked whether you
 #. want to start off with a copy of an existing OiRA Tool."
@@ -3879,23 +4031,26 @@ msgstr ""
 
 #. Default: "If this option is activated, assessments can be reviewed and
 #. validated by consultants."
+#. AI-generated
 #: euphorie/content/country.py:156
 msgid "help_enable_consultancy_country"
-msgstr ""
+msgstr "βοήθεια_ενεργοποίηση_σύμβουλος_χώρας"
 
 #. Default: "If this option is activated, users will be able to take an online
 #. training with this OiRA tool. A successful training will be recorded and
 #. shown with a certificate on the user's dashbooard. You will be asked to
 #. provide Training Questions for the final exam."
+#. AI-generated
 #: euphorie/content/survey.py:148
 msgid "help_enable_web_training"
-msgstr ""
+msgstr "βοήθεια_ενεργοποίηση_διαδικτυακής_εκπαίδευσης"
 
 #. Default: "If this option is activated, an online training can be enabled on
 #. OiRA tools in this country."
+#. AI-generated
 #: euphorie/content/country.py:145
 msgid "help_enable_web_training_country"
-msgstr ""
+msgstr "βοήθεια_ενεργοποίηση_διαδικτυακής_εκπαίδευσης_χώρας"
 
 #. Default: "This text should explain how to evaluate the identified risks."
 #: euphorie/content/help.py:73
@@ -3922,9 +4077,10 @@ msgstr ""
 #. have already implemented. Separate measures with a line break (Enter). The
 #. user will be able to deselect those measures that are not applicable to
 #. theirsituation."
+#. AI-generated
 #: euphorie/content/risk.py:109
 msgid "help_existing_measures"
-msgstr ""
+msgstr "βοήθεια_υπάρχοντα_μέτρα"
 
 #. Default: "General final recommendations."
 #: euphorie/content/help.py:103
@@ -3983,9 +4139,10 @@ msgstr "Γενικές πληροφορίες σχετικά με την αξι�
 
 #. Default: "Do not include this module in the training, for example if the
 #. module does not have any relevance for workers."
+#. AI-generated
 #: euphorie/content/behaviors/hide_from_training.py:13
 msgid "help_hide_from_training"
-msgstr ""
+msgstr "βοήθεια_απόκρυψη_από_εκπαίδευση"
 
 #. Default: "This text should explain how the risk identification works."
 #: euphorie/content/help.py:63
@@ -4004,16 +4161,18 @@ msgstr ""
 " ότι δεν περιέχει ειδικούς χαρακτήρες."
 
 #. Default: "Help"
+#. AI-generated
 #: euphorie/client/browser/templates/shell.pt:197
 msgid "help_link"
-msgstr ""
+msgstr "βοήθεια_σύνδεσμος"
 
 #. Default: "Describe your general approach to eliminate or (if the risk is
 #. not avoidable) reduce the risk. + Describe the specific action(s) required
 #. to implement this approach (to eliminate or to reduce the risk)."
+#. AI-generated
 #: euphorie/content/solution.py:73
 msgid "help_measure_action"
-msgstr ""
+msgstr "βοήθεια_ενέργεια_μέτρου"
 
 #. Default: "Describe your general approach to eliminate or (if the risk is
 #. not avoidable) reduce the risk."
@@ -4077,9 +4236,10 @@ msgstr ""
 #. your training session. If the number is lower than the number of existing
 #. questions, the questions will be picked randomly. Empty the field to show
 #. all questions."
+#. AI-generated
 #: euphorie/content/survey.py:164
 msgid "help_num_training_questions"
-msgstr ""
+msgstr "βοήθεια_αριθμός_ερωτήσεων_εκπαίδευσης"
 
 #. Default: "The password needs to be at least 12 characters long and needs to
 #. contain at least one lower case letter, one upper case letter and one
@@ -4206,17 +4366,19 @@ msgstr ""
 #. Default: "This method involves risk assessment by Severity x Exposure,
 #. whereas these have to be understood as follows; Severity of injury linked
 #. to hazard - Exposure (Frequency) to the hazard"
+#. AI-generated
 #: euphorie/content/surveygroup.py:94
 msgid "help_survey_evaluation_algorithm_simplified"
-msgstr ""
+msgstr "βοήθεια_απλοποιημένος_αλγόριθμος_αξιολόγησης_έρευνας"
 
 #. Default: "This method involves risk assessment by Severity x Exposure x
 #. Probability, whereas these have to be understood as follows; Severity of
 #. injury linked to hazard - Exposure (Frequency) to the hazard - Probability
 #. of the hazard occuring when exposed"
+#. AI-generated
 #: euphorie/content/surveygroup.py:75
 msgid "help_survey_evaluation_algorithm_standard"
-msgstr ""
+msgstr "βοήθεια_τυπικός_αλγόριθμος_αξιολόγησης_έρευνας"
 
 #. Default: "This OiRA Tool is obsolete; it has been retired or replaced with
 #. another OiRA Tool."
@@ -4378,9 +4540,10 @@ msgstr ""
 "να την αναθεωρήσετε ή ${start_session}."
 
 #. Default: "You have completed ${completed}% of the risk assessment."
+#. AI-generated
 #: euphorie/client/browser/templates/status-tooltip.pt:19
 msgid "info_survey_completion"
-msgstr ""
+msgstr "πληροφορίες_ολοκλήρωσης_της_έρευνας"
 
 #. Default: "This is a test session. ${link_sign_in} to save your data."
 #: euphorie/client/browser/templates/plain.pt:222
@@ -4545,9 +4708,10 @@ msgstr ""
 #. contact the OiRA team if you need assistance on this subject. You can also
 #. refer to the chapter &ldquo;Re-working a published OiRA tool&rdquo; of the
 #. OiRA manual."
+#. AI-generated
 #: euphorie/client/browser/templates/publish.pt:36
 msgid "intro_publish_survey_structure_changed"
-msgstr ""
+msgstr "εισαγωγή_δημοσίευσης_μεταβλητής_δομής_έρευνας"
 
 #. Default: "Including the risks to your employees and your equipment? What if
 #. there is an accident with one of the machines? What if an employee is
@@ -4588,14 +4752,16 @@ msgid "is_risk_acceptable"
 msgstr "Είναι αποδεκτός ο κίνδυνος;"
 
 #. Default: "Available reports"
+#. AI-generated
 #: euphorie/content/country.py:77
 msgid "label__default_reports"
-msgstr ""
+msgstr "ετικέτα__προεπιλεγμένες_αναφορές"
 
 #. Default: "Expanded sections on risk page"
+#. AI-generated
 #: euphorie/content/country.py:46
 msgid "label__risk_default_collapsible_sections"
-msgstr ""
+msgstr "ετικέτα__προεπιλογή_συμπτυγμένων_ενοτήτων_κινδύνου"
 
 #. Default: "Update"
 #: euphorie/client/browser/templates/updated.pt:179
@@ -4653,9 +4819,10 @@ msgid "label_agree_terms_conditions"
 msgstr "Συμφωνώ με τους ${link_terms_conditions}"
 
 #. Default: "All organisations"
+#. AI-generated
 #: euphorie/client/browser/templates/assessments.pt:36
 msgid "label_all_organisations"
-msgstr ""
+msgstr "ετικέτα_όλοι_οι_οργανισμοί"
 
 #. Default: "Alphabetical"
 #: euphorie/client/browser/templates/assessments.pt:51
@@ -4684,11 +4851,12 @@ msgid "label_button_skip"
 msgstr "Παράλειψη"
 
 #. Default: "Cancel"
+#. AI-generated
 #: euphorie/client/browser/templates/panel-invalidate-risk-assessment.pt:51
 #: euphorie/client/browser/templates/panel-request-validation.pt:60
 #: euphorie/client/browser/templates/panel-validate-risk-assessment.pt:53
 msgid "label_cancel"
-msgstr ""
+msgstr "ετικέτα_ακύρωση"
 
 #. Default: "Image caption"
 #: euphorie/content/module.py:96 euphorie/content/risk.py:261
@@ -4728,14 +4896,16 @@ msgid "label_clone"
 msgstr "Κλωνοποίηση"
 
 #. Default: "Duplicate"
+#. AI-generated
 #: euphorie/client/browser/templates/panel-invalidate-risk-assessment.pt:55
 msgid "label_clone_imp"
-msgstr ""
+msgstr "ετικέτα_κλώνος_imp"
 
 #. Default: "Close this message"
+#. AI-generated
 #: euphorie/client/browser/templates/browser-warning.pt:50
 msgid "label_close_message"
-msgstr ""
+msgstr "ετικέτα_κλείσιμο_μηνύματος"
 
 #. Default: "Compact"
 #: euphorie/client/browser/templates/report_landing.pt:45
@@ -4743,9 +4913,10 @@ msgid "label_compact"
 msgstr "Συνοπτική αναφορά"
 
 #. Default: "Compact report options"
+#. AI-generated
 #: euphorie/content/country.py:110
 msgid "label_compact_report_options"
-msgstr ""
+msgstr "ετικέτα_επιλογές_συμπαγούς_αναφοράς"
 
 #. Default: "Your country"
 #: euphorie/client/browser/company.py:30
@@ -4760,9 +4931,10 @@ msgid "label_conductor"
 msgstr "Η εκτίμηση κινδύνου πραγματοποιήθηκε από:"
 
 #. Default: "Confirm your password"
+#. AI-generated
 #: euphorie/client/browser/reset_password.py:36
 msgid "label_confirm_password"
-msgstr ""
+msgstr "ετικέτα_επιβεβαίωση_κωδικού"
 
 #. Default: "Consultancy"
 #: euphorie/client/browser/templates/consultancy.pt:31
@@ -4877,9 +5049,10 @@ msgid "label_employee_numbers"
 msgstr "αριθμός εργαζομένων"
 
 #. Default: "Enable Consultancy?"
+#. AI-generated
 #: euphorie/content/country.py:155
 msgid "label_enable_consultancy"
-msgstr ""
+msgstr "label_enable_consultancy"
 
 #. Default: "Show a custom notification for this OiRA tool?"
 #: euphorie/content/browser/templates/survey_view.pt:37
@@ -4888,9 +5061,10 @@ msgid "label_enable_tool_notification"
 msgstr "Εμφάνιση εξατομικευμένης ειδοποίησης για το εν λόγω εργαλείο OiRA"
 
 #. Default: "Enable Web Based Training?"
+#. AI-generated
 #: euphorie/content/country.py:144 euphorie/content/survey.py:147
 msgid "label_enable_web_training"
-msgstr ""
+msgstr "label_enable_web_training"
 
 #. Default: "Evaluation"
 #: euphorie/client/browser/templates/login.pt:325
@@ -4937,14 +5111,16 @@ msgid "label_expertise"
 msgstr "Εμπειρία/Εξειδίκευση"
 
 #. Default: "Export additionally as plain text file"
+#. AI-generated
 #: euphorie/content/browser/export.py:151
 msgid "label_export_as_plain_text"
-msgstr ""
+msgstr "label_export_as_plain_text"
 
 #. Default: "Export in eTranslate compatible XML"
+#. AI-generated
 #: euphorie/content/browser/export.py:165
 msgid "label_export_etranslate_compatible"
-msgstr ""
+msgstr "label_export_etranslate_compatible"
 
 #. Default: "Add an extra measure"
 #: euphorie/client/browser/templates/webhelpers.pt:1161
@@ -5046,9 +5222,10 @@ msgid "label_help_sessions"
 msgstr "Εκπόνηση εκτίμησης κινδύνου"
 
 #. Default: "Hide from training"
+#. AI-generated
 #: euphorie/content/behaviors/hide_from_training.py:12
 msgid "label_hide_from_training"
-msgstr ""
+msgstr "label_hide_from_training"
 
 #. Default: "History"
 #: euphorie/client/browser/templates/more_menu.pt:26
@@ -5072,10 +5249,11 @@ msgid "label_implemented_measure"
 msgstr "Μέτρο σε εφαρμογή"
 
 #. Default: "Integrated Action Plan"
+#. AI-generated
 #: euphorie/content/browser/templates/survey_view.pt:50
 #: euphorie/content/survey.py:135
 msgid "label_integrated_action_plan"
-msgstr ""
+msgstr "label_integrated_action_plan"
 
 #. Default: "Introduction text"
 #: euphorie/content/survey.py:61
@@ -5099,9 +5277,10 @@ msgid "label_involve"
 msgstr "Συμμετοχή των εργαζομένων"
 
 #. Default: "Import XML translation from eTranslate"
+#. AI-generated
 #: euphorie/content/browser/upload.py:198
 msgid "label_is_etranslate_compatible"
-msgstr ""
+msgstr "label_is_etranslate_compatible"
 
 #. Default: "Go to report"
 #: euphorie/client/browser/templates/actionplan.pt:70
@@ -5148,9 +5327,10 @@ msgid "label_legal_reference"
 msgstr "Νομικές αναφορές και αναφορές πολιτικής"
 
 #. Default: "filters"
+#. AI-generated
 #: euphorie/client/browser/templates/assessments.pt:108
 msgid "label_link_filters"
-msgstr ""
+msgstr "label_link_filters"
 
 #. Default: "register"
 #: euphorie/client/browser/templates/surveys.pt:32
@@ -5195,9 +5375,10 @@ msgstr "Λογότυπο"
 
 #. Default: "General approach (to eliminate or reduce the risk) + Specific
 #. action(s) required to implement this approach"
+#. AI-generated
 #: euphorie/content/solution.py:66
 msgid "label_measure_action"
-msgstr ""
+msgstr "label_measure_action"
 
 #. Default: "General approach (to eliminate or reduce the risk)"
 #: euphorie/client/browser/report.py:129
@@ -5304,9 +5485,10 @@ msgid "label_no"
 msgstr "Όχι"
 
 #. Default: "No"
+#. AI-generated
 #: euphorie/content/utils.py:86
 msgid "label_no_integrated_ap"
-msgstr ""
+msgstr "label_no_integrated_ap"
 
 #. Default: "No risk"
 #: euphorie/client/browser/templates/risks_overview.pt:262
@@ -5355,14 +5537,16 @@ msgid "label_notes"
 msgstr "Σημειώσεις"
 
 #. Default: "Notifications"
+#. AI-generated
 #: euphorie/client/browser/templates/preferences.pt:75
 msgid "label_notifications"
-msgstr ""
+msgstr "label_notifications"
 
 #. Default: "Number of questions asked after training"
+#. AI-generated
 #: euphorie/content/survey.py:160
 msgid "label_num_training_questions"
-msgstr ""
+msgstr "label_num_training_questions"
 
 #. Default: "OSH Consultants"
 #: euphorie/client/browser/templates/consultants.pt:41
@@ -5508,9 +5692,10 @@ msgid "label_register_first"
 msgstr "εγγραφή"
 
 #. Default: "Remove filters"
+#. AI-generated
 #: euphorie/client/browser/templates/assessments.pt:102
 msgid "label_remove_filters"
-msgstr ""
+msgstr "label_remove_filters"
 
 #. Default: "Delete this measure"
 #: euphorie/client/browser/templates/webhelpers.pt:874
@@ -5553,9 +5738,10 @@ msgid "label_request_validation_imp"
 msgstr "Αίτημα για επικύρωση"
 
 #. Default: "Risk is always present"
+#. AI-generated
 #: euphorie/content/risk.py:167
 msgid "label_risk_always_present"
-msgstr ""
+msgstr "label_risk_always_present"
 
 #. Default: "Risk number"
 #: euphorie/client/browser/report.py:149
@@ -5729,14 +5915,16 @@ msgid "label_sorting"
 msgstr "Ταξινόμηση"
 
 #. Default: "How would you like to start"
+#. AI-generated
 #: euphorie/content/widgets/survey_source_selection.py:18
 msgid "label_source"
-msgstr ""
+msgstr "label_source"
 
 #. Default: "Choose a source"
+#. AI-generated
 #: euphorie/content/browser/surveygroup.py:44
 msgid "label_source_selection"
-msgstr ""
+msgstr "label_source_selection"
 
 #. Default: "Base on an existing risk assessment"
 #: euphorie/client/browser/templates/new-session.pt:46
@@ -5785,34 +5973,40 @@ msgid "label_survey_evaluation_algorithm"
 msgstr "Αλγόριθμος εκκένωσης "
 
 #. Default: "Include images"
+#. AI-generated
 #: euphorie/content/browser/export.py:70
 msgid "label_survey_export_include_images"
-msgstr ""
+msgstr "label_survey_export_include_images"
 
 #. Default: "Include introduction text"
+#. AI-generated
 #: euphorie/content/browser/export.py:82
 msgid "label_survey_export_include_intro_text"
-msgstr ""
+msgstr "label_survey_export_include_intro_text"
 
 #. Default: "Include measures"
+#. AI-generated
 #: euphorie/content/browser/export.py:137
 msgid "label_survey_export_include_measures"
-msgstr ""
+msgstr "label_survey_export_include_measures"
 
 #. Default: "Include “Description” texts on modules"
+#. AI-generated
 #: euphorie/content/browser/export.py:110
 msgid "label_survey_export_include_module_description_texts"
-msgstr ""
+msgstr "label_survey_export_include_module_description_texts"
 
 #. Default: "Include “Solution” texts on modules"
+#. AI-generated
 #: euphorie/content/browser/export.py:97
 msgid "label_survey_export_include_module_solution_texts"
-msgstr ""
+msgstr "label_survey_export_include_module_solution_texts"
 
 #. Default: "Include “Legal and policy references” texts on risks"
+#. AI-generated
 #: euphorie/content/browser/export.py:123
 msgid "label_survey_export_include_risk_legal_texts"
-msgstr ""
+msgstr "label_survey_export_include_risk_legal_texts"
 
 #. Default: "Obsolete OiRA tool"
 #: euphorie/content/surveygroup.py:53
@@ -5830,9 +6024,10 @@ msgid "label_surveygroup_title"
 msgstr "Τίτλος εισαχθέντος εργαλείου OiRA"
 
 #. Default: "Table of contents"
+#. AI-generated
 #: euphorie/client/browser/templates/training.pt:41
 msgid "label_table_of_contents"
-msgstr ""
+msgstr "label_table_of_contents"
 
 #. Default: "Terms and conditions"
 #: euphorie/client/browser/templates/register_session.pt:188
@@ -5840,9 +6035,10 @@ msgid "label_terms_conditions"
 msgstr "Όρους και τις προϋποθέσεις"
 
 #. Default: "Test session"
+#. AI-generated
 #: euphorie/client/browser/templates/shell.pt:173
 msgid "label_testsession"
-msgstr ""
+msgstr "label_testsession"
 
 #. Default: "High"
 #: euphorie/client/browser/report.py:112
@@ -5926,9 +6122,10 @@ msgid "label_unlocked"
 msgstr "Προσβάσιμο αρχείο"
 
 #. Default: "Unpublished"
+#. AI-generated
 #: euphorie/client/browser/templates/status_info.pt:119
 msgid "label_unpublished"
-msgstr ""
+msgstr "label_unpublished"
 
 #. Default: "Unvisited"
 #: euphorie/client/browser/templates/risks_overview.pt:337
@@ -5958,9 +6155,10 @@ msgid "label_upload_survey_title"
 msgstr "Όνομα για την έκδοση του Εργαλείου OiRA"
 
 #. Default: "Ask the user about (multiple) locations?"
+#. AI-generated
 #: euphorie/content/profilequestion.py:51
 msgid "label_use_location_question"
-msgstr ""
+msgstr "label_use_location_question"
 
 #. Default: "Used tool"
 #: euphorie/client/browser/templates/status_info.pt:41
@@ -6011,9 +6209,10 @@ msgid "label_yes"
 msgstr "Ναι"
 
 #. Default: "Yes"
+#. AI-generated
 #: euphorie/content/utils.py:85
 msgid "label_yes_integrated_ap"
-msgstr ""
+msgstr "label_yes_integrated_ap"
 
 #. Default: "Yes, the remaining risk is acceptable"
 #: euphorie/content/utils.py:149
@@ -6054,9 +6253,10 @@ msgid "limitations"
 msgstr "περιορισμοί"
 
 #. Default: "download the contents of this OiRA tool in Word format"
+#. AI-generated
 #: euphorie/content/browser/templates/survey_view.pt:62
 msgid "link_download_tool_contents"
-msgstr ""
+msgstr "link_download_tool_contents"
 
 #. Default: "Sign in"
 #: euphorie/client/browser/templates/plain.pt:222
@@ -6135,19 +6335,22 @@ msgid "lock unset"
 msgstr "κατάργηση της απαγόρευσης πρόσβασης"
 
 #. Default: "Handling of measures text (if measures-in-place are used)"
+#. AI-generated
 #: euphorie/content/survey.py:114
 msgid "measures_text_handling"
-msgstr ""
+msgstr "measures_text_handling"
 
 #. Default: "Admin"
+#. AI-generated
 #: euphorie/deployment/browser/sitemenu.py:42
 msgid "menu_admin"
-msgstr ""
+msgstr "menu_admin"
 
 #. Default: "Tools for this country"
+#. AI-generated
 #: euphorie/deployment/browser/sitemenu.py:45
 msgid "menu_country_tools"
-msgstr ""
+msgstr "menu_country_tools"
 
 #. Default: "XML export"
 #: euphorie/deployment/browser/sitemenu.py:74
@@ -6225,14 +6428,16 @@ msgid "message_delete_no_last_survey"
 msgstr "Δεν μπορείτε να διαγράψετε τη μοναδική έκδοση εργαλείου OiRA."
 
 #. Default: "Due to an internal policy, these settings cannot be changed."
+#. AI-generated
 #: euphorie/client/browser/templates/preferences.pt:80
 msgid "message_disallow_notification_settings"
-msgstr ""
+msgstr "message_disallow_notification_settings"
 
 #. Default: "You can ${link_download_tool_contents}."
+#. AI-generated
 #: euphorie/content/browser/templates/survey_view.pt:62
 msgid "message_download_tool_contents"
-msgstr ""
+msgstr "message_download_tool_contents"
 
 #. Default: "Please fill out this field."
 #: euphorie/client/browser/webhelpers.py:1307
@@ -6306,9 +6511,10 @@ msgstr ""
 " επιχείρηση/οργανισμό."
 
 #. Default: "Learn more about certificates."
+#. AI-generated
 #: euphorie/client/browser/templates/certificates.pt:34
 msgid "message_learn_more_about_certificates"
-msgstr ""
+msgstr "message_learn_more_about_certificates"
 
 #. Default: "Dear user, you are using an outdated web browser. Your web
 #. browser is not compatible with the technology used in OiRA. Please install
@@ -6323,9 +6529,10 @@ msgstr ""
 
 #. Default: "Please be aware that you have %s more login attempts before your
 #. account will be locked."
+#. AI-generated
 #: euphorie/content/user.py:212
 msgid "message_lock_warn"
-msgstr ""
+msgstr "message_lock_warn"
 
 #. Default: "Members can view and edit all risk assessments of the
 #. organisation."
@@ -6348,9 +6555,10 @@ msgid "message_no_sectors"
 msgstr "Δεν υπάρχουν τομείς για αυτή τη χώρα."
 
 #. Default: "There are no tools for this country."
+#. AI-generated
 #: euphorie/content/browser/templates/country_tools.pt:25
 msgid "message_no_tools"
-msgstr ""
+msgstr "message_no_tools"
 
 #. Default: "You can not delete a sector that contains published OiRA Tools."
 #: euphorie/content/browser/sector.py:89
@@ -6360,16 +6568,18 @@ msgstr ""
 "OiRA. "
 
 #. Default: "No information available"
+#. AI-generated
 #: euphorie/client/browser/templates/consultants.pt:52
 msgid "message_oira_consultants_no_info"
-msgstr ""
+msgstr "message_oira_consultants_no_info"
 
 #. Default: "Dear user, you are using an outdated web browser. As a result,
 #. the site might not function as expected. Please install a newer browser in
 #. order to make optimal use of this site."
+#. AI-generated
 #: euphorie/client/browser/templates/browser-warning.pt:26
 msgid "message_outdated_browser"
-msgstr ""
+msgstr "message_outdated_browser"
 
 #. Default: "An email will be sent to ${email} if we can find an account for
 #. this email address. Please use the link inside the e-mail to reset your
@@ -6423,10 +6633,11 @@ msgstr ""
 #. Default: "Administrators can create, edit and remove user accounts.
 #. Administrators can also make risk assessments and edit existing ones, lock
 #. risk assessments, create trainings and take trainings."
+#. AI-generated
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:55
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:70
 msgid "message_role_administrator"
-msgstr ""
+msgstr "message_role_administrator"
 
 #. Default: "Consultants can make and edit risk assessments, validate and
 #. approve risk assessments and create trainings."
@@ -6442,16 +6653,18 @@ msgstr ""
 
 #. Default: "Managers/Policy makers can make and edit risk assessments, lock
 #. risk assessments, create trainings and take trainings."
+#. AI-generated
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:73
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:82
 msgid "message_role_manager"
-msgstr ""
+msgstr "message_role_manager"
 
 #. Default: "Members can make risk assessments and take trainings."
+#. AI-generated
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:70
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:91
 msgid "message_role_member"
-msgstr ""
+msgstr "message_role_member"
 
 #. Default: "This risk assessment is currently under review by ${consultant}."
 #: euphorie/client/browser/templates/consultancy.pt:72
@@ -6544,9 +6757,10 @@ msgid "module_optional"
 msgstr "Αυτή η ${number} είναι προαιρετική."
 
 #. Default: "More"
+#. AI-generated
 #: euphorie/client/browser/templates/shell.pt:189
 msgid "more_link"
-msgstr ""
+msgstr "more_link"
 
 #. Default: "Documents"
 #: euphorie/deployment/tiles/tabs.py:77
@@ -6625,24 +6839,28 @@ msgstr "Δεν υπάρχουν τρέχοντα εργαλεία OiRA. Μπορ
 
 #. Default: "<a class='add-clone' id='add-in-place-measure-
 #. button'>${text_add_measures}</a>"
+#. AI-generated
 #: euphorie/content/utils.py:54
 msgid "no_translate_link_add_measures"
-msgstr ""
+msgstr "no_translate_link_add_measures"
 
 #. Default: "<a href='%s/@@report'>${text_download_section}</a>"
+#. AI-generated
 #: euphorie/client/browser/session.py:178
 msgid "no_translate_link_download_section"
-msgstr ""
+msgstr "no_translate_link_download_section"
 
 #. Default: "${text_message_preview_success}: <a href=\"${url}\">${url}</a>."
+#. AI-generated
 #: euphorie/client/browser/publish.py:364
 msgid "no_translate_link_preview_success"
-msgstr ""
+msgstr "no_translate_link_preview_success"
 
 #. Default: "${text_message_publish_success}: <a href=\"${url}\">${url}</a>."
+#. AI-generated
 #: euphorie/client/browser/publish.py:299
 msgid "no_translate_link_published_success"
-msgstr ""
+msgstr "no_translate_link_published_success"
 
 #. Default: "Not set"
 #: euphorie/content/browser/templates/survey_view.pt:33
@@ -6655,39 +6873,45 @@ msgid "notice_country_manager"
 msgstr "Εθνικός διευθυντής για την ${country}."
 
 #. Default: "There are ${link_filters} active on this page."
+#. AI-generated
 #: euphorie/client/browser/templates/assessments.pt:108
 msgid "notice_filters_active"
-msgstr ""
+msgstr "notice_filters_active"
 
 #. Default: "Notify when a risk assessment was not modified for ${days} days."
+#. AI-generated
 #: euphorie/client/notifications/notification__ra_not_modified.py:77
 msgid "notification_description__ra_not_modified"
-msgstr ""
+msgstr "notification_description__ra_not_modified"
 
 #. Default: "You have not modified your risk assessment for ${reminder_days}
 #. days. Please remember to keep your risk assessment up to date.\nWith this
 #. link you can access the risk assessment."
+#. AI-generated
 #: euphorie/client/notifications/notification__ra_not_modified.py:25
 msgid "notification_mail_body__ra_not_modified"
-msgstr ""
+msgstr "notification_mail_body__ra_not_modified"
 
 #. Default: "Reminder: Update of risk assessment (${num} open)"
+#. AI-generated
 #: euphorie/client/notifications/notification__ra_not_modified.py:44
 msgid "notification_mail_subject__ra_not_modified"
-msgstr ""
+msgstr "notification_mail_subject__ra_not_modified"
 
 #. Default: "Hello ${full_name},\n\n${main_text}\n\n${session_links}\n\nBest
 #. regards\nYour OiRA Team\n\n**This is an automatically generated mail. If
 #. you do not want to receive mails from OiRA, you can change this
 #. [here](${preferences_link})**"
+#. AI-generated
 #: euphorie/client/notifications/base.py:83
 msgid "notification_mail_text__base"
-msgstr ""
+msgstr "κείμενο_ειδοποιητικού_μηνύματος__βάση"
 
 #. Default: "Notify on orphaned risk assessments."
+#. AI-generated
 #: euphorie/client/notifications/notification__ra_not_modified.py:63
 msgid "notification_title__ra_not_modified"
-msgstr ""
+msgstr "notification_title__ra_not_modified"
 
 #. Default: "On behalf of the employer:"
 #: euphorie/client/docx/compiler.py:518
@@ -6786,9 +7010,10 @@ msgid "portlet_header_versions"
 msgstr "Εκδόσεις"
 
 #. Default: "COPY"
+#. AI-generated
 #: euphorie/client/browser/session.py:726
 msgid "prefix_cloned_title"
-msgstr ""
+msgstr "prefix_cloned_title"
 
 #. Default: "High"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:231
@@ -6888,24 +7113,28 @@ msgstr "οργάνωση εργαζομένων"
 msgid "register_teaser"
 msgstr "Δεν έχετε λογαριασμό; Εάν όχι, απαιτείται πρώτα ${register_link}."
 
+#. AI-generated
 #: euphorie/client/browser/templates/confirm-email.pt:24
 msgid "reminder_email_footer"
-msgstr ""
+msgstr "υπόμνηση_υποσέλιδου_ηλεκτρονικού_ταχυδρομείου"
 
 #. Default: "Required expertise:"
+#. AI-generated
 #: euphorie/client/docx/compiler.py:752
 msgid "report_competences"
-msgstr ""
+msgstr "αναφέρω_τις_ικανότητες"
 
 #. Default: "To be done by: ${date}"
+#. AI-generated
 #: euphorie/client/docx/compiler.py:778
 msgid "report_end_date"
-msgstr ""
+msgstr "αναφορά_ημερομηνίας_λήξης"
 
 #. Default: "by ${date}"
+#. AI-generated
 #: euphorie/client/docx/compiler.py:1164
 msgid "report_end_date_short"
-msgstr ""
+msgstr "αναφορά_σύντομης_ημερομηνίας_λήξης"
 
 #. Default: "We are sorry, this is a trial version and the download feature
 #. cannot be used. Register in just one step and gain access to the following
@@ -6974,14 +7203,16 @@ msgstr ""
 "πρέπει να συμπεριλαμβάνονται σε αυτή την αναφορά, στο παρακάτω πεδίο."
 
 #. Default: "Measures already in place:"
+#. AI-generated
 #: euphorie/client/docx/compiler.py:719
 msgid "report_measures_in_place"
-msgstr ""
+msgstr "αναφορά_μέτρα_σε_ισχύ"
 
 #. Default: "Responsible: ${responsible_name}"
+#. AI-generated
 #: euphorie/client/docx/compiler.py:764
 msgid "report_responsible"
-msgstr ""
+msgstr "αναφέρω_τον_υπεύθυνο"
 
 #. Default: "This document was based on the OiRA Tool '${title}' of revision
 #. date ${date}."
@@ -7018,9 +7249,10 @@ msgid "request_an_email_reminder"
 msgstr "ζητήστε email υπενθύμισης"
 
 #. Default: "Risk is present."
+#. AI-generated
 #: euphorie/client/docx/compiler.py:282
 msgid "risk_present"
-msgstr ""
+msgstr "παρουσία_κινδύνου"
 
 #. Default: "This is a ${priority_value} priority risk."
 #: euphorie/client/browser/templates/risk_actionplan.pt:89
@@ -7263,9 +7495,10 @@ msgstr ""
 "εγγραφείτε ${tooltip_register}."
 
 #. Default: "add all measures that have already been implemented"
+#. AI-generated
 #: euphorie/content/utils.py:58
 msgid "text_add_measures"
-msgstr ""
+msgstr "κείμενο_προσθήκης_μέτρων"
 
 #. Default: "${link_register} if you would like to use OiRA."
 #: euphorie/client/browser/templates/login.pt:360
@@ -7289,9 +7522,10 @@ msgid "title_account_delete"
 msgstr "Διαγραφή λογαριασμού "
 
 #. Default: "Change email address"
+#. AI-generated
 #: euphorie/client/browser/settings.py:331
 msgid "title_change_email"
-msgstr ""
+msgstr "τίτλος_αλλαγής_ηλεκτρονικού_ταχυδρομείου"
 
 #. Default: "Change password"
 #: euphorie/client/browser/settings.py:69
@@ -7371,10 +7605,11 @@ msgid "title_tool"
 msgstr "OiRA - Online διαδραστική Αξιολόγηση Κινδύνων"
 
 #. Default: "Tool category"
+#. AI-generated
 #: euphorie/content/behaviors/toolcategory.py:12
 #: euphorie/content/browser/templates/survey_view.pt:47
 msgid "title_tool_category"
-msgstr ""
+msgstr "τίτλος_κατηγορίας_εργαλείων"
 
 #. Default: "Unpublish \"${title}\""
 #: euphorie/content/browser/templates/surveygroup_unpublish.pt:15
@@ -7403,9 +7638,10 @@ msgid "tooltip_menu_toggle"
 msgstr "Εμφάνιση/απόκρυψη μενού"
 
 #. Default: "Start a new test session"
+#. AI-generated
 #: euphorie/client/browser/templates/login.pt:369
 msgid "tooltip_start_test_session"
-msgstr ""
+msgstr "tooltip_έναρξη_συνεδρίας_δοκιμής"
 
 #. Default: "This risk is not present in your organisation, but since the
 #. sector organisation considers this one of the priority risks it must be

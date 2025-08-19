@@ -137,9 +137,10 @@ msgstr "Pridať riziko"
 msgid "Add Submodule"
 msgstr "Pridať podmodul"
 
+#. AI-generated
 #: euphorie/client/browser/templates/consultancy.pt:136
 msgid "Add an OSH consultant to your organisation."
-msgstr ""
+msgstr "Pridajte konzultanta BOZP do svojej organizácie."
 
 #: euphorie/client/browser/templates/profile.pt:175
 #: euphorie/client/browser/templates/updated.pt:168
@@ -183,9 +184,10 @@ msgstr "Všetky jazyky"
 msgid "Almost done&hellip;"
 msgstr "Takmer hotovo&hellip;"
 
+#. AI-generated
 #: euphorie/client/browser/login.py:225
 msgid "An account was created for you with email address ${email}"
-msgstr ""
+msgstr "Pre vás bol vytvorený účet s e-mailovou adresou ${email}"
 
 #: euphorie/client/browser/settings.py:361
 msgid "An error occured while sending the confirmation email."
@@ -195,9 +197,10 @@ msgstr "Pri posielaní potvrdzujúceho e-mailu sa vyskytla chyba."
 msgid "An error occured while sending the password reset instructions"
 msgstr "Pri posielaní pokynov k obnove hesla sa vyskytla chyba."
 
+#. AI-generated
 #: euphorie/client/browser/templates/risk_actionplan.pt:65
 msgid "Answer:"
-msgstr ""
+msgstr "Odpoveď:"
 
 #: euphorie/client/browser/templates/more_menu.pt:53
 msgid "Archive"
@@ -207,9 +210,10 @@ msgstr "Archivovať"
 msgid "Archive risk assessment"
 msgstr "Archivovať hodnotenie rizík"
 
+#. AI-generated
 #: euphorie/client/browser/country.py:456
 msgid "Archived"
-msgstr ""
+msgstr "Archivované"
 
 #: euphorie/client/browser/templates/confirmation-archive-session.pt:25
 msgid "Are you sure you want to archive this session?"
@@ -289,9 +293,10 @@ msgstr "Zmeniť e-mailovú adresu"
 msgid "Classic OiRA Tool with positive and negative statements."
 msgstr "Štandardný nástroj OiRA s kladnými a zápornými tvrdeniami."
 
+#. AI-generated
 #: euphorie/client/browser/templates/training-slides.pt:95
 msgid "Click to edit"
-msgstr ""
+msgstr "Kliknutím upravte"
 
 #: euphorie/content/browser/templates/profilequestion_add.pt:104
 #: euphorie/content/browser/templates/profilequestion_edit.pt:111
@@ -313,9 +318,10 @@ msgstr "Zatvoriť"
 msgid "Comments"
 msgstr "Pripomienky"
 
+#. AI-generated
 #: euphorie/content/country.py:86
 msgid "Compact report (Word document)"
-msgstr ""
+msgstr "Kompaktná správa (dokument Word)"
 
 #: euphorie/client/browser/settings.py:386
 msgid "Confirm OiRA email address change"
@@ -408,13 +414,15 @@ msgstr "Odstrániť túto reláciu"
 msgid "Describe the risk..."
 msgstr "Opíšte riziko&hellip;"
 
+#. AI-generated
 #: euphorie/content/country.py:121
 msgid "Description of measures"
-msgstr ""
+msgstr "Popis opatrení"
 
+#. AI-generated
 #: euphorie/content/country.py:118
 msgid "Description of risks"
-msgstr ""
+msgstr "Popis rizík"
 
 #: euphorie/client/browser/templates/report_landing.pt:199
 msgid "Did you like this tool? Share it with your colleagues and friends!"
@@ -459,9 +467,10 @@ msgstr "Upraviť ${name}"
 msgid "Edit Profile question"
 msgstr "Pridať profilovú otázku"
 
+#. AI-generated
 #: euphorie/client/browser/templates/shell.pt:363
 msgid "Edit link"
-msgstr ""
+msgstr "Upraviť odkaz"
 
 #: euphorie/client/browser/templates/organisation.pt:133
 msgid "Edit organisation"
@@ -492,39 +501,45 @@ msgstr "Európska únia"
 msgid "Expand sidebar"
 msgstr "Roztiahnuť bočný panel"
 
+#. AI-generated
 #: euphorie/content/browser/export.py:207
 msgid "Export"
-msgstr ""
+msgstr "Exportovať"
 
+#. AI-generated
 #: euphorie/content/browser/export.py:187
 msgid "Export OiRA Tool"
-msgstr ""
+msgstr "Export OiRA Tool"
 
 #: euphorie/content/utils.py:49
 msgid "F.Y.R. Macedonia"
 msgstr "Bývalá juhoslovanská republika Macedónsko"
 
+#. AI-generated
 #: euphorie/client/browser/templates/assessments.pt:23
 msgid "Filter"
-msgstr ""
+msgstr "Filter"
 
 #: euphorie/client/browser/templates/portlet-my-ras.pt:32
 #: euphorie/client/browser/templates/surveys.pt:46
 msgid "Filters"
 msgstr "Filtre"
 
+#. AI-generated
 #: euphorie/client/browser/templates/consultancy.pt:125
 msgid "Find an OSH consultant."
-msgstr ""
+msgstr "Nájdite konzultanta BOZP."
 
+#. AI-generated
 #: euphorie/content/browser/templates/training_question.pt:19
 #: euphorie/content/training_question.py:18
 msgid "First wrong answer"
-msgstr ""
+msgstr "Prvá nesprávna odpoveď"
 
+#. AI-generated
 #: euphorie/client/browser/templates/shell.pt:317
 msgid "Follow"
-msgstr ""
+msgstr "Sledovať"
 
 #: euphorie/client/browser/templates/training_certificate_inner.pt:34
 msgid "For successfully finishing the training for ${session} on ${date}."
@@ -602,9 +617,10 @@ msgstr "Informácie"
 msgid "Information"
 msgstr "Informácie"
 
+#. AI-generated
 #: euphorie/client/browser/templates/shell.pt:338
 msgid "Insert"
-msgstr ""
+msgstr "Vložiť"
 
 #: euphorie/client/browser/risk.py:1140
 msgid "Invalid file format for image. Please use PNG, JPEG or GIF."
@@ -619,9 +635,10 @@ msgstr "Neplatné heslo"
 msgid "Invalid security token, try to request a new one"
 msgstr "Neplatný bezpečnostný token, skúste požiadať o nový."
 
+#. AI-generated
 #: euphorie/client/browser/training.py:731
 msgid "It seems you missed a slide"
-msgstr ""
+msgstr "Zdá sa, že vám unikla prezentácia"
 
 #: euphorie/client/browser/templates/login.pt:336
 msgid ""
@@ -645,9 +662,10 @@ msgstr "Kosovo"
 msgid "Last saved"
 msgstr "Naposledy uložené"
 
+#. AI-generated
 #: euphorie/client/browser/templates/consultancy.pt:144
 msgid "Learn more about consultancy."
-msgstr ""
+msgstr "Dozvedieť sa viac o konzultácii."
 
 #: euphorie/client/browser/templates/start.pt:57
 msgid "Learn more about this tool&hellip;"
@@ -657,9 +675,10 @@ msgstr "Prečítajte si viac o tomto nástroji&hellip;"
 msgid "Legal and policy references"
 msgstr "Právne odkazy a odkazy na zásady"
 
+#. AI-generated
 #: euphorie/client/browser/templates/shell.pt:328
 msgid "Link text"
-msgstr ""
+msgstr "Text odkazu"
 
 #: euphorie/client/browser/templates/shell.pt:289
 msgid "Loading Risk Assessments&hellip;"
@@ -678,22 +697,25 @@ msgstr "Logo (voliteľné)"
 msgid "Manage"
 msgstr "Spravovať"
 
+#. AI-generated
 #: euphorie/content/browser/similar_titles.py:35
 msgid "Maximum similarity"
-msgstr ""
+msgstr "Maximálna podobnosť"
 
+#. AI-generated
 #: euphorie/content/browser/similar_titles.py:36
 msgid "Maximum similarity between titles"
-msgstr ""
+msgstr "Maximálna podobnosť medzi titulkami"
 
 #: euphorie/client/browser/templates/webhelpers.pt:999
 #: euphorie/content/profiles/default/types/euphorie.solution.xml
 msgid "Measure"
 msgstr "Opatrenie"
 
+#. AI-generated
 #: euphorie/content/country.py:125
 msgid "Measure responsible and date"
-msgstr ""
+msgstr "Zodpovedný za opatrenie a dátum"
 
 #: euphorie/client/browser/templates/measures_overview.pt:85
 msgid "Measure to be implemented by"
@@ -711,13 +733,15 @@ msgstr "Člen odstránený"
 msgid "Member updated"
 msgstr "Člen bol aktualizovaný"
 
+#. AI-generated
 #: euphorie/content/browser/similar_titles.py:26
 msgid "Minimum similarity"
-msgstr ""
+msgstr "Minimálna podobnosť"
 
+#. AI-generated
 #: euphorie/content/browser/similar_titles.py:27
 msgid "Minimum similarity between titles"
-msgstr ""
+msgstr "Minimálna podobnosť medzi titulkami"
 
 #: euphorie/content/profiles/default/types/euphorie.module.xml
 #: euphorie/deployment/browser/search.py:13
@@ -749,9 +773,10 @@ msgstr "Čierna Hora"
 msgid "More"
 msgstr "Viac"
 
+#. AI-generated
 #: euphorie/client/browser/templates/training.pt:85
 msgid "More&hellip;"
-msgstr ""
+msgstr "Viacej&hellip;"
 
 #: euphorie/content/browser/templates/profilequestion_view.pt:32
 msgid "Multiple Item Question"
@@ -793,18 +818,20 @@ msgstr "Nový užívateľ"
 msgid "No"
 msgstr "Nie"
 
+#. AI-generated
 #: euphorie/client/browser/templates/portlet-my-trainings.pt:72
 msgid "No certificates yet"
-msgstr ""
+msgstr "Zatiaľ žiadne certifikáty"
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:176
 msgid "No risk assessments are available for this selection."
 msgstr "Pre tento výber nie sú k dispozícii žiadne hodnotenia rizík."
 
+#. AI-generated
 #: euphorie/client/browser/templates/training-slides.pt:300
 #: euphorie/client/browser/templates/training.pt:391
 msgid "No training content is available"
-msgstr ""
+msgstr "Školiaci obsah nie je k dispozícii"
 
 #: euphorie/content/browser/templates/profilequestion_view.pt:33
 msgid "Not provided"
@@ -859,9 +886,10 @@ msgstr ""
 "ktorý vám umožňuje vykonávať hodnotenie rizík pri&nbsp;ochrane zdravia a "
 "bezpečnosti na pracovisku."
 
+#. AI-generated
 #: euphorie/content/browser/similar_titles.py:192
 msgid "Operation cancelled."
-msgstr ""
+msgstr "Operácia bola zrušená."
 
 #: euphorie/client/browser/templates/sessions-dashboard.pt:63
 msgid "Organisation"
@@ -1001,9 +1029,10 @@ msgstr "Poskytnúť dôkazy dozorným orgánom."
 msgid "Question"
 msgstr "Otázka"
 
+#. AI-generated
 #: euphorie/client/browser/templates/slide_question_try_again.pt:53
 msgid "Re-run the questions"
-msgstr ""
+msgstr "Znova spustiť otázky"
 
 #: euphorie/client/browser/templates/risk_macros.pt:160
 msgid "Read more"
@@ -1047,13 +1076,15 @@ msgstr "Odstrániť"
 msgid "Remove the existing logo"
 msgstr "Odstrániť existujúce logo"
 
+#. AI-generated
 #: euphorie/client/browser/templates/slide_question_try_again.pt:41
 msgid "Repeat the questions to find the correct answer and try again."
-msgstr ""
+msgstr "Opakujte otázky, aby ste našli správnu odpoveď a skúste to znova."
 
+#. AI-generated
 #: euphorie/client/browser/templates/slide_question_try_again.pt:46
 msgid "Repeat the questions to find the correct answers and try again."
-msgstr ""
+msgstr "Opakujte otázky, aby ste našli správne odpovede a skúste to znova."
 
 #: euphorie/client/browser/templates/panel-edit-organisation.pt:84
 msgid "Replace the existing logo"
@@ -1067,10 +1098,11 @@ msgstr "Srbská republika"
 msgid "Resources: Legal references and attachments"
 msgstr "Zdroje: Právne referencie a prílohy"
 
+#. AI-generated
 #: euphorie/content/browser/templates/training_question.pt:17
 #: euphorie/content/training_question.py:17
 msgid "Right answer"
-msgstr ""
+msgstr "Správna odpoveď"
 
 #: euphorie/content/profiles/default/types/euphorie.risk.xml
 #: euphorie/deployment/browser/search.py:15
@@ -1097,9 +1129,10 @@ msgstr "Riziko nie je prítomné"
 msgid "Risk present"
 msgstr "Riziko je prítomné"
 
+#. AI-generated
 #: euphorie/content/browser/similar_titles_details.py:35
 msgid "Risks similar to ${title}"
-msgstr ""
+msgstr "Riziká podobné ako ${title}"
 
 #: euphorie/client/browser/templates/training.pt:81
 msgid "Run slideshow"
@@ -1132,10 +1165,11 @@ msgstr ""
 msgid "Search"
 msgstr "Vyhľadávanie"
 
+#. AI-generated
 #: euphorie/content/browser/templates/training_question.pt:21
 #: euphorie/content/training_question.py:19
 msgid "Second wrong answer"
-msgstr ""
+msgstr "Druhá nesprávna odpoveď"
 
 #: euphorie/content/browser/templates/user_mgmt.pt:41
 #: euphorie/content/profiles/default/types/euphorie.sector.xml
@@ -1163,17 +1197,19 @@ msgstr "Relácia „${name}“ bola odstránená."
 msgid "Show library from ${dropdown}."
 msgstr "Zobraziť knižnicu z ${dropdown}."
 
+#. AI-generated
 #: euphorie/content/browser/similar_titles.py:186
 msgid "Show stored result"
-msgstr ""
+msgstr "Zobraziť uložený výsledok"
 
 #: euphorie/client/browser/templates/webhelpers.pt:68
 msgid "Sign in"
 msgstr "Prihlásenie"
 
+#. AI-generated
 #: euphorie/content/browser/similar_titles.py:51
 msgid "Similar Titles OiRA Tool"
-msgstr ""
+msgstr "Podobné názvy OiRA Tool"
 
 #: euphorie/content/utils.py:238
 msgid "Simple (show only General Approach)"
@@ -1196,10 +1232,11 @@ msgstr "Štandardné opatrenia"
 msgid "Standard solution"
 msgstr "Štandardné riešenie"
 
+#. AI-generated
 #: euphorie/client/browser/templates/training-slides.pt:50
 #: euphorie/client/browser/templates/training.pt:124
 msgid "Start"
-msgstr ""
+msgstr "Začať"
 
 #: euphorie/client/browser/templates/slide_question_intro.pt:37
 msgid "Start the questions"
@@ -1290,9 +1327,10 @@ msgstr ""
 msgid "The risk assessment has been cloned"
 msgstr "Hodnotenie rizík bolo duplicitné."
 
+#. AI-generated
 #: euphorie/client/browser/organisation.py:324
 msgid "The role is invalid"
-msgstr ""
+msgstr "Rola je neplatná"
 
 #: euphorie/content/colour.py:21
 msgid "The specified colour is not valid."
@@ -1302,9 +1340,10 @@ msgstr "Určená farba je neplatná."
 msgid "There are four main stages to complete in the assessment process:"
 msgstr "V procese hodnotenia je potrebné absolvovať štyri hlavné fázy:"
 
+#. AI-generated
 #: euphorie/content/browser/templates/survey_view.pt:118
 msgid "There are no training questions yet"
-msgstr ""
+msgstr "Zatiaľ neboli pridané žiadne školiace otázky"
 
 #: euphorie/client/browser/session.py:620
 msgid "There is not enough information to proceed to the identification phase"
@@ -1318,13 +1357,15 @@ msgstr "Neexistovali žiadne zmeny na uloženie."
 msgid "This OiRA tool was offered to you by ${external_site}"
 msgstr "Tento nástroj OiRA vám ponúkla lokalita ${external_site}"
 
+#. AI-generated
 #: euphorie/client/browser/reset_password.py:284
 msgid "This URL has expired, try to request a new one"
-msgstr ""
+msgstr "Táto URL adresa vypršala, skúste požiadať o novú"
 
+#. AI-generated
 #: euphorie/client/browser/templates/training_certificate_inner.pt:18
 msgid "This certificate is presented to"
-msgstr ""
+msgstr "Tento certifikát je určený pre"
 
 #: euphorie/client/browser/settings.py:441
 msgid "This email address is not available."
@@ -1371,9 +1412,10 @@ msgstr ""
 msgid "This request could not be processed."
 msgstr "Túto požiadavku nebolo možné spracovať."
 
+#. AI-generated
 #: euphorie/content/browser/similar_titles.py:55
 msgid "This tool allows you to find objects with similar titles."
-msgstr ""
+msgstr "Tento nástroj vám umožňuje nájsť objekty s podobnými titulkami."
 
 #: euphorie/client/browser/session.py:171
 msgid "This value must be greater than or equal to 1"
@@ -1395,18 +1437,21 @@ msgstr "Nástroj"
 msgid "Training"
 msgstr "Školenie"
 
+#. AI-generated
 #: euphorie/content/profiles/default/types/euphorie.training_question.xml
 #: euphorie/upgrade/deployment/v1/20220318135716_add_training_question/types/euphorie.training_question.xml
 msgid "Training question"
-msgstr ""
+msgstr "Školiaca otázka"
 
+#. AI-generated
 #: euphorie/client/browser/templates/shell.pt:309
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
+#. AI-generated
 #: euphorie/client/browser/templates/shell.pt:368
 msgid "Unlink"
-msgstr ""
+msgstr "Odpojiť"
 
 #: euphorie/client/browser/webhelpers.py:115
 msgid "Unvisited"
@@ -1424,9 +1469,10 @@ msgstr "Nahrať obrázok, ktorý znázorňuje toto riziko."
 msgid "Upload image"
 msgstr "Nahrať obrázok."
 
+#. AI-generated
 #: euphorie/content/browser/templates/risk_view.pt:122
 msgid "Use scaled answers instead of Yes/No"
-msgstr ""
+msgstr "Použite škálové odpovede namiesto Áno / Nie"
 
 #: euphorie/client/browser/templates/report_landing.pt:180
 msgid "Use the report to:"
@@ -1436,13 +1482,15 @@ msgstr "Použite správu na:"
 msgid "View the history of this risk assessment."
 msgstr "Pozrite si históriu tohto hodnotenia rizika."
 
+#. AI-generated
 #: euphorie/client/browser/templates/shell.pt:356
 msgid "Visit linked web page"
-msgstr ""
+msgstr "Navštívte priradenú webovú stránku"
 
+#. AI-generated
 #: euphorie/client/browser/templates/shell.pt:317
 msgid "Visit this URL"
-msgstr ""
+msgstr "Navštívte túto URL"
 
 #: euphorie/client/browser/templates/report_landing.pt:190
 msgid ""
@@ -1490,17 +1538,20 @@ msgstr "Áno"
 msgid "Yes, clone risk assessment"
 msgstr "Áno, duplikovať hodnotenie rizík"
 
+#. AI-generated
 #: euphorie/client/browser/organisation.py:176
 msgid "You already have an organisation."
-msgstr ""
+msgstr "Už máte organizáciu."
 
+#. AI-generated
 #: euphorie/client/browser/templates/slide_question_try_again.pt:26
 msgid "You are almost there. The following question was answered wrongly."
-msgstr ""
+msgstr "Už ste takmer tam. Nasledujúca otázka bola zodpovedaná nesprávne."
 
+#. AI-generated
 #: euphorie/client/browser/templates/slide_question_try_again.pt:31
 msgid "You are almost there. The following questions were answered wrongly."
-msgstr ""
+msgstr "Takmer ste tam. Nasledujúce otázky boli zodpovedané nesprávne."
 
 #: euphorie/client/browser/templates/slide_question_intro.pt:32
 msgid ""
@@ -1548,13 +1599,15 @@ msgstr ""
 "Preto sa zamestnávateľ musí uistiť, že má vždy vytlačené presné "
 "a&nbsp;aktuálne hodnotenie rizík."
 
+#. AI-generated
 #: euphorie/client/browser/organisation.py:172
 msgid "You need to specify a title for the organisation."
-msgstr ""
+msgstr "Musíte špecifikovať názov organizácie."
 
+#. AI-generated
 #: euphorie/client/browser/training.py:729
 msgid "You should start the training from the beginning"
-msgstr ""
+msgstr "Mali by ste začať tréning od začiatku"
 
 #: euphorie/client/browser/templates/slide_question_intro.pt:29
 msgid "You're done with the training slides!"
@@ -1814,9 +1867,10 @@ msgstr ""
 "Vytvorila agentúra Európska agentúra pre bezpečnosť a ochranu zdravia pri "
 "práci."
 
+#. AI-generated
 #: euphorie/client/adapters/history_item.py:58
 msgid "archived"
-msgstr ""
+msgstr "archivované"
 
 #: euphorie/client/browser/templates/new-session-test.pt:75
 msgid "benefits"
@@ -2403,9 +2457,10 @@ msgstr ""
 #. Default: "The plain text file will contain all translatable text without
 #. formatting. This file can be used to determine a word count for estimating
 #. the cost of translation."
+#. AI-generated
 #: euphorie/content/browser/export.py:155
 msgid "description_export_as_plain_text"
-msgstr ""
+msgstr "description_export_as_plain_text"
 
 #. Default: "If selected, the option to plan measures will be offered directly
 #. on the “Identification” page. There will be no separate “Action Plan” step
@@ -2418,9 +2473,10 @@ msgstr ""
 
 #. Default: "The default export escapes HTML, which is not supportedby
 #. eTranslate"
+#. AI-generated
 #: euphorie/content/browser/export.py:169
 msgid "description_is_etranslate_compatible"
-msgstr ""
+msgstr "description_is_etranslate_compatible"
 
 #. Default: "Defines how the “Measures in place” options are displayed to the
 #. user. Choose “Simple” if the texts for Description and General Approach are
@@ -2437,9 +2493,10 @@ msgstr ""
 
 #. Default: "Find an OSH consultant you want to contact or add to your
 #. organisation to provide support."
+#. AI-generated
 #: euphorie/client/browser/templates/consultants.pt:44
 msgid "description_oira_consultants"
-msgstr ""
+msgstr "description_oira_consultants"
 
 #. Default: "In case you have identified risks not included in the tool, you
 #. are able to add them now:"
@@ -2482,16 +2539,18 @@ msgstr ""
 
 #. Default: "Consultants can make, edit, validate and approve risk
 #. assessments."
+#. AI-generated
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:93
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:108
 msgid "description_role_consultant__training_disabled"
-msgstr ""
+msgstr "description_role_consultant__training_disabled"
 
 #. Default: "Managers/Policy makers can make, edit and lock risk assessments."
+#. AI-generated
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:87
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:102
 msgid "description_role_manager__training_disabled"
-msgstr ""
+msgstr "description_role_manager__training_disabled"
 
 #. Default: "Members can make risk assessments."
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:102
@@ -2503,43 +2562,49 @@ msgstr "Členovia môžu vykonať hodnotenia rizík."
 #. the textual content. When the OiRA tool is then imported again, all images
 #. will be present. Please note that including images may result in a
 #. considerably larger file size."
+#. AI-generated
 #: euphorie/content/browser/export.py:71
 msgid "description_survey_export_include_images"
-msgstr ""
+msgstr "description_survey_export_include_images"
 
 #. Default: "The introduction text describes the general purpose of the OiRA
 #. tool. It usually gives the end users an idea what to expect in the tool and
 #. whether it will be relevant for them. The default is to include this text."
+#. AI-generated
 #: euphorie/content/browser/export.py:86
 msgid "description_survey_export_include_intro_text"
-msgstr ""
+msgstr "description_survey_export_include_intro_text"
 
 #. Default: "For each risk, a number of common measures – sometimes also
 #. referred to as “Solutions” – can be defined. While the default setting is
 #. to include them in the export, they may be excluded if required, for
 #. example to accommodate for a limited translation budget."
+#. AI-generated
 #: euphorie/content/browser/export.py:138
 msgid "description_survey_export_include_measures"
-msgstr ""
+msgstr "description_survey_export_include_measures"
 
 #. Default: "Every module comes with an introductive description. The default
 #. is to include this text."
+#. AI-generated
 #: euphorie/content/browser/export.py:114
 msgid "description_survey_export_include_module_description_texts"
-msgstr ""
+msgstr "description_survey_export_include_module_description_texts"
 
 #. Default: "The “Solution” description” on modules is a deprecated kind of
 #. text that is no longer being used. The default is to skip this."
+#. AI-generated
 #: euphorie/content/browser/export.py:101
 msgid "description_survey_export_include_module_solution_texts"
-msgstr ""
+msgstr "description_survey_export_include_module_solution_texts"
 
 #. Default: "If the OiRA tool is exported because it should be made available
 #. for a different country, the legal texts might not apply there. Therefore
 #. the default is to skip these texts."
+#. AI-generated
 #: euphorie/content/browser/export.py:127
 msgid "description_survey_export_include_risk_legal_texts"
-msgstr ""
+msgstr "description_survey_export_include_risk_legal_texts"
 
 #. Default: "Select one or more categories to which this OiRA tool is
 #. relevant. The user will then find this tool under the chosen categories."
@@ -2661,9 +2726,10 @@ msgid "email_assessment_validated_header"
 msgstr "Vážený  ${recipient},"
 
 #. Default: "${invitee} has reviewed and validated your risk assessment."
+#. AI-generated
 #: euphorie/client/browser/templates/notify-assessment-validated.pt:10
 msgid "email_assessment_validated_main"
-msgstr ""
+msgstr "email_assessment_validated_main"
 
 #. Default: "Please ignore this email if you didn't request for a change."
 #: euphorie/client/browser/templates/confirm-email.pt:21
@@ -2712,15 +2778,17 @@ msgstr "Vážený  ${recipient},"
 #. you approve of the contents of the risk assessment, then please click on
 #. &lsquo;Validate&rsquo; in the section &lsquo;Consultancy&rsquo; to give the
 #. risk assessment an official validated status."
+#. AI-generated
 #: euphorie/client/browser/templates/notify-request-validation.pt:17
 msgid "email_request_validation_instructions"
-msgstr ""
+msgstr "email_request_validation_instructions"
 
 #. Default: "${requester} requested to validate the risk assessment
 #. &lsquo;${assessment}&rsquo;."
+#. AI-generated
 #: euphorie/client/browser/templates/notify-request-validation.pt:12
 msgid "email_request_validation_intro"
-msgstr ""
+msgstr "email_request_validation_intro"
 
 #. Default: "10 to 49 employees"
 #: euphorie/client/browser/company.py:43
@@ -2819,24 +2887,28 @@ msgid "error_validation_before_end_date"
 msgstr "Tento dátum musí byť v deň ukončenia alebo pred ním."
 
 #. Default: "This value must be a valid date"
+#. AI-generated
 #: euphorie/client/browser/webhelpers.py:1285
 msgid "error_validation_date"
-msgstr ""
+msgstr "error_validation_date"
 
 #. Default: "This value must be a valid date and time"
+#. AI-generated
 #: euphorie/client/browser/webhelpers.py:1289
 msgid "error_validation_datetime"
-msgstr ""
+msgstr "error_validation_datetime"
 
 #. Default: "This value must be a valid email address"
+#. AI-generated
 #: euphorie/client/browser/webhelpers.py:1296
 msgid "error_validation_email"
-msgstr ""
+msgstr "error_validation_email"
 
 #. Default: "This value must be a number"
+#. AI-generated
 #: euphorie/client/browser/webhelpers.py:1303
 msgid "error_validation_number"
-msgstr ""
+msgstr "error_validation_number"
 
 #. Default: "This value must be a positive whole number."
 #: euphorie/client/browser/risk.py:91
@@ -2999,14 +3071,16 @@ msgid "filename_report_timeline"
 msgstr "Akčný plán pre ${title}"
 
 #. Default: "Compact report ${title}"
+#. AI-generated
 #: euphorie/client/docx/views.py:318
 msgid "filename_short_report_actionplan"
-msgstr ""
+msgstr "filename_short_report_actionplan"
 
 #. Default: "Contents of OIRA tool ${title}"
+#. AI-generated
 #: euphorie/content/browser/survey.py:478
 msgid "filename_tool_contents"
-msgstr ""
+msgstr "filename_tool_contents"
 
 #. Default: "This folder is empty."
 #: euphorie/content/browser/templates/folder_view.pt:21
@@ -3147,25 +3221,29 @@ msgid "header_evaluation"
 msgstr "Hodnotenie"
 
 #. Default: "Example of a measures overview report in PDF format"
+#. AI-generated
 #: euphorie/client/browser/templates/register_session.pt:103
 msgid "header_example_report_measures"
-msgstr ""
+msgstr "header_example_report_measures"
 
 #. Default: "Example of a full report in Word format (.docx)"
+#. AI-generated
 #: euphorie/client/browser/templates/register_session.pt:50
 msgid "header_example_report_rft"
-msgstr ""
+msgstr "header_example_report_rft"
 
 #. Default: "Example of a risk overview report in PDF format"
+#. AI-generated
 #: euphorie/client/browser/templates/register_session.pt:89
 msgid "header_example_report_risks"
-msgstr ""
+msgstr "header_example_report_risks"
 
 #. Default: "Example of an action plan in Office Open XML Workbook format
 #. (.xlsx)"
+#. AI-generated
 #: euphorie/client/browser/templates/register_session.pt:64
 msgid "header_example_report_xlsx"
-msgstr ""
+msgstr "header_example_report_xlsx"
 
 #. Default: "Feedback."
 #: euphorie/client/browser/templates/report_company.pt:34
@@ -3408,9 +3486,10 @@ msgid "header_secondary_images"
 msgstr "Sekundárne obrázky"
 
 #. Default: "Download spreadsheet"
+#. AI-generated
 #: euphorie/content/browser/templates/country_tools.pt:20
 msgid "header_sector_survey_download"
-msgstr ""
+msgstr "header_sector_survey_download"
 
 #. Default: "OiRA Tools"
 #: euphorie/content/browser/templates/country_tools.pt:15
@@ -3444,9 +3523,10 @@ msgid "header_terms"
 msgstr "Podmienky používania"
 
 #. Default: "Training Questions"
+#. AI-generated
 #: euphorie/content/browser/templates/survey_view.pt:105
 msgid "header_training_questions"
-msgstr ""
+msgstr "header_training_questions"
 
 #. Default: "Hazards/problems that have been \"parked\" and are still to be
 #. dealt with"
@@ -3475,9 +3555,10 @@ msgid "header_why_oira"
 msgstr "Prečo projekt OiRA"
 
 #. Default: "Browser warning"
+#. AI-generated
 #: euphorie/client/browser/templates/browser-warning.pt:17
 msgid "heading_browser_warning"
-msgstr ""
+msgstr "heading_browser_warning"
 
 #. Default: "Certification"
 #: euphorie/client/browser/templates/status_info.pt:141
@@ -3700,9 +3781,10 @@ msgstr ""
 "normalizačné orgány na základe revízie 2 normy NACE."
 
 #. Default: "Select which optional elements are used in the compact report"
+#. AI-generated
 #: euphorie/content/country.py:111
 msgid "help_compact_report_options"
-msgstr ""
+msgstr "help_compact_report_options"
 
 #. Default: "Upload a file that contains additional information, like a PDF,
 #. Word document or spreadsheet. Optionally provide a descriptive caption for
@@ -3748,23 +3830,26 @@ msgstr "Uveďte závažnosť, ak sa vyskytne toto riziko."
 
 #. Default: "If this option is activated, assessments can be reviewed and
 #. validated by consultants."
+#. AI-generated
 #: euphorie/content/country.py:156
 msgid "help_enable_consultancy_country"
-msgstr ""
+msgstr "help_enable_consultancy_country"
 
 #. Default: "If this option is activated, users will be able to take an online
 #. training with this OiRA tool. A successful training will be recorded and
 #. shown with a certificate on the user's dashbooard. You will be asked to
 #. provide Training Questions for the final exam."
+#. AI-generated
 #: euphorie/content/survey.py:148
 msgid "help_enable_web_training"
-msgstr ""
+msgstr "help_enable_web_training"
 
 #. Default: "If this option is activated, an online training can be enabled on
 #. OiRA tools in this country."
+#. AI-generated
 #: euphorie/content/country.py:145
 msgid "help_enable_web_training_country"
-msgstr ""
+msgstr "help_enable_web_training_country"
 
 #. Default: "This text should explain how to evaluate the identified risks."
 #: euphorie/content/help.py:73
@@ -3852,9 +3937,10 @@ msgstr "Všeobecné informácie o hodnotení rizík"
 
 #. Default: "Do not include this module in the training, for example if the
 #. module does not have any relevance for workers."
+#. AI-generated
 #: euphorie/content/behaviors/hide_from_training.py:13
 msgid "help_hide_from_training"
-msgstr ""
+msgstr "help_hide_from_training"
 
 #. Default: "This text should explain how the risk identification works."
 #: euphorie/content/help.py:63
@@ -3946,9 +4032,10 @@ msgstr ""
 #. your training session. If the number is lower than the number of existing
 #. questions, the questions will be picked randomly. Empty the field to show
 #. all questions."
+#. AI-generated
 #: euphorie/content/survey.py:164
 msgid "help_num_training_questions"
-msgstr ""
+msgstr "help_num_training_questions"
 
 #. Default: "The password needs to be at least 12 characters long and needs to
 #. contain at least one lower case letter, one upper case letter and one
@@ -4063,17 +4150,19 @@ msgstr ""
 #. Default: "This method involves risk assessment by Severity x Exposure,
 #. whereas these have to be understood as follows; Severity of injury linked
 #. to hazard - Exposure (Frequency) to the hazard"
+#. AI-generated
 #: euphorie/content/surveygroup.py:94
 msgid "help_survey_evaluation_algorithm_simplified"
-msgstr ""
+msgstr "help_survey_evaluation_algorithm_simplified"
 
 #. Default: "This method involves risk assessment by Severity x Exposure x
 #. Probability, whereas these have to be understood as follows; Severity of
 #. injury linked to hazard - Exposure (Frequency) to the hazard - Probability
 #. of the hazard occuring when exposed"
+#. AI-generated
 #: euphorie/content/surveygroup.py:75
 msgid "help_survey_evaluation_algorithm_standard"
-msgstr ""
+msgstr "help_survey_evaluation_algorithm_standard"
 
 #. Default: "This OiRA Tool is obsolete; it has been retired or replaced with
 #. another OiRA Tool."
@@ -4229,9 +4318,10 @@ msgstr ""
 "${start_session}."
 
 #. Default: "You have completed ${completed}% of the risk assessment."
+#. AI-generated
 #: euphorie/client/browser/templates/status-tooltip.pt:19
 msgid "info_survey_completion"
-msgstr ""
+msgstr "info_survey_completion"
 
 #. Default: "This is a test session. ${link_sign_in} to save your data."
 #: euphorie/client/browser/templates/plain.pt:222
@@ -4391,9 +4481,10 @@ msgstr ""
 #. contact the OiRA team if you need assistance on this subject. You can also
 #. refer to the chapter &ldquo;Re-working a published OiRA tool&rdquo; of the
 #. OiRA manual."
+#. AI-generated
 #: euphorie/client/browser/templates/publish.pt:36
 msgid "intro_publish_survey_structure_changed"
-msgstr ""
+msgstr "intro_publish_survey_structure_changed"
 
 #. Default: "Including the risks to your employees and your equipment? What if
 #. there is an accident with one of the machines? What if an employee is
@@ -4422,9 +4513,10 @@ msgid "intro_select_sector"
 msgstr ""
 "Vyberte odvetvie, pre ktoré chcete zobraziť alebo skopírovať nástroj OiRA."
 
+#. AI-generated
 #: euphorie/client/adapters/history_item.py:111
 msgid "invalidated"
-msgstr ""
+msgstr "invalidované"
 
 #. Default: "Is this risk acceptable or under control?"
 #: euphorie/content/utils.py:89
@@ -4497,9 +4589,10 @@ msgid "label_agree_terms_conditions"
 msgstr "Súhlasím s ${link_terms_conditions}"
 
 #. Default: "All organisations"
+#. AI-generated
 #: euphorie/client/browser/templates/assessments.pt:36
 msgid "label_all_organisations"
-msgstr ""
+msgstr "label_all_organisations"
 
 #. Default: "Alphabetical"
 #: euphorie/client/browser/templates/assessments.pt:51
@@ -4528,11 +4621,12 @@ msgid "label_button_skip"
 msgstr "Vynechať"
 
 #. Default: "Cancel"
+#. AI-generated
 #: euphorie/client/browser/templates/panel-invalidate-risk-assessment.pt:51
 #: euphorie/client/browser/templates/panel-request-validation.pt:60
 #: euphorie/client/browser/templates/panel-validate-risk-assessment.pt:53
 msgid "label_cancel"
-msgstr ""
+msgstr "label_cancel"
 
 #. Default: "Image caption"
 #: euphorie/content/module.py:96 euphorie/content/risk.py:261
@@ -4572,14 +4666,16 @@ msgid "label_clone"
 msgstr "Skopírovať"
 
 #. Default: "Duplicate"
+#. AI-generated
 #: euphorie/client/browser/templates/panel-invalidate-risk-assessment.pt:55
 msgid "label_clone_imp"
-msgstr ""
+msgstr "label_clone_imp"
 
 #. Default: "Close this message"
+#. AI-generated
 #: euphorie/client/browser/templates/browser-warning.pt:50
 msgid "label_close_message"
-msgstr ""
+msgstr "label_close_message"
 
 #. Default: "Compact"
 #: euphorie/client/browser/templates/report_landing.pt:45
@@ -4587,9 +4683,10 @@ msgid "label_compact"
 msgstr "Kompaktný"
 
 #. Default: "Compact report options"
+#. AI-generated
 #: euphorie/content/country.py:110
 msgid "label_compact_report_options"
-msgstr ""
+msgstr "label_compact_report_options"
 
 #. Default: "Your country"
 #: euphorie/client/browser/company.py:30
@@ -4609,11 +4706,12 @@ msgid "label_confirm_password"
 msgstr "Potvrdiť heslo"
 
 #. Default: "Consultancy"
+#. AI-generated
 #: euphorie/client/browser/templates/consultancy.pt:31
 #: euphorie/client/browser/templates/consultants.pt:26
 #: euphorie/client/browser/webhelpers.py:1462
 msgid "label_consultancy"
-msgstr ""
+msgstr "label_consultancy"
 
 #. Default: "Contact email address"
 #: euphorie/content/user.py:81
@@ -4721,9 +4819,10 @@ msgid "label_employee_numbers"
 msgstr "Počet zamestnancov"
 
 #. Default: "Enable Consultancy?"
+#. AI-generated
 #: euphorie/content/country.py:155
 msgid "label_enable_consultancy"
-msgstr ""
+msgstr "label_enable_consultancy"
 
 #. Default: "Show a custom notification for this OiRA tool?"
 #: euphorie/content/browser/templates/survey_view.pt:37
@@ -4732,9 +4831,10 @@ msgid "label_enable_tool_notification"
 msgstr "Zobraziť oznam pre používateľov tohto nástroja OiRA?"
 
 #. Default: "Enable Web Based Training?"
+#. AI-generated
 #: euphorie/content/country.py:144 euphorie/content/survey.py:147
 msgid "label_enable_web_training"
-msgstr ""
+msgstr "label_enable_web_training"
 
 #. Default: "Evaluation"
 #: euphorie/client/browser/templates/login.pt:325
@@ -4781,14 +4881,16 @@ msgid "label_expertise"
 msgstr "Znalosti"
 
 #. Default: "Export additionally as plain text file"
+#. AI-generated
 #: euphorie/content/browser/export.py:151
 msgid "label_export_as_plain_text"
-msgstr ""
+msgstr "label_export_as_plain_text"
 
 #. Default: "Export in eTranslate compatible XML"
+#. AI-generated
 #: euphorie/content/browser/export.py:165
 msgid "label_export_etranslate_compatible"
-msgstr ""
+msgstr "label_export_etranslate_compatible"
 
 #. Default: "Add an extra measure"
 #: euphorie/client/browser/templates/webhelpers.pt:1161
@@ -4890,9 +4992,10 @@ msgid "label_help_sessions"
 msgstr "Vykonanie vášho hodnotenia rizík"
 
 #. Default: "Hide from training"
+#. AI-generated
 #: euphorie/content/behaviors/hide_from_training.py:12
 msgid "label_hide_from_training"
-msgstr ""
+msgstr "label_hide_from_training"
 
 #. Default: "History"
 #: euphorie/client/browser/templates/more_menu.pt:26
@@ -4927,15 +5030,17 @@ msgid "label_introduction"
 msgstr "Úvodný text"
 
 #. Default: "Invalidate"
+#. AI-generated
 #: euphorie/client/browser/templates/locking_menu.pt:115
 #: euphorie/client/browser/templates/panel-invalidate-risk-assessment.pt:47
 msgid "label_invalidate"
-msgstr ""
+msgstr "label_invalidate"
 
 #. Default: "Invalidate risk assessment"
+#. AI-generated
 #: euphorie/client/browser/templates/panel-invalidate-risk-assessment.pt:15
 msgid "label_invalidate_risk_assessment"
-msgstr ""
+msgstr "label_invalidate_risk_assessment"
 
 #. Default: "Involve"
 #: euphorie/client/browser/webhelpers.py:1403
@@ -4943,9 +5048,10 @@ msgid "label_involve"
 msgstr "Zahrnúť"
 
 #. Default: "Import XML translation from eTranslate"
+#. AI-generated
 #: euphorie/content/browser/upload.py:198
 msgid "label_is_etranslate_compatible"
-msgstr ""
+msgstr "label_is_etranslate_compatible"
 
 #. Default: "Go to report"
 #: euphorie/client/browser/templates/actionplan.pt:70
@@ -4992,9 +5098,10 @@ msgid "label_legal_reference"
 msgstr "Právne odkazy a odkazy na zásady"
 
 #. Default: "filters"
+#. AI-generated
 #: euphorie/client/browser/templates/assessments.pt:108
 msgid "label_link_filters"
-msgstr ""
+msgstr "label_link_filters"
 
 #. Default: "register"
 #: euphorie/client/browser/templates/surveys.pt:32
@@ -5191,26 +5298,30 @@ msgid "label_not_sufficient_integrated_ap"
 msgstr "Nie, sú potrebné ďalšie opatrenia (pridajte ich ďalej)"
 
 #. Default: "Notes"
+#. AI-generated
 #: euphorie/client/browser/templates/training-slides.pt:245
 #: euphorie/client/browser/templates/training.pt:330
 #: euphorie/client/browser/templates/webhelpers.pt:763
 msgid "label_notes"
-msgstr ""
+msgstr "label_notes"
 
 #. Default: "Notifications"
+#. AI-generated
 #: euphorie/client/browser/templates/preferences.pt:75
 msgid "label_notifications"
-msgstr ""
+msgstr "label_notifications"
 
 #. Default: "Number of questions asked after training"
+#. AI-generated
 #: euphorie/content/survey.py:160
 msgid "label_num_training_questions"
-msgstr ""
+msgstr "label_num_training_questions"
 
 #. Default: "OSH Consultants"
+#. AI-generated
 #: euphorie/client/browser/templates/consultants.pt:41
 msgid "label_oira_consultants"
-msgstr ""
+msgstr "label_oira_consultants"
 
 #. Default: "Current Password"
 #: euphorie/client/browser/settings.py:94
@@ -5349,9 +5460,10 @@ msgid "label_register_first"
 msgstr "registrácia"
 
 #. Default: "Remove filters"
+#. AI-generated
 #: euphorie/client/browser/templates/assessments.pt:102
 msgid "label_remove_filters"
-msgstr ""
+msgstr "label_remove_filters"
 
 #. Default: "Delete this measure"
 #: euphorie/client/browser/templates/webhelpers.pt:874
@@ -5383,15 +5495,17 @@ msgid "label_report_staff"
 msgstr "Zamestnanci, ktorí sa zúčastnili hodnotenia rizík"
 
 #. Default: "Request validation"
+#. AI-generated
 #: euphorie/client/browser/templates/panel-request-validation.pt:15
 #: euphorie/client/browser/templates/panel-validate-risk-assessment.pt:15
 msgid "label_request_validation"
-msgstr ""
+msgstr "label_request_validation"
 
 #. Default: "Request validation"
+#. AI-generated
 #: euphorie/client/browser/templates/consultancy.pt:81
 msgid "label_request_validation_imp"
-msgstr ""
+msgstr "label_request_validation_imp"
 
 #. Default: "Risk is always present"
 #: euphorie/content/risk.py:167
@@ -5458,9 +5572,10 @@ msgid "label_risks_without_measure_5_or_more"
 msgstr "Riziká bez opatrenia"
 
 #. Default: "Consultant"
+#. AI-generated
 #: euphorie/client/browser/organisation.py:64
 msgid "label_role_consultant"
-msgstr ""
+msgstr "label_role_consultant"
 
 #. Default: "Save and add new risk"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:326
@@ -5531,9 +5646,10 @@ msgid "label_send_password_reminder"
 msgstr "Poslať pripomenutie hesla"
 
 #. Default: "Send validation request"
+#. AI-generated
 #: euphorie/client/browser/templates/panel-request-validation.pt:56
 msgid "label_send_validation_request_imp"
-msgstr ""
+msgstr "label_send_validation_request_imp"
 
 #. Default: "Enter a title for your Risk Assessment"
 #: euphorie/client/browser/session.py:80
@@ -5567,14 +5683,16 @@ msgid "label_sorting"
 msgstr "Zoradenie"
 
 #. Default: "How would you like to start"
+#. AI-generated
 #: euphorie/content/widgets/survey_source_selection.py:18
 msgid "label_source"
-msgstr ""
+msgstr "label_source"
 
 #. Default: "Choose a source"
+#. AI-generated
 #: euphorie/content/browser/surveygroup.py:44
 msgid "label_source_selection"
-msgstr ""
+msgstr "label_source_selection"
 
 #. Default: "Base on an existing risk assessment"
 #: euphorie/client/browser/templates/new-session.pt:46
@@ -5597,9 +5715,10 @@ msgid "label_start_survey"
 msgstr "Začiatok"
 
 #. Default: "Start a test session"
+#. AI-generated
 #: euphorie/client/browser/templates/login.pt:369
 msgid "label_start_test_session"
-msgstr ""
+msgstr "label_start_test_session"
 
 #. Default: "Started"
 #: euphorie/client/browser/templates/assessments.pt:155
@@ -5623,34 +5742,40 @@ msgid "label_survey_evaluation_algorithm"
 msgstr "Algoritmus hodnotenia"
 
 #. Default: "Include images"
+#. AI-generated
 #: euphorie/content/browser/export.py:70
 msgid "label_survey_export_include_images"
-msgstr ""
+msgstr "label_survey_export_include_images"
 
 #. Default: "Include introduction text"
+#. AI-generated
 #: euphorie/content/browser/export.py:82
 msgid "label_survey_export_include_intro_text"
-msgstr ""
+msgstr "label_survey_export_include_intro_text"
 
 #. Default: "Include measures"
+#. AI-generated
 #: euphorie/content/browser/export.py:137
 msgid "label_survey_export_include_measures"
-msgstr ""
+msgstr "label_survey_export_include_measures"
 
 #. Default: "Include “Description” texts on modules"
+#. AI-generated
 #: euphorie/content/browser/export.py:110
 msgid "label_survey_export_include_module_description_texts"
-msgstr ""
+msgstr "label_survey_export_include_module_description_texts"
 
 #. Default: "Include “Solution” texts on modules"
+#. AI-generated
 #: euphorie/content/browser/export.py:97
 msgid "label_survey_export_include_module_solution_texts"
-msgstr ""
+msgstr "label_survey_export_include_module_solution_texts"
 
 #. Default: "Include “Legal and policy references” texts on risks"
+#. AI-generated
 #: euphorie/content/browser/export.py:123
 msgid "label_survey_export_include_risk_legal_texts"
-msgstr ""
+msgstr "label_survey_export_include_risk_legal_texts"
 
 #. Default: "Obsolete OiRA tool"
 #: euphorie/content/surveygroup.py:53
@@ -5668,9 +5793,10 @@ msgid "label_surveygroup_title"
 msgstr "Názov importovaného nástroja OiRA"
 
 #. Default: "Table of contents"
+#. AI-generated
 #: euphorie/client/browser/templates/training.pt:41
 msgid "label_table_of_contents"
-msgstr ""
+msgstr "label_table_of_contents"
 
 #. Default: "Terms and conditions"
 #: euphorie/client/browser/templates/register_session.pt:188
@@ -5810,19 +5936,22 @@ msgid "label_user_title"
 msgstr "Meno"
 
 #. Default: "Validate"
+#. AI-generated
 #: euphorie/client/browser/templates/panel-validate-risk-assessment.pt:49
 msgid "label_validate_imp"
-msgstr ""
+msgstr "label_validate_imp"
 
 #. Default: "Validate this risk assessment"
+#. AI-generated
 #: euphorie/client/browser/templates/consultancy.pt:106
 msgid "label_validate_this_risk_assessment_imp"
-msgstr ""
+msgstr "label_validate_this_risk_assessment_imp"
 
 #. Default: "Validated"
+#. AI-generated
 #: euphorie/client/browser/templates/locking_badge.pt:30
 msgid "label_validated"
-msgstr ""
+msgstr "label_validated"
 
 #. Default: "(&ge;1 measures)"
 #: euphorie/client/browser/templates/risks_overview.pt:431
@@ -5890,9 +6019,10 @@ msgid "limitations"
 msgstr "obmedzenia"
 
 #. Default: "download the contents of this OiRA tool in Word format"
+#. AI-generated
 #: euphorie/content/browser/templates/survey_view.pt:62
 msgid "link_download_tool_contents"
-msgstr ""
+msgstr "link_download_tool_contents"
 
 #. Default: "Sign in"
 #: euphorie/client/browser/templates/plain.pt:222
@@ -5970,14 +6100,16 @@ msgid "measures_text_handling"
 msgstr "Text zaobchádzania s opatreniami (ak sa využívajú zavedené opatrenia)"
 
 #. Default: "Admin"
+#. AI-generated
 #: euphorie/deployment/browser/sitemenu.py:42
 msgid "menu_admin"
-msgstr ""
+msgstr "menu_admin"
 
 #. Default: "Tools for this country"
+#. AI-generated
 #: euphorie/deployment/browser/sitemenu.py:45
 msgid "menu_country_tools"
-msgstr ""
+msgstr "menu_country_tools"
 
 #. Default: "XML export"
 #: euphorie/deployment/browser/sitemenu.py:74
@@ -6034,9 +6166,10 @@ msgstr "Vyberte štát, ktorého nástroj OiRA chcete zobraziť alebo skopírova
 
 #. Default: "Clicking on 'Validate' will lock the risk assessment
 #. &lsquo;${assessment}&rsquo; and give it an official validated status."
+#. AI-generated
 #: euphorie/client/browser/templates/panel-validate-risk-assessment.pt:33
 msgid "message_click_to_validate"
-msgstr ""
+msgstr "message_click_to_validate"
 
 #. Default: "This is the only version of the OiRA Tool and can therefore not
 #. be deleted. Did you perhaps want to remove the OiRA Tool itself?"
@@ -6047,14 +6180,16 @@ msgstr ""
 "odstrániť samotný nástroj OiRA?"
 
 #. Default: "Due to an internal policy, these settings cannot be changed."
+#. AI-generated
 #: euphorie/client/browser/templates/preferences.pt:80
 msgid "message_disallow_notification_settings"
-msgstr ""
+msgstr "message_disallow_notification_settings"
 
 #. Default: "You can ${link_download_tool_contents}."
+#. AI-generated
 #: euphorie/content/browser/templates/survey_view.pt:62
 msgid "message_download_tool_contents"
-msgstr ""
+msgstr "message_download_tool_contents"
 
 #. Default: "Please fill out this field."
 #: euphorie/client/browser/webhelpers.py:1307
@@ -6066,15 +6201,17 @@ msgstr "Vyplňte toto pole."
 #. OSH consultant. An OSH consultant can give your risk assessment an offical
 #. validation mark. A validation can only be requested by users with the
 #. permission level &lsquo;Manage&rsquo; or higher."
+#. AI-generated
 #: euphorie/client/browser/templates/consultancy.pt:37
 msgid "message_find_consultants"
-msgstr ""
+msgstr "message_find_consultants"
 
 #. Default: "When you invalidate this risk assessment, it will lose its
 #. validated status. You can still request for re-validation at a later time."
+#. AI-generated
 #: euphorie/client/browser/templates/panel-invalidate-risk-assessment.pt:33
 msgid "message_invalidate_ra"
-msgstr ""
+msgstr "message_invalidate_ra"
 
 #. Default: "Decide on the best way to involve your staff! You can for example
 #. conduct a meeting or a focus group with workers and go through the
@@ -6111,9 +6248,10 @@ msgstr ""
 "zamestnancov a vytvorí dialóg medzi zamestnancami a vedením."
 
 #. Default: "Learn more about certificates."
+#. AI-generated
 #: euphorie/client/browser/templates/certificates.pt:34
 msgid "message_learn_more_about_certificates"
-msgstr ""
+msgstr "message_learn_more_about_certificates"
 
 #. Default: "Dear user, you are using an outdated web browser. Your web
 #. browser is not compatible with the technology used in OiRA. Please install
@@ -6155,9 +6293,10 @@ msgid "message_no_sectors"
 msgstr "Pre túto krajinu nie sú žiadne odvetvia."
 
 #. Default: "There are no tools for this country."
+#. AI-generated
 #: euphorie/content/browser/templates/country_tools.pt:25
 msgid "message_no_tools"
-msgstr ""
+msgstr "message_no_tools"
 
 #. Default: "You can not delete a sector that contains published OiRA Tools."
 #: euphorie/content/browser/sector.py:89
@@ -6165,16 +6304,18 @@ msgid "message_not_delete_published_sector"
 msgstr "Nemôžete vymazať odvetvie, ktoré obsahuje uverejnené nástroje OiRA."
 
 #. Default: "No information available"
+#. AI-generated
 #: euphorie/client/browser/templates/consultants.pt:52
 msgid "message_oira_consultants_no_info"
-msgstr ""
+msgstr "message_oira_consultants_no_info"
 
 #. Default: "Dear user, you are using an outdated web browser. As a result,
 #. the site might not function as expected. Please install a newer browser in
 #. order to make optimal use of this site."
+#. AI-generated
 #: euphorie/client/browser/templates/browser-warning.pt:26
 msgid "message_outdated_browser"
-msgstr ""
+msgstr "message_outdated_browser"
 
 #. Default: "An email will be sent to ${email} if we can find an account for
 #. this email address. Please use the link inside the e-mail to reset your
@@ -6186,9 +6327,10 @@ msgstr ""
 "${email}. Na obnovenie hesla použite odkaz v tomto e-maile."
 
 #. Default: "Additional costs may be charged by your consultant."
+#. AI-generated
 #: euphorie/client/browser/templates/panel-invalidate-risk-assessment.pt:34
 msgid "message_possible_extra_cost"
-msgstr ""
+msgstr "message_possible_extra_cost"
 
 #. Default: "Successfully created a preview for the OiRA Tool. It can be
 #. accessed at"
@@ -6203,63 +6345,72 @@ msgstr "Úspešne uverejnený nástroj OiRA. Je dostupný na"
 
 #. Default: "I have read and reviewed and where necessary corrected or
 #. enhanced this risk assessment and I approve of its contents."
+#. AI-generated
 #: euphorie/client/browser/templates/panel-validate-risk-assessment.pt:39
 msgid "message_read_and_reviewd_assessment_and_approve"
-msgstr ""
+msgstr "message_read_and_reviewd_assessment_and_approve"
 
 #. Default: "Click on 'Send validation request' to ask the selected OSH
 #. consultant to review and validate your risk assessment."
+#. AI-generated
 #: euphorie/client/browser/templates/panel-request-validation.pt:31
 msgid "message_request_validation"
-msgstr ""
+msgstr "message_request_validation"
 
 #. Default: "Administrators can create, edit and remove user accounts.
 #. Administrators can also make risk assessments and edit existing ones, lock
 #. risk assessments, create trainings and take trainings."
+#. AI-generated
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:55
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:70
 msgid "message_role_administrator"
-msgstr ""
+msgstr "message_role_administrator"
 
 #. Default: "Consultants can make and edit risk assessments, validate and
 #. approve risk assessments and create trainings."
+#. AI-generated
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:61
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:76
 msgid "message_role_consultant"
-msgstr ""
+msgstr "message_role_consultant"
 
 #. Default: "Managers/Policy makers can make and edit risk assessments, lock
 #. risk assessments, create trainings and take trainings."
+#. AI-generated
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:73
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:82
 msgid "message_role_manager"
-msgstr ""
+msgstr "message_role_manager"
 
 #. Default: "Members can make risk assessments and take trainings."
+#. AI-generated
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:70
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:91
 msgid "message_role_member"
-msgstr ""
+msgstr "message_role_member"
 
 #. Default: "This risk assessment is currently under review by ${consultant}."
+#. AI-generated
 #: euphorie/client/browser/templates/consultancy.pt:72
 msgid "message_session_under_review"
-msgstr ""
+msgstr "message_session_under_review"
 
 #. Default: "${validation_time}: ${consultant} has reviewed and validated this
 #. risk assessment"
+#. AI-generated
 #: euphorie/client/browser/templates/consultancy.pt:62
 #: euphorie/client/browser/templates/locking_menu.pt:37
 msgid "message_session_validated"
-msgstr ""
+msgstr "message_session_validated"
 
 #. Default: "If you want to continue working on a copy of this assessment, for
 #. instance to report on a new year, then you can use the option 'Duplicate'.
 #. Duplication will make a full copy of your assessment which will be
 #. editable."
+#. AI-generated
 #: euphorie/client/browser/templates/panel-invalidate-risk-assessment.pt:41
 msgid "message_unlock_or_duplicate"
-msgstr ""
+msgstr "správa_rozozamknúť_alebo_duplikovať"
 
 #. Default: "Cancelled unpublish action."
 #: euphorie/content/browser/surveygroup.py:291
@@ -6284,14 +6435,16 @@ msgstr "Konto „${title}“ bolo odblokované."
 #. Default: "After your consultant has validated this risk assessment, it will
 #. be locked. Should you want to edit the risk assessment again, then you may
 #. always make a duplicate of this assessment at a later time."
+#. AI-generated
 #: euphorie/client/browser/templates/panel-request-validation.pt:49
 msgid "message_warning_locking_after_validation"
-msgstr ""
+msgstr "správa_varovanie_zamykanie_po_validácii"
 
 #. Default: "You are requested to review and validate this risk assessment."
+#. AI-generated
 #: euphorie/client/browser/templates/consultancy.pt:98
 msgid "message_you_are_requested_to_validate_assessment"
-msgstr ""
+msgstr "správa_je_požadované_overiť_hodnotenie"
 
 #. Default: "You don't have any risk assessments yet."
 #: euphorie/client/browser/templates/portlet_my_ras.pt:98
@@ -6299,9 +6452,10 @@ msgid "message_you_dont_have_any_risk_assessments_yet"
 msgstr "Ešte nemáte žiadne hodnotenia rizík. Začnite vytvorením nového."
 
 #. Default: "You have reviewed and validated this risk assessment."
+#. AI-generated
 #: euphorie/client/browser/templates/consultancy.pt:113
 msgid "message_you_reviewed_and_validated_risk_assessment"
-msgstr ""
+msgstr "správa_predložili_ste_a_validovali_hodnotenie_rizika"
 
 #. Default: "This ${number} is mandatory."
 #: euphorie/content/browser/templates/module_view.pt:40
@@ -6395,24 +6549,28 @@ msgstr "Nenachádzajú sa tu žiadne nástroje OiRA. Môžete ${add_link}."
 
 #. Default: "<a class='add-clone' id='add-in-place-measure-
 #. button'>${text_add_measures}</a>"
+#. AI-generated
 #: euphorie/content/utils.py:54
 msgid "no_translate_link_add_measures"
-msgstr ""
+msgstr "no_translate_link_pridať_opatrenia"
 
 #. Default: "<a href='%s/@@report'>${text_download_section}</a>"
+#. AI-generated
 #: euphorie/client/browser/session.py:178
 msgid "no_translate_link_download_section"
-msgstr ""
+msgstr "no_translate_link_stiahnutie_casti"
 
 #. Default: "${text_message_preview_success}: <a href=\"${url}\">${url}</a>."
+#. AI-generated
 #: euphorie/client/browser/publish.py:364
 msgid "no_translate_link_preview_success"
-msgstr ""
+msgstr "no_translate_link_náhľad_úspešný"
 
 #. Default: "${text_message_publish_success}: <a href=\"${url}\">${url}</a>."
+#. AI-generated
 #: euphorie/client/browser/publish.py:299
 msgid "no_translate_link_published_success"
-msgstr ""
+msgstr "no_translate_link_publikované_úspešne"
 
 #. Default: "Not set"
 #: euphorie/content/browser/templates/survey_view.pt:33
@@ -6425,39 +6583,45 @@ msgid "notice_country_manager"
 msgstr "Riadiaci pracovník pre krajinu ${country}."
 
 #. Default: "There are ${link_filters} active on this page."
+#. AI-generated
 #: euphorie/client/browser/templates/assessments.pt:108
 msgid "notice_filters_active"
-msgstr ""
+msgstr "oznámenie_filtry_aktívne"
 
 #. Default: "Notify when a risk assessment was not modified for ${days} days."
+#. AI-generated
 #: euphorie/client/notifications/notification__ra_not_modified.py:77
 msgid "notification_description__ra_not_modified"
-msgstr ""
+msgstr "notifikácia_popis__ra_neupravené"
 
 #. Default: "You have not modified your risk assessment for ${reminder_days}
 #. days. Please remember to keep your risk assessment up to date.\nWith this
 #. link you can access the risk assessment."
+#. AI-generated
 #: euphorie/client/notifications/notification__ra_not_modified.py:25
 msgid "notification_mail_body__ra_not_modified"
-msgstr ""
+msgstr "notifikácia_mail_telo__ra_neupravené"
 
 #. Default: "Reminder: Update of risk assessment (${num} open)"
+#. AI-generated
 #: euphorie/client/notifications/notification__ra_not_modified.py:44
 msgid "notification_mail_subject__ra_not_modified"
-msgstr ""
+msgstr "notifikácia_mail_predmet__ra_neupravené"
 
 #. Default: "Hello ${full_name},\n\n${main_text}\n\n${session_links}\n\nBest
 #. regards\nYour OiRA Team\n\n**This is an automatically generated mail. If
 #. you do not want to receive mails from OiRA, you can change this
 #. [here](${preferences_link})**"
+#. AI-generated
 #: euphorie/client/notifications/base.py:83
 msgid "notification_mail_text__base"
-msgstr ""
+msgstr "notifikácia_mail_text_základ"
 
 #. Default: "Notify on orphaned risk assessments."
+#. AI-generated
 #: euphorie/client/notifications/notification__ra_not_modified.py:63
 msgid "notification_title__ra_not_modified"
-msgstr ""
+msgstr "notifikácia_nadpis__ra_neupravené"
 
 #. Default: "On behalf of the employer:"
 #: euphorie/client/docx/compiler.py:518
@@ -6669,16 +6833,18 @@ msgid "report_end_date"
 msgstr "Realizuje: ${date}"
 
 #. Default: "by ${date}"
+#. AI-generated
 #: euphorie/client/docx/compiler.py:1164
 msgid "report_end_date_short"
-msgstr ""
+msgstr "správa_koniec_dátumu_stručne"
 
 #. Default: "We are sorry, this is a trial version and the download feature
 #. cannot be used. Register in just one step and gain access to the following
 #. benefits:"
+#. AI-generated
 #: euphorie/client/browser/templates/register_session.pt:28
 msgid "report_guest_register_intro"
-msgstr ""
+msgstr "správa_registrovaný_host_intro"
 
 #. Default: "Activity"
 #: euphorie/client/docx/compiler.py:1057
@@ -6941,9 +7107,10 @@ msgid "subject_add_user_to_organisation_email"
 msgstr "Potvrdiť členstvo v OiRA pre '${organisation}'"
 
 #. Default: "Risk assessment validated"
+#. AI-generated
 #: euphorie/client/browser/consultancy.py:215
 msgid "subject_assessment_validated"
-msgstr ""
+msgstr "predmet_validované_hodnotenie"
 
 #. Default: "Membership to your organisation accepted"
 #: euphorie/client/browser/organisation.py:432
@@ -6951,9 +7118,10 @@ msgid "subject_notify_invite_accept"
 msgstr "Členstvo vo Vašej organizácii bolo prijaté"
 
 #. Default: "Risk assessment validation request"
+#. AI-generated
 #: euphorie/client/browser/consultancy.py:142
 msgid "subject_request_validation"
-msgstr ""
+msgstr "predmet_požiadavka_na_validáciu"
 
 #. Default: "Standard"
 #: euphorie/content/browser/surveygroup.py:248
@@ -7034,9 +7202,10 @@ msgid "title_account_delete"
 msgstr "Odstrániť konto"
 
 #. Default: "Change email address"
+#. AI-generated
 #: euphorie/client/browser/settings.py:331
 msgid "title_change_email"
-msgstr ""
+msgstr "nadpis_zmena_e-mailu"
 
 #. Default: "Change password"
 #: euphorie/client/browser/settings.py:69
@@ -7229,18 +7398,21 @@ msgstr "Použiť na"
 msgid "use_it_to_risks_report"
 msgstr "Použiť na"
 
+#. AI-generated
 #: euphorie/client/adapters/history_item.py:107
 msgid "validated"
-msgstr ""
+msgstr "validované"
 
+#. AI-generated
 #: euphorie/client/adapters/history_item.py:103
 msgid "validation requested"
-msgstr ""
+msgstr "validácia_požiadaná"
 
 #. Default: "Register"
+#. AI-generated
 #: euphorie/client/browser/templates/login.pt:360
 msgid "verb_register"
-msgstr ""
+msgstr "sloveso_registrovať"
 
 #. Default: "Please verify if the profile is still accurate."
 #: euphorie/client/browser/templates/updated.pt:31

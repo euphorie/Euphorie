@@ -434,9 +434,10 @@ msgstr "Descrizione dei rischi"
 msgid "Did you like this tool? Share it with your colleagues and friends!"
 msgstr "Lo strumento ti è piaciuto? Condividilo con colleghi e amici!"
 
+#. AI-generated
 #: euphorie/client/browser/templates/login.pt:351
 msgid "Do I need to prepare?"
-msgstr " "
+msgstr "Devo prepararmi?"
 
 #: euphorie/client/browser/session.py:394
 msgid "Does this happen in multiple places?"
@@ -1028,11 +1029,15 @@ msgstr "Rieposizione delle domande"
 msgid "Read more"
 msgstr "Ulteriori informazioni"
 
+#. AI-generated
 #: euphorie/client/browser/templates/report_landing.pt:186
 msgid ""
 "Record any revision if circumstances change (new machines, new workers, as a"
 " result of findings of any accident investigations, etc.)"
-msgstr " "
+msgstr ""
+"Registra ogni revisione se le circostanze cambiano (nuove macchine, nuovi "
+"lavoratori, come risultato dei risultati di qualsiasi indagine sugli "
+"incidenti, ecc.)"
 
 #: euphorie/client/browser/templates/locking_menu.pt:106
 msgid "Refresh locking date"
@@ -1552,13 +1557,18 @@ msgstr ""
 "elenco il modulo o il rischio che si desidera utilizzare ed esso sarà "
 "copiato nel sondaggio."
 
+#. AI-generated
 #: euphorie/client/browser/templates/login.pt:353
 msgid ""
 "You do not need any kind of specific preparation to start using the tool, "
 "however you should take some time to think about who is going to carry out "
 "the risk assessment, how workers are going to be involved in the process, "
 "etc."
-msgstr " "
+msgstr ""
+"Non hai bisogno di alcun tipo di preparazione specifica per iniziare a "
+"utilizzare lo strumento, tuttavia dovresti prendere un po' di tempo per "
+"pensare a chi condurrà la valutazione del rischio, come i lavoratori saranno"
+" coinvolti nel processo, ecc."
 
 #: euphorie/client/browser/session.py:184
 msgid ""
@@ -2823,8 +2833,8 @@ msgstr ""
 #: euphorie/client/browser/templates/notify-request-validation.pt:12
 msgid "email_request_validation_intro"
 msgstr ""
-"${REQUESTER} ha richiesto di convalidare la valutazione del rischio \""
-"${valutazione}\"."
+"${REQUESTER} ha richiesto di convalidare la valutazione del rischio "
+"\"${valutazione}\"."
 
 #. Default: "10 to 49 employees"
 #: euphorie/client/browser/company.py:43
@@ -3009,9 +3019,10 @@ msgstr ""
 #. risk, then you describe the specific action(s) required to achieve this.
 #. You should also include details of the level of expertise and/or other
 #. requirements needed for those actions to be effective."
+#. AI-generated
 #: euphorie/client/browser/templates/actionplan.pt:48
 msgid "expl_actionplan_7"
-msgstr " "
+msgstr "expl_actionplan_7"
 
 #. Default: "No risks were identified. Please proceed directly to the report."
 #: euphorie/client/browser/templates/actionplan.pt:54
@@ -3079,9 +3090,10 @@ msgstr ""
 "non puoi salvare il tuo lavoro. Se non ti ${label_link_register}, tutti i "
 "progressi andranno persi."
 
+#. AI-generated
 #: euphorie/client/browser/session.py:474
 msgid "extra_text_identification"
-msgstr ""
+msgstr "extra_text_identification"
 
 #. Default: "Report ${title}"
 #: euphorie/client/docx/views.py:303
@@ -4501,10 +4513,11 @@ msgstr ""
 #. the hazards/problems, evaluating the risks and deciding on preventive
 #. action.Their feedback should be taken into account when filling in this
 #. tool."
+#. AI-generated
 #: euphorie/client/browser/templates/identification.pt:30
 #: euphorie/client/browser/templates/panel-contents-preview.pt:35
 msgid "intro_print_identification_2"
-msgstr " "
+msgstr "intro_print_identification_2"
 
 #. Default: "Are you sure you want to publish this OiRA Tool? After
 #. publication the OiRA Tool will appear in the online client and be
@@ -6224,8 +6237,8 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-validate-risk-assessment.pt:33
 msgid "message_click_to_validate"
 msgstr ""
-"Facendo clic su \"Convalida\" bloccerà la valutazione del rischio \""
-"${valutazione}\" e gli darà uno stato convalidato ufficiale."
+"Facendo clic su \"Convalida\" bloccerà la valutazione del rischio "
+"\"${valutazione}\" e gli darà uno stato convalidato ufficiale."
 
 #. Default: "This is the only version of the OiRA Tool and can therefore not
 #. be deleted. Did you perhaps want to remove the OiRA Tool itself?"
@@ -6640,11 +6653,11 @@ msgstr ""
 "</a>"
 
 #. Default: ""
-#: Artistic construct that translates a dynamically created link
-#: Default needs to stay empty.
-#: euphorie/client/browser/session.py:178
+#. AI-generated
+#: Artistic construct that translates a dynamically created link Default needs
+#: to stay empty. euphorie/client/browser/session.py:178
 msgid "no_translate_link_download_section"
-msgstr ""
+msgstr "no_translate_link_download_section"
 
 #. Default: "${text_message_preview_success}: <a href=\"${url}\">${url}</a>."
 #: euphorie/client/browser/publish.py:364
@@ -6675,8 +6688,8 @@ msgstr "Ci sono ${link_filters} attivi in questa pagina."
 #: euphorie/client/notifications/notification__ra_not_modified.py:77
 msgid "notification_description__ra_not_modified"
 msgstr ""
-"Notificare quando una valutazione del rischio non è stata modificata per $"
-"${giorni} giorni."
+"Notificare quando una valutazione del rischio non è stata modificata per "
+"$${giorni} giorni."
 
 #. Default: "You have not modified your risk assessment for ${reminder_days}
 #. days. Please remember to keep your risk assessment up to date.\nWith this
@@ -6922,11 +6935,12 @@ msgid "register_teaser"
 msgstr "Non avete un account? Innanzitutto ${register_link} ."
 
 #. Default: ""
-#: This is a way to provide some text in case the customer 
-#: wants it, by giving a translation. Needs to stay empty.
+#. AI-generated
+#: This is a way to provide some text in case the customer wants it, by giving
+#: a translation. Needs to stay empty.
 #: euphorie/client/browser/templates/confirm-email.pt:24
 msgid "reminder_email_footer"
-msgstr ""
+msgstr "reminder_email_footer"
 
 #. Default: "Required expertise:"
 #: euphorie/client/docx/compiler.py:752
