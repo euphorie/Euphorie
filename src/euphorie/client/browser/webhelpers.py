@@ -1184,6 +1184,12 @@ class WebHelpers(BrowserView):
         """Return custom JavaScript where necessary."""
         return ""
 
+    @property
+    @memoize
+    def custom_css(self):
+        """Return custom CSS where necessary."""
+        return ""
+
     @memoize_contextless
     def date_picker_i18n_json(self):
         """Taken from: https://github.com/ploneintranet/ploneintranet/blob/mast

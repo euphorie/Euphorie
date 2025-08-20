@@ -63,14 +63,11 @@
           rel="stylesheet"
           type="text/css"
     />
-    <link href="${webhelpers/client_url}/++resource++dsetool.resources/assets/dsetool/style/all.css"
-          rel="stylesheet"
-          type="text/css"
-    />
     <link href="${webhelpers/client_url}/acl_users/session/refresh?session_refresh=true&amp;type=css&amp;minutes=5"
           rel="stylesheet"
           type="text/css"
     />
+    <tal:custom_css replace="structure webhelpers/custom_css|nothing" />
 
     <meta name="description"
           content="${webhelpers/tool_description}"
@@ -110,4 +107,5 @@
     <metal:block define-slot="scripts" />
 
   </body>
+
 </html>
