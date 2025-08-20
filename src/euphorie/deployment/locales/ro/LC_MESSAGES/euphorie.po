@@ -15,8 +15,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
-"20)) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < 20)) ? 1 : 2;\n"
 "Domain: DOMAIN\n"
 "Generated-By: Babel 0.9.6\n"
 "Language-Code: en\n"
@@ -25,69 +24,33 @@ msgstr ""
 
 #. AI-generated
 #: euphorie/client/browser/templates/login.pt:330
-msgid ""
-"${action-plan} In the fourth stage of the assessment you can decide what "
-"steps you will take to address the risks you have identified previously and "
-"what resources this might require. Based on this, a report will be "
-"automatically produced in the next step."
-msgstr ""
-"${action-plan} În a patra etapă a evaluării, puteți decide ce pași veți lua "
-"pentru a aborda riscurile pe care le-ați identificat anterior și ce resurse "
-"ar putea fi necesare. Pe baza acestui lucru, în pasul următor se va genera "
-"automat un raport."
+msgid "${action-plan} In the fourth stage of the assessment you can decide what steps you will take to address the risks you have identified previously and what resources this might require. Based on this, a report will be automatically produced in the next step."
+msgstr "${action-plan} În a patra etapă a evaluării, puteți decide ce pași veți lua pentru a aborda riscurile pe care le-ați identificat anterior și ce resurse ar putea fi necesare. Pe baza acestui lucru, în pasul următor se va genera automat un raport."
 
 #. AI-generated
 #: euphorie/client/browser/templates/login.pt:328
-msgid ""
-"${evaluation} Here you will be able to determine the level of risk attached "
-"to each of the items you identified as 'need to be addressed' in the "
-"'Identification' stage."
-msgstr ""
-"${evaluation} Aici veți putea determina nivelul de risc asociat cu fiecare "
-"dintre elementele pe care le-ați identificat ca 'trebuie abordate' în etapa "
-"'Identificare'."
+msgid "${evaluation} Here you will be able to determine the level of risk attached to each of the items you identified as 'need to be addressed' in the 'Identification' stage."
+msgstr "${evaluation} Aici veți putea determina nivelul de risc asociat cu fiecare dintre elementele pe care le-ați identificat ca 'trebuie abordate' în etapa 'Identificare'."
 
 #. AI-generated
 #: euphorie/client/browser/templates/login.pt:326
-msgid ""
-"${identification} OiRA will present a series of potential health and safety "
-"hazards or problems that could exist in your workplace. By answering the "
-"statements/questions with either yes or no, you state if such hazards or "
-"problems are present. You can also decide to leave a question unanswered and "
-"thus put it on hold to be answered at a later stage."
-msgstr ""
-"${identification} OiRA vă va prezenta o serie de potențiale pericole sau "
-"probleme de sănătate și securitate în muncă care ar putea exista la locul "
-"dumneavoastră de muncă. Răspunzând la afirmații/întrebări cu da sau nu, "
-"indicați dacă astfel de pericole sau probleme sunt prezente. De asemenea, "
-"puteți decide să lăsați o întrebare fără răspuns și astfel să o amânați "
-"pentru a fi răspunsă la o etapă ulterioară."
+msgid "${identification} OiRA will present a series of potential health and safety hazards or problems that could exist in your workplace. By answering the statements/questions with either yes or no, you state if such hazards or problems are present. You can also decide to leave a question unanswered and thus put it on hold to be answered at a later stage."
+msgstr "${identification} OiRA vă va prezenta o serie de potențiale pericole sau probleme de sănătate și securitate în muncă care ar putea exista la locul dumneavoastră de muncă. Răspunzând la afirmații/întrebări cu da sau nu, indicați dacă astfel de pericole sau probleme sunt prezente. De asemenea, puteți decide să lăsați o întrebare fără răspuns și astfel să o amânați pentru a fi răspunsă la o etapă ulterioară."
 
 #. AI-generated
 #: euphorie/client/browser/templates/report_landing.pt:110
-msgid ""
-"${manage} the problems/risks in your workplace (specific tasks, expertise, "
-"responsibilities, deadlines)."
-msgstr ""
-"${manage} problemele/riscurile de la locul de muncă (sarcini specifice, "
-"expertiză, responsabilități, termene limită)."
+msgid "${manage} the problems/risks in your workplace (specific tasks, expertise, responsibilities, deadlines)."
+msgstr "${manage} problemele/riscurile de la locul de muncă (sarcini specifice, expertiză, responsabilități, termene limită)."
 
 #. AI-generated
 #: euphorie/client/browser/templates/login.pt:324
-msgid ""
-"${preparation} This gives you an overview of the particular assessment you "
-"are about to begin and can allow you to further customise the assessment to "
-"the specific nature of your business."
-msgstr ""
-"${preparation} Acest lucru vă oferă o imagine de ansamblu a evaluării "
-"specifice pe care urmează să o începeți și vă poate permite să personalizați "
-"mai mult evaluarea la specificul afacerii dumneavoastră."
+msgid "${preparation} This gives you an overview of the particular assessment you are about to begin and can allow you to further customise the assessment to the specific nature of your business."
+msgstr "${preparation} Acest lucru vă oferă o imagine de ansamblu a evaluării specifice pe care urmează să o începeți și vă poate permite să personalizați mai mult evaluarea la specificul afacerii dumneavoastră."
 
 #. AI-generated
 #: euphorie/client/browser/templates/report_landing.pt:82
 msgid "${provide-evidence} for supervisory authorities (labour inspectorate)."
-msgstr ""
-"${provide-evidence} pentru autoritățile de supraveghere (inspecția muncii)."
+msgstr "${provide-evidence} pentru autoritățile de supraveghere (inspecția muncii)."
 
 #. AI-generated
 #: euphorie/client/browser/templates/measures_overview.pt:64
@@ -102,8 +65,7 @@ msgstr "Un modul este o grupare de riscuri"
 #. AI-generated
 #: euphorie/content/profiles/default/types/euphorie.sector.xml
 msgid "A sector is national organisation for a specific type of industry."
-msgstr ""
-"Un sector este o organizație națională pentru un anumit tip de industrie."
+msgstr "Un sector este o organizație națională pentru un anumit tip de industrie."
 
 #. AI-generated
 #: euphorie/content/behaviour/richdescription.py:40
@@ -231,8 +193,7 @@ msgstr "A apărut o eroare în timpul trimiterii e-mailului de confirmare."
 #. AI-generated
 #: euphorie/client/browser/reset_password.py:113
 msgid "An error occured while sending the password reset instructions"
-msgstr ""
-"A apărut o eroare în timpul trimiterii instrucțiunilor de resetare a parolei"
+msgstr "A apărut o eroare în timpul trimiterii instrucțiunilor de resetare a parolei"
 
 #. AI-generated
 #: euphorie/client/browser/templates/risk_actionplan.pt:65
@@ -267,26 +228,17 @@ msgstr "Sunteți sigur că doriți să arhivați această sesiune?"
 #. AI-generated
 #: euphorie/client/browser/templates/confirmation-delete-risk.pt:29
 msgid "Are you sure you want to continue? This action can not be reverted."
-msgstr ""
-"Sunteți sigur că doriți să continuați? Această acțiune nu poate fi inversată."
+msgstr "Sunteți sigur că doriți să continuați? Această acțiune nu poate fi inversată."
 
 #. AI-generated
 #: euphorie/client/browser/risk.py:62
-msgid ""
-"Are you sure you want to delete this measure? This action can not be "
-"reverted."
-msgstr ""
-"Sunteți sigur că doriți să ștergeți această măsură? Această acțiune nu poate "
-"fi inversată."
+msgid "Are you sure you want to delete this measure? This action can not be reverted."
+msgstr "Sunteți sigur că doriți să ștergeți această măsură? Această acțiune nu poate fi inversată."
 
 #. AI-generated
 #: euphorie/client/browser/templates/confirmation-delete-session.pt:31
-msgid ""
-"Are you sure you want to delete this session? This action can not be "
-"reverted."
-msgstr ""
-"Sunteți sigur că doriți să ștergeți această sesiune? Această acțiune nu "
-"poate fi inversată."
+msgid "Are you sure you want to delete this session? This action can not be reverted."
+msgstr "Sunteți sigur că doriți să ștergeți această sesiune? Această acțiune nu poate fi inversată."
 
 #. AI-generated
 #: euphorie/client/browser/templates/confirmation-clone-session.pt:28
@@ -317,12 +269,8 @@ msgstr "Înapoi"
 #. AI-generated
 #: euphorie/client/browser/templates/confirmation-clone-session.pt:25
 #: euphorie/client/browser/templates/more_menu.pt:62
-msgid ""
-"By cloning a risk assessment you will create a new risk assessment based on "
-"the contents of this risk assessment as a starting point."
-msgstr ""
-"Clonând o evaluare a riscului veți crea o nouă evaluare a riscului pe baza "
-"conținutului acestei evaluări a riscului ca punct de plecare."
+msgid "By cloning a risk assessment you will create a new risk assessment based on the contents of this risk assessment as a starting point."
+msgstr "Clonând o evaluare a riscului veți crea o nouă evaluare a riscului pe baza conținutului acestei evaluări a riscului ca punct de plecare."
 
 #. AI-generated
 #: euphorie/client/browser/reset_password.py:212
@@ -403,21 +351,13 @@ msgstr "Confirmă schimbarea adresei de email OiRA"
 
 #. AI-generated
 #: euphorie/client/browser/templates/report_landing.pt:54
-msgid ""
-"Contains: Concise information and input provided by you throughout the risk "
-"assessment process."
-msgstr ""
-"Conține: Informații concise și date furnizate de tine în cadrul procesului "
-"de evaluare a riscurilor."
+msgid "Contains: Concise information and input provided by you throughout the risk assessment process."
+msgstr "Conține: Informații concise și date furnizate de tine în cadrul procesului de evaluare a riscurilor."
 
 #. AI-generated
 #: euphorie/client/browser/templates/report_landing.pt:77
-msgid ""
-"Contains: all the information and input provided by you throughout the risk "
-"assessment process."
-msgstr ""
-"Conține: toate informațiile și datele furnizate de tine în cadrul procesului "
-"de evaluare a riscurilor."
+msgid "Contains: all the information and input provided by you throughout the risk assessment process."
+msgstr "Conține: toate informațiile și datele furnizate de tine în cadrul procesului de evaluare a riscurilor."
 
 #. AI-generated
 #: euphorie/client/browser/templates/report_landing.pt:167
@@ -431,11 +371,8 @@ msgstr "Conține: o prezentare generală a riscurilor identificate"
 
 #. AI-generated
 #: euphorie/client/browser/templates/report_landing.pt:105
-msgid ""
-"Contains: main elements to effectively manage the risks at your workplace."
-msgstr ""
-"Conține: elementele principale pentru gestionarea eficientă a riscurilor la "
-"locul tău de muncă."
+msgid "Contains: main elements to effectively manage the risks at your workplace."
+msgstr "Conține: elementele principale pentru gestionarea eficientă a riscurilor la locul tău de muncă."
 
 #. AI-generated
 #: euphorie/client/browser/templates/slide_question.pt:42
@@ -466,9 +403,7 @@ msgstr "Grupare de țări"
 #. AI-generated
 #: euphorie/client/browser/templates/about.pt:185
 msgid "Creative Commons Attribution-ShareAlike 2.5 Generic License"
-msgstr ""
-"Licență Generică Creative Commons Atribuire-Partajare în Condiții Identice "
-"2.5"
+msgstr "Licență Generică Creative Commons Atribuire-Partajare în Condiții Identice 2.5"
 
 #. AI-generated
 #: euphorie/client/browser/templates/about.pt:179
@@ -523,9 +458,7 @@ msgstr "Descrierea riscurilor"
 
 #: euphorie/client/browser/templates/report_landing.pt:199
 msgid "Did you like this tool? Share it with your colleagues and friends!"
-msgstr ""
-"V-a plăcut acest instrument? Distribuiți-l colegilor și prietenilor "
-"dumneavoastră!"
+msgstr "V-a plăcut acest instrument? Distribuiți-l colegilor și prietenilor dumneavoastră!"
 
 #. AI-generated
 #: euphorie/client/browser/templates/login.pt:354
@@ -658,8 +591,7 @@ msgstr "Urmăriți"
 #. AI-generated
 #: euphorie/client/browser/templates/training_certificate_inner.pt:34
 msgid "For successfully finishing the training for ${session} on ${date}."
-msgstr ""
-"Pentru finalizarea cu succes a antrenamentului pentru ${session} pe ${date}."
+msgstr "Pentru finalizarea cu succes a antrenamentului pentru ${session} pe ${date}."
 
 #. AI-generated
 #: euphorie/client/browser/templates/report_landing.pt:104
@@ -704,20 +636,12 @@ msgstr "Cum să folosiți acest instrument"
 #. AI-generated
 #: euphorie/client/browser/templates/login.pt:314
 msgid "However, OiRA is designed to be of most value to smaller businesses."
-msgstr ""
-"Cu toate acestea, OiRA este destinat să fie de cea mai mare valoare pentru "
-"afacerile mici."
+msgstr "Cu toate acestea, OiRA este destinat să fie de cea mai mare valoare pentru afacerile mici."
 
 #. AI-generated
 #: euphorie/client/browser/templates/login.pt:340
-msgid ""
-"However, you can spend whatever time you have available on an assessment and "
-"then return to it when convenient to pick up from the same point you left "
-"off."
-msgstr ""
-"Cu toate acestea, poti petrece oricât timp ai la dispoziție pentru o "
-"evaluare, apoi te poți întoarce la ea când este convenabil să reiei de la "
-"punctul la care ai lăsat-o."
+msgid "However, you can spend whatever time you have available on an assessment and then return to it when convenient to pick up from the same point you left off."
+msgstr "Cu toate acestea, poti petrece oricât timp ai la dispoziție pentru o evaluare, apoi te poți întoarce la ea când este convenabil să reiei de la punctul la care ai lăsat-o."
 
 #. AI-generated
 #: euphorie/client/browser/webhelpers.py:1009
@@ -758,9 +682,7 @@ msgstr "Inserare"
 #. AI-generated
 #: euphorie/client/browser/risk.py:1089
 msgid "Invalid file format for image. Please use PNG, JPEG or GIF."
-msgstr ""
-"Format de fișier invalid pentru imagine. Vă rugăm să folosiți PNG, JPEG sau "
-"GIF."
+msgstr "Format de fișier invalid pentru imagine. Vă rugăm să folosiți PNG, JPEG sau GIF."
 
 #. AI-generated
 #: euphorie/client/browser/settings.py:277
@@ -779,12 +701,8 @@ msgstr "Se pare că ați omis un slide"
 
 #. AI-generated
 #: euphorie/client/browser/templates/login.pt:339
-msgid ""
-"It's impossible to say how long an assessment will take in general as the "
-"tools differ according to sectors and countries."
-msgstr ""
-"Este imposibil de spus cât timp va dura o evaluare în general, deoarece "
-"instrumentele diferă în funcție de sectoare și țări."
+msgid "It's impossible to say how long an assessment will take in general as the tools differ according to sectors and countries."
+msgstr "Este imposibil de spus cât timp va dura o evaluare în general, deoarece instrumentele diferă în funcție de sectoare și țări."
 
 #. AI-generated
 #: euphorie/client/browser/templates/panel-edit-organisation.pt:74
@@ -917,8 +835,7 @@ msgstr "Monitorizați și evaluați dacă au fost introduse măsurile necesare."
 #: euphorie/client/browser/templates/measures_overview.pt:70
 #: euphorie/client/browser/templates/report_landing.pt:173
 msgid "Monitor the measures to be implemented in the forthcoming 3 months."
-msgstr ""
-"Monitorizați măsurile care urmează a fi implementate în următoarele 3 luni."
+msgstr "Monitorizați măsurile care urmează a fi implementate în următoarele 3 luni."
 
 #. AI-generated
 #: euphorie/client/browser/templates/report_landing.pt:143
@@ -1036,28 +953,17 @@ msgstr "Versiunea instrumentului OiRA"
 #. AI-generated
 #: euphorie/content/utils.py:101
 msgid "OiRA Tool where \"Measures that are already in place\" can be defined."
-msgstr ""
-"Instrument OiRA unde 'Măsurile care sunt deja în vigoare' pot fi definite."
+msgstr "Instrument OiRA unde 'Măsurile care sunt deja în vigoare' pot fi definite."
 
 #. AI-generated
 #: euphorie/client/browser/templates/login.pt:313
-msgid ""
-"OiRA can be used by anyone wishing to assess health and safety-related risks "
-"that might exist in their workplace."
-msgstr ""
-"OiRA poate fi utilizat de oricine dorește să evalueze riscurile legate de "
-"sănătate și securitate care ar putea exista la locul lor de muncă."
+msgid "OiRA can be used by anyone wishing to assess health and safety-related risks that might exist in their workplace."
+msgstr "OiRA poate fi utilizat de oricine dorește să evalueze riscurile legate de sănătate și securitate care ar putea exista la locul lor de muncă."
 
 #. AI-generated
 #: euphorie/client/browser/templates/login.pt:315
-msgid ""
-"OiRA is designed specifically to support them in assessing the risks at work "
-"and helping them to produce a documented risk assessment including an action "
-"plan tailored to the business's requirements."
-msgstr ""
-"OiRA este conceput special pentru a le susține în evaluarea riscurilor la "
-"locul de muncă și a le ajuta să producă o evaluare a riscurilor documentată, "
-"inclusiv un plan de acțiune adaptat cerințelor afacerii."
+msgid "OiRA is designed specifically to support them in assessing the risks at work and helping them to produce a documented risk assessment including an action plan tailored to the business's requirements."
+msgstr "OiRA este conceput special pentru a le susține în evaluarea riscurilor la locul de muncă și a le ajuta să producă o evaluare a riscurilor documentată, inclusiv un plan de acțiune adaptat cerințelor afacerii."
 
 #. AI-generated
 #: euphorie/client/browser/reset_password.py:143
@@ -1066,14 +972,8 @@ msgstr "Instrucțiuni de resetare a parolei OiRA"
 
 #. AI-generated
 #: euphorie/client/browser/templates/login.pt:308
-msgid ""
-"OiRA stands for Online Interactive Risk Assessment. It is a web-based tool "
-"that allows you to perform a health and safety risk assessment of your "
-"workplace."
-msgstr ""
-"OiRA reprezintă Evaluarea Interactivă a Riscurilor Online. Este un "
-"instrument bazat pe web care vă permite să efectuați o evaluare a riscului "
-"de sănătate și securitate a locului dumneavoastră de muncă."
+msgid "OiRA stands for Online Interactive Risk Assessment. It is a web-based tool that allows you to perform a health and safety risk assessment of your workplace."
+msgstr "OiRA reprezintă Evaluarea Interactivă a Riscurilor Online. Este un instrument bazat pe web care vă permite să efectuați o evaluare a riscului de sănătate și securitate a locului dumneavoastră de muncă."
 
 #. AI-generated
 #: euphorie/client/browser/survey.py:95
@@ -1138,13 +1038,8 @@ msgstr "Proprietar"
 
 #. AI-generated
 #: euphorie/client/browser/templates/report_landing.pt:184
-msgid ""
-"Pass information on to the people concerned (workers, safety "
-"representatives, employers, experts in occupational safety and health, etc.)"
-msgstr ""
-"Transmiteți informații persoanelor interesate (lucrători, reprezentanți de "
-"securitate, angajatori, experți în securitate și sănătate la locul de muncă, "
-"etc.)"
+msgid "Pass information on to the people concerned (workers, safety representatives, employers, experts in occupational safety and health, etc.)"
+msgstr "Transmiteți informații persoanelor interesate (lucrători, reprezentanți de securitate, angajatori, experți în securitate și sănătate la locul de muncă, etc.)"
 
 #. AI-generated
 #: euphorie/client/browser/templates/measures_overview.pt:69
@@ -1162,24 +1057,13 @@ msgstr "Parola nu se compară cu valoarea de confirmare"
 
 #. AI-generated
 #: euphorie/client/browser/templates/new-email.pt:26
-msgid ""
-"Please bear in mind that by changing the email address, your login name will "
-"also change."
-msgstr ""
-"Vă rugăm să rețineți că schimbând adresa de e-mail, numele dvs. de "
-"utilizator se va schimba."
+msgid "Please bear in mind that by changing the email address, your login name will also change."
+msgstr "Vă rugăm să rețineți că schimbând adresa de e-mail, numele dvs. de utilizator se va schimba."
 
 #. AI-generated
 #: euphorie/content/browser/templates/library.pt:28
-msgid ""
-"Please note that you may not be able to use all available content: profile "
-"questions can only be used at the top level of your survey, and modules may "
-"be too deeply nested to fit in ${title}."
-msgstr ""
-"Vă rugăm să rețineți că este posibil să nu puteți utiliza tot conținutul "
-"disponibil: întrebările de profil pot fi utilizate numai la nivelul superior "
-"al sondajului dvs., iar modulele pot fi prea profund încastrate pentru a se "
-"potrivi în ${title}."
+msgid "Please note that you may not be able to use all available content: profile questions can only be used at the top level of your survey, and modules may be too deeply nested to fit in ${title}."
+msgstr "Vă rugăm să rețineți că este posibil să nu puteți utiliza tot conținutul disponibil: întrebările de profil pot fi utilizate numai la nivelul superior al sondajului dvs., iar modulele pot fi prea profund încastrate pentru a se potrivi în ${title}."
 
 #. AI-generated
 #: euphorie/content/browser/templates/profilequestion_add.pt:70
@@ -1223,23 +1107,13 @@ msgstr "Întrebare de profil"
 #. AI-generated
 #: euphorie/content/browser/templates/profilequestion_add.pt:64
 #: euphorie/content/browser/templates/profilequestion_edit.pt:71
-msgid ""
-"Profile questions are used to determine whether particular modules apply to "
-"the end user at all (i.e. the modules inside the profile question are "
-"OPTIONAL), and if they apply, whether they should be repeated a number of "
-"times (i.e. the modules are REPEATABLE)."
-msgstr ""
-"Întrebările din profil sunt folosite pentru a determina dacă anumite module "
-"se aplică în totalitate utilizatorului final (adică modulele din cadrul "
-"întrebării de profil sunt OPȚIONALE), și dacă se aplică, dacă acestea ar "
-"trebui repetate de mai multe ori (adică modulele sunt REPETABILE)."
+msgid "Profile questions are used to determine whether particular modules apply to the end user at all (i.e. the modules inside the profile question are OPTIONAL), and if they apply, whether they should be repeated a number of times (i.e. the modules are REPEATABLE)."
+msgstr "Întrebările din profil sunt folosite pentru a determina dacă anumite module se aplică în totalitate utilizatorului final (adică modulele din cadrul întrebării de profil sunt OPȚIONALE), și dacă se aplică, dacă acestea ar trebui repetate de mai multe ori (adică modulele sunt REPETABILE)."
 
 #. AI-generated
 #: euphorie/client/browser/templates/report_landing.pt:59
 msgid "Provide a concise overview over your current status for internal use."
-msgstr ""
-"Furnizați o prezentare concisă a stării dumneavoastră actuale pentru uz "
-"intern."
+msgstr "Furnizați o prezentare concisă a stării dumneavoastră actuale pentru uz intern."
 
 #. AI-generated
 #: euphorie/client/browser/templates/report_landing.pt:82
@@ -1274,13 +1148,8 @@ msgstr "Recomandare"
 
 #. AI-generated
 #: euphorie/client/browser/templates/report_landing.pt:186
-msgid ""
-"Record any revision if circumstances change (new machines, new workers, as a "
-"result of findings of any accident investigations, etc.)"
-msgstr ""
-"Înregistrați orice revizuire dacă circumstanțele se schimbă (mașini noi, "
-"lucrători noi, ca urmare a constatărilor oricăror investigații ale "
-"accidentelor, etc.)"
+msgid "Record any revision if circumstances change (new machines, new workers, as a result of findings of any accident investigations, etc.)"
+msgstr "Înregistrați orice revizuire dacă circumstanțele se schimbă (mașini noi, lucrători noi, ca urmare a constatărilor oricăror investigații ale accidentelor, etc.)"
 
 #. AI-generated
 #: euphorie/client/browser/templates/locking_menu.pt:106
@@ -1299,12 +1168,8 @@ msgstr "Regiuni"
 
 #. AI-generated
 #: euphorie/client/browser/templates/login.pt:348
-msgid ""
-"Registering allows you to simply log in at any time to continue previous "
-"assessments or to start new ones."
-msgstr ""
-"Înregistrarea vă permite să vă autentificați pur și simplu în orice moment "
-"pentru a continua evaluările anterioare sau pentru a începe unele noi."
+msgid "Registering allows you to simply log in at any time to continue previous assessments or to start new ones."
+msgstr "Înregistrarea vă permite să vă autentificați pur și simplu în orice moment pentru a continua evaluările anterioare sau pentru a începe unele noi."
 
 #. AI-generated
 #: euphorie/client/browser/templates/organisation-member-more-menu.pt:26
@@ -1326,8 +1191,7 @@ msgstr "Repetă întrebările pentru a găsi răspunsul corect și încearcă di
 #. AI-generated
 #: euphorie/client/browser/templates/slide_question_try_again.pt:46
 msgid "Repeat the questions to find the correct answers and try again."
-msgstr ""
-"Repetă întrebările pentru a găsi răspunsurile corecte și încearcă din nou."
+msgstr "Repetă întrebările pentru a găsi răspunsurile corecte și încearcă din nou."
 
 #. AI-generated
 #: euphorie/client/browser/templates/panel-edit-organisation.pt:84
@@ -1407,14 +1271,8 @@ msgstr "Salvează modificările"
 
 #. AI-generated
 #: euphorie/client/browser/templates/report_landing.pt:31
-msgid ""
-"Save the report on your computer and print it. You can also modify it or add "
-"more information. Please note that changes made on your pc will NOT be saved "
-"in the OiRA tool"
-msgstr ""
-"Salvează raportul pe computerul tău și imprimă-l. De asemenea, îl poți "
-"modifica sau adăuga mai multe informații. Te rog să reții că modificările "
-"făcute pe PC-ul tău NU vor fi salvate în instrumentul OiRA"
+msgid "Save the report on your computer and print it. You can also modify it or add more information. Please note that changes made on your pc will NOT be saved in the OiRA tool"
+msgstr "Salvează raportul pe computerul tău și imprimă-l. De asemenea, îl poți modifica sau adăuga mai multe informații. Te rog să reții că modificările făcute pe PC-ul tău NU vor fi salvate în instrumentul OiRA"
 
 #. AI-generated
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:103
@@ -1516,9 +1374,7 @@ msgstr "Începe întrebările"
 #: euphorie/client/browser/login.py:409
 #: euphorie/client/browser/templates/new-session-test.pt:119
 msgid "Starting a test session is not available in this OiRA application."
-msgstr ""
-"Inițierea unei sesiuni de testare nu este disponibilă în această aplicație "
-"OiRA."
+msgstr "Inițierea unei sesiuni de testare nu este disponibilă în această aplicație OiRA."
 
 #. AI-generated
 #: euphorie/content/browser/module.py:20 euphorie/deployment/tiles/addbar.py:19
@@ -1528,20 +1384,8 @@ msgstr "Submodul"
 #. AI-generated
 #: euphorie/content/browser/templates/profilequestion_add.pt:67
 #: euphorie/content/browser/templates/profilequestion_edit.pt:74
-msgid ""
-"Such questions are asked BEFORE the end-user starts the risk identification "
-"and evaluation. If the end-user does not confirm that an optional profile "
-"question is relevant (by ticking the box), then the corresponding module "
-"will be skipped entirely. If the end-user enters more than one option to a "
-"repeatable profile question then the corresponding module will be repeated "
-"the specified number of times."
-msgstr ""
-"Astfel de întrebări sunt puse ÎNAINTE ca utilizatorul final să înceapă "
-"identificarea și evaluarea riscului. Dacă utilizatorul final nu confirmă că "
-"întrebarea de profil opțională este relevantă (bifând căsuța), atunci "
-"modulul corespunzător va fi omis complet. Dacă utilizatorul final introduce "
-"mai mult de o opțiune la o întrebare de profil repetabilă, atunci modulul "
-"corespunzător va fi repetat numărul specificat de ori."
+msgid "Such questions are asked BEFORE the end-user starts the risk identification and evaluation. If the end-user does not confirm that an optional profile question is relevant (by ticking the box), then the corresponding module will be skipped entirely. If the end-user enters more than one option to a repeatable profile question then the corresponding module will be repeated the specified number of times."
+msgstr "Astfel de întrebări sunt puse ÎNAINTE ca utilizatorul final să înceapă identificarea și evaluarea riscului. Dacă utilizatorul final nu confirmă că întrebarea de profil opțională este relevantă (bifând căsuța), atunci modulul corespunzător va fi omis complet. Dacă utilizatorul final introduce mai mult de o opțiune la o întrebare de profil repetabilă, atunci modulul corespunzător va fi repetat numărul specificat de ori."
 
 #. AI-generated
 #: euphorie/content/behaviour/richdescription.py:39
@@ -1561,30 +1405,18 @@ msgstr "Olanda"
 #. AI-generated
 #: euphorie/content/browser/templates/profilequestion_add.pt:44
 #: euphorie/content/browser/templates/profilequestion_edit.pt:51
-msgid ""
-"The basic architecture of an Online interactive Risk Assessment consists of:"
-msgstr ""
-"Arhitectura de bază a unei Evaluări interactive de risc online constă în:"
+msgid "The basic architecture of an Online interactive Risk Assessment consists of:"
+msgstr "Arhitectura de bază a unei Evaluări interactive de risc online constă în:"
 
 #. AI-generated
 #: euphorie/client/browser/risk.py:72
-msgid ""
-"The current text in the fields 'Action plan', 'Prevention plan' and "
-"'Requirements' of this measure will be overwritten. This action cannot be "
-"reverted. Are you sure you want to continue?"
-msgstr ""
-"Textul actual din câmpurile 'Plan de acțiune', 'Plan de prevenire' și "
-"'Cerințe' ale acestei măsuri va fi suprascris. Această acțiune nu poate fi "
-"anulată. Ești sigur că vrei să continui?"
+msgid "The current text in the fields 'Action plan', 'Prevention plan' and 'Requirements' of this measure will be overwritten. This action cannot be reverted. Are you sure you want to continue?"
+msgstr "Textul actual din câmpurile 'Plan de acțiune', 'Plan de prevenire' și 'Cerințe' ale acestei măsuri va fi suprascris. Această acțiune nu poate fi anulată. Ești sigur că vrei să continui?"
 
 #. AI-generated
 #: euphorie/client/browser/templates/login.pt:347
-msgid ""
-"The first thing you will be asked to do when you begin your first risk "
-"assessment is to create an OiRA account - this is a simple and quick process."
-msgstr ""
-"Primul lucru pe care ți se va cere să îl faci când începi prima evaluare a "
-"riscului este să creezi un cont OiRA - acesta este un proces simplu și rapid."
+msgid "The first thing you will be asked to do when you begin your first risk assessment is to create an OiRA account - this is a simple and quick process."
+msgstr "Primul lucru pe care ți se va cere să îl faci când începi prima evaluare a riscului este să creezi un cont OiRA - acesta este un proces simplu și rapid."
 
 #. AI-generated
 #: euphorie/client/browser/templates/status_info.pt:147
@@ -1593,17 +1425,8 @@ msgstr "Următoarele certificate au fost acordate pentru această evaluare."
 
 #. AI-generated
 #: euphorie/content/survey.py:62
-msgid ""
-"The introduction text is shown when starting a new OiRA Tool session. If no "
-"introduction is provided here a standard text will be shown. Please keep "
-"this text brief so it will easily fit on screens of small devices such as "
-"phones and PDAs."
-msgstr ""
-"Textul introductiv este afișat la începerea unei noi sesiuni OiRA Tool. Dacă "
-"aici nu este furnizat niciun text introductiv, va fi afișat un text "
-"standard. Te rugăm să păstrezi acest text scurt, astfel încât să se "
-"potrivească ușor pe ecranele dispozitivelor mici, cum ar fi telefoanele și "
-"PDA-urile."
+msgid "The introduction text is shown when starting a new OiRA Tool session. If no introduction is provided here a standard text will be shown. Please keep this text brief so it will easily fit on screens of small devices such as phones and PDAs."
+msgstr "Textul introductiv este afișat la începerea unei noi sesiuni OiRA Tool. Dacă aici nu este furnizat niciun text introductiv, va fi afișat un text standard. Te rugăm să păstrezi acest text scurt, astfel încât să se potrivească ușor pe ecranele dispozitivelor mici, cum ar fi telefoanele și PDA-urile."
 
 #. AI-generated
 #: euphorie/client/browser/session.py:788
@@ -1663,9 +1486,7 @@ msgstr "Această adresă de e-mail nu este disponibilă."
 #. AI-generated
 #: euphorie/content/surveygroup.py:90
 msgid "This is a simpler evaluation algorithm using only two criteria."
-msgstr ""
-"Aceasta este o evaluare mai simplă a algoritmului folosind doar două "
-"criterii."
+msgstr "Aceasta este o evaluare mai simplă a algoritmului folosind doar două criterii."
 
 #. AI-generated
 #: euphorie/content/behaviour/uniqueid.py:41
@@ -1674,38 +1495,28 @@ msgstr "Acesta este un identificator unic pentru acest obiect."
 
 #. AI-generated
 #: euphorie/content/surveygroup.py:71
-msgid ""
-"This is the recommended evaluation algorithm, based on the Kinney method"
+msgid "This is the recommended evaluation algorithm, based on the Kinney method"
 msgstr "Acesta este algoritmul de evaluare recomandat, bazat pe metoda Kinney"
 
 #. AI-generated
 #: euphorie/content/profilequestion.py:81
 msgid "This must ask the user for the name of the relevant location."
-msgstr ""
-"Acesta trebuie să întrebe utilizatorul pentru numele locației relevante."
+msgstr "Acesta trebuie să întrebe utilizatorul pentru numele locației relevante."
 
 #. AI-generated
 #: euphorie/content/profilequestion.py:91
 msgid "This must ask the user for the names of all relevant locations."
-msgstr ""
-"Acesta trebuie să întrebe utilizatorul pentru numele tuturor locațiilor "
-"relevante."
+msgstr "Acesta trebuie să întrebe utilizatorul pentru numele tuturor locațiilor relevante."
 
 #. AI-generated
 #: euphorie/content/profilequestion.py:71
-msgid ""
-"This question must ask the user if the service is offered in more than one "
-"location."
-msgstr ""
-"Această întrebare trebuie să întrebe utilizatorul dacă serviciul este oferit "
-"în mai mult de o locație."
+msgid "This question must ask the user if the service is offered in more than one location."
+msgstr "Această întrebare trebuie să întrebe utilizatorul dacă serviciul este oferit în mai mult de o locație."
 
 #. AI-generated
 #: euphorie/content/profilequestion.py:43
 msgid "This question must ask the user if this profile applies to them."
-msgstr ""
-"Această întrebare trebuie să întrebe utilizatorul dacă acest profil se "
-"aplică lor."
+msgstr "Această întrebare trebuie să întrebe utilizatorul dacă acest profil se aplică lor."
 
 #. AI-generated
 #: euphorie/client/browser/settings.py:472
@@ -1805,12 +1616,8 @@ msgstr "Vizitați acest URL"
 
 #. AI-generated
 #: euphorie/client/browser/templates/report_landing.pt:190
-msgid ""
-"We recommend that you always keep an updated printed version of your risk "
-"assessment (report) available in your company!"
-msgstr ""
-"Recomandăm să aveți întotdeauna o versiune imprimată și actualizată a "
-"evaluării dvs. de risc (raport) disponibilă în compania dvs.!"
+msgid "We recommend that you always keep an updated printed version of your risk assessment (report) available in your company!"
+msgstr "Recomandăm să aveți întotdeauna o versiune imprimată și actualizată a evaluării dvs. de risc (raport) disponibilă în compania dvs.!"
 
 #. AI-generated
 #: euphorie/client/browser/templates/login.pt:320
@@ -1824,16 +1631,8 @@ msgstr "Ce este OiRA (Evaluarea Interactivă Online a Riscului)?"
 
 #. AI-generated
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:31
-msgid ""
-"When you click continue, your e-mail client will open with a new e-mail with "
-"a link in it that people can use to join your organisation. The link is "
-"valid for five days and you may send it to as many people as you would like "
-"to join your organisation."
-msgstr ""
-"Când dați clic pe continuare, clientul dvs. de e-mail se va deschide cu un e-"
-"mail nou care conține un link pe care oamenii îl pot folosi pentru a se "
-"alătura organizației dvs. Linkul este valabil timp de cinci zile și îl "
-"puteți trimite la câți oameni doriți să se alăture organizației dvs."
+msgid "When you click continue, your e-mail client will open with a new e-mail with a link in it that people can use to join your organisation. The link is valid for five days and you may send it to as many people as you would like to join your organisation."
+msgstr "Când dați clic pe continuare, clientul dvs. de e-mail se va deschide cu un e-mail nou care conține un link pe care oamenii îl pot folosi pentru a se alătura organizației dvs. Linkul este valabil timp de cinci zile și îl puteți trimite la câți oameni doriți să se alăture organizației dvs."
 
 #. AI-generated
 #: euphorie/client/browser/templates/login.pt:311
@@ -1874,56 +1673,28 @@ msgstr "Sunteți aproape acolo. Următoarele întrebări au fost răspunse greș
 
 #. AI-generated
 #: euphorie/client/browser/templates/slide_question_intro.pt:32
-msgid ""
-"You can now answer a few questions to prove that you master this topic and "
-"earn your certificate."
-msgstr ""
-"Acum puteți răspunde la câteva întrebări pentru a demonstra că stăpâniți "
-"acest subiect și pentru a obține certificatul dvs."
+msgid "You can now answer a few questions to prove that you master this topic and earn your certificate."
+msgstr "Acum puteți răspunde la câteva întrebări pentru a demonstra că stăpâniți acest subiect și pentru a obține certificatul dvs."
 
 #. AI-generated
 #: euphorie/content/browser/templates/library.pt:18
-msgid ""
-"You can use content from the standard libary as provided by OSHA in your own "
-"surveys. Just select the module or risk you want to use in the list below "
-"and it will be copied to your survey."
-msgstr ""
-"Puteți utiliza conținutul din biblioteca standard furnizată de OSHA în "
-"propriile dvs. sondaje. Trebuie doar să selectați modulul sau riscul pe care "
-"doriți să îl utilizați din lista de mai jos și acesta va fi copiat în "
-"sondajul dvs."
+msgid "You can use content from the standard libary as provided by OSHA in your own surveys. Just select the module or risk you want to use in the list below and it will be copied to your survey."
+msgstr "Puteți utiliza conținutul din biblioteca standard furnizată de OSHA în propriile dvs. sondaje. Trebuie doar să selectați modulul sau riscul pe care doriți să îl utilizați din lista de mai jos și acesta va fi copiat în sondajul dvs."
 
 #. AI-generated
 #: euphorie/client/browser/templates/login.pt:356
-msgid ""
-"You do not need any kind of specific preparation to start using the tool, "
-"however you should take some time to think about who is going to carry out "
-"the risk assessment, how workers are going to be involved in the process, "
-"etc."
-msgstr ""
-"Nu aveți nevoie de niciun fel de pregătire specială pentru a începe să "
-"utilizați instrumentul, totuși ar trebui să alocați un timp pentru a vă "
-"gândi cine va efectua evaluarea riscului, cum vor fi implicați lucrătorii în "
-"proces, etc."
+msgid "You do not need any kind of specific preparation to start using the tool, however you should take some time to think about who is going to carry out the risk assessment, how workers are going to be involved in the process, etc."
+msgstr "Nu aveți nevoie de niciun fel de pregătire specială pentru a începe să utilizați instrumentul, totuși ar trebui să alocați un timp pentru a vă gândi cine va efectua evaluarea riscului, cum vor fi implicați lucrătorii în proces, etc."
 
 #. AI-generated
 #: euphorie/client/browser/session.py:187
-msgid ""
-"You don't have edit rights for this risk assessment, but you can download "
-"this risk assessment in various forms in the ${download_section}."
-msgstr ""
-"Nu aveți drepturi de editare pentru această evaluare a riscului, dar puteți "
-"descărca această evaluare a riscului în diverse forme în secțiunea $"
-"{download_section}."
+msgid "You don't have edit rights for this risk assessment, but you can download this risk assessment in various forms in the ${download_section}."
+msgstr "Nu aveți drepturi de editare pentru această evaluare a riscului, dar puteți descărca această evaluare a riscului în diverse forme în secțiunea ${download_section}."
 
 #. AI-generated
 #: euphorie/client/browser/templates/login.pt:349
-msgid ""
-"You have to make sure to be in possession of a printed, accurate and up-"
-"dated risk assessment (at any time)."
-msgstr ""
-"Trebuie să vă asigurați că aveți în posesie o evaluare a riscului imprimată, "
-"exactă și actualizată (în orice moment)."
+msgid "You have to make sure to be in possession of a printed, accurate and up-dated risk assessment (at any time)."
+msgstr "Trebuie să vă asigurați că aveți în posesie o evaluare a riscului imprimată, exactă și actualizată (în orice moment)."
 
 #. AI-generated
 #: euphorie/client/browser/organisation.py:178
@@ -1967,15 +1738,13 @@ msgstr "Codul sursă al aplicației OiRA este licențiat ${GPL}."
 #. AI-generated
 #: euphorie/client/browser/templates/about.pt:185
 msgid "about_licenses_2"
-msgstr ""
-"Conținutul instrumentelor sectoriale OiRA este licențiat sub o ${license}"
+msgstr "Conținutul instrumentelor sectoriale OiRA este licențiat sub o ${license}"
 
 #. Default: "The OiRA sectoral tools can be used for free by all users."
 #. AI-generated
 #: euphorie/client/browser/templates/about.pt:191
 msgid "about_licenses_3"
-msgstr ""
-"Instrumentele sectoriale OiRA pot fi utilizate gratuit de toți utilizatorii."
+msgstr "Instrumentele sectoriale OiRA pot fi utilizate gratuit de toți utilizatorii."
 
 #. Default: "More information about the OiRA project (in English)"
 #. AI-generated
@@ -1988,9 +1757,7 @@ msgstr "Mai multe informații despre proiectul OiRA (în engleză)"
 #. AI-generated
 #: euphorie/client/browser/templates/about.pt:87
 msgid "about_paragraph3_agency"
-msgstr ""
-"Strategia Comunității Europene privind sănătatea și securitatea la locul de "
-"muncă 2007-2012"
+msgstr "Strategia Comunității Europene privind sănătatea și securitatea la locul de muncă 2007-2012"
 
 #. Default: "Experience shows that ${key}. This is why EU-OSHA developed an
 #. ${easy} (the &ldquo;OiRA&rdquo; - Online interactive Risk Assessment) that
@@ -2001,13 +1768,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/about.pt:70
 msgid "about_paragraph_1"
-msgstr ""
-"Experiența arată că ${key}. De aceea, EU-OSHA a dezvoltat un ${easy} („OiRA” "
-"- Evaluarea Interactivă Online a Riscului), care poate ajuta organizațiile "
-"mici și micro să implementeze un ${step} - începând cu ${identification} și $"
-"{evaluation} riscurilor la locul de muncă, prin luarea deciziilor privind $"
-"{preventive_actions} și acțiunea propriu-zisă, până la monitorizare și $"
-"{reporting}."
+msgstr "Experiența arată că ${key}. De aceea, EU-OSHA a dezvoltat un ${easy} („OiRA” - Evaluarea Interactivă Online a Riscului), care poate ajuta organizațiile mici și micro să implementeze un ${step} - începând cu ${identification} și ${evaluation} riscurilor la locul de muncă, prin luarea deciziilor privind ${preventive_actions} și acțiunea propriu-zisă, până la monitorizare și ${reporting}."
 
 #. Default: "easy-to-use and cost-free web application"
 #. AI-generated
@@ -2031,8 +1792,7 @@ msgstr "identificare"
 #. AI-generated
 #: euphorie/client/browser/templates/about.pt:36
 msgid "about_paragraph_1_key"
-msgstr ""
-"o evaluare corectă a riscului este cheia pentru locuri de muncă sănătoase"
+msgstr "o evaluare corectă a riscului este cheia pentru locuri de muncă sănătoase"
 
 #. Default: "preventive actions"
 #. AI-generated
@@ -2058,9 +1818,7 @@ msgstr "proces de evaluare a riscului pas cu pas"
 #. AI-generated
 #: euphorie/client/browser/templates/about.pt:76
 msgid "about_paragraph_2"
-msgstr ""
-"Aplicația web OiRA dă acces la instrumentele de Evaluare a Riscului "
-"sectoriale create și întreținute de organizații sectoriale la nivel național."
+msgstr "Aplicația web OiRA dă acces la instrumentele de Evaluare a Riscului sectoriale create și întreținute de organizații sectoriale la nivel național."
 
 #. Default: "The ${agency} calls for the development of simple tools to
 #. facilitate risk assessment. Since the adoption of the European Framework
@@ -2073,15 +1831,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/about.pt:91
 msgid "about_paragraph_3"
-msgstr ""
-"Agenția ${agency} solicită dezvoltarea unor instrumente simple pentru a "
-"facilita evaluarea riscului. Începând cu adoptarea Directivei Cadru Europene "
-"în 1989, evaluarea riscului a devenit un concept familiar pentru organizarea "
-"prevenției la locul de muncă, iar sute de mii de companii din toată Europa "
-"își evaluează regulat riscurile. Cu toate acestea, există suficiente dovezi "
-"care să concluzioneze că ${smb} când vine vorba de evaluarea riscului și "
-"adoptarea unei politici preventive în general pe care proiectul OiRA "
-"urmărește să le depășească."
+msgstr "Agenția ${agency} solicită dezvoltarea unor instrumente simple pentru a facilita evaluarea riscului. Începând cu adoptarea Directivei Cadru Europene în 1989, evaluarea riscului a devenit un concept familiar pentru organizarea prevenției la locul de muncă, iar sute de mii de companii din toată Europa își evaluează regulat riscurile. Cu toate acestea, există suficiente dovezi care să concluzioneze că ${smb} când vine vorba de evaluarea riscului și adoptarea unei politici preventive în general pe care proiectul OiRA urmărește să le depășească."
 
 #. Default: "The OiRA project and its related web application has been
 #. developed by the ${eu-osha} based on the Dutch RA-instrument (called
@@ -2093,22 +1843,14 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/about.pt:128
 msgid "about_partners_1"
-msgstr ""
-"Proiectul OiRA și aplicația web aferentă au fost dezvoltate de ${eu-osha} pe "
-"baza instrumentului olandez de evaluare a riscurilor (denumit ${RIE}), care, "
-"finanțat de guvernul olandez, a fost inițial dezvoltat de TNO în colaborare "
-"cu organizația olandeză de angajatori pentru întreprinderile mici și "
-"mijlocii MKB-Nederland și Ministerul olandez pentru Muncă. Dezvoltarea "
-"ulterioară a aplicației a fost realizată cu contribuția și participarea "
-"sindicatelor FNV, CNV și MHP."
+msgstr "Proiectul OiRA și aplicația web aferentă au fost dezvoltate de ${eu-osha} pe baza instrumentului olandez de evaluare a riscurilor (denumit ${RIE}), care, finanțat de guvernul olandez, a fost inițial dezvoltat de TNO în colaborare cu organizația olandeză de angajatori pentru întreprinderile mici și mijlocii MKB-Nederland și Ministerul olandez pentru Muncă. Dezvoltarea ulterioară a aplicației a fost realizată cu contribuția și participarea sindicatelor FNV, CNV și MHP."
 
 #. Default: "The following technical partners contributed to the development
 #. of the OiRA project:"
 #. AI-generated
 #: euphorie/client/browser/templates/about.pt:133
 msgid "about_partners_2"
-msgstr ""
-"Următorii parteneri tehnici au contribuit la dezvoltarea proiectului OiRA:"
+msgstr "Următorii parteneri tehnici au contribuit la dezvoltarea proiectului OiRA:"
 
 #. Default: "The Agency was also given strategic and expert advice by a
 #. Steering Committee in the development and implementation of the OiRA
@@ -2117,11 +1859,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/about.pt:163
 msgid "about_partners_3"
-msgstr ""
-"Agenția a primit, de asemenea, sfaturi strategice și de specialitate din "
-"partea unui Comitet de Conducere în dezvoltarea și implementarea proiectului "
-"OiRA. Membrii și supleanții Comitetului de Conducere au fost numiți de "
-"grupurile de interese de la Consiliu, de Comisie și de EU-OSHA."
+msgstr "Agenția a primit, de asemenea, sfaturi strategice și de specialitate din partea unui Comitet de Conducere în dezvoltarea și implementarea proiectului OiRA. Membrii și supleanții Comitetului de Conducere au fost numiți de grupurile de interese de la Consiliu, de Comisie și de EU-OSHA."
 
 #. Default: "micro and small enterprises have some shortcomings"
 #. AI-generated
@@ -2140,8 +1878,7 @@ msgstr "Descrieți măsurile specifice necesare pentru a reduce riscul."
 #. AI-generated
 #: euphorie/client/browser/risk.py:378
 msgid "action_measures_false_solutions_true"
-msgstr ""
-"Selectați sau descrieți măsurile specifice necesare pentru a reduce riscul."
+msgstr "Selectați sau descrieți măsurile specifice necesare pentru a reduce riscul."
 
 #. Default: "Describe any further measure to reduce the risk."
 #. AI-generated
@@ -2161,9 +1898,7 @@ msgstr "Selectați sau descrieți orice altă măsură pentru a reduce riscul."
 #. AI-generated
 #: euphorie/client/browser/templates/webhelpers.pt:922
 msgid "actionplan_measure_budget_tooltip"
-msgstr ""
-"Deși unele măsuri nu costă bani, majoritatea o fac. Prin urmare, măsurile ar "
-"trebui bugetate; includeți-le în runda de buget anual, dacă este necesar."
+msgstr "Deși unele măsuri nu costă bani, majoritatea o fac. Prin urmare, măsurile ar trebui bugetate; includeți-le în runda de buget anual, dacă este necesar."
 
 #. Default: "Appoint someone in your company to be responsible for the
 #. implementation of this measure. This person will have the authority to take
@@ -2172,11 +1907,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/webhelpers.pt:904
 msgid "actionplan_measure_responsible_tooltip"
-msgstr ""
-"Desemnați pe cineva din compania dvs. pentru a fi responsabil de "
-"implementarea acestei măsuri. Această persoană va avea autoritatea de a lua "
-"măsurile descrise în plan și/sau responsabilitatea de a se asigura că "
-"acestea sunt realizate."
+msgstr "Desemnați pe cineva din compania dvs. pentru a fi responsabil de implementarea acestei măsuri. Această persoană va avea autoritatea de a lua măsurile descrise în plan și/sau responsabilitatea de a se asigura că acestea sunt realizate."
 
 #. Default: "Describe: 1) what is your general approach to eliminate or (if
 #. the risk is not avoidable) reduce the risk; 2) the specific action(s)
@@ -2184,11 +1915,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/webhelpers.pt:1003
 msgid "actionplan_measure_tooltip"
-msgstr ""
-"Descrie: 1) care este abordarea ta generală pentru a elimina sau (dacă "
-"riscul nu este evitabil) a reduce riscul; 2) acțiunea (acțiunile) specifică "
-"necesară pentru a implementa această abordare (pentru a elimina sau reduce "
-"riscul)"
+msgstr "Descrie: 1) care este abordarea ta generală pentru a elimina sau (dacă riscul nu este evitabil) a reduce riscul; 2) acțiunea (acțiunile) specifică necesară pentru a implementa această abordare (pentru a elimina sau reduce riscul)"
 
 #. Default: "Describe the level of expertise needed to implement the measure,
 #. for instance &ldquo;common sense (no OSH knowledge required)&rdquo;,
@@ -2199,13 +1926,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/webhelpers.pt:1034
 msgid "actionplan_requirements_tooltip"
-msgstr ""
-"Descrie nivelul de expertiză necesar pentru a implementa măsura, de exemplu "
-"&ldquo;sens comun (nu este necesară cunoaștere OSH)&rdquo;, &ldquo;nu este "
-"necesară o expertiză OSH specifică, dar minimă de cunoștințe OSH sau "
-"instruire și/sau consultarea unor îndrumări OSH necesare&rdquo;, sau "
-"&ldquo;expert OSH&rdquo;. Poți descrie și aici orice altă cerință "
-"suplimentară (dacă există)."
+msgstr "Descrie nivelul de expertiză necesar pentru a implementa măsura, de exemplu &ldquo;sens comun (nu este necesară cunoaștere OSH)&rdquo;, &ldquo;nu este necesară o expertiză OSH specifică, dar minimă de cunoștințe OSH sau instruire și/sau consultarea unor îndrumări OSH necesare&rdquo;, sau &ldquo;expert OSH&rdquo;. Poți descrie și aici orice altă cerință suplimentară (dacă există)."
 
 #. Default: "Add any measures that are <strong>already implemented</strong>."
 #. AI-generated
@@ -2268,13 +1989,7 @@ msgstr "beneficii"
 #. AI-generated
 #: euphorie/client/browser/organisation.py:270
 msgid "body_add_user_to_organisation_email"
-msgstr ""
-"\\n            Prin prezenta, te invit să te alături organizației noastre pe "
-"OiRA. \\n            După ce ai acceptat statutul de membru, \\n            "
-"putem colabora la evaluările de risc.\\n\\n            Te rog să te loghezi "
-"sau să te înregistrezi prin linkul de mai jos\\n            și să accepți "
-"statutul de membru.\\n            Acest link va rămâne valabil $"
-"{days_to_keep} zile.\\n\\n            ${link}\\n"
+msgstr "\\n            Prin prezenta, te invit să te alături organizației noastre pe OiRA. \\n            După ce ai acceptat statutul de membru, \\n            putem colabora la evaluările de risc.\\n\\n            Te rog să te loghezi sau să te înregistrezi prin linkul de mai jos\\n            și să accepți statutul de membru.\\n            Acest link va rămâne valabil ${days_to_keep} zile.\\n\\n            ${link}\\n"
 
 #. Default: "${Modules} (and potentially sub-modules): containers providing a
 #. logical structure"
@@ -2282,9 +1997,7 @@ msgstr ""
 #: euphorie/content/browser/templates/profilequestion_add.pt:53
 #: euphorie/content/browser/templates/profilequestion_edit.pt:60
 msgid "bullet_modules"
-msgstr ""
-"${Modules} (și potențial sub-module): containere care oferă o structură "
-"logică"
+msgstr "${Modules} (și potențial sub-module): containere care oferă o structură logică"
 
 #. Default: "${Profile-Questions}: questions defining the company profile"
 #. AI-generated
@@ -2516,12 +2229,7 @@ msgstr "Recomandare ${number}"
 #. AI-generated
 #: euphorie/client/browser/templates/report_company.pt:40
 msgid "company_report_intro"
-msgstr ""
-"Îți mulțumim pentru că ai folosit OiRA. Înainte de a merge la raport, am "
-"dori să te rugăm să ne oferi un feedback prin intermediul sondajului de mai "
-"jos. Aceste informații sunt folosite pentru a îmbunătăți instrumentele și "
-"serviciile oferite. <strong>Aceste date nu vor apărea în rapoartele tale.</"
-"strong>"
+msgstr "Îți mulțumim pentru că ai folosit OiRA. Înainte de a merge la raport, am dori să te rugăm să ne oferi un feedback prin intermediul sondajului de mai jos. Aceste informații sunt folosite pentru a îmbunătăți instrumentele și serviciile oferite. <strong>Aceste date nu vor apărea în rapoartele tale.</strong>"
 
 #. Default: "For any further information regarding the handling of their
 #. personal data, data subjects can address their request to EU-OSHA Data
@@ -2529,10 +2237,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/conditions-bare.pt:110
 msgid "conditions_part10_entry"
-msgstr ""
-"Pentru orice alte informații privind gestionarea datelor lor personale, "
-"persoanele vizate pot trimite solicitarea lor la Ofițerul pentru Protecția "
-"Datelor al EU-OSHA la: dpo(at)osha.europa.eu."
+msgstr "Pentru orice alte informații privind gestionarea datelor lor personale, persoanele vizate pot trimite solicitarea lor la Ofițerul pentru Protecția Datelor al EU-OSHA la: dpo(at)osha.europa.eu."
 
 #. Default: "Request for information"
 #. AI-generated
@@ -2546,10 +2251,7 @@ msgstr "Solicitare de informații"
 #. AI-generated
 #: euphorie/client/browser/templates/conditions-bare.pt:118
 msgid "conditions_part11_entry"
-msgstr ""
-"Subiecții de date au dreptul să facă recurs la Supervisorul European pentru "
-"Protecția Datelor: ${url} , dacă consideră că operațiunile de procesare nu "
-"respectă Regulamentul."
+msgstr "Subiecții de date au dreptul să facă recurs la Supervisorul European pentru Protecția Datelor: ${url} , dacă consideră că operațiunile de procesare nu respectă Regulamentul."
 
 #. Default: "Recourse to the EDPS"
 #. AI-generated
@@ -2567,8 +2269,7 @@ msgstr "Data creării contului OiRA."
 #. AI-generated
 #: euphorie/client/browser/templates/conditions-bare.pt:129
 msgid "conditions_part12_2_entry"
-msgstr ""
-"Declarația de confidențialitate a fost actualizată ultima dată: 7/10/2022"
+msgstr "Declarația de confidențialitate a fost actualizată ultima dată: 7/10/2022"
 
 #. Default: "Date when processing starts"
 #. AI-generated
@@ -2581,17 +2282,14 @@ msgstr "Data la care începe prelucrarea"
 #. AI-generated
 #: euphorie/client/browser/templates/conditions-bare.pt:34
 msgid "conditions_part1_entry"
-msgstr ""
-"Șeful Unității de Prevenire și Cercetare (informații(at)osha.europa.eu)"
+msgstr "Șeful Unității de Prevenire și Cercetare (informații(at)osha.europa.eu)"
 
 #. Default: "Organisational part of the Agency entrusted with the processing
 #. of personal data"
 #. AI-generated
 #: euphorie/client/browser/templates/conditions-bare.pt:32
 msgid "conditions_part1_header"
-msgstr ""
-"Partea organizațională a Agenției încredințată cu prelucrarea datelor cu "
-"caracter personal"
+msgstr "Partea organizațională a Agenției încredințată cu prelucrarea datelor cu caracter personal"
 
 #. Default: "The purpose of the processing operation is the creation of and
 #. log-in to your OiRA (Online interactive Risk Assessment) account, the
@@ -2604,15 +2302,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/conditions-bare.pt:40
 msgid "conditions_part2_entry"
-msgstr ""
-"Scopul operațiunii de procesare este crearea și conectarea la contul dvs. "
-"OiRA (Evaluarea Interactivă Online a Riscurilor), crearea de evaluări ale "
-"riscurilor, de planuri de acțiune și rapoarte. Adresele de e-mail pot fi "
-"utilizate pentru trimiterea de buletine informative (dacă a fost selectată "
-"această opțiune). Aplicația OiRA este un instrument pus la dispoziția "
-"dumneavoastră de Agenția Europeană pentru Siguranță și Sănătate în Muncă (EU-"
-"OSHA). Această politică de confidențialitate se aplică tuturor produselor, "
-"serviciilor și site-urilor web oferite de EU-OSHA în cadrul aplicației OiRA."
+msgstr "Scopul operațiunii de procesare este crearea și conectarea la contul dvs. OiRA (Evaluarea Interactivă Online a Riscurilor), crearea de evaluări ale riscurilor, de planuri de acțiune și rapoarte. Adresele de e-mail pot fi utilizate pentru trimiterea de buletine informative (dacă a fost selectată această opțiune). Aplicația OiRA este un instrument pus la dispoziția dumneavoastră de Agenția Europeană pentru Siguranță și Sănătate în Muncă (EU-OSHA). Această politică de confidențialitate se aplică tuturor produselor, serviciilor și site-urilor web oferite de EU-OSHA în cadrul aplicației OiRA."
 
 #. Default: "Purpose"
 #. AI-generated
@@ -2627,11 +2317,7 @@ msgstr "Scop"
 #. AI-generated
 #: euphorie/client/browser/templates/conditions-bare.pt:46
 msgid "conditions_part3_entry"
-msgstr ""
-"Regulamentul Consiliului (UE) 2019/126 al Parlamentului European și al "
-"Consiliului din 16 ianuarie 2019 de înființare a Agenției Europene pentru "
-"Siguranță și Sănătate în Muncă (EU-OSHA), și de abrogare a Regulamentului "
-"Consiliului (CE) nr. 2062/94."
+msgstr "Regulamentul Consiliului (UE) 2019/126 al Parlamentului European și al Consiliului din 16 ianuarie 2019 de înființare a Agenției Europene pentru Siguranță și Sănătate în Muncă (EU-OSHA), și de abrogare a Regulamentului Consiliului (CE) nr. 2062/94."
 
 #. Default: "Legal basis"
 #. AI-generated
@@ -2646,11 +2332,7 @@ msgstr "Baza legală"
 #. AI-generated
 #: euphorie/client/browser/templates/conditions-bare.pt:54
 msgid "conditions_part4_1_entry"
-msgstr ""
-"Adresă de e-mail: un e-mail este necesar pentru a accesa aplicația online, a "
-"edita datele introduse și a șterge contul OiRA. Adresa de e-mail este "
-"folosită și pentru trimiterea de buletine informative (dacă a fost selectată "
-"această opțiune)."
+msgstr "Adresă de e-mail: un e-mail este necesar pentru a accesa aplicația online, a edita datele introduse și a șterge contul OiRA. Adresa de e-mail este folosită și pentru trimiterea de buletine informative (dacă a fost selectată această opțiune)."
 
 #. Default: "Any information you provide in the free text fields of the
 #. application of the OiRA tools and in the action plan of your risk
@@ -2661,14 +2343,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/conditions-bare.pt:55
 msgid "conditions_part4_2_entry"
-msgstr ""
-"Orice informație pe care o furnizați în câmpurile de text liber ale "
-"aplicației instrumentelor OiRA și în planul de acțiune al evaluărilor "
-"dumneavoastră de risc - (de exemplu, atunci când introduceți o măsură pentru "
-"a aborda un risc, persoana responsabilă pentru acea măsură etc.). "
-"Introducerea de informații în câmpurile de text liber, la fel ca orice alte "
-"date cu caracter personal introduse în instrument, se face în mod voluntar "
-"și pe baza consimțământului."
+msgstr "Orice informație pe care o furnizați în câmpurile de text liber ale aplicației instrumentelor OiRA și în planul de acțiune al evaluărilor dumneavoastră de risc - (de exemplu, atunci când introduceți o măsură pentru a aborda un risc, persoana responsabilă pentru acea măsură etc.). Introducerea de informații în câmpurile de text liber, la fel ca orice alte date cu caracter personal introduse în instrument, se face în mod voluntar și pe baza consimțământului."
 
 #. Default: "This website collects web statistics with Matomo that is entirely
 #. hosted in EU- OSHA&rsquo;s servers, located in the European Union. The IP
@@ -2677,11 +2352,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/conditions-bare.pt:58
 msgid "conditions_part4_3_entry"
-msgstr ""
-"Acest site web colectează statistici web cu Matomo, care este găzduit în "
-"totalitate pe serverele EU-OSHA din Uniunea Europeană. Adresa IP este "
-"primită de Matomo doar în scopuri statistice geografice (țară, regiune și "
-"oraș)."
+msgstr "Acest site web colectează statistici web cu Matomo, care este găzduit în totalitate pe serverele EU-OSHA din Uniunea Europeană. Adresa IP este primită de Matomo doar în scopuri statistice geografice (țară, regiune și oraș)."
 
 #. Default: "The OiRA software does collect statistics from logged in users
 #. based on aggregated data on number of accounts and risk assessments per
@@ -2689,10 +2360,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/conditions-bare.pt:62
 msgid "conditions_part4_4_entry"
-msgstr ""
-"Software-ul OiRA colectează statistici de la utilizatorii autentificați, în "
-"funcție de datele agregate privind numărul de conturi și evaluările de risc "
-"pe instrument, pe țară și pe luni."
+msgstr "Software-ul OiRA colectează statistici de la utilizatorii autentificați, în funcție de datele agregate privind numărul de conturi și evaluările de risc pe instrument, pe țară și pe luni."
 
 #. Default: "Type of data processed"
 #. AI-generated
@@ -2954,8 +2622,7 @@ msgstr ","
 #. AI-generated
 #: euphorie/client/browser/reset_password.py:85
 msgid "description_reset_password_request"
-msgstr ""
-"Vă vom trimite un e-mail cu instrucțiunile pentru resetarea parolei dvs."
+msgstr "Vă vom trimite un e-mail cu instrucțiunile pentru resetarea parolei dvs."
 
 #. Default: "If selected, the user will not be able to answer \"Yes\" or
 #. \"No\", since the risk is considered to be always present. The Evaluation
@@ -2972,10 +2639,7 @@ msgstr "Dacă este selectat, utilizatorul nu va putea răspunde \\"
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:81
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:96
 msgid "description_role_admin__training_disabled"
-msgstr ""
-"Administratorii pot crea, edita și elimina conturi de utilizatori. De "
-"asemenea, administratorii pot face evaluări de risc, pot modifica cele "
-"existente și pot bloca evaluările de risc."
+msgstr "Administratorii pot crea, edita și elimina conturi de utilizatori. De asemenea, administratorii pot face evaluări de risc, pot modifica cele existente și pot bloca evaluările de risc."
 
 #. Default: "Consultants can make, edit, validate and approve risk
 #. assessments."
@@ -2990,9 +2654,7 @@ msgstr "Consultanții pot realiza, edita, valida și aproba evaluările de risc.
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:87
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:102
 msgid "description_role_manager__training_disabled"
-msgstr ""
-"Directorii/Responsabilii de politici pot face, edita și bloca evaluările de "
-"risc."
+msgstr "Directorii/Responsabilii de politici pot face, edita și bloca evaluările de risc."
 
 #. Default: "Members can make risk assessments."
 #. AI-generated
@@ -3006,9 +2668,7 @@ msgstr "Membrii pot efectua evaluări de risc."
 #. AI-generated
 #: euphorie/content/survey.py:235
 msgid "description_show_immediate_feedback"
-msgstr ""
-"După ce utilizatorul a selectat o opțiune pentru o alegere, arătați toate "
-"recomandările asociate înainte de a trece la următoarea alegere"
+msgstr "După ce utilizatorul a selectat o opțiune pentru o alegere, arătați toate recomandările asociate înainte de a trece la următoarea alegere"
 
 #. Default: "All images contained in the OiRA tool can be exported along with
 #. the textual content. When the OiRA tool is then imported again, all images
@@ -3017,11 +2677,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/content/browser/export.py:74
 msgid "description_survey_export_include_images"
-msgstr ""
-"Toate imaginile conținute în unealta OiRA pot fi exportate împreună cu "
-"conținutul text. Când unealta OiRA este importată din nou, toate imaginile "
-"vor fi prezente. Vă rugăm să rețineți că includerea imaginilor poate duce la "
-"o dimensiune de fișier mult mai mare."
+msgstr "Toate imaginile conținute în unealta OiRA pot fi exportate împreună cu conținutul text. Când unealta OiRA este importată din nou, toate imaginile vor fi prezente. Vă rugăm să rețineți că includerea imaginilor poate duce la o dimensiune de fișier mult mai mare."
 
 #. Default: "The introduction text describes the general purpose of the OiRA
 #. tool. It usually gives the end users an idea what to expect in the tool and
@@ -3029,11 +2685,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/content/browser/export.py:89
 msgid "description_survey_export_include_intro_text"
-msgstr ""
-"Textul de introducere descrie scopul general al instrumentului OiRA. De "
-"obicei, le oferă utilizatorilor finali o idee despre ce să se aștepte de la "
-"instrument și dacă acesta le va fi relevant. Implicit este să includem acest "
-"text."
+msgstr "Textul de introducere descrie scopul general al instrumentului OiRA. De obicei, le oferă utilizatorilor finali o idee despre ce să se aștepte de la instrument și dacă acesta le va fi relevant. Implicit este să includem acest text."
 
 #. Default: "For each risk, a number of common measures – sometimes also
 #. referred to as “Solutions” – can be defined. While the default setting is
@@ -3042,29 +2694,21 @@ msgstr ""
 #. AI-generated
 #: euphorie/content/browser/export.py:141
 msgid "description_survey_export_include_measures"
-msgstr ""
-"Pentru fiecare risc, un număr de măsuri comune – uneori denumite și "
-"“Soluții” – pot fi definite. Deși setarea implicită este de a le include în "
-"export, acestea pot fi excluse dacă este necesar, de exemplu pentru a se "
-"încadra într-un buget limitat pentru traducere."
+msgstr "Pentru fiecare risc, un număr de măsuri comune – uneori denumite și “Soluții” – pot fi definite. Deși setarea implicită este de a le include în export, acestea pot fi excluse dacă este necesar, de exemplu pentru a se încadra într-un buget limitat pentru traducere."
 
 #. Default: "Every module comes with an introductive description. The default
 #. is to include this text."
 #. AI-generated
 #: euphorie/content/browser/export.py:117
 msgid "description_survey_export_include_module_description_texts"
-msgstr ""
-"Fiecare modul vine cu o descriere introductivă. Implicit este să includem "
-"acest text."
+msgstr "Fiecare modul vine cu o descriere introductivă. Implicit este să includem acest text."
 
 #. Default: "The “Solution” description” on modules is a deprecated kind of
 #. text that is no longer being used. The default is to skip this."
 #. AI-generated
 #: euphorie/content/browser/export.py:104
 msgid "description_survey_export_include_module_solution_texts"
-msgstr ""
-"Descrierea “Solului” pe module este un tip de text învechit care nu mai este "
-"folosit. Implicit este să sărim peste acesta."
+msgstr "Descrierea “Solului” pe module este un tip de text învechit care nu mai este folosit. Implicit este să sărim peste acesta."
 
 #. Default: "If the OiRA tool is exported because it should be made available
 #. for a different country, the legal texts might not apply there. Therefore
@@ -3072,37 +2716,27 @@ msgstr ""
 #. AI-generated
 #: euphorie/content/browser/export.py:130
 msgid "description_survey_export_include_risk_legal_texts"
-msgstr ""
-"Dacă instrumentul OiRA este exportat deoarece ar trebui să fie disponibil "
-"pentru o țară diferită, textele legale s-ar putea să nu se aplice acolo. "
-"Prin urmare, implicit este să ignorați aceste texte."
+msgstr "Dacă instrumentul OiRA este exportat deoarece ar trebui să fie disponibil pentru o țară diferită, textele legale s-ar putea să nu se aplice acolo. Prin urmare, implicit este să ignorați aceste texte."
 
 #. Default: "Select one or more categories to which this OiRA tool is
 #. relevant. The user will then find this tool under the chosen categories."
 #. AI-generated
 #: euphorie/content/behaviors/toolcategory.py:13
 msgid "description_tool_category"
-msgstr ""
-"Selectați una sau mai multe categorii pentru care acest instrument OiRA este "
-"relevant. Utilizatorul va găsi apoi acest instrument în categoriile alese."
+msgstr "Selectați una sau mai multe categorii pentru care acest instrument OiRA este relevant. Utilizatorul va găsi apoi acest instrument în categoriile alese."
 
 #. Default: "If you enter text here, it will be shown to users in a pop-up
 #. when they open the tool. It can be used for notifying users about changes."
 #: euphorie/content/survey.py:206
 msgid "description_tool_notification"
-msgstr ""
-"Dacă introduceți un text aici, utilizatorii îl vor putea citi într-o "
-"fereastră pop-up când deschid instrumentul. Poate fi folosit la notificarea "
-"utilizatorilor privind modificările."
+msgstr "Dacă introduceți un text aici, utilizatorii îl vor putea citi într-o fereastră pop-up când deschid instrumentul. Poate fi folosit la notificarea utilizatorilor privind modificările."
 
 #. Default: "This selection determines, which variant of an OiRA Tool will be
 #. created. If you are not sure, select \"Classic\"."
 #. AI-generated
 #: euphorie/content/survey.py:103
 msgid "description_tool_type"
-msgstr ""
-"Această selecție determină ce variantă a unui instrument OiRA va fi creată. "
-"Dacă nu sunteți sigur, selectați \\"
+msgstr "Această selecție determină ce variantă a unui instrument OiRA va fi creată. Dacă nu sunteți sigur, selectați \\"
 
 #. Default: "If this part is active, the user will be asked to enter the name
 #. of all locations for which this module applies. This means, the module will
@@ -3111,12 +2745,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/content/profilequestion.py:55
 msgid "description_use_location_question"
-msgstr ""
-"Dacă această parte este activă, utilizatorului i se va cere să introducă "
-"numele tuturor locațiilor pentru care se aplică acest modul. Acest lucru "
-"înseamnă că modulul va fi repetat de atâtea ori câte locații există. Dacă nu "
-"aveți nevoie de acest comportament repetabil, debifați caseta pentru a o "
-"dezactiva."
+msgstr "Dacă această parte este activă, utilizatorului i se va cere să introducă numele tuturor locațiilor pentru care se aplică acest modul. Acest lucru înseamnă că modulul va fi repetat de atâtea ori câte locații există. Dacă nu aveți nevoie de acest comportament repetabil, debifați caseta pentru a o dezactiva."
 
 #. Default: "After the technical development of the tool in 2009, in 2010
 #. (until the first half of 2011) the Agency is piloting the development and
@@ -3127,22 +2756,14 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/about.pt:110
 msgid "devel_phase"
-msgstr ""
-"După dezvoltarea tehnică a instrumentului în 2009, în 2010 (până în prima "
-"jumătate a anului 2011) Agenția testează modelul de dezvoltare și difuzare "
-"atât la nivelul UE (lucrând cu Comitetele de Dialog Social Sectorial) cât și "
-"la nivelul statelor membre (cu mai multe state membre) ca parte a testării "
-"instrumentului și a dezvoltării serviciilor de asistență și orientare "
-"corespunzătoare."
+msgstr "După dezvoltarea tehnică a instrumentului în 2009, în 2010 (până în prima jumătate a anului 2011) Agenția testează modelul de dezvoltare și difuzare atât la nivelul UE (lucrând cu Comitetele de Dialog Social Sectorial) cât și la nivelul statelor membre (cu mai multe state membre) ca parte a testării instrumentului și a dezvoltării serviciilor de asistență și orientare corespunzătoare."
 
 #. Default: "Pages created in the ${appendix} folder are available via links
 #. in the footer of the online client."
 #. AI-generated
 #: euphorie/content/browser/templates/documentation_view.pt:30
 msgid "documentation_appendix"
-msgstr ""
-"Paginile create în folderul ${appendix} sunt disponibile prin linkuri în "
-"subsolul clientului online."
+msgstr "Paginile create în folderul ${appendix} sunt disponibile prin linkuri în subsolul clientului online."
 
 #. Default: "appendix"
 #. AI-generated
@@ -3239,9 +2860,7 @@ msgstr "Dragă utilizator,"
 #. AI-generated
 #: euphorie/client/browser/templates/confirm-email.pt:14
 msgid "email_change_intro"
-msgstr ""
-"Adresa dvs. de e-mail și numele de cont pe ${url} vor fi schimbate în '$"
-"{email}' când faceți clic pe linkul de confirmare de mai jos."
+msgstr "Adresa dvs. de e-mail și numele de cont pe ${url} vor fi schimbate în '${email}' când faceți clic pe linkul de confirmare de mai jos."
 
 #. Default: "Please confirm your new email address by clicking on the link in
 #. the email that will be sent in a few minutes to \"${email}\". Please note
@@ -3249,9 +2868,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/settings.py:447
 msgid "email_change_pending"
-msgstr ""
-"Vă rugăm să confirmați adresa dvs. de e-mail nouă făcând clic pe linkul din "
-"e-mailul care vă va fi trimis în câteva minute la \\"
+msgstr "Vă rugăm să confirmați adresa dvs. de e-mail nouă făcând clic pe linkul din e-mailul care vă va fi trimis în câteva minute la \\"
 
 #. Default: "Dear ${recipient},"
 #. AI-generated
@@ -3270,18 +2887,14 @@ msgstr "${invitee} a acceptat invitația dvs. de a se alătura ${organisation}."
 #. AI-generated
 #: euphorie/client/browser/templates/email_reminder.pt:32
 msgid "email_reminder_intro"
-msgstr ""
-"Dacă doriți să continuați să utilizați acest instrument la un moment "
-"ulterior, vă putem trimite un e-mail de reamintire cu un link către această "
-"evaluare."
+msgstr "Dacă doriți să continuați să utilizați acest instrument la un moment ulterior, vă putem trimite un e-mail de reamintire cu un link către această evaluare."
 
 #. Default: "This is your reminder to continue your assessment with the tool
 #. \"${tool_name}\":"
 #. AI-generated
 #: euphorie/client/browser/templates/email_reminder_body.pt:8
 msgid "email_reminder_main"
-msgstr ""
-"Aceasta este reamintirea dvs. pentru a continua evaluarea cu instrumentul \\"
+msgstr "Aceasta este reamintirea dvs. pentru a continua evaluarea cu instrumentul \\"
 
 #. Default: "Dear ${recipient},"
 #. AI-generated
@@ -3296,20 +2909,14 @@ msgstr "Dragă ${recipient},"
 #. AI-generated
 #: euphorie/client/browser/templates/notify-request-validation.pt:17
 msgid "email_request_validation_instructions"
-msgstr ""
-"Vă rugăm să faceți clic pe linkul de mai jos pentru a vizita evaluarea "
-"riscului. Dacă aprobați conținutul evaluării riscului, vă rugăm să faceți "
-"clic pe &lsquo;Validați&rsquo; în secțiunea &lsquo;Consultanță&rsquo; pentru "
-"a oferi evaluării de risc un statut oficialmente validat."
+msgstr "Vă rugăm să faceți clic pe linkul de mai jos pentru a vizita evaluarea riscului. Dacă aprobați conținutul evaluării riscului, vă rugăm să faceți clic pe &lsquo;Validați&rsquo; în secțiunea &lsquo;Consultanță&rsquo; pentru a oferi evaluării de risc un statut oficialmente validat."
 
 #. Default: "${requester} requested to validate the risk assessment
 #. &lsquo;${assessment}&rsquo;."
 #. AI-generated
 #: euphorie/client/browser/templates/notify-request-validation.pt:12
 msgid "email_request_validation_intro"
-msgstr ""
-"${requester} a solicitat validarea evaluării riscului &lsquo;${assessment}"
-"&rsquo;."
+msgstr "${requester} a solicitat validarea evaluării riscului &lsquo;${assessment}&rsquo;."
 
 #. Default: "10 to 49 employees"
 #. AI-generated
@@ -3400,18 +3007,14 @@ msgstr "Parolele nu se potrivesc"
 #. AI-generated
 #: euphorie/client/browser/login.py:146
 msgid "error_password_policy_violation"
-msgstr ""
-"Parola trebuie să aibă cel puțin 12 caractere și să conțină cel puțin o "
-"literă mică, o literă mare și o cifră."
+msgstr "Parola trebuie să aibă cel puțin 12 caractere și să conțină cel puțin o literă mică, o literă mare și o cifră."
 
 #. Default: "An accout can only be created for you if you accept the terms and
 #. conditions."
 #. AI-generated
 #: euphorie/client/browser/login.py:181
 msgid "error_terms_not_accepted"
-msgstr ""
-"Un cont poate fi creat doar pentru dvs. dacă acceptați termenii și "
-"condițiile."
+msgstr "Un cont poate fi creat doar pentru dvs. dacă acceptați termenii și condițiile."
 
 #. Default: "This date must be on or after the start date."
 #. AI-generated
@@ -3479,27 +3082,20 @@ msgstr "Sari evaluarea"
 #. AI-generated
 #: euphorie/client/browser/templates/actionplan.pt:27
 msgid "expl_actionplan_1"
-msgstr ""
-"După ce ați identificat riscurile, trebuie să puneți în aplicare un plan de "
-"acțiune pentru gestionarea riscurilor. Pentru a elimina sau reduce "
-"riscurile, trebuie să determinați care sunt măsurile preventive și de "
-"protecție care trebuie luate."
+msgstr "După ce ați identificat riscurile, trebuie să puneți în aplicare un plan de acțiune pentru gestionarea riscurilor. Pentru a elimina sau reduce riscurile, trebuie să determinați care sunt măsurile preventive și de protecție care trebuie luate."
 
 #. Default: "Among the things to be considered for this step are:"
 #. AI-generated
 #: euphorie/client/browser/templates/actionplan.pt:33
 msgid "expl_actionplan_2"
-msgstr ""
-"Printre lucrurile care trebuie luate în considerare la acest pas se numără:"
+msgstr "Printre lucrurile care trebuie luate în considerare la acest pas se numără:"
 
 #. Default: "Is a risk avoidable? Can it be removed entirely? For example,
 #. this could be achieved by: ${expl_actionplan_4_and_5}"
 #. AI-generated
 #: euphorie/client/browser/templates/actionplan.pt:39
 msgid "expl_actionplan_3"
-msgstr ""
-"Este un risc evitabil? Poate fi înlăturat în totalitate? De exemplu, acest "
-"lucru ar putea fi realizat prin: ${expl_actionplan_4_and_5}"
+msgstr "Este un risc evitabil? Poate fi înlăturat în totalitate? De exemplu, acest lucru ar putea fi realizat prin: ${expl_actionplan_4_and_5}"
 
 #. Default: "considering whether the task or job is necessary"
 #. AI-generated
@@ -3518,9 +3114,7 @@ msgstr "eliminând pericolul"
 #. AI-generated
 #: euphorie/client/browser/templates/actionplan.pt:44
 msgid "expl_actionplan_6"
-msgstr ""
-"Dacă anumite riscuri nu pot fi evitate, cum pot fi acestea reduse la un "
-"nivel la care sănătatea și siguranța celor expuși nu este compromisă?"
+msgstr "Dacă anumite riscuri nu pot fi evitate, cum pot fi acestea reduse la un nivel la care sănătatea și siguranța celor expuși nu este compromisă?"
 
 #. Default: "Once you have decided how to eliminate or reduce a particular
 #. risk, then you describe the specific action(s) required to achieve this.
@@ -3529,11 +3123,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/actionplan.pt:48
 msgid "expl_actionplan_7"
-msgstr ""
-"Odată ce ați decis cum să eliminați sau să reduceți un anumit risc, apoi "
-"descrieți acțiunea (acțiunile) specifică necesară pentru a realiza acest "
-"lucru. Ar trebui să includeți și detalii despre nivelul de expertiză și/sau "
-"alte cerințe necesare pentru ca acele acțiuni să fie eficiente."
+msgstr "Odată ce ați decis cum să eliminați sau să reduceți un anumit risc, apoi descrieți acțiunea (acțiunile) specifică necesară pentru a realiza acest lucru. Ar trebui să includeți și detalii despre nivelul de expertiză și/sau alte cerințe necesare pentru ca acele acțiuni să fie eficiente."
 
 #. Default: "No risks were identified. Please proceed directly to the report."
 #. AI-generated
@@ -3558,47 +3148,35 @@ msgstr "Pagina pe care ați solicitat-o nu a putut fi găsită."
 #. AI-generated
 #: euphorie/client/browser/templates/profile.pt:24
 msgid "expl_profile"
-msgstr ""
-"Pentru a personaliza evaluarea riscurilor pentru organizația dvs., s-ar "
-"putea să vi se ceară să:"
+msgstr "Pentru a personaliza evaluarea riscurilor pentru organizația dvs., s-ar putea să vi se ceară să:"
 
 #. Default: "select or skip situation(s) relevant or not to your business
 #. activity and tick the box(es) if appropriate"
 #. AI-generated
 #: euphorie/client/browser/templates/profile.pt:29
 msgid "expl_profile_bullet1"
-msgstr ""
-"selectați sau săriți peste situația (situațiile) relevantă (relevante) sau "
-"nu pentru activitatea dvs. de afaceri și bifati caseta (casetele) dacă este "
-"cazul"
+msgstr "selectați sau săriți peste situația (situațiile) relevantă (relevante) sau nu pentru activitatea dvs. de afaceri și bifati caseta (casetele) dacă este cazul"
 
 #. Default: "list multiple business units, or branches, or stores, etc. These
 #. related risks will be repeated for each name you have entered."
 #. AI-generated
 #: euphorie/client/browser/templates/profile.pt:32
 msgid "expl_profile_bullet2"
-msgstr ""
-"listați mai multe unități de afaceri, sau sucursale, sau magazine, etc. "
-"Aceste riscuri asociate vor fi repetate pentru fiecare nume pe care l-ați "
-"introdus."
+msgstr "listați mai multe unități de afaceri, sau sucursale, sau magazine, etc. Aceste riscuri asociate vor fi repetate pentru fiecare nume pe care l-ați introdus."
 
 #. Default: "This OiRA tool has changed since you last accessed it. Before you
 #. can continue, you need to update to these changes."
 #. AI-generated
 #: euphorie/client/browser/templates/updated.pt:24
 msgid "expl_update"
-msgstr ""
-"Acest instrument OiRA a fost modificat de când l-ați accesat ultima dată. "
-"Înainte de a putea continua, trebuie să vă actualizați la aceste modificări."
+msgstr "Acest instrument OiRA a fost modificat de când l-ați accesat ultima dată. Înainte de a putea continua, trebuie să vă actualizați la aceste modificări."
 
 #. Default: "This risk was automatically set as being present. You cannot
 #. change this."
 #. AI-generated
 #: euphorie/client/browser/templates/webhelpers.pt:290
 msgid "explanation_risk_always_present"
-msgstr ""
-"Acest risc a fost setat automat ca fiind prezent. Nu puteți schimba acest "
-"lucru."
+msgstr "Acest risc a fost setat automat ca fiind prezent. Nu puteți schimba acest lucru."
 
 #. Default: "Try any of the tools below anonymously by clicking on the button
 #. 'Test session' of the tool of your choice. In a test session you cannot
@@ -3607,11 +3185,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/surveys.pt:32
 msgid "explanation_try_oira"
-msgstr ""
-"Încercați oricare dintre instrumentele de mai jos în mod anonim dând clic pe "
-"butonul 'Sesiune de test' al instrumentului ales. Într-o sesiune de testare "
-"nu puteți salva munca. Tot progresul se va pierde dacă nu $"
-"{label_link_register}."
+msgstr "Încercați oricare dintre instrumentele de mai jos în mod anonim dând clic pe butonul 'Sesiune de test' al instrumentului ales. Într-o sesiune de testare nu puteți salva munca. Tot progresul se va pierde dacă nu ${label_link_register}."
 
 #. AI-generated
 #: euphorie/client/browser/session.py:477
@@ -3715,11 +3289,7 @@ msgstr "Regular"
 #. AI-generated
 #: euphorie/client/browser/templates/tooltips.pt:11
 msgid "guest_login_warning"
-msgstr ""
-"În prezent evaluați OiRA ca un utilizator oaspete. Nu veți putea salva "
-"progresul sau descărca orice rapoarte. Pentru a salva munca, vă rugăm să vă "
-"autentificați sau să vă înregistrați făcând clic pe linkul &ldquo;$"
-"{link_sign_in}&rdquo; din colțul din dreapta sus al paginii."
+msgstr "În prezent evaluați OiRA ca un utilizator oaspete. Nu veți putea salva progresul sau descărca orice rapoarte. Pentru a salva munca, vă rugăm să vă autentificați sau să vă înregistrați făcând clic pe linkul &ldquo;${link_sign_in}&rdquo; din colțul din dreapta sus al paginii."
 
 #. Default: "Actions"
 #. AI-generated
@@ -3816,9 +3386,7 @@ msgstr "Exemplu de raport de prezentare a riscului în format PDF"
 #. AI-generated
 #: euphorie/client/browser/templates/register_session.pt:64
 msgid "header_example_report_xlsx"
-msgstr ""
-"Exemplu de plan de acțiune în format de caiet de lucru Office Open XML "
-"(.xlsx)"
+msgstr "Exemplu de plan de acțiune în format de caiet de lucru Office Open XML (.xlsx)"
 
 #. Default: "Feedback."
 #. AI-generated
@@ -4089,9 +3657,7 @@ msgstr "Riscuri"
 #. AI-generated
 #: euphorie/client/docx/views.py:252
 msgid "header_risks_not_present"
-msgstr ""
-"Pericole/probleme care au fost gestionate sau nu sunt prezente în "
-"organizația dumneavoastră"
+msgstr "Pericole/probleme care au fost gestionate sau nu sunt prezente în organizația dumneavoastră"
 
 #. Default: "Search"
 #. AI-generated
@@ -4421,11 +3987,7 @@ msgstr "Definiți ce rapoarte sunt oferite utilizatorului pe pagina de Raport."
 #. AI-generated
 #: euphorie/content/country.py:50
 msgid "help__risk_default_collapsible_sections"
-msgstr ""
-"Definiți ce secțiuni de informații ar trebui să fie deschise în mod implicit "
-"pe o pagină de identificare a riscului. Secțiunile nebifate vor fi arătate "
-"inițial în mod colapsat, dar utilizatorul poate deschide oricând aceste "
-"secțiuni cu un clic."
+msgstr "Definiți ce secțiuni de informații ar trebui să fie deschise în mod implicit pe o pagină de identificare a riscului. Secțiunile nebifate vor fi arătate inițial în mod colapsat, dar utilizatorul poate deschide oricând aceste secțiuni cu un clic."
 
 #. Default: "This text should explain how to fill in the Action plan."
 #. AI-generated
@@ -4444,17 +4006,13 @@ msgstr "Creați o duplicat a OiRA Tool selectat"
 #. AI-generated
 #: euphorie/content/choice.py:26
 msgid "help_allow_multiple_options"
-msgstr ""
-"Dacă este activă, se arată casetele de bifat pentru a permite selectarea a "
-"mai mult de o opțiune. Altfel, se folosesc butoanele radio pentru a forța o "
-"singură selecție."
+msgstr "Dacă este activă, se arată casetele de bifat pentru a permite selectarea a mai mult de o opțiune. Altfel, se folosesc butoanele radio pentru a forța o singură selecție."
 
 #. Default: "This text should explain how to register and login."
 #. AI-generated
 #: euphorie/content/help.py:33
 msgid "help_authentication"
-msgstr ""
-"Acest text ar trebui să explice cum să te înregistrezi și să te autentifici."
+msgstr "Acest text ar trebui să explice cum să te înregistrezi și să te autentifici."
 
 #. Default: "Please answer the following questions. As a result of your
 #. answers the system will calculate the priority of the risk. You will be
@@ -4462,20 +4020,14 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/webhelpers.pt:367
 msgid "help_calculated_evaluation"
-msgstr ""
-"Vă rugăm să răspundeți la următoarele întrebări. Ca rezultat al "
-"răspunsurilor dumneavoastră, sistemul va calcula prioritatea riscului. Veți "
-"putea modifica prioritatea mai târziu."
+msgstr "Vă rugăm să răspundeți la următoarele întrebări. Ca rezultat al răspunsurilor dumneavoastră, sistemul va calcula prioritatea riscului. Veți putea modifica prioritatea mai târziu."
 
 #. Default: "A code identifying this sector. Classification codes are defined
 #. by national standards bodies and based on revision 2 of the NACE standard."
 #. AI-generated
 #: euphorie/content/survey.py:92
 msgid "help_classification_code"
-msgstr ""
-"Un cod care identifică acest sector. Codurile de clasificare sunt definite "
-"de organismele naționale de standardizare și se bazează pe revizia 2 a "
-"standardului NACE."
+msgstr "Un cod care identifică acest sector. Codurile de clasificare sunt definite de organismele naționale de standardizare și se bazează pe revizia 2 a standardului NACE."
 
 #. Default: "Select which optional elements are used in the compact report"
 #. AI-generated
@@ -4489,19 +4041,14 @@ msgstr "Selectați care elemente opționale sunt utilizate în raportul compact"
 #. AI-generated
 #: euphorie/content/module.py:145 euphorie/content/risk.py:335
 msgid "help_content_upload"
-msgstr ""
-"Încărcați un fișier care conține informații suplimentare, ca un document "
-"PDF, Word sau un tabel. Oferiți opțional o descriere pentru fișierul "
-"dumneavoastră."
+msgstr "Încărcați un fișier care conține informații suplimentare, ca un document PDF, Word sau un tabel. Oferiți opțional o descriere pentru fișierul dumneavoastră."
 
 #. Default: "Start to write a new OiRA Tool. You will be asked whether you
 #. want to start off with a copy of an existing OiRA Tool."
 #. AI-generated
 #: euphorie/deployment/tiles/templates/versions.pt:111
 msgid "help_create_new_version"
-msgstr ""
-"Începe să scrii un nou OiRA Tool. Ți se va cere dacă dorești să începi cu o "
-"copie a unui OiRA Tool existent."
+msgstr "Începe să scrii un nou OiRA Tool. Ți se va cere dacă dorești să începi cu o copie a unui OiRA Tool existent."
 
 #. Default: "Indicate how often this risk occurs in a normal situation."
 #. AI-generated
@@ -4514,17 +4061,14 @@ msgstr "Indică cât de des se întâmplă acest risc într-o situație normală
 #. AI-generated
 #: euphorie/content/risk.py:223
 msgid "help_default_priority"
-msgstr ""
-"Poți ajuta utilizatorul final selectând o prioritate implicită. El/ea tot "
-"poate schimba prioritatea."
+msgstr "Poți ajuta utilizatorul final selectând o prioritate implicită. El/ea tot poate schimba prioritatea."
 
 #. Default: "Indicate how likely occurence of this risk is in a normal
 #. situation."
 #. AI-generated
 #: euphorie/client/browser/risk.py:912 euphorie/content/risk.py:479
 msgid "help_default_probability"
-msgstr ""
-"Indică cât de probabilă este apariția acestui risc într-o situație normală."
+msgstr "Indică cât de probabilă este apariția acestui risc într-o situație normală."
 
 #. Default: "Indicate the severity if this risk occurs."
 #. AI-generated
@@ -4537,9 +4081,7 @@ msgstr "Indică gravitatea dacă acest risc apare."
 #. AI-generated
 #: euphorie/content/country.py:156
 msgid "help_enable_consultancy_country"
-msgstr ""
-"Dacă această opțiune este activată, evaluările pot fi revizuite și validate "
-"de consultanți."
+msgstr "Dacă această opțiune este activată, evaluările pot fi revizuite și validate de consultanți."
 
 #. Default: "Offer to send an email reminder about this tool"
 #. AI-generated
@@ -4554,35 +4096,27 @@ msgstr "Oferă să trimiți un email de reamintire despre acest instrument"
 #. AI-generated
 #: euphorie/content/survey.py:166
 msgid "help_enable_web_training"
-msgstr ""
-"Dacă această opțiune este activă, utilizatorii vor putea face un curs online "
-"cu acest OiRA Tool. Un curs reușit va fi înregistrat și afișat cu un "
-"certificat pe tabloul de bord al utilizatorului. Va trebui să furnizați "
-"Întrebări de formare pentru examenul final."
+msgstr "Dacă această opțiune este activă, utilizatorii vor putea face un curs online cu acest OiRA Tool. Un curs reușit va fi înregistrat și afișat cu un certificat pe tabloul de bord al utilizatorului. Va trebui să furnizați Întrebări de formare pentru examenul final."
 
 #. Default: "If this option is activated, an online training can be enabled on
 #. OiRA tools in this country."
 #. AI-generated
 #: euphorie/content/country.py:145
 msgid "help_enable_web_training_country"
-msgstr ""
-"Dacă această opțiune este activă, un curs online poate fi activat pe "
-"instrumentele OiRA din această țară."
+msgstr "Dacă această opțiune este activă, un curs online poate fi activat pe instrumentele OiRA din această țară."
 
 #. Default: "This text should explain how to evaluate the identified risks."
 #. AI-generated
 #: euphorie/content/help.py:73
 msgid "help_evaluation"
-msgstr ""
-"Acest text ar trebui să explice cum se evaluează riscurile identificate."
+msgstr "Acest text ar trebui să explice cum se evaluează riscurile identificate."
 
 #. Default: "Select 'estimated' if calcuation is not necessary or not
 #. possible."
 #. AI-generated
 #: euphorie/content/risk.py:183
 msgid "help_evaluation_method"
-msgstr ""
-"Selectează 'estimat' dacă calculul nu este necesar sau nu este posibil."
+msgstr "Selectează 'estimat' dacă calculul nu este necesar sau nu este posibil."
 
 #. Default: "This option allows users to skip the evaluation phase."
 #. AI-generated
@@ -4597,11 +4131,7 @@ msgstr "Această opțiune permite utilizatorilor să sară peste faza de evaluar
 #. AI-generated
 #: euphorie/content/risk.py:110
 msgid "help_existing_measures"
-msgstr ""
-"Utilizați acest câmp pentru a defini (comune) măsuri pe care utilizatorul le-"
-"ar fi putut implementa deja. Separați măsurile cu o linie nouă (Enter). "
-"Utilizatorul va putea deselecta acele măsuri care nu sunt aplicabile "
-"situației lor."
+msgstr "Utilizați acest câmp pentru a defini (comune) măsuri pe care utilizatorul le-ar fi putut implementa deja. Separați măsurile cu o linie nouă (Enter). Utilizatorul va putea deselecta acele măsuri care nu sunt aplicabile situației lor."
 
 #. Default: "General final recommendations."
 #. AI-generated
@@ -4674,16 +4204,13 @@ msgstr "Informații generale despre evaluarea riscului"
 #. AI-generated
 #: euphorie/content/behaviors/hide_from_training.py:13
 msgid "help_hide_from_training"
-msgstr ""
-"Nu include acest modul în formare, de exemplu dacă modulul nu are nicio "
-"relevanță pentru lucrători."
+msgstr "Nu include acest modul în formare, de exemplu dacă modulul nu are nicio relevanță pentru lucrători."
 
 #. Default: "This text should explain how the risk identification works."
 #. AI-generated
 #: euphorie/content/help.py:63
 msgid "help_identification"
-msgstr ""
-"Acest text ar trebui să explice cum funcționează identificarea riscului."
+msgstr "Acest text ar trebui să explice cum funcționează identificarea riscului."
 
 #. Default: "Upload an image. Make sure your image is of format png, jpg or
 #. gif and does not contain any special characters. The minimum size is 1000
@@ -4691,10 +4218,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/content/module.py:99 euphorie/content/risk.py:253
 msgid "help_image_upload"
-msgstr ""
-"Încărcați o imagine. Asigurați-vă că imaginea dvs. este în format png, jpg "
-"sau gif și nu conține caractere speciale. Dimensiunea minimă este de 1000 "
-"(lățime) x 430 (înălțime) pixeli."
+msgstr "Încărcați o imagine. Asigurați-vă că imaginea dvs. este în format png, jpg sau gif și nu conține caractere speciale. Dimensiunea minimă este de 1000 (lățime) x 430 (înălțime) pixeli."
 
 #. Default: "Help"
 #. AI-generated
@@ -4709,11 +4233,7 @@ msgstr "Ajutor"
 #. AI-generated
 #: euphorie/content/sector.py:72
 msgid "help_logo_upload"
-msgstr ""
-"Logo-ul va apărea pe pagina de prezentare a sectorului din țara "
-"dumneavoastră. Asigurați-vă că imaginea dvs. este în format png, jpg sau gif "
-"și nu conține caractere speciale. Noul logo va deveni vizibil doar după ce "
-"ați salvat modificările și ați publicat instrumentul OiRA."
+msgstr "Logo-ul va apărea pe pagina de prezentare a sectorului din țara dumneavoastră. Asigurați-vă că imaginea dvs. este în format png, jpg sau gif și nu conține caractere speciale. Noul logo va deveni vizibil doar după ce ați salvat modificările și ați publicat instrumentul OiRA."
 
 #. Default: "Describe your general approach to eliminate or (if the risk is
 #. not avoidable) reduce the risk. + Describe the specific action(s) required
@@ -4721,29 +4241,21 @@ msgstr ""
 #. AI-generated
 #: euphorie/content/solution.py:73
 msgid "help_measure_action"
-msgstr ""
-"Descrieți abordarea generală pentru a elimina sau (dacă riscul nu poate fi "
-"evitat) pentru a reduce riscul. + Descrieți acțiunea (acțiunile) specifice "
-"necesare pentru a implementa această abordare (pentru a elimina sau a reduce "
-"riscul)."
+msgstr "Descrieți abordarea generală pentru a elimina sau (dacă riscul nu poate fi evitat) pentru a reduce riscul. + Descrieți acțiunea (acțiunile) specifice necesare pentru a implementa această abordare (pentru a elimina sau a reduce riscul)."
 
 #. Default: "Describe your general approach to eliminate or (if the risk is
 #. not avoidable) reduce the risk."
 #. AI-generated
 #: euphorie/content/solution.py:43
 msgid "help_measure_action_plan"
-msgstr ""
-"Descrieți abordarea generală pentru a elimina sau (dacă riscul nu poate fi "
-"evitat) pentru a reduce riscul."
+msgstr "Descrieți abordarea generală pentru a elimina sau (dacă riscul nu poate fi evitat) pentru a reduce riscul."
 
 #. Default: "Describe the specific action(s) required to implement this
 #. approach (to eliminate or to reduce the risk)."
 #. AI-generated
 #: euphorie/content/solution.py:56
 msgid "help_measure_prevention_plan"
-msgstr ""
-"Descrieți acțiunea (acțiunile) specifice necesare pentru implementarea "
-"acestei abordări (pentru a elimina sau a reduce riscul)."
+msgstr "Descrieți acțiunea (acțiunile) specifice necesare pentru implementarea acestei abordări (pentru a elimina sau a reduce riscul)."
 
 #. Default: "Describe the level of expertise needed to implement the measure,
 #. for instance \"common sense (no OSH knowledge required)\", \"no specific
@@ -4753,9 +4265,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/content/solution.py:91
 msgid "help_measure_requirements"
-msgstr ""
-"Descrieți nivelul de expertiză necesar pentru implementarea măsurii, de "
-"exemplu \\"
+msgstr "Descrieți nivelul de expertiză necesar pentru implementarea măsurii, de exemplu \\"
 
 #. Default: "Include any relevant information that may be helpful for the end-
 #. user."
@@ -4763,18 +4273,14 @@ msgstr ""
 #: euphorie/content/module.py:52 euphorie/content/page.py:17
 #: euphorie/content/solution.py:29
 msgid "help_module_description"
-msgstr ""
-"Includeți orice informații relevante care ar putea fi utile pentru "
-"utilizatorul final."
+msgstr "Includeți orice informații relevante care ar putea fi utile pentru utilizatorul final."
 
 #. Default: "Allows the end-user to skip this module and everything inside
 #. it."
 #. AI-generated
 #: euphorie/content/module.py:76
 msgid "help_module_optional"
-msgstr ""
-"Permite utilizatorului final să renunțe la acest modul și la tot ce se află "
-"în interiorul acestuia."
+msgstr "Permite utilizatorului final să renunțe la acest modul și la tot ce se află în interiorul acestuia."
 
 #. Default: "The question to ask the end-user if this module is optional. It
 #. must be formulated so that it is answerable with YES (the end-user will
@@ -4782,10 +4288,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/content/module.py:88
 msgid "help_module_question"
-msgstr ""
-"Întrebarea pe care trebuie să o puneți utilizatorului final dacă acest modul "
-"este opțional. Trebuie să fie formulată astfel încât să poată fi răspuns cu "
-"DA (utilizatorul final va trebui să bifeze o casetă) sau NU"
+msgstr "Întrebarea pe care trebuie să o puneți utilizatorului final dacă acest modul este opțional. Trebuie să fie formulată astfel încât să poată fi răspuns cu DA (utilizatorul final va trebui să bifeze o casetă) sau NU"
 
 #. Default: "If this module is used as part of an inventory tool,
 #. thisrecommendation text will be used as in introduction in the reportbefore
@@ -4793,10 +4296,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/content/module.py:64
 msgid "help_module_recommendation"
-msgstr ""
-"Dacă acest modul este utilizat ca parte a unui instrument de inventar, acest "
-"text de recomandare va fi folosit ca o introducere în raport înainte ca "
-"recomandările individuale să fie listate."
+msgstr "Dacă acest modul este utilizat ca parte a unui instrument de inventar, acest text de recomandare va fi folosit ca o introducere în raport înainte ca recomandările individuale să fie listate."
 
 #. Default: "Please enter the number of questions to be shown at the end of
 #. your training session. If the number is lower than the number of existing
@@ -4805,11 +4305,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/content/survey.py:191
 msgid "help_num_training_questions"
-msgstr ""
-"Vă rugăm să introduceți numărul de întrebări care vor fi afișate la "
-"sfârșitul sesiunii dumneavoastră de instruire. Dacă numărul este mai mic "
-"decât numărul de întrebări existente, întrebările vor fi selectate "
-"aleatoriu. Lăsați câmpul gol pentru a afișa toate întrebările."
+msgstr "Vă rugăm să introduceți numărul de întrebări care vor fi afișate la sfârșitul sesiunii dumneavoastră de instruire. Dacă numărul este mai mic decât numărul de întrebări existente, întrebările vor fi selectate aleatoriu. Lăsați câmpul gol pentru a afișa toate întrebările."
 
 #. Default: "The password needs to be at least 12 characters long and needs to
 #. contain at least one lower case letter, one upper case letter and one
@@ -4818,9 +4314,7 @@ msgstr ""
 #: euphorie/client/browser/templates/login.pt:216
 #: euphorie/client/browser/templates/register_session.pt:203
 msgid "help_password_requirements"
-msgstr ""
-"Parola trebuie să aibă cel puțin 12 caractere și să conțină cel puțin o "
-"literă mică, o literă mare și o cifră."
+msgstr "Parola trebuie să aibă cel puțin 12 caractere și să conțină cel puțin o literă mică, o literă mare și o cifră."
 
 #. Default: "This text should explain the 2 types of profile questions."
 #. AI-generated
@@ -4839,16 +4333,13 @@ msgstr "Previzualizarea va fi disponibilă la ${url}."
 #. AI-generated
 #: euphorie/content/risk.py:81
 msgid "help_problem_description"
-msgstr ""
-"Acesta este contrariul afirmației afirmative (de exemplu, Clădirea nu este "
-"bine întreținută.)"
+msgstr "Acesta este contrariul afirmației afirmative (de exemplu, Clădirea nu este bine întreținută.)"
 
 #. Default: "Publish the selected OiRA Tool live with its latest changes."
 #. AI-generated
 #: euphorie/deployment/tiles/templates/versions.pt:34
 msgid "help_publish"
-msgstr ""
-"Publicați în direct selectatul instrument OiRA cu ultimele sale modificări."
+msgstr "Publicați în direct selectatul instrument OiRA cu ultimele sale modificări."
 
 #. Default: "After publication the OiRA Tool will be available at ${url}."
 #. AI-generated
@@ -4867,17 +4358,14 @@ msgstr "Textul care va fi inclus în raport"
 #. AI-generated
 #: euphorie/content/help.py:93
 msgid "help_reports"
-msgstr ""
-"Acest text ar trebui să descrie cum raportul poate fi salvat sau imprimat."
+msgstr "Acest text ar trebui să descrie cum raportul poate fi salvat sau imprimat."
 
 #. Default: "Describe the risk. Include any relevant information that may be
 #. helpful for the end-user."
 #. AI-generated
 #: euphorie/content/risk.py:93
 msgid "help_risk_description"
-msgstr ""
-"Descrieți riscul. Includeți orice informații relevante care ar putea fi "
-"utile pentru utilizatorul final."
+msgstr "Descrieți riscul. Includeți orice informații relevante care ar putea fi utile pentru utilizatorul final."
 
 #. Default: "\"Priority risk\" is one of the high risks in the sector.
 #. \"Risk\" is related to the workplace or to the work carried out. \"Policy\"
@@ -4892,43 +4380,34 @@ msgstr "\\"
 #. AI-generated
 #: euphorie/content/browser/upload.py:142
 msgid "help_sector_title"
-msgstr ""
-"Dacă nu specificați un titlu, acesta va fi preluat din fișierul de intrare."
+msgstr "Dacă nu specificați un titlu, acesta va fi preluat din fișierul de intrare."
 
 #. Default: "This text should describe the main functions of the OiRA Tool."
 #. AI-generated
 #: euphorie/content/help.py:43
 msgid "help_sessions"
-msgstr ""
-"Acest text ar trebui să descrie funcțiile principale ale instrumentului OiRA."
+msgstr "Acest text ar trebui să descrie funcțiile principale ale instrumentului OiRA."
 
 #. Default: "Offer a `not applicable' option in addition to the standard
 #. yes/no options."
 #. AI-generated
 #: euphorie/content/risk.py:138
 msgid "help_show_notapplicable"
-msgstr ""
-"Oferiți o opțiune 'nu se aplică' în plus față de opțiunile standard da/nu."
+msgstr "Oferiți o opțiune 'nu se aplică' în plus față de opțiunile standard da/nu."
 
 #. Default: "This information will appear in the Action plan step and should
 #. include an overview of general solution(s) related to this module."
 #. AI-generated
 #: euphorie/content/module.py:113
 msgid "help_solution_direction"
-msgstr ""
-"Aceste informații vor apărea în etapa Planul de acțiune și ar trebui să "
-"includă o prezentare generală a soluției (soluțiilor) generale legate de "
-"acest modul."
+msgstr "Aceste informații vor apărea în etapa Planul de acțiune și ar trebui să includă o prezentare generală a soluției (soluțiilor) generale legate de acest modul."
 
 #. Default: "Start based on an existing risk assessment. All content of the
 #. existing risk assessment will be copied over into the new risk assessment,
 #. which you can edit and augment at will."
 #: euphorie/client/browser/templates/new-session.pt:58
 msgid "help_start_base_on_existing"
-msgstr ""
-"Începeți pornind de la o evaluare a riscurilor existentă. Întregul conținut "
-"al evaluării riscurilor existente va fi copiat în noua evaluare a "
-"riscurilor, pe care o puteți edita și completa după cum doriți."
+msgstr "Începeți pornind de la o evaluare a riscurilor existentă. Întregul conținut al evaluării riscurilor existente va fi copiat în noua evaluare a riscurilor, pe care o puteți edita și completa după cum doriți."
 
 #. Default: "Start from scratch with an empty risk assessment."
 #. AI-generated
@@ -4941,9 +4420,7 @@ msgstr "Începeți de la zero cu o evaluare a riscului goală."
 #. AI-generated
 #: euphorie/content/risk.py:69
 msgid "help_statement"
-msgstr ""
-"Aceasta este o afirmație scurtă afirmativă despre un posibil risc (de "
-"exemplu, Clădirea este bine întreținută.)"
+msgstr "Aceasta este o afirmație scurtă afirmativă despre un posibil risc (de exemplu, Clădirea este bine întreținută.)"
 
 #. Default: "This method involves risk assessment by Severity x Exposure,
 #. whereas these have to be understood as follows; Severity of injury linked
@@ -4951,10 +4428,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/content/surveygroup.py:94
 msgid "help_survey_evaluation_algorithm_simplified"
-msgstr ""
-"Această metodă implică evaluarea riscului prin Severitate x Expunere, în "
-"timp ce acestea trebuie înțelese astfel; Severitatea rănirii legate de "
-"pericol - Expunerea (Frecvența) la pericol"
+msgstr "Această metodă implică evaluarea riscului prin Severitate x Expunere, în timp ce acestea trebuie înțelese astfel; Severitatea rănirii legate de pericol - Expunerea (Frecvența) la pericol"
 
 #. Default: "This method involves risk assessment by Severity x Exposure x
 #. Probability, whereas these have to be understood as follows; Severity of
@@ -4963,36 +4437,27 @@ msgstr ""
 #. AI-generated
 #: euphorie/content/surveygroup.py:75
 msgid "help_survey_evaluation_algorithm_standard"
-msgstr ""
-"Această metodă implică evaluarea riscului prin Severitate x Expunere x "
-"Probabilitate, în timp ce acestea trebuie înțelese astfel; Severitatea "
-"rănirii legate de pericol - Expunerea (Frecvența) la pericol - "
-"Probabilitatea ca pericolul să apară atunci când este expus"
+msgstr "Această metodă implică evaluarea riscului prin Severitate x Expunere x Probabilitate, în timp ce acestea trebuie înțelese astfel; Severitatea rănirii legate de pericol - Expunerea (Frecvența) la pericol - Probabilitatea ca pericolul să apară atunci când este expus"
 
 #. Default: "This OiRA Tool is obsolete; it has been retired or replaced with
 #. another OiRA Tool."
 #: euphorie/content/surveygroup.py:54
 msgid "help_survey_obsolete"
-msgstr ""
-"This survey is obsolete; it has been retired or replaced with another survey."
+msgstr "This survey is obsolete; it has been retired or replaced with another survey."
 
 #. Default: "This is the title of this OiRA Tool version. This name is never
 #. shown to users."
 #. AI-generated
 #: euphorie/content/survey.py:49
 msgid "help_survey_title"
-msgstr ""
-"Acesta este titlul acestei versiuni a instrumentului OiRA. Acest nume nu "
-"este niciodată arătat utilizatorilor."
+msgstr "Acesta este titlul acestei versiuni a instrumentului OiRA. Acest nume nu este niciodată arătat utilizatorilor."
 
 #. Default: "The title of this OiRA Tool. This title is used in the OiRA Tool
 #. overview in the clients."
 #. AI-generated
 #: euphorie/content/surveygroup.py:41
 msgid "help_surveygroup_title"
-msgstr ""
-"Titlul acestui instrument OiRA. Acest titlu este folosit în prezentarea "
-"instrumentului OiRA la clienți."
+msgstr "Titlul acestui instrument OiRA. Acest titlu este folosit în prezentarea instrumentului OiRA la clienți."
 
 #. Default: "If you do not specify a title it will be taken from the input."
 #. AI-generated
@@ -5018,9 +4483,7 @@ msgstr "Măsurile care sunt deja implementate sunt suficiente?"
 #. AI-generated
 #: euphorie/client/browser/templates/login.pt:73
 msgid "incorrect_login"
-msgstr ""
-"Numele de utilizator și/sau parola au fost introduse incorect. Vă rugăm să "
-"verificați și să încercați din nou sau ${request_an_email_reminder}."
+msgstr "Numele de utilizator și/sau parola au fost introduse incorect. Vă rugăm să verificați și să încercați din nou sau ${request_an_email_reminder}."
 
 #. Default: "The menu toggle lets you hide and show the risk assessment
 #. browser to find previously made risk assessments. Hide the menu when you
@@ -5029,20 +4492,14 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/tooltips.pt:52
 msgid "info_osh_hamburger"
-msgstr ""
-"Butonul de meniu vă permite să ascundeți și să afișați browserul de evaluare "
-"a riscurilor pentru a găsi evaluările de risc făcute în prealabil. Ascundeți "
-"meniul atunci când vă concentrați pe realizarea unei evaluări a riscului sau "
-"afișați-l atunci când căutați în diferite părți ale aplicației."
+msgstr "Butonul de meniu vă permite să ascundeți și să afișați browserul de evaluare a riscurilor pentru a găsi evaluările de risc făcute în prealabil. Ascundeți meniul atunci când vă concentrați pe realizarea unei evaluări a riscului sau afișați-l atunci când căutați în diferite părți ale aplicației."
 
 #. Default: "The new off canvas menu provides access to the core functions of
 #. the applications. Also on mobile!"
 #. AI-generated
 #: euphorie/client/browser/templates/tooltips.pt:80
 msgid "info_osh_menu"
-msgstr ""
-"Noul meniu off canvas oferă acces la funcțiile de bază ale aplicațiilor. Și "
-"pe mobil!"
+msgstr "Noul meniu off canvas oferă acces la funcțiile de bază ale aplicațiilor. Și pe mobil!"
 
 #. Default: "The risk assessment browser allows you to find risk assessments
 #. that were previously made by you. Start a new risk assessment by clicking
@@ -5052,12 +4509,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/tooltips.pt:110
 msgid "info_osh_ra_browser"
-msgstr ""
-"Browserul de evaluare a riscurilor vă permite să găsiți evaluările de risc "
-"pe care le-ați făcut în prealabil. Începeți o nouă evaluare a riscului "
-"făcând clic pe &lsquo;+&rsquo; sau faceți o copie a unei evaluări a riscului "
-"existente făcând clic pe simbolul cu trei puncte de lângă o evaluare a "
-"riscurii și selectați &lsquo;clone&rsquo; ."
+msgstr "Browserul de evaluare a riscurilor vă permite să găsiți evaluările de risc pe care le-ați făcut în prealabil. Începeți o nouă evaluare a riscului făcând clic pe &lsquo;+&rsquo; sau faceți o copie a unei evaluări a riscului existente făcând clic pe simbolul cu trei puncte de lângă o evaluare a riscurii și selectați &lsquo;clone&rsquo; ."
 
 #. Default: "From this menu you can start a new session of an OiRA tool, or
 #. pick up a previous session to continue working on it. If you do not have an
@@ -5066,11 +4518,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/tooltips.pt:89
 msgid "info_osh_session_menu"
-msgstr ""
-"Din acest meniu puteți începe o nouă sesiune a unui instrument OiRA, sau "
-"puteți prelua o sesiune anterioară pentru a continua munca pe acesta. Dacă "
-"nu aveți încă un cont pentru aplicația OiRA, puteți începe o sesiune de test "
-"pentru a-l încerca imediat."
+msgstr "Din acest meniu puteți începe o nouă sesiune a unui instrument OiRA, sau puteți prelua o sesiune anterioară pentru a continua munca pe acesta. Dacă nu aveți încă un cont pentru aplicația OiRA, puteți începe o sesiune de test pentru a-l încerca imediat."
 
 #. Default: "This menu lets you navigate over all steps of your risk
 #. assessment. When you enter <em>Identification + Evaluation</em> or
@@ -5080,39 +4528,28 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/tooltips.pt:98
 msgid "info_osh_tool_navigation"
-msgstr ""
-"Acest meniu vă permite să navigați în toate etapele evaluării riscului. "
-"Atunci când intrați în <em>Identificare + Evaluare</em> sau <em>Plan de "
-"Acțiune</em>, veți vedea modulele și riscurile acestei evaluări ca sub-"
-"navigație. Utilizând navigația, puteți sări înapoi și înainte peste toate "
-"părțile instrumentului după cum doriți."
+msgstr "Acest meniu vă permite să navigați în toate etapele evaluării riscului. Atunci când intrați în <em>Identificare + Evaluare</em> sau <em>Plan de Acțiune</em>, veți vedea modulele și riscurile acestei evaluări ca sub-navigație. Utilizând navigația, puteți sări înapoi și înainte peste toate părțile instrumentului după cum doriți."
 
 #. Default: "The European Agency for Safety and Health at Work, European
 #. social partners, etc."
 #. AI-generated
 #: euphorie/client/browser/templates/report_company.pt:168
 msgid "info_referer_eu_institution"
-msgstr ""
-"Agenția Europeană pentru Siguranța și Sănătatea în Muncă, partenerii sociali "
-"europeni, etc."
+msgstr "Agenția Europeană pentru Siguranța și Sănătatea în Muncă, partenerii sociali europeni, etc."
 
 #. Default: "Ministry, Labour Inspectorate, National Institute for Safety and
 #. Health at Work, etc."
 #. AI-generated
 #: euphorie/client/browser/templates/report_company.pt:161
 msgid "info_referer_national_public_institution"
-msgstr ""
-"Ministerul Muncii, Inspecția Muncii, Institutul Național de Siguranță și "
-"Sănătate în Muncă, etc."
+msgstr "Ministerul Muncii, Inspecția Muncii, Institutul Național de Siguranță și Sănătate în Muncă, etc."
 
 #. Default: "You can register in one single step just by entering a valid
 #. email address."
 #. AI-generated
 #: euphorie/client/browser/templates/tooltips.pt:40
 msgid "info_register1"
-msgstr ""
-"Vă puteți înregistra într-un singur pas doar introducând o adresă de email "
-"validă."
+msgstr "Vă puteți înregistra într-un singur pas doar introducând o adresă de email validă."
 
 #. Default: "Main benefits of having an account:"
 #. AI-generated
@@ -5126,19 +4563,14 @@ msgstr "Beneficiile principale ale deținerii unui cont:"
 #. AI-generated
 #: euphorie/client/browser/templates/tooltips.pt:61
 msgid "info_screen_help"
-msgstr ""
-"Puteți activa sau dezactiva această funcție de ajutor pe ecran în orice "
-"moment, selectând &ldquo;Alternați ajutorul pe ecran&rdquo; din meniul din "
-"partea dreaptă sus de pe bara de instrumente."
+msgstr "Puteți activa sau dezactiva această funcție de ajutor pe ecran în orice moment, selectând &ldquo;Alternați ajutorul pe ecran&rdquo; din meniul din partea dreaptă sus de pe bara de instrumente."
 
 #. Default: "Select an earlier session to complete or review or
 #. ${start_session}."
 #. AI-generated
 #: euphorie/client/browser/templates/portlet-my-ras.pt:65
 msgid "info_select_session"
-msgstr ""
-"Selectați o sesiune anterioară pentru a o completa sau revedea sau $"
-"{start_session}."
+msgstr "Selectați o sesiune anterioară pentru a o completa sau revedea sau ${start_session}."
 
 #. Default: "You have completed ${completed}% of the risk assessment."
 #. AI-generated
@@ -5150,15 +4582,13 @@ msgstr "Ați finalizat ${completed}% din evaluarea riscului."
 #. AI-generated
 #: euphorie/client/browser/templates/plain.pt:222
 msgid "info_testsession"
-msgstr ""
-"Aceasta este o sesiune de test. ${link_sign_in} pentru a vă salva datele."
+msgstr "Aceasta este o sesiune de test. ${link_sign_in} pentru a vă salva datele."
 
 #. Default: "The form will allow you to create a new OiRA Tool revision."
 #. AI-generated
 #: euphorie/content/browser/templates/survey_add.pt:12
 msgid "intro_add_survey"
-msgstr ""
-"Formularul vă va permite să creați o nouă revizuire a instrumentului OiRA."
+msgstr "Formularul vă va permite să creați o nouă revizuire a instrumentului OiRA."
 
 #. Default: "This form will allow you to create a new OiRA Tool."
 #. AI-generated
@@ -5170,9 +4600,7 @@ msgstr "Acest formular vă va permite să creați un nou instrument OiRA."
 #. AI-generated
 #: euphorie/content/module.py:126 euphorie/content/risk.py:316
 msgid "intro_additional_content"
-msgstr ""
-"Atașați orice conținut suplimentar pe care îl considerați util pentru "
-"utilizator"
+msgstr "Atașați orice conținut suplimentar pe care îl considerați util pentru utilizator"
 
 #. Default: "Workers or workers' representatives with specific responsibility
 #. for the safety and health of workers shall take part in a balanced way or
@@ -5181,11 +4609,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/default_introduction.pt:21
 msgid "intro_consultation_of_workers"
-msgstr ""
-"Lucrătorii sau reprezentanții lucrătorilor cu responsabilitate specifică în "
-"ceea ce privește siguranța și sănătatea lucrătorilor vor participa în mod "
-"echilibrat sau vor fi consultați în prealabil și în timp util de către "
-"angajator cu privire la evaluarea riscurilor"
+msgstr "Lucrătorii sau reprezentanții lucrătorilor cu responsabilitate specifică în ceea ce privește siguranța și sănătatea lucrătorilor vor participa în mod echilibrat sau vor fi consultați în prealabil și în timp util de către angajator cu privire la evaluarea riscurilor"
 
 #. Default: "Here you can manage the documentation for the ${client}."
 #. AI-generated
@@ -5204,9 +4628,7 @@ msgstr "client online"
 #. AI-generated
 #: euphorie/content/risk.py:561
 msgid "intro_evaluation"
-msgstr ""
-"Puteți specifica cum este evaluată prioritatea riscurilor. Pentru mai multe "
-"detalii, consultați manualul online."
+msgstr "Puteți specifica cum este evaluată prioritatea riscurilor. Pentru mai multe detalii, consultați manualul online."
 
 #. Default: "The questions are divided into 3 parts. The first part is about
 #. identifying potential chemical risks in your company. The second part is
@@ -5215,20 +4637,14 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/identification.pt:30
 msgid "intro_identification_dsetool"
-msgstr ""
-"Întrebările sunt împărțite în 3 părți. Prima parte este despre identificarea "
-"potențialelor riscuri chimice din compania dumneavoastră. A doua parte este "
-"despre rutinele pentru gestionarea riscurilor chimice. Și a treia parte este "
-"despre măsuri de control pentru reducerea riscurilor chimice."
+msgstr "Întrebările sunt împărțite în 3 părți. Prima parte este despre identificarea potențialelor riscuri chimice din compania dumneavoastră. A doua parte este despre rutinele pentru gestionarea riscurilor chimice. Și a treia parte este despre măsuri de control pentru reducerea riscurilor chimice."
 
 #. Default: "The main image will get a more prominent position in the client
 #. than the other images."
 #. AI-generated
 #: euphorie/content/risk.py:243
 msgid "intro_main_image"
-msgstr ""
-"Imaginea principală va avea o poziție mai proeminentă în client decât "
-"celelalte imagini."
+msgstr "Imaginea principală va avea o poziție mai proeminentă în client decât celelalte imagini."
 
 #. Default: "Complicated? Not really. It just takes a bit of time. However,
 #. the RA is important. So important that it is a legal requirement. This is
@@ -5238,23 +4654,14 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/default_introduction.pt:18
 msgid "intro_not_complicated"
-msgstr ""
-"Complicat? Nu chiar. Doar durează un pic de timp. Cu toate acestea, "
-"evaluarea riscurilor este importantă. Atât de importantă încât este o "
-"cerință legală. Acest lucru se întâmplă dintr-un motiv întemeiat. Dacă "
-"riscurile nu sunt evaluate sau gestionate în mod corespunzător, nu se poate "
-"începe un proces adecvat de gestionare a riscurilor și este puțin probabil "
-"să se găsească sau să se pună în aplicare măsuri preventive adecvate."
+msgstr "Complicat? Nu chiar. Doar durează un pic de timp. Cu toate acestea, evaluarea riscurilor este importantă. Atât de importantă încât este o cerință legală. Acest lucru se întâmplă dintr-un motiv întemeiat. Dacă riscurile nu sunt evaluate sau gestionate în mod corespunzător, nu se poate începe un proces adecvat de gestionare a riscurilor și este puțin probabil să se găsească sau să se pună în aplicare măsuri preventive adecvate."
 
 #. Default: "This risk assessment tool is mainly intended for micro (less than
 #. 10 workers) and small (less than 50 workers) enterprises/organisations."
 #. AI-generated
 #: euphorie/client/browser/templates/default_introduction.pt:24
 msgid "intro_oira_tool"
-msgstr ""
-"Acest instrument de evaluare a riscurilor este destinat în principal "
-"întreprinderilor/organizațiilor mici (mai puțin de 50 de lucrători) și "
-"microîntreprinderilor (mai puțin de 10 lucrători)."
+msgstr "Acest instrument de evaluare a riscurilor este destinat în principal întreprinderilor/organizațiilor mici (mai puțin de 50 de lucrători) și microîntreprinderilor (mai puțin de 10 lucrători)."
 
 #. Default: "Are you sure you want to create a preview of this OiRA Tool? You
 #. can give the URL for the preview to others so they can test the OiRA Tool.
@@ -5262,11 +4669,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/preview.pt:23
 msgid "intro_preview"
-msgstr ""
-"Sunteți sigur că doriți să creați o previzualizare a acestui instrument "
-"OiRA? Puteți da URL-ul previzualizării altora pentru a testa instrumentul "
-"OiRA. Pentru a accesa previzualizarea, este necesar un login standard de "
-"client OiRA."
+msgstr "Sunteți sigur că doriți să creați o previzualizare a acestui instrument OiRA? Puteți da URL-ul previzualizării altora pentru a testa instrumentul OiRA. Pentru a accesa previzualizarea, este necesar un login standard de client OiRA."
 
 #. Default: "It is possible for you to print out the contents of the tool to
 #. enable you to look for the information at the relevant workplace (by
@@ -5276,12 +4679,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/panel-contents-preview.pt:34
 msgid "intro_print_identification_1"
-msgstr ""
-"Vă este posibil să imprimați conținutul instrumentului pentru a vă permite "
-"să căutați informațiile la locul de muncă relevant (plimbându-vă și căutând "
-"ce ar putea cauza daune, sau consultându-i pe lucrători și/sau pe "
-"reprezentanții lor despre problemele cu care s-au confruntat). Ulterior, "
-"puteți introduce informațiile în instrument."
+msgstr "Vă este posibil să imprimați conținutul instrumentului pentru a vă permite să căutați informațiile la locul de muncă relevant (plimbându-vă și căutând ce ar putea cauza daune, sau consultându-i pe lucrători și/sau pe reprezentanții lor despre problemele cu care s-au confruntat). Ulterior, puteți introduce informațiile în instrument."
 
 #. Default: "You may also wish to distribute the contents among the workers
 #. and/or their representatives and invite them to participate in identifying
@@ -5291,12 +4689,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/panel-contents-preview.pt:35
 msgid "intro_print_identification_2"
-msgstr ""
-"S-ar putea să doriți, de asemenea, să distribuiți conținutul printre "
-"lucrători și/sau reprezentanții lor și să-i invitați să participe la "
-"identificarea pericolelor/problemelor, evaluarea riscurilor și deciderea "
-"asupra acțiunilor preventive. Feedbackul lor trebuie luat în considerare "
-"atunci când completați acest instrument."
+msgstr "S-ar putea să doriți, de asemenea, să distribuiți conținutul printre lucrători și/sau reprezentanții lor și să-i invitați să participe la identificarea pericolelor/problemelor, evaluarea riscurilor și deciderea asupra acțiunilor preventive. Feedbackul lor trebuie luat în considerare atunci când completați acest instrument."
 
 #. Default: "Are you sure you want to publish this OiRA Tool? After
 #. publication the OiRA Tool will appear in the online client and be
@@ -5304,28 +4697,21 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/publish.pt:23
 msgid "intro_publish_first_time"
-msgstr ""
-"Sunteți sigur că doriți să publicați acest instrument OiRA? După publicare, "
-"instrumentul OiRA va apărea în clientul online și va fi accesibil tuturor "
-"utilizatorilor."
+msgstr "Sunteți sigur că doriți să publicați acest instrument OiRA? După publicare, instrumentul OiRA va apărea în clientul online și va fi accesibil tuturor utilizatorilor."
 
 #. Default: "Are you sure you want to publish this OiRA Tool version? This
 #. will replace the current version."
 #. AI-generated
 #: euphorie/client/browser/templates/publish.pt:32
 msgid "intro_publish_other_survey_published"
-msgstr ""
-"Sunteți sigur că doriți să publicați această versiune a instrumentului OiRA? "
-"Aceasta va înlocui versiunea curentă."
+msgstr "Sunteți sigur că doriți să publicați această versiune a instrumentului OiRA? Aceasta va înlocui versiunea curentă."
 
 #. Default: "Are you sure you want to republish this OiRA Tool? This will make
 #. all changes made public."
 #. AI-generated
 #: euphorie/client/browser/templates/publish.pt:28
 msgid "intro_publish_survey_published"
-msgstr ""
-"Sunteți sigur că doriți să republicați acest instrument OiRA? Aceasta va "
-"face publice toate modificările efectuate."
+msgstr "Sunteți sigur că doriți să republicați acest instrument OiRA? Aceasta va face publice toate modificările efectuate."
 
 #. Default: "The structure of your OiRA tool has changed. If you publish now,
 #. existing users of this OiRA tool will lose parts of their answers. Please
@@ -5335,12 +4721,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/publish.pt:36
 msgid "intro_publish_survey_structure_changed"
-msgstr ""
-"Structura instrumentului dumneavoastră OiRA s-a schimbat. Dacă publicați "
-"acum, utilizatorii existenți ai acestui instrument OiRA vor pierde o parte "
-"din răspunsurile lor. Vă rugăm să contactați echipa OiRA dacă aveți nevoie "
-"de ajutor în această privință. Puteți, de asemenea, să consultați capitolul "
-"„Refacerea unui instrument OiRA publicat” din manualul OiRA."
+msgstr "Structura instrumentului dumneavoastră OiRA s-a schimbat. Dacă publicați acum, utilizatorii existenți ai acestui instrument OiRA vor pierde o parte din răspunsurile lor. Vă rugăm să contactați echipa OiRA dacă aveți nevoie de ajutor în această privință. Puteți, de asemenea, să consultați capitolul „Refacerea unui instrument OiRA publicat” din manualul OiRA."
 
 #. Default: "Including the risks to your employees and your equipment? What if
 #. there is an accident with one of the machines? What if an employee is
@@ -5353,25 +4734,14 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/default_introduction.pt:11
 msgid "intro_risk_aware"
-msgstr ""
-"Inclusiv riscurile pentru angajații și echipamentele dumneavoastră? Ce se "
-"întâmplă dacă are loc un accident cu una dintre mașini? Ce se întâmplă dacă "
-"un angajat este expus la substanțe periculoase? O evaluare a riscurilor vă "
-"ajută să definiți aceste riscuri și să le abordați direct. O evaluare a "
-"riscurilor constă în principal din două părți: o <em>listă</em> cu toate "
-"riscurile din compania dumneavoastră și un <em>plan de acțiune</em> cu "
-"detalii despre cum să faceți față acestor riscuri. Aceste două componente vă "
-"permit să limitați riscurile pentru angajații dumneavoastră și compania "
-"dumneavoastră, și prin urmare riscul financiar."
+msgstr "Inclusiv riscurile pentru angajații și echipamentele dumneavoastră? Ce se întâmplă dacă are loc un accident cu una dintre mașini? Ce se întâmplă dacă un angajat este expus la substanțe periculoase? O evaluare a riscurilor vă ajută să definiți aceste riscuri și să le abordați direct. O evaluare a riscurilor constă în principal din două părți: o <em>listă</em> cu toate riscurile din compania dumneavoastră și un <em>plan de acțiune</em> cu detalii despre cum să faceți față acestor riscuri. Aceste două componente vă permit să limitați riscurile pentru angajații dumneavoastră și compania dumneavoastră, și prin urmare riscul financiar."
 
 #. Default: "Select a sector for which you would like to view or copy an OiRA
 #. Tool."
 #. AI-generated
 #: euphorie/content/browser/templates/country_view.pt:16
 msgid "intro_select_sector"
-msgstr ""
-"Selectați un sector pentru care doriți să vizualizați sau să copiați un "
-"instrument OiRA."
+msgstr "Selectați un sector pentru care doriți să vizualizați sau să copiați un instrument OiRA."
 
 #. AI-generated
 #: euphorie/client/adapters/history_item.py:111
@@ -6133,9 +5503,7 @@ msgstr "Logo"
 #. AI-generated
 #: euphorie/content/solution.py:66
 msgid "label_measure_action"
-msgstr ""
-"Abordare generală (pentru a elimina sau reduce riscul) + Acțiune(a) "
-"specifică(e) necesară(e) pentru implementarea acestei abordări"
+msgstr "Abordare generală (pentru a elimina sau reduce riscul) + Acțiune(a) specifică(e) necesară(e) pentru implementarea acestei abordări"
 
 #. Default: "General approach (to eliminate or reduce the risk)"
 #. AI-generated
@@ -6150,8 +5518,7 @@ msgstr "Abordare generală (pentru a elimina sau reduce riscul)"
 #: euphorie/content/browser/templates/solution_view.pt:33
 #: euphorie/content/solution.py:52
 msgid "label_measure_prevention_plan"
-msgstr ""
-"Acțiune(a) specifică(e) necesară(e) pentru implementarea acestei abordări"
+msgstr "Acțiune(a) specifică(e) necesară(e) pentru implementarea acestei abordări"
 
 #. Default: "Level of expertise and/or requirements needed"
 #. AI-generated
@@ -6458,9 +5825,7 @@ msgstr "Citește mai mult"
 #: euphorie/client/browser/company.py:160
 #: euphorie/client/browser/templates/report_company.pt:242
 msgid "label_recommend_tool"
-msgstr ""
-"Ați recomanda acest instrument OiRA unei întreprinderi similare cu a "
-"dumneavoastră?"
+msgstr "Ați recomanda acest instrument OiRA unei întreprinderi similare cu a dumneavoastră?"
 
 #. Default: "Text"
 #. AI-generated
@@ -6532,9 +5897,7 @@ msgstr "Raport"
 #. AI-generated
 #: euphorie/client/browser/templates/report.pt:58
 msgid "label_report_comment"
-msgstr ""
-"Vă rugăm să lăsați orice alte comentarii care ar trebui incluse în raport în "
-"acest câmp."
+msgstr "Vă rugăm să lăsați orice alte comentarii care ar trebui incluse în raport în acest câmp."
 
 #. Default: "Completion threshold for report availability"
 #. AI-generated
@@ -6716,8 +6079,7 @@ msgstr "Selectează una sau mai multe din măsurile comune cunoscute furnizate."
 #: euphorie/client/browser/templates/new-session.pt:32
 #: euphorie/client/browser/templates/portlet-available-tools.pt:29
 msgid "label_select_new_session"
-msgstr ""
-"Începe o nouă sesiune alegând unul dintre instrumentele sectoriale următoare."
+msgstr "Începe o nouă sesiune alegând unul dintre instrumentele sectoriale următoare."
 
 #. Default: "Select an OiRA tool"
 #. AI-generated
@@ -6989,10 +6351,7 @@ msgstr "Instrumente"
 #. AI-generated
 #: euphorie/client/browser/templates/slide_question_success.pt:32
 msgid "label_training_achievement_listed"
-msgstr ""
-"Rezultatul tău va fi listat sub &ldquo;Instruirile mele&rdquo; în portletul "
-"de instruire de pe tabloul de bord. De acolo poți vizualiza sau imprima "
-"certificatul tău dacă dorești."
+msgstr "Rezultatul tău va fi listat sub &ldquo;Instruirile mele&rdquo; în portletul de instruire de pe tabloul de bord. De acolo poți vizualiza sau imprima certificatul tău dacă dorești."
 
 #. Default: "Congratulations, you have now earned your certificate for this
 #. topic."
@@ -7157,10 +6516,7 @@ msgstr "Versiunea ${label} care este în prezent online"
 #. AI-generated
 #: euphorie/deployment/tiles/templates/versions.pt:140
 msgid "legend_updated"
-msgstr ""
-"${label} = Această versiune are modificări care sunt în prezent nepublicate. "
-"Faceți clic pe pictograma de actualizare pentru a face toate modificările "
-"live"
+msgstr "${label} = Această versiune are modificări care sunt în prezent nepublicate. Faceți clic pe pictograma de actualizare pentru a face toate modificările live"
 
 #. AI-generated
 #: euphorie/client/browser/templates/new-session-test.pt:82
@@ -7198,9 +6554,7 @@ msgstr "Descoperiți cât de ușor este să creați o evaluare a riscului cu OiR
 #. AI-generated
 #: euphorie/client/browser/templates/tooltips.pt:34
 msgid "list_test_session_benefits2"
-msgstr ""
-"Identificați riscurile potențiale din afacerea dumneavoastră și măsurile de "
-"a le reduce."
+msgstr "Identificați riscurile potențiale din afacerea dumneavoastră și măsurile de a le reduce."
 
 #. Default: "Use it for vocational training."
 #. AI-generated
@@ -7213,9 +6567,7 @@ msgstr "Folosește-l pentru formare profesională."
 #. AI-generated
 #: euphorie/client/browser/templates/tooltips.pt:21
 msgid "list_test_session_limitations1"
-msgstr ""
-"${important} Într-o sesiune de testare nu puteți salva munca. Tot progresul "
-"va fi pierdut dacă nu vă înregistrați."
+msgstr "${important} Într-o sesiune de testare nu puteți salva munca. Tot progresul va fi pierdut dacă nu vă înregistrați."
 
 #. Default: "You will not be able to print or download reports."
 #. AI-generated
@@ -7228,9 +6580,7 @@ msgstr "Nu veți putea imprima sau descărca rapoarte."
 #. AI-generated
 #: euphorie/client/browser/templates/tooltips.pt:25
 msgid "list_test_session_limitations3"
-msgstr ""
-"În timpul unei sesiuni de testare, veți avea posibilitatea în orice moment "
-"să vă înregistrați făcând clic pe \\"
+msgstr "În timpul unei sesiuni de testare, veți avea posibilitatea în orice moment să vă înregistrați făcând clic pe \\"
 
 #. AI-generated
 #: euphorie/client/adapters/history_item.py:123
@@ -7326,27 +6676,21 @@ msgstr "Ați fost adăugat la organizația ${name}."
 #. AI-generated
 #: euphorie/content/browser/templates/sectorcontainer_view.pt:18
 msgid "message_choose_country"
-msgstr ""
-"Vă rugăm să alegeți o țară a cărei instrument OiRA doriți să vizualizați sau "
-"să copiați."
+msgstr "Vă rugăm să alegeți o țară a cărei instrument OiRA doriți să vizualizați sau să copiați."
 
 #. Default: "Clicking on 'Validate' will lock the risk assessment
 #. &lsquo;${assessment}&rsquo; and give it an official validated status."
 #. AI-generated
 #: euphorie/client/browser/templates/panel-validate-risk-assessment.pt:33
 msgid "message_click_to_validate"
-msgstr ""
-"Selectând 'Validare' se va bloca evaluarea riscului &lsquo;${assessment}"
-"&rsquo; și i se va acorda un statut oficial de validare."
+msgstr "Selectând 'Validare' se va bloca evaluarea riscului &lsquo;${assessment}&rsquo; și i se va acorda un statut oficial de validare."
 
 #. Default: "This is the only version of the OiRA Tool and can therefore not
 #. be deleted. Did you perhaps want to remove the OiRA Tool itself?"
 #. AI-generated
 #: euphorie/content/browser/survey.py:252
 msgid "message_delete_no_last_survey"
-msgstr ""
-"Aceasta este singura versiune a Instrumentului OiRA și, prin urmare, nu "
-"poate fi ștearsă. Ați fi dorit, poate, să înlăturați chiar Instrumentul OiRA?"
+msgstr "Aceasta este singura versiune a Instrumentului OiRA și, prin urmare, nu poate fi ștearsă. Ați fi dorit, poate, să înlăturați chiar Instrumentul OiRA?"
 
 #. Default: "Due to an internal policy, these settings cannot be changed."
 #. AI-generated
@@ -7374,21 +6718,14 @@ msgstr "Vă rugăm să completați acest câmp."
 #. AI-generated
 #: euphorie/client/browser/templates/consultancy.pt:40
 msgid "message_find_consultants"
-msgstr ""
-"Este posibil să solicitați asistență pentru a completa o evaluare a riscului "
-"sau să aveți o analiză a riscului efectuată de dvs. și validată de un "
-"consultant OSH. Un consultant OSH îți poate valida evaluarea riscului cu o "
-"marcă de validare oficială. Validarea poate fi solicitată doar de "
-"utilizatori cu nivel de permisiune &lsquo;Manage&rsquo; sau superior."
+msgstr "Este posibil să solicitați asistență pentru a completa o evaluare a riscului sau să aveți o analiză a riscului efectuată de dvs. și validată de un consultant OSH. Un consultant OSH îți poate valida evaluarea riscului cu o marcă de validare oficială. Validarea poate fi solicitată doar de utilizatori cu nivel de permisiune &lsquo;Manage&rsquo; sau superior."
 
 #. Default: "When you invalidate this risk assessment, it will lose its
 #. validated status. You can still request for re-validation at a later time."
 #. AI-generated
 #: euphorie/client/browser/templates/panel-invalidate-risk-assessment.pt:33
 msgid "message_invalidate_ra"
-msgstr ""
-"Dacă invalidezi această evaluare a riscului, va pierde statutul de evaluare "
-"validată. Totuși, puteți solicita revalidarea la un moment ulterior."
+msgstr "Dacă invalidezi această evaluare a riscului, va pierde statutul de evaluare validată. Totuși, puteți solicita revalidarea la un moment ulterior."
 
 #. Default: "Decide on the best way to involve your staff! You can for example
 #. conduct a meeting or a focus group with workers and go through the
@@ -7398,12 +6735,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/involve.pt:35
 msgid "message_involve_workers_how_to"
-msgstr ""
-"Decideți cea mai bună modalitate de a implica personalul dvs.! De exemplu, "
-"puteți organiza o întâlnire sau un grup de discuții cu lucrătorii și puteți "
-"parcurge împreună părțile respective din evaluarea riscului. De asemenea, "
-"puteți descărca sau imprima conținutul instrumentului sau al unor părți din "
-"acesta și îl puteți distribui pentru informare și feedback lucrătorilor dvs."
+msgstr "Decideți cea mai bună modalitate de a implica personalul dvs.! De exemplu, puteți organiza o întâlnire sau un grup de discuții cu lucrătorii și puteți parcurge împreună părțile respective din evaluarea riscului. De asemenea, puteți descărca sau imprima conținutul instrumentului sau al unor părți din acesta și îl puteți distribui pentru informare și feedback lucrătorilor dvs."
 
 #. Default: "One of the keys to good OSH leadership is getting workers
 #. involved. Employers have a <a
@@ -7416,9 +6748,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/involve.pt:30
 msgid "message_involve_workers_requirement"
-msgstr ""
-"Una dintre cheile unei bune conduceri OSH este implicarea lucrătorilor. "
-"Angajații au un <a href=\\"
+msgstr "Una dintre cheile unei bune conduceri OSH este implicarea lucrătorilor. Angajații au un <a href=\\"
 
 #. Default: "Learn more about certificates."
 #. AI-generated
@@ -7432,19 +6762,14 @@ msgstr "Aflați mai multe despre certificate."
 #. AI-generated
 #: euphorie/client/browser/templates/browser-warning.pt:31
 msgid "message_lesser_experience_no_javascript"
-msgstr ""
-"Dragă utilizator, folosești un browser web învechit. Browserul tău web nu "
-"este compatibil cu tehnologia utilizată în OiRA. Te rugăm să instalezi un "
-"browser mai nou pentru a putea utiliza instrumentele OiRA."
+msgstr "Dragă utilizator, folosești un browser web învechit. Browserul tău web nu este compatibil cu tehnologia utilizată în OiRA. Te rugăm să instalezi un browser mai nou pentru a putea utiliza instrumentele OiRA."
 
 #. Default: "Please be aware that you have %s more login attempts before your
 #. account will be locked."
 #. AI-generated
 #: euphorie/content/user.py:212
 msgid "message_lock_warn"
-msgstr ""
-"Vă rugăm să rețineți că aveți încă %s încercări de autentificare înainte ca "
-"contul dvs. să fie blocat."
+msgstr "Vă rugăm să rețineți că aveți încă %s încercări de autentificare înainte ca contul dvs. să fie blocat."
 
 #. Default: "Members can view and edit all risk assessments of the
 #. organisation."
@@ -7452,17 +6777,14 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:71
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:92
 msgid "message_member_see_all"
-msgstr ""
-"Membrii pot vizualiza și modifica toate evaluările de risc ale organizației."
+msgstr "Membrii pot vizualiza și modifica toate evaluările de risc ale organizației."
 
 #. Default: "You cannot delete an OiRA Tool version that is published. Please
 #. unpublish it first."
 #. AI-generated
 #: euphorie/content/browser/survey.py:233
 msgid "message_no_delete_published_survey"
-msgstr ""
-"Nu puteți șterge o versiune a Instrumentului OiRA care este publicată. Vă "
-"rugăm să o retrageți mai întâi de la publicare."
+msgstr "Nu puteți șterge o versiune a Instrumentului OiRA care este publicată. Vă rugăm să o retrageți mai întâi de la publicare."
 
 #. Default: "There are no sectors for this country."
 #. AI-generated
@@ -7500,10 +6822,7 @@ msgstr "Nu există informații disponibile"
 #. AI-generated
 #: euphorie/client/browser/templates/browser-warning.pt:26
 msgid "message_outdated_browser"
-msgstr ""
-"Dragă utilizator, utilizezi un browser web depășit. Ca rezultat, site-ul s-"
-"ar putea să nu funcționeze așa cum vă așteptați. Vă rugăm să instalați un "
-"browser mai nou pentru a putea utiliza acest site la capacitate optimă."
+msgstr "Dragă utilizator, utilizezi un browser web depășit. Ca rezultat, site-ul s-ar putea să nu funcționeze așa cum vă așteptați. Vă rugăm să instalați un browser mai nou pentru a putea utiliza acest site la capacitate optimă."
 
 #. Default: "An email will be sent to ${email} if we can find an account for
 #. this email address. Please use the link inside the e-mail to reset your
@@ -7511,10 +6830,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/reset_password.py:189
 msgid "message_password_recovery_email_sent"
-msgstr ""
-"Va fi trimis un e-mail la ${email} dacă putem găsi un cont pentru această "
-"adresă de e-mail. Vă rugăm să folosiți linkul din interiorul e-mailului "
-"pentru a vă reseta parola."
+msgstr "Va fi trimis un e-mail la ${email} dacă putem găsi un cont pentru această adresă de e-mail. Vă rugăm să folosiți linkul din interiorul e-mailului pentru a vă reseta parola."
 
 #. Default: "Additional costs may be charged by your consultant."
 #. AI-generated
@@ -7527,9 +6843,7 @@ msgstr "Consultantul dvs. v-ar putea percepe costuri suplimentare."
 #. AI-generated
 #: euphorie/client/browser/publish.py:371
 msgid "message_preview_success"
-msgstr ""
-"Ați creat cu succes o previzualizare pentru Instrumentul OiRA. Aceasta poate "
-"fi accesată la"
+msgstr "Ați creat cu succes o previzualizare pentru Instrumentul OiRA. Aceasta poate fi accesată la"
 
 #. Default: "Successfully published the OiRA Tool. It can be accessed at"
 #. AI-generated
@@ -7542,20 +6856,14 @@ msgstr "Ați publicat cu succes Instrumentul OiRA. Acesta poate fi accesat la"
 #. AI-generated
 #: euphorie/client/browser/templates/panel-validate-risk-assessment.pt:39
 msgid "message_read_and_reviewd_assessment_and_approve"
-msgstr ""
-"Am citit și revizuit și, acolo unde a fost necesar, am corectat sau "
-"îmbunătățit această evaluare a riscului și sunt de acord cu conținutul "
-"acesteia."
+msgstr "Am citit și revizuit și, acolo unde a fost necesar, am corectat sau îmbunătățit această evaluare a riscului și sunt de acord cu conținutul acesteia."
 
 #. Default: "Click on 'Send validation request' to ask the selected OSH
 #. consultant to review and validate your risk assessment."
 #. AI-generated
 #: euphorie/client/browser/templates/panel-request-validation.pt:31
 msgid "message_request_validation"
-msgstr ""
-"Faceți clic pe 'Trimiteți cererea de validare' pentru a solicita "
-"consultantului OSH selectat să revizuiască și să valideze evaluarea dvs. a "
-"riscului."
+msgstr "Faceți clic pe 'Trimiteți cererea de validare' pentru a solicita consultantului OSH selectat să revizuiască și să valideze evaluarea dvs. a riscului."
 
 #. Default: "Administrators can create, edit and remove user accounts.
 #. Administrators can also make risk assessments and edit existing ones, lock
@@ -7564,11 +6872,7 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:55
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:70
 msgid "message_role_administrator"
-msgstr ""
-"Administratorii pot crea, modifica și șterge conturi de utilizatori. "
-"Administratorii pot, de asemenea, să efectueze evaluări ale riscului și să "
-"modifice evaluările existente, să blocheze evaluările de risc, să creeze "
-"instruiri și să participe la instruiri."
+msgstr "Administratorii pot crea, modifica și șterge conturi de utilizatori. Administratorii pot, de asemenea, să efectueze evaluări ale riscului și să modifice evaluările existente, să blocheze evaluările de risc, să creeze instruiri și să participe la instruiri."
 
 #. Default: "Consultants can make and edit risk assessments, validate and
 #. approve risk assessments and create trainings."
@@ -7576,9 +6880,7 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:61
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:76
 msgid "message_role_consultant"
-msgstr ""
-"Consultanții pot face și modifica evaluări ale riscului, pot valida și "
-"aproba evaluări ale riscului și pot crea instruiri."
+msgstr "Consultanții pot face și modifica evaluări ale riscului, pot valida și aproba evaluări ale riscului și pot crea instruiri."
 
 #. Default: "Managers/Policy makers can make and edit risk assessments, lock
 #. risk assessments, create trainings and take trainings."
@@ -7586,9 +6888,7 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:73
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:82
 msgid "message_role_manager"
-msgstr ""
-"Directorii/Decidenții pot face și modifica evaluări ale riscului, pot bloca "
-"evaluările de risc, pot crea instruiri și pot participa la instruiri."
+msgstr "Directorii/Decidenții pot face și modifica evaluări ale riscului, pot bloca evaluările de risc, pot crea instruiri și pot participa la instruiri."
 
 #. Default: "Members can make risk assessments and take trainings."
 #. AI-generated
@@ -7601,8 +6901,7 @@ msgstr "Membrii pot face evaluări ale riscului și pot participa la instruiri."
 #. AI-generated
 #: euphorie/client/browser/templates/consultancy.pt:75
 msgid "message_session_under_review"
-msgstr ""
-"Această evaluare a riscului este în curs de evaluare de către ${consultant}."
+msgstr "Această evaluare a riscului este în curs de evaluare de către ${consultant}."
 
 #. Default: "${validation_time}: ${consultant} has reviewed and validated this
 #. risk assessment"
@@ -7610,9 +6909,7 @@ msgstr ""
 #: euphorie/client/browser/templates/consultancy.pt:65
 #: euphorie/client/browser/templates/locking_menu.pt:37
 msgid "message_session_validated"
-msgstr ""
-"${validation_time}: ${consultant} a evaluat și validat această evaluare a "
-"riscului"
+msgstr "${validation_time}: ${consultant} a evaluat și validat această evaluare a riscului"
 
 #. Default: "If you want to continue working on a copy of this assessment, for
 #. instance to report on a new year, then you can use the option 'Duplicate'.
@@ -7621,11 +6918,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/panel-invalidate-risk-assessment.pt:41
 msgid "message_unlock_or_duplicate"
-msgstr ""
-"Dacă doriți să continuați să lucrați la o copie a acestei evaluări, de "
-"exemplu, pentru a raporta un an nou, atunci puteți utiliza opțiunea "
-"'Duplicare'. Duplicarea va face o copie completă a evaluării dvs. care va fi "
-"modificabilă."
+msgstr "Dacă doriți să continuați să lucrați la o copie a acestei evaluări, de exemplu, pentru a raporta un an nou, atunci puteți utiliza opțiunea 'Duplicare'. Duplicarea va face o copie completă a evaluării dvs. care va fi modificabilă."
 
 #. Default: "Cancelled unpublish action."
 #. AI-generated
@@ -7657,17 +6950,13 @@ msgstr "Contul \\"
 #. AI-generated
 #: euphorie/client/browser/templates/panel-request-validation.pt:49
 msgid "message_warning_locking_after_validation"
-msgstr ""
-"După ce acest consultant a validat evaluarea riscului, aceasta va fi "
-"blocată. Dacă doriți să modificați din nou evaluarea riscului, puteți face "
-"întotdeauna o copie a acestei evaluări la un moment ulterior."
+msgstr "După ce acest consultant a validat evaluarea riscului, aceasta va fi blocată. Dacă doriți să modificați din nou evaluarea riscului, puteți face întotdeauna o copie a acestei evaluări la un moment ulterior."
 
 #. Default: "You are requested to review and validate this risk assessment."
 #. AI-generated
 #: euphorie/client/browser/templates/consultancy.pt:110
 msgid "message_you_are_requested_to_validate_assessment"
-msgstr ""
-"Vi se solicită să revizuiți și să validați această evaluare a riscului."
+msgstr "Vi se solicită să revizuiți și să validați această evaluare a riscului."
 
 #. Default: "You haven&rsquo;t earned any certificates yet."
 #: euphorie/client/browser/templates/certificates.pt:29
@@ -7677,8 +6966,7 @@ msgstr "Nu ați obținut încă niciun certificat."
 #. Default: "You don't have any risk assessments yet."
 #: euphorie/client/browser/templates/portlet-my-ras.pt:116
 msgid "message_you_dont_have_any_risk_assessments_yet"
-msgstr ""
-"Nu aveți încă nicio evaluare a riscurilor. Începeți prin a crea una nouă."
+msgstr "Nu aveți încă nicio evaluare a riscurilor. Începeți prin a crea una nouă."
 
 #. Default: "You have reviewed and validated this risk assessment."
 #. AI-generated
@@ -7804,9 +7092,7 @@ msgstr "Nu există instrumente OiRA prezente. Puteți ${add_link}."
 #. AI-generated
 #: euphorie/content/utils.py:54
 msgid "no_translate_link_add_measures"
-msgstr ""
-"<a class='add-clone' id='add-in-place-measure-button'>${text_add_measures}</"
-"a>"
+msgstr "<a class='add-clone' id='add-in-place-measure-button'>${text_add_measures}</a>"
 
 #. Default: "<a href='%s/@@report'>${text_download_section}</a>"
 #. AI-generated
@@ -7848,9 +7134,7 @@ msgstr "În această pagină sunt active ${link_filters}."
 #. AI-generated
 #: euphorie/client/notifications/notification__ra_not_modified.py:77
 msgid "notification_description__ra_not_modified"
-msgstr ""
-"Notifică atunci când o evaluare a riscului nu a fost modificată de ${days} "
-"zile."
+msgstr "Notifică atunci când o evaluare a riscului nu a fost modificată de ${days} zile."
 
 #. Default: "You have not modified your risk assessment for ${reminder_days}
 #. days. Please remember to keep your risk assessment up to date.\nWith this
@@ -7858,10 +7142,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/notifications/notification__ra_not_modified.py:25
 msgid "notification_mail_body__ra_not_modified"
-msgstr ""
-"Nu ați modificat evaluarea riscului pentru ${reminder_days} zile. Vă rugăm "
-"să vă aduceți aminte să vă actualizați evaluarea riscului.\\nCu acest link "
-"puteți accesa evaluarea riscului."
+msgstr "Nu ați modificat evaluarea riscului pentru ${reminder_days} zile. Vă rugăm să vă aduceți aminte să vă actualizați evaluarea riscului.\\nCu acest link puteți accesa evaluarea riscului."
 
 #. Default: "Reminder: Update of risk assessment (${num} open)"
 #. AI-generated
@@ -7876,11 +7157,7 @@ msgstr "Memento: Actualizarea evaluării riscurilor (${num} deschise)"
 #. AI-generated
 #: euphorie/client/notifications/base.py:83
 msgid "notification_mail_text__base"
-msgstr ""
-"Bună ${full_name},\\n\\n${main_text}\\n\\n${session_links}\\n\\nCu "
-"drag\\nEchipa OiRA\\n\\n**Acesta este un mesaj generat automat. Dacă nu "
-"doriți să primiți mesaje de la OiRA, puteți schimba acest lucru [aici]($"
-"{preferences_link})**"
+msgstr "Bună ${full_name},\\n\\n${main_text}\\n\\n${session_links}\\n\\nCu drag\\nEchipa OiRA\\n\\n**Acesta este un mesaj generat automat. Dacă nu doriți să primiți mesaje de la OiRA, puteți schimba acest lucru [aici](${preferences_link})**"
 
 #. Default: "Notify on orphaned risk assessments."
 #. AI-generated
@@ -7931,9 +7208,7 @@ msgstr "Nu s-au găsit evaluări de risc pentru această selecție."
 #. AI-generated
 #: euphorie/client/docx/compiler.py:508
 msgid "paragraph_oira_consultation_of_workers"
-msgstr ""
-"Subsemnații declară prin prezenta că lucrătorii au fost consultați cu "
-"privire la conținutul acestui document."
+msgstr "Subsemnații declară prin prezenta că lucrătorii au fost consultați cu privire la conținutul acestui document."
 
 #. Default: "Your password must contain at least 5 characters, including at
 #. least one capital letter, one number and one special character (e.g. $, #
@@ -7941,9 +7216,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/content/passwordpolicy.py:55
 msgid "password_policy_conditions"
-msgstr ""
-"Parola dvs. trebuie să conțină cel puțin 5 caractere, inclusiv cel puțin o "
-"literă mare, un număr și un caracter special (de exemplu, $, # sau @)."
+msgstr "Parola dvs. trebuie să conțină cel puțin 5 caractere, inclusiv cel puțin o literă mare, un număr și un caracter special (de exemplu, $, # sau @)."
 
 #. Default: "The official launch of the tool is planned for September 2011,
 #. once the objectives of the testing phase have been reached and once the
@@ -7951,36 +7224,28 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/about.pt:114
 msgid "phase_launch"
-msgstr ""
-"Lansarea oficială a instrumentului este planificată pentru septembrie 2011, "
-"odată ce obiectivele fazei de testare au fost atinse și odată ce site-ul "
-"OiRA, schema de formare OiRA și help desk-ul OiRA vor fi gata."
+msgstr "Lansarea oficială a instrumentului este planificată pentru septembrie 2011, odată ce obiectivele fazei de testare au fost atinse și odată ce site-ul OiRA, schema de formare OiRA și help desk-ul OiRA vor fi gata."
 
 #. Default: "These notes will be visible in the report. Use it for anything
 #. else you might want to write about this risk."
 #. AI-generated
 #: euphorie/client/browser/risk.py:408
 msgid "placeholder_comment_field"
-msgstr ""
-"Aceste note vor fi vizibile în raport. Folosiți-l pentru orice altceva ați "
-"dori să scrieți despre acest risc."
+msgstr "Aceste note vor fi vizibile în raport. Folosiți-l pentru orice altceva ați dori să scrieți despre acest risc."
 
 #. Default: "These notes will be visible in the report and the training. Use
 #. it for anything else you might want to write about this risk."
 #. AI-generated
 #: euphorie/client/browser/risk.py:402
 msgid "placeholder_comment_field_training"
-msgstr ""
-"Aceste note vor fi vizibile în raport și în pregătire. Folosiți-l pentru "
-"orice altceva ați dori să scrieți despre acest risc."
+msgstr "Aceste note vor fi vizibile în raport și în pregătire. Folosiți-l pentru orice altceva ați dori să scrieți despre acest risc."
 
 #. Default: "Describe a measure that is already in place but not yet listed
 #. here."
 #. AI-generated
 #: euphorie/content/utils.py:132
 msgid "placeholder_new_existing"
-msgstr ""
-"Descrieți o măsură care este deja în vigoare, dar nu este încă listată aici."
+msgstr "Descrieți o măsură care este deja în vigoare, dar nu este încă listată aici."
 
 #. Default: "Search risk assessments"
 #. AI-generated
@@ -8059,11 +7324,7 @@ msgstr "${completion_percentage}% Complet"
 #. AI-generated
 #: euphorie/client/browser/publish.py:132 euphorie/deployment/upgrade/v23.py:34
 msgid "question_other_risks"
-msgstr ""
-"<p><strong>Important:</strong> Pentru a evita duplicarea riscurilor, vă "
-"recomandăm cu insistență să parcurgeți întâi toate modulele precedente, dacă "
-"nu ați făcut-o încă.</p><p>Dacă nu trebuie să adăugați riscuri, vă rugăm să "
-"continuați.</p>"
+msgstr "<p><strong>Important:</strong> Pentru a evita duplicarea riscurilor, vă recomandăm cu insistență să parcurgeți întâi toate modulele precedente, dacă nu ați făcut-o încă.</p><p>Dacă nu trebuie să adăugați riscuri, vă rugăm să continuați.</p>"
 
 #. Default: "an employers' organisation"
 #. AI-generated
@@ -8142,10 +7403,7 @@ msgstr "până la ${date}"
 #. AI-generated
 #: euphorie/client/browser/templates/register_session.pt:28
 msgid "report_guest_register_intro"
-msgstr ""
-"Ne pare rău, aceasta este o versiune de încercare și funcția de descărcare "
-"nu poate fi utilizată. Înregistrați-vă într-un singur pas și beneficiați de "
-"următoarele avantaje:"
+msgstr "Ne pare rău, aceasta este o versiune de încercare și funcția de descărcare nu poate fi utilizată. Înregistrați-vă într-un singur pas și beneficiați de următoarele avantaje:"
 
 #. Default: "Activity"
 #. AI-generated
@@ -8194,9 +7452,7 @@ msgstr "Situație"
 #. AI-generated
 #: euphorie/client/docx/compiler.py:991
 msgid "report_identification_revision"
-msgstr ""
-"Acest document a fost bazat pe instrumentul OiRA '${title}' cu data de "
-"revizuire ${date}."
+msgstr "Acest document a fost bazat pe instrumentul OiRA '${title}' cu data de revizuire ${date}."
 
 #. Default: "Now that you have finished identifying all the risks in your
 #. organisation and created an action plan you can create a report which lists
@@ -8205,12 +7461,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/report.pt:37
 msgid "report_intro"
-msgstr ""
-"Acum că ați terminat de identificat toate riscurile din organizația "
-"dumneavoastră și ați creat un plan de acțiune, puteți crea un raport care "
-"listează toate rezultatele dumneavoastră. Puteți, dacă doriți, să adăugați "
-"câteva comentarii suplimentare care ar trebui incluse în acest raport în "
-"câmpul de mai jos."
+msgstr "Acum că ați terminat de identificat toate riscurile din organizația dumneavoastră și ați creat un plan de acțiune, puteți crea un raport care listează toate rezultatele dumneavoastră. Puteți, dacă doriți, să adăugați câteva comentarii suplimentare care ar trebui incluse în acest raport în câmpul de mai jos."
 
 #. Default: "When you have finished the assessment to at least
 #. ${completion_threshold}% you will be able to create a report."
@@ -8218,9 +7469,7 @@ msgstr ""
 #: euphorie/client/browser/templates/report.pt:49
 #: euphorie/client/browser/templates/report_inventory.pt:76
 msgid "report_intro_incomplete"
-msgstr ""
-"Când ați terminat evaluarea la cel puțin ${completion_threshold}% veți putea "
-"crea un raport."
+msgstr "Când ați terminat evaluarea la cel puțin ${completion_threshold}% veți putea crea un raport."
 
 #. Default: "Measures already in place:"
 #. AI-generated
@@ -8239,9 +7488,7 @@ msgstr "Responsabil: ${responsible_name}"
 #. AI-generated
 #: euphorie/client/docx/compiler.py:231
 msgid "report_survey_revision"
-msgstr ""
-"Acest document a fost bazat pe instrumentul OiRA '${title}' cu data de "
-"revizuire ${date}."
+msgstr "Acest document a fost bazat pe instrumentul OiRA '${title}' cu data de revizuire ${date}."
 
 #. Default: "Comments"
 #. AI-generated
@@ -8394,14 +7641,7 @@ msgstr "Selectați orice măsură care este <strong>deja implementată</strong>.
 #. AI-generated
 #: euphorie/client/browser/session.py:87
 msgid "session_title_tooltip"
-msgstr ""
-"Odată ce ați început o sesiune cu instrumentul OiRA, veți putea opri înainte "
-"de final. Puteți să o reporniți mai târziu, selectând titlul sesiunii cu "
-"instrumentul OiRA. Puteți salva mai mult de o sesiune, dacă le-ați dat nume "
-"diferite. Vă rugăm să vă amintiți adresa de e-mail, parola și titlul pe care "
-"l-ați dat sesiunii cu instrumentul OiRA. Făcând clic pe butonul de Delogare, "
-"vă veți deloga activ. Veți fi, de asemenea, delogat dacă închideți "
-"browserul. Din motive de securitate, este mai bine să vă delogați activ."
+msgstr "Odată ce ați început o sesiune cu instrumentul OiRA, veți putea opri înainte de final. Puteți să o reporniți mai târziu, selectând titlul sesiunii cu instrumentul OiRA. Puteți salva mai mult de o sesiune, dacă le-ați dat nume diferite. Vă rugăm să vă amintiți adresa de e-mail, parola și titlul pe care l-ați dat sesiunii cu instrumentul OiRA. Făcând clic pe butonul de Delogare, vă veți deloga activ. Veți fi, de asemenea, delogat dacă închideți browserul. Din motive de securitate, este mai bine să vă delogați activ."
 
 #. Default: "Not very severe"
 #. AI-generated
@@ -8477,18 +7717,14 @@ msgstr "Puteți, de asemenea, ${add_link}."
 #. AI-generated
 #: euphorie/content/widgets/survey_source_selection.py:30
 msgid "survey_source_local"
-msgstr ""
-"Bazați noul meu instrument OiRA pe un instrument OiRA existent al "
-"organizației mele"
+msgstr "Bazați noul meu instrument OiRA pe un instrument OiRA existent al organizației mele"
 
 #. Default: "Base my new OiRA Tool on an existing OiRA Tool of another
 #. organisation"
 #. AI-generated
 #: euphorie/content/widgets/survey_source_selection.py:40
 msgid "survey_source_other"
-msgstr ""
-"Bazați noul meu instrument OiRA pe un instrument OiRA existent al altei "
-"organizații"
+msgstr "Bazați noul meu instrument OiRA pe un instrument OiRA existent al altei organizații"
 
 #. Default: "Create a new OiRA Tool from scratch"
 #. AI-generated
@@ -8501,27 +7737,21 @@ msgstr "Creați un nou instrument OiRA de la zero"
 #. AI-generated
 #: euphorie/client/browser/templates/conditions.pt:20
 msgid "terms_changed"
-msgstr ""
-"Termenii și condițiile s-au schimbat de la ultima dumneavoastră vizită. Vă "
-"rugăm să citiți cu atenție noii termeni și condiții înainte de a continua."
+msgstr "Termenii și condițiile s-au schimbat de la ultima dumneavoastră vizită. Vă rugăm să citiți cu atenție noii termeni și condiții înainte de a continua."
 
 #. Default: "Read here about the ${benefits}${tooltip_benefits} and
 #. ${limitations}${tooltip_limitations} of a test session."
 #. AI-generated
 #: euphorie/client/browser/templates/new-session-test.pt:84
 msgid "testsession_benefits_limitations"
-msgstr ""
-"Cititi aici despre ${benefits}${tooltip_benefits} și ${limitations}$"
-"{tooltip_limitations} ale unei sesiuni de test."
+msgstr "Cititi aici despre ${benefits}${tooltip_benefits} și ${limitations}${tooltip_limitations} ale unei sesiuni de test."
 
 #. Default: "Or ${register_link} instead. Find out why you should
 #. register${tooltip_register}."
 #. AI-generated
 #: euphorie/client/browser/templates/new-session-test.pt:95
 msgid "testsession_register"
-msgstr ""
-"Sau ${register_link} în schimb. Aflați de ce ar trebui să vă înregistrați $"
-"{tooltip_register}."
+msgstr "Sau ${register_link} în schimb. Aflați de ce ar trebui să vă înregistrați ${tooltip_register}."
 
 #. Default: "add all measures that have already been implemented"
 #. AI-generated
@@ -8704,10 +7934,7 @@ msgstr "Începe o nouă sesiune de test"
 #: euphorie/client/browser/templates/risk_macros.pt:130
 #: euphorie/client/docx/compiler.py:292
 msgid "top5_risk_not_present"
-msgstr ""
-"Acest risc nu este prezent în organizația dumneavoastră, dar deoarece "
-"organizația sectorului îl consideră unul dintre riscurile prioritare, "
-"trebuie inclus în acest raport."
+msgstr "Acest risc nu este prezent în organizația dumneavoastră, dar deoarece organizația sectorului îl consideră unul dintre riscurile prioritare, trebuie inclus în acest raport."
 
 #. Default: "This risk is not present in your organisation, but since the
 #. sector organisation considers this one of the priority risks it must be
@@ -8715,10 +7942,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/docx/compiler.py:301
 msgid "top5_risk_not_present_answer_yes"
-msgstr ""
-"Acest risc nu este prezent în organizația dumneavoastră, dar deoarece "
-"organizația sectorului îl consideră unul dintre riscurile prioritare, "
-"trebuie inclus în acest raport."
+msgstr "Acest risc nu este prezent în organizația dumneavoastră, dar deoarece organizația sectorului îl consideră unul dintre riscurile prioritare, trebuie inclus în acest raport."
 
 #. Default: "This risk has not yet been assessed, but since it is considered
 #. \"high priority\" by the OiRA tool developers, it will always be included
@@ -8733,8 +7957,7 @@ msgstr "Acest risc nu a fost încă evaluat, dar deoarece este considerat \\"
 #. AI-generated
 #: euphorie/content/browser/templates/surveygroup_unpublish.pt:25
 msgid "unpublish_confirm"
-msgstr ""
-"Sunteți sigur că doriți să retrageți publicarea acestui instrument OiRA?"
+msgstr "Sunteți sigur că doriți să retrageți publicarea acestui instrument OiRA?"
 
 #. Default: "Successfully imported the OiRA Tool"
 #. AI-generated
@@ -8823,9 +8046,7 @@ msgstr "Ați răspuns negativ la afirmatia anterioară."
 #. AI-generated
 #: euphorie/client/browser/templates/account-delete.pt:22
 msgid "warning_account_delete_irreversible"
-msgstr ""
-"Făcând clic pe 'Șterge contul', contul tău va fi șters permanent. Această "
-"acțiune este ireversibilă."
+msgstr "Făcând clic pe 'Șterge contul', contul tău va fi șters permanent. Această acțiune este ireversibilă."
 
 #. Default: "Please note that by deleting your account, you will also delete
 #. all your sessions. Please make sure you download your reports from the
@@ -8833,10 +8054,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/account-delete.pt:25
 msgid "warning_account_delete_surveys"
-msgstr ""
-"Rețineți că prin ștergerea contului, veți șterge și toate sesiunile dvs. "
-"Asigurați-vă că descărcați rapoartele din pasul Raport înainte de a vă "
-"șterge contul, dacă doriți să păstrați ceva."
+msgstr "Rețineți că prin ștergerea contului, veți șterge și toate sesiunile dvs. Asigurați-vă că descărcați rapoartele din pasul Raport înainte de a vă șterge contul, dacă doriți să păstrați ceva."
 
 #. Default: "Yes"
 #. AI-generated

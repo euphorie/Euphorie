@@ -24,58 +24,24 @@ msgstr ""
 "X-Generator: Poedit 1.8.3\n"
 
 #: euphorie/client/browser/templates/login.pt:330
-msgid ""
-"${action-plan} In the fourth stage of the assessment you can decide what "
-"steps you will take to address the risks you have identified previously and "
-"what resources this might require. Based on this, a report will be "
-"automatically produced in the next step."
-msgstr ""
-"${action-plan} In dieser Phase bestimmen Sie, welche Maßnahmen zu treffen "
-"sind, um den zuvor ermittelten Gefährdungen zu begegnen. Darauf aufbauend "
-"werden im nächsten automatisch Berichte erstellt, welche die Gefährdungen "
-"und Maßnahmen enthalten."
+msgid "${action-plan} In the fourth stage of the assessment you can decide what steps you will take to address the risks you have identified previously and what resources this might require. Based on this, a report will be automatically produced in the next step."
+msgstr "${action-plan} In dieser Phase bestimmen Sie, welche Maßnahmen zu treffen sind, um den zuvor ermittelten Gefährdungen zu begegnen. Darauf aufbauend werden im nächsten automatisch Berichte erstellt, welche die Gefährdungen und Maßnahmen enthalten."
 
 #: euphorie/client/browser/templates/login.pt:328
-msgid ""
-"${evaluation} Here you will be able to determine the level of risk attached "
-"to each of the items you identified as 'need to be addressed' in the "
-"'Identification' stage."
-msgstr ""
-"${evaluation} Dieser Schritt ist Teil der Phase “Ermitteln”. Hier können Sie "
-"eine Gewichtung der ermittelten Gefährdungen vornehmen."
+msgid "${evaluation} Here you will be able to determine the level of risk attached to each of the items you identified as 'need to be addressed' in the 'Identification' stage."
+msgstr "${evaluation} Dieser Schritt ist Teil der Phase “Ermitteln”. Hier können Sie eine Gewichtung der ermittelten Gefährdungen vornehmen."
 
 #: euphorie/client/browser/templates/login.pt:326
-msgid ""
-"${identification} OiRA will present a series of potential health and safety "
-"hazards or problems that could exist in your workplace. By answering the "
-"statements/questions with either yes or no, you state if such hazards or "
-"problems are present. You can also decide to leave a question unanswered and "
-"thus put it on hold to be answered at a later stage."
-msgstr ""
-"${identification} OiRA wird Ihnen einen Fragenkatalog mit möglichen "
-"Gefährdungen für die Sicherheit und Gesundheit, oder mit möglichen "
-"Problemen, präsentieren. Indem Sie die Aussage nentweder mit Ja oder Nein "
-"beantworten, können Sie angeben, of die genannte Gefährdung oder das Problem "
-"bei Ihnen existiert. Sie können auch einzelne Fragen unbeantwortet lassen "
-"und zu einem späteren Zeitpunkt zu ihnen zurückkehren."
+msgid "${identification} OiRA will present a series of potential health and safety hazards or problems that could exist in your workplace. By answering the statements/questions with either yes or no, you state if such hazards or problems are present. You can also decide to leave a question unanswered and thus put it on hold to be answered at a later stage."
+msgstr "${identification} OiRA wird Ihnen einen Fragenkatalog mit möglichen Gefährdungen für die Sicherheit und Gesundheit, oder mit möglichen Problemen, präsentieren. Indem Sie die Aussage nentweder mit Ja oder Nein beantworten, können Sie angeben, of die genannte Gefährdung oder das Problem bei Ihnen existiert. Sie können auch einzelne Fragen unbeantwortet lassen und zu einem späteren Zeitpunkt zu ihnen zurückkehren."
 
 #: euphorie/client/browser/templates/report_landing.pt:110
-msgid ""
-"${manage} the problems/risks in your workplace (specific tasks, expertise, "
-"responsibilities, deadlines)."
-msgstr ""
-"${manage} die an Ihrem Arbeitsplatz auftreten (konkrete Maßnahmen, benötigte "
-"Expertise, Verantwortlichkeiten, Fristen)"
+msgid "${manage} the problems/risks in your workplace (specific tasks, expertise, responsibilities, deadlines)."
+msgstr "${manage} die an Ihrem Arbeitsplatz auftreten (konkrete Maßnahmen, benötigte Expertise, Verantwortlichkeiten, Fristen)"
 
 #: euphorie/client/browser/templates/login.pt:324
-msgid ""
-"${preparation} This gives you an overview of the particular assessment you "
-"are about to begin and can allow you to further customise the assessment to "
-"the specific nature of your business."
-msgstr ""
-"${preparation} Hier bekommen Sie einen Überblick über die Beurteilung, sie "
-"Sie durchführen werden. In dieser Phase können Sie auch den Fragenkatalog an "
-"die Gegebenheiten Ihres Unternehmens anpassen."
+msgid "${preparation} This gives you an overview of the particular assessment you are about to begin and can allow you to further customise the assessment to the specific nature of your business."
+msgstr "${preparation} Hier bekommen Sie einen Überblick über die Beurteilung, sie Sie durchführen werden. In dieser Phase können Sie auch den Fragenkatalog an die Gegebenheiten Ihres Unternehmens anpassen."
 
 #: euphorie/client/browser/templates/report_landing.pt:82
 msgid "${provide-evidence} for supervisory authorities (labour inspectorate)."
@@ -203,8 +169,7 @@ msgstr "Beim Versenden der Bestätigungs-E-Mail ist ein Fehler aufgetreten."
 
 #: euphorie/client/browser/reset_password.py:113
 msgid "An error occured while sending the password reset instructions"
-msgstr ""
-"Bei Senden der E-mail zum Zurücksetzen des Passworts gab es einen Fehler"
+msgstr "Bei Senden der E-mail zum Zurücksetzen des Passworts gab es einen Fehler"
 
 #. AI-generated
 #: euphorie/client/browser/templates/risk_actionplan.pt:65
@@ -235,25 +200,15 @@ msgstr "Sind Sie sicher, dass Sie diese GBU archivieren wollen?"
 
 #: euphorie/client/browser/templates/confirmation-delete-risk.pt:29
 msgid "Are you sure you want to continue? This action can not be reverted."
-msgstr ""
-"Sind Sie sicher, dass Sie forfahren wollen? Dieser Vorgang kann nicht "
-"rückgängig gemacht werden."
+msgstr "Sind Sie sicher, dass Sie forfahren wollen? Dieser Vorgang kann nicht rückgängig gemacht werden."
 
 #: euphorie/client/browser/risk.py:62
-msgid ""
-"Are you sure you want to delete this measure? This action can not be "
-"reverted."
-msgstr ""
-"Sind Sie sicher, dass Sie diese Maßnahme löschen möchten? Dieser Vorgang "
-"kann nicht rückgängig gemacht werden."
+msgid "Are you sure you want to delete this measure? This action can not be reverted."
+msgstr "Sind Sie sicher, dass Sie diese Maßnahme löschen möchten? Dieser Vorgang kann nicht rückgängig gemacht werden."
 
 #: euphorie/client/browser/templates/confirmation-delete-session.pt:31
-msgid ""
-"Are you sure you want to delete this session? This action can not be "
-"reverted."
-msgstr ""
-"Sind Sie sicher, dass Sie diese Gefährdungsbeurteilung löschen möchten? "
-"Dieser Vorgang kann nicht rückgängig gemacht werden."
+msgid "Are you sure you want to delete this session? This action can not be reverted."
+msgstr "Sind Sie sicher, dass Sie diese Gefährdungsbeurteilung löschen möchten? Dieser Vorgang kann nicht rückgängig gemacht werden."
 
 #: euphorie/client/browser/templates/confirmation-clone-session.pt:28
 msgid "Are you sure you want to proceed?"
@@ -262,8 +217,7 @@ msgstr "Sind Sie sicher, dass Sie fortfahren möchten?"
 #. AI-generated
 #: euphorie/client/browser/templates/panel-organisation-member-remove.pt:37
 msgid "Are you sure you want to remove ${name} from ${organisation}?"
-msgstr ""
-"Sind Sie sicher, dass Sie ${name} aus ${organisation} entfernen möchten?"
+msgstr "Sind Sie sicher, dass Sie ${name} aus ${organisation} entfernen möchten?"
 
 #: euphorie/client/browser/templates/portlet-available-tools.pt:14
 msgid "Available OiRA tools"
@@ -282,12 +236,8 @@ msgstr "Zurück"
 
 #: euphorie/client/browser/templates/confirmation-clone-session.pt:25
 #: euphorie/client/browser/templates/more_menu.pt:62
-msgid ""
-"By cloning a risk assessment you will create a new risk assessment based on "
-"the contents of this risk assessment as a starting point."
-msgstr ""
-"Durch das Duplizieren einer GBU wird eine neue GBU angelegt, mit allen "
-"Antworten dieser GBU als Ausgangspunkt."
+msgid "By cloning a risk assessment you will create a new risk assessment based on the contents of this risk assessment as a starting point."
+msgstr "Durch das Duplizieren einer GBU wird eine neue GBU angelegt, mit allen Antworten dieser GBU als Ausgangspunkt."
 
 #: euphorie/client/browser/reset_password.py:212
 #: euphorie/client/browser/templates/account-delete.pt:46
@@ -358,37 +308,24 @@ msgstr "Änderung der OiRA-E-Mail-Adresse bestätigen"
 
 #. AI-generated
 #: euphorie/client/browser/templates/report_landing.pt:54
-msgid ""
-"Contains: Concise information and input provided by you throughout the risk "
-"assessment process."
-msgstr ""
-"Enthält: Knappe Informationen und Ihre Beiträge während des "
-"Risikobewertungsprozesses."
+msgid "Contains: Concise information and input provided by you throughout the risk assessment process."
+msgstr "Enthält: Knappe Informationen und Ihre Beiträge während des Risikobewertungsprozesses."
 
 #: euphorie/client/browser/templates/report_landing.pt:77
-msgid ""
-"Contains: all the information and input provided by you throughout the risk "
-"assessment process."
-msgstr ""
-"Enthält: Alle Informationen, die Sie währen der gesamten "
-"Gefährdungsbeurteilung eingegeben haben."
+msgid "Contains: all the information and input provided by you throughout the risk assessment process."
+msgstr "Enthält: Alle Informationen, die Sie währen der gesamten Gefährdungsbeurteilung eingegeben haben."
 
 #: euphorie/client/browser/templates/report_landing.pt:167
 msgid "Contains: an overview of the measures to be implemented."
-msgstr ""
-"Enthält: eine übersichtliche Darstellung der Maßnahmen, die für die nächsten "
-"drei Monate geplant sind."
+msgstr "Enthält: eine übersichtliche Darstellung der Maßnahmen, die für die nächsten drei Monate geplant sind."
 
 #: euphorie/client/browser/templates/report_landing.pt:137
 msgid "Contains: an overview of the risks identified"
 msgstr "Enthält: eine übersichtliche Darstellung der ermittelten Gefährdungen."
 
 #: euphorie/client/browser/templates/report_landing.pt:105
-msgid ""
-"Contains: main elements to effectively manage the risks at your workplace."
-msgstr ""
-"Enthält: die wesentlichen Elemente, mit denen Sie die Gefährdungen an Ihrem "
-"Arbeitsplatz effizient bewältigen können"
+msgid "Contains: main elements to effectively manage the risks at your workplace."
+msgstr "Enthält: die wesentlichen Elemente, mit denen Sie die Gefährdungen an Ihrem Arbeitsplatz effizient bewältigen können"
 
 #. AI-generated
 #: euphorie/client/browser/templates/slide_question.pt:42
@@ -414,8 +351,7 @@ msgstr "Ländergruppierung"
 
 #: euphorie/client/browser/templates/about.pt:185
 msgid "Creative Commons Attribution-ShareAlike 2.5 Generic License"
-msgstr ""
-"Creative Commons Namensnennung-Weitergabe unter gleichen Bedingungen 2.5"
+msgstr "Creative Commons Namensnennung-Weitergabe unter gleichen Bedingungen 2.5"
 
 #: euphorie/client/browser/templates/about.pt:179
 msgid "Creative Commons License"
@@ -465,9 +401,7 @@ msgstr "Beschreibung der Risiken"
 
 #: euphorie/client/browser/templates/report_landing.pt:199
 msgid "Did you like this tool? Share it with your colleagues and friends!"
-msgstr ""
-"Hat Ihnen dieses Tool gefallen? Geben Sie es an Ihre Kollegen und Freunde "
-"weiter!"
+msgstr "Hat Ihnen dieses Tool gefallen? Geben Sie es an Ihre Kollegen und Freunde weiter!"
 
 #: euphorie/client/browser/templates/login.pt:354
 msgid "Do I need to prepare?"
@@ -587,8 +521,7 @@ msgstr "Folgen"
 
 #: euphorie/client/browser/templates/training_certificate_inner.pt:34
 msgid "For successfully finishing the training for ${session} on ${date}."
-msgstr ""
-"Für den erfolgreichen Abschluss der Unterweisung für ${session} am ${date}."
+msgstr "Für den erfolgreichen Abschluss der Unterweisung für ${session} am ${date}."
 
 #: euphorie/client/browser/templates/report_landing.pt:104
 msgid "Format: Office Open XML Workbook (.xlsx)"
@@ -626,17 +559,11 @@ msgstr "Verwendung dieses Tools"
 
 #: euphorie/client/browser/templates/login.pt:314
 msgid "However, OiRA is designed to be of most value to smaller businesses."
-msgstr ""
-"Allerdings ist OIRA mit Schwerpunkt auf kleinere Unternehmen ausgerichtet."
+msgstr "Allerdings ist OIRA mit Schwerpunkt auf kleinere Unternehmen ausgerichtet."
 
 #: euphorie/client/browser/templates/login.pt:340
-msgid ""
-"However, you can spend whatever time you have available on an assessment and "
-"then return to it when convenient to pick up from the same point you left "
-"off."
-msgstr ""
-"Allerdings können Sie eine Gefährdungsbeurteilung jederzeit unterbrechen und "
-"dann fortführen, wenn es Ihre Zeit erlaubt."
+msgid "However, you can spend whatever time you have available on an assessment and then return to it when convenient to pick up from the same point you left off."
+msgstr "Allerdings können Sie eine Gefährdungsbeurteilung jederzeit unterbrechen und dann fortführen, wenn es Ihre Zeit erlaubt."
 
 #: euphorie/client/browser/webhelpers.py:1009
 msgid "I wish to share the following with you"
@@ -686,12 +613,8 @@ msgid "It seems you missed a slide"
 msgstr "Sie haben anscheinend eine Präsentationsfolie übersehen"
 
 #: euphorie/client/browser/templates/login.pt:339
-msgid ""
-"It's impossible to say how long an assessment will take in general as the "
-"tools differ according to sectors and countries."
-msgstr ""
-"Es ist nicht möglich, dazu eine Vorhersage zu treffen, da sich die einzelnen "
-"Fragenkataloge in ihrem Umfang stark voneinander unterscheiden können."
+msgid "It's impossible to say how long an assessment will take in general as the tools differ according to sectors and countries."
+msgstr "Es ist nicht möglich, dazu eine Vorhersage zu treffen, da sich die einzelnen Fragenkataloge in ihrem Umfang stark voneinander unterscheiden können."
 
 #. AI-generated
 #: euphorie/client/browser/templates/panel-edit-organisation.pt:74
@@ -811,21 +734,17 @@ msgstr "Modul"
 
 #: euphorie/client/browser/templates/report_landing.pt:185
 msgid "Monitor and assess whether necessary measures have been introduced."
-msgstr ""
-"Zur Überwachung und Bewertung, ob notwendige Maßnahmen eingeführt wurden."
+msgstr "Zur Überwachung und Bewertung, ob notwendige Maßnahmen eingeführt wurden."
 
 #: euphorie/client/browser/templates/measures_overview.pt:70
 #: euphorie/client/browser/templates/report_landing.pt:173
 msgid "Monitor the measures to be implemented in the forthcoming 3 months."
-msgstr ""
-"Die Maßnahmen überwachen, die in den nächsten drei Monaten umgesetzt werden "
-"sollen."
+msgstr "Die Maßnahmen überwachen, die in den nächsten drei Monaten umgesetzt werden sollen."
 
 #: euphorie/client/browser/templates/report_landing.pt:143
 #: euphorie/client/browser/templates/risks_overview.pt:160
 msgid "Monitor whether risks / measures are properly dealt with."
-msgstr ""
-"Überwachen, ob Gefährdungen korrekt behandelt und Maßnahmen umgesetzt werden."
+msgstr "Überwachen, ob Gefährdungen korrekt behandelt und Maßnahmen umgesetzt werden."
 
 #. AI-generated
 #: euphorie/content/utils.py:46
@@ -922,39 +841,20 @@ msgid "OiRA Tool where \"Measures that are already in place\" can be defined."
 msgstr "OiRA Tool bei dem “Bestehende Schutzmaßnahmen” definiert werden können"
 
 #: euphorie/client/browser/templates/login.pt:313
-msgid ""
-"OiRA can be used by anyone wishing to assess health and safety-related risks "
-"that might exist in their workplace."
-msgstr ""
-"OiRA kann von allen verwendet werden, die Gefährdungen in Bezug auf "
-"Sicherheit und Gesundheit an Ihrem Arbeitsplatz ermitteln und bewerten "
-"wollen."
+msgid "OiRA can be used by anyone wishing to assess health and safety-related risks that might exist in their workplace."
+msgstr "OiRA kann von allen verwendet werden, die Gefährdungen in Bezug auf Sicherheit und Gesundheit an Ihrem Arbeitsplatz ermitteln und bewerten wollen."
 
 #: euphorie/client/browser/templates/login.pt:315
-msgid ""
-"OiRA is designed specifically to support them in assessing the risks at work "
-"and helping them to produce a documented risk assessment including an action "
-"plan tailored to the business's requirements."
-msgstr ""
-"OiRA wurde speziell für kleine und mittlere Unternehmen entwickelt, um diese "
-"bei der Durchführung und Dokumentation einer Gefährdungsbeurteilung zu "
-"unterstützen, die auf das Unternehmen zugeschnitten ist."
+msgid "OiRA is designed specifically to support them in assessing the risks at work and helping them to produce a documented risk assessment including an action plan tailored to the business's requirements."
+msgstr "OiRA wurde speziell für kleine und mittlere Unternehmen entwickelt, um diese bei der Durchführung und Dokumentation einer Gefährdungsbeurteilung zu unterstützen, die auf das Unternehmen zugeschnitten ist."
 
 #: euphorie/client/browser/reset_password.py:143
 msgid "OiRA password reset instructions"
 msgstr "OiRA - Anleitung zum Zurücksetzen des Passworts"
 
 #: euphorie/client/browser/templates/login.pt:308
-msgid ""
-"OiRA stands for Online Interactive Risk Assessment. It is a web-based tool "
-"that allows you to perform a health and safety risk assessment of your "
-"workplace."
-msgstr ""
-"OiRA ist eine Abkürzung, die für den englischen Begriff “Online interactive "
-"Risk Assessment” steht, zu Deutsch in etwa “Interaktive "
-"Gefährdungsbeurteilung online”. Es handelt sich um ein Web-basiertes "
-"Werkzeug, mit dem Sie für Ihr Unternehmen oder Arbeitsplatz eine "
-"Gefährdungsbeurteilung durchführen können."
+msgid "OiRA stands for Online Interactive Risk Assessment. It is a web-based tool that allows you to perform a health and safety risk assessment of your workplace."
+msgstr "OiRA ist eine Abkürzung, die für den englischen Begriff “Online interactive Risk Assessment” steht, zu Deutsch in etwa “Interaktive Gefährdungsbeurteilung online”. Es handelt sich um ein Web-basiertes Werkzeug, mit dem Sie für Ihr Unternehmen oder Arbeitsplatz eine Gefährdungsbeurteilung durchführen können."
 
 #. AI-generated
 #: euphorie/client/browser/survey.py:95
@@ -1016,13 +916,8 @@ msgid "Owner"
 msgstr "Inhaber"
 
 #: euphorie/client/browser/templates/report_landing.pt:184
-msgid ""
-"Pass information on to the people concerned (workers, safety "
-"representatives, employers, experts in occupational safety and health, etc.)"
-msgstr ""
-"Weitergeben von Informationen an betroffene Personen (Arbeiter, Angestellte, "
-"Sicherheitsbeauftragte, Arbeitgeber, Experten für Sicherheit und "
-"Gesundheitsschutz am Arbeitsplatz, usw.)"
+msgid "Pass information on to the people concerned (workers, safety representatives, employers, experts in occupational safety and health, etc.)"
+msgstr "Weitergeben von Informationen an betroffene Personen (Arbeiter, Angestellte, Sicherheitsbeauftragte, Arbeitgeber, Experten für Sicherheit und Gesundheitsschutz am Arbeitsplatz, usw.)"
 
 #: euphorie/client/browser/templates/measures_overview.pt:69
 #: euphorie/client/browser/templates/report_landing.pt:142
@@ -1038,23 +933,12 @@ msgid "Password doesn't compare with confirmation value"
 msgstr "Passwort stimmt nicht mit dem Bestätigungswert überein"
 
 #: euphorie/client/browser/templates/new-email.pt:26
-msgid ""
-"Please bear in mind that by changing the email address, your login name will "
-"also change."
-msgstr ""
-"Bitte beachten Sie, dass sich bei einer Änderung der E-Mail-Adresse auch Ihr "
-"Anmeldename ändert."
+msgid "Please bear in mind that by changing the email address, your login name will also change."
+msgstr "Bitte beachten Sie, dass sich bei einer Änderung der E-Mail-Adresse auch Ihr Anmeldename ändert."
 
 #: euphorie/content/browser/templates/library.pt:28
-msgid ""
-"Please note that you may not be able to use all available content: profile "
-"questions can only be used at the top level of your survey, and modules may "
-"be too deeply nested to fit in ${title}."
-msgstr ""
-"Bitte beachten Sie, dass sie nicht alle Inhalte an jeder Stelle Ihres Tools "
-"verwenden können: Profilfragen können nur auf der obersten Ebene des Tools "
-"verwendet werden, und Module könnten möglicherweise zu tief verschachtelt "
-"sein, um in ${title} zu passen."
+msgid "Please note that you may not be able to use all available content: profile questions can only be used at the top level of your survey, and modules may be too deeply nested to fit in ${title}."
+msgstr "Bitte beachten Sie, dass sie nicht alle Inhalte an jeder Stelle Ihres Tools verwenden können: Profilfragen können nur auf der obersten Ebene des Tools verwendet werden, und Module könnten möglicherweise zu tief verschachtelt sein, um in ${title} zu passen."
 
 #: euphorie/content/browser/templates/profilequestion_add.pt:70
 #: euphorie/content/browser/templates/profilequestion_edit.pt:77
@@ -1090,23 +974,13 @@ msgstr "Profilfrage"
 
 #: euphorie/content/browser/templates/profilequestion_add.pt:64
 #: euphorie/content/browser/templates/profilequestion_edit.pt:71
-msgid ""
-"Profile questions are used to determine whether particular modules apply to "
-"the end user at all (i.e. the modules inside the profile question are "
-"OPTIONAL), and if they apply, whether they should be repeated a number of "
-"times (i.e. the modules are REPEATABLE)."
-msgstr ""
-"Mithilfe von Profilfragen kann abgefragt werden, ob bestimmte Module den "
-"Endnutzer überhaupt betreffen (d.h. die Module darin sind OPTIONAL), und "
-"falls Ja, ob sie gegebenenfalls mehrfach anwendbar sind (d.h. die Module "
-"sind WIEDERHOLBAR)."
+msgid "Profile questions are used to determine whether particular modules apply to the end user at all (i.e. the modules inside the profile question are OPTIONAL), and if they apply, whether they should be repeated a number of times (i.e. the modules are REPEATABLE)."
+msgstr "Mithilfe von Profilfragen kann abgefragt werden, ob bestimmte Module den Endnutzer überhaupt betreffen (d.h. die Module darin sind OPTIONAL), und falls Ja, ob sie gegebenenfalls mehrfach anwendbar sind (d.h. die Module sind WIEDERHOLBAR)."
 
 #. AI-generated
 #: euphorie/client/browser/templates/report_landing.pt:59
 msgid "Provide a concise overview over your current status for internal use."
-msgstr ""
-"Geben Sie einen prägnanten Überblick über Ihren aktuellen Status zur "
-"internen Verwendung."
+msgstr "Geben Sie einen prägnanten Überblick über Ihren aktuellen Status zur internen Verwendung."
 
 #: euphorie/client/browser/templates/report_landing.pt:82
 msgid "Provide evidence"
@@ -1136,12 +1010,8 @@ msgid "Recommendation"
 msgstr "Empfehlung"
 
 #: euphorie/client/browser/templates/report_landing.pt:186
-msgid ""
-"Record any revision if circumstances change (new machines, new workers, as a "
-"result of findings of any accident investigations, etc.)"
-msgstr ""
-"Festhalten von Änderungen, die sich aus veränderten Umständen ergeben (neue "
-"Maschinen, neue Mitarbeiter, als Folge einer Unfalluntersuchung, usw.)"
+msgid "Record any revision if circumstances change (new machines, new workers, as a result of findings of any accident investigations, etc.)"
+msgstr "Festhalten von Änderungen, die sich aus veränderten Umständen ergeben (neue Maschinen, neue Mitarbeiter, als Folge einer Unfalluntersuchung, usw.)"
 
 #: euphorie/client/browser/templates/locking_menu.pt:106
 msgid "Refresh locking date"
@@ -1156,13 +1026,8 @@ msgid "Regions"
 msgstr "Regionen"
 
 #: euphorie/client/browser/templates/login.pt:348
-msgid ""
-"Registering allows you to simply log in at any time to continue previous "
-"assessments or to start new ones."
-msgstr ""
-"Wenn Sie sich registriert haben, können Sie jederzeit durch erneutes "
-"Anmelden zu Ihren bereits angefangenen Sitzungen zurückkehren und diese "
-"fortführen."
+msgid "Registering allows you to simply log in at any time to continue previous assessments or to start new ones."
+msgstr "Wenn Sie sich registriert haben, können Sie jederzeit durch erneutes Anmelden zu Ihren bereits angefangenen Sitzungen zurückkehren und diese fortführen."
 
 #: euphorie/client/browser/templates/organisation-member-more-menu.pt:26
 #: euphorie/client/browser/templates/panel-organisation-member-remove.pt:17
@@ -1178,16 +1043,12 @@ msgstr "Das vorhandene Logo entfernen"
 #. AI-generated
 #: euphorie/client/browser/templates/slide_question_try_again.pt:41
 msgid "Repeat the questions to find the correct answer and try again."
-msgstr ""
-"Wiederholen Sie die Fragen, um die richtige Antwort zu finden und versuchen "
-"Sie es erneut."
+msgstr "Wiederholen Sie die Fragen, um die richtige Antwort zu finden und versuchen Sie es erneut."
 
 #. AI-generated
 #: euphorie/client/browser/templates/slide_question_try_again.pt:46
 msgid "Repeat the questions to find the correct answers and try again."
-msgstr ""
-"Wiederholen Sie die Fragen, um die richtigen Antworten zu finden und "
-"versuchen Sie es erneut."
+msgstr "Wiederholen Sie die Fragen, um die richtigen Antworten zu finden und versuchen Sie es erneut."
 
 #. AI-generated
 #: euphorie/client/browser/templates/panel-edit-organisation.pt:84
@@ -1259,15 +1120,8 @@ msgid "Save changes"
 msgstr "Änderungen speichern"
 
 #: euphorie/client/browser/templates/report_landing.pt:31
-msgid ""
-"Save the report on your computer and print it. You can also modify it or add "
-"more information. Please note that changes made on your pc will NOT be saved "
-"in the OiRA tool"
-msgstr ""
-"Speichern Sie den Bericht auf Ihrem Computer ab, um ihn zu drucken. Sie "
-"können ihn auch bearbeiten oder weitere Informationen hinzufügen. Bitte "
-"denken Sie daran, dass alle Änderungen, die Sie an den Dokumenten vornehmen, "
-"nicht im OiRA Tool abgespeichert werden."
+msgid "Save the report on your computer and print it. You can also modify it or add more information. Please note that changes made on your pc will NOT be saved in the OiRA tool"
+msgstr "Speichern Sie den Bericht auf Ihrem Computer ab, um ihn zu drucken. Sie können ihn auch bearbeiten oder weitere Informationen hinzufügen. Bitte denken Sie daran, dass alle Änderungen, die Sie an den Dokumenten vornehmen, nicht im OiRA Tool abgespeichert werden."
 
 #. AI-generated
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:103
@@ -1359,8 +1213,7 @@ msgstr "Fragenteil starten"
 #: euphorie/client/browser/login.py:409
 #: euphorie/client/browser/templates/new-session-test.pt:119
 msgid "Starting a test session is not available in this OiRA application."
-msgstr ""
-"Das Starten einer Testsitzung ist in dieser OiRA-Anwendung nicht verfügbar."
+msgstr "Das Starten einer Testsitzung ist in dieser OiRA-Anwendung nicht verfügbar."
 
 #: euphorie/content/browser/module.py:20 euphorie/deployment/tiles/addbar.py:19
 msgid "Submodule"
@@ -1368,20 +1221,8 @@ msgstr "Untermodul"
 
 #: euphorie/content/browser/templates/profilequestion_add.pt:67
 #: euphorie/content/browser/templates/profilequestion_edit.pt:74
-msgid ""
-"Such questions are asked BEFORE the end-user starts the risk identification "
-"and evaluation. If the end-user does not confirm that an optional profile "
-"question is relevant (by ticking the box), then the corresponding module "
-"will be skipped entirely. If the end-user enters more than one option to a "
-"repeatable profile question then the corresponding module will be repeated "
-"the specified number of times."
-msgstr ""
-"Diese Abfrage findet statt BEVOR der Endnutzer mit der Ermittlung und "
-"Bewertung der Gefährdungen beginnt. Falls der Endnutzer nicht bestätigt, "
-"dass eine Profilfrage für ihn anwendbar ist (durch Klick auf “Ja”), dann "
-"werden alle enthaltenen Module übersprungen. Falls der Endnutzer mehr als "
-"einen Standort in der Profilfrage einträgt, dann werden die enthaltenen "
-"Module für jeden Standort wiederholt."
+msgid "Such questions are asked BEFORE the end-user starts the risk identification and evaluation. If the end-user does not confirm that an optional profile question is relevant (by ticking the box), then the corresponding module will be skipped entirely. If the end-user enters more than one option to a repeatable profile question then the corresponding module will be repeated the specified number of times."
+msgstr "Diese Abfrage findet statt BEVOR der Endnutzer mit der Ermittlung und Bewertung der Gefährdungen beginnt. Falls der Endnutzer nicht bestätigt, dass eine Profilfrage für ihn anwendbar ist (durch Klick auf “Ja”), dann werden alle enthaltenen Module übersprungen. Falls der Endnutzer mehr als einen Standort in der Profilfrage einträgt, dann werden die enthaltenen Module für jeden Standort wiederholt."
 
 #: euphorie/content/behaviour/richdescription.py:39
 msgid "Summary"
@@ -1397,29 +1238,17 @@ msgstr "Niederlande"
 
 #: euphorie/content/browser/templates/profilequestion_add.pt:44
 #: euphorie/content/browser/templates/profilequestion_edit.pt:51
-msgid ""
-"The basic architecture of an Online interactive Risk Assessment consists of:"
+msgid "The basic architecture of an Online interactive Risk Assessment consists of:"
 msgstr "Die generelle Struktur eines OiRA-Tools besteht aus:"
 
 #. AI-generated
 #: euphorie/client/browser/risk.py:72
-msgid ""
-"The current text in the fields 'Action plan', 'Prevention plan' and "
-"'Requirements' of this measure will be overwritten. This action cannot be "
-"reverted. Are you sure you want to continue?"
-msgstr ""
-"Der aktuelle Text in den Feldern 'Aktionsplan', 'Präventionsplan' und "
-"'Anforderungen' dieser Maßnahme wird überschrieben. Diese Aktion kann nicht "
-"rückgängig gemacht werden. Sind Sie sicher, dass Sie fortfahren möchten?"
+msgid "The current text in the fields 'Action plan', 'Prevention plan' and 'Requirements' of this measure will be overwritten. This action cannot be reverted. Are you sure you want to continue?"
+msgstr "Der aktuelle Text in den Feldern 'Aktionsplan', 'Präventionsplan' und 'Anforderungen' dieser Maßnahme wird überschrieben. Diese Aktion kann nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie fortfahren möchten?"
 
 #: euphorie/client/browser/templates/login.pt:347
-msgid ""
-"The first thing you will be asked to do when you begin your first risk "
-"assessment is to create an OiRA account - this is a simple and quick process."
-msgstr ""
-"Bevor Sie eine Gefährdungsbeurteilung mit OiRA starten können, werden Sie "
-"zum Anlegen eines Benutzerkontos aufgefordert - das ist ein einfacher und "
-"schneller Vorgang."
+msgid "The first thing you will be asked to do when you begin your first risk assessment is to create an OiRA account - this is a simple and quick process."
+msgstr "Bevor Sie eine Gefährdungsbeurteilung mit OiRA starten können, werden Sie zum Anlegen eines Benutzerkontos aufgefordert - das ist ein einfacher und schneller Vorgang."
 
 #. AI-generated
 #: euphorie/client/browser/templates/status_info.pt:147
@@ -1427,16 +1256,8 @@ msgid "The following certificates were awarded for this assessment."
 msgstr "Die folgenden Zertifikate wurden für diese Bewertung vergeben."
 
 #: euphorie/content/survey.py:62
-msgid ""
-"The introduction text is shown when starting a new OiRA Tool session. If no "
-"introduction is provided here a standard text will be shown. Please keep "
-"this text brief so it will easily fit on screens of small devices such as "
-"phones and PDAs."
-msgstr ""
-"Dieser Einführungstext wird dem Endnutzer beim Starten einer neuen OiRA-Tool "
-"Sitzung angezeigt. Falls Sie hier keinen Text eingeben, wird stattdessen ein "
-"Standardtext als Einführung gezeigt. Bitte halten Sie diese Einführung kurz, "
-"damit sie auch auf kleinen Bildschirmen wie Smartphones und PDAs Platz hat."
+msgid "The introduction text is shown when starting a new OiRA Tool session. If no introduction is provided here a standard text will be shown. Please keep this text brief so it will easily fit on screens of small devices such as phones and PDAs."
+msgstr "Dieser Einführungstext wird dem Endnutzer beim Starten einer neuen OiRA-Tool Sitzung angezeigt. Falls Sie hier keinen Text eingeben, wird stattdessen ein Standardtext als Einführung gezeigt. Bitte halten Sie diese Einführung kurz, damit sie auch auf kleinen Bildschirmen wie Smartphones und PDAs Platz hat."
 
 #. AI-generated
 #: euphorie/client/browser/session.py:788
@@ -1464,14 +1285,11 @@ msgstr "Es gibt noch keine Schulungsfragen"
 #. AI-generated
 #: euphorie/client/browser/session.py:623
 msgid "There is not enough information to proceed to the identification phase"
-msgstr ""
-"Es liegen nicht genügend Informationen vor, um zur Identifikationsphase "
-"überzugehen"
+msgstr "Es liegen nicht genügend Informationen vor, um zur Identifikationsphase überzugehen"
 
 #: euphorie/client/browser/settings.py:265
 msgid "There were no changes to be saved."
-msgstr ""
-"Es wurden keine Änderungen vorgenommen, die noch gespeichert werden müssen."
+msgstr "Es wurden keine Änderungen vorgenommen, die noch gespeichert werden müssen."
 
 #. AI-generated
 #: euphorie/client/browser/templates/tool-more-info.pt:71
@@ -1493,45 +1311,31 @@ msgstr "Diese E-Mail-Adresse ist nicht verfügbar."
 
 #: euphorie/content/surveygroup.py:90
 msgid "This is a simpler evaluation algorithm using only two criteria."
-msgstr ""
-"Dies ist ein vereinfachter Bewertungsalgorithmus mit nur zwei Kriterien."
+msgstr "Dies ist ein vereinfachter Bewertungsalgorithmus mit nur zwei Kriterien."
 
 #: euphorie/content/behaviour/uniqueid.py:41
 msgid "This is a unique identifier for this object."
 msgstr "Dies ist eine eindeutige Kennung für dieses Objekt."
 
 #: euphorie/content/surveygroup.py:71
-msgid ""
-"This is the recommended evaluation algorithm, based on the Kinney method"
-msgstr ""
-"Dies ist der empfohlene Bewertungsalgorithmus basierend auf der Kinney-"
-"Methode."
+msgid "This is the recommended evaluation algorithm, based on the Kinney method"
+msgstr "Dies ist der empfohlene Bewertungsalgorithmus basierend auf der Kinney-Methode."
 
 #: euphorie/content/profilequestion.py:81
 msgid "This must ask the user for the name of the relevant location."
-msgstr ""
-"Hiermit muss der Endnutzer aufgefordert werden, den Namen des betreffenden "
-"Standorts einzugeben."
+msgstr "Hiermit muss der Endnutzer aufgefordert werden, den Namen des betreffenden Standorts einzugeben."
 
 #: euphorie/content/profilequestion.py:91
 msgid "This must ask the user for the names of all relevant locations."
-msgstr ""
-"Hiermit muss der Endnutzer aufgefordert werden, die Namen aller betreffenden "
-"Standorte einzugeben."
+msgstr "Hiermit muss der Endnutzer aufgefordert werden, die Namen aller betreffenden Standorte einzugeben."
 
 #: euphorie/content/profilequestion.py:71
-msgid ""
-"This question must ask the user if the service is offered in more than one "
-"location."
-msgstr ""
-"Hier muss den Endnutzer gefragt werden, ob der Vorgang oder das Verfahren an "
-"mehr als einem Standort ausgeführt wird."
+msgid "This question must ask the user if the service is offered in more than one location."
+msgstr "Hier muss den Endnutzer gefragt werden, ob der Vorgang oder das Verfahren an mehr als einem Standort ausgeführt wird."
 
 #: euphorie/content/profilequestion.py:43
 msgid "This question must ask the user if this profile applies to them."
-msgstr ""
-"Hier muss der Endnutzer gefragt werden, ob das Profil für sie/ihn anwendbar "
-"ist."
+msgstr "Hier muss der Endnutzer gefragt werden, ob das Profil für sie/ihn anwendbar ist."
 
 #. AI-generated
 #: euphorie/client/browser/settings.py:472
@@ -1621,12 +1425,8 @@ msgid "Visit this URL"
 msgstr "Besuchen Sie diese URL"
 
 #: euphorie/client/browser/templates/report_landing.pt:190
-msgid ""
-"We recommend that you always keep an updated printed version of your risk "
-"assessment (report) available in your company!"
-msgstr ""
-"Wir empfehlen Ihnen, dass sie stets eine ausgedruckte Fassung Ihres Berichts "
-"zur Gefährdungsbeurteilung in Ihrem Betrieb zur Hand haben!"
+msgid "We recommend that you always keep an updated printed version of your risk assessment (report) available in your company!"
+msgstr "Wir empfehlen Ihnen, dass sie stets eine ausgedruckte Fassung Ihres Berichts zur Gefährdungsbeurteilung in Ihrem Betrieb zur Hand haben!"
 
 #: euphorie/client/browser/templates/login.pt:320
 msgid "What do I have to do?"
@@ -1638,16 +1438,8 @@ msgstr "Was ist OiRA (Online interactive Risk Assessment)?"
 
 #. AI-generated
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:31
-msgid ""
-"When you click continue, your e-mail client will open with a new e-mail with "
-"a link in it that people can use to join your organisation. The link is "
-"valid for five days and you may send it to as many people as you would like "
-"to join your organisation."
-msgstr ""
-"Wenn Sie auf Weiter klicken, öffnet sich Ihr E-Mail-Client mit einer neuen E-"
-"Mail mit einem Link darin, den Menschen nutzen können, um Ihrer Organisation "
-"beizutreten. Der Link ist fünf Tage lang gültig und Sie können ihn an so "
-"viele Personen senden, wie Sie möchten, um Ihrer Organisation beizutreten."
+msgid "When you click continue, your e-mail client will open with a new e-mail with a link in it that people can use to join your organisation. The link is valid for five days and you may send it to as many people as you would like to join your organisation."
+msgstr "Wenn Sie auf Weiter klicken, öffnet sich Ihr E-Mail-Client mit einer neuen E-Mail mit einem Link darin, den Menschen nutzen können, um Ihrer Organisation beizutreten. Der Link ist fünf Tage lang gültig und Sie können ihn an so viele Personen senden, wie Sie möchten, um Ihrer Organisation beizutreten."
 
 #: euphorie/client/browser/templates/login.pt:311
 msgid "Who is the OiRA tool for?"
@@ -1683,51 +1475,24 @@ msgid "You are almost there. The following questions were answered wrongly."
 msgstr "Sie sind fast da. Die folgenden Fragen wurden falsch beantwortet."
 
 #: euphorie/client/browser/templates/slide_question_intro.pt:32
-msgid ""
-"You can now answer a few questions to prove that you master this topic and "
-"earn your certificate."
-msgstr ""
-"Sie können nun ein paar Fragen beantworten um zu zeigen, daß Sie dieses "
-"Thema beherrschen und ein Zertifikat erhalten."
+msgid "You can now answer a few questions to prove that you master this topic and earn your certificate."
+msgstr "Sie können nun ein paar Fragen beantworten um zu zeigen, daß Sie dieses Thema beherrschen und ein Zertifikat erhalten."
 
 #: euphorie/content/browser/templates/library.pt:18
-msgid ""
-"You can use content from the standard libary as provided by OSHA in your own "
-"surveys. Just select the module or risk you want to use in the list below "
-"and it will be copied to your survey."
-msgstr ""
-"Sie können Inhalte aus der Bibliothek in Ihren eigenen Tools verwenden. "
-"Wählen Sie dazu einfach die gewünschten Module oder Gefährdungen aus, damit "
-"diese in Ihr Tool kopiert werden."
+msgid "You can use content from the standard libary as provided by OSHA in your own surveys. Just select the module or risk you want to use in the list below and it will be copied to your survey."
+msgstr "Sie können Inhalte aus der Bibliothek in Ihren eigenen Tools verwenden. Wählen Sie dazu einfach die gewünschten Module oder Gefährdungen aus, damit diese in Ihr Tool kopiert werden."
 
 #: euphorie/client/browser/templates/login.pt:356
-msgid ""
-"You do not need any kind of specific preparation to start using the tool, "
-"however you should take some time to think about who is going to carry out "
-"the risk assessment, how workers are going to be involved in the process, "
-"etc."
-msgstr ""
-"Sie benötigen keine spezielle Vorbereitung, um ein OiRA Tool nutzen zu "
-"können. Allerdings sollten Sie etwas aufwenden um zu klären, wer die "
-"Gefährdungsbeurteilung durchführen wird, wie Mitarbeiter in den Prozess "
-"eingebunden werden, usw."
+msgid "You do not need any kind of specific preparation to start using the tool, however you should take some time to think about who is going to carry out the risk assessment, how workers are going to be involved in the process, etc."
+msgstr "Sie benötigen keine spezielle Vorbereitung, um ein OiRA Tool nutzen zu können. Allerdings sollten Sie etwas aufwenden um zu klären, wer die Gefährdungsbeurteilung durchführen wird, wie Mitarbeiter in den Prozess eingebunden werden, usw."
 
 #: euphorie/client/browser/session.py:187
-msgid ""
-"You don't have edit rights for this risk assessment, but you can download "
-"this risk assessment in various forms in the ${download_section}."
-msgstr ""
-"Sie haben keine Berechtigung, um diese GBU zu bearbeiten. Sie können aber "
-"die verschiedenen Arten von Bericht unter dem ${download_section} "
-"herunterladen."
+msgid "You don't have edit rights for this risk assessment, but you can download this risk assessment in various forms in the ${download_section}."
+msgstr "Sie haben keine Berechtigung, um diese GBU zu bearbeiten. Sie können aber die verschiedenen Arten von Bericht unter dem ${download_section} herunterladen."
 
 #: euphorie/client/browser/templates/login.pt:349
-msgid ""
-"You have to make sure to be in possession of a printed, accurate and up-"
-"dated risk assessment (at any time)."
-msgstr ""
-"Sie sollten jederzeit eine aktuelle und zutreffende Version Ihrer "
-"Gefährdungsbeurteilung zur Hand haben, die Sie bei Bedarf ausdrucken können."
+msgid "You have to make sure to be in possession of a printed, accurate and up-dated risk assessment (at any time)."
+msgstr "Sie sollten jederzeit eine aktuelle und zutreffende Version Ihrer Gefährdungsbeurteilung zur Hand haben, die Sie bei Bedarf ausdrucken können."
 
 #. AI-generated
 #: euphorie/client/browser/organisation.py:178
@@ -1764,16 +1529,12 @@ msgstr "Der Quellcode der OiRA-Anwendung ist ${GPL}-lizenziert."
 #. ${license}"
 #: euphorie/client/browser/templates/about.pt:185
 msgid "about_licenses_2"
-msgstr ""
-"Der Inhalt der branchenspezifischen OiRA-Tools ist unter der ${license} "
-"lizenziert."
+msgstr "Der Inhalt der branchenspezifischen OiRA-Tools ist unter der ${license} lizenziert."
 
 #. Default: "The OiRA sectoral tools can be used for free by all users."
 #: euphorie/client/browser/templates/about.pt:191
 msgid "about_licenses_3"
-msgstr ""
-"Die Nutzung der branchenspezifischen OiRA-Tools ist für alle Benutzer "
-"kostenlos."
+msgstr "Die Nutzung der branchenspezifischen OiRA-Tools ist für alle Benutzer kostenlos."
 
 #. Default: "More information about the OiRA project (in English)"
 #: euphorie/client/browser/templates/about.pt:97
@@ -1784,9 +1545,7 @@ msgstr "Weitere Informationen über das OiRA-Projekt (auf Englisch)"
 #. 2007-2012"
 #: euphorie/client/browser/templates/about.pt:87
 msgid "about_paragraph3_agency"
-msgstr ""
-"Gemeinschaftsstrategie für Gesundheit und Sicherheit am Arbeitsplatz "
-"2007-2012"
+msgstr "Gemeinschaftsstrategie für Gesundheit und Sicherheit am Arbeitsplatz 2007-2012"
 
 #. Default: "Experience shows that ${key}. This is why EU-OSHA developed an
 #. ${easy} (the &ldquo;OiRA&rdquo; - Online interactive Risk Assessment) that
@@ -1796,14 +1555,7 @@ msgstr ""
 #. to monitoring and ${reporting}."
 #: euphorie/client/browser/templates/about.pt:70
 msgid "about_paragraph_1"
-msgstr ""
-"Die Erfahrung zeigt, dass eine ${key}. Aus diesem Grund hat die Europäische "
-"Agentur für Sicherheit und Gesundheitsschutz am Arbeitsplatz eine ${easy} "
-"(OiRA – Online interactive Risk Assessment – das interaktive Online-Werkzeug "
-"zur Gefährdungsbeurteilung), mit dem Kleinst- und Kleinunternehmen einen $"
-"{step} – von der ${identification} und ${evaluation} von Gefährdungen am "
-"Arbeitsplatz über die Entscheidungsfindung für ${preventive_actions} und die "
-"Durchführung dieser Maßnahmen bis zur Überwachung und ${reporting}."
+msgstr "Die Erfahrung zeigt, dass eine ${key}. Aus diesem Grund hat die Europäische Agentur für Sicherheit und Gesundheitsschutz am Arbeitsplatz eine ${easy} (OiRA – Online interactive Risk Assessment – das interaktive Online-Werkzeug zur Gefährdungsbeurteilung), mit dem Kleinst- und Kleinunternehmen einen ${step} – von der ${identification} und ${evaluation} von Gefährdungen am Arbeitsplatz über die Entscheidungsfindung für ${preventive_actions} und die Durchführung dieser Maßnahmen bis zur Überwachung und ${reporting}."
 
 #. Default: "easy-to-use and cost-free web application"
 #: euphorie/client/browser/templates/about.pt:42
@@ -1823,9 +1575,7 @@ msgstr "Ermittlung"
 #. Default: "proper risk assessment is the key to healthy workplaces"
 #: euphorie/client/browser/templates/about.pt:36
 msgid "about_paragraph_1_key"
-msgstr ""
-"sachgemäße Gefährdungsbeurteilung der Schlüssel zu gesunden Arbeitsplätzen "
-"ist"
+msgstr "sachgemäße Gefährdungsbeurteilung der Schlüssel zu gesunden Arbeitsplätzen ist"
 
 #. Default: "preventive actions"
 #: euphorie/client/browser/templates/about.pt:64
@@ -1847,10 +1597,7 @@ msgstr "schrittweisen Gefährdungsbeurteilungsprozess einrichten können"
 #. national level."
 #: euphorie/client/browser/templates/about.pt:76
 msgid "about_paragraph_2"
-msgstr ""
-"Die Webanwendung OiRA gewährt Zugriff auf die branchenspezifischen Tools zur "
-"Gefährdungsbeurteilung, die von den entsprechenden Organisationen auf "
-"nationaler Ebene entwickelt und verwaltet werden."
+msgstr "Die Webanwendung OiRA gewährt Zugriff auf die branchenspezifischen Tools zur Gefährdungsbeurteilung, die von den entsprechenden Organisationen auf nationaler Ebene entwickelt und verwaltet werden."
 
 #. Default: "The ${agency} calls for the development of simple tools to
 #. facilitate risk assessment. Since the adoption of the European Framework
@@ -1862,16 +1609,7 @@ msgstr ""
 #. OiRA project aims to overcome."
 #: euphorie/client/browser/templates/about.pt:91
 msgid "about_paragraph_3"
-msgstr ""
-"Die ${agency} fordert die Entwicklung einfacher Werkzeuge, die eine "
-"problemlose Gefährdungsbeurteilung ermöglichen. Seit der Verabschiedung der "
-"europäischen Rahmenrichtlinie im Jahr 1989 hat sich der Begriff der "
-"Gefährdungsbeurteilung für die Organisation der Prävention am Arbeitsplatz "
-"durchgesetzt; hunderttausende Unternehmen in ganz Europa führen regelmäßig "
-"Gefährdungsbeurteilungen durch. Dennoch bestehen gute Gründe zu der Annahme, "
-"dass ${smb} hinsichtlich der generellen Gefährdungsbeurteilung und der "
-"Einführung von Präventionsstrategien gibt. Mit dem OiRA-Projekt sollen diese "
-"Defizite beseitigt werden."
+msgstr "Die ${agency} fordert die Entwicklung einfacher Werkzeuge, die eine problemlose Gefährdungsbeurteilung ermöglichen. Seit der Verabschiedung der europäischen Rahmenrichtlinie im Jahr 1989 hat sich der Begriff der Gefährdungsbeurteilung für die Organisation der Prävention am Arbeitsplatz durchgesetzt; hunderttausende Unternehmen in ganz Europa führen regelmäßig Gefährdungsbeurteilungen durch. Dennoch bestehen gute Gründe zu der Annahme, dass ${smb} hinsichtlich der generellen Gefährdungsbeurteilung und der Einführung von Präventionsstrategien gibt. Mit dem OiRA-Projekt sollen diese Defizite beseitigt werden."
 
 #. Default: "The OiRA project and its related web application has been
 #. developed by the ${eu-osha} based on the Dutch RA-instrument (called
@@ -1882,23 +1620,13 @@ msgstr ""
 #. and participation of trade unions FNV, CNV and MHP."
 #: euphorie/client/browser/templates/about.pt:128
 msgid "about_partners_1"
-msgstr ""
-"Das OiRA-Projekt sowie die zugehörige Webanwendung wurden auf der Grundlage "
-"des niederländischen Gefährdungsbeurteilungsinstruments (${RIE}) von der $"
-"{eu-osha} entwickelt. Dieses Instrument wurde von der niederländischen "
-"Regierung finanziert und ursprünglich von TNO in Zusammenarbeit mit dem "
-"Arbeitgeberverband für kleine und mittelständische Unternehmen, MKB-"
-"Nederland, sowie dem niederländischen Arbeitsministerium entwickelt. Die "
-"Weiterentwicklung der Anwendung wurde auf der Grundlage von Informationen "
-"und unter Beteiligung der Gewerkschaften FNV, CNV und MHP durchgeführt."
+msgstr "Das OiRA-Projekt sowie die zugehörige Webanwendung wurden auf der Grundlage des niederländischen Gefährdungsbeurteilungsinstruments (${RIE}) von der ${eu-osha} entwickelt. Dieses Instrument wurde von der niederländischen Regierung finanziert und ursprünglich von TNO in Zusammenarbeit mit dem Arbeitgeberverband für kleine und mittelständische Unternehmen, MKB-Nederland, sowie dem niederländischen Arbeitsministerium entwickelt. Die Weiterentwicklung der Anwendung wurde auf der Grundlage von Informationen und unter Beteiligung der Gewerkschaften FNV, CNV und MHP durchgeführt."
 
 #. Default: "The following technical partners contributed to the development
 #. of the OiRA project:"
 #: euphorie/client/browser/templates/about.pt:133
 msgid "about_partners_2"
-msgstr ""
-"Die folgenden technischen Partner waren an der Entwicklung des OiRA-"
-"Projektes beteiligt:"
+msgstr "Die folgenden technischen Partner waren an der Entwicklung des OiRA-Projektes beteiligt:"
 
 #. Default: "The Agency was also given strategic and expert advice by a
 #. Steering Committee in the development and implementation of the OiRA
@@ -1906,12 +1634,7 @@ msgstr ""
 #. the interest groups at the Board, by the Commission and by EU-OSHA."
 #: euphorie/client/browser/templates/about.pt:163
 msgid "about_partners_3"
-msgstr ""
-"Ein Lenkungsausschuss hat die Agentur strategisch und fachlich bei der "
-"Entwicklung und Umsetzung des OiRA-Projektes beraten. Die Mitglieder und "
-"Vertreter des Lenkungsausschusses wurden von den Interessengruppen des "
-"Verwaltungsrates, von der Komission sowie von der Europäischen Agentur für "
-"Sicherheit und Gesundheitsschutz am Arbeitsplatz ernannt."
+msgstr "Ein Lenkungsausschuss hat die Agentur strategisch und fachlich bei der Entwicklung und Umsetzung des OiRA-Projektes beraten. Die Mitglieder und Vertreter des Lenkungsausschusses wurden von den Interessengruppen des Verwaltungsrates, von der Komission sowie von der Europäischen Agentur für Sicherheit und Gesundheitsschutz am Arbeitsplatz ernannt."
 
 #. Default: "micro and small enterprises have some shortcomings"
 #: euphorie/client/browser/templates/about.pt:91
@@ -1922,18 +1645,14 @@ msgstr "es in Kleinst- und Kleinunternehmen einige Defizite"
 #. AI-generated
 #: euphorie/client/browser/risk.py:386
 msgid "action_measures_false_solutions_false"
-msgstr ""
-"Beschreiben Sie die spezifischen Maßnahmen, die erforderlich sind, um das "
-"Risiko zu reduzieren."
+msgstr "Beschreiben Sie die spezifischen Maßnahmen, die erforderlich sind, um das Risiko zu reduzieren."
 
 #. Default: "Select or describe the specific measures required to reduce the
 #. risk."
 #. AI-generated
 #: euphorie/client/browser/risk.py:378
 msgid "action_measures_false_solutions_true"
-msgstr ""
-"Wählen Sie aus oder beschreiben Sie die spezifischen Maßnahmen, die "
-"erforderlich sind, um das Risiko zu reduzieren."
+msgstr "Wählen Sie aus oder beschreiben Sie die spezifischen Maßnahmen, die erforderlich sind, um das Risiko zu reduzieren."
 
 #. Default: "Describe any further measure to reduce the risk."
 #. AI-generated
@@ -1945,19 +1664,14 @@ msgstr "Beschreiben Sie weitere Maßnahmen zur Risikoreduktion."
 #. AI-generated
 #: euphorie/client/browser/risk.py:361
 msgid "action_measures_true_solutions_true"
-msgstr ""
-"Wählen Sie aus oder beschreiben Sie weitere Maßnahmen zur Risikoreduktion."
+msgstr "Wählen Sie aus oder beschreiben Sie weitere Maßnahmen zur Risikoreduktion."
 
 #. Default: "Although some measures do not cost any money, most do. The
 #. measures should therefore be budgeted for; include them in the annual
 #. budget round if necessary."
 #: euphorie/client/browser/templates/webhelpers.pt:922
 msgid "actionplan_measure_budget_tooltip"
-msgstr ""
-"Obwohl einzelne Maßnahmen ohne Kostenaufwand durchzuführen sind, kosten die "
-"meisten doch Geld. Daher sollte ein Budget für die Maßnahmen eingerichtet "
-"werden. Wenn erforderlich, sollten sie in das Jahresbudget mit einbezogen "
-"werden."
+msgstr "Obwohl einzelne Maßnahmen ohne Kostenaufwand durchzuführen sind, kosten die meisten doch Geld. Daher sollte ein Budget für die Maßnahmen eingerichtet werden. Wenn erforderlich, sollten sie in das Jahresbudget mit einbezogen werden."
 
 #. Default: "Appoint someone in your company to be responsible for the
 #. implementation of this measure. This person will have the authority to take
@@ -1965,22 +1679,14 @@ msgstr ""
 #. they are carried out."
 #: euphorie/client/browser/templates/webhelpers.pt:904
 msgid "actionplan_measure_responsible_tooltip"
-msgstr ""
-"Bestimmen Sie eine Person in Ihrem Unternehmen zum Verantwortlichen für die "
-"Umsetzung dieser Maßnahme. Diese Person hat dann die Befugnis zur "
-"Durchführung der im Plan beschriebenen Schritte und/oder die Veantwortung "
-"für deren Durchführung."
+msgstr "Bestimmen Sie eine Person in Ihrem Unternehmen zum Verantwortlichen für die Umsetzung dieser Maßnahme. Diese Person hat dann die Befugnis zur Durchführung der im Plan beschriebenen Schritte und/oder die Veantwortung für deren Durchführung."
 
 #. Default: "Describe: 1) what is your general approach to eliminate or (if
 #. the risk is not avoidable) reduce the risk; 2) the specific action(s)
 #. required to implement this approach (to eliminate or to reduce the risk)"
 #: euphorie/client/browser/templates/webhelpers.pt:1003
 msgid "actionplan_measure_tooltip"
-msgstr ""
-"Beschreiben Sie: 1) Ihre allgemeine Vorgehensweise zur Vermeidung bzw. (wenn "
-"die Gefährdung sich nicht vermeiden lässt) Reduzierung der Gefährdung; 2) "
-"die einzelne(n) Aktion(en), die zur Umsetzung dieser Vorgehensweise "
-"erforderlich ist/sind (zur Vermeidung bzw. Reduzierung der Gefährdung)"
+msgstr "Beschreiben Sie: 1) Ihre allgemeine Vorgehensweise zur Vermeidung bzw. (wenn die Gefährdung sich nicht vermeiden lässt) Reduzierung der Gefährdung; 2) die einzelne(n) Aktion(en), die zur Umsetzung dieser Vorgehensweise erforderlich ist/sind (zur Vermeidung bzw. Reduzierung der Gefährdung)"
 
 #. Default: "Describe the level of expertise needed to implement the measure,
 #. for instance &ldquo;common sense (no OSH knowledge required)&rdquo;,
@@ -1990,13 +1696,7 @@ msgstr ""
 #. (if any)."
 #: euphorie/client/browser/templates/webhelpers.pt:1034
 msgid "actionplan_requirements_tooltip"
-msgstr ""
-"Beschreiben Sie: 3) die erforderlichen Fachkenntnisse, um die Maßnahme "
-"umzusetzen, zum Beispiel „gesunder Menschenverstand (keine OSH-Kenntnisse "
-"erforderlich)“, „keine spezifischen OSH-Kenntnisse, jedoch ein Mindestmaß an "
-"OSH-Kenntnissen bzw. -Schulung und/oder Inanspruchnahme von OSH-Anleitung "
-"erforderlich“ oder „OSH-Fachkraft“. Wenn zutreffend, können Sie hier auch "
-"weitere zusätzliche Anforderungen beschreiben."
+msgstr "Beschreiben Sie: 3) die erforderlichen Fachkenntnisse, um die Maßnahme umzusetzen, zum Beispiel „gesunder Menschenverstand (keine OSH-Kenntnisse erforderlich)“, „keine spezifischen OSH-Kenntnisse, jedoch ein Mindestmaß an OSH-Kenntnissen bzw. -Schulung und/oder Inanspruchnahme von OSH-Anleitung erforderlich“ oder „OSH-Fachkraft“. Wenn zutreffend, können Sie hier auch weitere zusätzliche Anforderungen beschreiben."
 
 #. Default: "Add any measures that are <strong>already implemented</strong>."
 #: euphorie/content/utils.py:166
@@ -2051,23 +1751,14 @@ msgstr "Vorteile"
 #. AI-generated
 #: euphorie/client/browser/organisation.py:270
 msgid "body_add_user_to_organisation_email"
-msgstr ""
-"\\n            Ich lade Sie hiermit ein, unserer Organisation bei OiRA "
-"beizutreten.\\n            Sobald Sie Ihre Mitgliedschaft akzeptiert haben,"
-"\\n            können wir bei Risikobewertungen zusammenarbeiten."
-"\\n\\n            Bitte loggen Sie sich ein oder registrieren Sie sich über "
-"den untenstehenden Link\\n            und akzeptieren Sie Ihre "
-"Mitgliedschaft.\\n            Dieser Link bleibt ${days_to_keep} Tage gültig."
-"\\n\\n            ${link}\\n"
+msgstr "\\n            Ich lade Sie hiermit ein, unserer Organisation bei OiRA beizutreten.\\n            Sobald Sie Ihre Mitgliedschaft akzeptiert haben,\\n            können wir bei Risikobewertungen zusammenarbeiten.\\n\\n            Bitte loggen Sie sich ein oder registrieren Sie sich über den untenstehenden Link\\n            und akzeptieren Sie Ihre Mitgliedschaft.\\n            Dieser Link bleibt ${days_to_keep} Tage gültig.\\n\\n            ${link}\\n"
 
 #. Default: "${Modules} (and potentially sub-modules): containers providing a
 #. logical structure"
 #: euphorie/content/browser/templates/profilequestion_add.pt:53
 #: euphorie/content/browser/templates/profilequestion_edit.pt:60
 msgid "bullet_modules"
-msgstr ""
-"${Modules} (und gegebenenfalls Untermodule): Behälter für Gefährdungen, die "
-"in einer logischen Struktur zusammengefasst sind"
+msgstr "${Modules} (und gegebenenfalls Untermodule): Behälter für Gefährdungen, die in einer logischen Struktur zusammengefasst sind"
 
 #. Default: "${Profile-Questions}: questions defining the company profile"
 #: euphorie/content/browser/templates/profilequestion_add.pt:49
@@ -2268,11 +1959,7 @@ msgstr "Empfehlung ${number}"
 #. AI-generated
 #: euphorie/client/browser/templates/report_company.pt:40
 msgid "company_report_intro"
-msgstr ""
-"Vielen Dank, dass Sie OiRA nutzen. Bevor wir zum Bericht übergehen, möchten "
-"wir Sie bitten, uns über die folgende Umfrage ein Feedback zu geben. Diese "
-"Informationen dienen dazu, die Tools und die bereitgestellten Dienste zu "
-"verbessern. <strong>Diese Daten erscheinen nicht in Ihren Berichten.</strong>"
+msgstr "Vielen Dank, dass Sie OiRA nutzen. Bevor wir zum Bericht übergehen, möchten wir Sie bitten, uns über die folgende Umfrage ein Feedback zu geben. Diese Informationen dienen dazu, die Tools und die bereitgestellten Dienste zu verbessern. <strong>Diese Daten erscheinen nicht in Ihren Berichten.</strong>"
 
 #. Default: "For any further information regarding the handling of their
 #. personal data, data subjects can address their request to EU-OSHA Data
@@ -2280,10 +1967,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/conditions-bare.pt:110
 msgid "conditions_part10_entry"
-msgstr ""
-"Für weitere Informationen zur Handhabung ihrer persönlichen Daten können "
-"sich die betroffenen Personen an den EU-OSHA Datenschutzbeauftragten unter: "
-"dpo(at)osha.europa.eu wenden."
+msgstr "Für weitere Informationen zur Handhabung ihrer persönlichen Daten können sich die betroffenen Personen an den EU-OSHA Datenschutzbeauftragten unter: dpo(at)osha.europa.eu wenden."
 
 #. Default: "Request for information"
 #. AI-generated
@@ -2297,10 +1981,7 @@ msgstr "Informationsanfrage"
 #. AI-generated
 #: euphorie/client/browser/templates/conditions-bare.pt:118
 msgid "conditions_part11_entry"
-msgstr ""
-"Betroffene Personen haben das Recht, sich an den Europäischen "
-"Datenschutzbeauftragten zu wenden: ${url} , sollten sie der Ansicht sein, "
-"dass die Verarbeitungsvorgänge nicht der Verordnung entsprechen."
+msgstr "Betroffene Personen haben das Recht, sich an den Europäischen Datenschutzbeauftragten zu wenden: ${url} , sollten sie der Ansicht sein, dass die Verarbeitungsvorgänge nicht der Verordnung entsprechen."
 
 #. Default: "Recourse to the EDPS"
 #. AI-generated
@@ -2331,18 +2012,14 @@ msgstr "Datum, an dem die Verarbeitung beginnt"
 #. AI-generated
 #: euphorie/client/browser/templates/conditions-bare.pt:34
 msgid "conditions_part1_entry"
-msgstr ""
-"Leiter der Einheit Prävention und Forschungseinheit "
-"(information(at)osha.europa.eu)"
+msgstr "Leiter der Einheit Prävention und Forschungseinheit (information(at)osha.europa.eu)"
 
 #. Default: "Organisational part of the Agency entrusted with the processing
 #. of personal data"
 #. AI-generated
 #: euphorie/client/browser/templates/conditions-bare.pt:32
 msgid "conditions_part1_header"
-msgstr ""
-"Organisatorischer Teil der Agentur, der mit der Verarbeitung von "
-"personenbezogenen Daten beauftragt ist"
+msgstr "Organisatorischer Teil der Agentur, der mit der Verarbeitung von personenbezogenen Daten beauftragt ist"
 
 #. Default: "The purpose of the processing operation is the creation of and
 #. log-in to your OiRA (Online interactive Risk Assessment) account, the
@@ -2355,16 +2032,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/conditions-bare.pt:40
 msgid "conditions_part2_entry"
-msgstr ""
-"Zweck der Verarbeitung ist die Erstellung von und Anmeldung in Ihrem OiRA "
-"(Online interaktive Risikobewertung) Konto, die Erstellung von "
-"Risikobewertungen, Aktionsplänen und Berichten. E-Mail-Adressen könnten für "
-"den Versand von Newslettern (wenn die Option ausgewählt wurde) verwendet "
-"werden. Die OiRA-Anwendung ist ein Instrument, das Ihnen von der "
-"Europäischen Agentur für Sicherheit und Gesundheitsschutz am Arbeitsplatz "
-"(EU-OSHA) zur Verfügung gestellt wird. Diese Datenschutzrichtlinie gilt für "
-"alle Produkte, Dienstleistungen und Websites, die von EU-OSHA im Rahmen der "
-"OiRA-Anwendung angeboten werden."
+msgstr "Zweck der Verarbeitung ist die Erstellung von und Anmeldung in Ihrem OiRA (Online interaktive Risikobewertung) Konto, die Erstellung von Risikobewertungen, Aktionsplänen und Berichten. E-Mail-Adressen könnten für den Versand von Newslettern (wenn die Option ausgewählt wurde) verwendet werden. Die OiRA-Anwendung ist ein Instrument, das Ihnen von der Europäischen Agentur für Sicherheit und Gesundheitsschutz am Arbeitsplatz (EU-OSHA) zur Verfügung gestellt wird. Diese Datenschutzrichtlinie gilt für alle Produkte, Dienstleistungen und Websites, die von EU-OSHA im Rahmen der OiRA-Anwendung angeboten werden."
 
 #. Default: "Purpose"
 #. AI-generated
@@ -2379,11 +2047,7 @@ msgstr "Zweck"
 #. AI-generated
 #: euphorie/client/browser/templates/conditions-bare.pt:46
 msgid "conditions_part3_entry"
-msgstr ""
-"Verordnung (EU) 2019/126 des Europäischen Parlaments und des Rates vom 16. "
-"Januar 2019 zur Errichtung der Europäischen Agentur für Sicherheit und "
-"Gesundheitsschutz am Arbeitsplatz (EU-OSHA) und zur Aufhebung der Verordnung "
-"(EG) Nr. 2062/94 des Rates."
+msgstr "Verordnung (EU) 2019/126 des Europäischen Parlaments und des Rates vom 16. Januar 2019 zur Errichtung der Europäischen Agentur für Sicherheit und Gesundheitsschutz am Arbeitsplatz (EU-OSHA) und zur Aufhebung der Verordnung (EG) Nr. 2062/94 des Rates."
 
 #. Default: "Legal basis"
 #. AI-generated
@@ -2398,11 +2062,7 @@ msgstr "Rechtsgrundlage"
 #. AI-generated
 #: euphorie/client/browser/templates/conditions-bare.pt:54
 msgid "conditions_part4_1_entry"
-msgstr ""
-"E-Mail-Adresse: Eine E-Mail ist notwendig, um auf die Online-Anwendung "
-"zuzugreifen, die eingegebenen Daten zu bearbeiten und das OiRA-Konto zu "
-"löschen. Die E-Mail-Adresse wird auch für den Versand von Newslettern "
-"verwendet (wenn die Option ausgewählt wurde)."
+msgstr "E-Mail-Adresse: Eine E-Mail ist notwendig, um auf die Online-Anwendung zuzugreifen, die eingegebenen Daten zu bearbeiten und das OiRA-Konto zu löschen. Die E-Mail-Adresse wird auch für den Versand von Newslettern verwendet (wenn die Option ausgewählt wurde)."
 
 #. Default: "Any information you provide in the free text fields of the
 #. application of the OiRA tools and in the action plan of your risk
@@ -2413,14 +2073,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/conditions-bare.pt:55
 msgid "conditions_part4_2_entry"
-msgstr ""
-"Alle Informationen, die Sie in den Freitextfeldern der Anwendung der OiRA-"
-"Tools und im Aktionsplan Ihrer Risikobewertungen zur Verfügung stellen - (z. "
-"B. wenn Sie eine Maßnahme zur Bekämpfung eines Risikos eingeben, die Person, "
-"die für diese Maßnahme verantwortlich ist, usw.). Die Eingabe von "
-"Informationen in die Freitextfelder, genauso wie alle anderen persönlichen "
-"Daten, die in das Tool eingegeben werden, erfolgt freiwillig und basiert auf "
-"der Zustimmung."
+msgstr "Alle Informationen, die Sie in den Freitextfeldern der Anwendung der OiRA-Tools und im Aktionsplan Ihrer Risikobewertungen zur Verfügung stellen - (z. B. wenn Sie eine Maßnahme zur Bekämpfung eines Risikos eingeben, die Person, die für diese Maßnahme verantwortlich ist, usw.). Die Eingabe von Informationen in die Freitextfelder, genauso wie alle anderen persönlichen Daten, die in das Tool eingegeben werden, erfolgt freiwillig und basiert auf der Zustimmung."
 
 #. Default: "This website collects web statistics with Matomo that is entirely
 #. hosted in EU- OSHA&rsquo;s servers, located in the European Union. The IP
@@ -2429,11 +2082,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/conditions-bare.pt:58
 msgid "conditions_part4_3_entry"
-msgstr ""
-"Diese Website sammelt Webstatistiken mit Matomo, das auf EU- OSHA&rsquo;s "
-"Servern gehostet wird, die sich in der Europäischen Union befinden. Die IP-"
-"Adresse wird von Matomo nur für statistische Zwecke (Land, Region und Stadt) "
-"empfangen."
+msgstr "Diese Website sammelt Webstatistiken mit Matomo, das auf EU- OSHA&rsquo;s Servern gehostet wird, die sich in der Europäischen Union befinden. Die IP-Adresse wird von Matomo nur für statistische Zwecke (Land, Region und Stadt) empfangen."
 
 #. Default: "The OiRA software does collect statistics from logged in users
 #. based on aggregated data on number of accounts and risk assessments per
@@ -2441,10 +2090,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/conditions-bare.pt:62
 msgid "conditions_part4_4_entry"
-msgstr ""
-"Die OiRA-Software sammelt Statistiken von eingeloggten Nutzern auf Basis von "
-"aggregierten Daten zu Konten- und Risikobewertungszahlen pro Werkzeug nach "
-"Ländern, aufgeteilt in Monate."
+msgstr "Die OiRA-Software sammelt Statistiken von eingeloggten Nutzern auf Basis von aggregierten Daten zu Konten- und Risikobewertungszahlen pro Werkzeug nach Ländern, aufgeteilt in Monate."
 
 #. Default: "Type of data processed"
 #. AI-generated
@@ -2479,12 +2125,7 @@ msgstr "Rechtmäßigkeit der Verarbeitung"
 #. AI-generated
 #: euphorie/client/browser/templates/conditions-bare.pt:77
 msgid "conditions_part6_entry"
-msgstr ""
-"Auf personenbezogene Daten können EU-OSHA-Mitarbeiter, die für OiRA "
-"zuständig sind, und EU-OSHA&rsquo;s technische Dienstleister zugreifen, "
-"basierend auf Anfragen von OiRA-Nutzern im Falle technischer Probleme. "
-"Darüber hinaus können OiRA-Nutzer anderen OiRA-Nutzern Zugang zu ihren "
-"Risikobewertungen, Aktionsplänen und Berichten gewähren."
+msgstr "Auf personenbezogene Daten können EU-OSHA-Mitarbeiter, die für OiRA zuständig sind, und EU-OSHA&rsquo;s technische Dienstleister zugreifen, basierend auf Anfragen von OiRA-Nutzern im Falle technischer Probleme. Darüber hinaus können OiRA-Nutzer anderen OiRA-Nutzern Zugang zu ihren Risikobewertungen, Aktionsplänen und Berichten gewähren."
 
 #. Default: "Data recipients"
 #. AI-generated
@@ -2501,14 +2142,7 @@ msgstr "Datenempfänger"
 #. AI-generated
 #: euphorie/client/browser/templates/conditions-bare.pt:83
 msgid "conditions_part7_1_entry"
-msgstr ""
-"Betroffene Personen haben das Recht, vom Verantwortlichen Zugang zu ihren "
-"personenbezogenen Daten und deren Berichtigung oder Löschung oder "
-"Einschränkung der Verarbeitung zu verlangen oder, falls zutreffend, das "
-"Recht, der Verarbeitung zu widersprechen oder die Einwilligung jederzeit zu "
-"widerrufen, ohne dass dies die Rechtmäßigkeit der auf der Einwilligung "
-"beruhenden Verarbeitung vor ihrem Widerruf beeinträchtigt (Artikel 17, 18, "
-"19, 20, 22, 23 und 24 der Verordnung)."
+msgstr "Betroffene Personen haben das Recht, vom Verantwortlichen Zugang zu ihren personenbezogenen Daten und deren Berichtigung oder Löschung oder Einschränkung der Verarbeitung zu verlangen oder, falls zutreffend, das Recht, der Verarbeitung zu widersprechen oder die Einwilligung jederzeit zu widerrufen, ohne dass dies die Rechtmäßigkeit der auf der Einwilligung beruhenden Verarbeitung vor ihrem Widerruf beeinträchtigt (Artikel 17, 18, 19, 20, 22, 23 und 24 der Verordnung)."
 
 #. Default: "Any requests to exercise one of those rights should be directed
 #. per email to information(at)osha.europa.eu, mentioning the organisational
@@ -2518,21 +2152,14 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/conditions-bare.pt:87
 msgid "conditions_part7_2_entry"
-msgstr ""
-"Anfragen zur Wahrnehmung einer dieser Rechte sollten per E-Mail an "
-"information(at)osha.europa.eu gerichtet werden, unter Angabe des "
-"organisatorischen Teils der Agentur, der mit der Verarbeitung betraut ist, "
-"wie in dieser Datenschutzerklärung angegeben, sowie des Namens der "
-"Verarbeitung und den Wörtern „Datenschutz“ im Betreff."
+msgstr "Anfragen zur Wahrnehmung einer dieser Rechte sollten per E-Mail an information(at)osha.europa.eu gerichtet werden, unter Angabe des organisatorischen Teils der Agentur, der mit der Verarbeitung betraut ist, wie in dieser Datenschutzerklärung angegeben, sowie des Namens der Verarbeitung und den Wörtern „Datenschutz“ im Betreff."
 
 #. Default: "Data subjects&rsquo; rights can be restricted only in the cases
 #. foreseen in Art 25 of the Regulation."
 #. AI-generated
 #: euphorie/client/browser/templates/conditions-bare.pt:91
 msgid "conditions_part7_3_entry"
-msgstr ""
-"Die Rechte der betroffenen Personen können nur in den in Art. 25 der "
-"Verordnung vorgesehenen Fällen eingeschränkt werden."
+msgstr "Die Rechte der betroffenen Personen können nur in den in Art. 25 der Verordnung vorgesehenen Fällen eingeschränkt werden."
 
 #. Default: "The data subject&rsquo;s rights"
 #. AI-generated
@@ -2546,10 +2173,7 @@ msgstr "Die Rechte der betroffenen Person"
 #. AI-generated
 #: euphorie/client/browser/templates/conditions-bare.pt:97
 msgid "conditions_part8_entry"
-msgstr ""
-"Wir bewahren Ihre Daten, die für externe Benutzer unzugänglich sind, so "
-"lange auf, bis Sie Ihr Konto und/oder Ihre Sitzung(en) löschen. EU-OSHA "
-"speichert Daten auf unseren Servern, die sich auf EU-Gebiet befinden."
+msgstr "Wir bewahren Ihre Daten, die für externe Benutzer unzugänglich sind, so lange auf, bis Sie Ihr Konto und/oder Ihre Sitzung(en) löschen. EU-OSHA speichert Daten auf unseren Servern, die sich auf EU-Gebiet befinden."
 
 #. Default: "Information on the conservation period of data"
 #. AI-generated
@@ -2566,14 +2190,7 @@ msgstr "Informationen über die Aufbewahrungsdauer von Daten"
 #. AI-generated
 #: euphorie/client/browser/templates/conditions-bare.pt:104
 msgid "conditions_part9_entry"
-msgstr ""
-"Wir ergreifen geeignete Sicherheitsmaßnahmen, um vor unbefugtem Zugriff auf "
-"oder unbefugter Veränderung, Offenlegung oder Zerstörung von Daten zu "
-"schützen. Dazu gehören interne Überprüfungen unserer Datenerfassungs-, "
-"Speicherungs- und Verarbeitungspraktiken, eine angemessene Verschlüsselung "
-"der Kommunikation und physische Sicherheitsmaßnahmen zum Schutz vor "
-"unbefugtem Zugriff auf Systeme, in denen wir personenbezogene Daten "
-"speichern."
+msgstr "Wir ergreifen geeignete Sicherheitsmaßnahmen, um vor unbefugtem Zugriff auf oder unbefugter Veränderung, Offenlegung oder Zerstörung von Daten zu schützen. Dazu gehören interne Überprüfungen unserer Datenerfassungs-, Speicherungs- und Verarbeitungspraktiken, eine angemessene Verschlüsselung der Kommunikation und physische Sicherheitsmaßnahmen zum Schutz vor unbefugtem Zugriff auf Systeme, in denen wir personenbezogene Daten speichern."
 
 #. Default: "Security measures"
 #. AI-generated
@@ -2636,31 +2253,21 @@ msgstr "Organisation von ${name}"
 #. AI-generated
 #: euphorie/content/risk.py:104
 msgid "deprecated_label_existing_measures"
-msgstr ""
-"Maßnahmen, die bereits vorhanden sind (Nur zu Referenzzwecken hier "
-"angezeigt! Verwenden Sie die Schaltfläche „Maßnahme hinzufügen“ auf dem "
-"Risiko, um Maßnahmen hinzuzufügen, die dem Benutzer während der "
-"Identifikation angezeigt werden.)"
+msgstr "Maßnahmen, die bereits vorhanden sind (Nur zu Referenzzwecken hier angezeigt! Verwenden Sie die Schaltfläche „Maßnahme hinzufügen“ auf dem Risiko, um Maßnahmen hinzuzufügen, die dem Benutzer während der Identifikation angezeigt werden.)"
 
 #. Default: "Please tick anything that you might like to exclude from the
 #. training. Items that are greyed out will not be displayed on the training
 #. card."
 #: euphorie/client/browser/templates/webhelpers.pt:675
 msgid "description-training-configuration"
-msgstr ""
-"Bitte klicken Sie alles an, was Sie von der Unterweisung ausschließen "
-"möchten. Elemente, die ausgegraut sind, werden nicht auf den "
-"Unterweisungskarten angezeigt."
+msgstr "Bitte klicken Sie alles an, was Sie von der Unterweisung ausschließen möchten. Elemente, die ausgegraut sind, werden nicht auf den Unterweisungskarten angezeigt."
 
 #. Default: "The risk evaluation has been automatically done by the tool. You
 #. will be able to change the priority for this risk &ndash; if you consider
 #. it necessary &ndash; in the action plan."
 #: euphorie/client/browser/templates/webhelpers.pt:596
 msgid "description_automatic_evaluation"
-msgstr ""
-"Die Bewertung der Priorität wurde für diese Gefährdung automatisch "
-"durchgeführt. Sie können diese Priorität später im Aktionsplan anpassen, "
-"falls nötig."
+msgstr "Die Bewertung der Priorität wurde für diese Gefährdung automatisch durchgeführt. Sie können diese Priorität später im Aktionsplan anpassen, falls nötig."
 
 #. Default: "${user} has invited you to join this userʼs organisation. Once
 #. you&rsquo;ve accepted your membership, you can collaborate on risk
@@ -2668,10 +2275,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/confirm-organisation-invite.pt:35
 msgid "description_confirm_organisation_invite"
-msgstr ""
-"${user} hat Sie eingeladen, dieser Benutzerorganisation beizutreten. Sobald "
-"Sie Ihre Mitgliedschaft akzeptiert haben, können Sie an Risikobewertungen "
-"mitarbeiten."
+msgstr "${user} hat Sie eingeladen, dieser Benutzerorganisation beizutreten. Sobald Sie Ihre Mitgliedschaft akzeptiert haben, können Sie an Risikobewertungen mitarbeiten."
 
 #. Default: "The plain text file will contain all translatable text without
 #. formatting. This file can be used to determine a word count for estimating
@@ -2679,10 +2283,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/content/browser/export.py:158
 msgid "description_export_as_plain_text"
-msgstr ""
-"Die reine Textdatei enthält alle übersetzbaren Texte ohne Formatierung. "
-"Diese Datei kann zur Ermittlung einer Wortzahl für die Schätzung der "
-"Übersetzungskosten verwendet werden."
+msgstr "Die reine Textdatei enthält alle übersetzbaren Texte ohne Formatierung. Diese Datei kann zur Ermittlung einer Wortzahl für die Schätzung der Übersetzungskosten verwendet werden."
 
 #. Default: "If selected, the option to plan measures will be offered directly
 #. on the “Identification” page. There will be no separate “Action Plan” step
@@ -2690,18 +2291,14 @@ msgstr ""
 #. AI-generated
 #: euphorie/content/survey.py:136
 msgid "description_integrated_action_plan"
-msgstr ""
-"Wenn ausgewählt, wird die Option zur Planung von Maßnahmen direkt auf der "
-"Seite „Identifikation“ angeboten. Es wird keinen separaten „Aktionsplan“-"
-"Schritt in der Navigation geben."
+msgstr "Wenn ausgewählt, wird die Option zur Planung von Maßnahmen direkt auf der Seite „Identifikation“ angeboten. Es wird keinen separaten „Aktionsplan“-Schritt in der Navigation geben."
 
 #. Default: "The default export escapes HTML, which is not supportedby
 #. eTranslate"
 #. AI-generated
 #: euphorie/content/browser/export.py:172
 msgid "description_is_etranslate_compatible"
-msgstr ""
-"Der Standardexport ignoriert HTML, was von eTranslate nicht unterstützt wird"
+msgstr "Der Standardexport ignoriert HTML, was von eTranslate nicht unterstützt wird"
 
 #. Default: "Defines how the “Measures in place” options are displayed to the
 #. user. Choose “Simple” if the texts for Description and General Approach are
@@ -2710,28 +2307,20 @@ msgstr ""
 #. AI-generated
 #: euphorie/content/survey.py:118
 msgid "description_measures_text_handling"
-msgstr ""
-"Definiert, wie die „Vorhandenen Maßnahmen“ dem Nutzer angezeigt werden. "
-"Wählen Sie „Einfach“, wenn die Texte für Beschreibung und allgemeinen Ansatz "
-"in Ihren Maßnahmen identisch sind. Wählen Sie „Vollständig“, wenn die Texte "
-"im Allgemeinen Ansatz mehr Details als die Beschreibung liefern."
+msgstr "Definiert, wie die „Vorhandenen Maßnahmen“ dem Nutzer angezeigt werden. Wählen Sie „Einfach“, wenn die Texte für Beschreibung und allgemeinen Ansatz in Ihren Maßnahmen identisch sind. Wählen Sie „Vollständig“, wenn die Texte im Allgemeinen Ansatz mehr Details als die Beschreibung liefern."
 
 #. Default: "Find an OSH consultant you want to contact or add to your
 #. organisation to provide support."
 #. AI-generated
 #: euphorie/client/browser/templates/consultants.pt:44
 msgid "description_oira_consultants"
-msgstr ""
-"Finden Sie einen OSH-Berater, den Sie kontaktieren oder zu Ihrer "
-"Organisation hinzufügen möchten, um Unterstützung zu bieten."
+msgstr "Finden Sie einen OSH-Berater, den Sie kontaktieren oder zu Ihrer Organisation hinzufügen möchten, um Unterstützung zu bieten."
 
 #. Default: "In case you have identified risks not included in the tool, you
 #. are able to add them now:"
 #: euphorie/client/browser/publish.py:126
 msgid "description_other_risks"
-msgstr ""
-"Falls Sie weitere Gefährdungen identifiziert haben, die in diesem Tool nicht "
-"vorkommen, können Sie diese hier eingeben."
+msgstr "Falls Sie weitere Gefährdungen identifiziert haben, die in diesem Tool nicht vorkommen, können Sie diese hier eingeben."
 
 #. Default: "Please enter the completion percentage above which the report is
 #. available on this tool. The user will be unable to view or download a
@@ -2740,12 +2329,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/content/survey.py:151
 msgid "description_report_completion_threshold"
-msgstr ""
-"Bitte geben Sie den Prozentsatz der Fertigstellung ein, ab dem der Bericht "
-"in diesem Tool verfügbar ist. Der Nutzer wird nicht in der Lage sein, einen "
-"Bericht zu sehen oder herunterzuladen, bis die Bewertung bis zu dem "
-"angegebenen Prozentsatz abgeschlossen ist. Geben Sie „0“ ein, um den Bericht "
-"immer verfügbar zu haben."
+msgstr "Bitte geben Sie den Prozentsatz der Fertigstellung ein, ab dem der Bericht in diesem Tool verfügbar ist. Der Nutzer wird nicht in der Lage sein, einen Bericht zu sehen oder herunterzuladen, bis die Bewertung bis zu dem angegebenen Prozentsatz abgeschlossen ist. Geben Sie „0“ ein, um den Bericht immer verfügbar zu haben."
 
 #. AI-generated
 #: euphorie/client/browser/reset_password.py:226
@@ -2756,19 +2340,14 @@ msgstr "Beschreibung_Reset_Passwort_Formular"
 #. password."
 #: euphorie/client/browser/reset_password.py:85
 msgid "description_reset_password_request"
-msgstr ""
-"Wir werden Ihnen eine E-mail schicken, über die Sie Ihr Passwort "
-"zurücksetzen können."
+msgstr "Wir werden Ihnen eine E-mail schicken, über die Sie Ihr Passwort zurücksetzen können."
 
 #. Default: "If selected, the user will not be able to answer \"Yes\" or
 #. \"No\", since the risk is considered to be always present. The Evaluation
 #. and Action Plan will behave in the same way as for regular risks."
 #: euphorie/content/risk.py:169
 msgid "description_risk_always_present"
-msgstr ""
-"Wenn diese Option aktiviert ist, wird dem Nutzer keine Frage zur "
-"Beantwortung gezeigt. Die Gefährdung samt Beschreibung und ggf. bestehende "
-"Schutzmaßnahmen werden wie üblich angezeigt."
+msgstr "Wenn diese Option aktiviert ist, wird dem Nutzer keine Frage zur Beantwortung gezeigt. Die Gefährdung samt Beschreibung und ggf. bestehende Schutzmaßnahmen werden wie üblich angezeigt."
 
 #. Default: "Administrators can create, edit and remove user accounts.
 #. Administrators can also make risk assessments, edit existing ones and lock
@@ -2777,10 +2356,7 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:81
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:96
 msgid "description_role_admin__training_disabled"
-msgstr ""
-"Administratoren können Benutzerkonten erstellen, bearbeiten und entfernen. "
-"Administratoren können auch Risikobewertungen durchführen, bestehende "
-"bearbeiten und Risikobewertungen sperren."
+msgstr "Administratoren können Benutzerkonten erstellen, bearbeiten und entfernen. Administratoren können auch Risikobewertungen durchführen, bestehende bearbeiten und Risikobewertungen sperren."
 
 #. Default: "Consultants can make, edit, validate and approve risk
 #. assessments."
@@ -2788,18 +2364,14 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:93
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:108
 msgid "description_role_consultant__training_disabled"
-msgstr ""
-"Berater können Risikobewertungen durchführen, bearbeiten, validieren und "
-"genehmigen."
+msgstr "Berater können Risikobewertungen durchführen, bearbeiten, validieren und genehmigen."
 
 #. Default: "Managers/Policy makers can make, edit and lock risk assessments."
 #. AI-generated
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:87
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:102
 msgid "description_role_manager__training_disabled"
-msgstr ""
-"Manager/Politikgestalter können Risikobewertungen durchführen, bearbeiten "
-"und sperren."
+msgstr "Manager/Politikgestalter können Risikobewertungen durchführen, bearbeiten und sperren."
 
 #. Default: "Members can make risk assessments."
 #. AI-generated
@@ -2813,9 +2385,7 @@ msgstr "Mitglieder können Risikobewertungen durchführen."
 #. AI-generated
 #: euphorie/content/survey.py:235
 msgid "description_show_immediate_feedback"
-msgstr ""
-"Nachdem der Benutzer eine Option für eine Auswahl getroffen hat, zeigen Sie "
-"alle zugehörigen Empfehlungen an, bevor Sie zur nächsten Auswahl übergehen"
+msgstr "Nachdem der Benutzer eine Option für eine Auswahl getroffen hat, zeigen Sie alle zugehörigen Empfehlungen an, bevor Sie zur nächsten Auswahl übergehen"
 
 #. Default: "All images contained in the OiRA tool can be exported along with
 #. the textual content. When the OiRA tool is then imported again, all images
@@ -2824,11 +2394,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/content/browser/export.py:74
 msgid "description_survey_export_include_images"
-msgstr ""
-"Alle in das OiRA-Tool eingebetteten Bilder können zusammen mit dem "
-"Textinhalt exportiert werden. Wenn das OiRA-Tool dann wieder importiert "
-"wird, sind alle Bilder vorhanden. Bitte beachten Sie, dass die Einbeziehung "
-"von Bildern zu einer erheblich größeren Dateigröße führen kann."
+msgstr "Alle in das OiRA-Tool eingebetteten Bilder können zusammen mit dem Textinhalt exportiert werden. Wenn das OiRA-Tool dann wieder importiert wird, sind alle Bilder vorhanden. Bitte beachten Sie, dass die Einbeziehung von Bildern zu einer erheblich größeren Dateigröße führen kann."
 
 #. Default: "The introduction text describes the general purpose of the OiRA
 #. tool. It usually gives the end users an idea what to expect in the tool and
@@ -2836,11 +2402,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/content/browser/export.py:89
 msgid "description_survey_export_include_intro_text"
-msgstr ""
-"Der Einführungstext beschreibt den allgemeinen Zweck des OiRA-Tools. Er gibt "
-"den Endbenutzern in der Regel eine Vorstellung davon, was sie im Tool "
-"erwarten können und ob es für sie relevant ist. Standardmäßig ist dieser "
-"Text enthalten."
+msgstr "Der Einführungstext beschreibt den allgemeinen Zweck des OiRA-Tools. Er gibt den Endbenutzern in der Regel eine Vorstellung davon, was sie im Tool erwarten können und ob es für sie relevant ist. Standardmäßig ist dieser Text enthalten."
 
 #. Default: "For each risk, a number of common measures – sometimes also
 #. referred to as “Solutions” – can be defined. While the default setting is
@@ -2849,29 +2411,21 @@ msgstr ""
 #. AI-generated
 #: euphorie/content/browser/export.py:141
 msgid "description_survey_export_include_measures"
-msgstr ""
-"Für jedes Risiko können eine Reihe von allgemeinen Maßnahmen – manchmal auch "
-"als „Lösungen“ bezeichnet – definiert werden. Obwohl die Standardeinstellung "
-"ist, sie in den Export einzubeziehen, können sie bei Bedarf ausgeschlossen "
-"werden, z.B. um ein begrenztes Übersetzungsbudget anzupassen."
+msgstr "Für jedes Risiko können eine Reihe von allgemeinen Maßnahmen – manchmal auch als „Lösungen“ bezeichnet – definiert werden. Obwohl die Standardeinstellung ist, sie in den Export einzubeziehen, können sie bei Bedarf ausgeschlossen werden, z.B. um ein begrenztes Übersetzungsbudget anzupassen."
 
 #. Default: "Every module comes with an introductive description. The default
 #. is to include this text."
 #. AI-generated
 #: euphorie/content/browser/export.py:117
 msgid "description_survey_export_include_module_description_texts"
-msgstr ""
-"Jedes Modul wird mit einer einführenden Beschreibung geliefert. "
-"Standardmäßig ist dieser Text enthalten."
+msgstr "Jedes Modul wird mit einer einführenden Beschreibung geliefert. Standardmäßig ist dieser Text enthalten."
 
 #. Default: "The “Solution” description” on modules is a deprecated kind of
 #. text that is no longer being used. The default is to skip this."
 #. AI-generated
 #: euphorie/content/browser/export.py:104
 msgid "description_survey_export_include_module_solution_texts"
-msgstr ""
-"Die „Lösungsbeschreibung“ auf Modulen ist eine veraltete Textart, die nicht "
-"mehr verwendet wird. Standardmäßig wird diese übersprungen."
+msgstr "Die „Lösungsbeschreibung“ auf Modulen ist eine veraltete Textart, die nicht mehr verwendet wird. Standardmäßig wird diese übersprungen."
 
 #. Default: "If the OiRA tool is exported because it should be made available
 #. for a different country, the legal texts might not apply there. Therefore
@@ -2879,38 +2433,26 @@ msgstr ""
 #. AI-generated
 #: euphorie/content/browser/export.py:130
 msgid "description_survey_export_include_risk_legal_texts"
-msgstr ""
-"Wenn das OiRA-Tool exportiert wird, weil es für ein anderes Land verfügbar "
-"gemacht werden soll, gelten die rechtlichen Texte dort möglicherweise nicht. "
-"Daher ist es standardmäßig so, dass diese Texte übersprungen werden."
+msgstr "Wenn das OiRA-Tool exportiert wird, weil es für ein anderes Land verfügbar gemacht werden soll, gelten die rechtlichen Texte dort möglicherweise nicht. Daher ist es standardmäßig so, dass diese Texte übersprungen werden."
 
 #. Default: "Select one or more categories to which this OiRA tool is
 #. relevant. The user will then find this tool under the chosen categories."
 #. AI-generated
 #: euphorie/content/behaviors/toolcategory.py:13
 msgid "description_tool_category"
-msgstr ""
-"Wählen Sie eine oder mehrere Kategorien aus, für die dieses OiRA-Tool "
-"relevant ist. Der Benutzer findet dieses Tool dann unter den ausgewählten "
-"Kategorien."
+msgstr "Wählen Sie eine oder mehrere Kategorien aus, für die dieses OiRA-Tool relevant ist. Der Benutzer findet dieses Tool dann unter den ausgewählten Kategorien."
 
 #. Default: "If you enter text here, it will be shown to users in a pop-up
 #. when they open the tool. It can be used for notifying users about changes."
 #: euphorie/content/survey.py:206
 msgid "description_tool_notification"
-msgstr ""
-"Wenn Sie hier Text eingeben, wird dieser in einem Pop-up-Fenster angezeigt, "
-"wenn Nutzer das Tool öffnen. Diese Funktion kann verwendet werden, um Nutzer "
-"über Änderungen zu informieren."
+msgstr "Wenn Sie hier Text eingeben, wird dieser in einem Pop-up-Fenster angezeigt, wenn Nutzer das Tool öffnen. Diese Funktion kann verwendet werden, um Nutzer über Änderungen zu informieren."
 
 #. Default: "This selection determines, which variant of an OiRA Tool will be
 #. created. If you are not sure, select \"Classic\"."
 #: euphorie/content/survey.py:103
 msgid "description_tool_type"
-msgstr ""
-"Mit dieser Auswahl bestimmen Sie, welche Variante eines OiRA Tools verwendet "
-"wird. Falls Sie nicht sicher sind, was das bedeutet, verwenden Sie die "
-"Einstellung “Klassisches OiRA Tool”."
+msgstr "Mit dieser Auswahl bestimmen Sie, welche Variante eines OiRA Tools verwendet wird. Falls Sie nicht sicher sind, was das bedeutet, verwenden Sie die Einstellung “Klassisches OiRA Tool”."
 
 #. Default: "If this part is active, the user will be asked to enter the name
 #. of all locations for which this module applies. This means, the module will
@@ -2918,11 +2460,7 @@ msgstr ""
 #. repeatable behaviour, untick the checkbox to turn it off."
 #: euphorie/content/profilequestion.py:55
 msgid "description_use_location_question"
-msgstr ""
-"Wenn dieser Teil aktiviert ist, dann wird der Endnutzer dazu aufgefordert, "
-"alle Standorte anzugeben, für welche das vorliegende Modul relevant ist. Das "
-"Modul wird dann pro angegebenem Standort wiederholt. Falls Sie diese "
-"Möglichkeit zur Wiederholung nicht wünschen, deaktivieren Sie die Checkbox."
+msgstr "Wenn dieser Teil aktiviert ist, dann wird der Endnutzer dazu aufgefordert, alle Standorte anzugeben, für welche das vorliegende Modul relevant ist. Das Modul wird dann pro angegebenem Standort wiederholt. Falls Sie diese Möglichkeit zur Wiederholung nicht wünschen, deaktivieren Sie die Checkbox."
 
 #. Default: "After the technical development of the tool in 2009, in 2010
 #. (until the first half of 2011) the Agency is piloting the development and
@@ -2932,22 +2470,13 @@ msgstr ""
 #. guidance services."
 #: euphorie/client/browser/templates/about.pt:110
 msgid "devel_phase"
-msgstr ""
-"Nach der technischen Entwicklung des Tools 2009 führt die Agentur derzeit "
-"(bis zum ersten Halbjahr 2011) im Rahmen der Tests des Tools und der "
-"Entwicklung geeigneter Unterstützungs- und Beratungsleistungen Pilottests "
-"des Entwicklungs- und Verbreitungsmodells durch ­– sowohl auf EU-Ebene (in "
-"Zusammenarbeit mit den Ausschüssen für den sektoralen sozialen Dialog) als "
-"auch auf der Ebene einzelner Mitgliedstaaten (unter Beteiligung mehrerer "
-"Mitgliedstaaten)."
+msgstr "Nach der technischen Entwicklung des Tools 2009 führt die Agentur derzeit (bis zum ersten Halbjahr 2011) im Rahmen der Tests des Tools und der Entwicklung geeigneter Unterstützungs- und Beratungsleistungen Pilottests des Entwicklungs- und Verbreitungsmodells durch ­– sowohl auf EU-Ebene (in Zusammenarbeit mit den Ausschüssen für den sektoralen sozialen Dialog) als auch auf der Ebene einzelner Mitgliedstaaten (unter Beteiligung mehrerer Mitgliedstaaten)."
 
 #. Default: "Pages created in the ${appendix} folder are available via links
 #. in the footer of the online client."
 #: euphorie/content/browser/templates/documentation_view.pt:30
 msgid "documentation_appendix"
-msgstr ""
-"Seiten im ${appendix}-Ordner können über Links in der Fußzeile des Online-"
-"Clients aufgerufen werden."
+msgstr "Seiten im ${appendix}-Ordner können über Links in der Fußzeile des Online-Clients aufgerufen werden."
 
 #. Default: "appendix"
 #: euphorie/content/browser/templates/documentation_view.pt:30
@@ -3018,8 +2547,7 @@ msgstr "${invitee} hat Ihre Risikobewertung überprüft und validiert."
 #. Default: "Please ignore this email if you didn't request for a change."
 #: euphorie/client/browser/templates/confirm-email.pt:21
 msgid "email_change_epilogue"
-msgstr ""
-"Ignorieren Sie diese E-Mail, wenn Sie keine Änderung angefordert haben."
+msgstr "Ignorieren Sie diese E-Mail, wenn Sie keine Änderung angefordert haben."
 
 #. Default: "Dear user,"
 #: euphorie/client/browser/templates/confirm-email.pt:6
@@ -3031,20 +2559,14 @@ msgstr "Sehr geehrte(r) Benutzer(in),"
 #. '${email}' when you click the confirmation link below."
 #: euphorie/client/browser/templates/confirm-email.pt:14
 msgid "email_change_intro"
-msgstr ""
-"Ihre E-Mail-Adresse und Ihr Kontoname bei ${url} werden in '${email}' "
-"geändert, wenn Sie auf den untenstehenden Bestätigungslink klicken."
+msgstr "Ihre E-Mail-Adresse und Ihr Kontoname bei ${url} werden in '${email}' geändert, wenn Sie auf den untenstehenden Bestätigungslink klicken."
 
 #. Default: "Please confirm your new email address by clicking on the link in
 #. the email that will be sent in a few minutes to \"${email}\". Please note
 #. that the new email address is also your new login name."
 #: euphorie/client/browser/settings.py:447
 msgid "email_change_pending"
-msgstr ""
-"Bitte bestätigen Sie Ihre neue E-Mail-Adresse, indem Sie auf den Link in der "
-"E-Mail klicken, die Ihnen in wenigen Minuten  an „${email}“ gesendet wird. "
-"Bitte beachten Sie, dass die neue E-Mail-Adresse gleichzeitig Ihr neuer "
-"Anmeldename ist."
+msgstr "Bitte bestätigen Sie Ihre neue E-Mail-Adresse, indem Sie auf den Link in der E-Mail klicken, die Ihnen in wenigen Minuten  an „${email}“ gesendet wird. Bitte beachten Sie, dass die neue E-Mail-Adresse gleichzeitig Ihr neuer Anmeldename ist."
 
 #. Default: "Dear ${recipient},"
 #. AI-generated
@@ -3063,10 +2585,7 @@ msgstr "${invitee} hat Ihre Einladung angenommen, ${organisation} beizutreten."
 #. AI-generated
 #: euphorie/client/browser/templates/email_reminder.pt:32
 msgid "email_reminder_intro"
-msgstr ""
-"Wenn Sie dieses Tool zu einem späteren Zeitpunkt weiterhin nutzen möchten, "
-"können wir Ihnen eine Erinnerungs-E-Mail mit einem Link zu dieser Bewertung "
-"senden."
+msgstr "Wenn Sie dieses Tool zu einem späteren Zeitpunkt weiterhin nutzen möchten, können wir Ihnen eine Erinnerungs-E-Mail mit einem Link zu dieser Bewertung senden."
 
 #. Default: "This is your reminder to continue your assessment with the tool
 #. \"${tool_name}\":"
@@ -3088,20 +2607,14 @@ msgstr "Sehr geehrte/r ${Empfänger},"
 #. AI-generated
 #: euphorie/client/browser/templates/notify-request-validation.pt:17
 msgid "email_request_validation_instructions"
-msgstr ""
-"Bitte klicken Sie auf den unten stehenden Link, um die Risikobewertung zu "
-"besuchen. Wenn Sie mit dem Inhalt der Risikobewertung einverstanden sind, "
-"klicken Sie bitte im Abschnitt „Beratung“ auf „Validieren“, um der "
-"Risikobewertung einen offiziell validierten Status zu geben."
+msgstr "Bitte klicken Sie auf den unten stehenden Link, um die Risikobewertung zu besuchen. Wenn Sie mit dem Inhalt der Risikobewertung einverstanden sind, klicken Sie bitte im Abschnitt „Beratung“ auf „Validieren“, um der Risikobewertung einen offiziell validierten Status zu geben."
 
 #. Default: "${requester} requested to validate the risk assessment
 #. &lsquo;${assessment}&rsquo;."
 #. AI-generated
 #: euphorie/client/browser/templates/notify-request-validation.pt:12
 msgid "email_request_validation_intro"
-msgstr ""
-"${requester} hat beantragt, die Risikobewertung '${assessment}' zu "
-"validieren."
+msgstr "${requester} hat beantragt, die Risikobewertung '${assessment}' zu validieren."
 
 #. Default: "10 to 49 employees"
 #: euphorie/client/browser/company.py:43
@@ -3179,18 +2692,14 @@ msgstr "Die Passwörter stimmen nicht überein."
 #. AI-generated
 #: euphorie/client/browser/login.py:146
 msgid "error_password_policy_violation"
-msgstr ""
-"Das Passwort muss mindestens 12 Zeichen lang sein und mindestens einen "
-"Kleinbuchstaben, einen Großbuchstaben und eine Ziffer enthalten."
+msgstr "Das Passwort muss mindestens 12 Zeichen lang sein und mindestens einen Kleinbuchstaben, einen Großbuchstaben und eine Ziffer enthalten."
 
 #. Default: "An accout can only be created for you if you accept the terms and
 #. conditions."
 #. AI-generated
 #: euphorie/client/browser/login.py:181
 msgid "error_terms_not_accepted"
-msgstr ""
-"Ein Konto kann nur für Sie erstellt werden, wenn Sie die "
-"Geschäftsbedingungen akzeptieren."
+msgstr "Ein Konto kann nur für Sie erstellt werden, wenn Sie die Geschäftsbedingungen akzeptieren."
 
 #. Default: "This date must be on or after the start date."
 #: euphorie/client/browser/risk.py:83
@@ -3252,11 +2761,7 @@ msgstr "Bewertung überspringen"
 #. AI-generated
 #: euphorie/client/browser/templates/actionplan.pt:27
 msgid "expl_actionplan_1"
-msgstr ""
-"Nachdem Sie die Risiken identifiziert haben, müssen Sie einen Aktionsplan "
-"erstellen, um die Risiken zu bewältigen. Um Risiken zu beseitigen oder zu "
-"reduzieren, müssen Sie festlegen, welche vorbeugenden und schützenden "
-"Maßnahmen ergriffen werden müssen."
+msgstr "Nachdem Sie die Risiken identifiziert haben, müssen Sie einen Aktionsplan erstellen, um die Risiken zu bewältigen. Um Risiken zu beseitigen oder zu reduzieren, müssen Sie festlegen, welche vorbeugenden und schützenden Maßnahmen ergriffen werden müssen."
 
 #. Default: "Among the things to be considered for this step are:"
 #. AI-generated
@@ -3269,9 +2774,7 @@ msgstr "Zu den Dingen, die bei diesem Schritt zu beachten sind, gehören:"
 #. AI-generated
 #: euphorie/client/browser/templates/actionplan.pt:39
 msgid "expl_actionplan_3"
-msgstr ""
-"Ist ein Risiko vermeidbar? Kann es vollständig beseitigt werden? Zum "
-"Beispiel könnte dies erreicht werden durch: ${expl_actionplan_4_and_5}"
+msgstr "Ist ein Risiko vermeidbar? Kann es vollständig beseitigt werden? Zum Beispiel könnte dies erreicht werden durch: ${expl_actionplan_4_and_5}"
 
 #. Default: "considering whether the task or job is necessary"
 #. AI-generated
@@ -3290,10 +2793,7 @@ msgstr "Entfernung der Gefahrenquelle"
 #. AI-generated
 #: euphorie/client/browser/templates/actionplan.pt:44
 msgid "expl_actionplan_6"
-msgstr ""
-"Wenn bestimmte Risiken nicht vermeidbar sind, wie kann ihre Reduzierung auf "
-"ein Niveau erreicht werden, auf dem die Gesundheit und Sicherheit der "
-"Betroffenen nicht beeinträchtigt wird?"
+msgstr "Wenn bestimmte Risiken nicht vermeidbar sind, wie kann ihre Reduzierung auf ein Niveau erreicht werden, auf dem die Gesundheit und Sicherheit der Betroffenen nicht beeinträchtigt wird?"
 
 #. Default: "Once you have decided how to eliminate or reduce a particular
 #. risk, then you describe the specific action(s) required to achieve this.
@@ -3302,19 +2802,12 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/actionplan.pt:48
 msgid "expl_actionplan_7"
-msgstr ""
-"Nachdem Sie entschieden haben, wie ein bestimmtes Risiko beseitigt oder "
-"reduziert werden kann, beschreiben Sie die spezifischen "
-"Handlungsanweisungen, die zur Erreichung dessen erforderlich sind. Sie "
-"sollten auch Details zum benötigten Fachwissen und/oder anderen "
-"Anforderungen für die Wirksamkeit dieser Maßnahmen angeben."
+msgstr "Nachdem Sie entschieden haben, wie ein bestimmtes Risiko beseitigt oder reduziert werden kann, beschreiben Sie die spezifischen Handlungsanweisungen, die zur Erreichung dessen erforderlich sind. Sie sollten auch Details zum benötigten Fachwissen und/oder anderen Anforderungen für die Wirksamkeit dieser Maßnahmen angeben."
 
 #. Default: "No risks were identified. Please proceed directly to the report."
 #: euphorie/client/browser/templates/actionplan.pt:54
 msgid "expl_actionplan_empty"
-msgstr ""
-"Es wurden keine Gefährdungen ermittelt. Fahren Sie direkt mit dem Bericht "
-"fort."
+msgstr "Es wurden keine Gefährdungen ermittelt. Fahren Sie direkt mit dem Bericht fort."
 
 #. Default: "We're sorry, but an unforseen error has occured."
 #: euphorie/client/browser/templates/error.pt:22
@@ -3330,44 +2823,32 @@ msgstr "Die von Ihnen angeforderte Seite konnte nicht gefunden werden."
 #. may be asked to:"
 #: euphorie/client/browser/templates/profile.pt:24
 msgid "expl_profile"
-msgstr ""
-"Um die Gefährdungsbeurteilung an Ihre Organisation anzupassen, kann die "
-"Beantwortung folgender Fragen erforderlich sein:"
+msgstr "Um die Gefährdungsbeurteilung an Ihre Organisation anzupassen, kann die Beantwortung folgender Fragen erforderlich sein:"
 
 #. Default: "select or skip situation(s) relevant or not to your business
 #. activity and tick the box(es) if appropriate"
 #: euphorie/client/browser/templates/profile.pt:29
 msgid "expl_profile_bullet1"
-msgstr ""
-"Wählen Sie, abhängig davon, ob sie für Ihr Unternehmen zutreffend ist/sind, "
-"(eine) Gebenheit(en) aus oder überspringen Sie sie, und aktivieren Sie wenn "
-"zutreffend das/die Kontrollkästchen."
+msgstr "Wählen Sie, abhängig davon, ob sie für Ihr Unternehmen zutreffend ist/sind, (eine) Gebenheit(en) aus oder überspringen Sie sie, und aktivieren Sie wenn zutreffend das/die Kontrollkästchen."
 
 #. Default: "list multiple business units, or branches, or stores, etc. These
 #. related risks will be repeated for each name you have entered."
 #: euphorie/client/browser/templates/profile.pt:32
 msgid "expl_profile_bullet2"
-msgstr ""
-"Zählen Sie mehrere Geschäftseinheiten, Niederlassungen oder Geschäfte usw. "
-"auf. Diese verwandten Gefährdungen werden für jeden von Ihnen eingetragenen "
-"Namen wiederholt."
+msgstr "Zählen Sie mehrere Geschäftseinheiten, Niederlassungen oder Geschäfte usw. auf. Diese verwandten Gefährdungen werden für jeden von Ihnen eingetragenen Namen wiederholt."
 
 #. Default: "This OiRA tool has changed since you last accessed it. Before you
 #. can continue, you need to update to these changes."
 #: euphorie/client/browser/templates/updated.pt:24
 msgid "expl_update"
-msgstr ""
-"Dieses OiRA-Tool wurde aktualisiert. Bevor Sie fortfahren, müssen alle "
-"Änderungen im OiRA-Tool in Ihrer Sitzung zusammengeführt werden."
+msgstr "Dieses OiRA-Tool wurde aktualisiert. Bevor Sie fortfahren, müssen alle Änderungen im OiRA-Tool in Ihrer Sitzung zusammengeführt werden."
 
 #. Default: "This risk was automatically set as being present. You cannot
 #. change this."
 #. AI-generated
 #: euphorie/client/browser/templates/webhelpers.pt:290
 msgid "explanation_risk_always_present"
-msgstr ""
-"Dieses Risiko wurde automatisch als vorhanden eingestuft. Sie können dies "
-"nicht ändern."
+msgstr "Dieses Risiko wurde automatisch als vorhanden eingestuft. Sie können dies nicht ändern."
 
 #. Default: "Try any of the tools below anonymously by clicking on the button
 #. 'Test session' of the tool of your choice. In a test session you cannot
@@ -3376,11 +2857,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/surveys.pt:32
 msgid "explanation_try_oira"
-msgstr ""
-"Probieren Sie eines der unten aufgeführten Tools anonym aus, indem Sie auf "
-"die Schaltfläche 'Testsession' des Tools Ihrer Wahl klicken. In einer "
-"Testsession können Sie Ihre Arbeit nicht speichern. Alle Fortschritte gehen "
-"verloren, es sei denn, Sie ${label_link_register}."
+msgstr "Probieren Sie eines der unten aufgeführten Tools anonym aus, indem Sie auf die Schaltfläche 'Testsession' des Tools Ihrer Wahl klicken. In einer Testsession können Sie Ihre Arbeit nicht speichern. Alle Fortschritte gehen verloren, es sei denn, Sie ${label_link_register}."
 
 #. AI-generated
 #: euphorie/client/browser/session.py:477
@@ -3470,11 +2947,7 @@ msgstr "Regelmäßig"
 #. link at the top right of the page."
 #: euphorie/client/browser/templates/tooltips.pt:11
 msgid "guest_login_warning"
-msgstr ""
-"Sie nutzen das OiRA Tool probeweise in einer Test-Sitzung. Sie werden daher "
-"weder Ihren Fortschritt abspeichern können, noch Berichte herunterladen. Um "
-"Ihre Arbeit abzuspeichern, melden Sie sich an oder registrieren Sie sich, "
-"indem Sie auf “${link_sign_in}” rechts oben klicken."
+msgstr "Sie nutzen das OiRA Tool probeweise in einer Test-Sitzung. Sie werden daher weder Ihren Fortschritt abspeichern können, noch Berichte herunterladen. Um Ihre Arbeit abzuspeichern, melden Sie sich an oder registrieren Sie sich, indem Sie auf “${link_sign_in}” rechts oben klicken."
 
 #. Default: "Actions"
 #. AI-generated
@@ -3560,9 +3033,7 @@ msgstr "Beispiel für den Überblick der Gefährdungen in PDF Format"
 #. (.xlsx)"
 #: euphorie/client/browser/templates/register_session.pt:64
 msgid "header_example_report_xlsx"
-msgstr ""
-"Beispiel für einen Aktionsplan in Excel / Office Open XML Workbook Format "
-"(.xslx)"
+msgstr "Beispiel für einen Aktionsplan in Excel / Office Open XML Workbook Format (.xslx)"
 
 #. Default: "Feedback."
 #. AI-generated
@@ -3705,9 +3176,7 @@ msgstr "Tool-Navigation"
 #. AI-generated
 #: euphorie/client/docx/views.py:231
 msgid "header_present_risks"
-msgstr ""
-"Identifizierte Risiken, die bewertet wurden und über einen Aktionsplan "
-"verfügen"
+msgstr "Identifizierte Risiken, die bewertet wurden und über einen Aktionsplan verfügen"
 
 #. Default: "Preview OiRA Tool"
 #: euphorie/client/browser/templates/preview.pt:15
@@ -3802,9 +3271,7 @@ msgstr "Gefährdungen"
 #. AI-generated
 #: euphorie/client/docx/views.py:252
 msgid "header_risks_not_present"
-msgstr ""
-"Gefahren/Probleme, die gemanagt wurden oder in Ihrer Organisation nicht "
-"vorhanden sind"
+msgstr "Gefahren/Probleme, die gemanagt wurden oder in Ihrer Organisation nicht vorhanden sind"
 
 #. Default: "Search"
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:91
@@ -3892,8 +3359,7 @@ msgstr "Benutzer in ${country} verwalten"
 #. Default: "What is the OiRA (Online Interactive Risk Assessment) project"
 #: euphorie/client/browser/templates/about.pt:26
 msgid "header_what_is_oira"
-msgstr ""
-"Beschreibung des OiRA-Projekts (Interaktive Online-Gefährdungsbeurteilung)"
+msgstr "Beschreibung des OiRA-Projekts (Interaktive Online-Gefährdungsbeurteilung)"
 
 #. Default: "Why the OiRA project"
 #: euphorie/client/browser/templates/about.pt:81
@@ -4083,9 +3549,7 @@ msgstr "${num_present_risks} Vorhandene Gefährdungen"
 #. AI-generated
 #: euphorie/content/country.py:78
 msgid "help__default_reports"
-msgstr ""
-"Definieren Sie, welche Berichte dem Benutzer auf der Berichtsseite angeboten "
-"werden."
+msgstr "Definieren Sie, welche Berichte dem Benutzer auf der Berichtsseite angeboten werden."
 
 #. Default: "Define, which information sections should be open by default on a
 #. risk identification page. Sections not checked will be shown intially in
@@ -4093,11 +3557,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/content/country.py:50
 msgid "help__risk_default_collapsible_sections"
-msgstr ""
-"Definieren Sie, welche Informationsabschnitte standardmäßig auf einer Risiko-"
-"Identifikationsseite geöffnet sein sollten. Abschnitte, die nicht markiert "
-"sind, werden zunächst in zusammengeklappter Form angezeigt, der Benutzer "
-"kann diese Abschnitte jedoch jederzeit per Klick öffnen."
+msgstr "Definieren Sie, welche Informationsabschnitte standardmäßig auf einer Risiko-Identifikationsseite geöffnet sein sollten. Abschnitte, die nicht markiert sind, werden zunächst in zusammengeklappter Form angezeigt, der Benutzer kann diese Abschnitte jedoch jederzeit per Klick öffnen."
 
 #. Default: "This text should explain how to fill in the Action plan."
 #: euphorie/content/help.py:83
@@ -4114,10 +3574,7 @@ msgstr "Duplikat des ausgewählten OiRA-Tools erstellen"
 #. AI-generated
 #: euphorie/content/choice.py:26
 msgid "help_allow_multiple_options"
-msgstr ""
-"Wenn diese Option aktiv ist, werden Kontrollkästchen angezeigt, um mehr als "
-"eine Option auswählen zu können. Andernfalls werden Radiobuttons verwendet, "
-"um eine einzelne Auswahl zu erzwingen."
+msgstr "Wenn diese Option aktiv ist, werden Kontrollkästchen angezeigt, um mehr als eine Option auswählen zu können. Andernfalls werden Radiobuttons verwendet, um eine einzelne Auswahl zu erzwingen."
 
 #. Default: "This text should explain how to register and login."
 #: euphorie/content/help.py:33
@@ -4129,65 +3586,49 @@ msgstr "Dieser Text sollte den Registrierungs- und Anmeldevorgang beschreiben."
 #. able to modify the priority later."
 #: euphorie/client/browser/templates/webhelpers.pt:367
 msgid "help_calculated_evaluation"
-msgstr ""
-"Bitte beantworten Sie die folgenden Fragen. Aufgrund Ihrer Antworten wird "
-"die Priorität der Gefährdung berechnet. Sie können diese Priorität später im "
-"Aktionsplan anpassen, falls nötig."
+msgstr "Bitte beantworten Sie die folgenden Fragen. Aufgrund Ihrer Antworten wird die Priorität der Gefährdung berechnet. Sie können diese Priorität später im Aktionsplan anpassen, falls nötig."
 
 #. Default: "A code identifying this sector. Classification codes are defined
 #. by national standards bodies and based on revision 2 of the NACE standard."
 #: euphorie/content/survey.py:92
 msgid "help_classification_code"
-msgstr ""
-"Ein Code für diese Branche. Klassifizierungscodes werden von nationalen "
-"Normierungsstellen definiert und basieren auf der 2. Revision der NACE-Norm."
+msgstr "Ein Code für diese Branche. Klassifizierungscodes werden von nationalen Normierungsstellen definiert und basieren auf der 2. Revision der NACE-Norm."
 
 #. Default: "Select which optional elements are used in the compact report"
 #. AI-generated
 #: euphorie/content/country.py:111
 msgid "help_compact_report_options"
-msgstr ""
-"Wählen Sie, welche optionalen Elemente im kompakten Bericht verwendet werden"
+msgstr "Wählen Sie, welche optionalen Elemente im kompakten Bericht verwendet werden"
 
 #. Default: "Upload a file that contains additional information, like a PDF,
 #. Word document or spreadsheet. Optionally provide a descriptive caption for
 #. your file."
 #: euphorie/content/module.py:145 euphorie/content/risk.py:335
 msgid "help_content_upload"
-msgstr ""
-"Laden Sie eine Datei mit zusätzlicher Information hoch, wie z. B. eine PDF "
-"Datei oder ein Office Dokument. Optional können Sie auch eine Bezeichnung "
-"für die Datei angeben."
+msgstr "Laden Sie eine Datei mit zusätzlicher Information hoch, wie z. B. eine PDF Datei oder ein Office Dokument. Optional können Sie auch eine Bezeichnung für die Datei angeben."
 
 #. Default: "Start to write a new OiRA Tool. You will be asked whether you
 #. want to start off with a copy of an existing OiRA Tool."
 #: euphorie/deployment/tiles/templates/versions.pt:111
 msgid "help_create_new_version"
-msgstr ""
-"Bevor Sie beginnen, ein neues OiRA-Tool zu schreiben, werden Sie gefragt, ob "
-"Sie dies basierend auf der Kopie eines bestehenden OiRA-Tools tun möchten ..."
+msgstr "Bevor Sie beginnen, ein neues OiRA-Tool zu schreiben, werden Sie gefragt, ob Sie dies basierend auf der Kopie eines bestehenden OiRA-Tools tun möchten ..."
 
 #. Default: "Indicate how often this risk occurs in a normal situation."
 #: euphorie/client/browser/risk.py:917 euphorie/content/risk.py:444
 msgid "help_default_frequency"
-msgstr ""
-"Geben Sie an, wie oft diese Gefährdung unter normalen Bedingungen auftritt."
+msgstr "Geben Sie an, wie oft diese Gefährdung unter normalen Bedingungen auftritt."
 
 #. Default: "You can help the end-user by selecting a default priority. He/she
 #. can still change the priority."
 #: euphorie/content/risk.py:223
 msgid "help_default_priority"
-msgstr ""
-"Sie können den Endnutzer durch die Wahl einer Standardpriorität "
-"unterstützen. Er/sie hat die Möglichkeit, die Priorität zu ändern."
+msgstr "Sie können den Endnutzer durch die Wahl einer Standardpriorität unterstützen. Er/sie hat die Möglichkeit, die Priorität zu ändern."
 
 #. Default: "Indicate how likely occurence of this risk is in a normal
 #. situation."
 #: euphorie/client/browser/risk.py:912 euphorie/content/risk.py:479
 msgid "help_default_probability"
-msgstr ""
-"Geben Sie an, wie wahrscheinlich das Auftreten der Gefährdung unter normalen "
-"Bedingungen ist."
+msgstr "Geben Sie an, wie wahrscheinlich das Auftreten der Gefährdung unter normalen Bedingungen ist."
 
 #. Default: "Indicate the severity if this risk occurs."
 #: euphorie/client/browser/risk.py:921 euphorie/content/risk.py:415
@@ -4199,9 +3640,7 @@ msgstr "Geben Sie den Schweregrad für das Eintreten dieser Gefährdung an."
 #. AI-generated
 #: euphorie/content/country.py:156
 msgid "help_enable_consultancy_country"
-msgstr ""
-"Wenn diese Option aktiviert ist, können Bewertungen von Beratern überprüft "
-"und validiert werden."
+msgstr "Wenn diese Option aktiviert ist, können Bewertungen von Beratern überprüft und validiert werden."
 
 #. Default: "Offer to send an email reminder about this tool"
 #. AI-generated
@@ -4216,42 +3655,30 @@ msgstr "Bieten Sie an, eine E-Mail-Erinnerung über dieses Tool zu senden"
 #. AI-generated
 #: euphorie/content/survey.py:166
 msgid "help_enable_web_training"
-msgstr ""
-"Wenn diese Option aktiviert ist, können Nutzer ein Online-Training mit "
-"diesem OiRA-Tool absolvieren. Ein erfolgreich absolviertes Training wird "
-"aufgezeichnet und mit einem Zertifikat auf dem Dashboard des Nutzers "
-"angezeigt. Sie werden aufgefordert, Schulungsfragen für die Abschlussprüfung "
-"zu stellen."
+msgstr "Wenn diese Option aktiviert ist, können Nutzer ein Online-Training mit diesem OiRA-Tool absolvieren. Ein erfolgreich absolviertes Training wird aufgezeichnet und mit einem Zertifikat auf dem Dashboard des Nutzers angezeigt. Sie werden aufgefordert, Schulungsfragen für die Abschlussprüfung zu stellen."
 
 #. Default: "If this option is activated, an online training can be enabled on
 #. OiRA tools in this country."
 #. AI-generated
 #: euphorie/content/country.py:145
 msgid "help_enable_web_training_country"
-msgstr ""
-"Wenn diese Option aktiviert ist, kann ein Online-Training mit OiRA-Tools in "
-"diesem Land ermöglicht werden."
+msgstr "Wenn diese Option aktiviert ist, kann ein Online-Training mit OiRA-Tools in diesem Land ermöglicht werden."
 
 #. Default: "This text should explain how to evaluate the identified risks."
 #: euphorie/content/help.py:73
 msgid "help_evaluation"
-msgstr ""
-"Dieser Text sollte die Bewertung der ermittelten Gefährdungen beschreiben."
+msgstr "Dieser Text sollte die Bewertung der ermittelten Gefährdungen beschreiben."
 
 #. Default: "Select 'estimated' if calcuation is not necessary or not
 #. possible."
 #: euphorie/content/risk.py:183
 msgid "help_evaluation_method"
-msgstr ""
-"Wählen Sie “Schätzung” falls eine Berechnung nicht notwendig oder möglich "
-"ist."
+msgstr "Wählen Sie “Schätzung” falls eine Berechnung nicht notwendig oder möglich ist."
 
 #. Default: "This option allows users to skip the evaluation phase."
 #: euphorie/content/survey.py:75
 msgid "help_evaluation_optional"
-msgstr ""
-"Mithilfe dieser Option kann der Endnutzer den Schritt der Bewertung "
-"überspringen."
+msgstr "Mithilfe dieser Option kann der Endnutzer den Schritt der Bewertung überspringen."
 
 #. Default: "Use this field to define (common) measures that the user might
 #. have already implemented. Separate measures with a line break (Enter). The
@@ -4260,11 +3687,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/content/risk.py:110
 msgid "help_existing_measures"
-msgstr ""
-"Verwenden Sie dieses Feld, um (allgemeine) Maßnahmen zu definieren, die der "
-"Benutzer möglicherweise bereits umgesetzt hat. Trennen Sie Maßnahmen mit "
-"einem Zeilenumbruch (Enter). Der Benutzer wird in der Lage sein, diejenigen "
-"Maßnahmen abzuwählen, die auf seine Situation nicht zutreffen."
+msgstr "Verwenden Sie dieses Feld, um (allgemeine) Maßnahmen zu definieren, die der Benutzer möglicherweise bereits umgesetzt hat. Trennen Sie Maßnahmen mit einem Zeilenumbruch (Enter). Der Benutzer wird in der Lage sein, diejenigen Maßnahmen abzuwählen, die auf seine Situation nicht zutreffen."
 
 #. Default: "General final recommendations."
 #: euphorie/content/help.py:103
@@ -4326,9 +3749,7 @@ msgstr "Allgemeine Informationen zur Gefährdungsbeurteilung"
 #. AI-generated
 #: euphorie/content/behaviors/hide_from_training.py:13
 msgid "help_hide_from_training"
-msgstr ""
-"Schließen Sie dieses Modul nicht in die Schulung ein, z.B. wenn das Modul "
-"für die Arbeitskräfte keine Relevanz hat."
+msgstr "Schließen Sie dieses Modul nicht in die Schulung ein, z.B. wenn das Modul für die Arbeitskräfte keine Relevanz hat."
 
 #. Default: "This text should explain how the risk identification works."
 #: euphorie/content/help.py:63
@@ -4340,9 +3761,7 @@ msgstr "Dieser Text sollte die Gefährdungsermittlung beschreiben."
 #. (width) x 430 (height) pixels."
 #: euphorie/content/module.py:99 euphorie/content/risk.py:253
 msgid "help_image_upload"
-msgstr ""
-"Laden Sie ein Bild hoch. Die Datei muss im PNG-, JPG- oder GIF-Format sein, "
-"und der Dateiname darf keine Sonderzeichen enthalten."
+msgstr "Laden Sie ein Bild hoch. Die Datei muss im PNG-, JPG- oder GIF-Format sein, und der Dateiname darf keine Sonderzeichen enthalten."
 
 #. Default: "Help"
 #. AI-generated
@@ -4357,11 +3776,7 @@ msgstr "Hilfe"
 #. AI-generated
 #: euphorie/content/sector.py:72
 msgid "help_logo_upload"
-msgstr ""
-"Das Logo wird auf der Branchenübersichtsseite Ihres Landes angezeigt. "
-"Stellen Sie sicher, dass Ihr Bild im Format png, jpg oder gif vorliegt und "
-"keine Sonderzeichen enthält. Das neue Logo wird erst sichtbar, nachdem Sie "
-"Ihre Änderungen gespeichert und das OiRA-Tool veröffentlicht haben."
+msgstr "Das Logo wird auf der Branchenübersichtsseite Ihres Landes angezeigt. Stellen Sie sicher, dass Ihr Bild im Format png, jpg oder gif vorliegt und keine Sonderzeichen enthält. Das neue Logo wird erst sichtbar, nachdem Sie Ihre Änderungen gespeichert und das OiRA-Tool veröffentlicht haben."
 
 #. Default: "Describe your general approach to eliminate or (if the risk is
 #. not avoidable) reduce the risk. + Describe the specific action(s) required
@@ -4369,29 +3784,19 @@ msgstr ""
 #. AI-generated
 #: euphorie/content/solution.py:73
 msgid "help_measure_action"
-msgstr ""
-"Beschreiben Sie Ihren allgemeinen Ansatz zur Beseitigung oder (wenn das "
-"Risiko nicht vermeidbar ist) zur Reduzierung des Risikos. + Beschreiben Sie "
-"die spezifischen Handlungsanweisungen, die zur Umsetzung dieses Ansatzes "
-"(zur Beseitigung oder Reduzierung des Risikos) erforderlich sind."
+msgstr "Beschreiben Sie Ihren allgemeinen Ansatz zur Beseitigung oder (wenn das Risiko nicht vermeidbar ist) zur Reduzierung des Risikos. + Beschreiben Sie die spezifischen Handlungsanweisungen, die zur Umsetzung dieses Ansatzes (zur Beseitigung oder Reduzierung des Risikos) erforderlich sind."
 
 #. Default: "Describe your general approach to eliminate or (if the risk is
 #. not avoidable) reduce the risk."
 #: euphorie/content/solution.py:43
 msgid "help_measure_action_plan"
-msgstr ""
-"Beschreiben Sie Ihre allgemeine Vorgehensweise zur Vermeidung bzw. "
-"Reduzierung (wenn sich die Gefährdung nicht vermeiden lässt) einer "
-"Gefährdung."
+msgstr "Beschreiben Sie Ihre allgemeine Vorgehensweise zur Vermeidung bzw. Reduzierung (wenn sich die Gefährdung nicht vermeiden lässt) einer Gefährdung."
 
 #. Default: "Describe the specific action(s) required to implement this
 #. approach (to eliminate or to reduce the risk)."
 #: euphorie/content/solution.py:56
 msgid "help_measure_prevention_plan"
-msgstr ""
-"Beschreiben Sie die einzelne(n) Aktion(en), die zur Umsetzung dieser "
-"Vorgehensweise erforderlich ist/sind (zur Vermeidung bzw. Reduzierung der "
-"Gefährdung)."
+msgstr "Beschreiben Sie die einzelne(n) Aktion(en), die zur Umsetzung dieser Vorgehensweise erforderlich ist/sind (zur Vermeidung bzw. Reduzierung der Gefährdung)."
 
 #. Default: "Describe the level of expertise needed to implement the measure,
 #. for instance \"common sense (no OSH knowledge required)\", \"no specific
@@ -4400,40 +3805,27 @@ msgstr ""
 #. other additional requirement (if any)."
 #: euphorie/content/solution.py:91
 msgid "help_measure_requirements"
-msgstr ""
-"Beschreiben Sie die erforderlichen Fachkenntnisse, um die Maßnahme "
-"umzusetzen, zum Beispiel „gesunder Menschenverstand (keine OSH-Kenntnisse "
-"erforderlich)“, „keine spezifischen OSH-Kenntnisse, jedoch ein Mindestmaß an "
-"OSH-Kenntnissen bzw. -Schulung und/oder Inanspruchnahme von OSH-Anleitung "
-"erforderlich“ oder „OSH-Fachkraft“. Wenn zutreffend, können Sie hier auch "
-"weitere zusätzliche Anforderungen beschreiben."
+msgstr "Beschreiben Sie die erforderlichen Fachkenntnisse, um die Maßnahme umzusetzen, zum Beispiel „gesunder Menschenverstand (keine OSH-Kenntnisse erforderlich)“, „keine spezifischen OSH-Kenntnisse, jedoch ein Mindestmaß an OSH-Kenntnissen bzw. -Schulung und/oder Inanspruchnahme von OSH-Anleitung erforderlich“ oder „OSH-Fachkraft“. Wenn zutreffend, können Sie hier auch weitere zusätzliche Anforderungen beschreiben."
 
 #. Default: "Include any relevant information that may be helpful for the end-
 #. user."
 #: euphorie/content/module.py:52 euphorie/content/page.py:17
 #: euphorie/content/solution.py:29
 msgid "help_module_description"
-msgstr ""
-"Stellen Sie alle Informationen zur Verfügung, die für den Endnutzer "
-"hilfreich sein könnten."
+msgstr "Stellen Sie alle Informationen zur Verfügung, die für den Endnutzer hilfreich sein könnten."
 
 #. Default: "Allows the end-user to skip this module and everything inside
 #. it."
 #: euphorie/content/module.py:76
 msgid "help_module_optional"
-msgstr ""
-"Mithilfe dieser Option kann der Endnutzer dieses Modul komplett überspringen."
+msgstr "Mithilfe dieser Option kann der Endnutzer dieses Modul komplett überspringen."
 
 #. Default: "The question to ask the end-user if this module is optional. It
 #. must be formulated so that it is answerable with YES (the end-user will
 #. have to tick a box) or NO"
 #: euphorie/content/module.py:88
 msgid "help_module_question"
-msgstr ""
-"Frage, die dem Endnutzer gestellt wird, wenn es sich um ein optionales Modul "
-"handelt. Sie muss als Entscheidungsfrage formuliert sein, sodass sie mit JA "
-"(Endnutzer muss ein Kontrollkästchen aktivieren) oder NEIN beantwortet "
-"werden kann."
+msgstr "Frage, die dem Endnutzer gestellt wird, wenn es sich um ein optionales Modul handelt. Sie muss als Entscheidungsfrage formuliert sein, sodass sie mit JA (Endnutzer muss ein Kontrollkästchen aktivieren) oder NEIN beantwortet werden kann."
 
 #. Default: "If this module is used as part of an inventory tool,
 #. thisrecommendation text will be used as in introduction in the reportbefore
@@ -4441,10 +3833,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/content/module.py:64
 msgid "help_module_recommendation"
-msgstr ""
-"Wenn dieses Modul als Teil eines Bestands-Tools verwendet wird, wird dieser "
-"Empfehlungstext als Einleitung in den Bericht vor den einzelnen Empfehlungen "
-"verwendet."
+msgstr "Wenn dieses Modul als Teil eines Bestands-Tools verwendet wird, wird dieser Empfehlungstext als Einleitung in den Bericht vor den einzelnen Empfehlungen verwendet."
 
 #. Default: "Please enter the number of questions to be shown at the end of
 #. your training session. If the number is lower than the number of existing
@@ -4453,11 +3842,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/content/survey.py:191
 msgid "help_num_training_questions"
-msgstr ""
-"Bitte geben Sie die Anzahl der Fragen ein, die am Ende Ihrer "
-"Schulungssitzung angezeigt werden sollen. Wenn die Zahl niedriger ist als "
-"die Anzahl der vorhandenen Fragen, werden die Fragen zufällig ausgewählt. "
-"Leeren Sie das Feld, um alle Fragen anzuzeigen."
+msgstr "Bitte geben Sie die Anzahl der Fragen ein, die am Ende Ihrer Schulungssitzung angezeigt werden sollen. Wenn die Zahl niedriger ist als die Anzahl der vorhandenen Fragen, werden die Fragen zufällig ausgewählt. Leeren Sie das Feld, um alle Fragen anzuzeigen."
 
 #. Default: "The password needs to be at least 12 characters long and needs to
 #. contain at least one lower case letter, one upper case letter and one
@@ -4466,16 +3851,12 @@ msgstr ""
 #: euphorie/client/browser/templates/login.pt:216
 #: euphorie/client/browser/templates/register_session.pt:203
 msgid "help_password_requirements"
-msgstr ""
-"Das Passwort muss mindestens 12 Zeichen lang sein und mindestens einen "
-"Kleinbuchstaben, einen Großbuchstaben und eine Ziffer enthalten."
+msgstr "Das Passwort muss mindestens 12 Zeichen lang sein und mindestens einen Kleinbuchstaben, einen Großbuchstaben und eine Ziffer enthalten."
 
 #. Default: "This text should explain the 2 types of profile questions."
 #: euphorie/content/help.py:53
 msgid "help_preparation"
-msgstr ""
-"Dieser Text sollte die zwei unterschiedlichen Typen von Profilfragen "
-"beschreiben."
+msgstr "Dieser Text sollte die zwei unterschiedlichen Typen von Profilfragen beschreiben."
 
 #. Default: "The preview will be available at ${url}."
 #: euphorie/client/browser/templates/preview.pt:29
@@ -4486,9 +3867,7 @@ msgstr "Die Vorschau ist unter ${url} verfügbar."
 #. building is not well maintained.)"
 #: euphorie/content/risk.py:81
 msgid "help_problem_description"
-msgstr ""
-"Dies ist die Umkehrung einer positiven Aussage (z. B. „Das Gebäude ist in "
-"keinem guten Zustand.“)."
+msgstr "Dies ist die Umkehrung einer positiven Aussage (z. B. „Das Gebäude ist in keinem guten Zustand.“)."
 
 #. Default: "Publish the selected OiRA Tool live with its latest changes."
 #: euphorie/deployment/tiles/templates/versions.pt:34
@@ -4498,8 +3877,7 @@ msgstr "Schalten Sie das OiRA-Tool inklusive der letzten Änderungen live."
 #. Default: "After publication the OiRA Tool will be available at ${url}."
 #: euphorie/client/browser/templates/publish.pt:45
 msgid "help_publish_url"
-msgstr ""
-"Nach der Veröffentlichung steht das OiRA-Tool unter ${url} zur Verfügung."
+msgstr "Nach der Veröffentlichung steht das OiRA-Tool unter ${url} zur Verfügung."
 
 #. Default: "Text to be included in the report"
 #. AI-generated
@@ -4511,35 +3889,26 @@ msgstr "Text, der in den Bericht aufgenommen werden soll"
 #. printed."
 #: euphorie/content/help.py:93
 msgid "help_reports"
-msgstr ""
-"Dieser Text sollte das Speichern bzw. Drucken des Berichts beschreiben."
+msgstr "Dieser Text sollte das Speichern bzw. Drucken des Berichts beschreiben."
 
 #. Default: "Describe the risk. Include any relevant information that may be
 #. helpful for the end-user."
 #: euphorie/content/risk.py:93
 msgid "help_risk_description"
-msgstr ""
-"Beschreiben Sie die Gefährdung. Stellen Sie alle Informationen zur "
-"Verfügung, die für den Endnutzer hilfreich sein können."
+msgstr "Beschreiben Sie die Gefährdung. Stellen Sie alle Informationen zur Verfügung, die für den Endnutzer hilfreich sein können."
 
 #. Default: "\"Priority risk\" is one of the high risks in the sector.
 #. \"Risk\" is related to the workplace or to the work carried out. \"Policy\"
 #. refers to agreements, procedures, and management decisions."
 #: euphorie/content/risk.py:148
 msgid "help_risk_type"
-msgstr ""
-"Die „Prioritätsgefährdung“ ist eine der Gefährdungen mit hohem Risiko in der "
-"Branche. „Gefährdung“ bezieht sich auf Gefährdungen am Arbeitsplatz oder "
-"solche, die mit der auszuführenden Arbeit verbunden sind. „Firmenpolitik“ "
-"bezieht sich auf Vereinbarungen, Abläufe und Entscheidungen der "
-"Unternehmensleitung."
+msgstr "Die „Prioritätsgefährdung“ ist eine der Gefährdungen mit hohem Risiko in der Branche. „Gefährdung“ bezieht sich auf Gefährdungen am Arbeitsplatz oder solche, die mit der auszuführenden Arbeit verbunden sind. „Firmenpolitik“ bezieht sich auf Vereinbarungen, Abläufe und Entscheidungen der Unternehmensleitung."
 
 #. Default: "If you do not specify a title it will be taken from the input
 #. file."
 #: euphorie/content/browser/upload.py:142
 msgid "help_sector_title"
-msgstr ""
-"Wenn Sie keinen Namen angeben, wird ein Name aus der Eingabedatei übernommen."
+msgstr "Wenn Sie keinen Namen angeben, wird ein Name aus der Eingabedatei übernommen."
 
 #. Default: "This text should describe the main functions of the OiRA Tool."
 #: euphorie/content/help.py:43
@@ -4556,21 +3925,14 @@ msgstr "Option „nicht anwendbar“ zusätzlich zu ja/nein anzeigen."
 #. include an overview of general solution(s) related to this module."
 #: euphorie/content/module.py:113
 msgid "help_solution_direction"
-msgstr ""
-"Diese Informationen werden beim Schritt „Aktionsplan“ angezeigt und sollten "
-"eine Übersicht der häufig angewendeten Lösung(en) bezüglich des Moduls "
-"enthalten."
+msgstr "Diese Informationen werden beim Schritt „Aktionsplan“ angezeigt und sollten eine Übersicht der häufig angewendeten Lösung(en) bezüglich des Moduls enthalten."
 
 #. Default: "Start based on an existing risk assessment. All content of the
 #. existing risk assessment will be copied over into the new risk assessment,
 #. which you can edit and augment at will."
 #: euphorie/client/browser/templates/new-session.pt:58
 msgid "help_start_base_on_existing"
-msgstr ""
-"Beginnen Sie auf der Grundlage einer bestehenden Gefährdungsbeurteilung. Der "
-"gesamte Inhalt der bestehenden Gefährdungsbeurteilung wird in die neue "
-"Gefährdungsbeurteilung kopiert, die Sie nach Belieben bearbeiten und "
-"ergänzen können."
+msgstr "Beginnen Sie auf der Grundlage einer bestehenden Gefährdungsbeurteilung. Der gesamte Inhalt der bestehenden Gefährdungsbeurteilung wird in die neue Gefährdungsbeurteilung kopiert, die Sie nach Belieben bearbeiten und ergänzen können."
 
 #. Default: "Start from scratch with an empty risk assessment."
 #: euphorie/client/browser/templates/new-session.pt:52
@@ -4581,9 +3943,7 @@ msgstr "Startet ganz von vorne mit einer neuen GBU."
 #. The building is well maintained.)"
 #: euphorie/content/risk.py:69
 msgid "help_statement"
-msgstr ""
-"Dies ist eine kurze positive Aussage über eine mögliche Gefährdung (z. B. "
-"„Das Gebäude ist in gutem Zustand.“)."
+msgstr "Dies ist eine kurze positive Aussage über eine mögliche Gefährdung (z. B. „Das Gebäude ist in gutem Zustand.“)."
 
 #. Default: "This method involves risk assessment by Severity x Exposure,
 #. whereas these have to be understood as follows; Severity of injury linked
@@ -4591,11 +3951,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/content/surveygroup.py:94
 msgid "help_survey_evaluation_algorithm_simplified"
-msgstr ""
-"Diese Methode beinhaltet eine Risikobewertung durch Schweregrad x "
-"Exposition, wobei diese wie folgt verstanden werden müssen; Schweregrad der "
-"Verletzung in Verbindung mit der Gefahr - Exposition (Häufigkeit) gegenüber "
-"der Gefahr"
+msgstr "Diese Methode beinhaltet eine Risikobewertung durch Schweregrad x Exposition, wobei diese wie folgt verstanden werden müssen; Schweregrad der Verletzung in Verbindung mit der Gefahr - Exposition (Häufigkeit) gegenüber der Gefahr"
 
 #. Default: "This method involves risk assessment by Severity x Exposure x
 #. Probability, whereas these have to be understood as follows; Severity of
@@ -4604,41 +3960,30 @@ msgstr ""
 #. AI-generated
 #: euphorie/content/surveygroup.py:75
 msgid "help_survey_evaluation_algorithm_standard"
-msgstr ""
-"Diese Methode beinhaltet eine Risikobewertung durch Schweregrad x Exposition "
-"x Wahrscheinlichkeit, wobei diese wie folgt verstanden werden müssen; "
-"Schweregrad der Verletzung in Verbindung mit der Gefahr - Exposition "
-"(Häufigkeit) gegenüber der Gefahr - Wahrscheinlichkeit des Eintritts der "
-"Gefahr bei Exposition"
+msgstr "Diese Methode beinhaltet eine Risikobewertung durch Schweregrad x Exposition x Wahrscheinlichkeit, wobei diese wie folgt verstanden werden müssen; Schweregrad der Verletzung in Verbindung mit der Gefahr - Exposition (Häufigkeit) gegenüber der Gefahr - Wahrscheinlichkeit des Eintritts der Gefahr bei Exposition"
 
 #. Default: "This OiRA Tool is obsolete; it has been retired or replaced with
 #. another OiRA Tool."
 #: euphorie/content/surveygroup.py:54
 msgid "help_survey_obsolete"
-msgstr ""
-"This survey is obsolete; it has been retired or replaced with another survey."
+msgstr "This survey is obsolete; it has been retired or replaced with another survey."
 
 #. Default: "This is the title of this OiRA Tool version. This name is never
 #. shown to users."
 #: euphorie/content/survey.py:49
 msgid "help_survey_title"
-msgstr ""
-"Dies ist der Name dieser OiRA-Tool-Version. Er wird den Benutzern nicht "
-"angezeigt."
+msgstr "Dies ist der Name dieser OiRA-Tool-Version. Er wird den Benutzern nicht angezeigt."
 
 #. Default: "The title of this OiRA Tool. This title is used in the OiRA Tool
 #. overview in the clients."
 #: euphorie/content/surveygroup.py:41
 msgid "help_surveygroup_title"
-msgstr ""
-"Name dieses OiRA-Tools. Dieser Name wird in der Übersicht der OiRA-Tools in "
-"den Clients angezeigt."
+msgstr "Name dieses OiRA-Tools. Dieser Name wird in der Übersicht der OiRA-Tools in den Clients angezeigt."
 
 #. Default: "If you do not specify a title it will be taken from the input."
 #: euphorie/content/browser/upload.py:158
 msgid "help_upload_surveygroup_title"
-msgstr ""
-"Wenn Sie keinen Namen angeben, wird ein Name aus der Eingabedatei übernommen."
+msgstr "Wenn Sie keinen Namen angeben, wird ein Name aus der Eingabedatei übernommen."
 
 #. Default: "Dashboard"
 #. AI-generated
@@ -4656,10 +4001,7 @@ msgstr "Sind die bereits bestehenden Schutzmaßnahmen ausreichend?"
 #. check and try again or ${request_an_email_reminder}."
 #: euphorie/client/browser/templates/login.pt:73
 msgid "incorrect_login"
-msgstr ""
-"Sie haben einen falschen Namen und/oder ein falsches Passwort eingegeben. "
-"Bitte überprüfen Sie Ihre Eingabe, und versuchen Sie es erneut, oder $"
-"{request_an_email_reminder} mit Ihren Anmeldeinformationen an."
+msgstr "Sie haben einen falschen Namen und/oder ein falsches Passwort eingegeben. Bitte überprüfen Sie Ihre Eingabe, und versuchen Sie es erneut, oder ${request_an_email_reminder} mit Ihren Anmeldeinformationen an."
 
 #. Default: "The menu toggle lets you hide and show the risk assessment
 #. browser to find previously made risk assessments. Hide the menu when you
@@ -4667,20 +4009,13 @@ msgstr ""
 #. clicking about between various parts of the application."
 #: euphorie/client/browser/templates/tooltips.pt:52
 msgid "info_osh_hamburger"
-msgstr ""
-"Mit diesem Umschalter können Sie das übergeordnete Menü (mit der "
-"Hauptnavigation) ausblenden und wieder anzeigen. Verstecken Sie das Menü, "
-"wenn Sie sich auf das Ausfüllen des Fragenkatalogs oder des Aktionsplans "
-"konzentrieren, und zeigen Sie es wieder an, wenn Sie zwischen den "
-"verschiedenen Teilen und Phasen des OiRA Tools wechseln wollen."
+msgstr "Mit diesem Umschalter können Sie das übergeordnete Menü (mit der Hauptnavigation) ausblenden und wieder anzeigen. Verstecken Sie das Menü, wenn Sie sich auf das Ausfüllen des Fragenkatalogs oder des Aktionsplans konzentrieren, und zeigen Sie es wieder an, wenn Sie zwischen den verschiedenen Teilen und Phasen des OiRA Tools wechseln wollen."
 
 #. Default: "The new off canvas menu provides access to the core functions of
 #. the applications. Also on mobile!"
 #: euphorie/client/browser/templates/tooltips.pt:80
 msgid "info_osh_menu"
-msgstr ""
-"Dieses übergeordnete Menü ermöglicht den schnellen Zugriff auf die Phasen "
-"und wichtigsten Funktionen des OiRA Tools. Auch auf Mobilgeräten!"
+msgstr "Dieses übergeordnete Menü ermöglicht den schnellen Zugriff auf die Phasen und wichtigsten Funktionen des OiRA Tools. Auch auf Mobilgeräten!"
 
 #. Default: "The risk assessment browser allows you to find risk assessments
 #. that were previously made by you. Start a new risk assessment by clicking
@@ -4690,12 +4025,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/tooltips.pt:110
 msgid "info_osh_ra_browser"
-msgstr ""
-"Der Risikobewertungs-Browser ermöglicht es Ihnen, Risikobewertungen zu "
-"finden, die Sie zuvor erstellt haben. Starten Sie eine neue Risikobewertung, "
-"indem Sie auf das '+&rsquo; klicken, oder machen Sie eine Kopie einer "
-"bestehenden Risikobewertung, indem Sie auf das Dreipunktsymbol neben einer "
-"Risikobewertung klicken und '&lsquo;kopieren&rsquo;' auswählen."
+msgstr "Der Risikobewertungs-Browser ermöglicht es Ihnen, Risikobewertungen zu finden, die Sie zuvor erstellt haben. Starten Sie eine neue Risikobewertung, indem Sie auf das '+&rsquo; klicken, oder machen Sie eine Kopie einer bestehenden Risikobewertung, indem Sie auf das Dreipunktsymbol neben einer Risikobewertung klicken und '&lsquo;kopieren&rsquo;' auswählen."
 
 #. Default: "From this menu you can start a new session of an OiRA tool, or
 #. pick up a previous session to continue working on it. If you do not have an
@@ -4703,11 +4033,7 @@ msgstr ""
 #. it out immediately."
 #: euphorie/client/browser/templates/tooltips.pt:89
 msgid "info_osh_session_menu"
-msgstr ""
-"In diesem Menü können Sie eine neue Sitzung eines OiRA Tools starten, oder "
-"eine bereits vorhandene Sitzung auswählen, um diese weiter zu bearbeiten. "
-"Falls Sie noch keine Benutzerkonto haben, können Sie auch sofort eine Test-"
-"Sitzung beginnen."
+msgstr "In diesem Menü können Sie eine neue Sitzung eines OiRA Tools starten, oder eine bereits vorhandene Sitzung auswählen, um diese weiter zu bearbeiten. Falls Sie noch keine Benutzerkonto haben, können Sie auch sofort eine Test-Sitzung beginnen."
 
 #. Default: "This menu lets you navigate over all steps of your risk
 #. assessment. When you enter <em>Identification + Evaluation</em> or
@@ -4717,36 +4043,25 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/tooltips.pt:98
 msgid "info_osh_tool_navigation"
-msgstr ""
-"Dieses Menü ermöglicht Ihnen die Navigation durch alle Schritte Ihrer "
-"Risikobewertung. Wenn Sie <em>Identifikation + Bewertung</em> oder "
-"<em>Aktionsplan</em> eingeben, sehen Sie die Module und Risiken dieser "
-"Bewertung als Unternavigation. Mit der Navigation können Sie nach Belieben "
-"über alle Teile des Tools hin und her springen."
+msgstr "Dieses Menü ermöglicht Ihnen die Navigation durch alle Schritte Ihrer Risikobewertung. Wenn Sie <em>Identifikation + Bewertung</em> oder <em>Aktionsplan</em> eingeben, sehen Sie die Module und Risiken dieser Bewertung als Unternavigation. Mit der Navigation können Sie nach Belieben über alle Teile des Tools hin und her springen."
 
 #. Default: "The European Agency for Safety and Health at Work, European
 #. social partners, etc."
 #: euphorie/client/browser/templates/report_company.pt:168
 msgid "info_referer_eu_institution"
-msgstr ""
-"Europäische Agentur für Sicherheit und Gesundheitsschutz am Arbeitsplatz, "
-"Europäische Sozialpartner etc."
+msgstr "Europäische Agentur für Sicherheit und Gesundheitsschutz am Arbeitsplatz, Europäische Sozialpartner etc."
 
 #. Default: "Ministry, Labour Inspectorate, National Institute for Safety and
 #. Health at Work, etc."
 #: euphorie/client/browser/templates/report_company.pt:161
 msgid "info_referer_national_public_institution"
-msgstr ""
-"Ministerium, Gewerbeaufsichtsamt, Nationales Institut für Sicherheit und "
-"Gesundheitsschutz am Arbeitsplatz etc."
+msgstr "Ministerium, Gewerbeaufsichtsamt, Nationales Institut für Sicherheit und Gesundheitsschutz am Arbeitsplatz etc."
 
 #. Default: "You can register in one single step just by entering a valid
 #. email address."
 #: euphorie/client/browser/templates/tooltips.pt:40
 msgid "info_register1"
-msgstr ""
-"Sie können sich in nur einem Schritt durch Angabe einer gültigen E-"
-"mailadresse registrieren."
+msgstr "Sie können sich in nur einem Schritt durch Angabe einer gültigen E-mailadresse registrieren."
 
 #. Default: "Main benefits of having an account:"
 #: euphorie/client/browser/templates/tooltips.pt:41
@@ -4758,17 +4073,13 @@ msgstr "Die wichtigsten Vorteile, wenn Sie ein Benutzerkonto erstellen:"
 #. right on the toolbar."
 #: euphorie/client/browser/templates/tooltips.pt:61
 msgid "info_screen_help"
-msgstr ""
-"Sie können diese Bildschirmhilfe selbst jederzeit an- und ausschalten, indem "
-"Sie auf “Hilfstexte ein-/ ausschalten” rechts oben in der Menüleiste klicken."
+msgstr "Sie können diese Bildschirmhilfe selbst jederzeit an- und ausschalten, indem Sie auf “Hilfstexte ein-/ ausschalten” rechts oben in der Menüleiste klicken."
 
 #. Default: "Select an earlier session to complete or review or
 #. ${start_session}."
 #: euphorie/client/browser/templates/portlet-my-ras.pt:65
 msgid "info_select_session"
-msgstr ""
-"Wählen Sie eine frühere Sitzung zum Bearbeitung oder zur Ansicht aus oder $"
-"{start_session}."
+msgstr "Wählen Sie eine frühere Sitzung zum Bearbeitung oder zur Ansicht aus oder ${start_session}."
 
 #. Default: "You have completed ${completed}% of the risk assessment."
 #: euphorie/client/browser/templates/status-tooltip.pt:19
@@ -4783,8 +4094,7 @@ msgstr "Test-Sitzung"
 #. Default: "The form will allow you to create a new OiRA Tool revision."
 #: euphorie/content/browser/templates/survey_add.pt:12
 msgid "intro_add_survey"
-msgstr ""
-"Mithilfe des Formulars können Sie eine neue OiRA-Tool-Revision erstellen."
+msgstr "Mithilfe des Formulars können Sie eine neue OiRA-Tool-Revision erstellen."
 
 #. Default: "This form will allow you to create a new OiRA Tool."
 #: euphorie/content/browser/surveygroup.py:59
@@ -4794,9 +4104,7 @@ msgstr "Mithilfe dieses Formulars können Sie ein neues OiRA-Tool erstellen."
 #. Default: "Attach any additional content you consider helpful for the user"
 #: euphorie/content/module.py:126 euphorie/content/risk.py:316
 msgid "intro_additional_content"
-msgstr ""
-"Hier können Sie weitere Dateien (z. B. PDF, Office Dokumente, etc) "
-"hinzufügen, die Sie für nützlich halten."
+msgstr "Hier können Sie weitere Dateien (z. B. PDF, Office Dokumente, etc) hinzufügen, die Sie für nützlich halten."
 
 #. Default: "Workers or workers' representatives with specific responsibility
 #. for the safety and health of workers shall take part in a balanced way or
@@ -4805,11 +4113,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/default_introduction.pt:21
 msgid "intro_consultation_of_workers"
-msgstr ""
-"Arbeitnehmer oder Arbeitnehmervertreter mit spezieller Verantwortung für die "
-"Sicherheit und Gesundheit der Arbeitnehmer sollen auf ausgewogene Weise "
-"teilnehmen oder vom Arbeitgeber im Voraus und rechtzeitig in Bezug auf die "
-"Risikobewertung konsultiert werden."
+msgstr "Arbeitnehmer oder Arbeitnehmervertreter mit spezieller Verantwortung für die Sicherheit und Gesundheit der Arbeitnehmer sollen auf ausgewogene Weise teilnehmen oder vom Arbeitgeber im Voraus und rechtzeitig in Bezug auf die Risikobewertung konsultiert werden."
 
 #. Default: "Here you can manage the documentation for the ${client}."
 #: euphorie/content/browser/templates/documentation_view.pt:25
@@ -4825,9 +4129,7 @@ msgstr "Online-Client"
 #. details see the online manual."
 #: euphorie/content/risk.py:561
 msgid "intro_evaluation"
-msgstr ""
-"Sie können angeben, wie die Priorität der Gefährdungen bewertet wird. "
-"Weitere Informationen finden Sie in der Online-Anleitung."
+msgstr "Sie können angeben, wie die Priorität der Gefährdungen bewertet wird. Weitere Informationen finden Sie in der Online-Anleitung."
 
 #. Default: "The questions are divided into 3 parts. The first part is about
 #. identifying potential chemical risks in your company. The second part is
@@ -4836,19 +4138,13 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/identification.pt:30
 msgid "intro_identification_dsetool"
-msgstr ""
-"Die Fragen sind in 3 Teile gegliedert. Der erste Teil befasst sich mit der "
-"Identifizierung potenzieller chemischer Risiken in Ihrem Unternehmen. Der "
-"zweite Teil befasst sich mit den Routinen für das chemische "
-"Risikomanagement. Und der dritte Teil betrifft Kontrollmaßnahmen zur "
-"Reduzierung chemischer Risiken."
+msgstr "Die Fragen sind in 3 Teile gegliedert. Der erste Teil befasst sich mit der Identifizierung potenzieller chemischer Risiken in Ihrem Unternehmen. Der zweite Teil befasst sich mit den Routinen für das chemische Risikomanagement. Und der dritte Teil betrifft Kontrollmaßnahmen zur Reduzierung chemischer Risiken."
 
 #. Default: "The main image will get a more prominent position in the client
 #. than the other images."
 #: euphorie/content/risk.py:243
 msgid "intro_main_image"
-msgstr ""
-"Das Hauptbild ist im Client im Vergleich zu den anderen Bildern übergeordnet."
+msgstr "Das Hauptbild ist im Client im Vergleich zu den anderen Bildern übergeordnet."
 
 #. Default: "Complicated? Not really. It just takes a bit of time. However,
 #. the RA is important. So important that it is a legal requirement. This is
@@ -4857,34 +4153,21 @@ msgstr ""
 #. preventive measures are unlikely to be found or put in place."
 #: euphorie/client/browser/templates/default_introduction.pt:18
 msgid "intro_not_complicated"
-msgstr ""
-"Kompliziert? Überhaupt nicht. Dieses Vorgehen nimmt nur wenig Zeit in "
-"Anspruch. Außerdem ist die Gefährdungsbeurteilung wichtig – so wichtig, dass "
-"sie gesetzlich vorgeschrieben ist. Und das aus gutem Grund. Wenn "
-"Gefährdungen nicht beurteilt werden, oder der Umgang mit ihnen nicht "
-"fachgerecht ist, ist ein angemessenes Risikomanagement nicht möglich und die "
-"Feststellung und Umsetzung von angemessenen Präventivmaßnahmen sehr schwer "
-"möglich."
+msgstr "Kompliziert? Überhaupt nicht. Dieses Vorgehen nimmt nur wenig Zeit in Anspruch. Außerdem ist die Gefährdungsbeurteilung wichtig – so wichtig, dass sie gesetzlich vorgeschrieben ist. Und das aus gutem Grund. Wenn Gefährdungen nicht beurteilt werden, oder der Umgang mit ihnen nicht fachgerecht ist, ist ein angemessenes Risikomanagement nicht möglich und die Feststellung und Umsetzung von angemessenen Präventivmaßnahmen sehr schwer möglich."
 
 #. Default: "This risk assessment tool is mainly intended for micro (less than
 #. 10 workers) and small (less than 50 workers) enterprises/organisations."
 #. AI-generated
 #: euphorie/client/browser/templates/default_introduction.pt:24
 msgid "intro_oira_tool"
-msgstr ""
-"Dieses Risikobewertungstool ist hauptsächlich für Mikro- (weniger als 10 "
-"Arbeitnehmer) und Kleinunternehmen (weniger als 50 Arbeitnehmer) gedacht."
+msgstr "Dieses Risikobewertungstool ist hauptsächlich für Mikro- (weniger als 10 Arbeitnehmer) und Kleinunternehmen (weniger als 50 Arbeitnehmer) gedacht."
 
 #. Default: "Are you sure you want to create a preview of this OiRA Tool? You
 #. can give the URL for the preview to others so they can test the OiRA Tool.
 #. To access the preview a standard OiRA client login is required."
 #: euphorie/client/browser/templates/preview.pt:23
 msgid "intro_preview"
-msgstr ""
-"Sind Sie sicher, dass Sie eine Vorschau dieses OiRA-Tools erstellen möchten? "
-"Sie können die Vorschau-URL anderen Personen zum Testen des OiRA-Tools zur "
-"Verfügung stellen. Für den Zugriff auf die Vorschau ist eine Standard-"
-"Clientanmeldung für OiRA erforderlich."
+msgstr "Sind Sie sicher, dass Sie eine Vorschau dieses OiRA-Tools erstellen möchten? Sie können die Vorschau-URL anderen Personen zum Testen des OiRA-Tools zur Verfügung stellen. Für den Zugriff auf die Vorschau ist eine Standard-Clientanmeldung für OiRA erforderlich."
 
 #. Default: "It is possible for you to print out the contents of the tool to
 #. enable you to look for the information at the relevant workplace (by
@@ -4893,13 +4176,7 @@ msgstr ""
 #. You can then introduce the information into the tool."
 #: euphorie/client/browser/templates/panel-contents-preview.pt:34
 msgid "intro_print_identification_1"
-msgstr ""
-"Sie können den Inhalt des Tools ausdrucken, sodass Sie am betreffenden "
-"Arbeitsplatz die erforderlichen Informationen sammeln können (Rundgang am "
-"Arbeitsplatz um festzustellen, welche Gefährdungen dort auftreten können, "
-"oder Gespräche mit dem Personal und/oder den Vorgesetzten über bereits "
-"aufgetretene Probleme). Sie können diese Informationen anschließend in das "
-"Tool eingeben."
+msgstr "Sie können den Inhalt des Tools ausdrucken, sodass Sie am betreffenden Arbeitsplatz die erforderlichen Informationen sammeln können (Rundgang am Arbeitsplatz um festzustellen, welche Gefährdungen dort auftreten können, oder Gespräche mit dem Personal und/oder den Vorgesetzten über bereits aufgetretene Probleme). Sie können diese Informationen anschließend in das Tool eingeben."
 
 #. Default: "You may also wish to distribute the contents among the workers
 #. and/or their representatives and invite them to participate in identifying
@@ -4908,38 +4185,26 @@ msgstr ""
 #. tool."
 #: euphorie/client/browser/templates/panel-contents-preview.pt:35
 msgid "intro_print_identification_2"
-msgstr ""
-"Sie können den Inhalt auch mit dem Personal und/oder den Vorgesetzten teilen "
-"und sie dazu einladen, bei der Ermittlung von Gefährdungen/Problemen "
-"mitzuarbeiten, indem die Risiken bewertet und Präventivmaßnahmen beschlossen "
-"werden. Die Rückmeldungen sollten bei der Eingabe in dieses Tool "
-"berücksichtigt werden."
+msgstr "Sie können den Inhalt auch mit dem Personal und/oder den Vorgesetzten teilen und sie dazu einladen, bei der Ermittlung von Gefährdungen/Problemen mitzuarbeiten, indem die Risiken bewertet und Präventivmaßnahmen beschlossen werden. Die Rückmeldungen sollten bei der Eingabe in dieses Tool berücksichtigt werden."
 
 #. Default: "Are you sure you want to publish this OiRA Tool? After
 #. publication the OiRA Tool will appear in the online client and be
 #. accessible by all users."
 #: euphorie/client/browser/templates/publish.pt:23
 msgid "intro_publish_first_time"
-msgstr ""
-"Sind Sie sicher, dass Sie dieses OiRA-Tool veröffentlichen möchten? Nach der "
-"Veröffentlichung erscheint das OiRA-Tool im Online-Client und steht allen "
-"Benutzern zur Verfügung."
+msgstr "Sind Sie sicher, dass Sie dieses OiRA-Tool veröffentlichen möchten? Nach der Veröffentlichung erscheint das OiRA-Tool im Online-Client und steht allen Benutzern zur Verfügung."
 
 #. Default: "Are you sure you want to publish this OiRA Tool version? This
 #. will replace the current version."
 #: euphorie/client/browser/templates/publish.pt:32
 msgid "intro_publish_other_survey_published"
-msgstr ""
-"Sind Sie sicher, dass Sie diese OiRA-Tool-Version veröffentlichen möchten? "
-"Dadurch wird die aktuelle Version ersetzt."
+msgstr "Sind Sie sicher, dass Sie diese OiRA-Tool-Version veröffentlichen möchten? Dadurch wird die aktuelle Version ersetzt."
 
 #. Default: "Are you sure you want to republish this OiRA Tool? This will make
 #. all changes made public."
 #: euphorie/client/browser/templates/publish.pt:28
 msgid "intro_publish_survey_published"
-msgstr ""
-"Sind Sie sicher, dass Sie dieses OiRA-Tool neu veröffentlichen möchten? "
-"Dadurch werden alle Änderungen veröffentlicht."
+msgstr "Sind Sie sicher, dass Sie dieses OiRA-Tool neu veröffentlichen möchten? Dadurch werden alle Änderungen veröffentlicht."
 
 #. Default: "The structure of your OiRA tool has changed. If you publish now,
 #. existing users of this OiRA tool will lose parts of their answers. Please
@@ -4949,13 +4214,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/publish.pt:36
 msgid "intro_publish_survey_structure_changed"
-msgstr ""
-"Die Struktur Ihres OiRA-Tools hat sich geändert. Wenn Sie jetzt "
-"veröffentlichen, verlieren bestehende Benutzer dieses OiRA-Tools Teile ihrer "
-"Antworten. Bitte kontaktieren Sie das OiRA-Team, wenn Sie Unterstützung zu "
-"diesem Thema benötigen. Sie können sich auch auf das Kapitel "
-"&ldquo;Überarbeitung eines veröffentlichten OiRA-Tools&rdquo; des OiRA-"
-"Handbuchs beziehen."
+msgstr "Die Struktur Ihres OiRA-Tools hat sich geändert. Wenn Sie jetzt veröffentlichen, verlieren bestehende Benutzer dieses OiRA-Tools Teile ihrer Antworten. Bitte kontaktieren Sie das OiRA-Team, wenn Sie Unterstützung zu diesem Thema benötigen. Sie können sich auch auf das Kapitel &ldquo;Überarbeitung eines veröffentlichten OiRA-Tools&rdquo; des OiRA-Handbuchs beziehen."
 
 #. Default: "Including the risks to your employees and your equipment? What if
 #. there is an accident with one of the machines? What if an employee is
@@ -4967,25 +4226,13 @@ msgstr ""
 #. company, and therefore the financial risk."
 #: euphorie/client/browser/templates/default_introduction.pt:11
 msgid "intro_risk_aware"
-msgstr ""
-"Einschließlich der Gefährdungen für Ihr Personal und Ihre Ausrüstung? Was "
-"geschieht, wenn sich an einer der Maschinen ein Unfall ereignet? Was "
-"geschieht, wenn ein Mitarbeiter gefährlichen Stoffen ausgesetzt wird? Die "
-"Gefährdungsbeurteilung unterstützt Sie bei der Ermittlung der Gefährdungen "
-"sowie im Umgang mit ihnen. Die Gefährdungsbeurteilung besteht hauptsächlich "
-"aus zwei Teilen: einem Bericht, der alle Gefährdungen in Ihrem Unternehmen "
-"aufführt, und einem Aktionsplan mit detaillierten Maßnahmen zum Umgang mit "
-"diesen Gefährdungen. Mithilfe dieser beiden Bestandteile können Sie die "
-"Gefährdungen für Ihr Personal und Ihr Unternehmen und somit auch Ihr "
-"finanzielles Risiko reduzieren."
+msgstr "Einschließlich der Gefährdungen für Ihr Personal und Ihre Ausrüstung? Was geschieht, wenn sich an einer der Maschinen ein Unfall ereignet? Was geschieht, wenn ein Mitarbeiter gefährlichen Stoffen ausgesetzt wird? Die Gefährdungsbeurteilung unterstützt Sie bei der Ermittlung der Gefährdungen sowie im Umgang mit ihnen. Die Gefährdungsbeurteilung besteht hauptsächlich aus zwei Teilen: einem Bericht, der alle Gefährdungen in Ihrem Unternehmen aufführt, und einem Aktionsplan mit detaillierten Maßnahmen zum Umgang mit diesen Gefährdungen. Mithilfe dieser beiden Bestandteile können Sie die Gefährdungen für Ihr Personal und Ihr Unternehmen und somit auch Ihr finanzielles Risiko reduzieren."
 
 #. Default: "Select a sector for which you would like to view or copy an OiRA
 #. Tool."
 #: euphorie/content/browser/templates/country_view.pt:16
 msgid "intro_select_sector"
-msgstr ""
-"Wählen Sie eine Branche, aus der Sie ein OiRA-Tool anzeigen oder kopieren "
-"möchten."
+msgstr "Wählen Sie eine Branche, aus der Sie ein OiRA-Tool anzeigen oder kopieren möchten."
 
 #. AI-generated
 #: euphorie/client/adapters/history_item.py:111
@@ -5282,9 +4529,7 @@ msgstr "Löschen"
 #. Default: "You are about to delete the risk: &ldquo;${risk-name}&rdquo;."
 #: euphorie/client/browser/templates/confirmation-delete-risk.pt:28
 msgid "label_delete_risk"
-msgstr ""
-"Sie sind dabei, die zusätzliche Gefährdung &ldquo;${risk-name}&rdquo; zu "
-"löschen."
+msgstr "Sie sind dabei, die zusätzliche Gefährdung &ldquo;${risk-name}&rdquo; zu löschen."
 
 #. Default: "Description"
 #: euphorie/client/browser/templates/webhelpers.pt:829
@@ -5675,17 +4920,14 @@ msgstr "Logo"
 #. AI-generated
 #: euphorie/content/solution.py:66
 msgid "label_measure_action"
-msgstr ""
-"Allgemeiner Ansatz (zur Beseitigung oder Reduzierung des Risikos) + "
-"Spezifische Aktion(en) zur Umsetzung dieses Ansatzes"
+msgstr "Allgemeiner Ansatz (zur Beseitigung oder Reduzierung des Risikos) + Spezifische Aktion(en) zur Umsetzung dieses Ansatzes"
 
 #. Default: "General approach (to eliminate or reduce the risk)"
 #: euphorie/client/browser/report.py:132
 #: euphorie/client/browser/templates/webhelpers.pt:1014
 #: euphorie/client/docx/compiler.py:435
 msgid "label_measure_action_plan"
-msgstr ""
-"Allgemeine Vorgehensweise (zur Vermeidung bzw. Reduzierung der Gefährdung)"
+msgstr "Allgemeine Vorgehensweise (zur Vermeidung bzw. Reduzierung der Gefährdung)"
 
 #. Default: "Specific action(s) required to implement this approach"
 #: euphorie/content/browser/templates/solution_view.pt:33
@@ -5964,8 +5206,7 @@ msgstr "Lesen Sie mehr"
 #: euphorie/client/browser/company.py:160
 #: euphorie/client/browser/templates/report_company.pt:242
 msgid "label_recommend_tool"
-msgstr ""
-"Würden Sie dieses OiRA-Tool einem ähnlichen Unternehmen wie Ihrem empfehlen?"
+msgstr "Würden Sie dieses OiRA-Tool einem ähnlichen Unternehmen wie Ihrem empfehlen?"
 
 #. Default: "Text"
 #. AI-generated
@@ -6028,9 +5269,7 @@ msgstr "Bericht"
 #. report in this field."
 #: euphorie/client/browser/templates/report.pt:58
 msgid "label_report_comment"
-msgstr ""
-"Bitte geben Sie jegliche zusätzliche Kommentare, die in den Bericht "
-"aufgenommen werden sollen, in dieses Feld ein."
+msgstr "Bitte geben Sie jegliche zusätzliche Kommentare, die in den Bericht aufgenommen werden sollen, in dieses Feld ein."
 
 #. Default: "Completion threshold for report availability"
 #. AI-generated
@@ -6186,9 +5425,7 @@ msgstr "Wählen Sie eine Gefährdungsbeurteilung aus"
 #. Default: "Select one or more of the known common measures provided."
 #: euphorie/client/browser/templates/webhelpers.pt:787
 msgid "label_select_measure"
-msgstr ""
-"Wählen Sie eine oder mehrere der angebotenen bekannten, allgemeinen "
-"Maßnahmen."
+msgstr "Wählen Sie eine oder mehrere der angebotenen bekannten, allgemeinen Maßnahmen."
 
 #. Default: "Start a new session by choosing one of the following sectoral
 #. tools."
@@ -6196,9 +5433,7 @@ msgstr ""
 #: euphorie/client/browser/templates/new-session.pt:32
 #: euphorie/client/browser/templates/portlet-available-tools.pt:29
 msgid "label_select_new_session"
-msgstr ""
-"Neue Sitzung durch Auswahl eines der folgenden branchenspezifischen Tools "
-"starten"
+msgstr "Neue Sitzung durch Auswahl eines der folgenden branchenspezifischen Tools starten"
 
 #. Default: "Select an OiRA tool"
 #: euphorie/client/browser/templates/new-session-test.pt:44
@@ -6360,8 +5595,7 @@ msgstr "Texte “Lösung” in Modulen einschließen"
 #. AI-generated
 #: euphorie/content/browser/export.py:126
 msgid "label_survey_export_include_risk_legal_texts"
-msgstr ""
-"Texte zu “Rechtlichen und politischen Referenzen” zu Risiken einschließen"
+msgstr "Texte zu “Rechtlichen und politischen Referenzen” zu Risiken einschließen"
 
 #. Default: "Obsolete OiRA tool"
 #: euphorie/content/surveygroup.py:53
@@ -6444,17 +5678,13 @@ msgstr "Tools"
 #. AI-generated
 #: euphorie/client/browser/templates/slide_question_success.pt:32
 msgid "label_training_achievement_listed"
-msgstr ""
-"Ihre Leistung wird unter &ldquo;Meine Schulungen&rdquo; im Schulungs-Portlet "
-"auf dem Dashboard aufgeführt. Dort können Sie jederzeit Ihr Zertifikat "
-"ansehen oder ausdrucken, wenn Sie möchten."
+msgstr "Ihre Leistung wird unter &ldquo;Meine Schulungen&rdquo; im Schulungs-Portlet auf dem Dashboard aufgeführt. Dort können Sie jederzeit Ihr Zertifikat ansehen oder ausdrucken, wenn Sie möchten."
 
 #. Default: "Congratulations, you have now earned your certificate for this
 #. topic."
 #: euphorie/client/browser/templates/slide_question_success.pt:29
 msgid "label_training_congratulations"
-msgstr ""
-"Herzlichen Glückwunsch, Sie haben ein Zertifikat für dieses Thema erhalten."
+msgstr "Herzlichen Glückwunsch, Sie haben ein Zertifikat für dieses Thema erhalten."
 
 #. Default: "Try OiRA"
 #. AI-generated
@@ -6548,8 +5778,7 @@ msgstr "(ohne Maßnahmen)"
 #: euphorie/client/browser/company.py:135
 #: euphorie/client/browser/templates/report_company.pt:194
 msgid "label_workers_participated"
-msgstr ""
-"Mitarbeiter wurden zur Mitarbeit an der Gefährdungsbeurteilung eingeladen."
+msgstr "Mitarbeiter wurden zur Mitarbeit an der Gefährdungsbeurteilung eingeladen."
 
 #. Default: "Yes"
 #: euphorie/client/browser/company.py:141
@@ -6593,10 +5822,7 @@ msgstr "${label}-Version, die derzeit online ist"
 #. unpublished. Click the update icon to bring all the changes live"
 #: euphorie/deployment/tiles/templates/versions.pt:140
 msgid "legend_updated"
-msgstr ""
-"${label} = In dieser Version gibt es aktuell nicht veröffentlichte "
-"Änderungen. Klicken Sie auf das Aktualisieren-Symbol, um alle Änderungen "
-"live zu schalten."
+msgstr "${label} = In dieser Version gibt es aktuell nicht veröffentlichte Änderungen. Klicken Sie auf das Aktualisieren-Symbol, um alle Änderungen live zu schalten."
 
 #: euphorie/client/browser/templates/new-session-test.pt:82
 msgid "limitations"
@@ -6622,17 +5848,13 @@ msgstr "beginnen Sie eine neue Sitzung"
 #. Default: "Discover how easy it is to create a risk assessment with OiRA."
 #: euphorie/client/browser/templates/tooltips.pt:33
 msgid "list_test_session_benefits1"
-msgstr ""
-"Entdecken Sie, wie einfach es ist, mit OiRA eine Gefährdungsbeurteilung "
-"durchzuführen."
+msgstr "Entdecken Sie, wie einfach es ist, mit OiRA eine Gefährdungsbeurteilung durchzuführen."
 
 #. Default: "Identify potential risks in your business and the measures to
 #. reduce them."
 #: euphorie/client/browser/templates/tooltips.pt:34
 msgid "list_test_session_benefits2"
-msgstr ""
-"Ermitteln Sie mögliche Gefährdungen in Ihrem Unternehmen und Maßnahmen, um "
-"diesen zu begegnen."
+msgstr "Ermitteln Sie mögliche Gefährdungen in Ihrem Unternehmen und Maßnahmen, um diesen zu begegnen."
 
 #. Default: "Use it for vocational training."
 #: euphorie/client/browser/templates/tooltips.pt:35
@@ -6643,26 +5865,18 @@ msgstr "Verwenden Sie OiRA für berufliche Weiterbildung."
 #. progess will be lost unless you register."
 #: euphorie/client/browser/templates/tooltips.pt:21
 msgid "list_test_session_limitations1"
-msgstr ""
-" ${important} In einer Test-Sitzung können Sie Ihre Arbeit nicht "
-"abspeichern. Alle Antworten gehen verloren, wenn Sie sich nicht anmelden "
-"oder registrieren."
+msgstr " ${important} In einer Test-Sitzung können Sie Ihre Arbeit nicht abspeichern. Alle Antworten gehen verloren, wenn Sie sich nicht anmelden oder registrieren."
 
 #. Default: "You will not be able to print or download reports."
 #: euphorie/client/browser/templates/tooltips.pt:24
 msgid "list_test_session_limitations2"
-msgstr ""
-"Sie werden nicht in der Lage zu sein, Berichte zum Drucken oder "
-"Herunterladen zu erstellen."
+msgstr "Sie werden nicht in der Lage zu sein, Berichte zum Drucken oder Herunterladen zu erstellen."
 
 #. Default: "During a test session you will have the possibility at any time
 #. to register by clicking on the \"Register\" link at the top."
 #: euphorie/client/browser/templates/tooltips.pt:25
 msgid "list_test_session_limitations3"
-msgstr ""
-"Während einer Test-Sitzung können Sie sich jederzeit registrieren, indem Sie "
-"auf “Registrieren” rechts oben klicken. Alle bisherigen Antworten bleiben "
-"erhalten."
+msgstr "Während einer Test-Sitzung können Sie sich jederzeit registrieren, indem Sie auf “Registrieren” rechts oben klicken. Alle bisherigen Antworten bleiben erhalten."
 
 #. AI-generated
 #: euphorie/client/adapters/history_item.py:123
@@ -6683,8 +5897,7 @@ msgstr "Schloss freigegeben"
 #. AI-generated
 #: euphorie/content/survey.py:114
 msgid "measures_text_handling"
-msgstr ""
-"Umgang mit Maßnahmentext (wenn bereits vorhandene Maßnahmen verwendet werden)"
+msgstr "Umgang mit Maßnahmentext (wenn bereits vorhandene Maßnahmen verwendet werden)"
 
 #. Default: "Admin"
 #. AI-generated
@@ -6755,33 +5968,25 @@ msgstr "Sie wurden zur Organisation ${name} hinzugefügt."
 #. an OiRA Tool."
 #: euphorie/content/browser/templates/sectorcontainer_view.pt:18
 msgid "message_choose_country"
-msgstr ""
-"Bitte wählen Sie ein Land, aus dem Sie ein OiRA-Tool anzeigen oder kopieren "
-"möchten."
+msgstr "Bitte wählen Sie ein Land, aus dem Sie ein OiRA-Tool anzeigen oder kopieren möchten."
 
 #. Default: "Clicking on 'Validate' will lock the risk assessment
 #. &lsquo;${assessment}&rsquo; and give it an official validated status."
 #. AI-generated
 #: euphorie/client/browser/templates/panel-validate-risk-assessment.pt:33
 msgid "message_click_to_validate"
-msgstr ""
-"Ein Klick auf 'Validieren' wird die Risikobeurteilung &lsquo;${assessment}"
-"&rsquo; sperren und ihr einen offiziellen validierten Status verleihen."
+msgstr "Ein Klick auf 'Validieren' wird die Risikobeurteilung &lsquo;${assessment}&rsquo; sperren und ihr einen offiziellen validierten Status verleihen."
 
 #. Default: "This is the only version of the OiRA Tool and can therefore not
 #. be deleted. Did you perhaps want to remove the OiRA Tool itself?"
 #: euphorie/content/browser/survey.py:252
 msgid "message_delete_no_last_survey"
-msgstr ""
-"Diese OiRA-Tool Version kann nicht gelöscht werden, da sie die einzige ist. "
-"Wenn Sie diese entfernen möchten, löschen Sie das OiRA-Tool."
+msgstr "Diese OiRA-Tool Version kann nicht gelöscht werden, da sie die einzige ist. Wenn Sie diese entfernen möchten, löschen Sie das OiRA-Tool."
 
 #. Default: "Due to an internal policy, these settings cannot be changed."
 #: euphorie/client/browser/templates/preferences.pt:80
 msgid "message_disallow_notification_settings"
-msgstr ""
-"Die Einstellungen können aufgrund einer internen Policy nicht geändert "
-"werden."
+msgstr "Die Einstellungen können aufgrund einer internen Policy nicht geändert werden."
 
 #. Default: "You can ${link_download_tool_contents}."
 #: euphorie/content/browser/templates/survey_view.pt:61
@@ -6801,23 +6006,14 @@ msgstr "Erforderliche Eingabe fehlt."
 #. AI-generated
 #: euphorie/client/browser/templates/consultancy.pt:40
 msgid "message_find_consultants"
-msgstr ""
-"Es ist möglich, Unterstützung bei der Durchführung einer Risikobeurteilung "
-"zu beantragen oder eine Risikoanalyse von Ihnen durchführen und von einem "
-"Arbeitsschutzberater validieren zu lassen. Ein Arbeitsschutzberater kann "
-"Ihrer Risikobeurteilung ein offizielles Validierungszeichen geben. Eine "
-"Validierung kann nur von Benutzern mit der Berechtigungsstufe "
-"&lsquo;Verwalten&rsquo; oder höher beantragt werden."
+msgstr "Es ist möglich, Unterstützung bei der Durchführung einer Risikobeurteilung zu beantragen oder eine Risikoanalyse von Ihnen durchführen und von einem Arbeitsschutzberater validieren zu lassen. Ein Arbeitsschutzberater kann Ihrer Risikobeurteilung ein offizielles Validierungszeichen geben. Eine Validierung kann nur von Benutzern mit der Berechtigungsstufe &lsquo;Verwalten&rsquo; oder höher beantragt werden."
 
 #. Default: "When you invalidate this risk assessment, it will lose its
 #. validated status. You can still request for re-validation at a later time."
 #. AI-generated
 #: euphorie/client/browser/templates/panel-invalidate-risk-assessment.pt:33
 msgid "message_invalidate_ra"
-msgstr ""
-"Wenn Sie diese Risikobeurteilung für ungültig erklären, verliert sie ihren "
-"validierten Status. Sie können allerdings zu einem späteren Zeitpunkt erneut "
-"eine Validierung beantragen."
+msgstr "Wenn Sie diese Risikobeurteilung für ungültig erklären, verliert sie ihren validierten Status. Sie können allerdings zu einem späteren Zeitpunkt erneut eine Validierung beantragen."
 
 #. Default: "Decide on the best way to involve your staff! You can for example
 #. conduct a meeting or a focus group with workers and go through the
@@ -6827,13 +6023,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/involve.pt:35
 msgid "message_involve_workers_how_to"
-msgstr ""
-"Entscheiden Sie sich für die beste Art, Ihr Personal einzubeziehen! Sie "
-"können zum Beispiel eine Sitzung oder eine Fokusgruppe mit Arbeitnehmern "
-"durchführen und die jeweiligen Teile der Risikobeurteilung gemeinsam "
-"durchgehen. Sie können auch den Inhalt des Tools oder Teile davon "
-"herunterladen oder ausdrucken und zur Information und Rückmeldung an Ihre "
-"Mitarbeiter verteilen."
+msgstr "Entscheiden Sie sich für die beste Art, Ihr Personal einzubeziehen! Sie können zum Beispiel eine Sitzung oder eine Fokusgruppe mit Arbeitnehmern durchführen und die jeweiligen Teile der Risikobeurteilung gemeinsam durchgehen. Sie können auch den Inhalt des Tools oder Teile davon herunterladen oder ausdrucken und zur Information und Rückmeldung an Ihre Mitarbeiter verteilen."
 
 #. Default: "One of the keys to good OSH leadership is getting workers
 #. involved. Employers have a <a
@@ -6846,9 +6036,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/involve.pt:30
 msgid "message_involve_workers_requirement"
-msgstr ""
-"Ein Schlüssel zu guter Arbeitsschutzführung besteht darin, die Arbeitnehmer "
-"einzubeziehen. Arbeitgeber haben eine <a href=\\"
+msgstr "Ein Schlüssel zu guter Arbeitsschutzführung besteht darin, die Arbeitnehmer einzubeziehen. Arbeitgeber haben eine <a href=\\"
 
 #. Default: "Learn more about certificates."
 #. AI-generated
@@ -6862,20 +6050,14 @@ msgstr "Erfahren Sie mehr über Zertifikate."
 #. AI-generated
 #: euphorie/client/browser/templates/browser-warning.pt:31
 msgid "message_lesser_experience_no_javascript"
-msgstr ""
-"Sehr geehrter Benutzer, Sie verwenden einen veralteten Webbrowser. Ihr "
-"Webbrowser ist nicht kompatibel mit der in OiRA verwendeten Technologie. "
-"Bitte installieren Sie einen neueren Browser, um die OiRA-Tools nutzen zu "
-"können."
+msgstr "Sehr geehrter Benutzer, Sie verwenden einen veralteten Webbrowser. Ihr Webbrowser ist nicht kompatibel mit der in OiRA verwendeten Technologie. Bitte installieren Sie einen neueren Browser, um die OiRA-Tools nutzen zu können."
 
 #. Default: "Please be aware that you have %s more login attempts before your
 #. account will be locked."
 #. AI-generated
 #: euphorie/content/user.py:212
 msgid "message_lock_warn"
-msgstr ""
-"Bitte beachten Sie, dass Sie noch %s weitere Anmeldeversuche haben, bevor "
-"Ihr Konto gesperrt wird."
+msgstr "Bitte beachten Sie, dass Sie noch %s weitere Anmeldeversuche haben, bevor Ihr Konto gesperrt wird."
 
 #. Default: "Members can view and edit all risk assessments of the
 #. organisation."
@@ -6883,17 +6065,13 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:71
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:92
 msgid "message_member_see_all"
-msgstr ""
-"Mitglieder können alle Risikobeurteilungen der Organisation einsehen und "
-"bearbeiten."
+msgstr "Mitglieder können alle Risikobeurteilungen der Organisation einsehen und bearbeiten."
 
 #. Default: "You cannot delete an OiRA Tool version that is published. Please
 #. unpublish it first."
 #: euphorie/content/browser/survey.py:233
 msgid "message_no_delete_published_survey"
-msgstr ""
-"Sie können kein Tool löschen, das schon veröffentlicht ist. Bitte ziehen Sie "
-"das Tool zuerst zurück."
+msgstr "Sie können kein Tool löschen, das schon veröffentlicht ist. Bitte ziehen Sie das Tool zuerst zurück."
 
 #. Default: "There are no sectors for this country."
 #: euphorie/content/browser/templates/country_view.pt:19
@@ -6914,9 +6092,7 @@ msgstr "Derzeit wird keine Validierung angefordert."
 #. Default: "You can not delete a sector that contains published OiRA Tools."
 #: euphorie/content/browser/sector.py:89
 msgid "message_not_delete_published_sector"
-msgstr ""
-"Eine Branche, die veröffentlichte OiRA-Tools enthält, kann nicht gelöscht "
-"werden."
+msgstr "Eine Branche, die veröffentlichte OiRA-Tools enthält, kann nicht gelöscht werden."
 
 #. Default: "No information available"
 #. AI-generated
@@ -6930,11 +6106,7 @@ msgstr "Keine Informationen verfügbar"
 #. AI-generated
 #: euphorie/client/browser/templates/browser-warning.pt:26
 msgid "message_outdated_browser"
-msgstr ""
-"Sehr geehrter Benutzer, Sie verwenden einen veralteten Webbrowser. Daher "
-"könnte die Website möglicherweise nicht wie erwartet funktionieren. Bitte "
-"installieren Sie einen neueren Browser, um diese Website optimal nutzen zu "
-"können."
+msgstr "Sehr geehrter Benutzer, Sie verwenden einen veralteten Webbrowser. Daher könnte die Website möglicherweise nicht wie erwartet funktionieren. Bitte installieren Sie einen neueren Browser, um diese Website optimal nutzen zu können."
 
 #. Default: "An email will be sent to ${email} if we can find an account for
 #. this email address. Please use the link inside the e-mail to reset your
@@ -6942,10 +6114,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/reset_password.py:189
 msgid "message_password_recovery_email_sent"
-msgstr ""
-"Eine E-Mail wird an ${email} gesendet, wenn wir ein Konto für diese E-Mail-"
-"Adresse finden können. Bitte verwenden Sie den Link in der E-Mail, um Ihr "
-"Passwort zurückzusetzen."
+msgstr "Eine E-Mail wird an ${email} gesendet, wenn wir ein Konto für diese E-Mail-Adresse finden können. Bitte verwenden Sie den Link in der E-Mail, um Ihr Passwort zurückzusetzen."
 
 #. Default: "Additional costs may be charged by your consultant."
 #. AI-generated
@@ -6957,9 +6126,7 @@ msgstr "Es können zusätzliche Kosten durch Ihren Berater anfallen."
 #. accessed at"
 #: euphorie/client/browser/publish.py:371
 msgid "message_preview_success"
-msgstr ""
-"Die Vorschau für das Tool wurde erfolgreich erstellt. Sie kann hier erreich "
-"werden."
+msgstr "Die Vorschau für das Tool wurde erfolgreich erstellt. Sie kann hier erreich werden."
 
 #. Default: "Successfully published the OiRA Tool. It can be accessed at"
 #: euphorie/client/browser/publish.py:306
@@ -6971,19 +6138,14 @@ msgstr "OiRA-Tool erfolgreich veröffentlicht. Es kann hier betrachtet werden"
 #. AI-generated
 #: euphorie/client/browser/templates/panel-validate-risk-assessment.pt:39
 msgid "message_read_and_reviewd_assessment_and_approve"
-msgstr ""
-"Ich habe diese Risikobeurteilung gelesen und überprüft und wo nötig "
-"korrigiert oder ergänzt und ich stimme ihren Inhalten zu."
+msgstr "Ich habe diese Risikobeurteilung gelesen und überprüft und wo nötig korrigiert oder ergänzt und ich stimme ihren Inhalten zu."
 
 #. Default: "Click on 'Send validation request' to ask the selected OSH
 #. consultant to review and validate your risk assessment."
 #. AI-generated
 #: euphorie/client/browser/templates/panel-request-validation.pt:31
 msgid "message_request_validation"
-msgstr ""
-"Klicken Sie auf 'Validierungsanfrage senden', um den ausgewählten "
-"Arbeitsschutzberater zu bitten, Ihre Risikobeurteilung zu überprüfen und zu "
-"validieren."
+msgstr "Klicken Sie auf 'Validierungsanfrage senden', um den ausgewählten Arbeitsschutzberater zu bitten, Ihre Risikobeurteilung zu überprüfen und zu validieren."
 
 #. Default: "Administrators can create, edit and remove user accounts.
 #. Administrators can also make risk assessments and edit existing ones, lock
@@ -6992,11 +6154,7 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:55
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:70
 msgid "message_role_administrator"
-msgstr ""
-"Administratoren können Benutzerkonten erstellen, bearbeiten und entfernen. "
-"Administratoren können auch Risikobeurteilungen erstellen und vorhandene "
-"bearbeiten, Risikobeurteilungen sperren, Schulungen erstellen und Schulungen "
-"durchführen."
+msgstr "Administratoren können Benutzerkonten erstellen, bearbeiten und entfernen. Administratoren können auch Risikobeurteilungen erstellen und vorhandene bearbeiten, Risikobeurteilungen sperren, Schulungen erstellen und Schulungen durchführen."
 
 #. Default: "Consultants can make and edit risk assessments, validate and
 #. approve risk assessments and create trainings."
@@ -7004,9 +6162,7 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:61
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:76
 msgid "message_role_consultant"
-msgstr ""
-"Berater können Risikobeurteilungen erstellen und bearbeiten, "
-"Risikobeurteilungen validieren und genehmigen und Schulungen erstellen."
+msgstr "Berater können Risikobeurteilungen erstellen und bearbeiten, Risikobeurteilungen validieren und genehmigen und Schulungen erstellen."
 
 #. Default: "Managers/Policy makers can make and edit risk assessments, lock
 #. risk assessments, create trainings and take trainings."
@@ -7014,18 +6170,14 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:73
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:82
 msgid "message_role_manager"
-msgstr ""
-"Manager/Politikgestalter können Risikobeurteilungen erstellen und "
-"bearbeiten, Risikobeurteilungen sperren, Schulungen erstellen und Schulungen "
-"durchführen."
+msgstr "Manager/Politikgestalter können Risikobeurteilungen erstellen und bearbeiten, Risikobeurteilungen sperren, Schulungen erstellen und Schulungen durchführen."
 
 #. Default: "Members can make risk assessments and take trainings."
 #. AI-generated
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:70
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:91
 msgid "message_role_member"
-msgstr ""
-"Mitglieder können Risikobeurteilungen erstellen und an Schulungen teilnehmen."
+msgstr "Mitglieder können Risikobeurteilungen erstellen und an Schulungen teilnehmen."
 
 #. Default: "This risk assessment is currently under review by ${consultant}."
 #. AI-generated
@@ -7039,9 +6191,7 @@ msgstr "Diese Risikobeurteilung wird derzeit von ${consultant} überprüft."
 #: euphorie/client/browser/templates/consultancy.pt:65
 #: euphorie/client/browser/templates/locking_menu.pt:37
 msgid "message_session_validated"
-msgstr ""
-"${validation_time}: ${consultant} hat diese Risikobeurteilung überprüft und "
-"validiert"
+msgstr "${validation_time}: ${consultant} hat diese Risikobeurteilung überprüft und validiert"
 
 #. Default: "If you want to continue working on a copy of this assessment, for
 #. instance to report on a new year, then you can use the option 'Duplicate'.
@@ -7050,11 +6200,7 @@ msgstr ""
 #. AI-generated
 #: euphorie/client/browser/templates/panel-invalidate-risk-assessment.pt:41
 msgid "message_unlock_or_duplicate"
-msgstr ""
-"Wenn Sie an einer Kopie dieser Beurteilung weiterarbeiten möchten, "
-"beispielsweise um über ein neues Jahr zu berichten, dann können Sie die "
-"Option 'Duplizieren' verwenden. Durch die Duplizierung wird eine "
-"vollständige Kopie Ihrer Beurteilung erstellt, die bearbeitbar ist."
+msgstr "Wenn Sie an einer Kopie dieser Beurteilung weiterarbeiten möchten, beispielsweise um über ein neues Jahr zu berichten, dann können Sie die Option 'Duplizieren' verwenden. Durch die Duplizierung wird eine vollständige Kopie Ihrer Beurteilung erstellt, die bearbeitbar ist."
 
 #. Default: "Cancelled unpublish action."
 #: euphorie/content/browser/surveygroup.py:291
@@ -7082,18 +6228,13 @@ msgstr "Das Konto „${title}“ wurde entsperrt."
 #. AI-generated
 #: euphorie/client/browser/templates/panel-request-validation.pt:49
 msgid "message_warning_locking_after_validation"
-msgstr ""
-"Nachdem Ihr Berater diese Risikobeurteilung validiert hat, wird sie "
-"gesperrt. Sollten Sie die Risikobeurteilung erneut bearbeiten wollen, können "
-"Sie jederzeit zu einem späteren Zeitpunkt eine Duplikat dieser Beurteilung "
-"erstellen."
+msgstr "Nachdem Ihr Berater diese Risikobeurteilung validiert hat, wird sie gesperrt. Sollten Sie die Risikobeurteilung erneut bearbeiten wollen, können Sie jederzeit zu einem späteren Zeitpunkt eine Duplikat dieser Beurteilung erstellen."
 
 #. Default: "You are requested to review and validate this risk assessment."
 #. AI-generated
 #: euphorie/client/browser/templates/consultancy.pt:110
 msgid "message_you_are_requested_to_validate_assessment"
-msgstr ""
-"Sie werden gebeten, diese Risikobeurteilung zu überprüfen und zu validieren."
+msgstr "Sie werden gebeten, diese Risikobeurteilung zu überprüfen und zu validieren."
 
 #. Default: "You haven&rsquo;t earned any certificates yet."
 #: euphorie/client/browser/templates/certificates.pt:29
@@ -7103,8 +6244,7 @@ msgstr "Sie haben noch keine Zertifikate erhalten."
 #. Default: "You don't have any risk assessments yet."
 #: euphorie/client/browser/templates/portlet-my-ras.pt:116
 msgid "message_you_dont_have_any_risk_assessments_yet"
-msgstr ""
-"Sie haben noch keine Risikobewertungen. Erstellen Sie zunächst eine neue."
+msgstr "Sie haben noch keine Risikobewertungen. Erstellen Sie zunächst eine neue."
 
 #. Default: "You have reviewed and validated this risk assessment."
 #. AI-generated
@@ -7214,9 +6354,7 @@ msgstr "Es sind keine OiRA-Tools vorhanden. Sie können ${add_link}."
 #. AI-generated
 #: euphorie/content/utils.py:54
 msgid "no_translate_link_add_measures"
-msgstr ""
-"<a class='add-clone' id='add-in-place-measure-button'>${text_add_measures}</"
-"a>"
+msgstr "<a class='add-clone' id='add-in-place-measure-button'>${text_add_measures}</a>"
 
 #. Default: "<a href='%s/@@report'>${text_download_section}</a>"
 #. AI-generated
@@ -7255,9 +6393,7 @@ msgstr "Auf dieser Seite sind ${link_filters} aktiv."
 #. Default: "Notify when a risk assessment was not modified for ${days} days."
 #: euphorie/client/notifications/notification__ra_not_modified.py:77
 msgid "notification_description__ra_not_modified"
-msgstr ""
-"Benachrichtigung, wenn eine Gefährdungsbeurteilung seit ${days} Tagen nicht "
-"geändert wurde."
+msgstr "Benachrichtigung, wenn eine Gefährdungsbeurteilung seit ${days} Tagen nicht geändert wurde."
 
 #. Default: "You have not modified your risk assessment for ${reminder_days}
 #. days. Please remember to keep your risk assessment up to date.\nWith this
@@ -7265,9 +6401,7 @@ msgstr ""
 #: euphorie/client/notifications/notification__ra_not_modified.py:25
 msgid "notification_mail_body__ra_not_modified"
 msgstr ""
-"Sie haben vor ${reminder_days} Tagen Ihre Gefährdungsbeurteilung zuletzt "
-"bearbeitet (bzw. schreibgeschützt). Bitte denken Sie daran, Ihre "
-"Gefährdungsbeurteilung aktuell zu halten.\n"
+"Sie haben vor ${reminder_days} Tagen Ihre Gefährdungsbeurteilung zuletzt bearbeitet (bzw. schreibgeschützt). Bitte denken Sie daran, Ihre Gefährdungsbeurteilung aktuell zu halten.\n"
 "Mit diesem Link gelangen Sie zur Gefährdungsbeurteilung."
 
 #. Default: "Reminder: Update of risk assessment (${num} open)"
@@ -7291,8 +6425,7 @@ msgstr ""
 "Mit freundlichen Grüßen\n"
 "Ihr OiRA Team\n"
 "\n"
-"**Dies ist eine automatisch generierte Mail. Wenn Sie keine Mails von OiRA "
-"erhalten möchten, können Sie dies [hier einstellen](${preferences_link})**"
+"**Dies ist eine automatisch generierte Mail. Wenn Sie keine Mails von OiRA erhalten möchten, können Sie dies [hier einstellen](${preferences_link})**"
 
 #. Default: "Notify on orphaned risk assessments."
 #: euphorie/client/notifications/notification__ra_not_modified.py:63
@@ -7339,54 +6472,41 @@ msgstr "Zu dieser Suche wurden keine GBUs gefunden."
 #. AI-generated
 #: euphorie/client/docx/compiler.py:508
 msgid "paragraph_oira_consultation_of_workers"
-msgstr ""
-"Die Unterzeichner erklären hiermit, dass die Arbeitnehmer über den Inhalt "
-"dieses Dokuments konsultiert wurden."
+msgstr "Die Unterzeichner erklären hiermit, dass die Arbeitnehmer über den Inhalt dieses Dokuments konsultiert wurden."
 
 #. Default: "Your password must contain at least 5 characters, including at
 #. least one capital letter, one number and one special character (e.g. $, #
 #. or @)."
 #: euphorie/content/passwordpolicy.py:55
 msgid "password_policy_conditions"
-msgstr ""
-"Ihr Passwort muss aus mindestens 5 Zeichen bestehen, davon ein "
-"Großbuchstabe, eine Ziffer und ein Sonderzeichen (z. B. $, # oder @)."
+msgstr "Ihr Passwort muss aus mindestens 5 Zeichen bestehen, davon ein Großbuchstabe, eine Ziffer und ein Sonderzeichen (z. B. $, # oder @)."
 
 #. Default: "The official launch of the tool is planned for September 2011,
 #. once the objectives of the testing phase have been reached and once the
 #. OiRA website, the OiRA training scheme and OiRA help desk will be ready."
 #: euphorie/client/browser/templates/about.pt:114
 msgid "phase_launch"
-msgstr ""
-"Die offizielle Einführung des Tools ist für September 2011 geplant, sobald "
-"die Ziele der Testphase erreicht und die Website, der Schulungsplan und der "
-"Helpdesk für OiRA eingerichtet wurden."
+msgstr "Die offizielle Einführung des Tools ist für September 2011 geplant, sobald die Ziele der Testphase erreicht und die Website, der Schulungsplan und der Helpdesk für OiRA eingerichtet wurden."
 
 #. Default: "These notes will be visible in the report. Use it for anything
 #. else you might want to write about this risk."
 #. AI-generated
 #: euphorie/client/browser/risk.py:408
 msgid "placeholder_comment_field"
-msgstr ""
-"Diese Notizen werden im Bericht sichtbar sein. Verwenden Sie es für alles "
-"andere, was Sie zu diesem Risiko schreiben möchten."
+msgstr "Diese Notizen werden im Bericht sichtbar sein. Verwenden Sie es für alles andere, was Sie zu diesem Risiko schreiben möchten."
 
 #. Default: "These notes will be visible in the report and the training. Use
 #. it for anything else you might want to write about this risk."
 #. AI-generated
 #: euphorie/client/browser/risk.py:402
 msgid "placeholder_comment_field_training"
-msgstr ""
-"Diese Notizen werden im Bericht und in der Schulung sichtbar sein. Verwenden "
-"Sie es für alles andere, was Sie zu diesem Risiko schreiben möchten."
+msgstr "Diese Notizen werden im Bericht und in der Schulung sichtbar sein. Verwenden Sie es für alles andere, was Sie zu diesem Risiko schreiben möchten."
 
 #. Default: "Describe a measure that is already in place but not yet listed
 #. here."
 #: euphorie/content/utils.py:132
 msgid "placeholder_new_existing"
-msgstr ""
-"Beschreiben Sie hier eine bereits bestehende Schutzmaßnahme, die noch nicht "
-"aufgelistet ist."
+msgstr "Beschreiben Sie hier eine bereits bestehende Schutzmaßnahme, die noch nicht aufgelistet ist."
 
 #. Default: "Search risk assessments"
 #. AI-generated
@@ -7456,10 +6576,7 @@ msgstr "${completion_percentage}% Vollständig"
 #. please continue.</p>"
 #: euphorie/client/browser/publish.py:132 euphorie/deployment/upgrade/v23.py:34
 msgid "question_other_risks"
-msgstr ""
-"<p><strong>Wichtig:</strong> Um doppelte Einträge zu vermeiden, empfehlen "
-"wir, zuerst alle vorherigen Module zu durchlaufen.</p><p>Falls Sie keine "
-"weiteren Gefährdungen eintragen wollen, wählen Sie bitte “Weiter”.</p>"
+msgstr "<p><strong>Wichtig:</strong> Um doppelte Einträge zu vermeiden, empfehlen wir, zuerst alle vorherigen Module zu durchlaufen.</p><p>Falls Sie keine weiteren Gefährdungen eintragen wollen, wählen Sie bitte “Weiter”.</p>"
 
 #. Default: "an employers' organisation"
 #: euphorie/client/browser/company.py:96
@@ -7530,10 +6647,7 @@ msgstr "bis ${date}"
 #. benefits:"
 #: euphorie/client/browser/templates/register_session.pt:28
 msgid "report_guest_register_intro"
-msgstr ""
-"Es tut uns leid, aber dies ist eine Test-Sitzung, so dass keine Berichte "
-"heruntergeladen werden können. Registrieren Sie sich in nur einem Schritt "
-"und genießen Sie die folgenden Vorteile:"
+msgstr "Es tut uns leid, aber dies ist eine Test-Sitzung, so dass keine Berichte heruntergeladen werden können. Registrieren Sie sich in nur einem Schritt und genießen Sie die folgenden Vorteile:"
 
 #. Default: "Activity"
 #. AI-generated
@@ -7582,9 +6696,7 @@ msgstr "Situation"
 #. AI-generated
 #: euphorie/client/docx/compiler.py:991
 msgid "report_identification_revision"
-msgstr ""
-"Dieses Dokument basiert auf dem OiRA-Tool '${title}' mit dem Revisionsdatum $"
-"{date}."
+msgstr "Dieses Dokument basiert auf dem OiRA-Tool '${title}' mit dem Revisionsdatum ${date}."
 
 #. Default: "Now that you have finished identifying all the risks in your
 #. organisation and created an action plan you can create a report which lists
@@ -7592,12 +6704,7 @@ msgstr ""
 #. be included in this report in the field below."
 #: euphorie/client/browser/templates/report.pt:37
 msgid "report_intro"
-msgstr ""
-"Nachdem Sie alle Gefährdungen im Zusammenhang mit Ihrer Organisation "
-"ermittelt und einen Aktionsplan erstellt haben, können Sie nun einen Bericht "
-"generieren, in dem alle Ergebnisse aufgeführt sind. Wenn Sie dies wünschen, "
-"können Sie zusätzliche Kommentare zur Aufnahme in den Bericht in das "
-"untenstehende Feld eingeben."
+msgstr "Nachdem Sie alle Gefährdungen im Zusammenhang mit Ihrer Organisation ermittelt und einen Aktionsplan erstellt haben, können Sie nun einen Bericht generieren, in dem alle Ergebnisse aufgeführt sind. Wenn Sie dies wünschen, können Sie zusätzliche Kommentare zur Aufnahme in den Bericht in das untenstehende Feld eingeben."
 
 #. Default: "When you have finished the assessment to at least
 #. ${completion_threshold}% you will be able to create a report."
@@ -7605,9 +6712,7 @@ msgstr ""
 #: euphorie/client/browser/templates/report.pt:49
 #: euphorie/client/browser/templates/report_inventory.pt:76
 msgid "report_intro_incomplete"
-msgstr ""
-"Wenn Sie die Bewertung zu mindestens ${completion_threshold}% abgeschlossen "
-"haben, können Sie einen Bericht erstellen."
+msgstr "Wenn Sie die Bewertung zu mindestens ${completion_threshold}% abgeschlossen haben, können Sie einen Bericht erstellen."
 
 #. Default: "Measures already in place:"
 #. AI-generated
@@ -7625,9 +6730,7 @@ msgstr "Verantwortlich: ${responsible_name}"
 #. date ${date}."
 #: euphorie/client/docx/compiler.py:231
 msgid "report_survey_revision"
-msgstr ""
-"Dieser Bericht basiert auf dem OiRA-Tool '${title}' mit dem Revisionsdatum $"
-"{date}."
+msgstr "Dieser Bericht basiert auf dem OiRA-Tool '${title}' mit dem Revisionsdatum ${date}."
 
 #. Default: "Comments"
 #: euphorie/client/browser/report.py:155
@@ -7747,9 +6850,7 @@ msgstr "Relevanz: ${percentage}"
 #. implemented</strong>."
 #: euphorie/content/utils.py:106
 msgid "select_add_existing_measure"
-msgstr ""
-"Wählen Sie alle <strong>bereits bestehenden</strong> Schutzmaßnahmen aus "
-"oder fügen Sie bei Bedarf neue hinzu."
+msgstr "Wählen Sie alle <strong>bereits bestehenden</strong> Schutzmaßnahmen aus oder fügen Sie bei Bedarf neue hinzu."
 
 #. Default: "Once you have started an OiRA tool session, you will be able to
 #. stop before the end. You can restart it again at a later date by selecting
@@ -7761,16 +6862,7 @@ msgstr ""
 #. better to actively log out."
 #: euphorie/client/browser/session.py:87
 msgid "session_title_tooltip"
-msgstr ""
-"Wenn Sie eine OiRA-Tool-Sitzung gestartet haben, können Sie diese vor dem "
-"Abschluss beenden. Sie können sie später neu starten, indem Sie den Namen "
-"der OiRA-Tool-Sitzung auswählen. Sie können mehrere Sitzungen speichern – "
-"vorausgesetzt, Sie haben sie unterschiedlich benannt. Sie benötigen in jedem "
-"Fall Ihre E-Mail-Adresse, Ihr Passwort sowie den Namen, den Sie der OiRA-"
-"Tool-Sitzung gegeben haben. Indem Sie auf die Schaltfläche „Abmelden“ "
-"klicken, melden Sie sich aktiv ab. Beim Schließen des Browsers werden Sie "
-"ebenfalls abgemeldet. Aus Sicherheitsgründen empfehlen wir die aktive "
-"Abmeldung."
+msgstr "Wenn Sie eine OiRA-Tool-Sitzung gestartet haben, können Sie diese vor dem Abschluss beenden. Sie können sie später neu starten, indem Sie den Namen der OiRA-Tool-Sitzung auswählen. Sie können mehrere Sitzungen speichern – vorausgesetzt, Sie haben sie unterschiedlich benannt. Sie benötigen in jedem Fall Ihre E-Mail-Adresse, Ihr Passwort sowie den Namen, den Sie der OiRA-Tool-Sitzung gegeben haben. Indem Sie auf die Schaltfläche „Abmelden“ klicken, melden Sie sich aktiv ab. Beim Schließen des Browsers werden Sie ebenfalls abgemeldet. Aus Sicherheitsgründen empfehlen wir die aktive Abmeldung."
 
 #. Default: "Not very severe"
 #: euphorie/client/browser/templates/webhelpers.pt:496
@@ -7839,17 +6931,13 @@ msgstr "Sie können auch ${add_link}."
 #. organisation"
 #: euphorie/content/widgets/survey_source_selection.py:30
 msgid "survey_source_local"
-msgstr ""
-"Neues OiRA-Tool auf der Grundlage eines bestehenden OiRA-Tools meiner "
-"Organisation erstellen"
+msgstr "Neues OiRA-Tool auf der Grundlage eines bestehenden OiRA-Tools meiner Organisation erstellen"
 
 #. Default: "Base my new OiRA Tool on an existing OiRA Tool of another
 #. organisation"
 #: euphorie/content/widgets/survey_source_selection.py:40
 msgid "survey_source_other"
-msgstr ""
-"Neues OiRA-Tool auf der Grundlage eines bestehenden OiRA-Tools einer anderen "
-"Organisation erstellen"
+msgstr "Neues OiRA-Tool auf der Grundlage eines bestehenden OiRA-Tools einer anderen Organisation erstellen"
 
 #. Default: "Create a new OiRA Tool from scratch"
 #: euphorie/content/widgets/survey_source_selection.py:23
@@ -7860,26 +6948,19 @@ msgstr "Vollständig neues OiRA-Tool erstellen"
 #. Please read the new terms and conditions carefully before proceding."
 #: euphorie/client/browser/templates/conditions.pt:20
 msgid "terms_changed"
-msgstr ""
-"Die Nutzungsbedingungen wurden seit Ihrem letzten Besuch geändert. Bitte "
-"lesen Sie die aktuellen Nutzungsbedingungen sorgfältig durch, bevor Sie "
-"fortfahren."
+msgstr "Die Nutzungsbedingungen wurden seit Ihrem letzten Besuch geändert. Bitte lesen Sie die aktuellen Nutzungsbedingungen sorgfältig durch, bevor Sie fortfahren."
 
 #. Default: "Read here about the ${benefits}${tooltip_benefits} and
 #. ${limitations}${tooltip_limitations} of a test session."
 #: euphorie/client/browser/templates/new-session-test.pt:84
 msgid "testsession_benefits_limitations"
-msgstr ""
-"Hier können Sie sich über die ${benefits}${tooltip_benefits} und $"
-"{limitations}${tooltip_limitations} einer Test-Sitzung informieren."
+msgstr "Hier können Sie sich über die ${benefits}${tooltip_benefits} und ${limitations}${tooltip_limitations} einer Test-Sitzung informieren."
 
 #. Default: "Or ${register_link} instead. Find out why you should
 #. register${tooltip_register}."
 #: euphorie/client/browser/templates/new-session-test.pt:95
 msgid "testsession_register"
-msgstr ""
-"Oder ${register_link} Sie sich stattdessen. Lesen Sie hier warum sich eine "
-"Registrierung lohnt${tooltip_register}."
+msgstr "Oder ${register_link} Sie sich stattdessen. Lesen Sie hier warum sich eine Registrierung lohnt${tooltip_register}."
 
 #. Default: "add all measures that have already been implemented"
 #: euphorie/content/utils.py:58
@@ -7991,9 +7072,7 @@ msgstr "Status von “${survey_title}”"
 #: euphorie/client/browser/templates/layout.pt:18
 #: euphorie/client/browser/templates/modal-template.pt:21
 msgid "title_tool"
-msgstr ""
-"OiRA – Online interactive Risk Assessment – das interaktive Online-Werkzeug "
-"zur Gefährdungsbeurteilung"
+msgstr "OiRA – Online interactive Risk Assessment – das interaktive Online-Werkzeug zur Gefährdungsbeurteilung"
 
 #. Default: "Tool category"
 #. AI-generated
@@ -8041,20 +7120,14 @@ msgstr "Starten Sie eine neue Testsession"
 #: euphorie/client/browser/templates/risk_macros.pt:130
 #: euphorie/client/docx/compiler.py:292
 msgid "top5_risk_not_present"
-msgstr ""
-"Diese Gefährdung ist in Ihrer Organisation nicht vorhanden. Da jedoch die "
-"Organisation der Branche diese als eine der Prioritätsgefährdungen einstuft, "
-"muss sie in den Bericht aufgenommen werden."
+msgstr "Diese Gefährdung ist in Ihrer Organisation nicht vorhanden. Da jedoch die Organisation der Branche diese als eine der Prioritätsgefährdungen einstuft, muss sie in den Bericht aufgenommen werden."
 
 #. Default: "This risk is not present in your organisation, but since the
 #. sector organisation considers this one of the priority risks it must be
 #. included in this report."
 #: euphorie/client/docx/compiler.py:301
 msgid "top5_risk_not_present_answer_yes"
-msgstr ""
-"Diese Gefährdung ist in Ihrer Organisation nicht vorhanden. Da jedoch die "
-"Organisation der Branche diese als eine der Prioritätsgefährdungen einstuft, "
-"muss sie in den Bericht aufgenommen werden."
+msgstr "Diese Gefährdung ist in Ihrer Organisation nicht vorhanden. Da jedoch die Organisation der Branche diese als eine der Prioritätsgefährdungen einstuft, muss sie in den Bericht aufgenommen werden."
 
 #. Default: "This risk has not yet been assessed, but since it is considered
 #. \"high priority\" by the OiRA tool developers, it will always be included
@@ -8062,17 +7135,12 @@ msgstr ""
 #. statement."
 #: euphorie/client/browser/templates/risk_macros.pt:135
 msgid "top5_risk_not_present_postponed"
-msgstr ""
-"Diese Gefährdung ist in Ihrer Organisation nicht vorhanden. Da jedoch die "
-"Organisation der Branche diese als eine der Prioritätsgefährdungen einstuft, "
-"muss sie in den Bericht aufgenommen werden."
+msgstr "Diese Gefährdung ist in Ihrer Organisation nicht vorhanden. Da jedoch die Organisation der Branche diese als eine der Prioritätsgefährdungen einstuft, muss sie in den Bericht aufgenommen werden."
 
 #. Default: "Are you sure you want to unpublish this OiRA Tool?"
 #: euphorie/content/browser/templates/surveygroup_unpublish.pt:25
 msgid "unpublish_confirm"
-msgstr ""
-"Sind sie sicher, dass Sie die Veröffentlichung dieses OiRA-Tools aufheben "
-"möchten?"
+msgstr "Sind sie sicher, dass Sie die Veröffentlichung dieses OiRA-Tools aufheben möchten?"
 
 #. Default: "Successfully imported the OiRA Tool"
 #: euphorie/content/browser/upload.py:681
@@ -8150,20 +7218,14 @@ msgstr "Sie haben die obenstehende Aussage verneint."
 #. deleted. This action is irreversable."
 #: euphorie/client/browser/templates/account-delete.pt:22
 msgid "warning_account_delete_irreversible"
-msgstr ""
-"Wenn Sie auf „Konto löschen“ klicken, wird Ihr Konto dauerhaft gelöscht. "
-"Dieser Vorgang kann nicht rückgängig gemacht werden."
+msgstr "Wenn Sie auf „Konto löschen“ klicken, wird Ihr Konto dauerhaft gelöscht. Dieser Vorgang kann nicht rückgängig gemacht werden."
 
 #. Default: "Please note that by deleting your account, you will also delete
 #. all your sessions. Please make sure you download your reports from the
 #. Report step prior to deleting your account, if you want to keep any."
 #: euphorie/client/browser/templates/account-delete.pt:25
 msgid "warning_account_delete_surveys"
-msgstr ""
-"Bitte beachten Sie, dass mit dem Löschen Ihres Kontos all Ihre Sitzungen "
-"ebenfalls gelöscht werden. Wenn Sie weiter über die Berichte verfügen "
-"möchten, laden Sie sie im Schritt „Bericht“ herunter, bevor Sie Ihr Konto "
-"löschen."
+msgstr "Bitte beachten Sie, dass mit dem Löschen Ihres Kontos all Ihre Sitzungen ebenfalls gelöscht werden. Wenn Sie weiter über die Berichte verfügen möchten, laden Sie sie im Schritt „Bericht“ herunter, bevor Sie Ihr Konto löschen."
 
 #. Default: "Yes"
 #: euphorie/content/browser/templates/risk_view.pt:89

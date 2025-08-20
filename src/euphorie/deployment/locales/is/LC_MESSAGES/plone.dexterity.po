@@ -17,11 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.5\n"
 
-# Manually handled file
-#: plone/dexterity/browser/add.py:82 plone/dexterity/browser/edit.py:15
-msgid "Save"
-msgstr "Geyma"
-
 #: plone/dexterity/browser/add.py:112
 msgid "Add ${name}"
 msgstr "Bæta við ${name}"
@@ -29,3 +24,8 @@ msgstr "Bæta við ${name}"
 #: plone/dexterity/browser/edit.py:48
 msgid "Edit ${name}"
 msgstr "Breyta ${name}"
+
+# Manually handled file
+#: plone/dexterity/browser/add.py:82 plone/dexterity/browser/edit.py:15
+msgid "Save"
+msgstr "Geyma"
