@@ -2109,11 +2109,25 @@ def get_current_account():
              otherwise None
     """
     user_id = api.user.get_current().getId()
+    if user_id is None:
+        return
+    try:
+        user_id = int(user_id)
+    except (ValueError, TypeError):
+        # If we pass a user id that can't be transformed to an integer,
+        # we get a "DataError (psycopg2.errors.InvalidTextRepresentation)
+        # invalid input syntax for type integer.""  When that happens, you get
+        # tracebacks like this when another SQL query is done in the same Zope
+        # transaction:
+        # "psycopg2.errors.InFailedSqlTransaction: current transaction is
+        # aborted, commands ignored until end of transaction block"
+        # So we prevent this problem by not executing such a query.
+        log.warning("Unable to fetch account for non-integer user id: %r", user_id)
+        return
     try:
         return Session.query(Account).filter(Account.id == user_id).first()
     except Exception:
-        log.warning("Unable to fetch account for username:")
-        log.warning(user_id)
+        log.warning("Unable to fetch account for user id: %r", user_id)
 
 
 class DefaultView(BrowserView):

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-08-12 12:09+0000\n"
-"PO-Revision-Date: 2013-06-27 22:03+0200\n"
+"POT-Creation-Date: 2025-02-03 12:35+0000\n"
+"PO-Revision-Date: 2025-08-20 15:14+0200\n"
 "Last-Translator: JC Brand <brand@syslab.com>\n"
 "Language-Team: Danish\n"
 "Language: da\n"
@@ -22,41 +22,24 @@ msgstr ""
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 
-#: euphorie/client/browser/templates/login.pt:330
-msgid ""
-"${action-plan} In the fourth stage of the assessment you can decide what "
-"steps you will take to address the risks you have identified previously and "
-"what resources this might require. Based on this, a report will be "
-"automatically produced in the next step."
+#: euphorie/client/browser/templates/login.pt:327
+msgid "${action-plan} In the fourth stage of the assessment you can decide what steps you will take to address the risks you have identified previously and what resources this might require. Based on this, a report will be automatically produced in the next step."
 msgstr ""
 
-#: euphorie/client/browser/templates/login.pt:328
-msgid ""
-"${evaluation} Here you will be able to determine the level of risk attached "
-"to each of the items you identified as 'need to be addressed' in the "
-"'Identification' stage."
+#: euphorie/client/browser/templates/login.pt:325
+msgid "${evaluation} Here you will be able to determine the level of risk attached to each of the items you identified as 'need to be addressed' in the 'Identification' stage."
 msgstr ""
 
-#: euphorie/client/browser/templates/login.pt:326
-msgid ""
-"${identification} OiRA will present a series of potential health and safety "
-"hazards or problems that could exist in your workplace. By answering the "
-"statements/questions with either yes or no, you state if such hazards or "
-"problems are present. You can also decide to leave a question unanswered and "
-"thus put it on hold to be answered at a later stage."
+#: euphorie/client/browser/templates/login.pt:323
+msgid "${identification} OiRA will present a series of potential health and safety hazards or problems that could exist in your workplace. By answering the statements/questions with either yes or no, you state if such hazards or problems are present. You can also decide to leave a question unanswered and thus put it on hold to be answered at a later stage."
 msgstr ""
 
 #: euphorie/client/browser/templates/report_landing.pt:110
-msgid ""
-"${manage} the problems/risks in your workplace (specific tasks, expertise, "
-"responsibilities, deadlines)."
+msgid "${manage} the problems/risks in your workplace (specific tasks, expertise, responsibilities, deadlines)."
 msgstr ""
 
-#: euphorie/client/browser/templates/login.pt:324
-msgid ""
-"${preparation} This gives you an overview of the particular assessment you "
-"are about to begin and can allow you to further customise the assessment to "
-"the specific nature of your business."
+#: euphorie/client/browser/templates/login.pt:321
+msgid "${preparation} This gives you an overview of the particular assessment you are about to begin and can allow you to further customise the assessment to the specific nature of your business."
 msgstr ""
 
 #: euphorie/client/browser/templates/report_landing.pt:82
@@ -206,16 +189,12 @@ msgstr ""
 msgid "Are you sure you want to continue? This action can not be reverted."
 msgstr ""
 
-#: euphorie/client/browser/risk.py:62
-msgid ""
-"Are you sure you want to delete this measure? This action can not be "
-"reverted."
+#: euphorie/client/browser/risk.py:60
+msgid "Are you sure you want to delete this measure? This action can not be reverted."
 msgstr ""
 
 #: euphorie/client/browser/templates/confirmation-delete-session.pt:31
-msgid ""
-"Are you sure you want to delete this session? This action can not be "
-"reverted."
+msgid "Are you sure you want to delete this session? This action can not be reverted."
 msgstr ""
 
 #: euphorie/client/browser/templates/confirmation-clone-session.pt:28
@@ -241,9 +220,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/confirmation-clone-session.pt:25
 #: euphorie/client/browser/templates/more_menu.pt:62
-msgid ""
-"By cloning a risk assessment you will create a new risk assessment based on "
-"the contents of this risk assessment as a starting point."
+msgid "By cloning a risk assessment you will create a new risk assessment based on the contents of this risk assessment as a starting point."
 msgstr ""
 
 #: euphorie/client/browser/reset_password.py:212
@@ -310,15 +287,11 @@ msgid "Confirm OiRA email address change"
 msgstr ""
 
 #: euphorie/client/browser/templates/report_landing.pt:54
-msgid ""
-"Contains: Concise information and input provided by you throughout the risk "
-"assessment process."
+msgid "Contains: Concise information and input provided by you throughout the risk assessment process."
 msgstr ""
 
 #: euphorie/client/browser/templates/report_landing.pt:77
-msgid ""
-"Contains: all the information and input provided by you throughout the risk "
-"assessment process."
+msgid "Contains: all the information and input provided by you throughout the risk assessment process."
 msgstr ""
 
 #: euphorie/client/browser/templates/report_landing.pt:167
@@ -330,8 +303,7 @@ msgid "Contains: an overview of the risks identified"
 msgstr ""
 
 #: euphorie/client/browser/templates/report_landing.pt:105
-msgid ""
-"Contains: main elements to effectively manage the risks at your workplace."
+msgid "Contains: main elements to effectively manage the risks at your workplace."
 msgstr ""
 
 #: euphorie/client/browser/templates/slide_question.pt:42
@@ -548,11 +520,8 @@ msgstr ""
 msgid "However, OiRA is designed to be of most value to smaller businesses."
 msgstr ""
 
-#: euphorie/client/browser/templates/login.pt:340
-msgid ""
-"However, you can spend whatever time you have available on an assessment and "
-"then return to it when convenient to pick up from the same point you left "
-"off."
+#: euphorie/client/browser/templates/login.pt:337
+msgid "However, you can spend whatever time you have available on an assessment and then return to it when convenient to pick up from the same point you left off."
 msgstr ""
 
 #: euphorie/client/browser/webhelpers.py:1009
@@ -600,10 +569,8 @@ msgstr ""
 msgid "It seems you missed a slide"
 msgstr ""
 
-#: euphorie/client/browser/templates/login.pt:339
-msgid ""
-"It's impossible to say how long an assessment will take in general as the "
-"tools differ according to sectors and countries."
+#: euphorie/client/browser/templates/login.pt:336
+msgid "It's impossible to say how long an assessment will take in general as the tools differ according to sectors and countries."
 msgstr ""
 
 #: euphorie/client/browser/templates/panel-edit-organisation.pt:74
@@ -810,28 +777,20 @@ msgstr ""
 msgid "OiRA Tool where \"Measures that are already in place\" can be defined."
 msgstr ""
 
-#: euphorie/client/browser/templates/login.pt:313
-msgid ""
-"OiRA can be used by anyone wishing to assess health and safety-related risks "
-"that might exist in their workplace."
+#: euphorie/client/browser/templates/login.pt:310
+msgid "OiRA can be used by anyone wishing to assess health and safety-related risks that might exist in their workplace."
 msgstr ""
 
-#: euphorie/client/browser/templates/login.pt:315
-msgid ""
-"OiRA is designed specifically to support them in assessing the risks at work "
-"and helping them to produce a documented risk assessment including an action "
-"plan tailored to the business's requirements."
+#: euphorie/client/browser/templates/login.pt:312
+msgid "OiRA is designed specifically to support them in assessing the risks at work and helping them to produce a documented risk assessment including an action plan tailored to the business's requirements."
 msgstr ""
 
 #: euphorie/client/browser/reset_password.py:143
 msgid "OiRA password reset instructions"
 msgstr ""
 
-#: euphorie/client/browser/templates/login.pt:308
-msgid ""
-"OiRA stands for Online Interactive Risk Assessment. It is a web-based tool "
-"that allows you to perform a health and safety risk assessment of your "
-"workplace."
+#: euphorie/client/browser/templates/login.pt:305
+msgid "OiRA stands for Online Interactive Risk Assessment. It is a web-based tool that allows you to perform a health and safety risk assessment of your workplace."
 msgstr ""
 
 #: euphorie/client/browser/survey.py:95
@@ -885,9 +844,7 @@ msgid "Owner"
 msgstr ""
 
 #: euphorie/client/browser/templates/report_landing.pt:184
-msgid ""
-"Pass information on to the people concerned (workers, safety "
-"representatives, employers, experts in occupational safety and health, etc.)"
+msgid "Pass information on to the people concerned (workers, safety representatives, employers, experts in occupational safety and health, etc.)"
 msgstr ""
 
 #: euphorie/client/browser/templates/measures_overview.pt:69
@@ -903,16 +860,11 @@ msgid "Password doesn't compare with confirmation value"
 msgstr ""
 
 #: euphorie/client/browser/templates/new-email.pt:26
-msgid ""
-"Please bear in mind that by changing the email address, your login name will "
-"also change."
+msgid "Please bear in mind that by changing the email address, your login name will also change."
 msgstr ""
 
 #: euphorie/content/browser/templates/library.pt:28
-msgid ""
-"Please note that you may not be able to use all available content: profile "
-"questions can only be used at the top level of your survey, and modules may "
-"be too deeply nested to fit in ${title}."
+msgid "Please note that you may not be able to use all available content: profile questions can only be used at the top level of your survey, and modules may be too deeply nested to fit in ${title}."
 msgstr ""
 
 #: euphorie/content/browser/templates/profilequestion_add.pt:70
@@ -949,11 +901,7 @@ msgstr ""
 
 #: euphorie/content/browser/templates/profilequestion_add.pt:64
 #: euphorie/content/browser/templates/profilequestion_edit.pt:71
-msgid ""
-"Profile questions are used to determine whether particular modules apply to "
-"the end user at all (i.e. the modules inside the profile question are "
-"OPTIONAL), and if they apply, whether they should be repeated a number of "
-"times (i.e. the modules are REPEATABLE)."
+msgid "Profile questions are used to determine whether particular modules apply to the end user at all (i.e. the modules inside the profile question are OPTIONAL), and if they apply, whether they should be repeated a number of times (i.e. the modules are REPEATABLE)."
 msgstr ""
 
 #: euphorie/client/browser/templates/report_landing.pt:59
@@ -986,9 +934,7 @@ msgid "Recommendation"
 msgstr ""
 
 #: euphorie/client/browser/templates/report_landing.pt:186
-msgid ""
-"Record any revision if circumstances change (new machines, new workers, as a "
-"result of findings of any accident investigations, etc.)"
+msgid "Record any revision if circumstances change (new machines, new workers, as a result of findings of any accident investigations, etc.)"
 msgstr ""
 
 #: euphorie/client/browser/templates/locking_menu.pt:106
@@ -1003,10 +949,8 @@ msgstr ""
 msgid "Regions"
 msgstr ""
 
-#: euphorie/client/browser/templates/login.pt:348
-msgid ""
-"Registering allows you to simply log in at any time to continue previous "
-"assessments or to start new ones."
+#: euphorie/client/browser/templates/login.pt:345
+msgid "Registering allows you to simply log in at any time to continue previous assessments or to start new ones."
 msgstr ""
 
 #: euphorie/client/browser/templates/organisation-member-more-menu.pt:26
@@ -1090,10 +1034,7 @@ msgid "Save changes"
 msgstr ""
 
 #: euphorie/client/browser/templates/report_landing.pt:31
-msgid ""
-"Save the report on your computer and print it. You can also modify it or add "
-"more information. Please note that changes made on your pc will NOT be saved "
-"in the OiRA tool"
+msgid "Save the report on your computer and print it. You can also modify it or add more information. Please note that changes made on your pc will NOT be saved in the OiRA tool"
 msgstr ""
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:103
@@ -1185,13 +1126,7 @@ msgstr ""
 
 #: euphorie/content/browser/templates/profilequestion_add.pt:67
 #: euphorie/content/browser/templates/profilequestion_edit.pt:74
-msgid ""
-"Such questions are asked BEFORE the end-user starts the risk identification "
-"and evaluation. If the end-user does not confirm that an optional profile "
-"question is relevant (by ticking the box), then the corresponding module "
-"will be skipped entirely. If the end-user enters more than one option to a "
-"repeatable profile question then the corresponding module will be repeated "
-"the specified number of times."
+msgid "Such questions are asked BEFORE the end-user starts the risk identification and evaluation. If the end-user does not confirm that an optional profile question is relevant (by ticking the box), then the corresponding module will be skipped entirely. If the end-user enters more than one option to a repeatable profile question then the corresponding module will be repeated the specified number of times."
 msgstr ""
 
 #: euphorie/content/behaviour/richdescription.py:39
@@ -1208,21 +1143,15 @@ msgstr ""
 
 #: euphorie/content/browser/templates/profilequestion_add.pt:44
 #: euphorie/content/browser/templates/profilequestion_edit.pt:51
-msgid ""
-"The basic architecture of an Online interactive Risk Assessment consists of:"
+msgid "The basic architecture of an Online interactive Risk Assessment consists of:"
 msgstr ""
 
-#: euphorie/client/browser/risk.py:72
-msgid ""
-"The current text in the fields 'Action plan', 'Prevention plan' and "
-"'Requirements' of this measure will be overwritten. This action cannot be "
-"reverted. Are you sure you want to continue?"
+#: euphorie/client/browser/risk.py:70
+msgid "The current text in the fields 'Action plan', 'Prevention plan' and 'Requirements' of this measure will be overwritten. This action cannot be reverted. Are you sure you want to continue?"
 msgstr ""
 
-#: euphorie/client/browser/templates/login.pt:347
-msgid ""
-"The first thing you will be asked to do when you begin your first risk "
-"assessment is to create an OiRA account - this is a simple and quick process."
+#: euphorie/client/browser/templates/login.pt:344
+msgid "The first thing you will be asked to do when you begin your first risk assessment is to create an OiRA account - this is a simple and quick process."
 msgstr ""
 
 #: euphorie/client/browser/templates/status_info.pt:147
@@ -1230,11 +1159,7 @@ msgid "The following certificates were awarded for this assessment."
 msgstr ""
 
 #: euphorie/content/survey.py:62
-msgid ""
-"The introduction text is shown when starting a new OiRA Tool session. If no "
-"introduction is provided here a standard text will be shown. Please keep "
-"this text brief so it will easily fit on screens of small devices such as "
-"phones and PDAs."
+msgid "The introduction text is shown when starting a new OiRA Tool session. If no introduction is provided here a standard text will be shown. Please keep this text brief so it will easily fit on screens of small devices such as phones and PDAs."
 msgstr ""
 
 #: euphorie/client/browser/session.py:788
@@ -1290,8 +1215,7 @@ msgid "This is a unique identifier for this object."
 msgstr ""
 
 #: euphorie/content/surveygroup.py:71
-msgid ""
-"This is the recommended evaluation algorithm, based on the Kinney method"
+msgid "This is the recommended evaluation algorithm, based on the Kinney method"
 msgstr ""
 
 #: euphorie/content/profilequestion.py:81
@@ -1303,9 +1227,7 @@ msgid "This must ask the user for the names of all relevant locations."
 msgstr ""
 
 #: euphorie/content/profilequestion.py:71
-msgid ""
-"This question must ask the user if the service is offered in more than one "
-"location."
+msgid "This question must ask the user if the service is offered in more than one location."
 msgstr ""
 
 #: euphorie/content/profilequestion.py:43
@@ -1390,9 +1312,7 @@ msgid "Visit this URL"
 msgstr ""
 
 #: euphorie/client/browser/templates/report_landing.pt:190
-msgid ""
-"We recommend that you always keep an updated printed version of your risk "
-"assessment (report) available in your company!"
+msgid "We recommend that you always keep an updated printed version of your risk assessment (report) available in your company!"
 msgstr ""
 
 #: euphorie/client/browser/templates/login.pt:320
@@ -1404,11 +1324,7 @@ msgid "What is OiRA (Online Interactive Risk Assessment)?"
 msgstr ""
 
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:31
-msgid ""
-"When you click continue, your e-mail client will open with a new e-mail with "
-"a link in it that people can use to join your organisation. The link is "
-"valid for five days and you may send it to as many people as you would like "
-"to join your organisation."
+msgid "When you click continue, your e-mail client will open with a new e-mail with a link in it that people can use to join your organisation. The link is valid for five days and you may send it to as many people as you would like to join your organisation."
 msgstr ""
 
 #: euphorie/client/browser/templates/login.pt:311
@@ -1442,36 +1358,23 @@ msgid "You are almost there. The following questions were answered wrongly."
 msgstr ""
 
 #: euphorie/client/browser/templates/slide_question_intro.pt:32
-msgid ""
-"You can now answer a few questions to prove that you master this topic and "
-"earn your certificate."
+msgid "You can now answer a few questions to prove that you master this topic and earn your certificate."
 msgstr ""
 
 #: euphorie/content/browser/templates/library.pt:18
-msgid ""
-"You can use content from the standard libary as provided by OSHA in your own "
-"surveys. Just select the module or risk you want to use in the list below "
-"and it will be copied to your survey."
+msgid "You can use content from the standard libary as provided by OSHA in your own surveys. Just select the module or risk you want to use in the list below and it will be copied to your survey."
 msgstr ""
 
-#: euphorie/client/browser/templates/login.pt:356
-msgid ""
-"You do not need any kind of specific preparation to start using the tool, "
-"however you should take some time to think about who is going to carry out "
-"the risk assessment, how workers are going to be involved in the process, "
-"etc."
+#: euphorie/client/browser/templates/login.pt:353
+msgid "You do not need any kind of specific preparation to start using the tool, however you should take some time to think about who is going to carry out the risk assessment, how workers are going to be involved in the process, etc."
 msgstr ""
 
-#: euphorie/client/browser/session.py:187
-msgid ""
-"You don't have edit rights for this risk assessment, but you can download "
-"this risk assessment in various forms in the ${download_section}."
+#: euphorie/client/browser/session.py:184
+msgid "You don't have edit rights for this risk assessment, but you can download this risk assessment in various forms in the ${download_section}."
 msgstr ""
 
-#: euphorie/client/browser/templates/login.pt:349
-msgid ""
-"You have to make sure to be in possession of a printed, accurate and up-"
-"dated risk assessment (at any time)."
+#: euphorie/client/browser/templates/login.pt:346
+msgid "You have to make sure to be in possession of a printed, accurate and up-dated risk assessment (at any time)."
 msgstr ""
 
 #: euphorie/client/browser/organisation.py:178
@@ -2215,9 +2118,7 @@ msgstr ""
 #. Default: "If you enter text here, it will be shown to users in a pop-up when they open the tool. It can be used for notifying users about changes."
 #: euphorie/content/survey.py:206
 msgid "description_tool_notification"
-msgstr ""
-"Hvis du indsætter en tekst her, vil brugerne kunne se den i et popup-vindue, "
-"når de åbner værktøjet. Her kan du informere brugere om ændringer."
+msgstr "Hvis du indsætter en tekst her, vil brugerne kunne se den i et popup-vindue, når de åbner værktøjet. Her kan du informere brugere om ændringer."
 
 #. Default: "This selection determines, which variant of an OiRA Tool will be created. If you are not sure, select \"Classic\"."
 #: euphorie/content/survey.py:103
@@ -3538,10 +3439,7 @@ msgstr ""
 #. Default: "Start based on an existing risk assessment. All content of the existing risk assessment will be copied over into the new risk assessment, which you can edit and augment at will."
 #: euphorie/client/browser/templates/new-session.pt:58
 msgid "help_start_base_on_existing"
-msgstr ""
-"Start på grundlag af en eksisterende risikovurdering. Alt indhold i den "
-"eksisterende risikovurdering vil blive kopieret over i den nye "
-"risikovurdering, som du kan redigere og udvide efter behov."
+msgstr "Start på grundlag af en eksisterende risikovurdering. Alt indhold i den eksisterende risikovurdering vil blive kopieret over i den nye risikovurdering, som du kan redigere og udvide efter behov."
 
 #. Default: "Start from scratch with an empty risk assessment."
 #: euphorie/client/browser/templates/new-session.pt:52
@@ -3566,8 +3464,7 @@ msgstr ""
 #. Default: "This OiRA Tool is obsolete; it has been retired or replaced with another OiRA Tool."
 #: euphorie/content/surveygroup.py:54
 msgid "help_survey_obsolete"
-msgstr ""
-"This survey is obsolete; it has been retired or replaced with another survey"
+msgstr "This survey is obsolete; it has been retired or replaced with another survey"
 
 #. Default: "This is the title of this OiRA Tool version. This name is never shown to users."
 #: euphorie/content/survey.py:49
@@ -3789,6 +3686,9 @@ msgstr ""
 msgid "label_accept update"
 msgstr ""
 
+msgid "label_accessibility"
+msgstr "Tilgængelighed"
+
 #. Default: "Account is locked"
 #: euphorie/content/user.py:99
 msgid "label_account_locked"
@@ -3855,6 +3755,12 @@ msgstr ""
 msgid "label_alphabetical"
 msgstr ""
 
+msgid "label_alternative_text"
+msgstr "Alternativ tekst"
+
+msgid "label_analysis"
+msgstr "Analyse"
+
 #. Default: "Assessment"
 #: euphorie/client/browser/webhelpers.py:1454
 msgid "label_assessment"
@@ -3864,6 +3770,9 @@ msgstr ""
 #: euphorie/client/browser/templates/sessions-dashboard.pt:46
 msgid "label_assessments"
 msgstr ""
+
+msgid "label_attachment"
+msgstr "Vedhæftning"
 
 #. Default: "Page content"
 #: euphorie/content/page.py:27
@@ -3930,6 +3839,9 @@ msgstr ""
 msgid "label_close_message"
 msgstr ""
 
+msgid "label_colour"
+msgstr "Farve"
+
 #. Default: "Compact"
 #: euphorie/client/browser/templates/report_landing.pt:45
 msgid "label_compact"
@@ -3945,6 +3857,9 @@ msgstr ""
 #: euphorie/client/browser/templates/report_company.pt:51
 msgid "label_company_country"
 msgstr ""
+
+msgid "label_compressed_file"
+msgstr "Komprimeret fil"
 
 #. Default: "The risk assessment was conducted by"
 #: euphorie/client/browser/company.py:63
@@ -3974,15 +3889,22 @@ msgstr ""
 msgid "label_contact_name"
 msgstr ""
 
-#. Default: "Continue"
-#: euphorie/client/browser/templates/choice_identification_feedback.pt:50
-msgid "label_continue"
-msgstr ""
+msgid "label_continue_to_consultancy"
+msgstr "Fortsæt til Konsulentvirksomhed"
+
+msgid "label_copy_imp"
+msgstr "Kopieer"
+
+msgid "label_copyright"
+msgstr "Ophavsret"
 
 #. Default: "Create action plan"
 #: euphorie/client/browser/templates/actionplan.pt:64
 msgid "label_create_action_plan"
 msgstr ""
+
+msgid "label_create_imp"
+msgstr "Opret"
 
 #. Default: "Current"
 #: euphorie/deployment/tiles/templates/versions.pt:59
@@ -4001,11 +3923,20 @@ msgstr ""
 msgid "label_custom_risks"
 msgstr ""
 
+msgid "label_cut_imp"
+msgstr "Klip"
+
+msgid "label_danish_native"
+msgstr "Dansk"
+
 #. Default: "Data protection notice"
 #: euphorie/client/browser/templates/login.pt:230
 #: euphorie/client/browser/templates/register_session.pt:217
 msgid "label_data_protection_notice"
 msgstr ""
+
+msgid "label_date"
+msgstr "Dato"
 
 #. Default: "Default severity"
 #: euphorie/content/browser/templates/risk_view.pt:117
@@ -4036,6 +3967,9 @@ msgstr ""
 msgid "label_default_severity"
 msgstr ""
 
+msgid "label_default_view"
+msgstr "Standardvisning"
+
 #. Default: "Delete"
 #: euphorie/client/browser/templates/more_menu.pt:44
 msgid "label_delete"
@@ -4052,6 +3986,12 @@ msgstr ""
 msgid "label_description"
 msgstr ""
 
+msgid "label_dialogue_panel"
+msgstr "Dialogpanel"
+
+msgid "label_download_imp"
+msgstr "Hent"
+
 #. Default: "Download a tool preview"
 #: euphorie/client/browser/templates/involve.pt:52
 msgid "label_download_tool_preview"
@@ -4062,10 +4002,11 @@ msgstr ""
 msgid "label_duplicate"
 msgstr ""
 
-#. Default: "Edit Organisation"
-#: euphorie/client/browser/templates/panel-edit-organisation.pt:20
-msgid "label_edit_organisation"
-msgstr ""
+msgid "label_duplicate_imp"
+msgstr "Dupliker"
+
+msgid "label_dutch"
+msgstr "Hollandsk"
 
 #. Default: "Email address"
 #: euphorie/client/browser/reset_password.py:47
@@ -4101,6 +4042,9 @@ msgstr "Show a custom notification for this OiRA tool"
 msgid "label_enable_web_training"
 msgstr ""
 
+msgid "label_english"
+msgstr "Engelsk"
+
 #. Default: "Evaluation"
 #: euphorie/client/browser/templates/login.pt:328
 #: euphorie/client/browser/webhelpers.py:1457
@@ -4117,6 +4061,9 @@ msgstr ""
 #: euphorie/content/survey.py:74
 msgid "label_evaluation_optional"
 msgstr ""
+
+msgid "label_excel_file"
+msgstr "Excel-fil"
 
 #. Default: "Existing risk assessment to use as a base"
 #: euphorie/client/browser/templates/new-session.pt:106
@@ -4191,6 +4138,15 @@ msgstr ""
 msgid "label_format"
 msgstr ""
 
+msgid "label_french"
+msgstr "Fransk"
+
+msgid "label_friday"
+msgstr "Fredag"
+
+msgid "label_from"
+msgstr "Fra"
+
 #. Default: "Full Report"
 #: euphorie/client/browser/templates/report_landing.pt:68
 msgid "label_full_report"
@@ -4201,6 +4157,12 @@ msgstr ""
 #: euphorie/client/browser/templates/status_inventory.pt:47
 msgid "label_general_information"
 msgstr ""
+
+msgid "label_german"
+msgstr "Tysk"
+
+msgid "label_german_native"
+msgstr "Deutsch"
 
 #. Default: "4. Action Plan"
 #: euphorie/content/browser/templates/help_view.pt:48
@@ -4314,6 +4276,9 @@ msgstr ""
 msgid "label_is_etranslate_compatible"
 msgstr ""
 
+msgid "label_italian_native"
+msgstr "Italiano"
+
 #. Default: "Go to report"
 #: euphorie/client/browser/templates/actionplan.pt:70
 msgid "label_jump_to_report"
@@ -4352,6 +4317,9 @@ msgstr ""
 msgid "label_learn_more_about_oira"
 msgstr ""
 
+msgid "label_leave_comment"
+msgstr "Efterlad en kommentar"
+
 #. Default: "Legal and policy references"
 #: euphorie/client/browser/templates/panel-contents-preview.pt:77
 #: euphorie/client/browser/templates/webhelpers.pt:607
@@ -4369,6 +4337,9 @@ msgstr ""
 msgid "label_link_register"
 msgstr ""
 
+msgid "label_loading"
+msgstr "Indlæser"
+
 #. Default: "Lock Risk Assessment"
 #: euphorie/client/browser/templates/locking_menu.pt:84
 msgid "label_lock_risk_assessment"
@@ -4384,6 +4355,15 @@ msgstr ""
 #: euphorie/client/browser/templates/locking_badge.pt:22
 msgid "label_locked_time"
 msgstr ""
+
+msgid "label_log_in"
+msgstr "Log ind"
+
+msgid "label_log_out"
+msgstr "Log ud"
+
+msgid "label_log_out_imp"
+msgstr "Log ud"
 
 #. Default: "Log in"
 #: euphorie/client/browser/templates/login.pt:92
@@ -4430,6 +4410,9 @@ msgstr ""
 msgid "label_measure_requirements"
 msgstr ""
 
+msgid "label_metadata"
+msgstr "Metadata"
+
 #. Default: "Title is missing"
 #: euphorie/client/browser/country.py:466
 #: euphorie/client/browser/templates/assessments.pt:147
@@ -4459,10 +4442,11 @@ msgstr ""
 msgid "label_module_question"
 msgstr ""
 
-#. Default: "Recommendation"
-#: euphorie/content/module.py:63
-msgid "label_module_recommendation"
-msgstr ""
+msgid "label_monday"
+msgstr "Mandag"
+
+msgid "label_more_ell"
+msgstr "Mere…"
 
 #. Default: "More risk assessments…"
 #: euphorie/client/browser/templates/portlet-my-ras.pt:86
@@ -4474,11 +4458,29 @@ msgstr ""
 msgid "label_more_risk_assessments_for"
 msgstr ""
 
+msgid "label_move"
+msgstr "Flyt"
+
+msgid "label_move_imp"
+msgstr "Flyt"
+
+msgid "label_mp3_file"
+msgstr "MP3-fil"
+
+msgid "label_name"
+msgstr "Navn"
+
+msgid "label_name_ra"
+msgstr "Navn på risikovurdering"
+
 #. Default: "Did this OiRA tool meet your needs?"
 #: euphorie/client/browser/company.py:149
 #: euphorie/client/browser/templates/report_company.pt:218
 msgid "label_needs_met"
 msgstr ""
+
+msgid "label_never"
+msgstr "Aldrig"
 
 #. Default: "Desired password"
 #: euphorie/client/browser/reset_password.py:33
@@ -4491,6 +4493,9 @@ msgstr ""
 #: euphorie/client/browser/settings.py:104
 msgid "label_new_password_confirmation"
 msgstr ""
+
+msgid "label_new_risk_assessment"
+msgstr "Ny risikovurdering"
 
 #. Default: "New test session"
 #: euphorie/client/browser/templates/new-session-test.pt:20
@@ -4517,10 +4522,16 @@ msgstr ""
 msgid "label_no"
 msgstr ""
 
+msgid "label_no_copyright_information"
+msgstr "Ingen ophavsretsoplysninger"
+
 #. Default: "No"
 #: euphorie/content/utils.py:86
 msgid "label_no_integrated_ap"
 msgstr ""
+
+msgid "label_no_notification"
+msgstr "Ingen notifikation"
 
 #. Default: "No risk"
 #: euphorie/client/browser/templates/risks_overview.pt:262
@@ -4588,6 +4599,9 @@ msgstr ""
 msgid "label_old_password"
 msgstr ""
 
+msgid "label_on"
+msgstr "Til"
+
 #. Default: "Online OiRA training"
 #: euphorie/client/browser/templates/training-slides.pt:43
 #: euphorie/client/browser/templates/training.pt:117
@@ -4612,6 +4626,9 @@ msgstr ""
 msgid "label_page_of"
 msgstr ""
 
+msgid "label_pages"
+msgstr "Sider"
+
 #. Default: "Password"
 #: euphorie/content/user.py:92
 msgid "label_password"
@@ -4623,11 +4640,26 @@ msgstr ""
 msgid "label_password_confirm"
 msgstr ""
 
+msgid "label_patterns_pn"
+msgstr "Patterns"
+
+msgid "label_pdf_file"
+msgstr "PDF-fil"
+
 #. Default: "Planned measures"
 #: euphorie/client/browser/templates/webhelpers.pt:710
 #: euphorie/client/browser/training.py:291
 msgid "label_planned_measures"
 msgstr ""
+
+msgid "label_post"
+msgstr "Post"
+
+msgid "label_post_imp"
+msgstr "Post"
+
+msgid "label_powerpoint_file"
+msgstr "PowerPoint-fil"
 
 #. Default: "Preparation"
 #: euphorie/client/browser/templates/login.pt:324
@@ -4672,6 +4704,12 @@ msgstr ""
 #: euphorie/deployment/tiles/templates/versions.pt:63
 msgid "label_published"
 msgstr ""
+
+msgid "label_quarterly"
+msgstr "Kvartalsvis"
+
+msgid "label_ra_title"
+msgstr "Navn på risikovurdering"
 
 #. Default: "Read more"
 #: euphorie/client/browser/templates/tool_sessions.pt:127
@@ -4727,6 +4765,9 @@ msgstr ""
 #: euphorie/client/browser/templates/assessments.pt:102
 msgid "label_remove_filters"
 msgstr ""
+
+msgid "label_remove_imp"
+msgstr "Fjern"
 
 #. Default: "Delete this measure"
 #: euphorie/client/browser/templates/webhelpers.pt:847
@@ -4849,10 +4890,22 @@ msgstr ""
 msgid "label_role_consultant"
 msgstr ""
 
+msgid "label_rule"
+msgstr "Regel"
+
+msgid "label_sample_at_regular_intervals"
+msgstr "Udtage prøve med regelmæssige intervaller"
+
+msgid "label_saturday"
+msgstr "Lørdag"
+
 #. Default: "Save and add new risk"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:326
 msgid "label_save_and_add_new"
 msgstr ""
+
+msgid "label_save_and_close_imp"
+msgstr "Gem og luk"
 
 #. Default: "Save and continue"
 #: euphorie/client/browser/templates/choice_identification.pt:79
@@ -4865,6 +4918,9 @@ msgstr ""
 #: euphorie/client/browser/templates/risk_identification_custom.pt:340
 msgid "label_save_and_finish"
 msgstr ""
+
+msgid "label_save_imp"
+msgstr "Gem"
 
 #. Default: "Search tools"
 #: euphorie/client/browser/templates/surveys.pt:126
@@ -4986,6 +5042,12 @@ msgstr ""
 msgid "label_start_identification"
 msgstr ""
 
+msgid "label_start_imp"
+msgstr "Start"
+
+msgid "label_start_new_risk_assessment_imp"
+msgstr "Start ny risikovurdering"
+
 #. Default: "Start"
 #: euphorie/client/browser/templates/start.pt:226
 msgid "label_start_survey"
@@ -5007,6 +5069,15 @@ msgstr ""
 #: euphorie/content/risk.py:68
 msgid "label_statement"
 msgstr ""
+
+msgid "label_submit_imp"
+msgstr "Indsend"
+
+msgid "label_summary"
+msgstr "Resumé"
+
+msgid "label_sunday"
+msgstr "Søndag"
 
 #. Default: "Choose a base revision"
 #: euphorie/content/browser/templates/survey_add.pt:31
@@ -5063,15 +5134,32 @@ msgstr ""
 msgid "label_surveygroup_title"
 msgstr ""
 
+msgid "label_system_language"
+msgstr "Systemsprog"
+
 #. Default: "Table of contents"
 #: euphorie/client/browser/templates/training.pt:41
 msgid "label_table_of_contents"
+msgstr ""
+
+msgid "label_tag"
+msgstr "Tag"
+
+msgid "label_tags"
+msgstr "Tags"
+
+#. Default: "Terms and conditions"
+#: euphorie/client/browser/templates/register_session.pt:188
+msgid "label_terms_conditions"
 msgstr ""
 
 #. Default: "Test session"
 #: euphorie/client/browser/templates/shell.pt:181
 msgid "label_testsession"
 msgstr ""
+
+msgid "label_thursday"
+msgstr "Torsdag"
 
 #. Default: "High"
 #: euphorie/client/browser/report.py:115
@@ -5094,6 +5182,12 @@ msgstr ""
 #: euphorie/client/docx/compiler.py:584
 msgid "label_title"
 msgstr ""
+
+msgid "label_toggle_on_screen_help_imp"
+msgstr "Slå skærmhjælp til/fra"
+
+msgid "label_tool"
+msgstr "Værktøj"
 
 #. Default: "based on ${tool_title}"
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:160
@@ -5137,6 +5231,12 @@ msgstr ""
 msgid "label_try_oira"
 msgstr ""
 
+msgid "label_tuesday"
+msgstr "Tirsdag"
+
+msgid "label_under_review"
+msgstr "Under gennemgang"
+
 #. Default: "Unlock Risk Assessment"
 #: euphorie/client/browser/templates/locking_menu.pt:96
 msgid "label_unlock_risk_assessment"
@@ -5147,6 +5247,9 @@ msgstr ""
 #: euphorie/client/browser/templates/status_info.pt:119
 msgid "label_unlocked"
 msgstr ""
+
+msgid "label_until"
+msgstr "Indtil"
 
 #. Default: "Unvisited"
 #: euphorie/client/browser/templates/risks_overview.pt:337
@@ -5164,6 +5267,9 @@ msgstr ""
 #: euphorie/deployment/tiles/templates/versions.pt:140
 msgid "label_update"
 msgstr ""
+
+msgid "label_update_imp"
+msgstr "Opdater"
 
 #. Default: "XML file"
 #: euphorie/content/browser/upload.py:172
@@ -5186,6 +5292,9 @@ msgstr ""
 msgid "label_used_tool"
 msgstr ""
 
+msgid "label_user_it_to_colon"
+msgstr "Brug det til:"
+
 #. Default: "Name"
 #: euphorie/content/user.py:78
 msgid "label_user_title"
@@ -5206,6 +5315,12 @@ msgstr ""
 msgid "label_validated"
 msgstr ""
 
+msgid "label_value"
+msgstr "Værdi"
+
+msgid "label_wednesday"
+msgstr "Onsdag"
+
 #. Default: "(&ge;1 measures)"
 #: euphorie/client/browser/templates/risks_overview.pt:431
 msgid "label_with_measures"
@@ -5215,6 +5330,9 @@ msgstr ""
 #: euphorie/client/browser/templates/risks_overview.pt:433
 msgid "label_without_measures"
 msgstr ""
+
+msgid "label_word_file"
+msgstr "Word-fil"
 
 #. Default: "Workers were invited to participate in the risk assessment"
 #: euphorie/client/browser/company.py:135
@@ -5238,6 +5356,9 @@ msgstr ""
 #: euphorie/content/utils.py:150
 msgid "label_yes_sufficient"
 msgstr ""
+
+msgid "label_zip_file"
+msgstr "ZIP-fil"
 
 #. Default: "Last edited by ${name} on ${date}."
 #: euphorie/client/browser/templates/locking_menu.pt:72
@@ -5314,6 +5435,9 @@ msgstr ""
 #: euphorie/client/browser/templates/tooltips.pt:25
 msgid "list_test_session_limitations3"
 msgstr ""
+
+msgid "llabel_dashboard"
+msgstr "Dashboard"
 
 #: euphorie/client/adapters/history_item.py:123
 msgid "lock refreshed"
@@ -5398,8 +5522,12 @@ msgstr ""
 msgid "message_click_to_validate"
 msgstr ""
 
-#. Default: "This is the only version of the OiRA Tool and can therefore not be deleted. Did you perhaps want to remove the OiRA Tool itself?"
-#: euphorie/content/browser/survey.py:252
+msgid "message_clone_or_start_new"
+msgstr "Du kan kopiere indhold fra en eksisterende vurdering lavet med værktøjet {0}, eller starte fra bunden."
+
+#. Default: "This is the only version of the OiRA Tool and can therefore not
+#. be deleted. Did you perhaps want to remove the OiRA Tool itself?"
+#: euphorie/content/browser/survey.py:251
 msgid "message_delete_no_last_survey"
 msgstr ""
 
@@ -5423,12 +5551,29 @@ msgstr ""
 msgid "message_find_consultants"
 msgstr ""
 
-#. Default: "When you invalidate this risk assessment, it will lose its validated status. You can still request for re-validation at a later time."
+msgid "message_finetune_settings_assessment"
+msgstr "Finjuster indstillingerne for denne risikovurdering."
+
+msgid "message_help_intro"
+msgstr "Vælg et af emnerne nedenfor for at lære mere om, hvordan OiRA fungerer."
+
+msgid "message_include_ellipsis"
+msgstr "Inkludér…"
+
+#. Default: "When you invalidate this risk assessment, it will lose its
+#. validated status. You can still request for re-validation at a later time."
 #: euphorie/client/browser/templates/panel-invalidate-risk-assessment.pt:33
 msgid "message_invalidate_ra"
 msgstr ""
 
-#. Default: "Decide on the best way to involve your staff! You can for example conduct a meeting or a focus group with workers and go through the respective parts in the risk assessment together. You can also download or print the content of the tool or parts of it and share it for information and feedback with your workers."
+msgid "message_invite_for_training"
+msgstr "Inviter en kollega til at lære om de relevante risici og foranstaltninger i “{0}”. Den inviterede bruger får automatisk adgang til denne vurdering til træningsformål."
+
+#. Default: "Decide on the best way to involve your staff! You can for example
+#. conduct a meeting or a focus group with workers and go through the
+#. respective parts in the risk assessment together. You can also download or
+#. print the content of the tool or parts of it and share it for information
+#. and feedback with your workers."
 #: euphorie/client/browser/templates/involve.pt:35
 msgid "message_involve_workers_how_to"
 msgstr ""
@@ -5499,6 +5644,21 @@ msgstr ""
 msgid "message_password_recovery_email_sent"
 msgstr ""
 
+msgid "message_permission_level_basic"
+msgstr "Brugeren kan kun tage træning."
+
+msgid "message_permission_level_edit"
+msgstr "Brugeren kan tage træning og se og redigere alle risikovurderinger."
+
+msgid "message_permission_level_full"
+msgstr "Brugeren kan se og redigere alt indhold og tilføje eller fjerne brugere fra organisationen."
+
+msgid "message_permission_level_manage"
+msgstr "Brugeren kan tage træning, se og redigere alle risikovurderinger, anmode om valideringer og låse risikovurderinger."
+
+msgid "message_permission_level_validate"
+msgstr "Brugeren kan tage træning, se og redigere alle risikovurderinger og validere risikovurderinger."
+
 #. Default: "Additional costs may be charged by your consultant."
 #: euphorie/client/browser/templates/panel-invalidate-risk-assessment.pt:34
 msgid "message_possible_extra_cost"
@@ -5519,7 +5679,11 @@ msgstr ""
 msgid "message_read_and_reviewd_assessment_and_approve"
 msgstr ""
 
-#. Default: "Click on 'Send validation request' to ask the selected OSH consultant to review and validate your risk assessment."
+msgid "message_report_downloads_intro"
+msgstr "Vælg mellem flere formater for at se eller downloade din risikovurderingsrapport."
+
+#. Default: "Click on 'Send validation request' to ask the selected OSH
+#. consultant to review and validate your risk assessment."
 #: euphorie/client/browser/templates/panel-request-validation.pt:31
 msgid "message_request_validation"
 msgstr ""
@@ -5559,7 +5723,19 @@ msgstr ""
 msgid "message_session_validated"
 msgstr ""
 
-#. Default: "If you want to continue working on a copy of this assessment, for instance to report on a new year, then you can use the option 'Duplicate'. Duplication will make a full copy of your assessment which will be editable."
+msgid "message_this_action_cannot_be_reverted"
+msgstr "Denne handling kan ikke fortrydes."
+
+msgid "message_training_enabled"
+msgstr "Aktivering af træning vil låse op for træningsfunktioner for denne risikovurdering. Træningen vil være tilgængelig for alle brugere i din organisation via fanen 'træning' i sidepanelet til venstre. Brugere med tilladelsesniveau 'Basis' kan kun tage træning og optjene et certifikat, hvis risikovurderingen er låst."
+
+msgid "message_training_promoted"
+msgstr "Træningsmaterialet til denne risikovurdering vil blive vist under fanen 'træning' på OiRA-startskærmen."
+
+#. Default: "If you want to continue working on a copy of this assessment, for
+#. instance to report on a new year, then you can use the option 'Duplicate'.
+#. Duplication will make a full copy of your assessment which will be
+#. editable."
 #: euphorie/client/browser/templates/panel-invalidate-risk-assessment.pt:41
 msgid "message_unlock_or_duplicate"
 msgstr ""
@@ -5594,8 +5770,6 @@ msgstr ""
 msgid "message_you_are_requested_to_validate_assessment"
 msgstr ""
 
-#. Default: "You haven&rsquo;t earned any certificates yet."
-#: euphorie/client/browser/templates/certificates.pt:29
 msgid "message_you_dont_have_any_certificates_yet"
 msgstr "Du har endnu ikke opnået nogen certifikater."
 
@@ -5603,6 +5777,9 @@ msgstr "Du har endnu ikke opnået nogen certifikater."
 #: euphorie/client/browser/templates/portlet-my-ras.pt:116
 msgid "message_you_dont_have_any_risk_assessments_yet"
 msgstr "Du har endnu ingen risikovurderinger. Start med at oprette en ny."
+
+msgid "message_you_dont_have_any_risk_assessments_yet_short"
+msgstr "Du har endnu ingen risikovurderinger."
 
 #. Default: "You have reviewed and validated this risk assessment."
 #: euphorie/client/browser/templates/consultancy.pt:125
@@ -5886,7 +6063,10 @@ msgstr ""
 msgid "progress_indicator_title"
 msgstr ""
 
-#. Default: "<p><strong>Important:</strong> In order to avoid duplicating risks, we strongly recommend you to go first through all the previous modules, if you have not done it yet.</p><p>If you don't need to add risks, please continue.</p>"
+#. Default: "<p><strong>Important:</strong> In order to avoid duplicating
+#. risks, we strongly recommend you to go first through all the previous
+#. modules, if you have not done it yet.</p><p>If you don't need to add risks,
+#. please continue.</p>"
 #: euphorie/client/browser/publish.py:132 euphorie/deployment/upgrade/v23.py:34
 msgid "question_other_risks"
 msgstr ""
@@ -6394,10 +6574,19 @@ msgstr ""
 msgid "top5_risk_not_present_postponed"
 msgstr ""
 
+msgid "unlocked_risk_assessments"
+msgstr "Oplåste risikovurderinger"
+
 #. Default: "Are you sure you want to unpublish this OiRA Tool?"
 #: euphorie/content/browser/templates/surveygroup_unpublish.pt:25
 msgid "unpublish_confirm"
 msgstr ""
+
+msgid "upload_file_imp"
+msgstr "Upload fil"
+
+msgid "upload_files_imp"
+msgstr "Upload filer"
 
 #. Default: "Successfully imported the OiRA Tool"
 #: euphorie/content/browser/upload.py:681
@@ -6482,326 +6671,11 @@ msgstr ""
 msgid "yes"
 msgstr ""
 
-#~ msgid "Learn more about this tool&hellip;"
-#~ msgstr "Lær mere om dette værktøj…"
-
-#~ msgid "label_pdf_file"
-#~ msgstr "PDF-fil"
-
-#~ msgid "label_mp3_file"
-#~ msgstr "MP3-fil"
-
-#~ msgid "label_metadata"
-#~ msgstr "Metadata"
-
-#~ msgid "label_tags"
-#~ msgstr "Tags"
-
-#~ msgid "label_more_ell"
-#~ msgstr "Mere…"
-
-#~ msgid "label_zip_file"
-#~ msgstr "ZIP-fil"
-
-#~ msgid "label_compressed_file"
-#~ msgstr "Komprimeret fil"
-
-#~ msgid "label_word_file"
-#~ msgstr "Word-fil"
-
-#~ msgid "label_excel_file"
-#~ msgstr "Excel-fil"
-
-#~ msgid "label_powerpoint_file"
-#~ msgstr "PowerPoint-fil"
-
-#~ msgid "label_alternative_text"
-#~ msgstr "Alternativ tekst"
-
-#~ msgid "label_no_copyright_information"
-#~ msgstr "Ingen ophavsretsoplysninger"
-
-#~ msgid "label_copyright"
-#~ msgstr "Ophavsret"
-
-#~ msgid "label_remove_imp"
-#~ msgstr "Fjern"
-
-#~ msgid "label_patterns_pn"
-#~ msgstr "Patterns"
-
-#~ msgid "label_pages"
-#~ msgstr "Sider"
-
-#~ msgid "label_dialogue_panel"
-#~ msgstr "Dialogpanel"
-
-#~ msgid "label_duplicate_imp"
-#~ msgstr "Dupliker"
-
-#~ msgid "message_this_action_cannot_be_reverted"
-#~ msgstr "Denne handling kan ikke fortrydes."
-
-#~ msgid "label_submit_imp"
-#~ msgstr "Indsend"
-
-#~ msgid "label_summary"
-#~ msgstr "Resumé"
-
-#~ msgid "label_attachment"
-#~ msgstr "Vedhæftning"
-
-#~ msgid "label_rule"
-#~ msgstr "Regel"
-
-#~ msgid "label_name"
-#~ msgstr "Navn"
-
-#~ msgid "label_value"
-#~ msgstr "Værdi"
-
-#~ msgid "label_on"
-#~ msgstr "Til"
-
-#~ msgid "label_loading"
-#~ msgstr "Indlæser"
-
-#~ msgid "upload_files_imp"
-#~ msgstr "Upload filer"
-
-#~ msgid "upload_file_imp"
-#~ msgstr "Upload fil"
-
-#~ msgid "label_copy_imp"
-#~ msgstr "Kopieer"
-
-#~ msgid "label_cut_imp"
-#~ msgstr "Klip"
-
-#~ msgid "label_move"
-#~ msgstr "Flyt"
-
-#~ msgid "label_move_imp"
-#~ msgstr "Flyt"
-
-#~ msgid "label_download_imp"
-#~ msgstr "Hent"
-
-#~ msgid "label_post"
-#~ msgstr "Post"
-
-#~ msgid "label_post_imp"
-#~ msgstr "Post"
-
-#~ msgid "label_leave_comment"
-#~ msgstr "Efterlad en kommentar"
-
-#~ msgid "label_from"
-#~ msgstr "Fra"
-
-#~ msgid "label_until"
-#~ msgstr "Indtil"
-
-#~ msgid "label_sunday"
-#~ msgstr "Søndag"
-
-#~ msgid "label_monday"
-#~ msgstr "Mandag"
-
-#~ msgid "label_tuesday"
-#~ msgstr "Tirsdag"
-
-#~ msgid "label_wednesday"
-#~ msgstr "Onsdag"
-
-#~ msgid "label_thursday"
-#~ msgstr "Torsdag"
-
-#~ msgid "label_friday"
-#~ msgstr "Fredag"
-
-#~ msgid "label_saturday"
-#~ msgstr "Lørdag"
-
-#~ msgid "label_date"
-#~ msgstr "Dato"
-
-#~ msgid "label_never"
-#~ msgstr "Aldrig"
-
-#~ msgid "label_quarterly"
-#~ msgstr "Kvartalsvis"
-
-#~ msgid "llabel_dashboard"
-#~ msgstr "Dashboard"
-
-#~ msgid "label_accessibility"
-#~ msgstr "Tilgængelighed"
-
-#~ msgid "label_no_notification"
-#~ msgstr "Ingen notifikation"
-
-#~ msgid "label_system_language"
-#~ msgstr "Systemsprog"
-
-#~ msgid "label_english"
-#~ msgstr "Engelsk"
-
-#~ msgid "label_dutch"
-#~ msgstr "Hollandsk"
-
-#~ msgid "label_german"
-#~ msgstr "Tysk"
-
-#~ msgid "label_german_native"
-#~ msgstr "Deutsch"
-
-#~ msgid "label_italian_native"
-#~ msgstr "Italiano"
-
-#~ msgid "label_french"
-#~ msgstr "Fransk"
-
-#~ msgid "label_danish_native"
-#~ msgstr "Dansk"
-
-#~ msgid "label_save_imp"
-#~ msgstr "Gem"
-
-#~ msgid "label_save_and_close_imp"
-#~ msgstr "Gem og luk"
-
-#~ msgid "label_log_out"
-#~ msgstr "Log ud"
-
-#~ msgid "label_log_in"
-#~ msgstr "Log ind"
-
-#~ msgid "label_colour"
-#~ msgstr "Farve"
-
-#~ msgid "label_analysis"
-#~ msgstr "Analyse"
-
-#~ msgid "label_under_review"
-#~ msgstr "Under gennemgang"
-
-#~ msgid "message_you_dont_have_any_risk_assessments_yet_short"
-#~ msgstr "Du har endnu ingen risikovurderinger."
-
-#~ msgid "label_log_out_imp"
-#~ msgstr "Log ud"
-
-#~ msgid "label_toggle_on_screen_help_imp"
-#~ msgstr "Slå skærmhjælp til/fra"
-
-#~ msgid "label_sample_at_regular_intervals"
-#~ msgstr "Udtage prøve med regelmæssige intervaller"
-
-#~ msgid "message_training_enabled"
-#~ msgstr ""
-#~ "Aktivering af træning vil låse op for træningsfunktioner for denne "
-#~ "risikovurdering. Træningen vil være tilgængelig for alle brugere i din "
-#~ "organisation via fanen 'træning' i sidepanelet til venstre. Brugere med "
-#~ "tilladelsesniveau 'Basis' kan kun tage træning og optjene et certifikat, "
-#~ "hvis risikovurderingen er låst."
-
-#~ msgid "message_training_promoted"
-#~ msgstr ""
-#~ "Træningsmaterialet til denne risikovurdering vil blive vist under fanen "
-#~ "'træning' på OiRA-startskærmen."
-
-#~ msgid "message_finetune_settings_assessment"
-#~ msgstr "Finjuster indstillingerne for denne risikovurdering."
-
-#~ msgid "message_report_downloads_intro"
-#~ msgstr ""
-#~ "Vælg mellem flere formater for at se eller downloade din "
-#~ "risikovurderingsrapport."
-
-#~ msgid "unlocked_risk_assessments"
-#~ msgstr "Oplåste risikovurderinger"
-
-#~ msgid "label_user_it_to_colon"
-#~ msgstr "Brug det til:"
-
-#~ msgid "label_continue_to_consultancy"
-#~ msgstr "Fortsæt til Konsulentvirksomhed"
-
-#~ msgid "message_permission_level_basic"
-#~ msgstr "Brugeren kan kun tage træning."
-
-#~ msgid "message_permission_level_edit"
-#~ msgstr "Brugeren kan tage træning og se og redigere alle risikovurderinger."
-
-#~ msgid "message_permission_level_manage"
-#~ msgstr ""
-#~ "Brugeren kan tage træning, se og redigere alle risikovurderinger, anmode "
-#~ "om valideringer og låse risikovurderinger."
-
-#~ msgid "message_permission_level_validate"
-#~ msgstr ""
-#~ "Brugeren kan tage træning, se og redigere alle risikovurderinger og "
-#~ "validere risikovurderinger."
-
-#~ msgid "message_permission_level_full"
-#~ msgstr ""
-#~ "Brugeren kan se og redigere alt indhold og tilføje eller fjerne brugere "
-#~ "fra organisationen."
-
-#~ msgid "label_default_view"
-#~ msgstr "Standardvisning"
-
-#~ msgid "label_tool"
-#~ msgstr "Værktøj"
-
-#~ msgid "label_name_ra"
-#~ msgstr "Navn på risikovurdering"
-
-#~ msgid "label_ra_title"
-#~ msgstr "Navn på risikovurdering"
-
-#~ msgid "label_start_imp"
-#~ msgstr "Start"
-
-#~ msgid "label_update_imp"
-#~ msgstr "Opdater"
-
-#~ msgid "label_create_imp"
-#~ msgstr "Opret"
-
-#~ msgid "label_tag"
-#~ msgstr "Tag"
-
-#~ msgid "message_clone_or_start_new"
-#~ msgstr ""
-#~ "Du kan kopiere indhold fra en eksisterende vurdering lavet med værktøjet "
-#~ "{0}, eller starte fra bunden."
-
-#~ msgid "label_new_risk_assessment"
-#~ msgstr "Ny risikovurdering"
-
-#~ msgid "label_start_new_risk_assessment_imp"
-#~ msgstr "Start ny risikovurdering"
-
-#~ msgid "message_help_intro"
-#~ msgstr ""
-#~ "Vælg et af emnerne nedenfor for at lære mere om, hvordan OiRA fungerer."
-
-#~ msgid "message_invite_for_training"
-#~ msgstr ""
-#~ "Inviter en kollega til at lære om de relevante risici og foranstaltninger "
-#~ "i “{0}”. Den inviterede bruger får automatisk adgang til denne vurdering "
-#~ "til træningsformål."
-
-#~ msgid "message_include_ellipsis"
-#~ msgstr "Inkludér…"
+#~ msgid "Share this OiRA-Tool"
+#~ msgstr "Del dette OiRA-værktøj"
 
 #~ msgid "This tool deserves to be known by the world! Share it!"
 #~ msgstr "Alle bør have glæde af dette værktøj. Del det med andre."
-
-#~ msgid "Share this OiRA-Tool"
-#~ msgstr "Del dette OiRA-værktøj"
 
 #~ msgid "label_show_less_hellip"
 #~ msgstr "vis mindre"

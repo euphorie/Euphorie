@@ -1,0 +1,2 @@
+Add a slot for custom_css provided by customization packages.
+

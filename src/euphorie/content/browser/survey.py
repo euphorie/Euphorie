@@ -9,7 +9,6 @@ from ..survey import ISurvey
 from ..survey import ISurveyAddSchema
 from ..utils import DragDropHelper
 from ..utils import IToolTypesInfo
-from Acquisition import aq_base
 from Acquisition import aq_chain
 from Acquisition import aq_inner
 from Acquisition import aq_parent
@@ -224,11 +223,7 @@ class Delete(actions.Delete):
 
     def verify(self, container, context):
         flash = IStatusMessage(self.request).addStatusMessage
-
-        if (
-            hasattr(aq_base(container), "published")
-            and container.published == context.id
-        ):
+        if container.published_survey == context:
             flash(
                 _(
                     "message_no_delete_published_survey",
@@ -243,22 +238,23 @@ class Delete(actions.Delete):
         count = 0
         for survey in container.values():
             if ISurvey.providedBy(survey):
+                if count == 1:
+                    # We have at least one other survey,
+                    # so we can delete this one.
+                    return True
                 count += 1
 
-        if count > 1:
-            return True
-        else:
-            flash(
-                _(
-                    "message_delete_no_last_survey",
-                    default="This is the only version of the OiRA Tool and can "
-                    "therefore not be deleted. Did you perhaps want to "
-                    "remove the OiRA Tool itself?",
-                ),
-                "error",
-            )
-            self.request.response.redirect(context.absolute_url())
-            return False
+        flash(
+            _(
+                "message_delete_no_last_survey",
+                default="This is the only version of the OiRA Tool and can "
+                "therefore not be deleted. Did you perhaps want to "
+                "remove the OiRA Tool itself?",
+            ),
+            "error",
+        )
+        self.request.response.redirect(context.absolute_url())
+        return False
 
 
 class ContentsOfSurveyCompiler(IdentificationReportCompiler):

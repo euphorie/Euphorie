@@ -660,6 +660,8 @@ class ImportSurvey(AutoExtensibleForm, form.Form):
     @button.buttonAndHandler(_("Upload"))
     def handleUpload(self, action):
         (data, errors) = self.extractData()
+        if errors:
+            return
         input = data["file"].data
         importer = self.importer_factory(self.context)
         try:
@@ -682,4 +684,11 @@ class ImportSurvey(AutoExtensibleForm, form.Form):
             type="success",
         )
         state = getMultiAdapter((survey, self.request), name="plone_context_state")
+        self.request.response.redirect(state.view_url())
+
+    @button.buttonAndHandler(_("button_cancel", default="Cancel"))
+    def handleCancel(self, action):
+        state = getMultiAdapter(
+            (aq_inner(self.context), self.request), name="plone_context_state"
+        )
         self.request.response.redirect(state.view_url())
