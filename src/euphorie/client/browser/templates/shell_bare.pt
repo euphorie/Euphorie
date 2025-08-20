@@ -67,6 +67,7 @@
           rel="stylesheet"
           type="text/css"
     />
+    <tal:custom_css replace="structure webhelpers/custom_css|nothing" />
 
     <meta name="description"
           content="${webhelpers/tool_description}"
