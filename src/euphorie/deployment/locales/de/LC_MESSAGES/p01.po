@@ -16,8 +16,6 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-
 # Manually handled file
-
 msgid "Password doesn't compare with confirmation value"
 msgstr "Das Passwort und die Wiederholung stimmen nicht überein."

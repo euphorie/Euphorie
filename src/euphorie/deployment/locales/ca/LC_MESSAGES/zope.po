@@ -18,6 +18,5 @@ msgstr ""
 "Generated-By: Babel 0.9.5\n"
 
 # Manually handled file
-
 msgid "Required input is missing."
 msgstr "Manquen dades obligatòries."

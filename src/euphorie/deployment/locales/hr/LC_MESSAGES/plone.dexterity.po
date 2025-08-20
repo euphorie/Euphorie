@@ -19,7 +19,6 @@ msgstr ""
 "Domain: plone.dexterity\n"
 "X-Is-Fallback-For: hr-ba hr-hr bs sh\n"
 
-
 msgid "Save"
 msgstr "Spremi promjene"
 

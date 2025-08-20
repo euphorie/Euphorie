@@ -18,6 +18,5 @@ msgstr ""
 "Generated-By: Babel 0.9.5\n"
 
 # Manually handled file
-
 msgid "Password doesn't compare with confirmation value"
 msgstr "Las contraseñas introducidas no coinciden"

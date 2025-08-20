@@ -157,7 +157,3 @@ msgstr "Active"
 #: euphorie/content/profiles/default/workflows/sector/definition.xml:16
 msgid "The One And Only state "
 msgstr "The One And Only state "
-
-# XXX: This is not yet translated in plone.app.locales, so I added it here!
-#~ msgid "help_description"
-#~ msgstr "Кратко обобщение на съдържанието."

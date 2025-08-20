@@ -24,7 +24,6 @@ msgstr ""
 msgid "help_description"
 msgstr "Upotrebljava se u popisu stavki i rezultatima pretraživanja."
 
-
 #: CMFPlone/profiles/default/controlpanel.xml
 #: CMFPlone/profiles/default/portlets.xml
 #: plone.app.portlets/plone/app/portlets/portlets/search.py:34

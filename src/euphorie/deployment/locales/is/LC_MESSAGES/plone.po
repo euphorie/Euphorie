@@ -159,18 +159,6 @@ msgstr "Virkt"
 msgid "The One And Only state "
 msgstr "Hið eina og sanna ástand"
 
-# Manually added
-#~ msgid "label_title"
-#~ msgstr "Titill"
-
-# Manually added
-#~ msgid "label_description"
-#~ msgstr "Lýsing"
-
-# Manually added
-#~ msgid "help_description"
-#~ msgstr "Stutt innihaldslýsing"
-
 #: CMFPlone/controlpanel/browser/types.py:67
 #: plone.app.discussion/plone/app/discussion/browser/controlpanel.py:90
 #: plone.app.portlets/plone/app/portlets/browser/formhelper.py:212

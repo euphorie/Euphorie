@@ -2,7 +2,7 @@
 # Copyright (C) 2010 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
@@ -83,7 +83,9 @@ msgstr "Pagina"
 
 #: euphorie/content/profiles/default/types/euphorie.profilequestion.xml:8
 msgid "A profile question is used to create optional or repetabled modules"
-msgstr "Een profielvraag wordt gebruikt om optionele en herhaalbare modules te creëren"
+msgstr ""
+"Een profielvraag wordt gebruikt om optionele en herhaalbare modules te "
+"creëren"
 
 #: euphorie/content/profiles/default/types/euphorie.profilequestion.xml:7
 msgid "Profile question"
@@ -99,7 +101,8 @@ msgstr "Risico"
 
 #: euphorie/content/profiles/default/types/euphorie.sector.xml:8
 msgid "A sector is national organisation for a specific type of industry."
-msgstr "Een sector is een nationale organisatie voor een specifieke industrietak."
+msgstr ""
+"Een sector is een nationale organisatie voor een specifieke industrietak."
 
 #: euphorie/content/profiles/default/types/euphorie.sector.xml:7
 msgid "Sector"
@@ -143,11 +146,11 @@ msgstr "Sectorworkflow"
 
 #: euphorie/content/profiles/default/workflows/sector/definition.xml:2
 msgid ""
-"One-state workflow for sector objects, giving edit access to its contents to"
-" the sector user."
+"One-state workflow for sector objects, giving edit access to its contents to "
+"the sector user."
 msgstr ""
-"Workflow van één staat voor sectorobjecten, geeft toegang tot het bewerken van de inhoud"
-" aan de sectorgebruiker."
+"Workflow van één staat voor sectorobjecten, geeft toegang tot het bewerken "
+"van de inhoud aan de sectorgebruiker."
 
 #: euphorie/content/profiles/default/workflows/sector/definition.xml:15
 msgid "Active"

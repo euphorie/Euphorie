@@ -46,8 +46,8 @@ msgid ""
 "${identification} OiRA will present a series of potential health and safety "
 "hazards or problems that could exist in your workplace. By answering the "
 "statements/questions with either yes or no, you state if such hazards or "
-"problems are present. You can also decide to leave a question unanswered and"
-" thus put it on hold to be answered at a later stage."
+"problems are present. You can also decide to leave a question unanswered and "
+"thus put it on hold to be answered at a later stage."
 msgstr ""
 "${identification} OiRA priemonėje pateikiami įvairūs galimi pavojai ar "
 "problemos darbuotojų saugai ir sveikatai, esantys jūsų darbo vietoje. "
@@ -243,8 +243,7 @@ msgid ""
 "Are you sure you want to delete this measure? This action can not be "
 "reverted."
 msgstr ""
-"Ar tikrai norite pašalinti šią priemonę? Šio veiksmo atšaukti nebebus "
-"galima."
+"Ar tikrai norite pašalinti šią priemonę? Šio veiksmo atšaukti nebebus galima."
 
 #: euphorie/client/browser/templates/confirmation-delete-session.pt:31
 msgid ""
@@ -362,8 +361,8 @@ msgid ""
 "Contains: all the information and input provided by you throughout the risk "
 "assessment process."
 msgstr ""
-"pateikiama: visa informacija ir duomenys, kuriuos nurodėte atlikdami rizikos"
-" vertinimą"
+"pateikiama: visa informacija ir duomenys, kuriuos nurodėte atlikdami rizikos "
+"vertinimą"
 
 #: euphorie/client/browser/templates/report_landing.pt:167
 msgid "Contains: an overview of the measures to be implemented."
@@ -611,8 +610,8 @@ msgstr "OiRA priemonė naudingiausia turėtų būti mažoms įmonėms."
 
 #: euphorie/client/browser/templates/login.pt:340
 msgid ""
-"However, you can spend whatever time you have available on an assessment and"
-" then return to it when convenient to pick up from the same point you left "
+"However, you can spend whatever time you have available on an assessment and "
+"then return to it when convenient to pick up from the same point you left "
 "off."
 msgstr ""
 "Tačiau vertinimui skirkite tiek laiko, kiek jo turite – bet kada galėsite "
@@ -901,17 +900,17 @@ msgstr "OiRA Priemonė, kurioje galima apibrėžti „Jau įdiegtas priemones“
 
 #: euphorie/client/browser/templates/login.pt:313
 msgid ""
-"OiRA can be used by anyone wishing to assess health and safety-related risks"
-" that might exist in their workplace."
+"OiRA can be used by anyone wishing to assess health and safety-related risks "
+"that might exist in their workplace."
 msgstr ""
 "OiRA gali naudotis visi norintys įvertinti esamą ar galimą riziką darbo "
 "vietoje. "
 
 #: euphorie/client/browser/templates/login.pt:315
 msgid ""
-"OiRA is designed specifically to support them in assessing the risks at work"
-" and helping them to produce a documented risk assessment including an "
-"action plan tailored to the business's requirements."
+"OiRA is designed specifically to support them in assessing the risks at work "
+"and helping them to produce a documented risk assessment including an action "
+"plan tailored to the business's requirements."
 msgstr ""
 "OiRA sukurta tam, kad padėtų įmonėms įvertinti darbe kylančią riziką ir "
 "parengti dokumentuotą rizikos vertinimą ir prevencinių veiksmų planą."
@@ -1007,8 +1006,8 @@ msgstr "Slaptažodis nesutampa su prieš tai įvestu slaptažodžiu"
 
 #: euphorie/client/browser/templates/new-email.pt:26
 msgid ""
-"Please bear in mind that by changing the email address, your login name will"
-" also change."
+"Please bear in mind that by changing the email address, your login name will "
+"also change."
 msgstr ""
 "Nepamirškite, kad pakeitus el. pašto adresą, pasikeis ir jūsų prisijungimo "
 "vardas."
@@ -1065,8 +1064,8 @@ msgid ""
 msgstr ""
 "Profilio klausimais siekiama sužinoti, ar konkretūs moduliai apskritai "
 "aktualūs galutiniam vartotojui (t.y. profilio klausimo moduliai yra "
-"NEPRIVALOMI), o jei jie aktualūs, ar juos reikia pakartotinai pateikti kelis"
-" kartus (t.y. moduliai gali KARTOTIS)."
+"NEPRIVALOMI), o jei jie aktualūs, ar juos reikia pakartotinai pateikti kelis "
+"kartus (t.y. moduliai gali KARTOTIS)."
 
 #: euphorie/client/browser/templates/report_landing.pt:59
 msgid "Provide a concise overview over your current status for internal use."
@@ -1101,8 +1100,8 @@ msgstr "Rekomendacija"
 
 #: euphorie/client/browser/templates/report_landing.pt:186
 msgid ""
-"Record any revision if circumstances change (new machines, new workers, as a"
-" result of findings of any accident investigations, etc.)"
+"Record any revision if circumstances change (new machines, new workers, as a "
+"result of findings of any accident investigations, etc.)"
 msgstr ""
 "papildomai informacijai įrašyti, pasikeitus aplinkybėms (nauji įrenginiai, "
 "nauji darbuotojai, nelaimingo atsitikimo darbe tyrimo išvados ir pan.) "
@@ -1218,9 +1217,9 @@ msgstr "Išsaugoti keitinius"
 
 #: euphorie/client/browser/templates/report_landing.pt:31
 msgid ""
-"Save the report on your computer and print it. You can also modify it or add"
-" more information. Please note that changes made on your pc will NOT be "
-"saved in the OiRA tool"
+"Save the report on your computer and print it. You can also modify it or add "
+"more information. Please note that changes made on your pc will NOT be saved "
+"in the OiRA tool"
 msgstr ""
 "Išsaugokite ataskaitą savo kompiuteryje ir atsispausdinkite ją. Ataskaitą "
 "taip pat galite tikslinti arba papildyti nauja informacija. Atminkite, kad "
@@ -1317,8 +1316,7 @@ msgstr "Pradėkite atsakinėti į klausimus"
 msgid "Starting a test session is not available in this OiRA application."
 msgstr "Testo sesijos pradėjimas šioje OiRA programoje nėra galimas."
 
-#: euphorie/content/browser/module.py:20
-#: euphorie/deployment/tiles/addbar.py:19
+#: euphorie/content/browser/module.py:20 euphorie/deployment/tiles/addbar.py:19
 msgid "Submodule"
 msgstr "Submodulis"
 
@@ -1365,15 +1363,14 @@ msgid ""
 "'Requirements' of this measure will be overwritten. This action cannot be "
 "reverted. Are you sure you want to continue?"
 msgstr ""
-"Teksto laukeliuose 'bendrinė priemonė', 'konkretūs veiksmai' ir "
-"'tyrimai/būtinos sąlygos' bus įrašomos priemonės. Šis veiksmas yra "
-"negrįžtamas. Ar tikrai norite tęsti?"
+"Teksto laukeliuose 'bendrinė priemonė', 'konkretūs veiksmai' ir 'tyrimai/"
+"būtinos sąlygos' bus įrašomos priemonės. Šis veiksmas yra negrįžtamas. Ar "
+"tikrai norite tęsti?"
 
 #: euphorie/client/browser/templates/login.pt:347
 msgid ""
 "The first thing you will be asked to do when you begin your first risk "
-"assessment is to create an OiRA account - this is a simple and quick "
-"process."
+"assessment is to create an OiRA account - this is a simple and quick process."
 msgstr ""
 "Pradėdami pirmąjį rizikos vertinimo etapą, pirmiausia turite susikurti OiRA "
 "paskyrą – tai nesudėtinga ir ilgai neužtruks."
@@ -1457,14 +1454,12 @@ msgstr "Tai unikalus šio objekto identifikatorius."
 #: euphorie/content/surveygroup.py:71
 msgid ""
 "This is the recommended evaluation algorithm, based on the Kinney method"
-msgstr ""
-"Remiantis Kinney metodu, rekomenduojama naudoti šį vertinimo algoritmą"
+msgstr "Remiantis Kinney metodu, rekomenduojama naudoti šį vertinimo algoritmą"
 
 #. AI-generated
 #: euphorie/content/profilequestion.py:81
 msgid "This must ask the user for the name of the relevant location."
-msgstr ""
-"Turite paklausti vartotojo, kokios yra atitinkamos vietos pavadinimas."
+msgstr "Turite paklausti vartotojo, kokios yra atitinkamos vietos pavadinimas."
 
 #. AI-generated
 #: euphorie/content/profilequestion.py:91
@@ -1589,8 +1584,8 @@ msgstr "OiRA – kas tai (Online Interactive Risk Assessment)?"
 
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:31
 msgid ""
-"When you click continue, your e-mail client will open with a new e-mail with"
-" a link in it that people can use to join your organisation. The link is "
+"When you click continue, your e-mail client will open with a new e-mail with "
+"a link in it that people can use to join your organisation. The link is "
 "valid for five days and you may send it to as many people as you would like "
 "to join your organisation."
 msgstr ""
@@ -1642,8 +1637,8 @@ msgstr ""
 
 #: euphorie/content/browser/templates/library.pt:18
 msgid ""
-"You can use content from the standard libary as provided by OSHA in your own"
-" surveys. Just select the module or risk you want to use in the list below "
+"You can use content from the standard libary as provided by OSHA in your own "
+"surveys. Just select the module or risk you want to use in the list below "
 "and it will be copied to your survey."
 msgstr ""
 "Galite naudotis bibliotekos medžiaga, kurią pateikė EU-OSHA. Toliau "
@@ -1744,8 +1739,8 @@ msgstr ""
 "Patirtis rodo, kad ${key}. Štai kodėl ES-OSHA sukūrė ${easy} (OiRA - "
 "internetinio interaktyvaus rizikos vertinimo priemonę), kuri gali padėti "
 "mikro ir nedidelėms organizacijoms pritaikyti ${step}, pradedant nuo rizikų "
-"darbe ${identification} ir ${evaluation}, priimant sprendimus dėl "
-"${preventive_actions}, imantis veiksmų, stebint ir ${reporting}."
+"darbe ${identification} ir ${evaluation}, priimant sprendimus dėl $"
+"{preventive_actions}, imantis veiksmų, stebint ir ${reporting}."
 
 #. Default: "easy-to-use and cost-free web application"
 #: euphorie/client/browser/templates/about.pt:42
@@ -1807,9 +1802,9 @@ msgstr ""
 "procesus. Nuo tada, kai 1989 m. buvo pritaikyta Europos pagrindų direktyva, "
 "rizikos vertinimas tapo žinoma sąvoka taikant prevencines priemones darbo "
 "vietose. Šimtai tūkstančių kompanijų Europoje pradėjo reguliariai vertinti "
-"kylančias rizikas. Be to, pakanka faktų, kad būtų galima teigti, jog ${smb},"
-" kai kalbame apie rizikos vertinimą ir prevencinės politikos taikymą "
-"bendrąja prasme. To OiRA projektu ir siekiama."
+"kylančias rizikas. Be to, pakanka faktų, kad būtų galima teigti, jog ${smb}, "
+"kai kalbame apie rizikos vertinimą ir prevencinės politikos taikymą bendrąja "
+"prasme. To OiRA projektu ir siekiama."
 
 #. Default: "The OiRA project and its related web application has been
 #. developed by the ${eu-osha} based on the Dutch RA-instrument (called
@@ -1842,8 +1837,8 @@ msgstr "Prie OiRA projekto prisidėjo šie techniniai partneriai:"
 msgid "about_partners_3"
 msgstr ""
 "Agentūrai dėl OiRA projekto kūrimo ir įgyvendinimo taip pat talkino "
-"iniciatyvinis komitetas. Iniciatyvinio komiteto narius ir pavaduotojus pagal"
-" interesų grupes valdyboje paskyrė Komisija ir ES-OSHA."
+"iniciatyvinis komitetas. Iniciatyvinio komiteto narius ir pavaduotojus pagal "
+"interesų grupes valdyboje paskyrė Komisija ir ES-OSHA."
 
 #. Default: "micro and small enterprises have some shortcomings"
 #: euphorie/client/browser/templates/about.pt:91
@@ -1969,10 +1964,13 @@ msgstr "nauda"
 #: euphorie/client/browser/organisation.py:270
 msgid "body_add_user_to_organisation_email"
 msgstr ""
-"            Kviečiu prisijungti prie mūsų organizacijos vertinant riziką su OiRA.\n"
-"            Patvirtinę narystę, galime bendradarbiauti vertindami profesinę riziką.\n"
+"            Kviečiu prisijungti prie mūsų organizacijos vertinant riziką su "
+"OiRA.\n"
+"            Patvirtinę narystę, galime bendradarbiauti vertindami profesinę "
+"riziką.\n"
 "\n"
-"            Prisijunkite arba prisiregistruokite paspaudę žemiau nurodytą nuorodą ir patvirtinkite savo narystę.\n"
+"            Prisijunkite arba prisiregistruokite paspaudę žemiau nurodytą "
+"nuorodą ir patvirtinkite savo narystę.\n"
 "            Ši nuoroda galioja ${days_to_keep} dienas.\n"
 "\n"
 "            ${link}\n"
@@ -2185,8 +2183,8 @@ msgstr "Rekomendacija ${number}"
 #: euphorie/client/browser/templates/report_company.pt:40
 msgid "company_report_intro"
 msgstr ""
-"Dėkojame, kad naudojatės OiRA. Prieš pereidami prie Ataskaitos, prašome Jūsų"
-" pateikti atsiliepimą užpildant pateiktą apklausą. Ši informacija skirta "
+"Dėkojame, kad naudojatės OiRA. Prieš pereidami prie Ataskaitos, prašome Jūsų "
+"pateikti atsiliepimą užpildant pateiktą apklausą. Ši informacija skirta "
 "tobulinti esamas priemones ir paslaugas. <strong>Šie duomenys nebus rodomi "
 "jūsų Ataskaitose.</strong>"
 
@@ -2218,8 +2216,7 @@ msgstr ""
 #. Default: "Recourse to the EDPS"
 #: euphorie/client/browser/templates/conditions-bare.pt:114
 msgid "conditions_part11_header"
-msgstr ""
-"Teisė kreiptis į Europos duomenų apsaugos priežiūros pareigūną (EDAPP)"
+msgstr "Teisė kreiptis į Europos duomenų apsaugos priežiūros pareigūną (EDAPP)"
 
 #. Default: "Date of creation of the OiRA account."
 #: euphorie/client/browser/templates/conditions-bare.pt:126
@@ -2249,8 +2246,8 @@ msgstr ""
 #: euphorie/client/browser/templates/conditions-bare.pt:32
 msgid "conditions_part1_header"
 msgstr ""
-"Agentūros struktūrinio padalinio darbuotojas, kuriam pavesta tvarkyti asmens"
-" duomenis"
+"Agentūros struktūrinio padalinio darbuotojas, kuriam pavesta tvarkyti asmens "
+"duomenis"
 
 #. Default: "The purpose of the processing operation is the creation of and
 #. log-in to your OiRA (Online interactive Risk Assessment) account, the
@@ -2361,9 +2358,9 @@ msgstr "Tvarkomų duomenų pobūdis"
 msgid "conditions_part5_entry"
 msgstr ""
 "Duomenys tvarkomi remiantis 2018 m. spalio 23 d. Europos Parlamento ir "
-"Tarybos <a href=\"https://eur-lex.europa.eu/legal-"
-"content/EN/TXT/?uri=uriserv%3AOJ.L_.2018.295.01.0039.01.ENG&toc=OJ%3AL%3A2018%3A295%3ATOC\">Reglamento"
-" (ES) 2018/1725</a> dėl fizinių asmenų apsaugos Sąjungos institucijoms, "
+"Tarybos <a href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/?"
+"uri=uriserv%3AOJ.L_.2018.295.01.0039.01.ENG&toc=OJ%3AL%3A2018%3A295%3ATOC\">Reglamento "
+"(ES) 2018/1725</a> dėl fizinių asmenų apsaugos Sąjungos institucijoms, "
 "organams, tarnyboms ir agentūroms tvarkant asmens duomenis ir dėl laisvo "
 "tokių duomenų judėjimo (toliau – Reglamentas) 5 straipsnio 1 dalies a ir d "
 "punktais."
@@ -2419,8 +2416,8 @@ msgid "conditions_part7_2_entry"
 msgstr ""
 "Visi prašymai pasinaudoti bet kuria iš minėtų teisių turi būti siunčiami e. "
 "paštu adresu information(at)osha.europa.eu, nurodant agentūros padalinio "
-"darbuotoją, kuriam pavesta atlikti duomenų tvarkymo operaciją, kaip nurodyta"
-" šiame pareiškime apie privatumo apsaugą, ir duomenų tvarkymo operacijos "
+"darbuotoją, kuriam pavesta atlikti duomenų tvarkymo operaciją, kaip nurodyta "
+"šiame pareiškime apie privatumo apsaugą, ir duomenų tvarkymo operacijos "
 "pavadinimą, įskaitant laiško pavadinime Žodžius „duomenų apsauga“."
 
 #. Default: "Data subjects&rsquo; rights can be restricted only in the cases
@@ -2540,8 +2537,8 @@ msgstr ""
 #: euphorie/client/browser/templates/webhelpers.pt:675
 msgid "description-training-configuration"
 msgstr ""
-"Pažymėkite viską, ką galbūt norėtumėte neįtraukti į mokymą. Elementai, kurie"
-" yra pilki, mokymo kortelėje nebus rodomi."
+"Pažymėkite viską, ką galbūt norėtumėte neįtraukti į mokymą. Elementai, kurie "
+"yra pilki, mokymo kortelėje nebus rodomi."
 
 #. Default: "The risk evaluation has been automatically done by the tool. You
 #. will be able to change the priority for this risk &ndash; if you consider
@@ -2579,15 +2576,15 @@ msgstr ""
 msgid "description_integrated_action_plan"
 msgstr ""
 "Jei pasirinkta, galimybė planuoti priemones bus pasiūlyta tiesiogiai "
-"“Identifikavimo” puslapyje. Navigacijoje nebus atskiro “Veiksmų plano” "
-"etapo."
+"“Identifikavimo” puslapyje. Navigacijoje nebus atskiro “Veiksmų plano” etapo."
 
 #. Default: "The default export escapes HTML, which is not supportedby
 #. eTranslate"
 #. AI-generated
 #: euphorie/content/browser/export.py:172
 msgid "description_is_etranslate_compatible"
-msgstr "\"Default\" eksportavimas išteklių HTML, kuris nėra palaikomas eTranslate"
+msgstr ""
+"\"Default\" eksportavimas išteklių HTML, kuris nėra palaikomas eTranslate"
 
 #. Default: "Defines how the “Measures in place” options are displayed to the
 #. user. Choose “Simple” if the texts for Description and General Approach are
@@ -3147,8 +3144,8 @@ msgstr "pavojaus šalinimas"
 #: euphorie/client/browser/templates/actionplan.pt:44
 msgid "expl_actionplan_6"
 msgstr ""
-"Jei rizikos išvengti negalima, kaip ją galima sumažinti, kad nekiltų pavojus"
-" sveikatai ir saugai?"
+"Jei rizikos išvengti negalima, kaip ją galima sumažinti, kad nekiltų pavojus "
+"sveikatai ir saugai?"
 
 #. Default: "Once you have decided how to eliminate or reduce a particular
 #. risk, then you describe the specific action(s) required to achieve this.
@@ -3159,8 +3156,8 @@ msgid "expl_actionplan_7"
 msgstr ""
 "Nustatę, kaip konkrečią riziką reikia šalinti arba sumažinti, nurodykite "
 "konkrečius veiksmus, kaip tą padaryti. Taip pat turėtumėte nurodyti "
-"reikalingų žinių ir (arba) reikalavimų lygį, kurio reikia, kad veiksmai būtų"
-" atlikti veiksmingai."
+"reikalingų žinių ir (arba) reikalavimų lygį, kurio reikia, kad veiksmai būtų "
+"atlikti veiksmingai."
 
 #. Default: "No risks were identified. Please proceed directly to the report."
 #: euphorie/client/browser/templates/actionplan.pt:54
@@ -3226,8 +3223,8 @@ msgid "explanation_try_oira"
 msgstr ""
 "Išbandykite bet kurią iš toliau išvardytų priemonių be registracijos – "
 "pasirinkite priemonę ir spauskite mygtuką „Bandomoji sesija“. Bandomosios "
-"sesijos metu atlikto darbo išsaugoti negalite. Jeigu ${label_link_register},"
-" negalėsite išsaugoti visos įrašytos informacijos."
+"sesijos metu atlikto darbo išsaugoti negalite. Jeigu ${label_link_register}, "
+"negalėsite išsaugoti visos įrašytos informacijos."
 
 #. AI-generated
 #: euphorie/client/browser/session.py:477
@@ -3542,8 +3539,7 @@ msgstr "Priemonės meniu"
 #: euphorie/client/docx/views.py:231
 msgid "header_present_risks"
 msgstr ""
-"Rizikos, kurios buvo nustatytos, įvertintos ir turi prevencinių veiksmų "
-"planą"
+"Rizikos, kurios buvo nustatytos, įvertintos ir turi prevencinių veiksmų planą"
 
 #. Default: "Preview OiRA Tool"
 #: euphorie/client/browser/templates/preview.pt:15
@@ -3710,8 +3706,7 @@ msgstr "Mokomieji klausimai"
 #: euphorie/client/docx/views.py:245
 msgid "header_unanswered_risks"
 msgstr ""
-"Pavojai / problemos, kurios buvo \"nustatytos\" ir kurios dar nėra "
-"išspręstos"
+"Pavojai / problemos, kurios buvo \"nustatytos\" ir kurios dar nėra išspręstos"
 
 #. Default: "Risks that have been identified but do NOT have an Action Plan"
 #: euphorie/client/docx/views.py:238
@@ -3926,8 +3921,8 @@ msgstr ""
 msgid "help__risk_default_collapsible_sections"
 msgstr ""
 "Nustatykite, kurią informacijos skyrių turėtų būti atidaryta pagal "
-"nutylėjimą rizikos nustatymo puslapyje. Nepažymėti skyriai bus pradiniu metu"
-" rodomi sutrauktoje būsenoje, tačiau vartotojas visada gali atidaryti tuos "
+"nutylėjimą rizikos nustatymo puslapyje. Nepažymėti skyriai bus pradiniu metu "
+"rodomi sutrauktoje būsenoje, tačiau vartotojas visada gali atidaryti tuos "
 "skyrius spustelėjęs."
 
 #. Default: "This text should explain how to fill in the Action plan."
@@ -4423,8 +4418,8 @@ msgstr ""
 msgid "help_survey_evaluation_algorithm_standard"
 msgstr ""
 "Šis metodas apima rizikos vertinimą pagal Sunkumą x Ekspoziciją x Tikimybę, "
-"kai tai turi būti suprantama šitaip; su pavojumiu susijęs traumos sunkumas -"
-" ekspozicijos (dažnio) prie pavojingumo - tikimybė, kad pavojingumas įvyks "
+"kai tai turi būti suprantama šitaip; su pavojumiu susijęs traumos sunkumas - "
+"ekspozicijos (dažnio) prie pavojingumo - tikimybė, kad pavojingumas įvyks "
 "tada, kai atsidūrė expositoryje"
 
 #. Default: "This OiRA Tool is obsolete; it has been retired or replaced with
@@ -4432,8 +4427,7 @@ msgstr ""
 #: euphorie/content/surveygroup.py:54
 msgid "help_survey_obsolete"
 msgstr ""
-"This survey is obsolete; it has been retired or replaced with another "
-"survey."
+"This survey is obsolete; it has been retired or replaced with another survey."
 
 #. Default: "This is the title of this OiRA Tool version. This name is never
 #. shown to users."
@@ -4506,8 +4500,8 @@ msgstr ""
 msgid "info_osh_ra_browser"
 msgstr ""
 "Rizikos vertinimo naršyklė leidžia rasti anksčiau atliktus rizikos "
-"vertinimus. Pradėkite naują rizikos vertinimą spausdami &lsquo;+&rsquo; arba"
-" padarykite esamo rizikos vertinimo kopiją spausdami trigubo taško simbolį "
+"vertinimus. Pradėkite naują rizikos vertinimą spausdami &lsquo;+&rsquo; arba "
+"padarykite esamo rizikos vertinimo kopiją spausdami trigubo taško simbolį "
 "šalia rizikos vertinimo ir pasirinkite &lsquo;Dubliuoti&rsquo;."
 
 #. Default: "From this menu you can start a new session of an OiRA tool, or
@@ -4529,18 +4523,18 @@ msgstr ""
 #: euphorie/client/browser/templates/tooltips.pt:98
 msgid "info_osh_tool_navigation"
 msgstr ""
-"Šis meniu leidžia vienu metu matyti visus rizikos vertinimo etapus. Paspaudę"
-" <em>Nustatymas + Vertinimas</em> ar <em>Veiksmų planas</em>, pamatysite "
-"šios priemonės modulius ir rizikas papildomame meniu. Naudodamiesi meniu, "
-"savo nuožiūra galite judėti pirmyn ir atgal per visas priemonės dalis."
+"Šis meniu leidžia vienu metu matyti visus rizikos vertinimo etapus. Paspaudę "
+"<em>Nustatymas + Vertinimas</em> ar <em>Veiksmų planas</em>, pamatysite šios "
+"priemonės modulius ir rizikas papildomame meniu. Naudodamiesi meniu, savo "
+"nuožiūra galite judėti pirmyn ir atgal per visas priemonės dalis."
 
 #. Default: "The European Agency for Safety and Health at Work, European
 #. social partners, etc."
 #: euphorie/client/browser/templates/report_company.pt:168
 msgid "info_referer_eu_institution"
 msgstr ""
-"iš Europos saugos ir sveikatos darbe agentūros, Europos socialinių partnerių"
-" ir kt."
+"iš Europos saugos ir sveikatos darbe agentūros, Europos socialinių partnerių "
+"ir kt."
 
 #. Default: "Ministry, Labour Inspectorate, National Institute for Safety and
 #. Health at Work, etc."
@@ -4554,8 +4548,7 @@ msgstr ""
 #. email address."
 #: euphorie/client/browser/templates/tooltips.pt:40
 msgid "info_register1"
-msgstr ""
-"Registracija yra paprasta, pakanka įrašyti galiojantį e. pašto adresą."
+msgstr "Registracija yra paprasta, pakanka įrašyti galiojantį e. pašto adresą."
 
 #. Default: "Main benefits of having an account:"
 #: euphorie/client/browser/templates/tooltips.pt:41
@@ -4616,8 +4609,8 @@ msgstr ""
 msgid "intro_consultation_of_workers"
 msgstr ""
 "Darbuotojai arba jų atstovai, esantys atsakingi už darbuotojų saugumą, "
-"turėtų dalyvauti procesuose arba iš anksto informuoti darbdavio apie rizikos"
-" vertinimą"
+"turėtų dalyvauti procesuose arba iš anksto informuoti darbdavio apie rizikos "
+"vertinimą"
 
 #. Default: "Here you can manage the documentation for the ${client}."
 #: euphorie/content/browser/templates/documentation_view.pt:25
@@ -4645,9 +4638,9 @@ msgstr ""
 #: euphorie/client/browser/templates/identification.pt:30
 msgid "intro_identification_dsetool"
 msgstr ""
-"Klausimai padalinti į 3 dalis. Pirmoji dalis yra apie galimų cheminių rizikų"
-" jūsų įmonėje identifikavimą. Antroji dalis yra apie cheminių rizikų valdymo"
-" rutinas. Ir trečioji dalis yra apie kontrolės priemones cheminių rizikų "
+"Klausimai padalinti į 3 dalis. Pirmoji dalis yra apie galimų cheminių rizikų "
+"jūsų įmonėje identifikavimą. Antroji dalis yra apie cheminių rizikų valdymo "
+"rutinas. Ir trečioji dalis yra apie kontrolės priemones cheminių rizikų "
 "mažinimui."
 
 #. Default: "The main image will get a more prominent position in the client
@@ -4664,8 +4657,8 @@ msgstr "Pagrindinis atvaizdas programoje bus labiau akcentuotas nei kiti."
 #: euphorie/client/browser/templates/default_introduction.pt:18
 msgid "intro_not_complicated"
 msgstr ""
-"Sudėtingas? Ne. Jis tik šiek tiek užtruko. Vis dėlto, RV yra svarbus etapas."
-" Jį atlikti reikalauja teisės aktai. Viso to reikalaujama dėl gerų "
+"Sudėtingas? Ne. Jis tik šiek tiek užtruko. Vis dėlto, RV yra svarbus etapas. "
+"Jį atlikti reikalauja teisės aktai. Viso to reikalaujama dėl gerų "
 "priežasčių. Jei rizikos nebus tinkamai įvertintos ar pašalintos, nebus "
 "galima pradėti tinkamo rizikos valdymo proceso bei rasti ir imtis tinkamų "
 "prevencinių priemonių."
@@ -4770,8 +4763,8 @@ msgstr ""
 "Ar žinote visas rizikas, kurios kyla jūsų darbuotojams ir įrangai? Kas "
 "nutiktų, jei vienas iš įrenginių sugestų? Kas nutiktų, jei ant darbuotojo "
 "patektų pavojingos medžiagos? Rizikos vertinimo procedūra padeda nustatyti "
-"tokias rizikas ir su jomis susidoroti. Rizikos vertinimą įprastai sudaro dvi"
-" dalys: <dinaminis elementas> su visomis rizikomis, esančiomis jūsų "
+"tokias rizikas ir su jomis susidoroti. Rizikos vertinimą įprastai sudaro dvi "
+"dalys: <dinaminis elementas> su visomis rizikomis, esančiomis jūsų "
 "kompanijoje ir <dinaminis elementas> su informacija, kaip šias rizikas "
 "pašalinti. Šie du komponentai padeda pašalinti jūsų darbuotojams ir "
 "kompanijai kylančias rizikas (kartu ir finansinę riziką)."
@@ -5735,8 +5728,7 @@ msgstr "Sužinokite daugiau"
 #: euphorie/client/browser/company.py:160
 #: euphorie/client/browser/templates/report_company.pt:242
 msgid "label_recommend_tool"
-msgstr ""
-"Ar rekomenduotumėte šią OiRA priemonę kitoms panašios veiklos įmonėms?"
+msgstr "Ar rekomenduotumėte šią OiRA priemonę kitoms panašios veiklos įmonėms?"
 
 #. Default: "Text"
 #. AI-generated
@@ -6205,8 +6197,8 @@ msgstr "Priemonės"
 #: euphorie/client/browser/templates/slide_question_success.pt:32
 msgid "label_training_achievement_listed"
 msgstr ""
-"Jūsų pasiekimai bus išvardyti Meniu skiltyje &ldquo;Mano mokymai&rdquo;. Ten"
-" esančią informaciją visada galite peržiūrėti arba atsispausdinti "
+"Jūsų pasiekimai bus išvardyti Meniu skiltyje &ldquo;Mano mokymai&rdquo;. Ten "
+"esančią informaciją visada galite peržiūrėti arba atsispausdinti "
 "sertifikatą, jei yra poreikis"
 
 #. Default: "Congratulations, you have now earned your certificate for this
@@ -6398,8 +6390,8 @@ msgstr "Naudokitės OiRA profesinio mokymo tikslais."
 #: euphorie/client/browser/templates/tooltips.pt:21
 msgid "list_test_session_limitations1"
 msgstr ""
-"${important} Bandomosios sesios metu atlikto darbo išsaugoti negalite. Jeigu"
-" neužsiregistruosite, negalėsite išsaugoti visos įrašytos informacijos."
+"${important} Bandomosios sesios metu atlikto darbo išsaugoti negalite. Jeigu "
+"neužsiregistruosite, negalėsite išsaugoti visos įrašytos informacijos."
 
 #. Default: "You will not be able to print or download reports."
 #: euphorie/client/browser/templates/tooltips.pt:24
@@ -6554,8 +6546,8 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-invalidate-risk-assessment.pt:33
 msgid "message_invalidate_ra"
 msgstr ""
-"Kai panaikinsite šio rizikos vertinimo patvirtinimą, jis neteks patvirtinimo"
-" statuso. Vėliau galėsite dar kartą paprašyti patvirtinimo."
+"Kai panaikinsite šio rizikos vertinimo patvirtinimą, jis neteks patvirtinimo "
+"statuso. Vėliau galėsite dar kartą paprašyti patvirtinimo."
 
 #. Default: "Decide on the best way to involve your staff! You can for example
 #. conduct a meeting or a focus group with workers and go through the
@@ -6582,16 +6574,16 @@ msgstr ""
 #: euphorie/client/browser/templates/involve.pt:30
 msgid "message_involve_workers_requirement"
 msgstr ""
-"Vienas iš efektyvaus darbuotojų saugos ir sveikatos sistemos valdymo požymių"
-" yra darbuotojų įtraukimas. <a "
-"href=\"https://www.e-tar.lt/portal/lt/legalAct/TAR.95C79D036AA4/asr\">Darbdaviui"
-" atstovaujantis asmuo, darbdavio įgalioti asmenys privalo</a> informuoti "
-"darbuotojus ir su jais konsultuotis visais darbuotojų saugos ir sveikatos "
-"būklės ir jos gerinimo planavimo, priemonių organizavimo, jų įgyvendinimo ir"
-" kontrolės klausimais. Pagrindiniai konsultavimosi su darbuotojais "
-"privalumai: efektyvesnės prevencinės priemonės ir DSS sistemų valdymas, "
-"dialogo tarp darbuotojų ir darbdavio plėtojimas ir palaikymas, saugesnė "
-"darbo aplinka ir padidėjęs pasitenkinimas darbu."
+"Vienas iš efektyvaus darbuotojų saugos ir sveikatos sistemos valdymo požymių "
+"yra darbuotojų įtraukimas. <a href=\"https://www.e-tar.lt/portal/lt/legalAct/"
+"TAR.95C79D036AA4/asr\">Darbdaviui atstovaujantis asmuo, darbdavio įgalioti "
+"asmenys privalo</a> informuoti darbuotojus ir su jais konsultuotis visais "
+"darbuotojų saugos ir sveikatos būklės ir jos gerinimo planavimo, priemonių "
+"organizavimo, jų įgyvendinimo ir kontrolės klausimais. Pagrindiniai "
+"konsultavimosi su darbuotojais privalumai: efektyvesnės prevencinės "
+"priemonės ir DSS sistemų valdymas, dialogo tarp darbuotojų ir darbdavio "
+"plėtojimas ir palaikymas, saugesnė darbo aplinka ir padidėjęs pasitenkinimas "
+"darbu."
 
 #. Default: "Learn more about certificates."
 #. AI-generated
@@ -6771,8 +6763,7 @@ msgstr "Šiuo metu rizikos vertinimą peržiūri ${consultant}."
 #: euphorie/client/browser/templates/locking_menu.pt:37
 msgid "message_session_validated"
 msgstr ""
-"${validation_time}: ${consultant} peržiūrėjo ir patvirtino rizikos "
-"vertinimą."
+"${validation_time}: ${consultant} peržiūrėjo ir patvirtino rizikos vertinimą."
 
 #. Default: "If you want to continue working on a copy of this assessment, for
 #. instance to report on a new year, then you can use the option 'Duplicate'.
@@ -6942,8 +6933,8 @@ msgstr "Šiuo metu jokių OiRA priemonių nėra. Galite atidaryti ${add_link}."
 #: euphorie/content/utils.py:54
 msgid "no_translate_link_add_measures"
 msgstr ""
-"<a class='add-clone' id='add-in-place-measure-"
-"button'>${text_add_measures}</a>"
+"<a class='add-clone' id='add-in-place-measure-button'>${text_add_measures}</"
+"a>"
 
 #. Default: "<a href='%s/@@report'>${text_download_section}</a>"
 #. AI-generated
@@ -7012,8 +7003,8 @@ msgid "notification_mail_text__base"
 msgstr ""
 "Sveiki ${full_name},\\n\\n${main_text}\\n\\n${session_links}\\n\\nPagarbūs "
 "linkėjimai\\nJūsų OiRA komanda\\n\\n**Tai yra automatiškai sugeneruotas "
-"laiškas. Jei nenorite gauti laiškų iš OiRA, galite tai pakeisti "
-"[čia](${preferences_link})**"
+"laiškas. Jei nenorite gauti laiškų iš OiRA, galite tai pakeisti [čia]($"
+"{preferences_link})**"
 
 #. Default: "Notify on orphaned risk assessments."
 #. AI-generated
@@ -7087,8 +7078,8 @@ msgstr ""
 #: euphorie/client/browser/risk.py:408
 msgid "placeholder_comment_field"
 msgstr ""
-"Šis komentaras bus matomas Ataskaitoje. Naudokite šį lauką, norėdami įrašyti"
-" daugiau informacijos apie šią riziką."
+"Šis komentaras bus matomas Ataskaitoje. Naudokite šį lauką, norėdami įrašyti "
+"daugiau informacijos apie šią riziką."
 
 #. Default: "These notes will be visible in the report and the training. Use
 #. it for anything else you might want to write about this risk."
@@ -7169,8 +7160,7 @@ msgstr "${completion_percentage}% Baigtas"
 #. risks, we strongly recommend you to go first through all the previous
 #. modules, if you have not done it yet.</p><p>If you don't need to add risks,
 #. please continue.</p>"
-#: euphorie/client/browser/publish.py:132
-#: euphorie/deployment/upgrade/v23.py:34
+#: euphorie/client/browser/publish.py:132 euphorie/deployment/upgrade/v23.py:34
 msgid "question_other_risks"
 msgstr ""
 "<p><strong>Svarbu:</strong> Siekdami išvengti dvigubo rizikos nurodymo, "
@@ -7249,8 +7239,7 @@ msgstr "iki ${date}"
 msgid "report_guest_register_intro"
 msgstr ""
 "Atsiprašome, tačiau tai yra bandomoji versija ir joje negalima naudotis "
-"atsisiuntimo funkcija. Registracija trunka tik akimirką ir yra naudinga, "
-"nes:"
+"atsisiuntimo funkcija. Registracija trunka tik akimirką ir yra naudinga, nes:"
 
 #. Default: "Activity"
 #: euphorie/client/docx/compiler.py:1057
@@ -7468,10 +7457,10 @@ msgstr ""
 "Pradėję OiRA priemonės naudojimo seansą, jį sustabdyti galėsite prieš "
 "pabaigą. Jį vėl pradėti galėsite vėliau, pasirinkę OiRA priemonės naudojimo "
 "seanso pavadinimą. Suteikę skirtingus pavadinimus galite išsaugoti daugiau "
-"nei vieną seansą. Neužmirškite OiRA priemonės naudojimo seansui nurodyto el."
-" pašto adreso, slaptažodžio ir pavadinimo. Paspaudę išsiregistravimo "
-"mygtuką, būsite išregistruoti. Išregistruoti taip pat būsite, jei uždarysite"
-" naršyklę. Saugumo sumetimais patariama išsiregistruoti."
+"nei vieną seansą. Neužmirškite OiRA priemonės naudojimo seansui nurodyto el. "
+"pašto adreso, slaptažodžio ir pavadinimo. Paspaudę išsiregistravimo mygtuką, "
+"būsite išregistruoti. Išregistruoti taip pat būsite, jei uždarysite "
+"naršyklę. Saugumo sumetimais patariama išsiregistruoti."
 
 #. Default: "Not very severe"
 #: euphorie/client/browser/templates/webhelpers.pt:496
@@ -7567,8 +7556,8 @@ msgstr ""
 #: euphorie/client/browser/templates/new-session-test.pt:84
 msgid "testsession_benefits_limitations"
 msgstr ""
-"Čia galite rasti informacijos apie bandomąją sesiją "
-"${benefits}${tooltip_benefits} ir ${limitations}${tooltip_limitations}."
+"Čia galite rasti informacijos apie bandomąją sesiją ${benefits}$"
+"{tooltip_benefits} ir ${limitations}${tooltip_limitations}."
 
 #. Default: "Or ${register_link} instead. Find out why you should
 #. register${tooltip_register}."
@@ -7738,8 +7727,8 @@ msgstr "Pradėti naują bandymo sesiją"
 msgid "top5_risk_not_present"
 msgstr ""
 "Ši rizika šiuo metu jūsų organizacijoje nekyla, bet kadangi ekonominėje "
-"veikloje, kurią jūs vykdote, ši rizika yra laikoma prioritetine, į ataskaitą"
-" ją būtina įtraukti."
+"veikloje, kurią jūs vykdote, ši rizika yra laikoma prioritetine, į ataskaitą "
+"ją būtina įtraukti."
 
 #. Default: "This risk is not present in your organisation, but since the
 #. sector organisation considers this one of the priority risks it must be
@@ -7748,8 +7737,8 @@ msgstr ""
 msgid "top5_risk_not_present_answer_yes"
 msgstr ""
 "Ši rizika šiuo metu jūsų organizacijoje nekyla, bet kadangi ekonominėje "
-"veikloje, kurią jūs vykdote, ši rizika yra laikoma prioritetine, į ataskaitą"
-" ją būtina įtraukti."
+"veikloje, kurią jūs vykdote, ši rizika yra laikoma prioritetine, į ataskaitą "
+"ją būtina įtraukti."
 
 #. Default: "This risk has not yet been assessed, but since it is considered
 #. \"high priority\" by the OiRA tool developers, it will always be included
@@ -7859,1245 +7848,3 @@ msgstr ""
 #: euphorie/content/browser/templates/risk_view.pt:89
 msgid "yes"
 msgstr "Taip"
-
-#~ msgid "Learn more about this tool&hellip;"
-#~ msgstr "Sužinokite daugiau apie šį įrankį…"
-
-#~ msgid "frequency_french_not_often_help"
-#~ msgstr "Kartą per mėnesį"
-
-#~ msgid "frequency_french_often_help"
-#~ msgstr "Kartą per savaitę"
-
-#~ msgid "frequency_french_rare_help"
-#~ msgstr "Kartą per metus"
-
-#~ msgid "frequency_french_regularly_help"
-#~ msgstr "Mažiausiai kartą per dieną"
-
-#~ msgid "intro_identification"
-#~ msgstr "${list-of-risks} galite atsispausdinti."
-
-#~ msgid "label_terms_conditions"
-#~ msgstr "Taisyklėmis ir nuostatomis"
-
-#~ msgid "list_of_risks"
-#~ msgstr "priemonės turinys"
-
-#~ msgid "severity_not_severe_help"
-#~ msgstr "Reikia nutraukti darbus mažiau nei 3 dienoms"
-
-#~ msgid "severity_severe_help"
-#~ msgstr "Reikia nutraukti darbus daugiau nei 3 dienoms"
-
-#~ msgid "severity_very_severe_help"
-#~ msgstr "Nepagydomas sužalojimas, nepagydoma liga, mirtis"
-
-#~ msgid "severity_weak_help"
-#~ msgstr "Nutraukti darbo nereikia"
-
-#~ msgid "label_pdf_file"
-#~ msgstr "PDF failas"
-
-#~ msgid "label_mp3_file"
-#~ msgstr "MP3 failas"
-
-#~ msgid "label_metadata"
-#~ msgstr "Metaduomenys"
-
-#~ msgid "label_tags"
-#~ msgstr "Žymos"
-
-#~ msgid "label_more_ell"
-#~ msgstr "Daugiau…"
-
-#~ msgid "label_zip_file"
-#~ msgstr "ZIP failas"
-
-#~ msgid "label_compressed_file"
-#~ msgstr "Suspaustas failas"
-
-#~ msgid "label_word_file"
-#~ msgstr "Word failas"
-
-#~ msgid "label_excel_file"
-#~ msgstr "Excel failas"
-
-#~ msgid "label_powerpoint_file"
-#~ msgstr "PowerPoint failas"
-
-#~ msgid "label_alternative_text"
-#~ msgstr "Alternatyvus tekstas"
-
-#~ msgid "label_no_copyright_information"
-#~ msgstr "Nėra informacijos apie autorines teises"
-
-#~ msgid "label_copyright"
-#~ msgstr "Autorių teisės"
-
-#~ msgid "label_remove_imp"
-#~ msgstr "Pašalinti"
-
-#~ msgid "label_patterns_pn"
-#~ msgstr "Patterns"
-
-#~ msgid "label_pages"
-#~ msgstr "Puslapiai"
-
-#~ msgid "label_dialogue_panel"
-#~ msgstr "Dialogo skydelis"
-
-#~ msgid "label_duplicate_imp"
-#~ msgstr "Dubliuokite"
-
-#~ msgid "message_this_action_cannot_be_reverted"
-#~ msgstr "Šis veiksmas negali būti atšauktas."
-
-#~ msgid "label_submit_imp"
-#~ msgstr "Pateikite"
-
-#~ msgid "label_summary"
-#~ msgstr "Santrauka"
-
-#~ msgid "label_attachment"
-#~ msgstr "Priedas"
-
-#~ msgid "label_rule"
-#~ msgstr "Taisyklė"
-
-#~ msgid "label_name"
-#~ msgstr "Vardas"
-
-#~ msgid "label_value"
-#~ msgstr "Vertė"
-
-#~ msgid "label_on"
-#~ msgstr "Įjungta"
-
-#~ msgid "label_loading"
-#~ msgstr "Kraunama"
-
-#~ msgid "upload_files_imp"
-#~ msgstr "Įkelti failus"
-
-#~ msgid "upload_file_imp"
-#~ msgstr "Įkelti failą"
-
-#~ msgid "label_copy_imp"
-#~ msgstr "Kopijuoti"
-
-#~ msgid "label_cut_imp"
-#~ msgstr "Iškirpti"
-
-#~ msgid "label_move"
-#~ msgstr "Perkelti"
-
-#~ msgid "label_move_imp"
-#~ msgstr "Perkelti"
-
-#~ msgid "label_download_imp"
-#~ msgstr "Atsisiųsti"
-
-#~ msgid "label_from"
-#~ msgstr "Nuo"
-
-#~ msgid "label_until"
-#~ msgstr "Iki"
-
-#~ msgid "label_date"
-#~ msgstr "Data"
-
-#~ msgid "label_never"
-#~ msgstr "Niekada"
-
-#~ msgid "label_quarterly"
-#~ msgstr "Ketvirtiniais"
-
-#~ msgid "label_save_imp"
-#~ msgstr "Išsaugoti"
-
-#~ msgid "label_save_and_close_imp"
-#~ msgstr "Išsaugoti ir uždaryti"
-
-#~ msgid "label_email_address"
-#~ msgstr "El. pašto adresas"
-
-#~ msgid "label_read_more_ell"
-#~ msgstr "Sužinokite daugiau…"
-
-#~ msgid "label_log_out"
-#~ msgstr "Atsijungti"
-
-#~ msgid "label_log_in"
-#~ msgstr "Prisijungti"
-
-#~ msgid "label_colour"
-#~ msgstr "Spalva"
-
-#~ msgid "label_analysis"
-#~ msgstr "Analizė"
-
-#~ msgid "label_under_review"
-#~ msgstr "Peržiūrima"
-
-#~ msgid "message_you_dont_have_any_risk_assessments_yet_short"
-#~ msgstr "Jūs dar neturite rizikos vertinimų."
-
-#~ msgid "label_log_out_imp"
-#~ msgstr "Atsijungti"
-
-#~ msgid "label_toggle_on_screen_help_imp"
-#~ msgstr "Įjungti/išjungti ekrano pagalbą"
-
-#~ msgid "label_sample_at_regular_intervals"
-#~ msgstr "Imti mėginį reguliariais intervalais"
-
-#~ msgid "message_training_enabled"
-#~ msgstr ""
-#~ "Įjungus mokymus bus atrakintos mokymo funkcijos šiam rizikos vertinimui. "
-#~ "Mokymas bus prieinamas visiems jūsų organizacijos vartotojams per skirtuką "
-#~ "'mokymas' kairėje esančioje šoninėje juostoje. Naudotojai, turintys "
-#~ "'Pagrindinį' leidimų lygį, gali dalyvauti mokymuose ir gauti pažymėjimą tik "
-#~ "tada, kai rizikos vertinimas yra užrakintas."
-
-#~ msgid "message_training_promoted"
-#~ msgstr ""
-#~ "Mokomoji medžiaga šiam rizikos vertinimui bus rodoma skirtuke 'mokymas' OiRA"
-#~ " pagrindiniame ekrane."
-
-#~ msgid "message_finetune_settings_assessment"
-#~ msgstr "Patikslinkite šio rizikos vertinimo nustatymus."
-
-#~ msgid "unlocked_risk_assessments"
-#~ msgstr "Atrakinti rizikos vertinimai"
-
-#~ msgid "label_user_it_to_colon"
-#~ msgstr "Naudokite jį:"
-
-#~ msgid "label_continue_to_consultancy"
-#~ msgstr "Tęsti konsultacijų tarnybai"
-
-#~ msgid "message_permission_level_basic"
-#~ msgstr "Vartotojas gali tik dalyvauti mokymuose."
-
-#~ msgid "message_permission_level_edit"
-#~ msgstr ""
-#~ "Vartotojas gali dalyvauti mokymuose ir peržiūrėti bei redaguoti visus "
-#~ "rizikos vertinimus."
-
-#~ msgid "message_permission_level_manage"
-#~ msgstr ""
-#~ "Vartotojas gali dalyvauti mokymuose, peržiūrėti ir redaguoti visus rizikos "
-#~ "vertinimus, prašyti patvirtinimų ir užrakinti rizikos vertinimus."
-
-#~ msgid "message_permission_level_validate"
-#~ msgstr ""
-#~ "Vartotojas gali dalyvauti mokymuose, peržiūrėti ir redaguoti visus rizikos "
-#~ "vertinimus bei juos patvirtinti."
-
-#~ msgid "message_permission_level_full"
-#~ msgstr ""
-#~ "Vartotojas gali peržiūrėti ir redaguoti visą turinį bei pridėti arba "
-#~ "pašalinti vartotojus iš organizacijos."
-
-#~ msgid "label_risk_assessments"
-#~ msgstr "Atlikti rizikos vertinimai"
-
-#~ msgid "label_default_view"
-#~ msgstr "Numatytasis vaizdas"
-
-#~ msgid "action_search"
-#~ msgstr "Paieška"
-
-#~ msgid "add_another_item"
-#~ msgstr "Įterpti dar vieną punktą"
-
-#~ msgid "add_missing_existing_measure"
-#~ msgstr "Pridėti trūkstamą priemonę"
-
-#~ msgid "additional_resources"
-#~ msgstr "Papildomi rizikos vertinimo šaltiniai"
-
-#~ msgid "are_you_sure"
-#~ msgstr "Ar tikrai norite tęsti?"
-
-#~ msgid "button_continue"
-#~ msgstr "Toliau"
-
-#~ msgid "button_print"
-#~ msgstr "Spausdinti"
-
-#~ msgid "button_save_and_continue"
-#~ msgstr "Išsaugoti ir tęsti"
-
-#~ msgid "button_skip"
-#~ msgstr "Praleisti"
-
-#~ msgid "cancel"
-#~ msgstr "Panaikinti"
-
-#~ msgid "comments"
-#~ msgstr "Komentarai"
-
-#~ msgid "confirmation_ra_clone"
-#~ msgstr "Taip, kopijuoti rizikos vertinimą."
-
-#~ msgid "confirmation_ra_delete"
-#~ msgstr "Taip, ištrinti sesiją."
-
-#~ msgid "describe_new_measure"
-#~ msgstr "Aprašyti jau įdiegtą, bet čia nenurodytą priemonę."
-
-#~ msgid "describe_risk"
-#~ msgstr "Aprašykite riziką…"
-
-#~ msgid "description_calculated_evaluation"
-#~ msgstr ""
-#~ "Atsakykite į toliau pateiktus klausimus. Atsižvelgiant į jūsų atsakymus, "
-#~ "sistemoje bus atlikti su rizikos dydžiu susiję skaičiavimai. Vėliau rizikos "
-#~ "dydį galėsite pakeisti"
-
-#~ msgid "email_address"
-#~ msgstr "El. pašto adresas"
-
-#~ msgid "explanation_ra_clone"
-#~ msgstr ""
-#~ "Kopijuodami rizikos vertinimą, Jūs sukursite naują rizikos vertinimą pagal "
-#~ "jau atlikto vertinimo turinį."
-
-#~ msgid "header_risk_severity"
-#~ msgstr "Koks yra žalos sunkumas?"
-
-#~ msgid "identified"
-#~ msgstr "Dėmesio"
-
-#~ msgid "information"
-#~ msgstr "Informacija"
-
-#~ msgid "label_about_this_risk"
-#~ msgstr "apie šią riziką."
-
-#~ msgid "label_add_existing_measures"
-#~ msgstr "Pasirinkti arba pridėti jau įdiegtas priemones."
-
-#~ msgid "label_addition_measure"
-#~ msgstr "Papildoma priemonė"
-
-#~ msgid "label_almost_never"
-#~ msgstr "Beveik niekada"
-
-#~ msgid "label_tool"
-#~ msgstr "Įrankis"
-
-#~ msgid "label_available_tools"
-#~ msgstr "Esamos priemonės"
-
-#~ msgid "label_certificate"
-#~ msgstr "Sertifikatas"
-
-#~ msgid "label_certificate_datetime_example"
-#~ msgstr "<time class=\"certificate-date\">2019 m. rugsėjo 7 d.</time>"
-
-#~ msgid "label_certificate_department"
-#~ msgstr "Departamentas/Regionas"
-
-#~ msgid "label_complete"
-#~ msgstr "Užbaigtas"
-
-#~ msgid "label_youve_earned_a_certificate_for_this_tool"
-#~ msgstr "Jūs užsitarnavote sertifikatą šiam įrankiui"
-
-#~ msgid "label_certificate_benefits"
-#~ msgstr ""
-#~ "Su šiuo sertifikatu galite kreiptis dėl įmonės draudimo įmokų sumažinimo"
-
-#~ msgid "label_certificate_learn_more_about_the_benefits"
-#~ msgstr "Sužinokite daugiau apie privalumus…"
-
-#~ msgid "label_certificate_view"
-#~ msgstr "Peržiūrėti sertifikatą"
-
-#~ msgid "label_awarded_certificates"
-#~ msgstr "Suteikti sertifikatai"
-
-#~ msgid "label_certificate_awarded"
-#~ msgstr "Šie sertifikatai buvo suteikti šiai vertinimui."
-
-#~ msgid "label_certificate_country"
-#~ msgstr "šalis"
-
-#~ msgid "label_certificate_company_identification_number"
-#~ msgstr "Įmonės identifikacijos numeris"
-
-#~ msgid "label_certificate_contact_name"
-#~ msgstr "Kontaktinio asmens vardas"
-
-#~ msgid "label_certificate_for_conducting"
-#~ msgstr "Rizikos vertinimui atlikti su įrankiu"
-
-#~ msgid "label_certificate_is_private"
-#~ msgstr ""
-#~ "yra privatus, nebent nuspręsite jį padaryti viešu. Jei paspausite žemiau "
-#~ "esantį „Publikuoti“ mygtuką, jūsų sertifikatas bus paskelbtas oficialiame"
-
-#~ msgid "label_certificate_presented_to"
-#~ msgstr "Šis sertifikatas įteiktas"
-
-#~ msgid "label_certificate_your_certificate_for"
-#~ msgstr "Jūsų sertifikatas"
-
-#~ msgid "label_constantly"
-#~ msgstr "Nuolat"
-
-#~ msgid "label_continue_action_plan"
-#~ msgstr "Pereiti į veiksmų planą"
-
-#~ msgid "label_download_report"
-#~ msgstr ""
-#~ "Rekomenduojame visada turėti aktualią spausdintinę rizikos vertinimo "
-#~ "(ataskaitos) versiją, su kuria būtų galima susipažinti jūsų įmonėje!"
-
-#~ msgid "label_help"
-#~ msgstr "Pagalba"
-
-#~ msgid "label_high"
-#~ msgstr "Aukštas"
-
-#~ msgid "label_high_severity"
-#~ msgstr "Didelis (labai didelis) sunkumas"
-
-#~ msgid "label_large"
-#~ msgstr "Didelė"
-
-#~ msgid "label_last_modified"
-#~ msgstr "išsaugota"
-
-#~ msgid "label_low"
-#~ msgstr "Žemas"
-
-#~ msgid "label_measures_overview"
-#~ msgstr "Priemonių peržiūra"
-
-#~ msgid "label_medium"
-#~ msgstr "Vidutinė"
-
-#~ msgid "label_name_ra"
-#~ msgstr "Rizikos vertinimo pavadinimas"
-
-#~ msgid "label_print"
-#~ msgstr "Spausdinti"
-
-#~ msgid "label_profiling"
-#~ msgstr "Pritaikyti rizikos vertinimo procedūra pagal savo organizaciją"
-
-#~ msgid "label_ra_title"
-#~ msgstr "Rizikos vertinimo pavadinimas"
-
-#~ msgid "label_ra_title_extended"
-#~ msgstr "Įveskite rizikos vertinimo proceso pavadinimą"
-
-#~ msgid "label_regularly"
-#~ msgstr "Reguliariai"
-
-#~ msgid "label_risks_overview"
-#~ msgstr "Rizikų peržiūra"
-
-#~ msgid "label_select_or_add_existing_measures"
-#~ msgstr "Pasirinkti arba pridėti jau įdiegtas priemones."
-
-#~ msgid "label_select_risk_priority"
-#~ msgstr "Pasirinkite šios rizikos lygį"
-
-#~ msgid "label_significant_severity"
-#~ msgstr "Žymus sunkumas"
-
-#~ msgid "label_small"
-#~ msgstr "Nedidelė"
-
-#~ msgid "label_standard_measures"
-#~ msgstr "Standartinės priemonės"
-
-#~ msgid "label_start_ra_imp"
-#~ msgstr "Pradėkite sesia"
-
-#~ msgid "label_start_ra"
-#~ msgstr "Pradėkite sesia"
-
-#~ msgid "label_status"
-#~ msgstr "Būsena"
-
-#~ msgid "label_this_is_a"
-#~ msgstr "Tai"
-
-#~ msgid "label_this_is_a_xx_priority_risk"
-#~ msgstr "prioritetinė rizika."
-
-#~ msgid "label_topics"
-#~ msgstr "Temos"
-
-#~ msgid "label_upload_image"
-#~ msgstr "Įkelti paveikslėlį"
-
-#~ msgid "label_weak_severity"
-#~ msgstr "Nedidelis sunkumas"
-
-#~ msgid "last_saved"
-#~ msgstr "išsaugota"
-
-#~ msgid "legal_references"
-#~ msgstr "Nuorodos į teisės aktus"
-
-#~ msgid "link_learn_more_about_tool"
-#~ msgstr "Sužinokite daugiau apie šį įrankį…"
-
-#~ msgid "login"
-#~ msgstr "Prisijungimo vardas"
-
-#~ msgid "my_ras"
-#~ msgstr "Mano atlikti rizikos vertinimai"
-
-#~ msgid "no_measures_required"
-#~ msgstr "Ne, būtinos papildomos priemonės"
-
-#~ msgid "no_risk"
-#~ msgstr "GERAI"
-
-#~ msgid "not_applicable"
-#~ msgstr "Netaikoma"
-
-#~ msgid "on_is_accpetable"
-#~ msgstr "Ar rizika priimtina?"
-
-#~ msgid "other_risks"
-#~ msgstr "Jūsų įtrauktos rizikos"
-
-#~ msgid "placeholder_approach_action_plan"
-#~ msgstr "Pagrindinis sprendimas (pašalinti arba sumažinti riziką)"
-
-#~ msgid "placeholder_comment"
-#~ msgstr ""
-#~ "Šiame laukelyje galite įrašyti norimą komentarą. Šie komentarai bus "
-#~ "panaudoti prevencinių veiksmų plane."
-
-#~ msgid "placeholder_custom_risk_description"
-#~ msgstr "Pateikite daugiau informacijos apie šią riziką."
-
-#~ msgid "postponed"
-#~ msgstr "Atidėta"
-
-#~ msgid "question_measures_sufficient"
-#~ msgstr "Pasirinkti arba pridėti jau įdiegtas priemones."
-
-#~ msgid "ra_with_this_tool"
-#~ msgstr "Naudojantis šia priemone atlikti rizikos vertinimai"
-
-#~ msgid "remove"
-#~ msgstr "Pašalinti"
-
-#~ msgid "resources"
-#~ msgstr "Ištekliai"
-
-#~ msgid "save"
-#~ msgstr "Išsaugoti"
-
-#~ msgid "save_and_add_risk"
-#~ msgstr "Išsaugoti ir nurodyti kitą riziką"
-
-#~ msgid "select_earlier_session"
-#~ msgstr ""
-#~ "Pasirinkite ankstesnę sesiją, kad baigti arba peržiūrėti rizikos vertinimą, "
-#~ "arba"
-
-#~ msgid "start_new_ra_with_this_tool"
-#~ msgstr "Pradėti šios priemonės naują seansą"
-
-#~ msgid "start_new_session"
-#~ msgstr "pradėkite naują sesija"
-
-#~ msgid "title_byline"
-#~ msgstr ""
-#~ "OiRA - internetinis interaktyvus rizikos vertinimas (angl. Online "
-#~ "interactive Risk Assessment)"
-
-#~ msgid "title_download_report"
-#~ msgstr "Atsisiųskite ir atsispausdinkite savo ataskaitą"
-
-#~ msgid "title_registration"
-#~ msgstr "Registruotis"
-
-#~ msgid "unanswered"
-#~ msgstr "Neatsakyta"
-
-#~ msgid "unvisited"
-#~ msgstr "Neatsakyta"
-
-#~ msgid "yes_acceptable"
-#~ msgstr "Taip, likusi rizika yra priimtina"
-
-#~ msgid "label_start_imp"
-#~ msgstr "Pradėti"
-
-#~ msgid "label_update_imp"
-#~ msgstr "Atnaujinti"
-
-#~ msgid "label_create_imp"
-#~ msgstr "Kurti"
-
-#~ msgid "label_tag"
-#~ msgstr "Žyma"
-
-#~ msgid "message_clone_or_start_new"
-#~ msgstr ""
-#~ "Galite nukopijuoti turinį iš esamo vertinimo, atlikto su įrankiu {0}, arba "
-#~ "pradėti nuo pradžių."
-
-#~ msgid "label_new_risk_assessment"
-#~ msgstr "Naujas rizikos vertinimas"
-
-#~ msgid "label_start_new_risk_assessment_imp"
-#~ msgstr "Pradėti naują rizikos vertinimą"
-
-#~ msgid "message_help_intro"
-#~ msgstr ""
-#~ "Pasirinkite vieną iš toliau pateiktų temų ir susipažinkite su OiRA veikimu."
-
-#~ msgid "message_invite_for_training"
-#~ msgstr ""
-#~ "Pakvieskite kolegą susipažinti su rizikos vertinimo „{0}“ pavojais ir "
-#~ "priemonėmis. Pakviestas naudotojas automatiškai gaus prieigą prie šio "
-#~ "vertinimo mokymo tikslais."
-
-#~ msgid "message_include_ellipsis"
-#~ msgstr "Įtraukti…"
-
-#~ msgid "message_report_downloads_intro"
-#~ msgstr ""
-#~ "Pasirinkite vieną iš kelių formatų savo rizikos vertinimo ataskaitai "
-#~ "peržiūrėti arba atsisiųsti."
-
-#~ msgid "Official OiRA Logo"
-#~ msgstr "Oficialus OiRA logotipas"
-
-#~ msgid "button_save_changes"
-#~ msgstr "Išsaugoti pakeitimus"
-
-#~ msgid "french"
-#~ msgstr "Du supaprastinti kriterijai"
-
-#~ msgid "header_settings"
-#~ msgstr "Parametrai"
-
-#~ msgid "help_sector_contactperson"
-#~ msgstr ""
-#~ "Pateikite už OiRA prietmones šioje ekonominėje veikloje atsakingo asmens "
-#~ "pavardę"
-
-#~ msgid "help_sector_logo"
-#~ msgstr ""
-#~ "Logotipas bus matomas tiek jūsų programoje, kuria naudosis tam tikra "
-#~ "naudotojų grupė, tiek šioje rengyklės aplinkoje, viršutiniame kairiajame "
-#~ "kampe. Patikrinkite, ar jūsų naudojamas atvaizdas yra png, jpg arba gif "
-#~ "formato ir jame nėra jokių specialiųjų simbolių. Naujasis logotipas taps "
-#~ "matomu tik išsaugojus pakeitimus."
-
-#~ msgid "help_sector_password"
-#~ msgstr "Šiuo slaptažodžiu turite jungtis prie rengyklės aplinkos."
-
-#~ msgid "label_contact_person"
-#~ msgstr "Kontaktinis asmuo"
-
-#~ msgid "label_logo_selection"
-#~ msgstr "Kurį logotipą norėtumėte matyti viršutiniame kairiajame kampe?"
-
-#~ msgid "label_sector_description"
-#~ msgstr "Pateikite savo ekonominės veiklos aprašymą"
-
-#~ msgid "label_survey_source"
-#~ msgstr "Nuo ko norėtumėte pradėti"
-
-#~ msgid "logo_instructions"
-#~ msgstr ""
-#~ "Geriausių rezultatų pasieksite, jei logotipą įkelsite kaip ${transparent} "
-#~ "PNG failą (bent 100 pikselių aukščio). Galima įkelti ir didesnius atvaizdus,"
-#~ " tik tada atvaizdo mastelis bus pritaikytas automatiškai."
-
-#~ msgid "logo_instructions_transparent"
-#~ msgstr "skaidrų"
-
-#~ msgid "logo_my_own"
-#~ msgstr "Mano paties"
-
-#~ msgid "Manager/Policy maker"
-#~ msgstr "Vadovas/Atsakingas asmuo"
-
-#~ msgid "label_role_admin"
-#~ msgstr "Administratorius"
-
-#~ msgid "label_role_member"
-#~ msgstr "Narys"
-
-#~ msgid ""
-#~ "Administrators can create, edit and remove user accounts. Administrators can"
-#~ " also make risk assessments, lock risk assessments, create trainings and "
-#~ "take trainings."
-#~ msgstr ""
-#~ "Administratoriai gali kurti, redaguoti ir pašalinti naudotojų paskyras. "
-#~ "Administratoriai taip pat gali atlikti rizikos vertinimus, blokuoti rizikos "
-#~ "vertinimus, rengti mokymus ir dalyvauti mokymuose."
-
-#~ msgid ""
-#~ "Managers/Policy makers can make risk assessments, lock risk assessments, "
-#~ "create trainings and take trainings."
-#~ msgstr ""
-#~ "Vadovai/atsakingi asmenys gali atlikti rizikos vertinimus, blokuoti rizikos "
-#~ "vertinimus, kurti ir dalyvauti mokymuose."
-
-#~ msgid "Members can make risk assessments and take trainings."
-#~ msgstr "Nariai gali atlikti rizikos vertinimą ir dalyvauti mokymuose."
-
-#~ msgid "iphone_label_action_plan"
-#~ msgstr "Prevencinių veiksmų planas"
-
-#~ msgid "iphone_label_evaluation"
-#~ msgstr "Vertinimas"
-
-#~ msgid "iphone_label_identification"
-#~ msgstr "Nustatymas"
-
-#~ msgid "iphone_label_preparation"
-#~ msgstr "Paruošimas"
-
-#~ msgid "iphone_report"
-#~ msgstr "Ataskaita"
-
-#~ msgid "conditions_conservation_header"
-#~ msgstr "Informacijos saugojimas ir apdorojimas"
-
-#~ msgid "conditions_conservation_keep_data"
-#~ msgstr ""
-#~ "Jūsų duomenis, prie kurių išoriniai naudotojai prieigos neturi, saugome tol,"
-#~ " kol jūs pašalinate savo paskyrą ir seansus."
-
-#~ msgid "conditions_conservation_storage"
-#~ msgstr "ES-OSHA duomenis laiko mūsų serveriuose Zamudio mieste, Ispanija."
-
-#~ msgid "conditions_contact"
-#~ msgstr ""
-#~ "ES-OSHA reguliariai peržiūri atitiktį su privatumo politikos reikalavimais. "
-#~ "Visas užklausas ir nusiskundimus dėl mūsų privatumo politikos galima siųsti "
-#~ "ES-OSHA DPO adresu ${dpo-email} arba EDPS adresu ${edps-email}."
-
-#~ msgid "conditions_contact_header"
-#~ msgstr "Kontaktinė informacija"
-
-#~ msgid "conditions_datacontroller_header"
-#~ msgstr "Duomenų tvarkytojas"
-
-#~ msgid "conditions_datareview"
-#~ msgstr ""
-#~ "Savo paskyros parametrus ir išsaugotus OiRA seansus galite naudoti paskyroje"
-#~ " ir seansuose išsaugotos informacijos peržiūrai, tvarkymui ir šalinimui."
-
-#~ msgid "conditions_datareview_header"
-#~ msgstr "Jūsų informacijos peržiūra ir šalinimas"
-
-#~ msgid "conditions_info_cookies"
-#~ msgstr ""
-#~ "Slapukai - Jums apsilankius mūsų svetainėje ir pasirinkus kalbą, mes į jūsų "
-#~ "kompiuterį ar kitą naudojamą prietaisą išsiunčiame slapuką, kuriame bus "
-#~ "laikoma informacija apie pasirinktą kalbą. Šis slapukas jūsų naršyklėje būna"
-#~ " tol, ko ją uždarote. Jums apsilankius mūsų svetainėje ir prisijungus, mes "
-#~ "nusiunčiame slapuką su jūsų prisijungimo informacija. Šis slapukas "
-#~ "kompiuteryje išlieka tol, kol uždarote naršyklę. Daugelis naršyklių yra "
-#~ "nustatytos priimti slapukus, tačiau galite nustatyti, kad slapukai būtų "
-#~ "atmesti ar jums būtų pranešta, kada jie yra siunčiami. Vis dėlto, kai kurios"
-#~ " savybės ir paslaugos gali tinkamai neveikti, jei slapukų priėmimą būsite "
-#~ "išjungę."
-
-#~ msgid "conditions_info_email"
-#~ msgstr ""
-#~ "El. pašto paskyra: ji reikalinga internetinės programos prieigai, įvedamų "
-#~ "duomenų redagavimui ir OiRA paskyros šalinimui. Galite įvesti bet kokį "
-#~ "galiojantį savo el. pašto adresą. Jis nebus naudojamas komerciniais "
-#~ "tikslais."
-
-#~ msgid "conditions_info_entry"
-#~ msgstr ""
-#~ "Surinktos informacijos tipas: registruojantis OiRA paskyrai ir įvedant "
-#~ "duomenis į OiRA programą, prašome pateikti tokią informaciją:"
-
-#~ msgid "conditions_info_header"
-#~ msgstr "Informacija, kurią renkame ir kokiu tikslu"
-
-#~ msgid "conditions_info_logs"
-#~ msgstr ""
-#~ "Žurnalo informacija - Jums pasirinkus paslaugą, mūsų serveriai automatiškai "
-#~ "įrašo jūsų naršyklės siunčiamą informaciją kiekvieną kartą, jums apsilankius"
-#~ " internetiniame puslapyje. Tokiuose serverio žurnaluose gali būti saugoma "
-#~ "informacija, pavyzdžiui, jūsų internetinės užklausos, jūsų sąveika su "
-#~ "paslauga, naršyklės tipas, naršyklės kalba, jūsų užklausos data ir laikas. "
-#~ "IP adresas sistemoje nesaugomas."
-
-#~ msgid "conditions_info_text"
-#~ msgstr ""
-#~ "Bet kokia į programos neriboto dydžio laukelius įvedama informacija (pvz., "
-#~ "nurodant rizikos šalinimo priemonę, už tą priemonę atsakingą asmenį ir kt.)."
-#~ " Šiuo laukeliuose informaciją įvesti neprivaloma."
-
-#~ msgid "conditions_info_use_intro"
-#~ msgstr ""
-#~ "Be anksčiau paminėtų atvejų, surinktą informaciją apie jus galime panaudoti "
-#~ "teikiant, palaikant, saugant ir gerinant mūsų paslaugas bei kuriant naujas. "
-#~ "Bet kokiu atveju, jokie asmeniniai duomenys duomenų apdorojimui naudojami "
-#~ "nebus."
-
-#~ msgid "conditions_intro1"
-#~ msgstr ""
-#~ "OiRA (internetinio interaktyvaus rizikos vertinimo) programa yra Europos "
-#~ "saugos ir sveikatos darbe agentūros (ES-OSHA) jūsų reikmėms sukurta "
-#~ "priemonė. Ši privatumo politika taikoma visiems ES-OSHA produktams, "
-#~ "paslaugoms ir internetiniams puslapiams, susijusiems su OiRA programa."
-
-#~ msgid "conditions_intro2"
-#~ msgstr ""
-#~ "Jūsų asmeniniai duomenys yra tvarkomi pagal 2000 m. gruodžio 18 d. Europos "
-#~ "Parlamento ir Tarybos direktyvą (EB) Nr. 45/2001 dėl asmenų apsaugos "
-#~ "Bendrijos institucijoms ir įstaigoms tvarkant asmens duomenis ir laisvo "
-#~ "tokių duomenų judėjimo. Išsamesnę informaciją apie ES-OSHA privatumo "
-#~ "politiką ir visą direktyvos tekstą galima rasti adresu ${url}."
-
-#~ msgid "conditions_security"
-#~ msgstr ""
-#~ "Mes imamės reikiamų saugos priemonių, kad apsaugotume duomenis nuo "
-#~ "neįgaliotų asmenų prieigos, pakeitimų, atskleidimo ar sunaikinimo. Tai apima"
-#~ " vidines mūsų duomenų rinkinių peržiūras, laikymo ir apdorojimo praktiką bei"
-#~ " apsaugojimo priemones, įskaitant tam tikrą komunikacijų kodavimą ir fizines"
-#~ " apsaugos priemones, siekiant apsisaugoti nuo neįgaliotų asmenų prieigos "
-#~ "prie sistemų su asmeniniais duomenimis. IP adresai nėra saugomi, todėl "
-#~ "galimybės pagal juos identifikuoti naudotojus nėra."
-
-#~ msgid "conditions_security_header"
-#~ msgstr "Informacijos saugumas"
-
-#~ msgid "condtions_datacontroller"
-#~ msgstr ""
-#~ "Duomenų tvarkytojas yra Europos saugos ir sveikatos darbe agentūra, Bilbao."
-
-#~ msgid "My risk assessments"
-#~ msgstr "Mano atlikti rizikos vertinimai"
-
-#~ msgid "title_account_settings"
-#~ msgstr "Paskyros nustatymai"
-
-#~ msgid "label_evaluation_phase"
-#~ msgstr "Vertinimo etapas"
-
-#~ msgid "mandatory"
-#~ msgstr "Privalomas"
-
-#~ msgid "optional"
-#~ msgstr "Papildomas"
-
-#~ msgid "This tool deserves to be known by the world! Share it!"
-#~ msgstr "Pasaulis turi žinoti apie šią priemonę! Dalykitės!"
-
-#~ msgid "label_comment"
-#~ msgstr ""
-#~ "Šiame laukelyje galite įrašyti norimą komentarą. Šie komentarai bus "
-#~ "panaudoti prevencinių veiksmų plane."
-
-#~ msgid "Custom risks"
-#~ msgstr "Papildoma rizika"
-
-#~ msgid "Try a test session"
-#~ msgstr "Bandomoji sesija"
-
-#~ msgid "invalid_email"
-#~ msgstr "Įveskite galiojantį e-pašto adresą"
-
-#~ msgid "title_other_risks"
-#~ msgstr "Jūsų įtrauktos rizikos"
-
-#~ msgid "osc_search_placeholder"
-#~ msgstr "Paieška"
-
-#~ msgid "Started"
-#~ msgstr "Pradėta"
-
-#~ msgid "A folder for all documentation for a specific language."
-#~ msgstr "Visų tam tikra kalba parengtų dokumentų aplankas."
-
-#~ msgid "A folder for all sectors in a country."
-#~ msgstr "Visų ekonominių veiklų šalyje aplankas."
-
-#~ msgid "A folder which can contain sectors."
-#~ msgstr "Aplankas, kuriame gali būti saugomos ekonominės veiklos."
-
-#~ msgid "A manager for sectors in a country."
-#~ msgstr "Ekonominių veiklų šalyje administratorius."
-
-#~ msgid "A page with text"
-#~ msgstr "Puslapis su tekstu"
-
-#~ msgid "A risk."
-#~ msgstr "Rizika."
-
-#~ msgid "A solution."
-#~ msgstr "Standartinė rizikos priemonė."
-
-#~ msgid "A survey."
-#~ msgstr "Apklausa."
-
-#~ msgid "A version of a survey."
-#~ msgstr "Apklausos versija."
-
-#~ msgid "Active"
-#~ msgstr "Aktyvus"
-
-#~ msgid ""
-#~ "An email will be sent if we can find an account for the inserted email "
-#~ "address"
-#~ msgstr ""
-#~ "El. laiškas bus siunčiamas jei nurodytu el.paštu yra registruota paskyra."
-
-#~ msgid "Country information and grouping for the client."
-#~ msgstr "Šalies informacija ir programos grupavimas."
-
-#~ msgid "Country manager"
-#~ msgstr "Šalies administratorius"
-
-#~ msgid "Documentation"
-#~ msgstr "Dokumentai"
-
-#~ msgid "Download and print your report"
-#~ msgstr "Atsisiųskite ir atsispausdinkite savo ataskaitą"
-
-#~ msgid "Download the action plan"
-#~ msgstr "Atsisiųskite prevencijos veiksmų planą"
-
-#~ msgid "Download the full report"
-#~ msgstr "Atsisiųskite išsamią ataskaitą"
-
-#~ msgid "Download the measures overview"
-#~ msgstr "Atsisiųskite priemonių apžvalgą"
-
-#~ msgid "Download the risks overview"
-#~ msgstr "Atsisiųskite rizikų apžvalgą"
-
-#~ msgid "Folder"
-#~ msgstr "Aplankas"
-
-#~ msgid ""
-#~ "One-state workflow for sector objects, giving edit access to its contents to"
-#~ " the sector user."
-#~ msgstr ""
-#~ "Vienos šalies veiklos srities objektų darbų srautas, veiklos srities "
-#~ "naudotojui suteikiant turinio redagavimo teisę."
-
-#~ msgid "Online help"
-#~ msgstr "Internetinis žinynas"
-
-#~ msgid "Page"
-#~ msgstr "Puslapis"
-
-#~ msgid "Sector Folder"
-#~ msgstr "Ekonominės veiklos aplankas"
-
-#~ msgid "Sector information and grouping for the client."
-#~ msgstr "Ekonominės veiklos informacija ir programos grupvavimas."
-
-#~ msgid "Sector workflow"
-#~ msgstr "Darbų srautas veiklos srityje"
-
-#~ msgid "Share this OiRA-Tool"
-#~ msgstr "Dalytis šia internetine interaktyviąja rizikos vertinimo priemone"
-
-#~ msgid "Solution"
-#~ msgstr "Priemonė"
-
-#~ msgid "Survey"
-#~ msgstr "OiRA priemonė"
-
-#~ msgid "Survey version"
-#~ msgstr "OiRA priemonės versija"
-
-#~ msgid "The One And Only state"
-#~ msgstr "Viena ir vienintelė šalis"
-
-#~ msgid "The help text for the client."
-#~ msgstr "Programos pagalbos tekstas."
-
-#~ msgid "The online client."
-#~ msgstr "Internetinė programa."
-
-#~ msgid "button_start_new_session"
-#~ msgstr "Pradėti šios priemonės naują seansą"
-
-#~ msgid "company_details_intro"
-#~ msgstr ""
-#~ "Informaciją galite pateikti žemiau. Ši informacija yra skirta gerinti "
-#~ "priemones ir teikiamas paslaugas. Į ataskaitą šį informacija įtraukta nebus."
-
-#~ msgid "hader_company_details"
-#~ msgstr ""
-#~ "Netrukus bus pradėtas ataskaitos spausdinimas. Užbaikite papildomą formą ir "
-#~ "tęskite."
-
-#~ msgid "header_welcome"
-#~ msgstr "Sveiki"
-
-#~ msgid "label_login_here"
-#~ msgstr "Jeigu esate prisiregistravęs, galite ${log_in} čia."
-
-#~ msgid "label_show_less_hellip"
-#~ msgstr "Rodyti mažiau"
-
-#~ msgid "label_show_more_hellip"
-#~ msgstr "Rodyti daugiau…"
-
-#~ msgid "label_tryout"
-#~ msgstr "pradėkite bandomąją sesiją."
-
-#~ msgid "log in"
-#~ msgstr "prisijungti"
-
-#~ msgid "teaser_try_oira"
-#~ msgstr ""
-#~ "Norite išbandyti OiRA priemonę? Priemonę galite išbandyti nesiregistruodami "
-#~ "${tryout_link} arba registruokitės ${register_link} ir pradėkite naudotis "
-#~ "priemone."
-
-#~ msgid "Change name of session"
-#~ msgstr "Keisti sesijos pavadinimą"
-
-#~ msgid "Session title has been changed to ${name}"
-#~ msgstr "Sesijos pavadinimas pakeistas į ${name}"
-
-#~ msgid "button_upload"
-#~ msgstr "Įkelti"
-
-#~ msgid "title_import_sector_survey"
-#~ msgstr "Įkėlimo sektorius ir OiRA priemonė"
-
-#~ msgid "based on"
-#~ msgstr "pagal"
-
-#~ msgid "label_add_measure"
-#~ msgstr "Įkelti naują priemonę"
-
-#~ msgid "label_prefill"
-#~ msgstr "Užpildykite iš anksto"
-
-#~ msgid "No changes were made to measures in your action plan."
-#~ msgstr "Jūsų veiksmų plane nėra padaryta pakeitimų."
-
-#~ msgid "message_measure_removed"
-#~ msgstr "Priemonė yra pašalinta iš jūsų veiksmų plano."
-
-#~ msgid "message_measure_saved"
-#~ msgstr "Priemonė yra įtraukta į jūsų veiksmų planą."
-
-#~ msgid "message_measure_updated"
-#~ msgstr "Priemonė jūsų veiksmų plane yra atnaujinta."
-
-#~ msgid "message_measures_removed"
-#~ msgstr "${no_of_measures} priemonės yra pašalintos iš jūsų veiksmų plano."
-
-#~ msgid "message_measures_removed_3"
-#~ msgstr "${no_of_measures} priemonės yra pašalintos iš jūsų veiksmų plano."
-
-#~ msgid "message_measures_removed_3_4"
-#~ msgstr "${no_of_measures} priemonės yra pašalintos iš jūsų veiksmų plano."
-
-#~ msgid "message_measures_saved"
-#~ msgstr "${no_of_measures} priemonės yra įtrauktos į jūsų veiksmų planą."
-
-#~ msgid "message_measures_saved_2"
-#~ msgstr "${no_of_measures} priemonės yra įtrauktos į jūsų veiksmų planą."
-
-#~ msgid "message_measures_saved_3_4"
-#~ msgstr "${no_of_measures} priemonės yra įtrauktos į jūsų veiksmų planą."
-
-#~ msgid "message_measures_updated"
-#~ msgstr "${no_of_measures} priemonės veiksmų plane yra atnaujintos."
-
-#~ msgid "message_measures_updated_2"
-#~ msgstr "${no_of_measures} priemonės veiksmų plane yra atnaujintos."
-
-#~ msgid "message_measures_updated_3_4"
-#~ msgstr "${no_of_measures} priemonės veiksmų plane yra atnaujintos."
-
-#~ msgid "Start test session"
-#~ msgstr "Pradėkite bandomąją sesia"
-
-#~ msgid "Description of the risk"
-#~ msgstr "Rizikos aprašymas"
-
-#~ msgid "Page ${number} of ${total}"
-#~ msgstr "${number} puslapis iš ${total} puslapio (-ių)"
-
-#~ msgid "button_remove_risk"
-#~ msgstr "Pašalinkite riziką"
-
-#~ msgid "header_or"
-#~ msgstr "arba..."
-
-#~ msgid "header_select_session"
-#~ msgstr "Norėdami užbaigti arba peržiūrėti pasirinkite ankstesnį seansą"
-
-#~ msgid "label_add_risk"
-#~ msgstr "Įtraukti naują riziką"
-
-#~ msgid "missing_data"
-#~ msgstr "Nepateiktas"
-
-#~ msgid "plan_report_company_header"
-#~ msgstr "Kompanijos duomenys"
-
-#~ msgid "plan_report_intro_1"
-#~ msgstr ""
-#~ "Užpildę klausimų sąrašą užbaigsite rizikos vertinimą. Šis vertinimas "
-#~ "naudojamas prevencinių veiksmų planui sudaryti. Šio plano taikymą reikia "
-#~ "aptarti kasmet ir parengti nedideles progreso ataskaitas. Kai kurie objektai"
-#~ " gali būti įvykdyti, o kai kuriuos gali reikėti įkelti."
-
-#~ msgid "plan_report_intro_header"
-#~ msgstr "Įvadas"
-
-#~ msgid "plan_report_plan_header"
-#~ msgstr "Prevencinių veiksmų planas"
-
-#~ msgid "report_measure_actionplan"
-#~ msgstr "Bendrojo pobūdžio metodas (šalinti arba sumažinti riziką):"
-
-#~ msgid "report_measure_budget"
-#~ msgstr "Šiai priemonei yra skirtas ${amount} biudžetas."
-
-#~ msgid "report_measure_end_only"
-#~ msgstr "Šios užduoties pabaiga yra ${end}."
-
-#~ msgid "report_measure_full"
-#~ msgstr ""
-#~ "${responsible} yra atsakingas už užduotį, kurios pradžia yra ${start}, o "
-#~ "pabaiga - ${end}."
-
-#~ msgid "report_measure_preventionplan"
-#~ msgstr ""
-#~ "Specialūs veiksmai, kuriuos reikia atlikti, norint šį metodą įgyvendinti:"
-
-#~ msgid "report_measure_requirements"
-#~ msgstr "Reikalingų žinių ir (arba) reikalavimų lygis:"
-
-#~ msgid "report_measure_responsible"
-#~ msgstr "${responsible} yra atsakingas už šią užduotį."
-
-#~ msgid "report_measure_responsible_and_end"
-#~ msgstr ""
-#~ "${responsible} yra atsakingas už šią užduotį, kurios pabaiga yra ${end}."
-
-#~ msgid "report_measure_responsible_and_start"
-#~ msgstr ""
-#~ "${responsible} yra atsakingas už šią užduotį, kurios pradžia yra ${start}."
-
-#~ msgid "report_measure_start_and_stop"
-#~ msgstr "Šios užduoties pradžia yra ${start}, o pabaiga - ${end}."
-
-#~ msgid "report_measure_start_only"
-#~ msgstr "Šios užduoties pradžia yra ${start}."
-
-#~ msgid "report_priority"
-#~ msgstr "Tai yra"
-
-#~ msgid "report_priority_high"
-#~ msgstr "aukšto prioriteto rizika"
-
-#~ msgid "report_priority_low"
-#~ msgstr "žemo prioriteto rizika"
-
-#~ msgid "report_priority_medium"
-#~ msgstr "vidutinio prioriteto rizika"
-
-#~ msgid "report_survey_footer_risk_present"
-#~ msgstr "Žvaigždute [*] pažymėta rizika yra aktuali."
-
-#~ msgid "A new added risk has been created."
-#~ msgstr "Pridėta naujai sukurta rizika."
-
-#~ msgid "Added risks have been removed."
-#~ msgstr "Pašalintos pridėtos rizikos."
-
-#~ msgid "An added risk has been removed."
-#~ msgstr "Pašalinta pridėta rizika."
-
-#~ msgid "An existing added risk has been updated."
-#~ msgstr "Atnaujinta jau esanti rizika."
-
-#~ msgid "Existing added risks have been updated."
-#~ msgstr "Atnaujintos jau esančios rizikos."
-
-#~ msgid "No changes were made to your added risks."
-#~ msgstr "Neatlikti jokie su jūsų pridėtomis rizikomis susiję pakeitimai."
-
-#~ msgid "Your new added risks have been created."
-#~ msgstr "Sukurtas naujas jūsų pridėtų rizikų sąrašas."
-
-#~ msgid "label_add"
-#~ msgstr "Įkelti naują priemonę"
-
-#~ msgid "label_main_colour"
-#~ msgstr "Pagrindinė spalva"
-
-#~ msgid "label_support_colour"
-#~ msgstr "Šalutinė spalva"
-
-#~ msgid "An email with a password reminder has been sent to your address."
-#~ msgstr ""
-#~ "Laiškas su slaptažodžio priminimu buvo išsiųstas jūsų el. pašto adresu."
-
-#~ msgid "An error occured while sending the password reminder"
-#~ msgstr "Siunčiant slaptažodžio priminimą įvyko klaida"
-
-#~ msgid "OiRA registration reminder"
-#~ msgstr "OiRA registracijos priminimas"
-
-#~ msgid "Please enter your email address"
-#~ msgstr "Įveskite savo el. pašto adresą"
-
-#~ msgid "Rename this session"
-#~ msgstr "Pervadinti rizikos vertinimą"
-
-#~ msgid "Session name"
-#~ msgstr "Vertinimo pavadinimas"
-
-#~ msgid "Start a new session"
-#~ msgstr "Pradėti naują vertinimą"
-
-#~ msgid "Unknown email address"
-#~ msgstr "Nežinomas el. pašto adresas"
-
-#~ msgid "description_password_reminder"
-#~ msgstr ""
-#~ "Įrašykite savo e. pašto adresą. Prisijungimo duomenis gausite e. paštu."
-
-#~ msgid "header_password_reminder"
-#~ msgstr "Slaptažodžio priminimas"
-
-#~ msgid "label_rename"
-#~ msgstr "Pervardyti"
-
-#~ msgid "lable_session_modified"
-#~ msgstr "išsaugota ${date}"
-
-#~ msgid "reminder_email_header"
-#~ msgstr "Gerb. naudotojau,"
-
-#~ msgid "reminder_email_intro"
-#~ msgstr ""
-#~ "Jūs pateikėte OiRA internetinės svetainės slaptažodžio priminimo užklausą. "
-#~ "Jūsų prisijungimo duomenys yra:"
-
-#~ msgid "reminder_email_login"
-#~ msgstr "El. paštas"
-
-#~ msgid "reminder_email_password"
-#~ msgstr "Slaptažodis"
