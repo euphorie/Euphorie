@@ -26,6 +26,7 @@ from Products.PluggableAuthService.utils import classImplements
 from urllib.parse import urlencode
 from z3c.saconfig import Session
 from zope.component import getUtility
+from zope.globalrequest import getRequest
 from zope.publisher.interfaces.browser import IBrowserView
 
 import hashlib
@@ -214,7 +215,9 @@ class EuphorieAccountPlugin(BasePlugin):
         # a case, query like `get(user_id)` matches the 'id' column in Account
         # first. If the loginname that is an integer also corresponds to an id
         # in the Account table, we would find the wrong user.
-        if not IClientSkinLayer.providedBy(self.REQUEST):
+        request = getattr(self, "REQUEST", None) or getRequest()
+        if not IClientSkinLayer.providedBy(request):
+            # For example: a standard Plone user is being created on the backend.
             return None
         if not name:
             return (
