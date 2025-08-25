@@ -1,32 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <object xmlns:i18n="http://xml.zope.org/namespaces/i18n"
         meta_type="Dexterity FTI"
-        name="euphorie.module"
+        name="euphorie.choice"
         i18n:domain="euphorie"
 >
 
   <!-- Basic information -->
   <property name="title"
             i18n:translate=""
-  >Module</property>
-  <property name="description"
-            i18n:translate=""
-  >A module is a grouping of risks</property>
+  >Choice</property>
+  <property name="description">A survey item that offers a choice between options.</property>
   <property name="content_icon">document_icon.gif</property>
   <property name="global_allow">False</property>
   <property name="allow_discussion">False</property>
 
   <property name="filter_content_types">True</property>
   <property name="allowed_content_types">
-    <element value="euphorie.module" />
-    <element value="euphorie.risk" />
-    <element value="euphorie.choice" />
+    <element value="euphorie.option" />
   </property>
 
-  <property name="klass">euphorie.content.module.Module</property>
+  <property name="klass">euphorie.content.choice.Choice</property>
   <property name="add_permission">euphorie.content.AddNewRIEContent</property>
 
-  <property name="schema">euphorie.content.module.IModule</property>
+  <property name="schema">euphorie.content.choice.IChoice</property>
   <property name="model_source" />
   <property name="model_file" />
 
