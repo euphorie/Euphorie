@@ -220,6 +220,13 @@ class ExportSurvey(AutoExtensibleForm, form.Form):
         rendered_output = self.render_output()
         self.request.response.write(rendered_output)
 
+    @button.buttonAndHandler(_("button_cancel", default="Cancel"), name="cancel")
+    def handleCancel(self, action):
+        state = api.content.get_view(
+            "plone_context_state", aq_inner(self.context), self.request
+        )
+        self.request.response.redirect(state.view_url())
+
     def render_output(self):
         output = etree.Element("sector", nsmap=NSMAP)
         self.exportSurvey(output, self.context)
