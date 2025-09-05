@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<registry xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+  <record name="euphorie.use_clone_feature"
+          remove="True"
+  />
+</registry>
