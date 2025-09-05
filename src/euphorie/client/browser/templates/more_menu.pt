@@ -15,7 +15,7 @@
             has_tree session/hasTree;
             can_archive python:webhelpers.can_archive_session and has_tree;
             can_delete webhelpers/can_delete_session;
-            can_duplicate python:webhelpers.can_duplicate_session and has_tree;
+            can_duplicate python:has_tree;
             archive_url string:${here/absolute_url}/@@confirmation-archive-session#document-content;
             delete_url string:${here/absolute_url}/@@confirmation-delete-session#document-content;
             clone_url string:${here/absolute_url}/@@confirmation-clone-session#document-content;
@@ -58,7 +58,7 @@
              i18n:translate=""
           >Archive</a>
         </li>
-        <li tal:condition="webhelpers/use_clone_feature">
+        <li>
           <a class="close-panel pat-modal icon-clone ${python: not can_duplicate and 'disabled' or ''}"
              href="${python: can_duplicate and clone_url or None}"
              title="By cloning a risk assessment you will create a new risk assessment based on the contents of this risk assessment as a starting point."
