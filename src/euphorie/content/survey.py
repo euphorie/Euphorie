@@ -226,6 +226,21 @@ class ISurvey(model.Schema, IBasic):
     )
     directives.widget(tool_notification_message=WysiwygFieldWidget)
 
+    depends("show_immediate_feedback", "tool_type", "==", "inventory")
+    show_immediate_feedback = schema.Bool(
+        title=_(
+            "label_show_immediate_feedback",
+            default="Show recommendations as immediate feedback",
+        ),
+        description=_(
+            "description_show_immediate_feedback",
+            default="After the user has selected an option for a choice, show any "
+            "associated recommendations before proceeding to the next choice",
+        ),
+        required=False,
+        default=False,
+    )
+
 
 class SurveyAttributeField(ParentAttributeField):
     parent_mapping = {
@@ -289,14 +304,18 @@ class Survey(Container):
         """Return a list of all profile questions."""
         return [child for child in self.values() if IProfileQuestion.providedBy(child)]
 
-    def get_tool_type_name(self):
-        """Returns the human readable name of the chosen tool type."""
+    def get_tool_type_info(self):
         my_tool_type = get_tool_type(self)
         tti = getUtility(IToolTypesInfo)
         tool_types = tti()
         if my_tool_type not in tool_types:
             my_tool_type = tti.default_tool_type
-        return tool_types[my_tool_type]["title"]
+        return tool_types[my_tool_type]
+
+    def get_tool_type_name(self):
+        """Returns the human readable name of the chosen tool type."""
+        tool_type_info = self.get_tool_type_info()
+        return tool_type_info["title"]
 
 
 @indexer(ISurvey)

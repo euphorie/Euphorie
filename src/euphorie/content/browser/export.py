@@ -16,8 +16,11 @@ from euphorie.content.behaviors.toolcategory import IToolCategory
 from euphorie.content.browser.upload import COMMA_REPLACEMENT
 from euphorie.content.browser.upload import NSMAP
 from euphorie.content.browser.upload import ProfileQuestionLocationFields
+from euphorie.content.choice import IChoice
 from euphorie.content.module import IModule
+from euphorie.content.option import IOption
 from euphorie.content.profilequestion import IProfileQuestion
+from euphorie.content.recommendation import IRecommendation
 from euphorie.content.risk import IKinneyEvaluation
 from euphorie.content.risk import IRisk
 from euphorie.content.solution import ISolution
@@ -429,6 +432,8 @@ class ExportSurvey(AutoExtensibleForm, form.Form):
                 self.exportModule(node, child)
             elif IRisk.providedBy(child):
                 self.exportRisk(node, child)
+            elif IChoice.providedBy(child):
+                self.exportChoice(node, child)
         return node
 
     def exportModule(self, parent, module):
@@ -461,6 +466,8 @@ class ExportSurvey(AutoExtensibleForm, form.Form):
                 self.exportModule(node, child)
             elif IRisk.providedBy(child):
                 self.exportRisk(node, child)
+            elif IChoice.providedBy(child):
+                self.exportChoice(node, child)
         return node
 
     def exportRisk(self, parent, risk):
@@ -571,3 +578,46 @@ class ExportSurvey(AutoExtensibleForm, form.Form):
             training_question.wrong_answer_2
         )
         return node
+
+    def exportChoice(self, parent, choice):
+        """:returns: An XML node with the details of an
+        :obj:`euphorie.content.choice`."""
+        node = etree.SubElement(parent, "choice")
+        if getattr(choice, "external_id", None):
+            node.attrib["external-id"] = choice.external_id
+        etree.SubElement(node, "title").text = choice.title
+        node = self._add_string_or_html(node, choice.description, "description")
+        etree.SubElement(
+            node,
+            "allow-multiple-options",
+            attrib={"value": "true" if choice.allow_multiple_options else "false"},
+        )
+        etree.SubElement(node, "condition").text = choice.get_client_condition()
+        for child in choice.values():
+            if IOption.providedBy(child):
+                self.exportOption(node, child)
+
+    def exportOption(self, parent, option):
+        """:returns: An XML node with the details of an
+        :obj:`euphorie.content.option`."""
+        node = etree.SubElement(parent, "option")
+        if getattr(option, "external_id", None):
+            node.attrib["external-id"] = option.external_id
+        etree.SubElement(node, "title").text = option.title
+        node = self._add_string_or_html(node, option.description, "description")
+        etree.SubElement(node, "condition-id").text = "/".join(
+            option.getPhysicalPath()[-3:]
+        )
+        for child in option.values():
+            if IRecommendation.providedBy(child):
+                self.exportRecommendation(node, child)
+
+    def exportRecommendation(self, parent, recommendation):
+        """:returns: An XML node with the details of an
+        :obj:`euphorie.content.recommendation`."""
+        node = etree.SubElement(parent, "recommendation")
+        if getattr(recommendation, "external_id", None):
+            node.attrib["external-id"] = recommendation.external_id
+        etree.SubElement(node, "title").text = recommendation.title
+        node = self._add_string_or_html(node, recommendation.description, "description")
+        etree.SubElement(node, "text_html").text = recommendation.text
