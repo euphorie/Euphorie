@@ -91,6 +91,7 @@ TOOL_TYPES = OrderedDict(
                     default="Is this risk acceptable or under control?",
                 ),
                 "custom_button_add_extra": "",
+                "allow_choice": False,
             },
         ),
         (
@@ -175,6 +176,15 @@ TOOL_TYPES = OrderedDict(
                     "custom_button_add_existing_measure",
                     default="Add an already implemented measure",
                 ),
+                "allow_choice": False,
+            },
+        ),
+        (
+            "inventory",
+            {
+                "title": "Inventory tool with generic choices instead of risks",
+                "description": "",
+                "allow_choice": True,
             },
         ),
     ]

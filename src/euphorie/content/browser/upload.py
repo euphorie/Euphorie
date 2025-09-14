@@ -20,6 +20,7 @@ from euphorie.content.behaviors.toolcategory import IToolCategory
 from euphorie.content.utils import IToolTypesInfo
 from io import BytesIO
 from markdownify import markdownify
+from plone import api
 from plone.autoform.form import AutoExtensibleForm
 from plone.base.utils import safe_bytes
 from plone.dexterity.utils import createContentInContainer
@@ -215,6 +216,49 @@ class SurveyImporter:
 
     def __init__(self, context):
         self.context = context
+        self.options = {}
+        self.conditions = []
+
+    def ImportOption(self, node, choice):
+        """
+        Create a new :obj:`euphorie.content.option` object for a
+        :obj:`euphorie.content.module` given the details for a Option as an XML
+        node.
+
+        :returns: :obj:`euphorie.content.option`.
+        """
+        option = createContentInContainer(
+            choice, "euphorie.option", title=str(node.title)
+        )
+        option.external_id = attr_unicode(node, "external-id")
+        option.description = el_unicode(
+            node, "description", is_etranslate_compatible=self.is_etranslate_compatible
+        )
+        self.options[el_unicode(node, "condition-id")] = option
+
+    def ImportChoice(self, node, module):
+        """
+        Create a new :obj:`euphorie.content.choice` object for a
+        :obj:`euphorie.content.module` given the details for a Choice as an XML
+        node.
+
+        :returns: :obj:`euphorie.content.choice`.
+        """
+        choice = createContentInContainer(
+            module, "euphorie.choice", title=str(node.title)
+        )
+        choice.external_id = attr_unicode(node, "external-id")
+        choice.description = el_unicode(
+            node, "description", is_etranslate_compatible=self.is_etranslate_compatible
+        )
+        choice.allow_multiple_options = attr_bool(
+            node, "allow-multiple-options", "value"
+        )
+        condition = el_unicode(node, "condition")
+        if condition:
+            self.conditions.append((choice, condition))
+        for child in node.iterchildren(tag=XMLNS + "option"):
+            self.ImportOption(child, choice)
 
     def ImportImage(self, node):
         """Import a base64 encoded image from an XML node.
@@ -350,6 +394,9 @@ class SurveyImporter:
         for child in node.iterchildren(tag=XMLNS + "risk"):
             self.ImportRisk(child, module)
 
+        for child in node.iterchildren(tag=XMLNS + "choice"):
+            self.ImportChoice(child, module)
+
         for child in node.iterchildren(tag=XMLNS + "module"):
             self.ImportModule(child, module)
 
@@ -395,6 +442,9 @@ class SurveyImporter:
 
         for child in node.iterchildren(tag=XMLNS + "risk"):
             self.ImportRisk(child, profile)
+
+        for child in node.iterchildren(tag=XMLNS + "choice"):
+            self.ImportChoice(child, profile)
 
         for child in node.iterchildren(tag=XMLNS + "module"):
             self.ImportModule(child, profile)
@@ -472,6 +522,10 @@ class SurveyImporter:
                 x.replace(COMMA_REPLACEMENT, ",").strip()
                 for x in el_unicode(node, "tool-category", "").split(",")
             ]
+
+        self.options = {}
+        self.conditions = []
+
         for child in node.iterchildren():
             if child.tag == XMLNS + "profile-question":
                 self.ImportProfileQuestion(child, survey)
@@ -479,6 +533,15 @@ class SurveyImporter:
                 self.ImportModule(child, survey)
             elif child.tag == XMLNS + "training_question":
                 self.ImportTrainingQuestion(child, survey)
+
+        for choice, condition in self.conditions:
+            for option_id in condition.split("|"):
+                if option_id in self.options:
+                    api.relation.create(
+                        source=choice,
+                        target=self.options[option_id],
+                        relationship="condition",
+                    )
         return survey
 
     def __call__(
