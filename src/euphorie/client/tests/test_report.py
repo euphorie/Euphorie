@@ -5,6 +5,7 @@
 from euphorie.client import model
 from euphorie.client import utils
 from euphorie.client.adapters.session_traversal import TraversedSurveySession
+from euphorie.client.browser.report import ReportInventory
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.model import SurveySession
 from euphorie.client.tests.test_model import createSurvey
@@ -14,6 +15,7 @@ from ExtensionClass import Base
 from plone import api
 from plone.app.testing.interfaces import SITE_OWNER_NAME
 from unittest import mock
+from unittest import TestCase
 from urllib.parse import quote
 from z3c.saconfig import Session
 from zope.interface import alsoProvides
@@ -649,3 +651,87 @@ class UnansweredQueryTests(EuphorieIntegrationTestCase):
             if node.type == "risk"
         ]
         self.assertEqual(len(risks), 1)
+
+
+class InventoryReportTests(TestCase):
+    def setUp(self):
+        def make_mock(id_, children=[]):
+            mymock = mock.Mock()
+            mymock.id = id_
+            for child in children:
+                child.aq_parent = mymock
+            mymock.objectIds = mock.Mock(return_value=[child.id for child in children])
+            mymock.values = mock.Mock(return_value=children)
+            return mymock
+
+        choice00 = make_mock(
+            "163",
+            children=[make_mock("164", children=[make_mock("166")]), make_mock("165")],
+        )
+        choice01 = make_mock(
+            "2", children=[make_mock("3", children=[make_mock("4")]), make_mock("5")]
+        )
+        choice02 = make_mock(
+            "6",
+            children=[
+                make_mock("7", children=[make_mock("8")]),
+                make_mock("11", children=[make_mock("12")]),
+                make_mock("13", children=[make_mock("14")]),
+            ],
+        )
+
+        module0 = make_mock("1", children=[choice00, choice01, choice02])
+
+        mock_survey = make_mock("dsetool", children=[module0])
+
+        self.mock_session = mock.Mock()
+        self.mock_session.aq_parent = mock_survey
+
+    @mock.patch.object(
+        ReportInventory,
+        "selected_paths",
+        new=["1/163/164", "1/2/3", "1/6/7", "1/6/11", "1/6/13"],
+    )
+    def test_all_recommendations(self):
+        view = ReportInventory(self.mock_session, None)
+        modules = view.modules()
+        options1 = list(view.get_selected_options(modules[0]))
+        self.assertEqual(len(options1), 5)
+        self.assertEqual(options1[0].aq_parent.id, "163")
+        self.assertEqual(options1[0].id, "164")
+        self.assertEqual(options1[1].aq_parent.id, "2")
+        self.assertEqual(options1[1].id, "3")
+        self.assertEqual(options1[2].aq_parent.id, "6")
+        self.assertEqual(options1[2].id, "7")
+        self.assertEqual(options1[3].aq_parent.id, "6")
+        self.assertEqual(options1[3].id, "11")
+        self.assertEqual(options1[4].aq_parent.id, "6")
+        self.assertEqual(options1[4].id, "13")
+
+    @mock.patch.object(
+        ReportInventory,
+        "selected_paths",
+        new=["1/163/164", "1/2/5", "1/6/7", "1/6/11"],
+    )
+    def test_some_recommendations(self):
+        view = ReportInventory(self.mock_session, None)
+        modules = view.modules()
+        options1 = list(view.get_selected_options(modules[0]))
+        self.assertEqual(len(options1), 3)
+        self.assertEqual(options1[0].aq_parent.id, "163")
+        self.assertEqual(options1[0].id, "164")
+        self.assertEqual(options1[1].aq_parent.id, "6")
+        self.assertEqual(options1[1].id, "7")
+        self.assertEqual(options1[2].aq_parent.id, "6")
+        self.assertEqual(options1[2].id, "11")
+
+    @mock.patch.object(
+        ReportInventory,
+        "selected_paths",
+        new=["1/163/165", "1/2/5"],
+    )
+    def test_no_recommendations(self):
+        view = ReportInventory(self.mock_session, None)
+        modules = view.modules()
+        options1 = list(view.get_selected_options(modules[0]))
+        self.assertEqual(len(options1), 0)
