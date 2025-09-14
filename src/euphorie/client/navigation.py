@@ -28,6 +28,25 @@ def FindFirstQuestion(dbsession, filter=None):
     return query.order_by(model.SurveyTreeItem.path).first()
 
 
+def check_condition(query, dbsession):
+    """Find first item in query result that has a fulfilled condition
+    (or no condition)"""
+    for candidate in query:
+        if not isinstance(candidate, model.Choice) or not candidate.condition:
+            return candidate
+        # If there is a condition, only return the candidate if the referenced Option
+        # has been picked in this session
+        if (
+            Session.query(model.Option)
+            .join(model.Choice, model.Option.choice_id == model.Choice.id)
+            .filter(model.Option.zodb_path == candidate.condition)
+            .filter(model.Choice.session == dbsession)
+            .count()
+        ):
+            return candidate
+    return None
+
+
 def FindNextQuestion(after, dbsession, filter=None):
     query = (
         Session.query(model.SurveyTreeItem)
@@ -41,7 +60,7 @@ def FindNextQuestion(after, dbsession, filter=None):
     else:
         filter = sql.and_(model.RISK_OR_MODULE_WITH_DESCRIPTION_FILTER, filter)
     query = query.filter(filter)
-    return query.order_by(model.SurveyTreeItem.path).first()
+    return check_condition(query.order_by(model.SurveyTreeItem.path), dbsession)
 
 
 def FindPreviousQuestion(after, dbsession, filter=None):
@@ -57,7 +76,7 @@ def FindPreviousQuestion(after, dbsession, filter=None):
     else:
         filter = sql.and_(model.RISK_OR_MODULE_WITH_DESCRIPTION_FILTER, filter)
     query = query.filter(filter)
-    return query.order_by(model.SurveyTreeItem.path.desc()).first()
+    return check_condition(query.order_by(model.SurveyTreeItem.path.desc()), dbsession)
 
 
 def first(func, iter):
@@ -150,7 +169,10 @@ class TreeDataCreator(BrowserView):
                     cls.append(key)
 
             if obj.postponed:
-                cls.append("postponed")
+                if isinstance(obj, model.Choice):
+                    cls.append("answered")
+                else:
+                    cls.append("postponed")
             else:
                 if isinstance(obj, model.Risk):
                     if obj.identification or obj.scaled_answer:
@@ -159,6 +181,9 @@ class TreeDataCreator(BrowserView):
                         cls.append("risk")
                     if obj.scaled_answer:
                         info["scaled_answer"] = obj.scaled_answer
+                if isinstance(obj, model.Choice):
+                    if obj.options:
+                        cls.append("answered")
 
             info["class"] = cls and " ".join(cls) or None
             return info
@@ -175,6 +200,8 @@ class TreeDataCreator(BrowserView):
         result["class"] = None
         children = []
         for obj in element.siblings(filter=filter):
+            if not getattr(obj, "is_visible", True):
+                continue
             info = morph(obj)
             if obj.type != "risk" and obj.zodb_path.find("custom-risks") > -1:
                 info["title"] = title_custom_risks
@@ -204,6 +231,8 @@ class TreeDataCreator(BrowserView):
                 me = first(lambda x: x["current"], result["children"])
                 children = []
                 for obj in element.children(filter=filter):
+                    if not getattr(obj, "is_visible", True):
+                        continue
                     info = morph(obj)
                     # XXX: The check for SurveySession is due to Euphorie tests which
                     # don't have a proper canonical ZODB survey object and don't test
@@ -226,11 +255,13 @@ class TreeDataCreator(BrowserView):
                 types = {c["type"] for c in me["children"]}
                 me["leaf_module"] = "risk" in types
 
-        elif isinstance(element, model.Risk):
+        elif isinstance(element, (model.Risk, model.Choice)):
             # For a risk we also want to include all siblings of its module parent
             parent = parents.pop()
             siblings = []
             for obj in parent.siblings(model.Module, filter=filter):
+                if not getattr(obj, "is_visible", True):
+                    continue
                 info = morph(obj)
                 if obj.zodb_path.find("custom-risks") > -1:
                     info["title"] = title_custom_risks
@@ -264,6 +295,8 @@ class TreeDataCreator(BrowserView):
                                 info["type"] = "location"
                                 children = []
                                 for child in sibling.children(filter=filter):
+                                    if not getattr(child, "is_visible", True):
+                                        continue
                                     child_info = morph(child)
                                     children.append(child_info)
                                 info["children"] = children
