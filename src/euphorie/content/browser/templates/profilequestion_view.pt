@@ -24,10 +24,8 @@
 
       <h2 i18n:translate="header_information">Information</h2>
 
+      <p tal:replace="structure python:view.get_safe_html(context.question)"></p>
       <dl class="grid span-13">
-        <dt i18n:translate="label_profilequestion_question">Question</dt>
-        <dd>${context/question}</dd>
-
         <tal:use_location_question condition="context/use_location_question">
           <dt i18n:translate="">Multiple Item Question</dt>
           <dd tal:condition="python:not getattr(context, 'label_multiple_present', None)"><em i18n:translate="">Not provided</em></dd>

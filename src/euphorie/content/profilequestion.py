@@ -19,6 +19,7 @@ from .module import item_depth
 from .module import tree_depth
 from .utils import StripMarkup
 from euphorie.content.dependency import ConditionalTextLine
+from euphorie.htmllaundry.z3cform import HtmlText
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.autoform import directives
 from plone.dexterity.content import Container
@@ -38,14 +39,14 @@ class IProfileQuestion(model.Schema, IRichDescription, IBasic):
     be skipped, or repeated multiple times.
     """
 
-    question = schema.TextLine(
+    question = HtmlText(
         title=_("label_profilequestion_question", default="Question"),
         description=_(
             "This question must ask the user if this profile " "applies to them."
         ),
         required=True,
     )
-    directives.widget(question="euphorie.content.risk.TextLines4Rows")
+    directives.widget(question="plone.app.z3cform.wysiwyg.WysiwygFieldWidget")
 
     use_location_question = schema.Bool(
         title=_(
