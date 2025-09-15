@@ -8,6 +8,16 @@ Changelog
 
 .. towncrier release notes start
 
+19.1.1 (2025-09-15)
+-------------------
+
+Bug fixes:
+
+
+- The 19.1.0 release on PyPI is not consistent with the tag on Github.
+  This release fixes the mismatch.
+
+
 19.1.0 (2025-09-15)
 -------------------
 
