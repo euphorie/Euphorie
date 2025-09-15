@@ -8,6 +8,40 @@ Changelog
 
 .. towncrier release notes start
 
+19.1.0 (2025-09-15)
+-------------------
+
+New features:
+
+
+- Allow requesting an email reminder with a link to the current session (`Issue #3238 <https://github.com/syslabcom/scrum/issues/3238>`_)
+- Allow the backend users to authenticate on the client, provided that they have a valid email
+
+
+Bug fixes:
+
+
+- Add a slot for custom_css provided by customization packages. (`Issue #0 <https://github.com/syslabcom/scrum/issues/0>`_)
+- Fix the XML export by adding adding the recently added ``report_completion_threshold`` and ``enable_email_reminder`` fields. [reinhardt] (`Issue #3237 <https://github.com/syslabcom/scrum/issues/3237>`_)
+- Show Cancel button in survey upload form. (`Issue #3489 <https://github.com/syslabcom/scrum/issues/3489>`_)
+- Add 'Cancel' button on XML export page of survey. (`Issue #3604 <https://github.com/syslabcom/scrum/issues/3604>`_)
+- PPT and training generation is more resilient
+
+  Fixes an issue for archived sessions when the survey is republished with a removed risk. (`Issue #3800 <https://github.com/syslabcom/scrum/issues/3800>`_)
+- Create the `euphorie.use_clone_feature` registry record if it is not there
+- Survey upload: check for errors before handling upload.
+
+
+Internal:
+
+
+- Complete translations for various languages using AI (`Issue #0 <https://github.com/syslabcom/scrum/issues/0>`_)
+- Cleanup code that was checking use_clone_feature.
+
+  This feature is now always on. (`Issue #3751 <https://github.com/syslabcom/scrum/issues/3751>`_)
+- Remove the colour module
+
+
 19.0.0 (2025-07-15)
 -------------------
 

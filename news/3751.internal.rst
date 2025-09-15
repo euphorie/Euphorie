@@ -1,3 +1,0 @@
-Cleanup code that was checking use_clone_feature.
-
-This feature is now always on.
