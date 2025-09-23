@@ -5196,7 +5196,7 @@ msgstr "Trumpojo klausimyno ataskaita"
 #. Default: "Staff who participated in the risk assessment"
 #: euphorie/client/docx/compiler.py:586
 msgid "label_report_staff"
-msgstr "Dalyvavęs rizikos vertinime personalas"
+msgstr "Rizikos vertinime dalyvavę darbuotojai"
 
 #. Default: "Request validation"
 #. AI-generated
