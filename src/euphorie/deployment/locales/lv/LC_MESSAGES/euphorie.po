@@ -4187,7 +4187,7 @@ msgstr "Krāsa"
 #. Default: "Compact"
 #: euphorie/client/browser/templates/report_landing.pt:45
 msgid "label_compact"
-msgstr "Kompakts"
+msgstr "Kompaktais novērtējums"
 
 #. Default: "Compact report options"
 #: euphorie/content/country.py:110
@@ -4215,7 +4215,7 @@ msgstr "Riska novērtēšanu veica:"
 #. Default: "Confirm your password"
 #: euphorie/client/browser/reset_password.py:36
 msgid "label_confirm_password"
-msgstr ""
+msgstr "Atkārto jauno paroli"
 
 msgid "label_constantly"
 msgstr "Nepārtraukti"
@@ -4488,7 +4488,7 @@ msgstr "No"
 #. Default: "Full Report"
 #: euphorie/client/browser/templates/report_landing.pt:68
 msgid "label_full_report"
-msgstr "Pilns ziņojums"
+msgstr "Pilnais novērtējums"
 
 #. Default: "General information"
 #: euphorie/client/browser/templates/status_info.pt:36
@@ -5410,7 +5410,7 @@ msgstr "Izmēģini testa sesiju"
 #: euphorie/client/browser/templates/assessments.pt:155
 #: euphorie/client/browser/templates/status_info.pt:53
 msgid "label_started"
-msgstr "sākts"
+msgstr "Sākts"
 
 #. Default: "Affirmative statement"
 #: euphorie/content/risk.py:67
@@ -5727,7 +5727,7 @@ msgid "last_edited_when"
 msgstr "Pēdējo reizi labots ${time}"
 
 msgid "last_saved"
-msgstr "tika saglabāta"
+msgstr "tika saglabāts"
 
 msgid "legal_references"
 msgstr "Atsauces uz normatīvajiem aktiem"
@@ -7122,7 +7122,7 @@ msgstr "Izmantojiet to, lai"
 #. Default: "Use it to"
 #: euphorie/client/browser/templates/report_landing.pt:57
 msgid "use_it_to_compact_report"
-msgstr ""
+msgstr "Izmantojiet to, lai"
 
 #. Default: "Use it to"
 #: euphorie/client/browser/templates/report_landing.pt:80
