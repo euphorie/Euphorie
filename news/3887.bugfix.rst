@@ -1,0 +1,3 @@
+Restore the possibility to display the training slides without the questions.
+This was not possible anymore since 19.0.0.
+[ale-rt]

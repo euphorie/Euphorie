@@ -326,6 +326,11 @@ class ExportSurvey(AutoExtensibleForm, form.Form):
         enable_web_training = getattr(survey, "enable_web_training", False)
         if enable_web_training:
             etree.SubElement(node, "enable_web_training", attrib={"value": "true"})
+
+        enable_test_questions = getattr(survey, "enable_test_questions", False)
+        if enable_test_questions:
+            etree.SubElement(node, "enable_test_questions", attrib={"value": "true"})
+
         enable_email_reminder = getattr(survey, "enable_email_reminder", False)
         if enable_email_reminder:
             etree.SubElement(node, "enable_email_reminder", attrib={"value": "true"})

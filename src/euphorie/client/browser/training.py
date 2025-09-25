@@ -1,3 +1,4 @@
+from Acquisition import aq_base
 from collections import OrderedDict
 from datetime import date
 from datetime import datetime
@@ -379,7 +380,7 @@ class TrainingView(BrowserView, survey._StatusHelper):
     @view_memoize
     def question_intro_url(self):
         survey = self.webhelpers._survey
-        if not getattr(survey, "enable_web_training", False):
+        if not getattr(aq_base(survey), "enable_test_questions", False):
             return ""
         view_name = "slide_question_success"
         if survey.listFolderContents(

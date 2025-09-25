@@ -435,6 +435,7 @@ class SurveyImporter:
             node, "report_completion_threshold", "value"
         )
         survey.enable_web_training = attr_bool(node, "enable_web_training", "value")
+        survey.enable_test_questions = attr_bool(node, "enable_test_questions", "value")
         survey.enable_email_reminder = attr_bool(node, "enable_email_reminder", "value")
         survey.num_training_questions = attr_int(
             node, "num_training_questions", "value"

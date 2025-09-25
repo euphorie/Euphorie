@@ -106,7 +106,7 @@ class SurveyView(SurveyBase, DragDropHelper):
             "euphorie.use_training_module", default=False
         ):
             return False
-        return getattr(self.context, "enable_web_training", False)
+        return getattr(self.context, "enable_test_questions", False)
 
     @property
     def group(self):
@@ -201,12 +201,14 @@ class EditForm(DefaultEditForm):
             "euphorie.use_training_module", default=False
         ):
             self.widgets["enable_web_training"].mode = HIDDEN_MODE
+            self.widgets["enable_test_questions"].mode = HIDDEN_MODE
             self.widgets["num_training_questions"].mode = HIDDEN_MODE
         else:
             for obj in aq_chain(aq_inner(self.context)):
                 if ICountry.providedBy(obj):
                     if not obj.enable_web_training:
                         self.widgets["enable_web_training"].mode = HIDDEN_MODE
+                        self.widgets["enable_test_questions"].mode = HIDDEN_MODE
                         self.widgets["num_training_questions"].mode = HIDDEN_MODE
                         break
         for fname in ("introduction",):
