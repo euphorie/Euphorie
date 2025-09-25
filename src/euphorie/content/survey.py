@@ -35,6 +35,7 @@ from plonetheme.nuplone.z3cform.directives import depends
 from plonetheme.nuplone.z3cform.widget import WysiwygFieldWidget
 from zope import schema
 from zope.component import getUtility
+from zope.globalrequest import getRequest
 from zope.interface import implementer
 from zope.interface import provider
 from zope.schema.interfaces import IContextAwareDefaultFactory
@@ -52,6 +53,14 @@ def _enable_web_training_default(obj):
     """
     # Check if the object is acquired
     if not aq_parent(obj):
+        # We are probably in the add form, the object is not yet acquired,
+        # Try to get it from the parent country
+        request = getRequest()
+        parents = request.get("PARENTS", []) or []
+        for parent in parents:
+            if ICountry.providedBy(parent):
+                return parent.enable_web_training
+        # If we have no parent country, return False
         return False
 
     for ancestor in api.content.iter_ancestors(obj, interface=ICountry):
