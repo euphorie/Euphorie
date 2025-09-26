@@ -200,11 +200,11 @@
             Did you like this tool? Share it with your colleagues and friends!
           </p>
           <p class="sharing-icons">
-            <a class="pat-button twitter icon-twitter"
+            <a class="pat-button twitter icon-x"
                href="http://twitter.com/share?url=${webhelpers/survey_url}"
-               onclick="javascript:_paq.push(['trackEvent', 'SocialSharing', 'Twitter', 'Report']);"
+               onclick="javascript:_paq.push(['trackEvent', 'SocialSharing', 'X', 'Report']);"
                target="sharing"
-            >Twitter</a>
+            >X</a>
             <a class="pat-button facebook icon-facebook"
                href="http://www.facebook.com/sharer.php?u=${webhelpers/survey_url}/tool-info"
                onclick="javascript:_paq.push(['trackEvent', 'SocialSharing', 'Facebook', 'Report']);"
