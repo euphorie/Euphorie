@@ -267,27 +267,33 @@ class Start(SessionMixin, AutoExtensibleForm, EditForm):
             )
 
 
-class ProtectTest(BrowserView):
+class ProtectTest(SessionMixin, BrowserView):
     """A view to test if the auto csrf protection works for SQLAlchemy.
 
     View name: @@protect-test
+
+    At first I did not want to use the SessionMixin or use the session
+    traversal, because I wonder if something is wrong there already.
+    But that seems not the case.
     """
 
     def __call__(self):
         print("-----------------------------------")
         print("--- ProtectTest GET with write ---")
-        # I don't want to use the SessionMixin or the session traversal,
-        # because I wonder if something is wrong there already.
         sql_session = Session()
-        session_id = int(self.request.get("session_id") or 79)
-        session = (
-            sql_session.query(SurveySession)
-            .filter(
-                SurveySession.id == session_id,
-                # SurveySession.zodb_path == self.zodb_path,
+        if hasattr(self.context, "session"):
+            # url is something like '.../++session++79/@@protect-test'
+            session = self.context.session
+            session_id = session.id
+        else:
+            session_id = int(self.request.get("session_id") or 79)
+            session = (
+                sql_session.query(SurveySession)
+                .filter(
+                    SurveySession.id == session_id,
+                )
+                .one()
             )
-            .one()
-        )
         print(f"Found session {session} with title '{session.title}'")
 
         new_title = f"title {datetime.now()}"
