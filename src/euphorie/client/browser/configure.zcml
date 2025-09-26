@@ -261,6 +261,15 @@
       />
 
   <browser:page
+      name="write"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      class=".session.Write"
+      template="templates/start.pt"
+      permission="euphorie.client.ViewSurvey"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="protect-test"
       for="*"
       class=".session.ProtectTest"

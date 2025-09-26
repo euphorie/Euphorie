@@ -219,12 +219,15 @@ class Start(SessionMixin, AutoExtensibleForm, EditForm):
                 # Euphorie client session and the SQLAlchemy Session...)
                 # Session().add(session)
 
+    def do_illegal_write(self):
+        return bool(self.request.get("write"))
+
     def update(self):
         self.verify_view_permission()
         utils.setLanguage(self.request, self.survey, self.survey.language)
         super().update()
         if self.request.method != "POST":
-            if self.request.get("write"):
+            if self.do_illegal_write():
                 new_title = f"title {datetime.now()}"
                 print("-----------------------------------")
                 print("--- Start.update GET with write ---")
@@ -265,6 +268,18 @@ class Start(SessionMixin, AutoExtensibleForm, EditForm):
             return self.request.response.redirect(
                 addTokenToUrl("%s/@@profile" % self.context.absolute_url())
             )
+
+
+class Write(Start):
+    """Copy of Start view, but we always try an illegal write.
+
+    I ran into difficulties testing with the ?write=1 query parameter,
+    because the browser would leave this away when I used the back button,
+    and I did not always notice.
+    """
+
+    def do_illegal_write(self):
+        return True
 
 
 class ProtectTest(SessionMixin, BrowserView):
