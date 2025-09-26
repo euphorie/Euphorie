@@ -15,6 +15,7 @@ from euphorie.client.model import Risk
 from euphorie.client.model import RISK_PRESENT_OR_TOP5_FILTER
 from euphorie.client.model import SessionRedirect
 from euphorie.client.model import SKIPPED_PARENTS
+from euphorie.client.model import SurveySession
 from euphorie.client.model import SurveyTreeItem
 from euphorie.client.navigation import FindFirstQuestion
 from euphorie.client.navigation import getTreeData
@@ -212,12 +213,45 @@ class Start(SessionMixin, AutoExtensibleForm, EditForm):
             value = data[key]
             if getattr(session, key, None) != value:
                 setattr(session, key, value)
+                # Would it help to explicitly add the session to the Session?
+                # Seemingly not.
+                # (Yes, I already regret the possible confusion between the
+                # Euphorie client session and the SQLAlchemy Session...)
+                # Session().add(session)
 
     def update(self):
         self.verify_view_permission()
         utils.setLanguage(self.request, self.survey, self.survey.language)
         super().update()
         if self.request.method != "POST":
+            if self.request.get("write"):
+                new_title = f"title {datetime.now()}"
+                print("-----------------------------------")
+                print("--- Start.update GET with write ---")
+                print(
+                    f"Current title of session {self.session.id}: "
+                    f"'{self.session.title}'"
+                )
+                print(f"Setting new title on GET: '{new_title}'")
+                self._set_data(
+                    {"title": new_title},
+                )
+                print(f"{Session=}:")
+                print(f"    dirty? {Session.dirty}")
+                print(f"    new? {Session.new}")
+                print(f"    deleted? {Session.deleted}")
+                # Does it matter if we ask the Session class or an instance?  No.
+                sql_session_instance = Session()
+                print(f"Session()={sql_session_instance}:")
+                print(f"    dirty? {sql_session_instance.dirty}")
+                print(f"    new? {sql_session_instance.new}")
+                print(f"    deleted? {sql_session_instance.deleted}")
+                # To check that auto csrf protection works for writes to the
+                # Zope database:
+                # portal = api.portal.get()
+                # portal.description = portal.description + "!"
+            else:
+                print("NOT writing new title.")
             return
 
         data, errors = self.extractData()
@@ -231,6 +265,53 @@ class Start(SessionMixin, AutoExtensibleForm, EditForm):
             return self.request.response.redirect(
                 addTokenToUrl("%s/@@profile" % self.context.absolute_url())
             )
+
+
+class ProtectTest(BrowserView):
+    """A view to test if the auto csrf protection works for SQLAlchemy.
+
+    View name: @@protect-test
+    """
+
+    def __call__(self):
+        print("-----------------------------------")
+        print("--- ProtectTest GET with write ---")
+        # I don't want to use the SessionMixin or the session traversal,
+        # because I wonder if something is wrong there already.
+        sql_session = Session()
+        session_id = int(self.request.get("session_id") or 79)
+        session = (
+            sql_session.query(SurveySession)
+            .filter(
+                SurveySession.id == session_id,
+                # SurveySession.zodb_path == self.zodb_path,
+            )
+            .one()
+        )
+        print(f"Found session {session} with title '{session.title}'")
+
+        new_title = f"title {datetime.now()}"
+        print(f"Setting new title on GET: '{new_title}'")
+        session.title = new_title
+        print(f"{Session=} dirty? {Session.dirty}")
+        print(f"{Session=} new? {Session.new}")
+        print(f"{Session=} deleted? {Session.deleted}")
+        # Does it matter if we ask the Session class or an instance?  No.
+        print(f"Session()={sql_session} dirty? {sql_session.dirty}")
+        print(f"Session()={sql_session} new? {sql_session.new}")
+        print(f"Session()={sql_session} deleted? {sql_session.deleted}")
+        # To check that auto csrf protection works for writes to the Zope database:
+        # portal = api.portal.get()
+        # portal.description = portal.description + "!"
+        result = f"I have set the title of session {session_id} to '{new_title}'"
+        # We need an html document, otherwise plone.protect won't redirect us
+        # to the confirm-action page.  It *will* abort the transaction though,
+        # so it does work.
+        result = (
+            f"<html><head><title>ProtectTest</title></head><body>{result}</body></html>"
+        )
+        self.request.response.setHeader("Content-Type", "text/html")
+        return result
 
 
 class Profile(SessionMixin, AutoExtensibleForm, EditForm):

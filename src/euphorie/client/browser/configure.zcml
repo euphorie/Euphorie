@@ -261,6 +261,14 @@
       />
 
   <browser:page
+      name="protect-test"
+      for="*"
+      class=".session.ProtectTest"
+      permission="zope2.View"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="profile"
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       class=".session.Profile"
