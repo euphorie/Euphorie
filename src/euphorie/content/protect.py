@@ -19,7 +19,7 @@ class EuphorieProtectTransform(ProtectTransform):
             for resource in conn.transaction_manager.get()._resources:
                 if isinstance(resource, SessionDataManager):
                     print(f"    resource: {resource}")
-                    if self.request.get("write"):
+                    if "write" in self.request.URL or self.request.get("write"):
                         print(f"        resource.session={resource.session}:")
                         print(f"            dirty? {resource.session.dirty}")
                         print(f"            new? {resource.session.new}")
