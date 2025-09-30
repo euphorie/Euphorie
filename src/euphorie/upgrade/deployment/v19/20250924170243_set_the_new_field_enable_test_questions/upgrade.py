@@ -24,6 +24,6 @@ class SetTheNewFieldEnableTestQuestions(UpgradeStep):
             survey = brain.getObject()
             if getattr(survey, "enable_web_training", True):
                 if api.content.find(
-                    context=survey, portal_type="euphorie.trainingquestion"
+                    context=survey, portal_type="euphorie.training_question"
                 ):
                     survey.enable_test_questions = True
