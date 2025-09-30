@@ -8,6 +8,19 @@ Changelog
 
 .. towncrier release notes start
 
+19.1.2 (2025-09-30)
+-------------------
+
+Bug fixes:
+
+
+- Replace Twitter icon with X icon (`Issue #3573 <https://github.com/syslabcom/scrum/issues/3573>`_)
+- Restore the possibility to display the training slides without the questions.
+  This was not possible anymore since 19.0.0.
+  [ale-rt] (`Issue #3887 <https://github.com/syslabcom/scrum/issues/3887>`_)
+- Updated translations
+
+
 19.1.1 (2025-09-15)
 -------------------
 
