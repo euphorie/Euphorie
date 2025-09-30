@@ -13,6 +13,7 @@ from euphorie.client.model import Module
 from euphorie.client.model import MODULE_WITH_RISK_OR_TOP5_FILTER
 from euphorie.client.model import Risk
 from euphorie.client.model import RISK_PRESENT_OR_TOP5_FILTER
+from euphorie.client.model import SessionEvent
 from euphorie.client.model import SessionRedirect
 from euphorie.client.model import SKIPPED_PARENTS
 from euphorie.client.model import SurveySession
@@ -228,6 +229,8 @@ class Start(SessionMixin, AutoExtensibleForm, EditForm):
         super().update()
         if self.request.method != "POST":
             if self.do_illegal_write():
+                # Doing a query here is no problem:
+                Session.query(SessionEvent).first()
                 new_title = f"title {datetime.now()}"
                 print("-----------------------------------")
                 print("--- Start.update GET with write ---")
@@ -249,6 +252,15 @@ class Start(SessionMixin, AutoExtensibleForm, EditForm):
                 print(f"    dirty? {sql_session_instance.dirty}")
                 print(f"    new? {sql_session_instance.new}")
                 print(f"    deleted? {sql_session_instance.deleted}")
+                query = Session.query(SessionEvent)
+                # This is the problem: if you execute a query, the session is
+                # auto flushed, and we lose our 'dirty' info:
+                query.first()
+                # But if we temporarily don't autoflush, it is fine:
+                # with sql_session_instance.no_autoflush:
+                #     query.first()
+                # So we may want to set autoflush to false in our z3c.saconfig.
+
                 # To check that auto csrf protection works for writes to the
                 # Zope database:
                 # portal = api.portal.get()
