@@ -1,0 +1,1 @@
+Make sure the preferences page never shows any splash page overlays.

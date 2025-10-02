@@ -138,7 +138,7 @@ class PreferencesSchema(model.Schema):
 
 class Preferences(AutoExtensibleForm, form.Form):
     template = ViewPageTemplateFile("templates/preferences.pt")
-
+    no_splash = True
     schema = PreferencesSchema
 
     @property
