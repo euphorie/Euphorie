@@ -91,7 +91,8 @@ class UserMenu(BrowserView):
 
 class PasswordChangeSchema(model.Schema):
     old_password = schema.Password(
-        title=_("label_old_password", default="Current Password"), required=True
+        title=_("label_old_password", default="Current Password"),
+        required=True,
     )
     directives.widget(old_password="z3c.form.browser.password.PasswordFieldWidget")
 
@@ -358,7 +359,10 @@ class NewEmail(AutoExtensibleForm, form.Form):
         account_query = Session.query(Account).filter(Account.id == account.id)
         if not account_query.count():
             log.error("Account could not be fetched")
-            flash(_("An error occured while sending the confirmation email."), "error")
+            flash(
+                _("An error occured while sending the confirmation email."),
+                "error",
+            )
             return False
         account = account_query.one()
         if account.change_request is None:
@@ -394,9 +398,14 @@ class NewEmail(AutoExtensibleForm, form.Form):
             log.info("Sent email confirmation to %s", account.email)
         except MailHostError as e:
             log.error(
-                "MailHost error sending email confirmation to %s: %s", account.email, e
+                "MailHost error sending email confirmation to %s: %s",
+                account.email,
+                e,
             )
-            flash(_("An error occured while sending the confirmation email."), "error")
+            flash(
+                _("An error occured while sending the confirmation email."),
+                "error",
+            )
             return False
         except smtplib.SMTPException as e:
             log.error(
@@ -404,13 +413,21 @@ class NewEmail(AutoExtensibleForm, form.Form):
                 account.email,
                 e,
             )
-            flash(_("An error occured while sending the confirmation email."), "error")
+            flash(
+                _("An error occured while sending the confirmation email."),
+                "error",
+            )
             return False
         except OSError as e:
             log.error(
-                "Socket error sending confirmation email to %s: %s", account.email, e[1]
+                "Socket error sending confirmation email to %s: %s",
+                account.email,
+                e[1],
             )
-            flash(_("An error occured while sending the confirmation email."), "error")
+            flash(
+                _("An error occured while sending the confirmation email."),
+                "error",
+            )
             return False
 
         return True
