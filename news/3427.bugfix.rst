@@ -1,0 +1,2 @@
+Fix the appearance of the checkboxes for the measures in place.
+[ale-rt]
