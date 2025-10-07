@@ -8,6 +8,17 @@ Changelog
 
 .. towncrier release notes start
 
+19.1.3 (2025-10-07)
+-------------------
+
+Bug fixes:
+
+
+- Make sure the preferences page never shows any splash page overlays. (`Issue #3399 <https://github.com/syslabcom/scrum/issues/3399>`_)
+- Fix the appearance of the checkboxes for the measures in place.
+  [ale-rt] (`Issue #3427 <https://github.com/syslabcom/scrum/issues/3427>`_)
+
+
 19.1.2 (2025-09-30)
 -------------------
 
