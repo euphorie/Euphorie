@@ -25,6 +25,7 @@ class EnsureUidIsSet(UpgradeStep):
                 continue
             obj = brain.getObject()
             if getattr(aq_base(obj), ATTRIBUTE_NAME, None):
+                obj.reindexObject(idxs=["UID"])
                 continue
             missing += 1
             uuid = generator()
