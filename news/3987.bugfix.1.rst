@@ -1,0 +1,1 @@
+Add upgrade step to fix inconsistencies in UID index.  [maurits]
