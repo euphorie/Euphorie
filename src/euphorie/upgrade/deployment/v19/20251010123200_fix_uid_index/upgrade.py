@@ -1,6 +1,7 @@
 from Acquisition import aq_parent
 from ftw.upgrade import UpgradeStep
 from plone import api
+from plone.app.upgrade.utils import update_catalog_metadata
 from plone.uuid.handlers import addAttributeUUID
 from plone.uuid.interfaces import ATTRIBUTE_NAME
 from plone.uuid.interfaces import IUUID
@@ -182,9 +183,6 @@ class FixUidIndex(UpgradeStep):
             delattr(obj, ATTRIBUTE_NAME)
             # Call the event handler that adds a UUID:
             addAttributeUUID(obj, None)
-            # Reindex the UID index for this object and update its metadata in
-            # the catalog.
-            obj.reindexObject(idxs=["UID"])
             new_uuid = IUUID(obj)
             logger.debug("Changed UID from %s to %s for %s", old_uuid, new_uuid, path)
             if num % 10000 == 0:
@@ -194,7 +192,11 @@ class FixUidIndex(UpgradeStep):
 
         logger.info("Created fresh UID for all %d paths.", len(recreate))
 
-        # Even after the above fix, the clear and reindex is still needed.
+        # Update catalog metadata to reflect new UIDs.
+        logger.info("Updating catalog metadata for UIDs...")
+        update_catalog_metadata(api.portal.get(), "UID")
+
+        # Now we need to clear and reindex the UID index.
         logger.info("Clearing UID index...")
         index.clear()
         # Reindexing took about 10 minutes on the test site.
