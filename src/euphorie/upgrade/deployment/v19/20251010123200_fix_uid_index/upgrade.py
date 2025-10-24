@@ -4,14 +4,21 @@ from plone.app.upgrade.utils import update_catalog_metadata
 from plone.uuid.handlers import addAttributeUUID
 from plone.uuid.interfaces import ATTRIBUTE_NAME
 from plone.uuid.interfaces import IUUID
-from Products.CMFCore.indexing import processQueue
 from Products.ZCatalog.ProgressHandler import ZLogHandler
 from zope.globalrequest import getRequest
 
 import logging
+import os
+import transaction
 
 
 logger = logging.getLogger(__name__)
+# By default we do intermediate commits, to have less chance of ConflictErrors.
+# Set the environment variable EUPHORIE_DISABLE_INTERMEDIATE_COMMITS=1
+# to disable intermediate commits.
+EUPHORIE_DISABLE_INTERMEDIATE_COMMITS = bool(
+    int(os.environ.get("EUPHORIE_DISABLE_INTERMEDIATE_COMMITS", 0))
+)
 
 
 class FixUidIndex(UpgradeStep):
@@ -106,6 +113,16 @@ class FixUidIndex(UpgradeStep):
         logger.info("No inconsistencies found in UID index.")
         return True
 
+    def _commit(self, note=""):
+        """Commit the current transaction with an optional note."""
+        if EUPHORIE_DISABLE_INTERMEDIATE_COMMITS:
+            return
+        tx = transaction.get()
+        if note:
+            tx.note(note)
+        tx.commit()
+        logger.info("Committed transaction: %s", note)
+
     def __call__(self):
         """Upgrade step to fix inconsistencies in the UID index.
 
@@ -186,16 +203,22 @@ class FixUidIndex(UpgradeStep):
             new_uuid = IUUID(obj)
             logger.debug("Changed UID from %s to %s for %s", old_uuid, new_uuid, path)
             if num % 10000 == 0:
-                logger.info(
-                    "Created fresh UID for %d/%d paths so far.", num, len(recreate)
-                )
+                note = f"Created fresh UID for {num}/{len(recreate)} paths so far."
+                logger.info(note)
+                if num % 50000 == 0:
+                    self._commit(note=note)
 
-        logger.info("Created fresh UID for all %d paths.", len(recreate))
+        note = f"Created fresh UID for all {len(recreate)} paths."
+        logger.info(note)
+        self._commit(note=note)
 
         # Update catalog metadata to reflect new UIDs.
         # On the test site this took about 13 minutes.
-        logger.info("Updating catalog metadata for UIDs. This can take a long time...")
+        note = "Updating catalog metadata for UIDs."
+        logger.info(note)
+        logger.info("This can take a long time...")
         update_catalog_metadata(self.portal, "UID")
+        self._commit(note=note)
 
         # Now we need to clear and reindex the UID index.
         logger.info("Clearing UID index...")
@@ -208,12 +231,10 @@ class FixUidIndex(UpgradeStep):
             getRequest(),
             pghandler=ZLogHandler(10000),
         )
-        logger.info("Done reindexing UID index.")
-        # There should be nothing in the indexing queue, but we explicitly
-        # process it just to be sure.  This should be fast now.
-        logger.info("Processing catalog queue.")
-        processQueue()
-        logger.info("Done processing catalog queue.")
+        note = "Reindexed UID index."
+        logger.info(note)
+        self._commit(note=note)
+
         logger.info("The UID index should be fine again. Checking...")
         if not self.is_uid_index_consistent():
             raise ValueError(
