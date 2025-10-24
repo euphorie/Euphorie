@@ -1,4 +1,3 @@
-from Acquisition import aq_parent
 from ftw.upgrade import UpgradeStep
 from plone import api
 from plone.app.upgrade.utils import update_catalog_metadata
@@ -159,7 +158,7 @@ class FixUidIndex(UpgradeStep):
 
         # Now recreate UIDs for the gathered paths.
         # This took about 6 minutes on the test site.
-        app = aq_parent(api.portal.get())
+        app = self.portal.getPhysicalRoot()
         for num, path in enumerate(recreate, 1):
             try:
                 obj = app.unrestrictedTraverse(path)
@@ -196,7 +195,7 @@ class FixUidIndex(UpgradeStep):
         # Update catalog metadata to reflect new UIDs.
         # On the test site this took about 13 minutes.
         logger.info("Updating catalog metadata for UIDs. This can take a long time...")
-        update_catalog_metadata(api.portal.get(), "UID")
+        update_catalog_metadata(self.portal, "UID")
 
         # Now we need to clear and reindex the UID index.
         logger.info("Clearing UID index...")
