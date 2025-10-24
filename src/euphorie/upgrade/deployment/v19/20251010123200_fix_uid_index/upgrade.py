@@ -122,10 +122,10 @@ class FixUidIndex(UpgradeStep):
         recreate = set()
         catalog = api.portal.get_tool("portal_catalog")
         index = catalog.Indexes["UID"]
-        logger.info("Checking _unindex items.")
         # Get the values once to speed up the loop below.  Without this, the
         # first full run took over an hour, gathering 220k paths to recreate.
-        index_index_values = index._index.values()
+        index_index_values = set(index._index.values())
+        logger.info("Checking _unindex items. This can take a long time...")
         for docid, uid in index._unindex.items():
             if docid not in index_index_values:
                 path = catalog.getpath(docid)
