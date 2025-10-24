@@ -194,7 +194,8 @@ class FixUidIndex(UpgradeStep):
         logger.info("Created fresh UID for all %d paths.", len(recreate))
 
         # Update catalog metadata to reflect new UIDs.
-        logger.info("Updating catalog metadata for UIDs...")
+        # On the test site this took about 13 minutes.
+        logger.info("Updating catalog metadata for UIDs. This can take a long time...")
         update_catalog_metadata(api.portal.get(), "UID")
 
         # Now we need to clear and reindex the UID index.
@@ -209,8 +210,9 @@ class FixUidIndex(UpgradeStep):
             pghandler=ZLogHandler(10000),
         )
         logger.info("Done reindexing UID index.")
-        logger.info("Processing catalog queue. This can take a long time...")
-        # This took about 22 minutes on the test site.
+        # There should be nothing in the indexing queue, but we explicitly
+        # process it just to be sure.  This should be fast now.
+        logger.info("Processing catalog queue.")
         processQueue()
         logger.info("Done processing catalog queue.")
         logger.info("The UID index should be fine again. Checking...")
