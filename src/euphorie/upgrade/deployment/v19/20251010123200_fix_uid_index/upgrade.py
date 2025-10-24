@@ -5,6 +5,7 @@ from plone.uuid.handlers import addAttributeUUID
 from plone.uuid.interfaces import ATTRIBUTE_NAME
 from plone.uuid.interfaces import IUUID
 from Products.CMFCore.indexing import processQueue
+from Products.ZCatalog.ProgressHandler import ZLogHandler
 from zope.globalrequest import getRequest
 
 import logging
@@ -106,7 +107,11 @@ class FixUidIndex(UpgradeStep):
         return True
 
     def __call__(self):
-        """Upgrade step to set a UID if content does not have it yet."""
+        """Upgrade step to fix inconsistencies in the UID index.
+
+        I will add some inline comments about how long this took on a test
+        site with about 420k items and a messed up UID index.
+        """
         logger.info("Checking inconsistencies in UID index.")
         if self.is_uid_index_consistent():
             logger.info("The UID index is consistent. Nothing to do.")
@@ -117,8 +122,11 @@ class FixUidIndex(UpgradeStep):
         catalog = api.portal.get_tool("portal_catalog")
         index = catalog.Indexes["UID"]
         logger.info("Checking _unindex items.")
+        # Get the values once to speed up the loop below.  Without this, the
+        # first full run took over an hour, gathering 220k paths to recreate.
+        index_index_values = index._index.values()
         for docid, uid in index._unindex.items():
-            if docid not in index._index.values():
+            if docid not in index_index_values:
                 path = catalog.getpath(docid)
                 logger.debug(
                     "Doc id %s is missing from _index values. UID %s, path %s",
@@ -147,6 +155,8 @@ class FixUidIndex(UpgradeStep):
                 "which relations an item has."
             )
 
+        # Now recreate UIDs for the gathered paths.
+        # This took about 6 minutes on the test site.
         app = aq_parent(api.portal.get())
         for num, path in enumerate(recreate, 1):
             try:
@@ -177,7 +187,7 @@ class FixUidIndex(UpgradeStep):
             obj.reindexObject(idxs=["UID"])
             new_uuid = IUUID(obj)
             logger.debug("Changed UID from %s to %s for %s", old_uuid, new_uuid, path)
-            if num % 1000 == 0:
+            if num % 10000 == 0:
                 logger.info(
                     "Created fresh UID for %d/%d paths so far.", num, len(recreate)
                 )
@@ -187,10 +197,17 @@ class FixUidIndex(UpgradeStep):
         # Even after the above fix, the clear and reindex is still needed.
         logger.info("Clearing UID index...")
         index.clear()
+        # Reindexing took about 10 minutes on the test site.
+        # So let's add a progress logger.
         logger.info("Reindexing UID index...")
-        catalog._catalog.reindexIndex("UID", getRequest())
+        catalog._catalog.reindexIndex(
+            "UID",
+            getRequest(),
+            pghandler=ZLogHandler(10000),
+        )
         logger.info("Done reindexing UID index.")
-        logger.info("Processing catalog queue...")
+        logger.info("Processing catalog queue. This can take a long time...")
+        # This took about 22 minutes on the test site.
         processQueue()
         logger.info("Done processing catalog queue.")
         logger.info("The UID index should be fine again. Checking...")
