@@ -124,8 +124,9 @@ class FixUidIndex(UpgradeStep):
         index = catalog.Indexes["UID"]
         # Get the values once to speed up the loop below.  Without this, the
         # first full run took over an hour, gathering 220k paths to recreate.
+        # Make it a set for faster 'in' checks.  This reduces the time insanely.
         index_index_values = set(index._index.values())
-        logger.info("Checking _unindex items. This can take a long time...")
+        logger.info("Checking _unindex items.")
         for docid, uid in index._unindex.items():
             if docid not in index_index_values:
                 path = catalog.getpath(docid)
@@ -136,7 +137,7 @@ class FixUidIndex(UpgradeStep):
                     path,
                 )
                 recreate.add(path)
-                if len(recreate) % 1000 == 0:
+                if len(recreate) % 10000 == 0:
                     logger.info("Found %d paths to recreate so far.", len(recreate))
 
         logger.info("Done checking _unindex items.")
