@@ -6248,13 +6248,13 @@ msgstr "<a href='%s/@@report'>${text_download_section}</a>"
 #. AI-generated
 #: euphorie/client/browser/publish.py:364
 msgid "no_translate_link_preview_success"
-msgstr "${text_message_preview_success}: <a href=\\"
+msgstr "${text_message_preview_success}: <a href=\"${url}\">${url}</a>."
 
 #. Default: "${text_message_publish_success}: <a href=\"${url}\">${url}</a>."
 #. AI-generated
 #: euphorie/client/browser/publish.py:299
 msgid "no_translate_link_published_success"
-msgstr "${text_message_publish_success}: <a href=\\"
+msgstr "${text_message_publish_success}: <a href=\"${url}\">${url}</a>."
 
 #. Default: "Not set"
 #: euphorie/content/browser/templates/survey_view.pt:32
