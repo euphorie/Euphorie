@@ -6074,7 +6074,15 @@ msgstr "Ákveðaðu hvaða leið er best til að fá starfsfólk með í verkið
 #. AI-generated
 #: euphorie/client/browser/templates/involve.pt:30
 msgid "message_involve_workers_requirement"
-msgstr "Einn af lyklum til góðrar leiðtogastefnu í IMA málum er að fá starfsmenn með í verkið. Vinnuveitendur hafa <a href=\\"
+msgstr ""
+"Einn af lykilþáttum góðrar forystu í vinnuvernd er að fá starfsmenn til að "
+"taka þátt. Vinnuveitendur hafa <a "
+"href=\"https://osha.europa.eu/en/legislation/directives/the-osh-framework-"
+"directive/the-osh-framework-directive-introduction\">lögbundna skyldu</a> "
+"til að hafa samráð við starfsmenn um öryggis- og heilsumál. Það hefur þó "
+"marga kosti að ganga lengra en lágmarkskröfur gera ráð fyrir. Stjórnun "
+"vinnuverndar hefur meiri möguleika á árangri ef hún hvetur til virkrar "
+"þátttöku starfsmanna og setur upp samráð milli starfsmanna og stjórnenda."
 
 #. Default: "Learn more about certificates."
 #. AI-generated
@@ -6410,13 +6418,13 @@ msgstr "<a href='%s/@@report'>${text_download_section}</a>"
 #. AI-generated
 #: euphorie/client/browser/publish.py:364
 msgid "no_translate_link_preview_success"
-msgstr "${text_message_preview_success}: <a href=\\"
+msgstr "${text_message_preview_success}: <a href=\"${url}\">${url}</a>."
 
 #. Default: "${text_message_publish_success}: <a href=\"${url}\">${url}</a>."
 #. AI-generated
 #: euphorie/client/browser/publish.py:299
 msgid "no_translate_link_published_success"
-msgstr "${text_message_publish_success}: <a href=\\"
+msgstr "${text_message_publish_success}: <a href=\"${url}\">${url}</a>."
 
 #. Default: "Not set"
 #: euphorie/content/browser/templates/survey_view.pt:32
