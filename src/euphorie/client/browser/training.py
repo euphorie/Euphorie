@@ -199,7 +199,12 @@ class TrainingSlide(BrowserView):
                 self.webhelpers.traversed_session.aq_parent["custom-risks"]
             ).restrictedTraverse("image-display")
             return _view.get_or_create_image_scaled()
-        image = self.zodb_elem.image and self.zodb_elem.image.data or None
+
+        try:
+            image = self.zodb_elem.image.data
+        except AttributeError:
+            image = None
+
         if image and self.for_download:
             try:
                 scales = self.zodb_elem.restrictedTraverse("images", None)
