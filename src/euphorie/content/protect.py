@@ -1,6 +1,55 @@
 from plone.protect.auto import ProtectTransform
+from zope.globalrequest import getRequest
 from zope.interface import Interface
 from zope.sqlalchemy.datamanager import SessionDataManager
+
+import logging
+
+
+logger = logging.getLogger(__name__)
+SAFE_WRITE_KEY = "euphorie.protect.safe_sql_ids"
+_default = []
+
+
+def _get_obj_key(obj):
+    klass = obj.__class__
+    try:
+        obj_id = obj.id
+    except AttributeError:
+        # For example Group has group_id.
+        # TODO There may be nicer ways to get the primary key.
+        # Maybe somehow do that once for each table at startup,
+        # or keep a small list in memory that we fill as needed.
+        # Also, there could be multiple primary keys.
+        primary_key = klass.__table__.primary_key.columns.keys()[0]
+        obj_id = getattr(obj, primary_key)
+    return (klass.__name__, obj_id)
+
+
+def safeSQLWrite(obj, request=None):
+    """Mark SQL object as safe to write, even in GET request.
+
+    This is our SQLAlchemy variant of plone.protect.utils.safeWrite.
+
+    Maybe we only need this on GET requests.  But plone.protect does it on all
+    request types.
+    """
+    if request is None:
+        request = getRequest()
+    if request is None or getattr(request, "environ", _default) is _default:
+        # Request not found or it is a TestRequest without an environment.
+        logger.debug("Could not mark object as a safe write: %s", obj)
+        return
+    if SAFE_WRITE_KEY not in request.environ:
+        request.environ[SAFE_WRITE_KEY] = []
+    try:
+        key = _get_obj_key(obj)
+        if key not in request.environ[SAFE_WRITE_KEY]:
+            request.environ[SAFE_WRITE_KEY].append(key)
+            # XXX Printing to ease debugging.
+            print(f"Marking as SQL safe: {key}")
+    except AttributeError:
+        logger.debug("Can't get object key to mark object as safe: %s", obj)
 
 
 class IDisableCSRFProtectionForSQL(Interface):
@@ -82,18 +131,44 @@ class EuphorieProtectTransform(ProtectTransform):
         if IDisableCSRFProtectionForSQL.providedBy(self.request):
             return registered
 
+        safe_keys = []
+        if SAFE_WRITE_KEY in getattr(self.request, "environ", {}):
+            safe_keys = self.request.environ[SAFE_WRITE_KEY]
+
         app = self.request.PARENTS[-1]
         for name, conn in app._p_jar.connections.items():
             if name == "temporary":
                 continue
             for resource in conn.transaction_manager.get()._resources:
                 if isinstance(resource, SessionDataManager):
+                    new_registered = []
                     # Get changed, new, and deleted items from the session.
-                    registered.extend(resource.session.dirty)
-                    registered.extend(resource.session.new)
-                    registered.extend(resource.session.deleted)
+                    for attr in ("dirty", "new", "deleted"):
+                        new_registered.extend(getattr(resource.session, attr, []))
                     # Get changes that have been flushed already.
                     for attr in ("_dirty", "_new", "_deleted"):
-                        registered.extend(self._get_real_objects(resource.tx, attr))
+                        new_registered.extend(self._get_real_objects(resource.tx, attr))
+                    if not new_registered:
+                        continue
+                    if not safe_keys:
+                        # While we are still debugging and fixing code and tests,
+                        # some print statements are useful.  Also, 'logging' lines
+                        # to not get printed in tests.
+                        print(
+                            f"{len(new_registered)} new registered objects "
+                            f"and no safe keys on {self.request.REQUEST_METHOD} "
+                            f"request {self.request.URL}:"
+                        )
+                        for obj in new_registered:
+                            print(f"- {_get_obj_key(obj)}")
+                        registered.extend(new_registered)
+                    else:
+                        for obj in new_registered:
+                            key = _get_obj_key(obj)
+                            if key not in safe_keys:
+                                print(f"{key=} NOT in safe keys")
+                                registered.append(obj)
+                            else:
+                                print(f"{key=} in safe keys")
 
         return registered
