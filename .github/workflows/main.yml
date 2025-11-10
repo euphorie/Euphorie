@@ -18,20 +18,25 @@ jobs:
     runs-on: ubuntu-latest
     name: ${{ matrix.config[0] }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v6
         with:
           python-version: ${{ matrix.config[1] }}
+      - name: Pre commit
+        uses: pre-commit/action@v3.0.1
+        if: ${{ matrix.config[1] == '3.12' }}
+
       - name: Install build dependencies
         run: |
           sudo apt update
           sudo apt install -y libxml2-dev libxslt1-dev
       - name: Cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             ~/.cache/pip
+            ~/.cache/pre-commit
             **/eggs
             **/downloads
           key: ${{ runner.os }}-cache-${{ hashFiles('setup.*', '*.cfg') }}-${{ matrix.config[0] }}
@@ -45,9 +50,6 @@ jobs:
           bin/pip install -r requirements.txt
           ln -s versions-${{ matrix.config[2] }}.cfg versions.cfg
           bin/buildout -c .github.cfg
-      - name: Pre commit
-        uses: pre-commit/action@v3.0.1
-        if: ${{ matrix.config[1] == '3.12' }}
       - name: Test
         run: |
           bin/coverage run bin/test -s euphorie
