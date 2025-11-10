@@ -12,7 +12,7 @@ repos:
     rev: 3.1.1
     hooks:
       - id: zpretty
-        exclude: src/euphorie/client/resources
+        exclude: (src/euphorie/client/resources|src/euphorie/client/browser/templates/layout.pt|src/euphorie/content/browser/templates/layout.pt)
   - repo: https://github.com/pycqa/isort
     rev: 7.0.0
     hooks:
