@@ -4,11 +4,31 @@ from zope.interface import Interface
 from zope.sqlalchemy.datamanager import SessionDataManager
 
 import logging
+import os
 
 
 logger = logging.getLogger(__name__)
 SAFE_WRITE_KEY = "euphorie.protect.safe_sql_ids"
 _default = []
+
+# By default we disable CSRF protection for SQL writes, to avoid breaking
+# existing code and tests.  Set the environment variable
+# EUPHORIE_ENABLE_CSRF_PROTECTION_FOR_SQL=1 to enable CSRF protection
+# for SQL writes.
+EUPHORIE_ENABLE_CSRF_PROTECTION_FOR_SQL = os.getenv(
+    "EUPHORIE_ENABLE_CSRF_PROTECTION_FOR_SQL", 1  # XXX should be 0 by default
+)
+try:
+    from plone.base.utils import is_truthy
+
+    EUPHORIE_ENABLE_CSRF_PROTECTION_FOR_SQL = is_truthy(
+        EUPHORIE_ENABLE_CSRF_PROTECTION_FOR_SQL
+    )
+except ImportError:
+    # BBB for Plone 6.1.1 and earlier
+    EUPHORIE_ENABLE_CSRF_PROTECTION_FOR_SQL = bool(
+        int(EUPHORIE_ENABLE_CSRF_PROTECTION_FOR_SQL)
+    )
 
 
 def _get_obj_key(obj):
@@ -146,10 +166,17 @@ class EuphorieProtectTransform(ProtectTransform):
                 filtered.append(obj)
         return filtered
 
-    def _registered_objects(self):
-        registered = super()._registered_objects()
+    def _registered_sql_objects(self):
+        """Get changed SQLAlchemy objects in the current transaction.
+
+        Here we don't care if SQL CSRF protection is enabled in general or not:
+        we just return all changed SQL objects.
+        But if it was explicitly disabled for this request by the marker
+        interface, we return an empty list.
+        """
+        new_registered = []
         if IDisableCSRFProtectionForSQL.providedBy(self.request):
-            return registered
+            return new_registered
 
         app = self.request.PARENTS[-1]
         for name, conn in app._p_jar.connections.items():
@@ -157,16 +184,30 @@ class EuphorieProtectTransform(ProtectTransform):
                 continue
             for resource in conn.transaction_manager.get()._resources:
                 if isinstance(resource, SessionDataManager):
-                    new_registered = []
                     # Get changed, new, and deleted items from the session.
                     for attr in ("dirty", "new", "deleted"):
                         new_registered.extend(getattr(resource.session, attr, []))
                     # Get changes that have been flushed already.
                     for attr in ("_dirty", "_new", "_deleted"):
                         new_registered.extend(self._get_real_objects(resource.tx, attr))
-                    new_registered = self.filter_on_safe_keys(new_registered)
-                    if not new_registered:
-                        continue
-                    registered.extend(new_registered)
+        return self.filter_on_safe_keys(new_registered)
+
+    def _registered_objects(self):
+        registered = super()._registered_objects()
+
+        new_registered = self._registered_sql_objects()
+        if not new_registered:
+            # Return the original list.
+            return registered
+
+        if EUPHORIE_ENABLE_CSRF_PROTECTION_FOR_SQL:
+            registered.extend(new_registered)
+        else:
+            print(
+                f"CSRF protection for SQLAlchemy changes is not "
+                f"enabled, ignoring {len(new_registered)} "
+                f"changes on {self.request.REQUEST_METHOD} "
+                f"request {self.request.URL}."
+            )
 
         return registered

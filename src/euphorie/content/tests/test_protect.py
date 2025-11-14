@@ -56,18 +56,18 @@ class IntegrationTests(BaseProtectTestCase):
     def test_start(self):
         # Test the start situation: there are no registered objects in the
         # current ZODB transaction.
-        self.assertEqual(self.transform._registered_objects(), [])
+        self.assertEqual(self.transform._registered_sql_objects(), [])
 
     def test_add_standard(self):
         item = self._createItem()
         self.session.add(item)
-        self.assertEqual(self.transform._registered_objects(), [item])
+        self.assertEqual(self.transform._registered_sql_objects(), [item])
 
     def test_add_with_flush(self):
         item = self._createItem()
         self.session.add(item)
         self.session.flush()
-        self.assertEqual(self.transform._registered_objects(), [item])
+        self.assertEqual(self.transform._registered_sql_objects(), [item])
 
 
 class FunctionalTests(BaseProtectTestCase, EuphorieFunctionalTestCase):
@@ -84,7 +84,7 @@ class FunctionalTests(BaseProtectTestCase, EuphorieFunctionalTestCase):
         self.group_id = item.group_id
 
     def test_start(self):
-        self.assertEqual(self.transform._registered_objects(), [])
+        self.assertEqual(self.transform._registered_sql_objects(), [])
 
     def test_edit_standard(self):
         # This is the start of a new transaction, so we need to get the item
@@ -93,7 +93,7 @@ class FunctionalTests(BaseProtectTestCase, EuphorieFunctionalTestCase):
 
         # Change a column.
         item.short_name = "changed"
-        self.assertEqual(self.transform._registered_objects(), [item])
+        self.assertEqual(self.transform._registered_sql_objects(), [item])
 
         # Check that the change is really there.
         self.assertEqual(self._getItem().short_name, "changed")
@@ -106,7 +106,7 @@ class FunctionalTests(BaseProtectTestCase, EuphorieFunctionalTestCase):
         item = self._getItem()
         item.short_name = "changed"
         self.session.flush()
-        self.assertEqual(self.transform._registered_objects(), [item])
+        self.assertEqual(self.transform._registered_sql_objects(), [item])
         self.assertEqual(self._getItem().short_name, "changed")
         transaction.commit()
         self.assertEqual(self._getItem().short_name, "changed")
@@ -114,7 +114,7 @@ class FunctionalTests(BaseProtectTestCase, EuphorieFunctionalTestCase):
     def test_delete_standard(self):
         item = self._getItem()
         self.session.delete(item)
-        self.assertEqual(self.transform._registered_objects(), [item])
+        self.assertEqual(self.transform._registered_sql_objects(), [item])
 
         # Check that the item is really deleted.
         self.assertIsNone(self._getItem())
@@ -125,7 +125,7 @@ class FunctionalTests(BaseProtectTestCase, EuphorieFunctionalTestCase):
         item = self._getItem()
         self.session.delete(item)
         self.session.flush()
-        self.assertEqual(self.transform._registered_objects(), [item])
+        self.assertEqual(self.transform._registered_sql_objects(), [item])
         self.assertIsNone(self._getItem())
         transaction.commit()
         self.assertIsNone(self._getItem())
@@ -147,7 +147,7 @@ class FunctionalTests(BaseProtectTestCase, EuphorieFunctionalTestCase):
     def test_delete_check_get_without_authenticator(self):
         item = self._getItem()
         self.session.delete(item)
-        self.assertEqual(self.transform._registered_objects(), [item])
+        self.assertEqual(self.transform._registered_sql_objects(), [item])
 
         # Actually do the csrf check.
         self._do_csrf_check()
@@ -164,7 +164,7 @@ class FunctionalTests(BaseProtectTestCase, EuphorieFunctionalTestCase):
         self._add_authenticator_to_request()
         item = self._getItem()
         self.session.delete(item)
-        self.assertEqual(self.transform._registered_objects(), [item])
+        self.assertEqual(self.transform._registered_sql_objects(), [item])
 
         # Actually do the csrf check.
         self._do_csrf_check()
@@ -180,7 +180,7 @@ class FunctionalTests(BaseProtectTestCase, EuphorieFunctionalTestCase):
         self.request.REQUEST_METHOD = "POST"
         item = self._getItem()
         self.session.delete(item)
-        self.assertEqual(self.transform._registered_objects(), [item])
+        self.assertEqual(self.transform._registered_sql_objects(), [item])
 
         # Actually do the csrf check.  We expect:
         # zExceptions.Forbidden: Form authenticator is invalid.
@@ -195,7 +195,7 @@ class FunctionalTests(BaseProtectTestCase, EuphorieFunctionalTestCase):
         self._add_authenticator_to_request()
         item = self._getItem()
         self.session.delete(item)
-        self.assertEqual(self.transform._registered_objects(), [item])
+        self.assertEqual(self.transform._registered_sql_objects(), [item])
 
         # Actually do the csrf check.
         self._do_csrf_check()
@@ -213,7 +213,7 @@ class FunctionalTests(BaseProtectTestCase, EuphorieFunctionalTestCase):
         alsoProvides(self.request, IDisableCSRFProtectionForSQL)
         item = self._getItem()
         self.session.delete(item)
-        self.assertEqual(self.transform._registered_objects(), [])
+        self.assertEqual(self.transform._registered_sql_objects(), [])
 
         # Actually do the csrf check.
         self._do_csrf_check()
