@@ -16,7 +16,7 @@ _default = []
 # EUPHORIE_ENABLE_CSRF_PROTECTION_FOR_SQL=1 to enable CSRF protection
 # for SQL writes.
 EUPHORIE_ENABLE_CSRF_PROTECTION_FOR_SQL = os.getenv(
-    "EUPHORIE_ENABLE_CSRF_PROTECTION_FOR_SQL", 1  # XXX should be 0 by default
+    "EUPHORIE_ENABLE_CSRF_PROTECTION_FOR_SQL", 0
 )
 try:
     from plone.base.utils import is_truthy
@@ -145,6 +145,9 @@ class EuphorieProtectTransform(ProtectTransform):
     there.
     """
 
+    # Define variable in class so we can easily override it in tests.
+    euphorie_enable_csrf_protection_for_sql = EUPHORIE_ENABLE_CSRF_PROTECTION_FOR_SQL
+
     @staticmethod
     def _get_real_objects(tx, name):
         return [state.obj() for state in getattr(tx, name, [])]
@@ -200,7 +203,7 @@ class EuphorieProtectTransform(ProtectTransform):
             # Return the original list.
             return registered
 
-        if EUPHORIE_ENABLE_CSRF_PROTECTION_FOR_SQL:
+        if self.euphorie_enable_csrf_protection_for_sql:
             registered.extend(new_registered)
         else:
             print(

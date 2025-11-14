@@ -50,6 +50,20 @@ class BaseProtectTestCase(EuphorieIntegrationTestCase):
         group_id = group_id or self.group_id
         return self.session.query(Group).filter(Group.group_id == group_id).first()
 
+    def _do_csrf_check(self):
+        # Call the check method of the transform.  This is called by
+        # transformIterable, but that does too much.  We do need to prepare
+        # the transform and the response a bit.
+        resp = self.request.response
+        resp.setHeader("Content-Type", "text/html")
+        self.transform.site = self.portal
+
+        # Do the check.
+        self.transform.check()
+
+    def _add_authenticator_to_request(self):
+        self.request["_authenticator"] = createToken()
+
 
 class IntegrationTests(BaseProtectTestCase):
 
@@ -57,11 +71,14 @@ class IntegrationTests(BaseProtectTestCase):
         # Test the start situation: there are no registered objects in the
         # current ZODB transaction.
         self.assertEqual(self.transform._registered_sql_objects(), [])
+        self.assertEqual(self.transform._registered_objects(), [])
 
     def test_add_standard(self):
         item = self._createItem()
         self.session.add(item)
         self.assertEqual(self.transform._registered_sql_objects(), [item])
+        # Note: we don't check _registered_objects here, as that depends
+        # on whether CSRF protection for SQL is enabled or not.
 
     def test_add_with_flush(self):
         item = self._createItem()
@@ -70,14 +87,16 @@ class IntegrationTests(BaseProtectTestCase):
         self.assertEqual(self.transform._registered_sql_objects(), [item])
 
 
-class FunctionalTests(BaseProtectTestCase, EuphorieFunctionalTestCase):
+class FunctionalCSRFDisabledTests(BaseProtectTestCase, EuphorieFunctionalTestCase):
     """Functional test so we can do commits.
 
     Here we want to add an item, commit this, and edit or delete it.
+    We explicitly DISABLE CSRF protection for SQLAlchemy writes in this test case.
     """
 
     def setUp(self):
         super().setUp()
+        self.transform.euphorie_enable_csrf_protection_for_sql = False
         item = self._createItem()
         self.session.add(item)
         transaction.commit()
@@ -85,6 +104,7 @@ class FunctionalTests(BaseProtectTestCase, EuphorieFunctionalTestCase):
 
     def test_start(self):
         self.assertEqual(self.transform._registered_sql_objects(), [])
+        self.assertEqual(self.transform._registered_objects(), [])
 
     def test_edit_standard(self):
         # This is the start of a new transaction, so we need to get the item
@@ -130,19 +150,65 @@ class FunctionalTests(BaseProtectTestCase, EuphorieFunctionalTestCase):
         transaction.commit()
         self.assertIsNone(self._getItem())
 
-    def _do_csrf_check(self):
-        # Call the check method of the transform.  This is called by
-        # transformIterable, but that does too much.  We do need to prepare
-        # the transform and the response a bit.
+    def test_delete_disable_csrf(self):
+        """If we use the marker interface, no SQL objects are registered."""
+        from euphorie.content.protect import IDisableCSRFProtectionForSQL
+
+        alsoProvides(self.request, IDisableCSRFProtectionForSQL)
+        item = self._getItem()
+        self.session.delete(item)
+        self.assertEqual(self.transform._registered_sql_objects(), [])
+
+    def test_delete_check_get_without_authenticator(self):
+        item = self._getItem()
+        self.session.delete(item)
+        self.assertEqual(self.transform._registered_sql_objects(), [item])
+
+        # Actually do the csrf check.
+        self._do_csrf_check()
+
+        # The write is accepted, because we have disabled SQL CSRF protection.
         resp = self.request.response
-        resp.setHeader("Content-Type", "text/html")
-        self.transform.site = self.portal
+        self.assertEqual(resp.status, 200)
 
-        # Do the check.
-        self.transform.check()
+        # The transaction was not aborted, so the item no longer exists.
+        self.assertIsNone(self._getItem())
 
-    def _add_authenticator_to_request(self):
-        self.request["_authenticator"] = createToken()
+    def test_delete_check_post_without_authenticator(self):
+        self.request.REQUEST_METHOD = "POST"
+        item = self._getItem()
+        self.session.delete(item)
+        self.assertEqual(self.transform._registered_sql_objects(), [item])
+
+        # Actually do the csrf check.
+        self._do_csrf_check()
+
+        # The write is accepted, because we have disabled SQL CSRF protection.
+        resp = self.request.response
+        self.assertEqual(resp.status, 200)
+
+        # The transaction was not aborted, so the item no longer exists.
+        self.assertIsNone(self._getItem())
+
+
+class FunctionalCSRFEnabledTests(BaseProtectTestCase, EuphorieFunctionalTestCase):
+    """Functional test so we can do commits.
+
+    Here we want to add an item, commit this, and edit or delete it.
+    We explicitly ENABLE CSRF protection for SQLAlchemy writes in this test case.
+    """
+
+    def setUp(self):
+        super().setUp()
+        self.transform.euphorie_enable_csrf_protection_for_sql = True
+        item = self._createItem()
+        self.session.add(item)
+        transaction.commit()
+        self.group_id = item.group_id
+
+    def test_start(self):
+        self.assertEqual(self.transform._registered_sql_objects(), [])
+        self.assertEqual(self.transform._registered_objects(), [])
 
     def test_delete_check_get_without_authenticator(self):
         item = self._getItem()
