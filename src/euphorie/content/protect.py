@@ -43,15 +43,13 @@ def safeSQLWrite(obj, request=None):
         logger.debug("Could not mark object as a safe write: %s", obj)
         return
     if SAFE_WRITE_KEY not in request.environ:
-        request.environ[SAFE_WRITE_KEY] = []
+        request.environ[SAFE_WRITE_KEY] = set()
     try:
         key = _get_obj_key(obj)
         if key not in request.environ[SAFE_WRITE_KEY]:
-            request.environ[SAFE_WRITE_KEY].append(key)
-            # XXX Printing to ease debugging.
-            print(f"Marking as SQL safe: {key}")
+            request.environ[SAFE_WRITE_KEY].add(key)
     except AttributeError:
-        logger.debug("Can't get object key to mark object as safe: %s", obj)
+        logger.warning("Can't get object key to mark object as safe: %s", obj)
 
 
 class IDisableCSRFProtectionForSQL(Interface):
@@ -127,17 +125,31 @@ class EuphorieProtectTransform(ProtectTransform):
     there.
     """
 
-    def _get_real_objects(self, tx, name):
+    @staticmethod
+    def _get_real_objects(tx, name):
         return [state.obj() for state in getattr(tx, name, [])]
 
-    def _registered_objects(self):
-        registered = super()._registered_objects()
-        if IDisableCSRFProtectionForSQL.providedBy(self.request):
+    def filter_on_safe_keys(self, registered):
+        if not registered:
             return registered
 
         safe_keys = []
         if SAFE_WRITE_KEY in getattr(self.request, "environ", {}):
             safe_keys = self.request.environ[SAFE_WRITE_KEY]
+        if not safe_keys:
+            return registered
+
+        filtered = []
+        for obj in registered:
+            key = _get_obj_key(obj)
+            if key not in safe_keys:
+                filtered.append(obj)
+        return filtered
+
+    def _registered_objects(self):
+        registered = super()._registered_objects()
+        if IDisableCSRFProtectionForSQL.providedBy(self.request):
+            return registered
 
         app = self.request.PARENTS[-1]
         for name, conn in app._p_jar.connections.items():
@@ -152,27 +164,9 @@ class EuphorieProtectTransform(ProtectTransform):
                     # Get changes that have been flushed already.
                     for attr in ("_dirty", "_new", "_deleted"):
                         new_registered.extend(self._get_real_objects(resource.tx, attr))
+                    new_registered = self.filter_on_safe_keys(new_registered)
                     if not new_registered:
                         continue
-                    if not safe_keys:
-                        # While we are still debugging and fixing code and tests,
-                        # some print statements are useful.  Also, 'logging' lines
-                        # to not get printed in tests.
-                        print(
-                            f"{len(new_registered)} new registered objects "
-                            f"and no safe keys on {self.request.REQUEST_METHOD} "
-                            f"request {self.request.URL}:"
-                        )
-                        for obj in new_registered:
-                            print(f"- {_get_obj_key(obj)}")
-                        registered.extend(new_registered)
-                    else:
-                        for obj in new_registered:
-                            key = _get_obj_key(obj)
-                            if key not in safe_keys:
-                                print(f"{key=} NOT in safe keys")
-                                registered.append(obj)
-                            else:
-                                print(f"{key=} in safe keys")
+                    registered.extend(new_registered)
 
         return registered
