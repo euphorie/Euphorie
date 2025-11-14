@@ -1,6 +1,8 @@
 from euphorie.testing import EuphorieFunctionalTestCase
 from euphorie.testing import EuphorieIntegrationTestCase
+from plone.protect.authenticator import createToken
 from z3c.saconfig import Session
+from zExceptions import Forbidden
 from zope.interface import alsoProvides
 
 import transaction
@@ -129,7 +131,7 @@ class FunctionalTests(BaseProtectTestCase, EuphorieFunctionalTestCase):
         self.assertIsNone(self._getItem())
 
     def _do_csrf_check(self):
-        # Call the _check method of the transform.  This is called by
+        # Call the check method of the transform.  This is called by
         # transformIterable, but that does too much.  We do need to prepare
         # the transform and the response a bit.
         resp = self.request.response
@@ -137,9 +139,12 @@ class FunctionalTests(BaseProtectTestCase, EuphorieFunctionalTestCase):
         self.transform.site = self.portal
 
         # Do the check.
-        self.transform._check()
+        self.transform.check()
 
-    def test_delete_check(self):
+    def _add_authenticator_to_request(self):
+        self.request["_authenticator"] = createToken()
+
+    def test_delete_check_get_without_authenticator(self):
         item = self._getItem()
         self.session.delete(item)
         self.assertEqual(self.transform._registered_objects(), [item])
@@ -154,6 +159,53 @@ class FunctionalTests(BaseProtectTestCase, EuphorieFunctionalTestCase):
 
         # The transaction was aborted, so the item still exists.
         self.assertIsNotNone(self._getItem())
+
+    def test_delete_check_get_with_authenticator(self):
+        self._add_authenticator_to_request()
+        item = self._getItem()
+        self.session.delete(item)
+        self.assertEqual(self.transform._registered_objects(), [item])
+
+        # Actually do the csrf check.
+        self._do_csrf_check()
+
+        # The write on GET was accepted, because we have an authenticator.
+        resp = self.request.response
+        self.assertEqual(resp.status, 200)
+
+        # The transaction was not aborted, so the item no longer exists.
+        self.assertIsNone(self._getItem())
+
+    def test_delete_check_post_without_authenticator(self):
+        self.request.REQUEST_METHOD = "POST"
+        item = self._getItem()
+        self.session.delete(item)
+        self.assertEqual(self.transform._registered_objects(), [item])
+
+        # Actually do the csrf check.  We expect:
+        # zExceptions.Forbidden: Form authenticator is invalid.
+        with self.assertRaises(Forbidden):
+            self._do_csrf_check()
+
+        # The transaction was aborted, so the item still exists.
+        self.assertIsNotNone(self._getItem())
+
+    def test_delete_check_post_with_authenticator(self):
+        self.request.REQUEST_METHOD = "POST"
+        self._add_authenticator_to_request()
+        item = self._getItem()
+        self.session.delete(item)
+        self.assertEqual(self.transform._registered_objects(), [item])
+
+        # Actually do the csrf check.
+        self._do_csrf_check()
+
+        # The write on POST was accepted, because we have an authenticator.
+        resp = self.request.response
+        self.assertEqual(resp.status, 200)
+
+        # The transaction was not aborted, so the item no longer exists.
+        self.assertIsNone(self._getItem())
 
     def test_delete_disable_csrf(self):
         from euphorie.content.protect import IDisableCSRFProtectionForSQL

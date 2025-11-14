@@ -32,7 +32,9 @@ def safeSQLWrite(obj, request=None):
     This is our SQLAlchemy variant of plone.protect.utils.safeWrite.
 
     Maybe we only need this on GET requests.  But plone.protect does it on all
-    request types.
+    request types.  Oh, right: if you have a form that does a POST, but that form
+    misses the CSRF token, you would also get a Forbidden.  So we do this on all
+    requests as well.
     """
     if request is None:
         request = getRequest()
@@ -120,7 +122,9 @@ class EuphorieProtectTransform(ProtectTransform):
     restored csrf protection.
 
     One more note of warning:: on the client side I get a Forbidden when I
-    get redirected to the confirm-action view.  We may need some changes there.
+    get redirected to the confirm-action view on the Plone Site root.  A client
+    side user does not have View permission there.  So we may need some changes
+    there.
     """
 
     def _get_real_objects(self, tx, name):
