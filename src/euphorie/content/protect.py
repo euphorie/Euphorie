@@ -1,4 +1,6 @@
+from plone.protect.authenticator import check
 from plone.protect.auto import ProtectTransform
+from zExceptions import Forbidden
 from zope.globalrequest import getRequest
 from zope.interface import Interface
 from zope.sqlalchemy.datamanager import SessionDataManager
@@ -206,11 +208,17 @@ class EuphorieProtectTransform(ProtectTransform):
         if self.euphorie_enable_csrf_protection_for_sql:
             registered.extend(new_registered)
         else:
-            print(
-                f"CSRF protection for SQLAlchemy changes is not "
-                f"enabled, ignoring {len(new_registered)} "
-                f"changes on {self.request.REQUEST_METHOD} "
-                f"request {self.request.URL}."
-            )
+            # We still want to warn about this.  But that only makes sense
+            # if the authenticator check fails.
+            try:
+                check(self.request, manager=self.key_manager)
+            except Forbidden:
+                logger.warning(
+                    "CSRF protection for SQLAlchemy changes is not enabled, "
+                    "allowing %d unauthenticated changes on %s request %s",
+                    len(new_registered),
+                    self.request.REQUEST_METHOD,
+                    self.request.URL,
+                )
 
         return registered

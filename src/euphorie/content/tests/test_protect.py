@@ -164,8 +164,13 @@ class FunctionalCSRFDisabledTests(BaseProtectTestCase, EuphorieFunctionalTestCas
         self.session.delete(item)
         self.assertEqual(self.transform._registered_sql_objects(), [item])
 
-        # Actually do the csrf check.
-        self._do_csrf_check()
+        # Actually do the csrf check.  A warning should be logged.
+        with self.assertLogs(level="WARNING") as logged:
+            self._do_csrf_check()
+        self.assertTrue(logged.output)
+        self.assertIn(
+            "CSRF protection for SQLAlchemy changes is not enabled", logged.output[0]
+        )
 
         # The write is accepted, because we have disabled SQL CSRF protection.
         resp = self.request.response
@@ -180,8 +185,13 @@ class FunctionalCSRFDisabledTests(BaseProtectTestCase, EuphorieFunctionalTestCas
         self.session.delete(item)
         self.assertEqual(self.transform._registered_sql_objects(), [item])
 
-        # Actually do the csrf check.
-        self._do_csrf_check()
+        # Actually do the csrf check.  A warning should be logged.
+        with self.assertLogs(level="WARNING") as logged:
+            self._do_csrf_check()
+        self.assertTrue(logged.output)
+        self.assertIn(
+            "CSRF protection for SQLAlchemy changes is not enabled", logged.output[0]
+        )
 
         # The write is accepted, because we have disabled SQL CSRF protection.
         resp = self.request.response
