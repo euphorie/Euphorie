@@ -8,6 +8,18 @@ Changelog
 
 .. towncrier release notes start
 
+19.1.4 (2025-11-18)
+-------------------
+
+Bug fixes:
+
+
+- Add upgrade step to fix inconsistencies in UID index.  [maurits] (`Issue #3987 <https://github.com/syslabcom/scrum/issues/3987>`_)
+- Add upgrade step to ensure all current content has a UID.  [maurits] (`Issue #3987 <https://github.com/syslabcom/scrum/issues/3987>`_)
+- Fixed translations to avoid breaking preview URL. [cirosilvano] (`Issue #4065 <https://github.com/syslabcom/scrum/issues/4065>`_)
+- PPT and training generation is more resilient (`Issue #4089 <https://github.com/syslabcom/scrum/issues/4089>`_)
+
+
 19.1.3 (2025-10-07)
 -------------------
 

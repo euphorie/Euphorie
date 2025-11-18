@@ -1,1 +1,0 @@
-PPT and training generation is more resilient

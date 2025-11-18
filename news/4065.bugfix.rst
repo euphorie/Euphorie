@@ -1,1 +1,0 @@
-Fixed translations to avoid breaking preview URL. [cirosilvano]
