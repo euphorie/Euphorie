@@ -164,7 +164,14 @@ class EuphorieProtectTransform(ProtectTransform):
 
         filtered = []
         for obj in registered:
-            key = _get_obj_key(obj)
+            try:
+                key = _get_obj_key(obj)
+            except AttributeError:
+                logger.warning("Can't get object key: %s", obj)
+                # If we can't get a key, it can't have been marked as safe
+                # either, so we keep the object.
+                filtered.append(obj)
+                continue
             if key not in safe_keys:
                 filtered.append(obj)
         return filtered
