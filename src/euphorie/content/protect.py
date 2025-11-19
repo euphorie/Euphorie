@@ -11,7 +11,7 @@ import os
 
 logger = logging.getLogger(__name__)
 SAFE_WRITE_KEY = "euphorie.protect.safe_sql_ids"
-_default = []
+_marker = object()
 
 # By default we disable CSRF protection for SQL writes, to avoid breaking
 # existing code and tests.  Set the environment variable
@@ -60,7 +60,7 @@ def safeSQLWrite(obj, request=None):
     """
     if request is None:
         request = getRequest()
-    if request is None or getattr(request, "environ", _default) is _default:
+    if request is None or getattr(request, "environ", _marker) is _marker:
         # Request not found or it is a TestRequest without an environment.
         logger.debug("Could not mark object as a safe write: %s", obj)
         return
