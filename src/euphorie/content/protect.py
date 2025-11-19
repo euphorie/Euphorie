@@ -122,26 +122,24 @@ class EuphorieProtectTransform(ProtectTransform):
         if getattr(obj, "_p_oid", False) in safe_oids:
             continue
 
-    We could create our own safeSQLWrite function and let this store for
-    example the `id(sql_object)` in a similar safe_oids list in the request or
-    maybe the session object.  Then check this list of safe identitites below
-    in our `_registered_objects` method: if an item is in the list, don't add
-    it to the `registered` list.
+    So we have created our own safeSQLWrite function and let this store the
+    klass name and the id or other primary key of the sql object in a list
+    in the request, similar to safe_oids list from plone.protect.
+    Then we check this list of safe items below in our `_registered_objects`
+    method: if an item is in the list, don't add it to the `registered` list.
 
-    But if you get the same sql_object by doing a new query, its identity will
-    be different, so this would not work.  Maybe safeSQLWrite could write
-    the model name and the primary key.  But then we would need to figure
-    out which field per model is the primary key.  Could be doable.
-
-    Simpler would be to add a variant of IDisableCSRFProtection specific for
-    SQLAlchemy items.  If that marker interface is set, we would only return
+    We have also defined a variant of IDisableCSRFProtection specific for
+    SQLAlchemy items.  If that marker interface is set, we only return
     the `_registered_objects` of our super class, without checking for SQL
-    items.  That seems simple enough.  And I think this might be needed in a
-    few cases, at least temporarily: there may be some existing cases of a
-    valid write-on-GET that worked so far, but that would break with our
-    restored csrf protection.
+    items.  This may be needed in a few cases, at least temporarily: there may
+    be some existing cases of a valid write without authenticator that worked
+    so far, but that would break with our restored csrf protection.
 
-    One more note of warning:: on the client side I get a Forbidden when I
+    Note that the best way of preventing errors or warnings due to csrf
+    protection, is by making sure that links and forms contain the
+    authenticator.
+
+    One more note of warning: on the client side I get a Forbidden when I
     get redirected to the confirm-action view on the Plone Site root.  A client
     side user does not have View permission there.  So we may need some changes
     there.
