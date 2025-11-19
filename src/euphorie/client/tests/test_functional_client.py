@@ -46,6 +46,10 @@ class SurveyTests(EuphorieFunctionalTestCase):
         browser.getControl(name="form.button.submit").click()
         session_url = browser.url.replace("/@@identification", "")
         # Identify the risk
+        # For debugging we may need some of these settings:
+        # browser.handleErrors = False
+        # browser.followRedirects = False
+        # browser.raiseHttpErrors = False
         browser.open("%s/1/1/@@identification" % session_url)
         browser.getControl(name="answer").value = ["no"]
         browser.getControl(name="next", index=1).click()
