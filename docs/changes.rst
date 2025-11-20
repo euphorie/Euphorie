@@ -326,6 +326,10 @@ New features:
 - Updated resources from proto and applied a number of markup fixes in a review session with Daniel
   [pilz]
 
+- Support scaled (multiple) answers on a risk
+  (`#2847 <https://github.com/syslabcom/scrum/issues/2847>`_)
+  [reinhardt]
+
 
 
 16.2.8 (2025-02-19)
