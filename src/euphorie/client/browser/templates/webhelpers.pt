@@ -692,13 +692,15 @@
               <legend i18n:translate="label_existing_measures">Already implemented measures</legend>
 
               <tal:measures repeat="measure_id existing_measures">
-                <label>
-                  <input class=""
-                         checked="${python:'checked' if existing_measures[measure_id]['active'] else None}"
-                         name="training-measure-in-place-${measure_id}"
-                         type="checkbox"
-                  />
-                  <tal:measure replace="structure python:webhelpers.get_safe_html(existing_measures[measure_id]['action'])" />
+                <label class="label-fragment-title">
+                  <span>
+                    <input class=""
+                           checked="${python:'checked' if existing_measures[measure_id]['active'] else None}"
+                           name="training-measure-in-place-${measure_id}"
+                           type="checkbox"
+                    />
+                    <tal:measure replace="structure python:webhelpers.get_safe_html(existing_measures[measure_id]['action'])" />
+                  </span>
                 </label>
               </tal:measures>
             </fieldset>

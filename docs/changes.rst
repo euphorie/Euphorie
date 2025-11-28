@@ -8,6 +8,86 @@ Changelog
 
 .. towncrier release notes start
 
+19.1.4 (2025-11-18)
+-------------------
+
+Bug fixes:
+
+
+- Add upgrade step to fix inconsistencies in UID index.  [maurits] (`Issue #3987 <https://github.com/syslabcom/scrum/issues/3987>`_)
+- Add upgrade step to ensure all current content has a UID.  [maurits] (`Issue #3987 <https://github.com/syslabcom/scrum/issues/3987>`_)
+- Fixed translations to avoid breaking preview URL. [cirosilvano] (`Issue #4065 <https://github.com/syslabcom/scrum/issues/4065>`_)
+- PPT and training generation is more resilient (`Issue #4089 <https://github.com/syslabcom/scrum/issues/4089>`_)
+
+
+19.1.3 (2025-10-07)
+-------------------
+
+Bug fixes:
+
+
+- Make sure the preferences page never shows any splash page overlays. (`Issue #3399 <https://github.com/syslabcom/scrum/issues/3399>`_)
+- Fix the appearance of the checkboxes for the measures in place.
+  [ale-rt] (`Issue #3427 <https://github.com/syslabcom/scrum/issues/3427>`_)
+
+
+19.1.2 (2025-09-30)
+-------------------
+
+Bug fixes:
+
+
+- Replace Twitter icon with X icon (`Issue #3573 <https://github.com/syslabcom/scrum/issues/3573>`_)
+- Restore the possibility to display the training slides without the questions.
+  This was not possible anymore since 19.0.0.
+  [ale-rt] (`Issue #3887 <https://github.com/syslabcom/scrum/issues/3887>`_)
+- Updated translations
+
+
+19.1.1 (2025-09-15)
+-------------------
+
+Bug fixes:
+
+
+- The 19.1.0 release on PyPI is not consistent with the tag on Github.
+  This release fixes the mismatch.
+
+
+19.1.0 (2025-09-15)
+-------------------
+
+New features:
+
+
+- Allow requesting an email reminder with a link to the current session (`Issue #3238 <https://github.com/syslabcom/scrum/issues/3238>`_)
+- Allow the backend users to authenticate on the client, provided that they have a valid email
+
+
+Bug fixes:
+
+
+- Add a slot for custom_css provided by customization packages. (`Issue #0 <https://github.com/syslabcom/scrum/issues/0>`_)
+- Fix the XML export by adding adding the recently added ``report_completion_threshold`` and ``enable_email_reminder`` fields. [reinhardt] (`Issue #3237 <https://github.com/syslabcom/scrum/issues/3237>`_)
+- Show Cancel button in survey upload form. (`Issue #3489 <https://github.com/syslabcom/scrum/issues/3489>`_)
+- Add 'Cancel' button on XML export page of survey. (`Issue #3604 <https://github.com/syslabcom/scrum/issues/3604>`_)
+- PPT and training generation is more resilient
+
+  Fixes an issue for archived sessions when the survey is republished with a removed risk. (`Issue #3800 <https://github.com/syslabcom/scrum/issues/3800>`_)
+- Create the `euphorie.use_clone_feature` registry record if it is not there
+- Survey upload: check for errors before handling upload.
+
+
+Internal:
+
+
+- Complete translations for various languages using AI (`Issue #0 <https://github.com/syslabcom/scrum/issues/0>`_)
+- Cleanup code that was checking use_clone_feature.
+
+  This feature is now always on. (`Issue #3751 <https://github.com/syslabcom/scrum/issues/3751>`_)
+- Remove the colour module
+
+
 19.0.0 (2025-07-15)
 -------------------
 
