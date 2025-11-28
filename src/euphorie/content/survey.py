@@ -105,7 +105,7 @@ class ISurvey(model.Schema, IBasic):
         title=_("label_evaluation_optional", default="Evaluation may be skipped"),
         description=_(
             "help_evaluation_optional",
-            default="This option allows users to skip the evaluation " "phase.",
+            default="This option allows users to skip the evaluation phase.",
         ),
         default=False,
         required=False,
@@ -216,7 +216,7 @@ class ISurvey(model.Schema, IBasic):
     enable_test_questions = schema.Bool(
         title=_(
             "label_enable_test_questions",
-            default="Show training questions during the training?",
+            default="Show training questions after the training",
         ),
         description=_(
             "help_enable_test_questions",

@@ -1,0 +1,3 @@
+Translate "enable test questions" for trainings.
+Translate "label_enable_test_questions", so that it better fits what is happening.
+Ref: scrum-4172
