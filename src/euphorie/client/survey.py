@@ -250,7 +250,7 @@ class _StatusHelper:
 
             def use_node(elem):
                 # Recursively find the nodes that are not disabled
-                global use_nodes
+                global use_nodes  # noqa: F824
                 # Skip this elem?
                 # If this is an optional module, check the "postponed" flag.
                 # As long as the optional question has not been answered, skip

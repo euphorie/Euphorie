@@ -19,11 +19,13 @@ from Acquisition import aq_base
 from Acquisition import aq_chain
 from Acquisition import aq_inner
 from Acquisition import aq_parent
+from euphorie.content.country import ICountry
 from euphorie.content.dependency import ConditionalHtmlText
 from euphorie.content.dependency import ConditionalTextLine
 from euphorie.content.utils import get_tool_type_default
 from euphorie.content.utils import IToolTypesInfo
 from euphorie.htmllaundry.z3cform import HtmlText
+from plone import api
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.autoform import directives
 from plone.dexterity.content import Container
@@ -33,9 +35,38 @@ from plonetheme.nuplone.z3cform.directives import depends
 from plonetheme.nuplone.z3cform.widget import WysiwygFieldWidget
 from zope import schema
 from zope.component import getUtility
+from zope.globalrequest import getRequest
 from zope.interface import implementer
+from zope.interface import provider
+from zope.schema.interfaces import IContextAwareDefaultFactory
 
 import sys
+
+
+@provider(IContextAwareDefaultFactory)
+def _enable_web_training_default(obj):
+    """Enable training by default for certain countries.
+
+    The default is enabled if any ancestor country has enabled_web_training set to True.
+    When the context has no acquisition chain (happens in tests, for example),
+    the default is False.
+    """
+    # Check if the object is acquired
+    if not aq_parent(obj):
+        # We are probably in the add form, the object is not yet acquired,
+        # Try to get it from the parent country
+        request = getRequest()
+        parents = request.get("PARENTS", []) or []
+        for parent in parents:
+            if ICountry.providedBy(parent):
+                return parent.enable_web_training
+        # If we have no parent country, return False
+        return False
+
+    for ancestor in api.content.iter_ancestors(obj, interface=ICountry):
+        return ancestor.enable_web_training
+
+    return False
 
 
 class ISurvey(model.Schema, IBasic):
@@ -74,7 +105,7 @@ class ISurvey(model.Schema, IBasic):
         title=_("label_evaluation_optional", default="Evaluation may be skipped"),
         description=_(
             "help_evaluation_optional",
-            default="This option allows users to skip the evaluation " "phase.",
+            default="This option allows users to skip the evaluation phase.",
         ),
         default=False,
         required=False,
@@ -166,11 +197,10 @@ class ISurvey(model.Schema, IBasic):
         description=_(
             "help_enable_web_training",
             default="If this option is activated, users will be able to take an "
-            "online training with this OiRA tool. A successful training will be "
-            "recorded and shown with a certificate on the user's dashbooard. You "
-            "will be asked to provide Training Questions for the final exam.",
+            "online training with this OiRA tool.",
         ),
         required=False,
+        defaultFactory=_enable_web_training_default,
     )
 
     enable_email_reminder = schema.Bool(
@@ -182,7 +212,23 @@ class ISurvey(model.Schema, IBasic):
         required=False,
     )
 
-    depends("num_training_questions", "enable_web_training", "on")
+    depends("enable_test_questions", "enable_web_training", "on")
+    enable_test_questions = schema.Bool(
+        title=_(
+            "label_enable_test_questions",
+            default="Show training questions after the training",
+        ),
+        description=_(
+            "help_enable_test_questions",
+            default="If this option is activated, training questions will be shown "
+            "during the training. If not activated, questions will only be asked "
+            "at the end of the training.",
+        ),
+        required=False,
+        default=False,
+    )
+
+    depends("num_training_questions", "enable_test_questions", "on")
     num_training_questions = schema.Int(
         title=_(
             "label_num_training_questions",

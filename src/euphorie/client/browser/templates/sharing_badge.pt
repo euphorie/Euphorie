@@ -20,11 +20,11 @@
 
     <ul class="menu">
       <li>
-        <a class="twitter icon-twitter"
+        <a class="twitter icon-x"
            href="http://twitter.com/share?url=${webhelpers/survey_url}"
-           onclick="javascript:_paq.push(['trackEvent', 'SocialSharing', 'Twitter', 'Start']);"
+           onclick="javascript:_paq.push(['trackEvent', 'SocialSharing', 'X', 'Start']);"
            target="sharing"
-        >Twitter</a>
+        >X</a>
       </li>
       <li>
         <a class="facebook icon-facebook"

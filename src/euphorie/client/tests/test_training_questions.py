@@ -75,6 +75,7 @@ class TestTrainingQuestions(EuphorieIntegrationTestCase):
                 )
 
             self.survey.enable_web_training = True
+            self.survey.enable_test_questions = True
             self._create_questions()
             with self._get_view(
                 "start", traversed_session, self.request.clone()
@@ -98,6 +99,7 @@ class TestTrainingQuestions(EuphorieIntegrationTestCase):
         seed(a="test_num_training_questions")
         with api.env.adopt_user(user=self.account):
             self.survey.enable_web_training = True
+            self.survey.enable_test_questions = True
             self.survey.num_training_questions = 2
             self._create_questions()
 
@@ -124,6 +126,7 @@ class TestTrainingQuestions(EuphorieIntegrationTestCase):
                 # No training if the survey has not enabled it
                 self.assertEqual(view.question_intro_url, "")
             self.survey.enable_web_training = True
+            self.survey.enable_test_questions = True
             with self._get_view(
                 "training", traversed_session, self.request.clone()
             ) as view:

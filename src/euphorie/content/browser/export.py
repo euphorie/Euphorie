@@ -223,6 +223,13 @@ class ExportSurvey(AutoExtensibleForm, form.Form):
         rendered_output = self.render_output()
         self.request.response.write(rendered_output)
 
+    @button.buttonAndHandler(_("button_cancel", default="Cancel"), name="cancel")
+    def handleCancel(self, action):
+        state = api.content.get_view(
+            "plone_context_state", aq_inner(self.context), self.request
+        )
+        self.request.response.redirect(state.view_url())
+
     def render_output(self):
         output = etree.Element("sector", nsmap=NSMAP)
         self.exportSurvey(output, self.context)
@@ -322,6 +329,11 @@ class ExportSurvey(AutoExtensibleForm, form.Form):
         enable_web_training = getattr(survey, "enable_web_training", False)
         if enable_web_training:
             etree.SubElement(node, "enable_web_training", attrib={"value": "true"})
+
+        enable_test_questions = getattr(survey, "enable_test_questions", False)
+        if enable_test_questions:
+            etree.SubElement(node, "enable_test_questions", attrib={"value": "true"})
+
         enable_email_reminder = getattr(survey, "enable_email_reminder", False)
         if enable_email_reminder:
             etree.SubElement(node, "enable_email_reminder", attrib={"value": "true"})

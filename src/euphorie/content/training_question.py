@@ -44,4 +44,4 @@ class ConstructionFilter:
             "euphorie.use_training_module", default=False
         ):
             return False
-        return getattr(self.container, "enable_web_training", False)
+        return getattr(self.container, "enable_test_questions", False)

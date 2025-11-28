@@ -1,1 +1,0 @@
-Fix the XML export by adding adding the recently added ``report_completion_threshold`` and ``enable_email_reminder`` fields. [reinhardt]
