@@ -1,3 +1,4 @@
+from Acquisition import aq_base
 from collections import OrderedDict
 from datetime import date
 from datetime import datetime
@@ -198,7 +199,12 @@ class TrainingSlide(BrowserView):
                 self.webhelpers.traversed_session.aq_parent["custom-risks"]
             ).restrictedTraverse("image-display")
             return _view.get_or_create_image_scaled()
-        image = self.zodb_elem.image and self.zodb_elem.image.data or None
+
+        try:
+            image = self.zodb_elem.image.data
+        except AttributeError:
+            image = None
+
         if image and self.for_download:
             try:
                 scales = self.zodb_elem.restrictedTraverse("images", None)
@@ -379,7 +385,7 @@ class TrainingView(BrowserView, survey._StatusHelper):
     @view_memoize
     def question_intro_url(self):
         survey = self.webhelpers._survey
-        if not getattr(survey, "enable_web_training", False):
+        if not getattr(aq_base(survey), "enable_test_questions", False):
             return ""
         view_name = "slide_question_success"
         if survey.listFolderContents(

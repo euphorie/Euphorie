@@ -18,6 +18,7 @@ from euphorie.client.client import IClient
 from euphorie.client.config import LOCKING_ACTIONS
 from euphorie.client.config import LOCKING_SET_ACTIONS
 from euphorie.client.enum import Enum
+from euphorie.content.protect import safeSQLWrite
 from OFS.interfaces import IApplication
 from plone import api
 from plone.app.event.base import localized_now
@@ -910,7 +911,9 @@ class SurveySession(BaseObject):
                     continue
                 if zodb_item and zodb_item.title != item.title:
                     item.title = zodb_item.title
+                    safeSQLWrite(item)
         self.refreshed = datetime.datetime.now()
+        safeSQLWrite(self)
 
     def update_measure_types(self, survey):
         """Update measure types in the session according to changes in the

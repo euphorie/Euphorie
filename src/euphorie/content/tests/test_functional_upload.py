@@ -584,6 +584,7 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         self.loginAsPortalOwner()
         survey = self.createSurvey()
         survey.enable_web_training = True
+        survey.enable_test_questions = True
         importer = upload.SurveyImporter(None)
         api.portal.set_registry_record("euphorie.use_training_module", True)
         training_question = importer.ImportTrainingQuestion(snippet, survey)
