@@ -253,7 +253,7 @@ class TreeDataCreator(BrowserView):
                     children.append(info)
                 me["children"] = children
                 types = {c["type"] for c in me["children"]}
-                me["leaf_module"] = "risk" in types
+                me["leaf_module"] = "risk" in types or "choice" in types
 
         elif isinstance(element, (model.Risk, model.Choice)):
             # For a risk we also want to include all siblings of its module parent

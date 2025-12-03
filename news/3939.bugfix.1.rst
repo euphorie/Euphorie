@@ -1,0 +1,1 @@
+Fix style of navigation for a module containing choices instead of risks.
