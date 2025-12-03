@@ -24,10 +24,16 @@
             action="${here/absolute_url}/@@${view/__name__}"
             enctype="multipart/form-data"
             method="post"
-            tal:define="pat_inject_instructions string:history: record; source: #steps; target: #steps &amp;&amp; source: #content; target: #content';
-                        pat_inject_instructions python: pat_inject_instructions + ' &amp;&amp; source: #osc; target: #osc' if view.next_is_actionplan else pat_inject_instructions;"
             data-pat-inject="${pat_inject_instructions}"
             data-pat-scroll="selector: #content; trigger: auto; offset: 0"
+            tal:define="
+              pat_inject_instructions string:history: record;
+              source: #steps;
+              target: #steps &amp;&amp; source: #content;
+              target: #content';
+              pat_inject_instructions python: pat_inject_instructions + ' &amp;&amp; source: #osc;
+              target: #osc' if view.next_is_actionplan else pat_inject_instructions;
+            "
       >
         <div class="pat-scroll-box"
              id="content-pane"
