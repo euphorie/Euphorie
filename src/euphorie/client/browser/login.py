@@ -15,6 +15,7 @@ from euphorie.client import config
 from euphorie.client import MessageFactory as _
 from euphorie.client import model
 from euphorie.client.browser.country import SessionsView
+from euphorie.client.browser.webhelpers import WebHelpers
 from euphorie.client.model import get_current_account
 from euphorie.content.survey import ISurvey
 from plone import api
@@ -25,6 +26,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 from Products.PlonePAS.events import UserLoggedInEvent
 from Products.statusmessages.interfaces import IStatusMessage
+from typing import cast
 from urllib.parse import parse_qs
 from urllib.parse import urlencode
 from urllib.parse import urlparse
@@ -54,8 +56,10 @@ class Login(BrowserView):
 
     @property
     @memoize
-    def webhelpers(self):
-        return api.content.get_view("webhelpers", self.context, self.request)
+    def webhelpers(self) -> WebHelpers:
+        return cast(
+            WebHelpers, api.content.get_view("webhelpers", self.context, self.request)
+        )
 
     def setLanguage(self, came_from):
         qs = urlparse(came_from)[4]
@@ -415,7 +419,7 @@ class Tryout(SessionsView, Login):
         return account
 
     def __call__(self):
-        came_from = self.request.form.get("came_from")
+        came_from = self.webhelpers.get_came_from(default=self.webhelpers.country_url)
         if not came_from:
             return self.request.response.redirect(api.portal.get().absolute_url())
 
