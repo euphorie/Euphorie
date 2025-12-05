@@ -1,0 +1,2 @@
+Only allow came_from URLs that are in portal. See also https://github.com/euphorie/Euphorie/pull/363
+[@ale-rt]
