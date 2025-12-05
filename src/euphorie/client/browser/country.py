@@ -3,6 +3,7 @@ from anytree import NodeMixin
 from anytree.node.util import _repr
 from euphorie import MessageFactory as _
 from euphorie.client import utils
+from euphorie.client.browser.webhelpers import WebHelpers
 from euphorie.client.country import IClientCountry
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.model import get_current_account
@@ -15,6 +16,7 @@ from plone.base.utils import safe_text
 from plone.memoize.view import memoize
 from plone.memoize.view import memoize_contextless
 from Products.Five import BrowserView
+from typing import cast
 from z3c.saconfig import Session
 from zExceptions import Unauthorized
 from zope.deprecation import deprecate
@@ -149,8 +151,10 @@ class SessionsView(BrowserView, SurveyTemplatesMixin):
 
     @property
     @memoize
-    def webhelpers(self):
-        return api.content.get_view("webhelpers", self.context, self.request)
+    def webhelpers(self) -> WebHelpers:
+        return cast(
+            WebHelpers, api.content.get_view("webhelpers", self.context, self.request)
+        )
 
     @property
     @memoize
