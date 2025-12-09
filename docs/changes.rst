@@ -8,6 +8,19 @@ Changelog
 
 .. towncrier release notes start
 
+19.1.5 (2025-12-09)
+-------------------
+
+Bug fixes:
+
+
+- Translate "enable test questions" for trainings.
+  Translate "label_enable_test_questions", so that it better fits what is happening.
+  Ref: scrum-4172 (`Issue #4172 <https://github.com/syslabcom/scrum/issues/4172>`_)
+- Only allow came_from URLs that are in portal. See also https://github.com/euphorie/Euphorie/pull/363
+  [@ale-rt] (`Issue #4228 <https://github.com/syslabcom/scrum/issues/4228>`_)
+
+
 19.1.4 (2025-11-18)
 -------------------
 
