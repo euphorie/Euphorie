@@ -8,6 +8,32 @@ Changelog
 
 .. towncrier release notes start
 
+19.1.5+dsetool.0 (2025-12-09)
+-----------------------------
+
+New features:
+
+
+- Adding glossary javascript to load and mark language specific glossary terms in the client UI when found.
+  Supports the DS etool languages de, AT_de, en, es, et, is, lt, no, pt, ro, sl.
+  Note that lt is present but empty.
+  . (`Issue #3235 <https://github.com/syslabcom/scrum/issues/3235>`_)
+- Allow hiding the report phase until assessment is completed to a certain percentage (`Issue #3237 <https://github.com/syslabcom/scrum/issues/3237>`_)
+
+
+Bug fixes:
+
+
+- Also inject the navigation when going through identification.
+  This helps confusion when saving the last risk/choice and going to the report.
+  Fix style of navigation for a module containing choices instead of risks. (`Issue #3939 <https://github.com/syslabcom/scrum/issues/3939>`_)
+- Translate "enable test questions" for trainings.
+  Translate "label_enable_test_questions", so that it better fits what is happening.
+  Ref: scrum-4172 (`Issue #4172 <https://github.com/syslabcom/scrum/issues/4172>`_)
+- Only allow came_from URLs that are in portal. See also https://github.com/euphorie/Euphorie/pull/363
+  [@ale-rt] (`Issue #4228 <https://github.com/syslabcom/scrum/issues/4228>`_)
+
+
 19.1.4 (2025-11-18)
 -------------------
 

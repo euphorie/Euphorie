@@ -1,3 +1,0 @@
-Also inject the navigation when going through identification.
-This helps confusion when saving the last risk/choice and going to the report.
-Fix style of navigation for a module containing choices instead of risks.
