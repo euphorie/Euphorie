@@ -206,7 +206,12 @@ class Login(BrowserView):
             return False
 
         # Check honeypot fields
-        if form.get("user_name") or form.get("user_email"):
+        if form.get("my_name") or form.get("my_email"):
+            ip = self.request.get("HTTP_X_FORWARDED_FOR") or self.request.get(
+                "REMOTE_ADDR", "unknown"
+            )
+            url = self.request.get("ACTUAL_URL", "")
+            log.warning("SPAMMER caught in honeypot.  ip %r, url %r", ip, url)
             return False
 
         session = Session()
@@ -424,7 +429,12 @@ class Tryout(SessionsView, Login):
             return self.request.response.redirect(api.portal.get().absolute_url())
 
         # Check honeypot fields
-        if self.request.form.get("user_name") or self.request.form.get("user_email"):
+        if self.request.form.get("my_name") or self.request.form.get("my_email"):
+            ip = self.request.get("HTTP_X_FORWARDED_FOR") or self.request.get(
+                "REMOTE_ADDR", "unknown"
+            )
+            url = self.request.get("ACTUAL_URL", "")
+            log.warning("SPAMMER caught in honeypot.  ip %r, url %r", ip, url)
             return self.request.response.redirect(api.portal.get().absolute_url())
 
         account = self.createGuestAccount()
