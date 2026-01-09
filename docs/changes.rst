@@ -8,6 +8,15 @@ Changelog
 
 .. towncrier release notes start
 
+19.1.6 (2026-01-09)
+-------------------
+
+Bug fixes:
+
+
+- Fix the honeypot fields check. [ale-rt] (`Issue #4367 <https://github.com/syslabcom/scrum/issues/4367>`_)
+
+
 19.1.5 (2025-12-09)
 -------------------
 
