@@ -1,3 +1,0 @@
-Update plone.patternslib to 9.10.4.
-Fixes: https://github.com/syslabcom/scrum/issues/4321
-[thet]

@@ -8,6 +8,18 @@ Changelog
 
 .. towncrier release notes start
 
+19.1.7 (2026-01-20)
+-------------------
+
+Bug fixes:
+
+
+- Update plone.patternslib to 9.10.4.
+  Fixes: https://github.com/syslabcom/scrum/issues/4321
+  [thet] (`Issue #4321 <https://github.com/syslabcom/scrum/issues/4321>`_)
+- Add missing class on the back button on the "more information" screen at the login page.
+
+
 19.1.6 (2026-01-09)
 -------------------
 
