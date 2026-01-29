@@ -1,8 +1,7 @@
 from setuptools import find_packages
 from setuptools import setup
 
-
-version = "19.1.7+dsetool.0.dev0"
+version = "19.1.8+dsetool.0.dev0"
 
 setup(
     name="Euphorie",
@@ -14,6 +13,7 @@ setup(
         "Environment :: Web Environment",
         "Framework :: Plone",
         "Framework :: Plone :: 6.1",
+        "Framework :: Plone :: 6.2",
         "License :: OSI Approved :: GNU General Public License (GPL)",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.11",

@@ -8,8 +8,23 @@ Changelog
 
 .. towncrier release notes start
 
+19.1.7 (2026-01-20)
+-------------------
+
+Bug fixes:
+
+
+- Update plone.patternslib to 9.10.4.
+  Fixes: https://github.com/syslabcom/scrum/issues/4321
+  [thet] (`Issue #4321 <https://github.com/syslabcom/scrum/issues/4321>`_)
+- Add missing class on the back button on the "more information" screen at the login page.
+
+
 19.1.6+dsetool.0 (2026-01-09)
 -----------------------------
+
+19.1.6 (2026-01-09)
+-------------------
 
 Bug fixes:
 
@@ -36,6 +51,11 @@ Bug fixes:
 - Also inject the navigation when going through identification.
   This helps confusion when saving the last risk/choice and going to the report.
   Fix style of navigation for a module containing choices instead of risks. (`Issue #3939 <https://github.com/syslabcom/scrum/issues/3939>`_)
+
+
+19.1.5 (2025-12-09)
+-------------------
+
 - Translate "enable test questions" for trainings.
   Translate "label_enable_test_questions", so that it better fits what is happening.
   Ref: scrum-4172 (`Issue #4172 <https://github.com/syslabcom/scrum/issues/4172>`_)

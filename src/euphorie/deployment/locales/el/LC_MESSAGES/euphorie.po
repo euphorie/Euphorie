@@ -6418,7 +6418,7 @@ msgstr ""
 #. Default: "Measures already in place:"
 #: euphorie/client/docx/compiler.py:719
 msgid "report_measures_in_place"
-msgstr ""
+msgstr "Υφιστάμενα Μέτρα:"
 
 #. Default: "Responsible: ${responsible_name}"
 #: euphorie/client/docx/compiler.py:764

@@ -296,7 +296,7 @@
           >
             <div class="pat-toolbar">
               <div class="pat-toolbar-section">
-                <a class="pat-back-button"
+                <a class="pat-back-button dp"
                    href="#intro"
                    i18n:translate="home_link"
                 >Dashboard</a>
