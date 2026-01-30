@@ -8,7 +8,16 @@ Changelog
 
 .. towncrier release notes start
 
-19.1.7 (2026-01-20)
+19.1.7+dsetool.0 (2026-01-30)
+-----------------------------
+
+Bug fixes:
+
+
+- Update NuPlone to 5.0.0 (`Issue #4458 <https://github.com/syslabcom/scrum/issues/4458>`_)
+
+
+19.1.7 (unreleased)
 -------------------
 
 Bug fixes:
