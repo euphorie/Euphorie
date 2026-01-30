@@ -2,7 +2,7 @@ EUPHORIE_POT   = src/euphorie/deployment/locales/euphorie.pot
 EUPHORIE_PO_FILES      = $(wildcard src/euphorie/deployment/locales/*/LC_MESSAGES/euphorie.po)
 PLONE_PO_FILES = $(wildcard src/euphorie/deployment/locales/*/LC_MESSAGES/plone.po)
 MO_FILES       = $(EUPHORIE_PO_FILES:.po=.mo) $(PLONE_PO_FILES:.po=.mo)
-TWINE_REPOSITORY ?= pypi
+TWINE_REPOSITORY ?= pypi.syslab.com
 
 TARGETS        = $(MO_FILES)
 SHELL=/usr/bin/env bash
