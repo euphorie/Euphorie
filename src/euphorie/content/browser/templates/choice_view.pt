@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      metal:use-macro="context/@@layout/macros/layout"
+      i18n:domain="euphorie"
+>
+  <body>
+    <metal:title fill-slot="title">${context/Title}</metal:title>
+    <metal:bar fill-slot="buttonbar"><tal:tile replace="tile:euphorie.addbar" /></metal:bar>
+
+    <metal:content fill-slot="content"
+                   tal:define="
+                     can_edit python:tools.checkPermission('Modify portal content');
+                   "
+    >
+      <fieldset>
+        <legend tal:content="view/default_fieldset_label|view/label|string:Default fieldset"
+                i18n:domain="plone"
+                i18n:translate=""
+        >Default fieldset</legend>
+        <tal:widget repeat="widget view/widgets/values"
+                    replace="structure widget/render"
+        />
+      </fieldset>
+
+      <tal:groupform condition="python:getattr(view, 'groups', None)">
+        <fieldset tal:repeat="group view/groups">
+          <legend tal:content="group/label"
+                  i18n:domain="plone"
+                  i18n:translate=""
+          >Group name</legend>
+          <tal:widget repeat="widget group/widgets/values">
+            <tal:render replace="structure widget/render" />
+          </tal:widget>
+        </fieldset>
+      </tal:groupform>
+
+      <tal:block condition="view/options">
+        <h2 i18n:translate="header_options">Options</h2>
+
+        <ol class="${python:'sortable' if can_edit and len(view.options)&gt;1 else None}">
+          <div class="sortable-explanation">
+            ${view/sortable_explanation}
+          </div>
+          <li id="option-${option/id}"
+              tal:repeat="option view/options"
+          ><a href="${option/url}"
+               i18n:translate="choice_option_header"
+            >Option
+              <tal:span i18n:name="number">${repeat/option/number}</tal:span></a><br />
+            <p tal:content="option/title"></p></li>
+        </ol>
+      </tal:block>
+
+    </metal:content>
+  </body>
+</html>
