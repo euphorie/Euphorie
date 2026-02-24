@@ -6393,3 +6393,10 @@ msgstr ""
 #: euphorie/content/browser/templates/risk_view.pt:89
 msgid "yes"
 msgstr ""
+
+msgid "Your answer:"
+msgstr ""
+
+msgid "label_part"
+msgstr "Part"
+
