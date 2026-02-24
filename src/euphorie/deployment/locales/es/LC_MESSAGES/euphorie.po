@@ -7109,3 +7109,9 @@ msgstr "Tenga en cuenta que al borrar su cuenta, borrará también todas sus ses
 #: euphorie/content/browser/templates/risk_view.pt:89
 msgid "yes"
 msgstr "Sí"
+
+msgid "Your answer:"
+msgstr "La tua risposta:"
+
+msgid "label_part"
+msgstr "Parte"
