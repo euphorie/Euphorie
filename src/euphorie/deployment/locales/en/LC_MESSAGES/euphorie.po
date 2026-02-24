@@ -4259,6 +4259,21 @@ msgstr ""
 msgid "label_close"
 msgstr "Close"
 
+#. Default: "Measures:"
+#: euphorie/client/browser/templates/report_inventory.pt:64
+msgid "Measures:"
+msgstr "Measures:"
+
+#. Default: "Part"
+#: euphorie/client/browser/report.py:306
+msgid "label_part"
+msgstr "Part"
+
+#. Default: "Your answer:"
+#: euphorie/client/browser/templates/report_inventory.pt:62
+msgid "Your answer:"
+msgstr "Your answer:"
+
 #~ msgid "label_daily"
 #~ msgstr "Daily"
 

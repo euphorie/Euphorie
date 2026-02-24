@@ -303,9 +303,10 @@ class ReportInventory(BrowserView):
         ]
 
     def get_intro(self, module, idx=0):
+        label_part = _("label_part", default="Part")
         return "\n".join(
             (
-                f"<h2>Part {self.heading_numbers[idx]}: {module.title}</h2>",
+                f"<h2>{api.portal.translate(label_part)} {self.heading_numbers[idx]}: {module.title}</h2>",
                 module.recommendation or "",
             )
         )

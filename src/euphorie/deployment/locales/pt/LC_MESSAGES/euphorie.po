@@ -7111,3 +7111,18 @@ msgstr "Tenha em atenção que ao apagar a sua conta, também apagará todas as 
 #: euphorie/content/browser/templates/risk_view.pt:89
 msgid "yes"
 msgstr "Sim"
+
+#. Default: "Measures:"
+#: euphorie/client/browser/templates/report_inventory.pt:64
+msgid "Measures:"
+msgstr "Medidas:"
+
+#. Default: "Part"
+#: euphorie/client/browser/report.py:306
+msgid "label_part"
+msgstr "Parte"
+
+#. Default: "Your answer:"
+#: euphorie/client/browser/templates/report_inventory.pt:62
+msgid "Your answer:"
+msgstr "A sua resposta:"

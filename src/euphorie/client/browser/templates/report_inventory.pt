@@ -26,7 +26,7 @@
         >
           <div class="download-block">
             <div class="download-block-header">
-              <h2>Report</h2>
+              <h2 i18n:translate="label_report">Report</h2>
               <a class="default pat-button download rtf icon-download"
                  href="${context/absolute_url}/@@pdf?view=report_inventory_pdf"
               >
@@ -59,9 +59,9 @@
               ></p>
               <tal:recom tal:repeat="option python:view.get_selected_options(module)">
                 <h3>${option/aq_parent/title}</h3>
-                <em>Your answer:</em>
+                <em i18n:translate="">Your answer:</em>
                 <span>${option/title}</span>
-                <h4>Measures:</h4>
+                <h4 i18n:translate="">Measures:</h4>
                 <p tal:repeat="recommendation option/values"
                    tal:replace="structure recommendation/text"
                 >

@@ -6948,6 +6948,21 @@ msgstr "Да"
 msgid "yes_acceptable"
 msgstr "Да, оставащият риск е приемлив."
 
+#. Default: "Measures:"
+#: euphorie/client/browser/templates/report_inventory.pt:64
+msgid "Measures:"
+msgstr "Мерки:"
+
+#. Default: "Part"
+#: euphorie/client/browser/report.py:306
+msgid "label_part"
+msgstr "Част"
+
+#. Default: "Your answer:"
+#: euphorie/client/browser/templates/report_inventory.pt:62
+msgid "Your answer:"
+msgstr "Вашият отговор:"
+
 #~ msgid "A folder for all documentation for a specific language."
 #~ msgstr "Папка с всичката документация за определен език."
 

@@ -7133,3 +7133,18 @@ msgstr "Upoštevajte, da z izbrisom svojega računa izbrišete tudi vse svoje se
 #: euphorie/content/browser/templates/risk_view.pt:89
 msgid "yes"
 msgstr "Da"
+
+#. Default: "Measures:"
+#: euphorie/client/browser/templates/report_inventory.pt:64
+msgid "Measures:"
+msgstr "Ukrepi:"
+
+#. Default: "Part"
+#: euphorie/client/browser/report.py:306
+msgid "label_part"
+msgstr "Del"
+
+#. Default: "Your answer:"
+#: euphorie/client/browser/templates/report_inventory.pt:62
+msgid "Your answer:"
+msgstr "Vaš odgovor:"

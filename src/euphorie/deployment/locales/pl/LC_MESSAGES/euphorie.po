@@ -6609,6 +6609,21 @@ msgstr ""
 msgid "yes"
 msgstr ""
 
+#. Default: "Measures:"
+#: euphorie/client/browser/templates/report_inventory.pt:64
+msgid "Measures:"
+msgstr "Środki:"
+
+#. Default: "Part"
+#: euphorie/client/browser/report.py:306
+msgid "label_part"
+msgstr "Część"
+
+#. Default: "Your answer:"
+#: euphorie/client/browser/templates/report_inventory.pt:62
+msgid "Your answer:"
+msgstr "Twoja odpowiedź:"
+
 #~ msgid "Share this OiRA-Tool"
 #~ msgstr "Podziel się narzędziem OiRA"
 
