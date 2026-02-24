@@ -59,7 +59,7 @@
               ></p>
               <tal:recom tal:repeat="option python:view.get_selected_options(module)">
                 <h3>${option/aq_parent/title}</h3>
-                <em>Your answer:</em>
+                <em i18n:translate="">Your answer:</em>
                 <span>${option/title}</span>
                 <h4>Measures:</h4>
                 <p tal:repeat="recommendation option/values"
