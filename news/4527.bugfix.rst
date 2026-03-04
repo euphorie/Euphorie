@@ -1,0 +1,1 @@
+Templatize and add translations for report_inventory

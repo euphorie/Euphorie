@@ -6605,6 +6605,21 @@ msgstr ""
 msgid "yes"
 msgstr ""
 
+#. Default: "Measures:"
+#: euphorie/client/browser/templates/report_inventory.pt:64
+msgid "Measures:"
+msgstr "Meetmed:"
+
+#. Default: "Part"
+#: euphorie/client/browser/report.py:306
+msgid "label_part"
+msgstr "Osa"
+
+#. Default: "Your answer:"
+#: euphorie/client/browser/templates/report_inventory.pt:62
+msgid "Your answer:"
+msgstr "Teie vastus:"
+
 #~ msgid "Share this OiRA-Tool"
 #~ msgstr "Jagage seda OiRA vahendit"
 

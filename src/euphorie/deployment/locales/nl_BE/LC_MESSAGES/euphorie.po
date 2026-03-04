@@ -6749,6 +6749,21 @@ msgstr "Ja"
 msgid "yes_acceptable"
 msgstr "Ja, het resterende risico is aanvaardbaar"
 
+#. Default: "Measures:"
+#: euphorie/client/browser/templates/report_inventory.pt:64
+msgid "Measures:"
+msgstr "Maatregelen:"
+
+#. Default: "Part"
+#: euphorie/client/browser/report.py:306
+msgid "label_part"
+msgstr "Deel"
+
+#. Default: "Your answer:"
+#: euphorie/client/browser/templates/report_inventory.pt:62
+msgid "Your answer:"
+msgstr "Uw antwoord:"
+
 #~ msgid "A folder for all documentation for a specific language."
 #~ msgstr "Een map voor alle documentatie voor een specifieke taal."
 

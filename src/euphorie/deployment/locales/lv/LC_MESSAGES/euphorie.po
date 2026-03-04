@@ -6943,6 +6943,21 @@ msgstr "Jā"
 msgid "yes_acceptable"
 msgstr "Jā, atlikušais risks ir pieņemams"
 
+#. Default: "Measures:"
+#: euphorie/client/browser/templates/report_inventory.pt:64
+msgid "Measures:"
+msgstr "Pasākumi:"
+
+#. Default: "Part"
+#: euphorie/client/browser/report.py:306
+msgid "label_part"
+msgstr "Daļa"
+
+#. Default: "Your answer:"
+#: euphorie/client/browser/templates/report_inventory.pt:62
+msgid "Your answer:"
+msgstr "Jūsu atbilde:"
+
 #~ msgid "A folder for all documentation for a specific language."
 #~ msgstr "Mape visai dokumentācijai noteiktā valodā."
 

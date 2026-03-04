@@ -6935,6 +6935,21 @@ msgstr "Kyllä"
 msgid "yes_acceptable"
 msgstr "Kyllä, jäljellä oleva riski on hyväksyttävissä"
 
+#. Default: "Measures:"
+#: euphorie/client/browser/templates/report_inventory.pt:64
+msgid "Measures:"
+msgstr "Toimenpiteet:"
+
+#. Default: "Part"
+#: euphorie/client/browser/report.py:306
+msgid "label_part"
+msgstr "Osa"
+
+#. Default: "Your answer:"
+#: euphorie/client/browser/templates/report_inventory.pt:62
+msgid "Your answer:"
+msgstr "Vastauksesi:"
+
 #~ msgid "A folder for all documentation for a specific language."
 #~ msgstr "Tietyn kielen kaikkien dokumenttien kansio."
 

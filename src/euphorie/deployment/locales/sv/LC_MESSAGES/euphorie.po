@@ -6605,6 +6605,21 @@ msgstr ""
 msgid "yes"
 msgstr "Ja"
 
+#. Default: "Measures:"
+#: euphorie/client/browser/templates/report_inventory.pt:64
+msgid "Measures:"
+msgstr "Åtgärder:"
+
+#. Default: "Part"
+#: euphorie/client/browser/report.py:306
+msgid "label_part"
+msgstr "Del"
+
+#. Default: "Your answer:"
+#: euphorie/client/browser/templates/report_inventory.pt:62
+msgid "Your answer:"
+msgstr "Ditt svar:"
+
 #~ msgid "A folder for all documentation for a specific language."
 #~ msgstr "En mapp för all dokumentation av ett visst språk."
 

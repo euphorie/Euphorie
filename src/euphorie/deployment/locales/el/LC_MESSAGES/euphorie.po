@@ -6940,6 +6940,21 @@ msgstr "Ναι"
 msgid "yes_acceptable"
 msgstr "Ναι, ο εναπομένων κίνδυνος είναι αποδεκτός"
 
+#. Default: "Measures:"
+#: euphorie/client/browser/templates/report_inventory.pt:64
+msgid "Measures:"
+msgstr "Μέτρα:"
+
+#. Default: "Part"
+#: euphorie/client/browser/report.py:306
+msgid "label_part"
+msgstr "Μέρος"
+
+#. Default: "Your answer:"
+#: euphorie/client/browser/templates/report_inventory.pt:62
+msgid "Your answer:"
+msgstr "Η απάντησή σας:"
+
 #~ msgid "A folder for all documentation for a specific language."
 #~ msgstr "Ένας φάκελος για όλα τα έγγραφα μιας συγκεκριμένης γλώσσας."
 
