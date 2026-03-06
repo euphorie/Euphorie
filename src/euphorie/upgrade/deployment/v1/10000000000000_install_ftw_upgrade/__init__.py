@@ -1,8 +1,8 @@
-from ftw.upgrade import UpgradeStep
+from collective.ftw.upgrade import UpgradeStep
 
 
 class InstallFtwUpgrade(UpgradeStep):
-    """Install ftw.upgrade."""
+    """Install collective.ftw.upgrade."""
 
     def __call__(self):
-        self.ensure_profile_installed("ftw.upgrade:default")
+        self.ensure_profile_installed("collective.ftw.upgrade:default")

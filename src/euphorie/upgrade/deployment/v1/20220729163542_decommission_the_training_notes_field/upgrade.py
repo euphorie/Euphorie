@@ -1,6 +1,6 @@
+from collective.ftw.upgrade import UpgradeStep
 from euphorie.client.model import Risk
 from euphorie.client.model import Session
-from ftw.upgrade import UpgradeStep
 from logging import getLogger
 
 import sqlalchemy as sa
