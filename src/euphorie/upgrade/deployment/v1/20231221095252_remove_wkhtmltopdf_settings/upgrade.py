@@ -1,4 +1,4 @@
-from ftw.upgrade import UpgradeStep
+from collective.ftw.upgrade import UpgradeStep
 from plone.registry.interfaces import IRegistry
 from zope.component import getUtility
 

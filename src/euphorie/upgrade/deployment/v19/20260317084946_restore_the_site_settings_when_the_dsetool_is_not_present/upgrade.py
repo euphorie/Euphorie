@@ -1,4 +1,4 @@
-from ftw.upgrade import UpgradeStep
+from collective.ftw.upgrade import UpgradeStep
 from importlib.util import find_spec
 from logging import getLogger
 from plone import api
