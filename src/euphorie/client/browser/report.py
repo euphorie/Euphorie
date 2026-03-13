@@ -278,9 +278,16 @@ class ReportInventory(BrowserView):
         return self.context.session
 
     @property
+    @memoize
+    def country_code(self):
+        return self.context.aq_parent.aq_parent.aq_parent.id
+
+    @property
+    @memoize
     def cover(self):
         filename = resource_filename(
-            "euphorie.client.browser", "templates/dsetool_cover.png"
+            "euphorie.client.browser",
+            f"templates/dsetool_cover_{self.country_code}.png",
         )
         with open(filename, "rb") as data:
             return b64encode(data.read())
@@ -289,7 +296,8 @@ class ReportInventory(BrowserView):
     @memoize
     def logo(self):
         filename = resource_filename(
-            "euphorie.client.browser", "templates/dsetool_report_logo.png"
+            "euphorie.client.browser",
+            f"templates/dsetool_report_logo_{self.country_code}.png",
         )
         with open(filename, "rb") as data:
             return b64encode(data.read())
@@ -303,10 +311,10 @@ class ReportInventory(BrowserView):
         ]
 
     def get_intro(self, module, idx=0):
-        label_part = _("label_part", default="Part")
+        label_part = api.portal.translate(_("label_part", default="Part"))
         return "\n".join(
             (
-                f"<h2>{api.portal.translate(label_part)} {self.heading_numbers[idx]}: {module.title}</h2>",
+                f"<h2>{label_part} {self.heading_numbers[idx]}: {module.title}</h2>",
                 module.recommendation or "",
             )
         )
