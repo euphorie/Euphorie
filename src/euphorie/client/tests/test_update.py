@@ -45,11 +45,13 @@ class GetSurveyTreeTests(TreeTests):
             [
                 {
                     "optional": False,
+                    "condition": None,
                     "zodb_path": "1",
                     "type": "module",
                     "has_description": False,
                     "always_present": False,
                     "risk_type": None,
+                    "allow_multiple_options": False,
                 }
             ],
         )
@@ -63,19 +65,23 @@ class GetSurveyTreeTests(TreeTests):
             [
                 {
                     "optional": False,
+                    "condition": None,
                     "zodb_path": "1",
                     "type": "module",
                     "has_description": False,
                     "always_present": False,
                     "risk_type": None,
+                    "allow_multiple_options": False,
                 },
                 {
                     "optional": False,
+                    "condition": None,
                     "zodb_path": "1/2",
                     "type": "risk",
                     "has_description": False,
                     "always_present": False,
                     "risk_type": "risk",
+                    "allow_multiple_options": False,
                 },
             ],
         )

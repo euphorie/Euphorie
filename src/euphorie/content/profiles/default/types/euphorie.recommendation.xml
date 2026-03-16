@@ -1,38 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <object xmlns:i18n="http://xml.zope.org/namespaces/i18n"
         meta_type="Dexterity FTI"
-        name="euphorie.module"
+        name="euphorie.recommendation"
         i18n:domain="euphorie"
 >
 
   <!-- Basic information -->
   <property name="title"
             i18n:translate=""
-  >Module</property>
-  <property name="description"
-            i18n:translate=""
-  >A module is a grouping of risks</property>
+  >Recommendation</property>
+  <property name="description">A piece of text that can be included in a report.</property>
   <property name="content_icon">document_icon.gif</property>
   <property name="global_allow">False</property>
   <property name="allow_discussion">False</property>
 
   <property name="filter_content_types">True</property>
-  <property name="allowed_content_types">
-    <element value="euphorie.module" />
-    <element value="euphorie.risk" />
-    <element value="euphorie.choice" />
-  </property>
+  <property name="allowed_content_types" />
 
-  <property name="klass">euphorie.content.module.Module</property>
+  <property name="klass">plone.dexterity.content.Container</property>
   <property name="add_permission">euphorie.content.AddNewRIEContent</property>
 
-  <property name="schema">euphorie.content.module.IModule</property>
+  <property name="schema">euphorie.content.recommendation.IRecommendation</property>
   <property name="model_source" />
   <property name="model_file" />
 
   <!-- List of enabled behaviors -->
   <property name="behaviors">
     <element value="euphorie.content.behaviour.uniqueid.INameFromUniqueId" />
+    <element value="plone.app.dexterity.behaviors.metadata.IBasic" />
   </property>
 
   <!-- View information -->
