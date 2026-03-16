@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      id="report_landing"
+      meta:interpolation="true"
+      metal:use-macro="context/@@shell/macros/shell"
+      tal:define="
+        webhelpers nocall:context/@@webhelpers;
+      "
+      i18n:domain="euphorie"
+>
+
+  <body>
+    <metal:slot fill-slot="content">
+      <div class="pat-scroll-box"
+           id="content-pane"
+      >
+        <div class="download-blocks">
+          <div class="download-block">
+            <div class="download-block-header">
+              <h2>Report</h2>
+              <a class="default pat-button download rtf icon-download"
+                 href="${context/absolute_url}/@@pdf?view=report_inventory_pdf"
+              >
+                <tal:trans i18n:translate="button_download">Download</tal:trans>
+              </a>
+            </div>
+          </div>
+        </div>
+        <metal:macro define-macro="report_inventory">
+          <tal:block replace="tile:statusmessages" />
+
+          <article class="pat-rich"
+                   id="report"
+          >
+            <h1 i18n:translate="label_report">Good practices and guidance</h1>
+
+            <tal:recom tal:repeat="option view/selected_options">
+              <h2>${option/aq_parent/title}</h2>
+              <em>Your answer:</em>
+              <span>${option/title}</span>
+              <h3>Measures:</h3>
+              <p tal:repeat="recommendation option/values"
+                 tal:replace="structure recommendation/text"
+              >
+              </p>
+            </tal:recom>
+
+          </article>
+
+          <tal:block replace="tile:client-analytics" />
+        </metal:macro>
+      </div>
+    </metal:slot>
+  </body>
+</html>

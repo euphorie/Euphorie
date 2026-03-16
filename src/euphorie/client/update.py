@@ -23,6 +23,9 @@ def getSurveyTree(survey, profile=None):
             "euphorie.profilequestion",
             "euphorie.module",
             "euphorie.risk",
+            "euphorie.choice",
+            "euphorie.option",
+            "euphorie.recommendation",
         ]:
             continue
         # Note that in profile.AddToTree, we pretend that an optional module
@@ -44,6 +47,14 @@ def getSurveyTree(survey, profile=None):
                 ),
                 "risk_type": (node.portal_type[9:] == "risk" and node.type or None),
                 "optional": node.optional,
+                "condition": (
+                    node.portal_type[9:] == "choice" and node.condition or None
+                ),
+                "allow_multiple_options": (
+                    node.portal_type[9:] == "choice"
+                    and node.allow_multiple_options
+                    or False
+                ),
             }
         )
         if IQuestionContainer.providedBy(node):
@@ -67,6 +78,7 @@ class Node:
         self.has_description = item.has_description
         self.identification = item.type == "risk" and item.identification or None
         self.risk_type = item.type == "risk" and item.risk_type or None
+        self.condition = item.type == "choice" and item.condition or None
 
     def __repr__(self):
         return "<Node zodb_path={} type={} path={}>".format(
@@ -124,6 +136,9 @@ def treeChanges(session, survey, profile=None):
                 ):
                     results.add((entry["zodb_path"], node.type, "modified"))
                 if entry["risk_type"] != node.risk_type:
+                    results.add((entry["zodb_path"], node.type, "modified"))
+            if node.type == entry["type"] == "choice":
+                if node.condition != entry["condition"]:
                     results.add((entry["zodb_path"], node.type, "modified"))
             if nodes[0].type == entry["type"] or (
                 nodes[0].type == "module" and entry["type"] == "profilequestion"

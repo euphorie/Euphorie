@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<object xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+        meta_type="Dexterity FTI"
+        name="euphorie.module"
+        i18n:domain="euphorie"
+>
+  <property name="allowed_content_types">
+    <element value="euphorie.module" />
+    <element value="euphorie.risk" />
+    <element value="euphorie.choice" />
+  </property>
+</object>
