@@ -2,6 +2,7 @@ EUPHORIE_POT   = src/euphorie/deployment/locales/euphorie.pot
 EUPHORIE_PO_FILES      = $(wildcard src/euphorie/deployment/locales/*/LC_MESSAGES/euphorie.po)
 PLONE_PO_FILES = $(wildcard src/euphorie/deployment/locales/*/LC_MESSAGES/plone.po)
 MO_FILES       = $(EUPHORIE_PO_FILES:.po=.mo) $(PLONE_PO_FILES:.po=.mo)
+TWINE_REPOSITORY ?= pypi
 
 TARGETS        = $(MO_FILES)
 SHELL=/usr/bin/env bash
@@ -46,3 +47,13 @@ $(EUPHORIE_PO_FILES): src/euphorie/deployment/locales/euphorie.pot
 .PHONY: all clean docs jenkins pot
 .SUFFIXES:
 .SUFFIXES: .po .mo .css .min.css
+
+.PHONY: release
+release:
+	@echo "Releasing to repository: $(TWINE_REPOSITORY)"
+	@echo "To release to a different repository, run \`make release TWINE_REPOSITORY=<repository>\`"
+	TWINE_REPOSITORY="$(TWINE_REPOSITORY)" uvx \
+		--from zest-releaser \
+		--with zest-releaser\[recommended\] \
+		--with zestreleaser-towncrier \
+		fullrelease
