@@ -432,6 +432,25 @@
       layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
+  <!-- Choice -->
+  <browser:page
+      name="nuplone-view"
+      for="euphorie.content.choice.IChoice"
+      class=".choice.ChoiceView"
+      template="templates/choice_view.pt"
+      permission="zope2.View"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      />
+
+  <browser:page
+      name="nuplone-view"
+      for="euphorie.content.option.IOption"
+      class="plone.dexterity.browser.view.DefaultView"
+      template="templates/option_view.pt"
+      permission="zope2.View"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      />
+
 
   <!-- Library -->
   <browser:page
