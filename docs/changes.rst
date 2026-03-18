@@ -8,6 +8,23 @@ Changelog
 
 .. towncrier release notes start
 
+19.2.0 (2026-03-18)
+-------------------
+
+Bug fixes:
+
+
+- Update NuPlone to 5.0.0 (`Issue #4458 <https://github.com/syslabcom/scrum/issues/4458>`_)
+
+
+Internal:
+
+
+- Pin the latest version of markdownify (`Issue #4527 <https://github.com/syslabcom/scrum/issues/4527>`_)
+- Fix the DB state for sites that wrongly had the dsetool branch (`Issue #4612 <https://github.com/syslabcom/scrum/issues/4612>`_)
+- Provide a release target for the Makefile
+
+
 19.1.7 (2026-01-20)
 -------------------
 
