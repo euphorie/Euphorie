@@ -8,12 +8,13 @@ Changelog
 
 .. towncrier release notes start
 
-19.1.7 (unreleased)
--------------------
+19.2.0a1+dsetool.0 (2026-03-18)
+-------------------------------
 
 Bug fixes:
 
 
+- Templatize and add translations for report_inventory (`Issue #4527 <https://github.com/syslabcom/scrum/issues/4527>`_)
 - Update NuPlone to 5.0.0 (`Issue #4458 <https://github.com/syslabcom/scrum/issues/4458>`_)
 
 
