@@ -8,8 +8,8 @@ Changelog
 
 .. towncrier release notes start
 
-19.1.7+dsetool.0 (2026-01-30)
------------------------------
+19.1.7 (unreleased)
+-------------------
 
 Bug fixes:
 
@@ -17,7 +17,15 @@ Bug fixes:
 - Update NuPlone to 5.0.0 (`Issue #4458 <https://github.com/syslabcom/scrum/issues/4458>`_)
 
 
-19.1.7 (unreleased)
+Internal:
+
+
+- Pin the latest version of markdownify (`Issue #4527 <https://github.com/syslabcom/scrum/issues/4527>`_)
+- Fix the DB state for sites that wrongly had the dsetool branch (`Issue #4612 <https://github.com/syslabcom/scrum/issues/4612>`_)
+- Provide a release target for the Makefile
+
+
+19.1.7 (2026-01-20)
 -------------------
 
 Bug fixes:
@@ -28,9 +36,6 @@ Bug fixes:
   [thet] (`Issue #4321 <https://github.com/syslabcom/scrum/issues/4321>`_)
 - Add missing class on the back button on the "more information" screen at the login page.
 
-
-19.1.6+dsetool.0 (2026-01-09)
------------------------------
 
 19.1.6 (2026-01-09)
 -------------------
