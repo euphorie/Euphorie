@@ -222,6 +222,18 @@ class AddForm(DefaultAddForm):
         notify(ObjectClonedEvent(target[copy.id]))
         return copy
 
+    def persist_survey_fields(self, survey):
+        """Persist defaultFactory-backed survey fields on a new object.
+
+        Usually this is done by the applyChanges of the dexterity add form,
+        but since we create the survey while creating its container,
+        we need to do this manually here.
+        """
+        for name in ISurvey.names():
+            field = ISurvey[name]
+            if field.defaultFactory is not None:
+                setattr(survey, name, getattr(survey, name))
+
     def createAndAdd(self, data):
         obj = super().createAndAdd(data)
         obj = aq_inner(self.context)[obj.id]
@@ -249,6 +261,7 @@ class AddForm(DefaultAddForm):
 
             obj = aq_inner(self.context)[obj.id]
             survey = createContentInContainer(obj, "euphorie.survey", title=title)
+            self.persist_survey_fields(survey)
 
             self.immediate_view = survey.absolute_url()
         return obj
