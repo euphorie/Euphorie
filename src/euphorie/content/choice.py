@@ -5,10 +5,12 @@ from .fti import IConstructionFilter
 from Acquisition import aq_chain
 from Acquisition import aq_inner
 from euphorie.content.survey import ISurvey
+from euphorie.htmllaundry.z3cform import HtmlText
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.autoform import directives
 from plone.dexterity.content import Container
 from plone.supermodel import model
+from plonetheme.nuplone.z3cform.widget import WysiwygFieldWidget
 from z3c.form.browser.select import SelectFieldWidget
 from z3c.relationfield.schema import RelationChoice
 from z3c.relationfield.schema import RelationList
@@ -20,6 +22,18 @@ from zope.interface import Interface
 
 class IChoice(model.Schema, IRichDescription, IBasic):
     """ """
+
+    recommendation = HtmlText(
+        title=_("label_module_recommendation", "Recommendation"),
+        description=_(
+            "help_module_recommendation",
+            default="If this module is used as part of an inventory tool, this"
+            "recommendation text will be used as in introduction in the report"
+            "before individual recommendations are listed.",
+        ),
+        required=False,
+    )
+    directives.widget(recommendation=WysiwygFieldWidget)
 
     allow_multiple_options = schema.Bool(
         title=_("label_allow_multiple_options", default="Allow multiple options"),
