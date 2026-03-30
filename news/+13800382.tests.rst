@@ -1,0 +1,1 @@
+Make the tests compatible with the latest Plone 6.2 [ale-rt]
