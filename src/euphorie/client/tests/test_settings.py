@@ -23,7 +23,7 @@ class AccountSettingsTests(EuphorieFunctionalTestCase):
 
     def testWrongOldPassword(self):
         browser = self.browser
-        browser.open("http://nohost/plone/client/nl/account-settings?set_language=en")
+        browser.open("http://nohost/plone/client/nl/account-settings")
         browser.getControl(name="form.widgets.old_password").value = "Wrong12345#!"
         browser.getControl(name="form.widgets.new_password").value = "Secret12345#!"
         browser.getControl(name="form.widgets.new_password_confirmation").value = (
@@ -35,7 +35,7 @@ class AccountSettingsTests(EuphorieFunctionalTestCase):
 
     def testNoNewPassword(self):
         browser = self.browser
-        browser.open("http://nohost/plone/client/nl/account-settings?set_language=en")
+        browser.open("http://nohost/plone/client/nl/account-settings")
         browser.getControl(name="form.widgets.old_password").value = "guest"
         browser.getControl(name="form.buttons.save").click()
         self.assertEqual(browser.url, "http://nohost/plone/client/nl/account-settings")
@@ -43,7 +43,7 @@ class AccountSettingsTests(EuphorieFunctionalTestCase):
 
     def testPasswordMismatch(self):
         browser = self.browser
-        browser.open("http://nohost/plone/client/nl/account-settings?set_language=en")
+        browser.open("http://nohost/plone/client/nl/account-settings")
         browser.getControl(name="form.widgets.old_password").value = "guest"
         browser.getControl(name="form.widgets.new_password").value = "secret"
         browser.getControl(name="form.widgets.new_password_confirmation").value = (
@@ -88,7 +88,7 @@ class AccountDeleteTests(EuphorieFunctionalTestCase):
 
     def testInvalidPassword(self):
         browser = self.browser
-        browser.open("http://nohost/plone/client/nl/account-delete?set_language=en")
+        browser.open("http://nohost/plone/client/nl/account-delete")
         browser.getControl(name="form.widgets.password").value = "Secret12345#!"
         browser.getControl(name="form.buttons.delete").click()
         self.assertEqual(browser.url, "http://nohost/plone/client/nl/account-delete")
@@ -127,7 +127,7 @@ class NewEmailTests(EuphorieFunctionalTestCase):
 
     def testNoChange(self):
         browser = self.browser
-        browser.open("http://nohost/plone/client/nl/new-email?set_language=en")
+        browser.open("http://nohost/plone/client/nl/new-email")
         browser.getControl(name="form.widgets.password").value = "Guest12345#!"
         browser.getControl(name="form.buttons.save").click()
         self.assertEqual(browser.url, "http://nohost/plone/client/nl/new-email")
@@ -135,7 +135,7 @@ class NewEmailTests(EuphorieFunctionalTestCase):
 
     def testInvalidPassword(self):
         browser = self.browser
-        browser.open("http://nohost/plone/client/nl/new-email?set_language=en")
+        browser.open("http://nohost/plone/client/nl/new-email")
         browser.getControl(name="form.widgets.loginname").value = "jane@example.com"
         browser.getControl(name="form.widgets.password").value = "Secret12345#!"
         browser.getControl(name="form.buttons.save").click()
@@ -144,7 +144,7 @@ class NewEmailTests(EuphorieFunctionalTestCase):
 
     def testInvalidEmail(self):
         browser = self.browser
-        browser.open("http://nohost/plone/client/nl/new-email?set_language=en")
+        browser.open("http://nohost/plone/client/nl/new-email")
         browser.getControl(name="form.widgets.password").value = "Guest12345#!"
         browser.getControl(name="form.widgets.loginname").value = "one two"
         browser.getControl(name="form.buttons.save").click()
@@ -155,7 +155,7 @@ class NewEmailTests(EuphorieFunctionalTestCase):
         browser = self.browser
         Session.add(Account(loginname="jane@example.com", password="Secret12345#!"))
         commit()
-        browser.open("http://nohost/plone/client/nl/new-email?set_language=en")
+        browser.open("http://nohost/plone/client/nl/new-email")
         browser.getControl(name="form.widgets.password").value = "Guest12345#!"
         browser.getControl(name="form.widgets.loginname").value = "jane@example.com"
         browser.getControl(name="form.buttons.save").click()
@@ -165,7 +165,7 @@ class NewEmailTests(EuphorieFunctionalTestCase):
     def testChange(self):
         browser = self.browser
         browser.handleErrors = False
-        browser.open("http://nohost/plone/client/nl/new-email?set_language=en")
+        browser.open("http://nohost/plone/client/nl/new-email")
         browser.getControl(name="form.widgets.password").value = "Guest12345#!"
         browser.getControl(name="form.widgets.loginname").value = "discard@simplon.biz"
         browser.getControl(name="form.buttons.save").click()

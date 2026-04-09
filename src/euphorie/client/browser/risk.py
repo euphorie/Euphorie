@@ -542,8 +542,6 @@ class IdentificationView(RiskBase):
         super().__call__()
         self.check_render_condition()
 
-        utils.setLanguage(self.request, self.survey, self.survey.language)
-
         if self.request.method == "POST":
             reply = self.request.form
             if not self.webhelpers.can_edit_session:
@@ -1341,7 +1339,6 @@ class ActionPlanView(RiskBase):
         if self.webhelpers.redirectOnSurveyUpdate():
             return
         context = aq_inner(self.context)
-        utils.setLanguage(self.request, self.survey, self.survey.language)
 
         # already compute "next" here, so that we can know in the template
         # if the next step might be the report phase, in which case we

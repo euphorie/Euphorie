@@ -11,8 +11,6 @@ class ClientView(WebHelpers):
         pick a random country.
         """
         target = None
-        language = self.request.form.get("language")
-        url_param = language and "?language=%s" % language or ""
         if self.default_country:
             if getattr(aq_base(self.context), self.default_country, None):
                 found = getattr(self.context, self.default_country)
@@ -25,4 +23,4 @@ class ClientView(WebHelpers):
                     break
         if not target:
             return "No country was identified"
-        self.request.RESPONSE.redirect(f"{target.absolute_url()}{url_param}")
+        self.request.RESPONSE.redirect(target.absolute_url())

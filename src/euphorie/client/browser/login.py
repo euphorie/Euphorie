@@ -7,7 +7,6 @@ existing guest accounts to normal accounts.
 """
 
 from ..country import IClientCountry
-from ..utils import setLanguage
 from .conditions import approvedTermsAndConditions
 from Acquisition import aq_chain
 from Acquisition import aq_inner
@@ -27,12 +26,11 @@ from Products.Five import BrowserView
 from Products.PlonePAS.events import UserLoggedInEvent
 from Products.statusmessages.interfaces import IStatusMessage
 from typing import cast
-from urllib.parse import parse_qs
 from urllib.parse import urlencode
-from urllib.parse import urlparse
 from urllib.parse import urlsplit
 from z3c.saconfig import Session
 from zExceptions import Unauthorized
+from zope.deprecation import deprecate
 from zope.lifecycleevent import notify
 
 import datetime
@@ -61,19 +59,12 @@ class Login(BrowserView):
             WebHelpers, api.content.get_view("webhelpers", self.context, self.request)
         )
 
+    @deprecate(
+        "setLanguage is ignored in favour of standard Plone handling. "
+        "Deprecated in version 19.2.1"
+    )
     def setLanguage(self, came_from):
-        qs = urlparse(came_from)[4]
-        params = parse_qs(qs)
-        lang = params.get("language")
-        if not lang:
-            if IClientCountry.providedBy(self.context):
-                lang = getattr(self.context, "language", None)
-            elif ISurvey.providedBy(self.context):
-                lang = self.context.language
-        if lang:
-            if isinstance(lang, str):
-                lang = [lang]
-            setLanguage(self.request, self.context, lang=lang[0])
+        pass
 
     def login(self, account, remember):
         pas = getToolByName(self.context, "acl_users")
@@ -316,8 +307,6 @@ class Login(BrowserView):
         form = self.request.form
 
         came_from = self.webhelpers.get_came_from(default=self.webhelpers.country_url)
-        self.setLanguage(came_from)
-
         account = get_current_account()
 
         self.allow_guest_accounts = api.portal.get_registry_record(
@@ -480,7 +469,6 @@ class CreateTestSession(Tryout):
             context.absolute_url(),
             urlencode({"came_from": came_from}),
         )
-        setLanguage(self.request, self.context)
         if self.request.environ["REQUEST_METHOD"] == "POST":
             if not self.allow_guest_accounts:
                 flash = IStatusMessage(self.request).addStatusMessage

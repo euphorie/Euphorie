@@ -115,8 +115,6 @@ class IdentificationView(BrowserView):
             return
 
         context = aq_inner(self.context)
-        utils.setLanguage(self.request, self.survey, self.survey.language)
-
         module = self.webhelpers.traversed_session.restrictedTraverse(
             context.zodb_path.split("/")
         )
@@ -271,7 +269,6 @@ class ActionPlanView(BrowserView):
             return
 
         context = aq_inner(self.context)
-        utils.setLanguage(self.request, self.survey, self.survey.language)
         if (IProfileQuestion.providedBy(self.module) and context.depth == 2) or (
             ICustomRisksModule.providedBy(self.module) and self.phase == "actionplan"
         ):

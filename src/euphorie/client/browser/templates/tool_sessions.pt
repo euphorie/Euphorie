@@ -68,7 +68,7 @@
               >${python: webhelpers.getTranslatedCountryName(country.getId())}</a>
 
               <a class="tag pat-inject"
-                 href="${country/absolute_url}/surveys?language=${tool_lang}#content"
+                 href="${country/absolute_url}/surveys?Language=${tool_lang}#content"
                  data-pat-inject="history: record"
                  tal:define="
                    tool_lang python: tool.Language().split('-')[0];

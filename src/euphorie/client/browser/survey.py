@@ -1,5 +1,4 @@
 from euphorie import MessageFactory as _
-from euphorie.client import utils
 from euphorie.client.browser.country import SessionsView
 from euphorie.client.model import get_current_account
 from euphorie.client.utils import CreateEmailTo
@@ -10,6 +9,7 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.MailHost.MailHost import MailHostError
 from z3c.saconfig import Session
 from zExceptions import Unauthorized
+from zope.deprecation import deprecate
 
 import logging
 import smtplib
@@ -23,8 +23,12 @@ class SurveySessionsView(SessionsView):
 
     variation_class = ""
 
+    @deprecate(
+        "set_language is ignored in favour of standard Plone handling. "
+        "Deprecated in version 19.2.1"
+    )
     def set_language(self):
-        utils.setLanguage(self.request, self.context, self.context.language)
+        pass
 
     @property
     @memoize
@@ -62,13 +66,11 @@ class SurveySessionsView(SessionsView):
     def __call__(self):
         if not self.account:
             raise Unauthorized()
-        self.set_language()
         return self.index()
 
 
 class SurveySessionsViewAnon(SurveySessionsView):
     def __call__(self):
-        self.set_language()
         return self.index()
 
 

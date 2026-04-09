@@ -12,9 +12,9 @@ from email.mime.text import MIMEText
 from euphorie.client import model
 from euphorie.content.utils import StripMarkup
 from plone import api
-from Products.CMFCore.utils import getToolByName
 from sqlalchemy import sql
 from z3c.saconfig import Session
+from zope.deprecation import deprecate
 from zope.i18nmessageid import MessageFactory
 
 import email.utils as emailutils
@@ -82,6 +82,10 @@ def CreateEmailTo(sender_name, sender_email, recipient, subject, body):
     return mail
 
 
+@deprecate(
+    "setLanguage is ignored in favour of standard Plone handling. "
+    "Deprecated in version 19.2.1"
+)
 def setLanguage(request, context, lang=None):
     """Switch Plone to another language.
 
@@ -90,29 +94,7 @@ def setLanguage(request, context, lang=None):
     but is not available the main language is used instead. If the main
     language is also unavailable switch back to English.
     """
-    if lang is None:
-        lang = request.form.get("language")
-    if not lang:
-        return
-
-    lang = lang.lower()
-    lt = getToolByName(context, "portal_languages")
-    res = lt.setLanguageCookie(lang=lang, request=request)
-    if res is None and "-" in lang:
-        lang = lang.split("-")[0]
-        res = lt.setLanguageCookie(lang=lang, request=request)
-        if res is None:
-            log.warning("Failed to switch language to %r", lang)
-            lt.setLanguageCookie(lang="en", request=request)
-            lang = "en"
-
-    # In addition to setting the cookie also update the PTS language.
-    # This effectively switches Plone over to the new language without
-    # requiring a new HTTP request.
-    request["LANGUAGE"] = lang
-    binding = request.get("LANGUAGE_TOOL", None)
-    if binding is not None:
-        binding.LANGUAGE = lang
+    pass
 
 
 def remove_empty_modules(nodes):

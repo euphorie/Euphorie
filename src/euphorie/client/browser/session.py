@@ -100,10 +100,6 @@ class SessionMixin:
     """Mostly properties we want to reuse for the views in the context of a
     session."""
 
-    def update(self):
-        super().update()
-        utils.setLanguage(self.request, self.survey, self.survey.language)
-
     @property
     @memoize
     def webhelpers(self):
@@ -215,7 +211,6 @@ class Start(SessionMixin, AutoExtensibleForm, EditForm):
 
     def update(self):
         self.verify_view_permission()
-        utils.setLanguage(self.request, self.survey, self.survey.language)
         super().update()
         if self.request.method != "POST":
             return
@@ -417,7 +412,6 @@ class Profile(SessionMixin, AutoExtensibleForm, EditForm):
         return any([x["use_location_question"] for x in self.profile_questions])
 
     def update(self):
-        utils.setLanguage(self.request, self.survey, self.survey.language)
         if not self.profile_questions or self.request.method == "POST":
             new_session = self.setupSession()
             self.request.response.redirect(
@@ -452,7 +446,6 @@ class Involve(SessionMixin, BrowserView):
             # The user cannot call this view, to go the sessions overview.
             return self.request.response.redirect(self.webhelpers.client_url)
 
-        utils.setLanguage(self.request, self.survey, self.survey.language)
         return super().__call__()
 
 
@@ -624,7 +617,6 @@ class Identification(SessionMixin, BrowserView):
             return self.request.response.redirect(
                 self.context.absolute_url() + "/@@start"
             )
-        utils.setLanguage(self.request, self.survey, self.survey.language)
         if self.webhelpers.use_involve_phase:
             self.request.RESPONSE.redirect(self.next_url)
         else:
@@ -889,7 +881,6 @@ class ActionPlanView(SessionMixin, BrowserView):
             return self.request.response.redirect(
                 self.context.absolute_url() + "/@@report"
             )
-        utils.setLanguage(self.request, self.survey, self.survey.language)
         return super().__call__()
 
 
@@ -925,7 +916,6 @@ class Report(SessionMixin, BrowserView):
                 )
             return self.request.response.redirect(url)
 
-        utils.setLanguage(self.request, self.survey, self.survey.language)
         return super().__call__()
 
 
@@ -1075,7 +1065,6 @@ class Status(SessionMixin, BrowserView, _StatusHelper):
     def __call__(self):
         if self.webhelpers.redirectOnSurveyUpdate():
             return
-        utils.setLanguage(self.request, self.survey, self.survey.language)
         self.update()
         self.getStatus()
         return super().__call__()

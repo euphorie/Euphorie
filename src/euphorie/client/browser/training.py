@@ -4,7 +4,6 @@ from datetime import date
 from datetime import datetime
 from euphorie import MessageFactory as _
 from euphorie.client import survey
-from euphorie.client import utils
 from euphorie.client import utils as client_utils
 from euphorie.client.model import Risk
 from euphorie.client.model import Training
@@ -587,9 +586,6 @@ class TrainingView(BrowserView, survey._StatusHelper):
     def __call__(self):
         if self.webhelpers.redirectOnSurveyUpdate():
             return
-
-        survey = self.webhelpers._survey
-        utils.setLanguage(self.request, survey, survey.language)
 
         if (
             self.request.environ["REQUEST_METHOD"] == "POST"

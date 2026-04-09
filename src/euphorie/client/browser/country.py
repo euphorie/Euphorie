@@ -2,7 +2,6 @@ from Acquisition import aq_inner
 from anytree import NodeMixin
 from anytree.node.util import _repr
 from euphorie import MessageFactory as _
-from euphorie.client import utils
 from euphorie.client.browser.webhelpers import WebHelpers
 from euphorie.client.country import IClientCountry
 from euphorie.client.interfaces import IClientSkinLayer
@@ -116,7 +115,6 @@ class SurveyTemplatesMixin:
         # this is a list of tuples of the form
         # (category name, survey object, survey id)
         survey_items = []
-        language = self.request.locale.id.language or ""
         for sector in aq_inner(self.context).values():
             if not IClientSector.providedBy(sector):
                 continue
@@ -126,12 +124,8 @@ class SurveyTemplatesMixin:
                     continue
                 if getattr(survey, "preview", False):
                     continue
-                if (
-                    survey.language
-                    and survey.language != language
-                    and not survey.language.strip().startswith(language)
-                ):
-                    continue
+                # Note: previously we would skip the survey if its language
+                # did not match the prefered language of the user.
                 if getattr(survey, "obsolete", False):
                     continue
                 categories = getattr(survey, "tool_category", None)
@@ -198,8 +192,6 @@ class SessionsView(BrowserView, SurveyTemplatesMixin):
     def _updateSurveys(self):
         self.surveys = []
         self.obsolete_surveys = []
-
-        language = self.request.locale.id.language or ""
         for sector in aq_inner(self.context).values():
             if not IClientSector.providedBy(sector):
                 continue
@@ -209,12 +201,8 @@ class SessionsView(BrowserView, SurveyTemplatesMixin):
                     continue
                 if getattr(survey, "preview", False):
                     continue
-                if (
-                    survey.language
-                    and survey.language != language
-                    and not survey.language.strip().startswith(language)
-                ):
-                    continue
+                # Note: previously we would skip the survey if its language
+                # did not match the prefered language of the user.
                 info = {"id": f"{sector.id}/{survey.id}", "title": survey.title}
                 if getattr(survey, "obsolete", False):
                     # getattr needed for surveys which were published before
@@ -268,16 +256,17 @@ class SessionsView(BrowserView, SurveyTemplatesMixin):
         )
         return title.split("-")[-1].strip()
 
+    @deprecate(
+        "set_language is ignored in favour of standard Plone handling. "
+        "Deprecated in version 19.2.1"
+    )
     def set_language(self):
-        utils.setLanguage(
-            self.request, self.context, getattr(self.context, "language", None)
-        )
+        pass
 
     def __call__(self):
         if not self.account:
             raise Unauthorized()
 
-        self.set_language()
         reply = self.request.form
         action = reply.get("action")
         if action == "new":
@@ -583,12 +572,6 @@ class Surveys(BrowserView, SurveyTemplatesMixin):
             key=lambda lang: lang["code"],
         )
 
-    def __call__(self):
-        utils.setLanguage(
-            self.request, self.context, getattr(self.context, "language", None)
-        )
-        return super().__call__()
-
 
 class PortletBase(BrowserView):
     @property
@@ -601,14 +584,9 @@ class PortletBase(BrowserView):
             return False
         if getattr(survey, "obsolete", False):
             return False
-        if not survey.language:
-            return True
-        language = self.request.locale.id.language or ""
-        if survey.language == language:
-            return True
-        if survey.language.strip().startswith(language):
-            return True
-        return False
+        # Note: previously we would filter out the survey if its language
+        # did not match the prefered language of the user.
+        return True
 
     @property
     @memoize

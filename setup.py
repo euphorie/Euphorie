@@ -74,6 +74,7 @@ setup(
         "z3c.form",
         "z3c.saconfig",
         "zope.configuration",
+        "zope.deprecation",
         "zope.i18nmessageid",
         "zope.interface",
         "zope.schema",
