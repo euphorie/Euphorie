@@ -178,13 +178,15 @@ class EuphorieFunctionalTestCase(EuphorieIntegrationTestCase):
         "password": TEST_USER_PASSWORD,
     }
 
-    def get_browser(self, logged_in=False, credentials={}):
+    def get_browser(self, logged_in=False, credentials={}, language=""):
         """Return a browser, potentially a logged in one.
 
         The default credentials are the admin ones
         """
         commit()
         browser = Browser(self.app)
+        if language:
+            browser.addHeader("Accept-Language", language)
         if logged_in or credentials:
             username = credentials.get(
                 "username", self._default_credentials["username"]

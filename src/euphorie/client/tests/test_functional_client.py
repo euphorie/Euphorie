@@ -148,6 +148,6 @@ class SurveyTests(EuphorieFunctionalTestCase):
         browser.getControl(name="answer").value = ["no"]
         # No evaluation is necessary
         self.assertIn(
-            "De tool heeft automatisch een risico-evaluatie uitgevoerd",
+            "The risk evaluation has been automatically done by the tool.",
             browser.contents,
         )

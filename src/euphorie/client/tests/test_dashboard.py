@@ -34,6 +34,7 @@ class TestDashboard(EuphorieIntegrationTestCase):
 
         with api.env.adopt_user(user=self.account):
             with self._get_view("portlet-available-tools", country) as view:
+                view.request.cookies["CONTENT_LANGUAGE"] = "nl"
                 self.assertListEqual(
                     [survey.getId() for survey in view.surveys],
                     ["software-development"],
@@ -75,7 +76,6 @@ class TestDashboard(EuphorieIntegrationTestCase):
 
                 # Check we can filter by language
                 view.request.__annotations__.clear()
-                view.request.locale.id.language = "nl"
                 another_one.language = "en"
                 self.assertListEqual(
                     [survey.getId() for survey in view.surveys],
@@ -96,11 +96,35 @@ class TestDashboard(EuphorieIntegrationTestCase):
                     ["another-one", "software-development"],
                 )
 
+                # If we prefer English content, the Dutch ones are not shown.
+                view.request.cookies["CONTENT_LANGUAGE"] = "en"
+                view.request.__annotations__.clear()
+                self.assertListEqual(
+                    [survey.getId() for survey in view.surveys],
+                    [],
+                )
+
+                # Language neutral is always shown.
+                view.request.__annotations__.clear()
+                another_one.language = ""
+                self.assertListEqual(
+                    [survey.getId() for survey in view.surveys],
+                    ["another-one"],
+                )
+
+                view.request.__annotations__.clear()
+                view.request.cookies["CONTENT_LANGUAGE"] = "nl"
+                self.assertListEqual(
+                    [survey.getId() for survey in view.surveys],
+                    ["another-one", "software-development"],
+                )
+
     def test_portlet_my_ras(self):
         country = self.portal.client.nl
 
         with api.env.adopt_user(user=self.account):
             with self._get_view("portlet-my-ras", country) as view:
+                view.request.cookies["CONTENT_LANGUAGE"] = "nl"
                 # The portlet by default hides the archived sessions
                 self.assertTrue(view.hide_archived)
 
@@ -123,6 +147,19 @@ class TestDashboard(EuphorieIntegrationTestCase):
                 # If the checbox is marked, the sessions are hidden again
                 view.request.set("hide_archived", "1")
                 self.assertTrue(view.hide_archived)
+                self.assertEqual(
+                    len(view.sessions_by_organisation[self.account.organisation]), 1
+                )
+
+                view.request.__annotations__.clear()
+
+                # The prefered content language has no influence on the RAS portlet.
+                view.request.cookies["CONTENT_LANGUAGE"] = "en"
+                self.assertEqual(
+                    len(view.sessions_by_organisation[self.account.organisation]), 1
+                )
+                view.request.__annotations__.clear()
+                view.request.cookies["CONTENT_LANGUAGE"] = "nl"
                 self.assertEqual(
                     len(view.sessions_by_organisation[self.account.organisation]), 1
                 )
