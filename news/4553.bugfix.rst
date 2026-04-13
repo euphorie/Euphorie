@@ -1,1 +1,0 @@
-The default values of the survey created when adding a survey group are now persisted.
