@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<registry xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+  <record field="use_request_negotiation"
+          interface="plone.i18n.interfaces.ILanguageSchema"
+          name="plone.use_request_negotiation"
+  >
+    <value>True</value>
+  </record>
+</registry>

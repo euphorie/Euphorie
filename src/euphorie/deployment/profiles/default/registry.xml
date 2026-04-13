@@ -34,7 +34,7 @@
           interface="plone.i18n.interfaces.ILanguageSchema"
           name="plone.use_request_negotiation"
   >
-    <value>False</value>
+    <value>True</value>
   </record>
   <record field="use_cctld_negotiation"
           interface="plone.i18n.interfaces.ILanguageSchema"
