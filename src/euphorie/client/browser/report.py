@@ -319,15 +319,26 @@ class ReportInventory(BrowserView):
             )
         )
 
-    def get_selected_options(self, module):
+    def get_selected_options(self, module, include_choice=False):
         for choice in module.values():
             # XXX submodules?
+            selected_options = []
             for option in choice.values():
                 if (
                     f"{module.id}/{choice.id}/{option.id}" in self.selected_paths
                     and option.objectIds()
                 ):
-                    yield option
+                    selected_options.append(option)
+
+            if selected_options:
+                if include_choice:
+                    yield {
+                        "choice": choice,
+                        "options": selected_options
+                    }
+                else:
+                    for option in selected_options:
+                        yield option
 
     @property
     @memoize

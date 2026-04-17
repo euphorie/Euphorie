@@ -14,6 +14,8 @@ from plone.base.utils import safe_text
 from zipfile import ZipFile
 from zope.publisher.browser import TestRequest
 
+import html
+
 
 class MockImage:
     def __init__(self, data, filename=None, contentType=None):
@@ -46,10 +48,10 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         view.include_images = True
         image = view.exportImage(root, image, "Captiøn")
         self.assertEqual(
-            safe_text(etree.tostring(image, pretty_print=True)),
+            html.unescape(safe_text(etree.tostring(image, pretty_print=True))),
             '<image xmlns="http://xml.simplon.biz/euphorie/survey/1.0" '
             'content-type="image/gif" filename="test.gif" '
-            'caption="Capti&#xF8;n">aG90IHN0dWZmIGhlcmU=\n'
+            'caption="Captiøn">aG90IHN0dWZmIGhlcmU=\n'
             "</image>\n",
         )
 
