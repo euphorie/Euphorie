@@ -61,6 +61,63 @@
             </fieldset>
 
             <fieldset class="form-panel pat-collapsible true section horizontal"
+                      id="patterns-label-language-prefs"
+                      data-pat-collapsible="store: local; scroll-selector: self; scroll-offset: 100px"
+                      tal:condition="view/show_language_preferences"
+            >
+              <h3 class="form-separation-header collapsible-open"
+                  i18n:translate="title_language_prefs"
+              >Language preferences
+              </h3>
+              <div class="panel-content">
+                <label>
+                  <tal:label i18n:translate="label_ui_language">UI language</tal:label>
+                  <dfn class="icon help help-icon pat-tooltip tooltip-active-click"
+                       data-pat-tooltip="class: info; trigger: click; source: content; position-list: tl"
+                       i18n:translate="help_ui_language"
+                  >The UI language is used for showing the user interface.
+                  Initially this is determined by the language preference of your browser.
+                  This does not influence the language of the contents, especially which surveys are shown.
+                  This preference resets after quitting your browser.
+                  </dfn>
+                  <select name="ui_language"
+                          tal:define="
+                            current view/get_current_ui_language;
+                          "
+                  >
+                    <option selected="${python:lang[0] == current}"
+                            value="${python:lang[0]}"
+                            tal:repeat="lang view/supported_languages"
+                    >${python:lang[1]}
+                    </option>
+                  </select>
+                </label>
+                <label tal:condition="view/show_content_language_preference">
+                  <tal:label i18n:translate="label_content_language">Content language</tal:label>
+                  <dfn class="icon help help-icon pat-tooltip tooltip-active-click"
+                       data-pat-tooltip="class: info; trigger: click; source: content; position-list: tl"
+                       i18n:translate="help_content_language"
+                  >The content language determines which surveys you see on the dashboard.
+                  Visiting a survey in a different language (via the Tools tab) will automatically update this setting.
+                  This preference resets after quitting your browser.
+                  </dfn>
+                  <select name="content_language"
+                          tal:define="
+                            current view/get_current_content_language;
+                          "
+                  >
+                    <option selected="${python:lang[0] == current}"
+                            value="${python:lang[0]}"
+                            tal:repeat="lang view/supported_languages"
+                    >${python:lang[1]}
+                    </option>
+                  </select>
+                </label>
+
+              </div>
+            </fieldset>
+
+            <fieldset class="form-panel pat-collapsible true section horizontal"
                       id="label-notifications"
                       data-pat-collapsible="store: local; scroll-selector: self; scroll-offset: 100px"
                       tal:define="

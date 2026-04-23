@@ -6,4 +6,22 @@
   >
     <value>True</value>
   </record>
+  <record name="euphorie.language_preferences__enabled">
+    <field type="plone.registry.field.Bool">
+      <title>Allow to modify language preferences in the settings panel</title>
+      <default>True</default>
+      <missing_value>True</missing_value>
+      <required>False</required>
+    </field>
+    <value>True</value>
+  </record>
+  <record name="euphorie.content_language_preference__enabled">
+    <field type="plone.registry.field.Bool">
+      <title>Allow to modify content language preference in the settings panel</title>
+      <default>True</default>
+      <missing_value>True</missing_value>
+      <required>False</required>
+    </field>
+    <value>True</value>
+  </record>
 </registry>
