@@ -1,0 +1,1 @@
+Fix the sidebar display when viewing a survey. @ale-rt
