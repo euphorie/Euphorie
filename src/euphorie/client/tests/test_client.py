@@ -28,12 +28,7 @@ class ViewTests(EuphorieIntegrationTestCase):
             form = {}
 
             def __init__(self, language):
-                self.language = language
-
-            def __getattr__(self, key):
-                if key in ["request", "locale", "id"]:
-                    return self
-                raise AttributeError(key)
+                self.cookies = {"CONTENT_LANGUAGE": language}
 
         with self._get_view("view", country) as view:
             view.request = Request(language)

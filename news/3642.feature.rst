@@ -1,0 +1,6 @@
+Keep UI language and content language separate.
+Update language settings: `use_request_negotiation=True`.
+`utils.setLanguage`: set new `CONTENT_LANGUAGE` cookie instead of `I18N_LANGUAGE` cookie.
+When you visit a survey with a language, this sets a content preference, without changing the UI language.
+In user Preferences: support setting language preferences.
+[maurits]
