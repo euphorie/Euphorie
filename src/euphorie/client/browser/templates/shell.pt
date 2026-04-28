@@ -236,15 +236,15 @@
                   <li class="${data/class}"
                       id="${data/id}"
                   >
-                    <a class="${data/name} pat-switch pat-inject"
+                    <a class="${data/name} pat-switch pat-inject ${python:'step' if data['id'].startswith('step-') else ''}"
                        href="${data/href}"
                        data-pat-inject="history: record"
                        data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
                        tal:condition="not:data/disabled"
-                    >${data/title}</a>
+                    ><span class="label">${data/title}</span></a>
                     <a class="${data/name}"
                        tal:condition="data/disabled"
-                    >${data/title}</a>
+                    ><span class="label">${data/title}</span></a>
 
                     <tal:block condition="python: data['has_tree'] and tree">
                       <metal:call use-macro="webhelpers/macros/survey_tree" />
@@ -257,8 +257,11 @@
                      href="${webhelpers/country_or_client_url}"
                      data-pat-inject="history: record"
                      data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
-                     i18n:translate="label_exit"
-                  >Exit</a>
+                  >
+                    <span class="label"
+                          i18n:translate="label_exit"
+                    >Exit</span>
+                  </a>
                 </li>
               </tal:not_anon>
             </ol>
