@@ -116,7 +116,7 @@ class SurveyTemplatesMixin:
         # this is a list of tuples of the form
         # (category name, survey object, survey id)
         survey_items = []
-        language = self.request.locale.id.language or ""
+        language = utils.getContentLanguagePref(self.request)
         for sector in aq_inner(self.context).values():
             if not IClientSector.providedBy(sector):
                 continue
@@ -199,7 +199,7 @@ class SessionsView(BrowserView, SurveyTemplatesMixin):
         self.surveys = []
         self.obsolete_surveys = []
 
-        language = self.request.locale.id.language or ""
+        language = utils.getContentLanguagePref(self.request)
         for sector in aq_inner(self.context).values():
             if not IClientSector.providedBy(sector):
                 continue
@@ -603,7 +603,7 @@ class PortletBase(BrowserView):
             return False
         if not survey.language:
             return True
-        language = self.request.locale.id.language or ""
+        language = utils.getContentLanguagePref(self.request)
         if survey.language == language:
             return True
         if survey.language.strip().startswith(language):

@@ -12,7 +12,6 @@ from email.mime.text import MIMEText
 from euphorie.client import model
 from euphorie.content.utils import StripMarkup
 from plone import api
-from Products.CMFCore.utils import getToolByName
 from sqlalchemy import sql
 from z3c.saconfig import Session
 from zope.i18nmessageid import MessageFactory
@@ -27,6 +26,7 @@ locals = threading.local()
 log = logging.getLogger(__name__)
 
 pl_message = MessageFactory("plonelocales")
+CONTENT_LANGUAGE_COOKIE = "CONTENT_LANGUAGE"
 
 
 def setRequest(request):
@@ -82,37 +82,84 @@ def CreateEmailTo(sender_name, sender_email, recipient, subject, body):
     return mail
 
 
-def setLanguage(request, context, lang=None):
-    """Switch Plone to another language.
+def _getContentLanguageCookie(request):
+    """Gets the preferred content language from a cookie.
+
+    This mimics `getLanguageCookie` from `plone.i18n`.
+
+    Don't use this directly.  Use `getContentLanguagePref` instead.
+    """
+    langCookie = request.cookies.get(CONTENT_LANGUAGE_COOKIE)
+    if not langCookie:
+        return None
+    lt = api.portal.get_tool("portal_languages")
+    if langCookie in lt.getSupportedLanguages():
+        return langCookie
+    # Bad cookie, throw it away.
+    request.RESPONSE.expireCookie(CONTENT_LANGUAGE_COOKIE, path="/")
+    return None
+
+
+def getContentLanguagePref(request):
+    """Gets the preferred content language.
+
+    Get it from a cookie.  Fall back to the default language of the site.
+    """
+    res = _getContentLanguageCookie(request)
+    if res is not None:
+        return res
+    return api.portal.get_registry_record("plone.default_language")
+
+
+def _setContentLanguageCookie(lang=None, request=None):
+    """Sets a cookie for overriding language content negotiation.
+
+    This mimics `setLanguageCookie` from `plone.i18n`.
+
+    Don't use this directly.  Use `setLanguage` instead.
+    If `lang` is None or otherwise empty, expire the cookie.
+    """
+    if not lang:
+        # At first I wanted to expire the cookie, if it was set.
+        # But that would always expire the cookie when you view a country.
+        return None
+    lt = api.portal.get_tool("portal_languages")
+    if lang not in lt.getSupportedLanguages():
+        return None
+    if lang != _getContentLanguageCookie(request):
+        request.RESPONSE.setCookie(CONTENT_LANGUAGE_COOKIE, lang, path="/")
+    return lang
+
+
+def setLanguage(request, context=None, lang=None):
+    """Switch Plone to prefer another language for content.
 
     If no language is given via the `lang` parameter the language is
     taken from a `language` request parameter. If a dialect was chosen
     but is not available the main language is used instead. If the main
     language is also unavailable switch back to English.
+
+    Changed in version 19.2.2: this only affects content, NOT the UI.
+    We no longer set the I18N_LANGUAGE cookie, but a new CONTENT_LANGUAGE
+    cookie.
+    Since this version, `context` is no longer required as parameter,
+    as we don't use it.  We could warn about it, but let's not for now:
+    we may need it in the future.
     """
     if lang is None:
         lang = request.form.get("language")
     if not lang:
+        # Fall back to language neutral.
+        _setContentLanguageCookie(lang=None, request=request)
         return
 
     lang = lang.lower()
-    lt = getToolByName(context, "portal_languages")
-    res = lt.setLanguageCookie(lang=lang, request=request)
+    res = _setContentLanguageCookie(lang=lang, request=request)
     if res is None and "-" in lang:
         lang = lang.split("-")[0]
-        res = lt.setLanguageCookie(lang=lang, request=request)
+        res = _setContentLanguageCookie(lang=lang, request=request)
         if res is None:
             log.warning("Failed to switch language to %r", lang)
-            lt.setLanguageCookie(lang="en", request=request)
-            lang = "en"
-
-    # In addition to setting the cookie also update the PTS language.
-    # This effectively switches Plone over to the new language without
-    # requiring a new HTTP request.
-    request["LANGUAGE"] = lang
-    binding = request.get("LANGUAGE_TOOL", None)
-    if binding is not None:
-        binding.LANGUAGE = lang
 
 
 def remove_empty_modules(nodes):

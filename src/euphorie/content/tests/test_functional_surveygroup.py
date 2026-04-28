@@ -1,4 +1,6 @@
+from Acquisition import aq_chain
 from Acquisition import aq_parent
+from contextlib import contextmanager
 from euphorie.content.browser.surveygroup import AddForm
 from euphorie.testing import EuphorieFunctionalTestCase
 from euphorie.testing import EuphorieIntegrationTestCase
@@ -8,6 +10,8 @@ from plone.folder.interfaces import IExplicitOrdering
 from Products.CMFCore.WorkflowCore import ActionSucceededEvent
 from zope import component
 from zope.event import notify
+from zope.globalrequest import getRequest
+from zope.globalrequest import setRequest
 
 
 class SurveyGroupTests(EuphorieIntegrationTestCase):
@@ -200,6 +204,18 @@ class AddFormTests(EuphorieFunctionalTestCase):
         newid = container.invokeFactory(*args, **kwargs)
         return getattr(container, newid)
 
+    @contextmanager
+    def _get_add_form(self, container):
+        request = self.request.clone()
+        request.set("PARENTS", aq_chain(container))
+        old_request = getRequest()
+        try:
+            setRequest(request)
+            addform = AddForm(container, request)
+            yield addform
+        finally:
+            setRequest(old_request)
+
     def createModule(self):
         country = self.portal.sectors.nl
         sector = self._create(country, "euphorie.sector", "sector")
@@ -302,3 +318,46 @@ class AddFormTests(EuphorieFunctionalTestCase):
         )
         AddForm(container, request).copyTemplate(survey, target)
         self.assertEqual(target.evaluation_algorithm, "french")
+
+    def testCreateAndAddScratchPersistsDefaultFactoryBackedValues(self):
+        country = self.portal.sectors.nl
+        country.enable_web_training = True
+        sector = self._create(country, "euphorie.sector", "scratch-sector")
+
+        with self._get_add_form(sector) as addform:
+            addform.request.form["source"] = "scratch"
+            surveygroup = addform.createAndAdd({"title": "My tool"})
+
+        survey = surveygroup["standard"]
+        self.assertEqual(survey.__getattribute__("tool_type"), "classic")
+        self.assertTrue(survey.__getattribute__("enable_web_training"))
+
+    def testPersistSurveyFieldsWebTrainingFalse(self):
+        country = self.portal.sectors.nl
+        country.enable_web_training = False
+        sector = self._create(country, "euphorie.sector", "persist-fields-sector")
+        surveygroup = self._create(sector, "euphorie.surveygroup", "group")
+        survey = self._create(surveygroup, "euphorie.survey", "survey")
+
+        with self.assertRaises(AttributeError):
+            survey.__getattribute__("enable_web_training")
+
+        with self._get_add_form(sector) as addform:
+            addform.persist_survey_fields(survey)
+
+        self.assertFalse(survey.__getattribute__("enable_web_training"))
+
+    def testPersistSurveyFieldsWebTrainingTrue(self):
+        country = self.portal.sectors.nl
+        country.enable_web_training = True
+        sector = self._create(country, "euphorie.sector", "persist-fields-sector")
+        surveygroup = self._create(sector, "euphorie.surveygroup", "group")
+        survey = self._create(surveygroup, "euphorie.survey", "survey")
+
+        with self.assertRaises(AttributeError):
+            survey.__getattribute__("enable_web_training")
+
+        with self._get_add_form(sector) as addform:
+            addform.persist_survey_fields(survey)
+
+        self.assertTrue(survey.__getattribute__("enable_web_training"))

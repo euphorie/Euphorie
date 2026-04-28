@@ -13,7 +13,10 @@ from euphorie.client.model import AccountChangeRequest
 from euphorie.client.model import get_current_account
 from euphorie.client.model import NotificationSubscription
 from euphorie.client.utils import CreateEmailTo
+from euphorie.client.utils import getContentLanguagePref
 from euphorie.client.utils import randomString
+from euphorie.client.utils import setLanguage
+from operator import itemgetter
 from plone import api
 from plone.autoform import directives
 from plone.autoform.form import AutoExtensibleForm
@@ -160,6 +163,22 @@ class Preferences(AutoExtensibleForm, form.Form):
         )
 
     @property
+    def show_language_preferences(self):
+        # Show the language preferences panel.
+        # This at least shows the UI preference.
+        # Maybe also content preference:
+        # for that, see show_content_language_preference below.
+        return api.portal.get_registry_record(
+            "euphorie.language_preferences__enabled", default=True
+        )
+
+    @property
+    def show_content_language_preference(self):
+        return api.portal.get_registry_record(
+            "euphorie.content_language_preference__enabled", default=True
+        )
+
+    @property
     @memoize
     def current_user(self):
         return get_current_account()
@@ -217,6 +236,42 @@ class Preferences(AutoExtensibleForm, form.Form):
             )
         )
 
+    @property
+    @memoize
+    def supported_languages(self):
+        ltool = api.portal.get_tool("portal_languages")
+        items = ltool.listSupportedLanguages()
+        all_langs = ltool.getAvailableLanguages()
+        items = [(lang[0], all_langs[lang[0]].get("native", lang[1])) for lang in items]
+        items.sort(key=itemgetter(1))
+        return items
+
+    def get_current_ui_language(self):
+        ui_language = self.request.get("ui_language")
+        if ui_language:
+            return ui_language
+        return api.portal.get_current_language()
+
+    def get_current_content_language(self):
+        content_language = self.request.get("content_language")
+        if content_language:
+            return content_language
+        return getContentLanguagePref(self.request)
+
+    def update_language_preferences(self):
+        ui_language = self.request.get("ui_language")
+        if ui_language:
+            lt = api.portal.get_tool("portal_languages")
+            res = lt.setLanguageCookie(lang=ui_language, request=self.request)
+            if res is None and "-" in ui_language:
+                ui_language = ui_language.split("-")[0]
+                res = lt.setLanguageCookie(lang=ui_language, request=self.request)
+
+        if self.show_content_language_preference:
+            content_language = self.request.get("content_language")
+            if content_language:
+                setLanguage(self.request, self.context, content_language)
+
     @button.buttonAndHandler(_("Save"), name="save")
     def handleSave(self, action):
         flash = IStatusMessage(self.request).addStatusMessage
@@ -235,6 +290,9 @@ class Preferences(AutoExtensibleForm, form.Form):
                     self.subscribe_notification(notification.id)
                 else:
                     self.unsubscribe_notification(notification.id)
+
+        if self.show_language_preferences:
+            self.update_language_preferences()
 
 
 class AccountSettings(AutoExtensibleForm, form.Form):

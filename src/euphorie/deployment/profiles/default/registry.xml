@@ -34,7 +34,7 @@
           interface="plone.i18n.interfaces.ILanguageSchema"
           name="plone.use_request_negotiation"
   >
-    <value>False</value>
+    <value>True</value>
   </record>
   <record field="use_cctld_negotiation"
           interface="plone.i18n.interfaces.ILanguageSchema"
@@ -240,6 +240,24 @@
   <record name="euphorie.personal_details__enabled">
     <field type="plone.registry.field.Bool">
       <title>Allow to modify personal details in the settings panel</title>
+      <default>True</default>
+      <missing_value>True</missing_value>
+      <required>False</required>
+    </field>
+    <value>True</value>
+  </record>
+  <record name="euphorie.language_preferences__enabled">
+    <field type="plone.registry.field.Bool">
+      <title>Allow to modify language preferences in the settings panel</title>
+      <default>True</default>
+      <missing_value>True</missing_value>
+      <required>False</required>
+    </field>
+    <value>True</value>
+  </record>
+  <record name="euphorie.content_language_preference__enabled">
+    <field type="plone.registry.field.Bool">
+      <title>Allow to modify content language preference in the settings panel</title>
       <default>True</default>
       <missing_value>True</missing_value>
       <required>False</required>

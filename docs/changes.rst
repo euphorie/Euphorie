@@ -8,6 +8,21 @@ Changelog
 
 .. towncrier release notes start
 
+19.2.1 (2026-04-13)
+-------------------
+
+Bug fixes:
+
+
+- The default values of the survey created when adding a survey group are now persisted. (`Issue #4553 <https://github.com/syslabcom/scrum/issues/4553>`_)
+
+
+Tests
+
+
+- Make the tests compatible with the latest Plone 6.2 [ale-rt]
+
+
 19.2.0a1+dsetool.0 (2026-03-18)
 -------------------------------
 
