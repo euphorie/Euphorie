@@ -257,9 +257,10 @@
                      href="${webhelpers/country_or_client_url}"
                      data-pat-inject="history: record"
                      data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
-                     i18n:translate="label_exit"
                   >
-                    <span class="label">Exit</span>
+                    <span class="label"
+                          i18n:translate="label_exit"
+                    >Exit</span>
                   </a>
                 </li>
               </tal:not_anon>
