@@ -23,6 +23,7 @@ from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.autoform import directives
 from plone.dexterity.content import Container
 from plone.indexer import indexer
+from plone.namedfile import field as filefield
 from plone.supermodel import model
 from plonetheme.nuplone.z3cform.directives import depends
 from zope import schema
@@ -94,6 +95,68 @@ class IProfileQuestion(model.Schema, IRichDescription, IBasic):
         required=True,
     )
     directives.widget(label_multiple_occurances="euphorie.content.risk.TextLines4Rows")
+
+    image = filefield.NamedBlobImage(
+        title=_("label_image", default="Image file"),
+        description=_(
+            "help_image_upload",
+            default="Upload an image. Make sure your image is of format "
+            "png, jpg or gif and does not contain any special "
+            "characters. The minimum size is 1000 (width) x 430 (height) pixels.",
+        ),
+        required=False,
+    )
+    caption = schema.TextLine(
+        title=_("label_caption", default="Image caption"), required=False
+    )
+
+    model.fieldset(
+        "secondary_images",
+        label=_("header_secondary_images", default="Secondary images"),
+        fields=["image2", "caption2", "image3", "caption3", "image4", "caption4"],
+    )
+
+    image2 = filefield.NamedBlobImage(
+        title=_("label_image", default="Image file"),
+        description=_(
+            "help_image_upload",
+            default="Upload an image. Make sure your image is of format "
+            "png, jpg or gif and does not contain any special "
+            "characters. The minimum size is 1000 (width) x 430 (height) pixels.",
+        ),
+        required=False,
+    )
+    caption2 = schema.TextLine(
+        title=_("label_caption", default="Image caption"), required=False
+    )
+
+    image3 = filefield.NamedBlobImage(
+        title=_("label_image", default="Image file"),
+        description=_(
+            "help_image_upload",
+            default="Upload an image. Make sure your image is of format "
+            "png, jpg or gif and does not contain any special "
+            "characters. The minimum size is 1000 (width) x 430 (height) pixels.",
+        ),
+        required=False,
+    )
+    caption3 = schema.TextLine(
+        title=_("label_caption", default="Image caption"), required=False
+    )
+
+    image4 = filefield.NamedBlobImage(
+        title=_("label_image", default="Image file"),
+        description=_(
+            "help_image_upload",
+            default="Upload an image. Make sure your image is of format "
+            "png, jpg or gif and does not contain any special "
+            "characters. The minimum size is 1000 (width) x 430 (height) pixels.",
+        ),
+        required=False,
+    )
+    caption4 = schema.TextLine(
+        title=_("label_caption", default="Image caption"), required=False
+    )
 
 
 @implementer(IProfileQuestion, IQuestionContainer)
