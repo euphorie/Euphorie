@@ -242,7 +242,7 @@
                   >
                     <a class="${data/name} pat-switch pat-inject ${python:'step' if data['id'].startswith('step-') else ''}"
                        href="${data/href}"
-                       data-pat-inject="history: record"
+                       data-pat-inject="source: #main-content; target: #main-content; history: record &amp;&amp; source: #tree; target: #tree;"
                        data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
                        tal:condition="not:data/disabled"
                     ><span class="label">${data/title}</span></a>

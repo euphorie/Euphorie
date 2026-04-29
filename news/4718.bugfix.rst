@@ -1,0 +1,1 @@
+Update the markup to fix the edit slide icon. @ale-rt
