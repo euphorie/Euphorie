@@ -6621,7 +6621,7 @@ msgstr "U kunt geen verslagen afdrukken of downloaden."
 #. to register by clicking on the \"Register\" link at the top."
 #: euphorie/client/browser/templates/tooltips.pt:25
 msgid "list_test_session_limitations3"
-msgstr "Tijdens een proefsessie kunt u zich op elk moment registeren door te klikken op de link \"Registeren\" bovenaan."
+msgstr "Tijdens een proefsessie kunt u zich op elk moment registreren door te klikken op de link \"Registreren\" bovenaan."
 
 msgid "llabel_dashboard"
 msgstr "Dashboard"
