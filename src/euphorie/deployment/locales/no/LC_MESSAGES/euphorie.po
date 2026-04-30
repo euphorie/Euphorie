@@ -2695,7 +2695,7 @@ msgstr "Betydelig alvorlighetsgrad"
 #. Default: "High (very high) severity"
 #: euphorie/client/browser/templates/webhelpers.pt:465
 msgid "effect_permanent_damage"
-msgstr "Høy (veldig høy) alvorlighetsgrad"
+msgstr "Høy (svært høy) alvorlighetsgrad"
 
 #. Default: "Significant severity"
 #: euphorie/content/risk.py:543
@@ -3290,7 +3290,7 @@ msgstr "Tiltak"
 #. Default: "Measures"
 #: euphorie/client/browser/templates/risk_identification.pt:52
 msgid "header_measures"
-msgstr "Tiltakene"
+msgstr "Tiltak"
 
 #. Default: "Modules"
 #: euphorie/content/browser/templates/profilequestion_add.pt:53
@@ -4235,12 +4235,12 @@ msgstr ""
 #: euphorie/client/browser/templates/login.pt:299
 #: euphorie/client/browser/templates/shell.pt:135
 msgid "home_link"
-msgstr "Instrumentpanel"
+msgstr "Dashbord"
 
 #. Default: "Are the measures that are already implemented sufficient?"
 #: euphorie/content/utils.py:145
 msgid "implemented_measures_sufficient"
-msgstr "Er de tiltakene som allerede er implementert tilstrekkelige?"
+msgstr "Er tiltakene som allerede er implementert tilstrekkelige?"
 
 #. Default: "Your login name and/or password were entered incorrectly. Please
 #. check and try again or ${request_an_email_reminder}."
@@ -4754,7 +4754,7 @@ msgstr "Kontakt e-postadresse"
 #. Default: "Contact name"
 #: euphorie/content/sector.py:65
 msgid "label_contact_name"
-msgstr "Kontakt navn"
+msgstr "Kontaktnavn"
 
 #. Default: "Content language"
 #: euphorie/client/browser/templates/preferences.pt:96
@@ -4847,7 +4847,7 @@ msgstr "Dupliser"
 #. Default: "Edit Organisation"
 #: euphorie/client/browser/templates/panel-edit-organisation.pt:20
 msgid "label_edit_organisation"
-msgstr ""
+msgstr "Rediger organisasjon"
 
 #. Default: "Email address"
 #: euphorie/client/browser/reset_password.py:47
@@ -4940,7 +4940,7 @@ msgstr "Eksporter i tillegg som ren tekstfil"
 #. Default: "Export in eTranslate compatible XML"
 #: euphorie/content/browser/export.py:165
 msgid "label_export_etranslate_compatible"
-msgstr "Eksporter i eTranslate kompatibel XML"
+msgstr "Eksporter i eTranslate-kompatibel XML"
 
 #. Default: "Add an extra measure"
 #: euphorie/client/browser/templates/webhelpers.pt:1138
@@ -5338,7 +5338,7 @@ msgstr "Ikke aktuelt"
 #. Default: "No, more measures are required"
 #: euphorie/content/utils.py:153
 msgid "label_not_sufficient"
-msgstr "Nei, flere tiltak er nødvendig"
+msgstr "Nei, det kreves flere tiltak"
 
 #. Default: "No, more measures are required (to be added below)"
 #: euphorie/content/utils.py:160
@@ -5558,7 +5558,7 @@ msgstr "Be om validering"
 #. Default: "Risk is always present"
 #: euphorie/content/risk.py:168
 msgid "label_risk_always_present"
-msgstr "Risiko er alltid tilstede"
+msgstr "Risiko er alltid til stede"
 
 #. Default: "Risk number"
 #: euphorie/client/browser/report.py:149
@@ -5787,7 +5787,7 @@ msgstr "Velg en base revisjon"
 #. Default: "Evaluation algorithm"
 #: euphorie/content/surveygroup.py:66
 msgid "label_survey_evaluation_algorithm"
-msgstr "Evaluering algoritme"
+msgstr "Evalueringsalgoritme"
 
 #. Default: "Include images"
 #: euphorie/content/browser/export.py:70
@@ -5874,7 +5874,7 @@ msgstr "basert på ${tool_title}"
 #. Default: "Tool notification message"
 #: euphorie/content/survey.py:270
 msgid "label_tool_notification"
-msgstr "Verktøyvarslingsmelding"
+msgstr "Varselmelding for verktøy"
 
 #. Default: "Tool notification title"
 #: euphorie/content/survey.py:264
@@ -6072,7 +6072,7 @@ msgstr "Start en ny risikovurdering"
 #. Default: "start a new risk assessment"
 #: euphorie/client/browser/templates/portlet-my-ras.pt:65
 msgid "link_start_session_lower"
-msgstr ""
+msgstr "start en ny risikovurdering"
 
 #. Default: "contents of the tool"
 #: euphorie/client/browser/templates/identification.pt:33
@@ -6336,7 +6336,7 @@ msgstr "Det er ingen verktøy for dette landet."
 #. Default: "No validation is requested at this time."
 #: euphorie/client/browser/templates/consultancy.pt:100
 msgid "message_no_validation_requested"
-msgstr ""
+msgstr "Det er ikke bedt om validering på dette tidspunktet."
 
 #. Default: "You can not delete a sector that contains published OiRA Tools."
 #: euphorie/content/browser/sector.py:89
@@ -7274,7 +7274,7 @@ msgstr "Klient hjelpetekst"
 #. Default: "Measure"
 #: euphorie/content/solution.py:120
 msgid "title_common_solution"
-msgstr "Måle"
+msgstr "Tiltak"
 
 #. Default: "Documentation"
 #: euphorie/content/browser/templates/documentation_view.pt:13
@@ -7309,7 +7309,7 @@ msgstr ""
 #. Default: "Personal details"
 #: euphorie/client/browser/templates/preferences.pt:45
 msgid "title_personal_details"
-msgstr "Personlige detaljer"
+msgstr "Personlige opplysninger"
 
 #. Default: "Preferences"
 #: euphorie/client/browser/settings.py:66

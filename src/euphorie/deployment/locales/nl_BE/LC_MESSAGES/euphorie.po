@@ -1961,12 +1961,12 @@ msgstr "Annuleer"
 #: euphorie/client/browser/templates/surveys.pt:49
 #: euphorie/client/browser/templates/training-slides.pt:153
 msgid "button_close"
-msgstr "Sluit"
+msgstr "Sluiten"
 
 #. Default: "Create"
 #: euphorie/content/browser/templates/survey_add.pt:41
 msgid "button_create"
-msgstr "Creëren"
+msgstr "Aanmaken"
 
 #. Default: "Create new OiRA Tool"
 #: euphorie/deployment/tiles/templates/versions.pt:111
@@ -2036,7 +2036,7 @@ msgstr "Zoeken"
 #: euphorie/client/browser/templates/new-session.pt:126
 #: euphorie/client/browser/templates/portlet-available-tools.pt:65
 msgid "button_start_session"
-msgstr "Start Risicoanalyse"
+msgstr "Sessie starten"
 
 #. Default: "Test session"
 #: euphorie/client/browser/templates/surveys.pt:198
@@ -2411,7 +2411,7 @@ msgstr "Er zijn geen sectoren voor dit land."
 #. Default: "Add an already implemented measure"
 #: euphorie/content/utils.py:174
 msgid "custom_button_add_existing_measure"
-msgstr "Voeg een ontbrekende maatregel toe"
+msgstr "Voeg een reeds aanwezige maatregel toe"
 
 #. Default: "Describe a measure that is already in place."
 #: euphorie/content/utils.py:136
@@ -2701,12 +2701,12 @@ msgstr "Hoog (erg hoog)"
 #. Default: "Significant severity"
 #: euphorie/content/risk.py:543
 msgid "effect_significant"
-msgstr "Letsel met verzuim"
+msgstr "Gemiddeld"
 
 #. Default: "Weak severity"
 #: euphorie/content/risk.py:539
 msgid "effect_weak"
-msgstr "Letsel zonder verzuim"
+msgstr "Gering"
 
 #. Default: "Email address"
 #: euphorie/content/browser/templates/countrymanager_view.pt:23
@@ -3280,7 +3280,7 @@ msgstr "Licenties"
 #. Default: "Login"
 #: euphorie/client/browser/templates/tooltips.pt:11
 msgid "header_login"
-msgstr "Inloggen"
+msgstr "Login"
 
 #. Default: "Main image"
 #: euphorie/content/risk.py:242
@@ -3505,7 +3505,7 @@ msgstr "Sectoren"
 #. Default: "Standard measures"
 #: euphorie/content/browser/templates/risk_view.pt:138
 msgid "header_solutions"
-msgstr "Standaardmaatregelen"
+msgstr "Standaard maatregelen"
 
 #. Default: "Submodules"
 #: euphorie/content/browser/templates/module_view.pt:53
@@ -4227,7 +4227,7 @@ msgstr "Dashboard"
 #. Default: "Are the measures that are already implemented sufficient?"
 #: euphorie/content/utils.py:145
 msgid "implemented_measures_sufficient"
-msgstr "Volstaan de maatregelen die u net hebt geselecteerd?"
+msgstr "Volstaan de maatregelen die reeds van kracht zijn?"
 
 #. Default: "Your login name and/or password were entered incorrectly. Please
 #. check and try again or ${request_an_email_reminder}."
@@ -4553,7 +4553,7 @@ msgstr "Is het risico aanvaardbaar?"
 #. Default: "Available reports"
 #: euphorie/content/country.py:77
 msgid "label__default_reports"
-msgstr ""
+msgstr "Beschikbare rapporten"
 
 #. Default: "Expanded sections on risk page"
 #: euphorie/content/country.py:46
@@ -4618,7 +4618,7 @@ msgstr "Ik ga akkoord met de ${link_terms_conditions}"
 #. Default: "All organisations"
 #: euphorie/client/browser/templates/assessments.pt:36
 msgid "label_all_organisations"
-msgstr ""
+msgstr "Alle organisaties"
 
 #. Default: "Alphabetical"
 #: euphorie/client/browser/templates/assessments.pt:51
@@ -4651,7 +4651,7 @@ msgstr "Overslaan"
 #: euphorie/client/browser/templates/panel-request-validation.pt:60
 #: euphorie/client/browser/templates/panel-validate-risk-assessment.pt:53
 msgid "label_cancel"
-msgstr ""
+msgstr "Annuleren"
 
 #. Default: "Image caption"
 #: euphorie/content/module.py:96 euphorie/content/risk.py:262
@@ -4693,12 +4693,12 @@ msgstr "Dupliceren"
 #. Default: "Duplicate"
 #: euphorie/client/browser/templates/panel-invalidate-risk-assessment.pt:55
 msgid "label_clone_imp"
-msgstr ""
+msgstr "Dupliceren"
 
 #. Default: "Close this message"
 #: euphorie/client/browser/templates/browser-warning.pt:50
 msgid "label_close_message"
-msgstr ""
+msgstr "Sluit dit bericht"
 
 #. Default: "Compact"
 #: euphorie/client/browser/templates/report_landing.pt:45
@@ -4708,7 +4708,7 @@ msgstr "Compact"
 #. Default: "Compact report options"
 #: euphorie/content/country.py:110
 msgid "label_compact_report_options"
-msgstr ""
+msgstr "Opties voor compact rapport"
 
 #. Default: "Your country"
 #: euphorie/client/browser/company.py:30
@@ -4742,7 +4742,7 @@ msgstr "E-mailadres contactpersoon"
 #. Default: "Contact name"
 #: euphorie/content/sector.py:65
 msgid "label_contact_name"
-msgstr "Naam contactpersoon"
+msgstr "Contactpersoon"
 
 #. Default: "Content language"
 #: euphorie/client/browser/templates/preferences.pt:96
@@ -4769,7 +4769,7 @@ msgstr "Huidig / gepubliceerd"
 #: euphorie/client/browser/session.py:483
 #: euphorie/client/browser/templates/module_identification_custom.pt:28
 msgid "label_custom_risks"
-msgstr "Aangepaste risico's"
+msgstr "Bijkomende risico’s (door u toegevoegd)"
 
 #. Default: "Data protection notice"
 #: euphorie/client/browser/templates/login.pt:230
@@ -4837,7 +4837,7 @@ msgstr "Dupliceren"
 #. Default: "Edit Organisation"
 #: euphorie/client/browser/templates/panel-edit-organisation.pt:20
 msgid "label_edit_organisation"
-msgstr ""
+msgstr "Organisatie bewerken"
 
 #. Default: "Email address"
 #: euphorie/client/browser/reset_password.py:47
@@ -4930,7 +4930,7 @@ msgstr ""
 #. Default: "Export in eTranslate compatible XML"
 #: euphorie/content/browser/export.py:165
 msgid "label_export_etranslate_compatible"
-msgstr ""
+msgstr "Exporteer naar eTranslate-compatibele XML"
 
 #. Default: "Add an extra measure"
 #: euphorie/client/browser/templates/webhelpers.pt:1138
@@ -4988,7 +4988,7 @@ msgstr "4. Actieplan"
 #: euphorie/content/browser/templates/help_view.pt:23
 #: euphorie/content/help.py:32
 msgid "label_help_authentication"
-msgstr "Registratie"
+msgstr "Registreren"
 
 #. Default: "3. Evaluation"
 #: euphorie/content/browser/templates/help_view.pt:43
@@ -5062,7 +5062,7 @@ msgstr "Uitgevoerde maatregel"
 #: euphorie/content/browser/templates/survey_view.pt:49
 #: euphorie/content/survey.py:166
 msgid "label_integrated_action_plan"
-msgstr ""
+msgstr "Geïntegreerd actieplan"
 
 #. Default: "Introduction text"
 #: euphorie/content/survey.py:92
@@ -5133,7 +5133,7 @@ msgstr "Leer meer over OiRA"
 #: euphorie/client/browser/templates/webhelpers.pt:607
 #: euphorie/content/browser/templates/risk_view.pt:133
 msgid "label_legal_reference"
-msgstr "Wet- en beleidsreferenties"
+msgstr "Juridische en beleidsreferenties"
 
 #. Default: "filters"
 #: euphorie/client/browser/templates/assessments.pt:108
@@ -5225,8 +5225,7 @@ msgstr "door"
 #: euphorie/content/module.py:51 euphorie/content/page.py:16
 #: euphorie/content/solution.py:28
 msgid "label_module_description"
-msgstr ""
-"Neem alle relevante informatie op die nuttig kan zijn voor de eindgebruiker."
+msgstr "Beschrijving"
 
 #. Default: "This module is optional"
 #: euphorie/content/module.py:63
@@ -5269,7 +5268,7 @@ msgstr "Opnieuw wachtwoord"
 #. Default: "New test session"
 #: euphorie/client/browser/templates/new-session-test.pt:20
 msgid "label_new_session_test"
-msgstr "Nieuwe proefsessie"
+msgstr "Nieuwe testsessie"
 
 #. Default: "Newest first"
 #: euphorie/client/browser/templates/assessments.pt:58
@@ -5300,7 +5299,7 @@ msgstr ""
 #: euphorie/client/browser/templates/risks_overview.pt:262
 #: euphorie/client/browser/templates/status_info.pt:234
 msgid "label_no_risk"
-msgstr "Geen risico"
+msgstr "OK"
 
 #. Default: "No risks"
 #: euphorie/client/browser/templates/risks_overview.pt:266
@@ -5345,7 +5344,7 @@ msgstr "Notities"
 #. Default: "Notifications"
 #: euphorie/client/browser/templates/preferences.pt:132
 msgid "label_notifications"
-msgstr ""
+msgstr "Meldingen"
 
 #. Default: "Number of questions asked after training"
 #: euphorie/content/survey.py:233
@@ -5546,7 +5545,7 @@ msgstr "Validatie aanvragen"
 #. Default: "Risk is always present"
 #: euphorie/content/risk.py:168
 msgid "label_risk_always_present"
-msgstr ""
+msgstr "Risico is altijd aanwezig"
 
 #. Default: "Risk number"
 #: euphorie/client/browser/report.py:149
@@ -5682,7 +5681,7 @@ msgstr ""
 #. Default: "Send password reminder"
 #: euphorie/client/browser/reset_password.py:89
 msgid "label_send_password_reminder"
-msgstr "Wachtwoordherinnering sturen"
+msgstr "Wachtwoordherinnering versturen"
 
 #. Default: "Send validation request"
 #: euphorie/client/browser/templates/panel-request-validation.pt:56
@@ -5748,7 +5747,7 @@ msgstr "Start risico-identificatie"
 #. Default: "Start"
 #: euphorie/client/browser/templates/start.pt:121
 msgid "label_start_survey"
-msgstr "Start"
+msgstr "Starten"
 
 #. Default: "Start a test session"
 #: euphorie/client/browser/templates/login.pt:372
@@ -5789,7 +5788,7 @@ msgstr ""
 #. Default: "Include measures"
 #: euphorie/content/browser/export.py:137
 msgid "label_survey_export_include_measures"
-msgstr ""
+msgstr "Maatregelen opnemen"
 
 #. Default: "Include “Description” texts on modules"
 #: euphorie/content/browser/export.py:110
@@ -5824,7 +5823,7 @@ msgstr "Titel van geïmporteerd OiRA-instrument"
 #. Default: "Table of contents"
 #: euphorie/client/browser/templates/training.pt:41
 msgid "label_table_of_contents"
-msgstr ""
+msgstr "Inhoudsopgave"
 
 #. Default: "Test session"
 #: euphorie/client/browser/templates/shell.pt:174
@@ -5861,7 +5860,7 @@ msgstr "gebaseerd op ${tool_title}"
 #. Default: "Tool notification message"
 #: euphorie/content/survey.py:270
 msgid "label_tool_notification"
-msgstr "Inhoud van de kennisgeving"
+msgstr "Meldingsbericht van het hulpmiddel"
 
 #. Default: "Tool notification title"
 #: euphorie/content/survey.py:264
@@ -6055,12 +6054,12 @@ msgstr "Inloggen"
 #: euphorie/client/browser/templates/assessments.pt:82
 #: euphorie/client/browser/templates/organisation.pt:29
 msgid "link_start_session"
-msgstr "start een nieuwe analyse"
+msgstr "Een nieuwe risicobeoordeling starten"
 
 #. Default: "start a new risk assessment"
 #: euphorie/client/browser/templates/portlet-my-ras.pt:65
 msgid "link_start_session_lower"
-msgstr ""
+msgstr "start een nieuwe sessie"
 
 #. Default: "contents of the tool"
 #: euphorie/client/browser/templates/identification.pt:33
@@ -6149,7 +6148,7 @@ msgstr "OiRA-instrument importeren"
 #: euphorie/client/browser/templates/webhelpers.pt:660
 #: euphorie/client/browser/webhelpers.py:1506
 msgid "menu_training"
-msgstr "Training"
+msgstr "Opleiding"
 
 #. Default: "You are already a member of the ${name} organisation."
 #: euphorie/client/browser/organisation.py:514
@@ -6342,6 +6341,9 @@ msgstr ""
 #: euphorie/client/browser/templates/browser-warning.pt:26
 msgid "message_outdated_browser"
 msgstr ""
+"U gebruikt een verouderde webbrowser. Hierdoor werkt de site mogelijk niet "
+"zoals verwacht. Installeer een nieuwere browser om optimaal gebruik te maken"
+" van deze site."
 
 #. Default: "An email will be sent to ${email} if we can find an account for
 #. this email address. Please use the link inside the e-mail to reset your
@@ -6394,6 +6396,10 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:70
 msgid "message_role_administrator"
 msgstr ""
+"Beheerders kunnen gebruikersaccounts aanmaken, bewerken en verwijderen. "
+"Beheerders kunnen ook risicobeoordelingen maken en bestaande bewerken, "
+"risicobeoordelingen vergrendelen, opleidingen aanmaken en opleidingen "
+"volgen."
 
 #. Default: "Consultants can make and edit risk assessments, validate and
 #. approve risk assessments and create trainings."
@@ -6410,12 +6416,17 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:82
 msgid "message_role_manager"
 msgstr ""
+"Managers/beleidsmakers kunnen risicobeoordelingen maken en bewerken, "
+"risicobeoordelingen vergrendelen, opleidingen aanmaken en opleidingen "
+"volgen."
 
 #. Default: "Members can make risk assessments and take trainings."
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:70
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:91
 msgid "message_role_member"
 msgstr ""
+"Leden kunnen risicobeoordelingen alleen lezen en trainingen volgen. Leden "
+"kunnen risicobeoordelingen niet bewerken."
 
 #. Default: "This risk assessment is currently under review by ${consultant}."
 #: euphorie/client/browser/templates/consultancy.pt:75
@@ -6559,7 +6570,7 @@ msgstr "Instellingen"
 #: euphorie/client/browser/templates/webhelpers.pt:62
 #: euphorie/client/browser/webhelpers.py:1521
 msgid "navigation_status"
-msgstr "Status"
+msgstr "Bekijk uw voortgang"
 
 #. Default: "My Assessments"
 #: euphorie/client/browser/templates/webhelpers.pt:56
@@ -7239,7 +7250,7 @@ msgstr ""
 #. Default: "Change password"
 #: euphorie/client/browser/settings.py:72
 msgid "title_change_password"
-msgstr "Wachtwoord veranderen"
+msgstr "Wachtwoord wijzigen"
 
 #. Default: "Client help text"
 #: euphorie/content/browser/templates/help_view.pt:13
@@ -7284,7 +7295,7 @@ msgstr ""
 #. Default: "Personal details"
 #: euphorie/client/browser/templates/preferences.pt:45
 msgid "title_personal_details"
-msgstr "Persoonlijke details"
+msgstr "Persoonlijke gegevens"
 
 #. Default: "Preferences"
 #: euphorie/client/browser/settings.py:66
@@ -7446,7 +7457,7 @@ msgstr "validatie aangevraagd"
 #. Default: "Register"
 #: euphorie/client/browser/templates/login.pt:363
 msgid "verb_register"
-msgstr "Registreer"
+msgstr "registreer"
 
 #. Default: "Please verify if the profile is still accurate."
 #: euphorie/client/browser/templates/updated.pt:31

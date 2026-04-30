@@ -1978,7 +1978,7 @@ msgstr "Închide"
 #. Default: "Create"
 #: euphorie/content/browser/templates/survey_add.pt:41
 msgid "button_create"
-msgstr "Creează"
+msgstr "Creați"
 
 #. Default: "Create new OiRA Tool"
 #: euphorie/deployment/tiles/templates/versions.pt:111
@@ -2048,7 +2048,7 @@ msgstr "Caută"
 #: euphorie/client/browser/templates/new-session.pt:126
 #: euphorie/client/browser/templates/portlet-available-tools.pt:65
 msgid "button_start_session"
-msgstr "Începe evaluarea riscului"
+msgstr "Începeți evaluarea riscurilor"
 
 #. Default: "Test session"
 #: euphorie/client/browser/templates/surveys.pt:198
@@ -2064,7 +2064,7 @@ msgstr "Întrebări"
 #. Default: "Unlock"
 #: euphorie/content/browser/templates/user_mgmt.pt:66
 msgid "button_unlock"
-msgstr "Deblochează"
+msgstr "Deblocați"
 
 #. Default: "Unpublish"
 #: euphorie/content/browser/templates/surveygroup_unpublish.pt:34
@@ -2391,7 +2391,7 @@ msgstr ","
 #. Default: "Add an already implemented measure"
 #: euphorie/content/utils.py:174
 msgid "custom_button_add_existing_measure"
-msgstr ","
+msgstr "Adăugați o măsură deja implementată"
 
 #. Default: "Describe a measure that is already in place."
 #: euphorie/content/utils.py:136
@@ -2694,7 +2694,7 @@ msgstr "Severitate semnificativă"
 #. Default: "High (very high) severity"
 #: euphorie/client/browser/templates/webhelpers.pt:465
 msgid "effect_permanent_damage"
-msgstr "Severitate mare (foarte mare)"
+msgstr "Severitate ridicată (foarte ridicată)"
 
 #. Default: "Significant severity"
 #: euphorie/content/risk.py:543
@@ -2704,7 +2704,7 @@ msgstr "Severitate semnificativă"
 #. Default: "Weak severity"
 #: euphorie/content/risk.py:539
 msgid "effect_weak"
-msgstr "Severitate slabă"
+msgstr "Severitate redusă"
 
 #. Default: "Email address"
 #: euphorie/content/browser/templates/countrymanager_view.pt:23
@@ -3109,7 +3109,7 @@ msgstr "Aproape niciodată"
 #: euphorie/client/browser/templates/webhelpers.pt:434
 #: euphorie/content/risk.py:520
 msgid "frequency_constantly"
-msgstr "În mod constant"
+msgstr "Constant"
 
 #. Default: "Not very often"
 #: euphorie/client/browser/templates/webhelpers.pt:540
@@ -3139,7 +3139,7 @@ msgstr "Foarte des sau în mod regulat"
 #: euphorie/client/browser/templates/webhelpers.pt:428
 #: euphorie/content/risk.py:515
 msgid "frequency_regularly"
-msgstr "Regular"
+msgstr "Regulat"
 
 #. Default: "You are currently evaluating OiRA as a guest user. You will not
 #. be able to save your progress or download any reports. To save your work,
@@ -3251,7 +3251,7 @@ msgstr "Identificare"
 #: euphorie/client/browser/templates/risk_macros.pt:179
 #: euphorie/content/browser/templates/module_view.pt:35
 msgid "header_information"
-msgstr "Informație"
+msgstr "Informații"
 
 #. Default: "Official launch of the project &ndash; September 2011"
 #: euphorie/client/browser/templates/about.pt:113
@@ -3374,7 +3374,7 @@ msgstr "Previzualizează Instrumentul OiRA"
 #. Default: "Tailor the risk assessment to your organisation"
 #: euphorie/client/browser/templates/profile.pt:23
 msgid "header_profile"
-msgstr "Adaptați evaluarea riscului la organizația dvs."
+msgstr "Adaptați evaluarea riscurilor la organizația dvs."
 
 #. Default: "Profile questions"
 #: euphorie/content/browser/templates/profilequestion_add.pt:49
@@ -3422,7 +3422,7 @@ msgstr "Ești conștient de toate riscurile?"
 #. Default: "What is the severity of the damage?"
 #: euphorie/client/browser/templates/webhelpers.pt:443
 msgid "header_risk_effect"
-msgstr "Care este gravitatea daunelor?"
+msgstr "Care este gravitatea daunei?"
 
 #. Default: "How often are people exposed to this risk?"
 #: euphorie/client/browser/templates/webhelpers.pt:412
@@ -4245,12 +4245,12 @@ msgstr "Dacă nu specificați un titlu, acesta va fi preluat din intrare."
 #: euphorie/client/browser/templates/login.pt:299
 #: euphorie/client/browser/templates/shell.pt:135
 msgid "home_link"
-msgstr "Tabloul de bord"
+msgstr "Panou de control"
 
 #. Default: "Are the measures that are already implemented sufficient?"
 #: euphorie/content/utils.py:145
 msgid "implemented_measures_sufficient"
-msgstr "Măsurile care sunt deja implementate sunt suficiente?"
+msgstr "Sunt suficiente măsurile deja implementate?"
 
 #. Default: "Your login name and/or password were entered incorrectly. Please
 #. check and try again or ${request_an_email_reminder}."
@@ -4580,7 +4580,7 @@ msgstr "invalidat"
 #. Default: "Is this risk acceptable or under control?"
 #: euphorie/content/utils.py:89
 msgid "is_risk_acceptable"
-msgstr "Acest risc este acceptabil sau sub control?"
+msgstr "Este acest risc acceptabil sau sub control?"
 
 #. Default: "Available reports"
 #: euphorie/content/country.py:77
@@ -4676,7 +4676,7 @@ msgstr "Conținutul paginii"
 #. Default: "Skip"
 #: euphorie/client/browser/templates/risk_identification.pt:133
 msgid "label_button_skip"
-msgstr "Omite"
+msgstr "Omiteți"
 
 #. Default: "Cancel"
 #: euphorie/client/browser/templates/panel-invalidate-risk-assessment.pt:51
@@ -4960,7 +4960,7 @@ msgstr "Exportă adițional ca fișier text simplu"
 #. Default: "Export in eTranslate compatible XML"
 #: euphorie/content/browser/export.py:165
 msgid "label_export_etranslate_compatible"
-msgstr "Exportă în XML compatibil cu eTranslate"
+msgstr "Exportați în XML compatibil cu eTranslate"
 
 #. Default: "Add an extra measure"
 #: euphorie/client/browser/templates/webhelpers.pt:1138
@@ -5163,7 +5163,7 @@ msgstr "Aflați mai multe despre OiRA"
 #: euphorie/client/browser/templates/webhelpers.pt:607
 #: euphorie/content/browser/templates/risk_view.pt:133
 msgid "label_legal_reference"
-msgstr "Referințe juridice și politice"
+msgstr "Referințe legale și politice"
 
 #. Default: "filters"
 #: euphorie/client/browser/templates/assessments.pt:108
@@ -5224,7 +5224,7 @@ msgstr ""
 #: euphorie/client/browser/templates/webhelpers.pt:1016
 #: euphorie/client/docx/compiler.py:435
 msgid "label_measure_action_plan"
-msgstr "Abordare generală (pentru a elimina sau reduce riscul)"
+msgstr "Abordare generală (pentru eliminarea sau reducerea riscului)"
 
 #. Default: "Specific action(s) required to implement this approach"
 #: euphorie/content/browser/templates/solution_view.pt:33
@@ -5299,7 +5299,7 @@ msgstr "Din nou parola"
 #. Default: "New test session"
 #: euphorie/client/browser/templates/new-session-test.pt:20
 msgid "label_new_session_test"
-msgstr "Sesiune de testare nouă"
+msgstr "Sesiune nouă de testare"
 
 #. Default: "Newest first"
 #: euphorie/client/browser/templates/assessments.pt:58
@@ -5330,7 +5330,7 @@ msgstr "Nu"
 #: euphorie/client/browser/templates/risks_overview.pt:262
 #: euphorie/client/browser/templates/status_info.pt:234
 msgid "label_no_risk"
-msgstr "Fără risc"
+msgstr "Niciun risc"
 
 #. Default: "No risks"
 #: euphorie/client/browser/templates/risks_overview.pt:266
@@ -5647,14 +5647,14 @@ msgstr "Consultant"
 #. Default: "Save and add new risk"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:326
 msgid "label_save_and_add_new"
-msgstr "Salvează și adaugă un nou risc"
+msgstr "Salvați și adăugați un nou risc"
 
 #. Default: "Save and continue"
 #: euphorie/client/browser/templates/profile.pt:186
 #: euphorie/client/browser/templates/report.pt:72
 #: euphorie/client/browser/templates/report_company.pt:271
 msgid "label_save_and_continue"
-msgstr "Salvează și continuă"
+msgstr "Salvați și continuați"
 
 #. Default: "Save and finish"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:340
@@ -5718,7 +5718,7 @@ msgstr "Trimite reminiscență prin email"
 #. Default: "Send password reminder"
 #: euphorie/client/browser/reset_password.py:89
 msgid "label_send_password_reminder"
-msgstr "Trimite un reminder pentru parolă"
+msgstr "Trimiteți memento pentru parolă"
 
 #. Default: "Send validation request"
 #: euphorie/client/browser/templates/panel-request-validation.pt:56
@@ -5784,7 +5784,7 @@ msgstr "Începeți identificarea riscului"
 #. Default: "Start"
 #: euphorie/client/browser/templates/start.pt:121
 msgid "label_start_survey"
-msgstr "Începe"
+msgstr "Începeți"
 
 #. Default: "Start a test session"
 #: euphorie/client/browser/templates/login.pt:372
@@ -5825,7 +5825,7 @@ msgstr "Includeți text de introducere"
 #. Default: "Include measures"
 #: euphorie/content/browser/export.py:137
 msgid "label_survey_export_include_measures"
-msgstr "Includeți măsuri"
+msgstr "Includeți măsurile"
 
 #. Default: "Include “Description” texts on modules"
 #: euphorie/content/browser/export.py:110
@@ -5897,7 +5897,7 @@ msgstr "bazat pe ${tool_title}"
 #. Default: "Tool notification message"
 #: euphorie/content/survey.py:270
 msgid "label_tool_notification"
-msgstr "Mesajul de notificare din instrument"
+msgstr "Mesajul notificării instrumentului"
 
 #. Default: "Tool notification title"
 #: euphorie/content/survey.py:264
@@ -5968,7 +5968,7 @@ msgstr "Nevizitat"
 #. Default: "Update"
 #: euphorie/deployment/tiles/templates/versions.pt:140
 msgid "label_update"
-msgstr "Actualizare"
+msgstr "Actualizați"
 
 #. Default: "XML file"
 #: euphorie/content/browser/upload.py:171
@@ -6091,12 +6091,12 @@ msgstr "Autentificare"
 #: euphorie/client/browser/templates/assessments.pt:82
 #: euphorie/client/browser/templates/organisation.pt:29
 msgid "link_start_session"
-msgstr "Începe o nouă evaluare a riscului"
+msgstr "Începeți o nouă evaluare a riscurilor"
 
 #. Default: "start a new risk assessment"
 #: euphorie/client/browser/templates/portlet-my-ras.pt:65
 msgid "link_start_session_lower"
-msgstr ""
+msgstr "începeți o nouă evaluare a riscurilor"
 
 #. Default: "contents of the tool"
 #: euphorie/client/browser/templates/identification.pt:33
@@ -6823,7 +6823,7 @@ msgstr "COPIAZĂ"
 #: euphorie/client/browser/templates/webhelpers.pt:590
 #: euphorie/content/risk.py:212
 msgid "priority_high"
-msgstr "Înalt"
+msgstr "Ridicat"
 
 #. Default: "Low"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:219
@@ -7345,7 +7345,7 @@ msgstr ""
 #. Default: "Personal details"
 #: euphorie/client/browser/templates/preferences.pt:45
 msgid "title_personal_details"
-msgstr "Detalii personale"
+msgstr "Date personale"
 
 #. Default: "Preferences"
 #: euphorie/client/browser/settings.py:66
@@ -7502,7 +7502,7 @@ msgstr "validare solicitată"
 #. Default: "Register"
 #: euphorie/client/browser/templates/login.pt:363
 msgid "verb_register"
-msgstr "Înregistrați-vă"
+msgstr "Înregistrare"
 
 #. Default: "Please verify if the profile is still accurate."
 #: euphorie/client/browser/templates/updated.pt:31

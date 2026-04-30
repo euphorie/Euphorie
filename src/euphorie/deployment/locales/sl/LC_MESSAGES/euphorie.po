@@ -2706,12 +2706,12 @@ msgstr "Visoka (zelo visoka)"
 #. Default: "Significant severity"
 #: euphorie/content/risk.py:543
 msgid "effect_significant"
-msgstr "Znatna resnost"
+msgstr "Znatna"
 
 #. Default: "Weak severity"
 #: euphorie/content/risk.py:539
 msgid "effect_weak"
-msgstr "Šibka stopnja resnosti"
+msgstr "Nizka"
 
 #. Default: "Email address"
 #: euphorie/content/browser/templates/countrymanager_view.pt:23
@@ -3281,7 +3281,7 @@ msgstr "Licence"
 #. Default: "Login"
 #: euphorie/client/browser/templates/tooltips.pt:11
 msgid "header_login"
-msgstr "Prijava"
+msgstr "Nadaljuj"
 
 #. Default: "Main image"
 #: euphorie/content/risk.py:242
@@ -3505,7 +3505,7 @@ msgstr "Sektorji"
 #. Default: "Standard measures"
 #: euphorie/content/browser/templates/risk_view.pt:138
 msgid "header_solutions"
-msgstr "Standardni ukrepi"
+msgstr "Predlagani ukrepi"
 
 #. Default: "Submodules"
 #: euphorie/content/browser/templates/module_view.pt:53
@@ -4742,7 +4742,7 @@ msgstr "E-poštni naslov stika"
 #. Default: "Contact name"
 #: euphorie/content/sector.py:65
 msgid "label_contact_name"
-msgstr "Ime stika"
+msgstr "Ime kontakta"
 
 #. Default: "Content language"
 #: euphorie/client/browser/templates/preferences.pt:96
@@ -4928,7 +4928,7 @@ msgstr "Izvozi dodatno kot običajno tekstovno datoteko"
 #. Default: "Export in eTranslate compatible XML"
 #: euphorie/content/browser/export.py:165
 msgid "label_export_etranslate_compatible"
-msgstr "Izvozi v XML, združljiv z eTranslate"
+msgstr "Izvozi v XML-ju, ki je združljiv z eTranslate"
 
 #. Default: "Add an extra measure"
 #: euphorie/client/browser/templates/webhelpers.pt:1138
@@ -4986,7 +4986,7 @@ msgstr "4. Načrt ukrepov"
 #: euphorie/content/browser/templates/help_view.pt:23
 #: euphorie/content/help.py:32
 msgid "label_help_authentication"
-msgstr "Registracija"
+msgstr "Registriraj se"
 
 #. Default: "3. Evaluation"
 #: euphorie/content/browser/templates/help_view.pt:43
@@ -5131,7 +5131,7 @@ msgstr "Več o orodju OiRA"
 #: euphorie/client/browser/templates/webhelpers.pt:607
 #: euphorie/content/browser/templates/risk_view.pt:133
 msgid "label_legal_reference"
-msgstr "Zakonodaja in drugi viri"
+msgstr "Pravne in politične reference"
 
 #. Default: "filters"
 #: euphorie/client/browser/templates/assessments.pt:108
@@ -5223,9 +5223,7 @@ msgstr "s strani"
 #: euphorie/content/module.py:51 euphorie/content/page.py:16
 #: euphorie/content/solution.py:28
 msgid "label_module_description"
-msgstr ""
-"Vključite vse bistvene informacije, ki bi lahko koristile končnemu "
-"uporabniku."
+msgstr "Opis"
 
 #. Default: "This module is optional"
 #: euphorie/content/module.py:63
@@ -5268,7 +5266,7 @@ msgstr "Ponovi geslo"
 #. Default: "New test session"
 #: euphorie/client/browser/templates/new-session-test.pt:20
 msgid "label_new_session_test"
-msgstr "Nova poskusna seja"
+msgstr "Nova testna seja"
 
 #. Default: "Newest first"
 #: euphorie/client/browser/templates/assessments.pt:58
@@ -5299,7 +5297,7 @@ msgstr "Ne"
 #: euphorie/client/browser/templates/risks_overview.pt:262
 #: euphorie/client/browser/templates/status_info.pt:234
 msgid "label_no_risk"
-msgstr "Tveganje ni"
+msgstr "Urejeno"
 
 #. Default: "No risks"
 #: euphorie/client/browser/templates/risks_overview.pt:266
@@ -5682,7 +5680,7 @@ msgstr "Pošlji e-poštni opomnik"
 #. Default: "Send password reminder"
 #: euphorie/client/browser/reset_password.py:89
 msgid "label_send_password_reminder"
-msgstr "Pošlji namig za obstoječe geslo"
+msgstr "Pošlji opomnik za geslo"
 
 #. Default: "Send validation request"
 #: euphorie/client/browser/templates/panel-request-validation.pt:56
@@ -5861,7 +5859,7 @@ msgstr "na podlagi ${tool_title}"
 #. Default: "Tool notification message"
 #: euphorie/content/survey.py:270
 msgid "label_tool_notification"
-msgstr "Sporočilo o obvestilu v orodju"
+msgstr "Sporočilo obvestila orodja"
 
 #. Default: "Tool notification title"
 #: euphorie/content/survey.py:264
@@ -5937,7 +5935,7 @@ msgstr "Posodobi"
 #. Default: "XML file"
 #: euphorie/content/browser/upload.py:171
 msgid "label_upload_filename"
-msgstr "Datoteka XML"
+msgstr "XML datoteka"
 
 #. Default: "Name for OiRA Tool version"
 #: euphorie/content/browser/upload.py:165
@@ -6054,12 +6052,12 @@ msgstr "Prijava"
 #: euphorie/client/browser/templates/assessments.pt:82
 #: euphorie/client/browser/templates/organisation.pt:29
 msgid "link_start_session"
-msgstr "začni novo sejo"
+msgstr "Začni novo oceno tveganja"
 
 #. Default: "start a new risk assessment"
 #: euphorie/client/browser/templates/portlet-my-ras.pt:65
 msgid "link_start_session_lower"
-msgstr ""
+msgstr "začni novo sejo"
 
 #. Default: "contents of the tool"
 #: euphorie/client/browser/templates/identification.pt:33
@@ -6971,7 +6969,7 @@ msgstr ""
 #. Default: "Comments"
 #: euphorie/client/browser/report.py:152
 msgid "report_timeline_comment"
-msgstr "Komentarji"
+msgstr "Opombe"
 
 #. Default: "Priority"
 #: euphorie/client/browser/report.py:151 euphorie/client/docx/compiler.py:689
@@ -7444,7 +7442,7 @@ msgstr "zahtevano potrdilo"
 #. Default: "Register"
 #: euphorie/client/browser/templates/login.pt:363
 msgid "verb_register"
-msgstr "Registrirajte se"
+msgstr "registriraj se"
 
 #. Default: "Please verify if the profile is still accurate."
 #: euphorie/client/browser/templates/updated.pt:31

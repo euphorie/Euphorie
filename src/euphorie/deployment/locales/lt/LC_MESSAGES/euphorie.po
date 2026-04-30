@@ -2005,7 +2005,7 @@ msgstr "Paieška"
 #: euphorie/client/browser/templates/new-session.pt:126
 #: euphorie/client/browser/templates/portlet-available-tools.pt:65
 msgid "button_start_session"
-msgstr "Pradėkite sesiją"
+msgstr "Pradėkite sesia"
 
 #. Default: "Test session"
 #: euphorie/client/browser/templates/surveys.pt:198
@@ -3437,7 +3437,7 @@ msgstr "Kokia tikimybė, kad ši rizika atsiras?"
 #: euphorie/content/browser/templates/profilequestion_add.pt:59
 #: euphorie/content/browser/templates/profilequestion_edit.pt:66
 msgid "header_risks"
-msgstr "Rizikos"
+msgstr "Rizikai"
 
 #. Default: "Hazards/problems that have been managed or are not present in
 #. your organisation"
@@ -4239,12 +4239,12 @@ msgstr "Pavadinimo nenurodžius, jis bus paimtas iš pradinio failo."
 #: euphorie/client/browser/templates/login.pt:299
 #: euphorie/client/browser/templates/shell.pt:135
 msgid "home_link"
-msgstr "Meniu juosta"
+msgstr "Valdymo skydelis"
 
 #. Default: "Are the measures that are already implemented sufficient?"
 #: euphorie/content/utils.py:145
 msgid "implemented_measures_sufficient"
-msgstr "Ar jau įgyvendintos priemonės yra pakankamos?"
+msgstr "Pasirinkti arba pridėti jau įdiegtas priemones."
 
 #. Default: "Your login name and/or password were entered incorrectly. Please
 #. check and try again or ${request_an_email_reminder}."
@@ -4755,7 +4755,7 @@ msgstr "Kontaktinio asmens el. pašto adresas"
 #. Default: "Contact name"
 #: euphorie/content/sector.py:65
 msgid "label_contact_name"
-msgstr "Kontaktinio asmens pavardė"
+msgstr "Kontaktinio asmens vardas"
 
 #. Default: "Content language"
 #: euphorie/client/browser/templates/preferences.pt:96
@@ -4782,7 +4782,7 @@ msgstr "Dabartinis / išleistas"
 #: euphorie/client/browser/session.py:483
 #: euphorie/client/browser/templates/module_identification_custom.pt:28
 msgid "label_custom_risks"
-msgstr "Papildoma rizika"
+msgstr "Jūsų įtrauktos rizikos"
 
 #. Default: "Data protection notice"
 #: euphorie/client/browser/templates/login.pt:230
@@ -4941,7 +4941,7 @@ msgstr "Eksportuoti papildomai kaip paprastą tekstą"
 #. Default: "Export in eTranslate compatible XML"
 #: euphorie/content/browser/export.py:165
 msgid "label_export_etranslate_compatible"
-msgstr "Eksportuoti eTranslate XML formatu"
+msgstr "Eksportuoti į XML, suderinamą su eTranslate"
 
 #. Default: "Add an extra measure"
 #: euphorie/client/browser/templates/webhelpers.pt:1138
@@ -4999,7 +4999,7 @@ msgstr "4. Veiksmų planas"
 #: euphorie/content/browser/templates/help_view.pt:23
 #: euphorie/content/help.py:32
 msgid "label_help_authentication"
-msgstr "Registracija"
+msgstr "Registruotis"
 
 #. Default: "3. Evaluation"
 #: euphorie/content/browser/templates/help_view.pt:43
@@ -5144,7 +5144,7 @@ msgstr "Daugiau apie OiRA"
 #: euphorie/client/browser/templates/webhelpers.pt:607
 #: euphorie/content/browser/templates/risk_view.pt:133
 msgid "label_legal_reference"
-msgstr "Nuorodos į teisės aktus"
+msgstr "Teisinės ir politinės nuorodos"
 
 #. Default: "filters"
 #: euphorie/client/browser/templates/assessments.pt:108
@@ -5311,7 +5311,7 @@ msgstr "Ne"
 #: euphorie/client/browser/templates/risks_overview.pt:262
 #: euphorie/client/browser/templates/status_info.pt:234
 msgid "label_no_risk"
-msgstr "Rizikos nėra (labai maža)"
+msgstr "GERAI"
 
 #. Default: "No risks"
 #: euphorie/client/browser/templates/risks_overview.pt:266
@@ -5692,7 +5692,7 @@ msgstr "Siųsti priminimą el. paštu"
 #. Default: "Send password reminder"
 #: euphorie/client/browser/reset_password.py:89
 msgid "label_send_password_reminder"
-msgstr "Slaptažodžio priminimas"
+msgstr "Siųsti slaptažodžio priminimą"
 
 #. Default: "Send validation request"
 #: euphorie/client/browser/templates/panel-request-validation.pt:56
@@ -5758,7 +5758,7 @@ msgstr "Pradėti rizikų nustatymo procesą"
 #. Default: "Start"
 #: euphorie/client/browser/templates/start.pt:121
 msgid "label_start_survey"
-msgstr "Pradžia"
+msgstr "Pradėti"
 
 #. Default: "Start a test session"
 #: euphorie/client/browser/templates/login.pt:372
@@ -5871,7 +5871,7 @@ msgstr "pagal ${tool_title}"
 #. Default: "Tool notification message"
 #: euphorie/content/survey.py:270
 msgid "label_tool_notification"
-msgstr "Priemonės pranešimo žinutė"
+msgstr "Įrankio pranešimo žinutė"
 
 #. Default: "Tool notification title"
 #: euphorie/content/survey.py:264
@@ -5942,7 +5942,7 @@ msgstr "Neatsakyta"
 #. Default: "Update"
 #: euphorie/deployment/tiles/templates/versions.pt:140
 msgid "label_update"
-msgstr "Naujinti"
+msgstr "Atnaujinti"
 
 #. Default: "XML file"
 #: euphorie/content/browser/upload.py:171
@@ -6064,12 +6064,12 @@ msgstr "Prisijungimo vardas"
 #: euphorie/client/browser/templates/assessments.pt:82
 #: euphorie/client/browser/templates/organisation.pt:29
 msgid "link_start_session"
-msgstr "pradėkite naują sesiją"
+msgstr "Pradėti naują rizikos vertinimą"
 
 #. Default: "start a new risk assessment"
 #: euphorie/client/browser/templates/portlet-my-ras.pt:65
 msgid "link_start_session_lower"
-msgstr ""
+msgstr "pradėkite naują sesija"
 
 #. Default: "contents of the tool"
 #: euphorie/client/browser/templates/identification.pt:33
@@ -6154,7 +6154,7 @@ msgstr "Įkelti OiRA priemonę"
 #: euphorie/client/browser/templates/webhelpers.pt:660
 #: euphorie/client/browser/webhelpers.py:1506
 msgid "menu_training"
-msgstr "Mokymas"
+msgstr "Mokymai"
 
 #. Default: "You are already a member of the ${name} organisation."
 #: euphorie/client/browser/organisation.py:514
@@ -6563,7 +6563,7 @@ msgstr "Išsiregistruoti"
 #. Default: "Settings"
 #: euphorie/client/browser/templates/webhelpers.pt:65
 msgid "navigation_settings"
-msgstr "Parametrai"
+msgstr "Nustatymai"
 
 #. Default: "Status"
 #: euphorie/client/browser/templates/more_menu.pt:35
@@ -6984,7 +6984,7 @@ msgstr ""
 #. Default: "Comments"
 #: euphorie/client/browser/report.py:152
 msgid "report_timeline_comment"
-msgstr "Pastabos"
+msgstr "Komentarai"
 
 #. Default: "Priority"
 #: euphorie/client/browser/report.py:151 euphorie/client/docx/compiler.py:689
@@ -7284,7 +7284,7 @@ msgstr "Rasti nepavyko"
 #. Default: "Help"
 #: euphorie/client/browser/templates/help.pt:26
 msgid "title_help"
-msgstr "Žinynas"
+msgstr "Pagalba"
 
 #. Default: "Remove this OiRA Tool from the online client."
 #: euphorie/deployment/tiles/templates/versions.pt:43
@@ -7304,7 +7304,7 @@ msgstr "Asmeninė informacija"
 #. Default: "Preferences"
 #: euphorie/client/browser/settings.py:66
 msgid "title_preferences"
-msgstr "Pageidavimai"
+msgstr "Nuostatos"
 
 #. Default: "Reset password"
 #: euphorie/client/browser/reset_password.py:222
@@ -7460,7 +7460,7 @@ msgstr "prašoma patvirtinti"
 #. Default: "Register"
 #: euphorie/client/browser/templates/login.pt:363
 msgid "verb_register"
-msgstr "Registruotis"
+msgstr "registruotis"
 
 #. Default: "Please verify if the profile is still accurate."
 #: euphorie/client/browser/templates/updated.pt:31

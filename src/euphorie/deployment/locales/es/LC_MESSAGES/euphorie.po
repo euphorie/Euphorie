@@ -2424,7 +2424,7 @@ msgstr "No hay sectores para este país."
 #. Default: "Add an already implemented measure"
 #: euphorie/content/utils.py:174
 msgid "custom_button_add_existing_measure"
-msgstr "Añadir una medida ya implementada"
+msgstr "Añadir una medida que eche en falta"
 
 #. Default: "Describe a measure that is already in place."
 #: euphorie/content/utils.py:136
@@ -2766,7 +2766,7 @@ msgstr "Gravedad importante"
 #. Default: "Weak severity"
 #: euphorie/content/risk.py:539
 msgid "effect_weak"
-msgstr "Gravedad leve"
+msgstr "Gravedad débil"
 
 #. Default: "Email address"
 #: euphorie/content/browser/templates/countrymanager_view.pt:23
@@ -3334,7 +3334,7 @@ msgstr "Licencias"
 #. Default: "Login"
 #: euphorie/client/browser/templates/tooltips.pt:11
 msgid "header_login"
-msgstr "Entrar"
+msgstr "Iniciar sesión"
 
 #. Default: "Main image"
 #: euphorie/content/risk.py:242
@@ -3559,7 +3559,7 @@ msgstr "Sectores"
 #. Default: "Standard measures"
 #: euphorie/content/browser/templates/risk_view.pt:138
 msgid "header_solutions"
-msgstr "Medidas estándar"
+msgstr "Medidas pre-establecidas"
 
 #. Default: "Submodules"
 #: euphorie/content/browser/templates/module_view.pt:53
@@ -4302,12 +4302,12 @@ msgstr "Si no especifica un título se tomará del texto introducido."
 #: euphorie/client/browser/templates/login.pt:299
 #: euphorie/client/browser/templates/shell.pt:135
 msgid "home_link"
-msgstr "Inicio"
+msgstr "Panel de control"
 
 #. Default: "Are the measures that are already implemented sufficient?"
 #: euphorie/content/utils.py:145
 msgid "implemented_measures_sufficient"
-msgstr "¿Son suficientes las medidas ya vigentes?"
+msgstr "¿Son suficientes las medidas seleccionadas?"
 
 #. Default: "Your login name and/or password were entered incorrectly. Please
 #. check and try again or ${request_an_email_reminder}."
@@ -4856,7 +4856,7 @@ msgstr "Actual/publicada"
 #: euphorie/client/browser/session.py:483
 #: euphorie/client/browser/templates/module_identification_custom.pt:28
 msgid "label_custom_risks"
-msgstr "Riesgos personalizados"
+msgstr "Riesgos añadidos (por Ud)"
 
 #. Default: "Data protection notice"
 #: euphorie/client/browser/templates/login.pt:230
@@ -5073,7 +5073,7 @@ msgstr "4. Plan de Acción"
 #: euphorie/content/browser/templates/help_view.pt:23
 #: euphorie/content/help.py:32
 msgid "label_help_authentication"
-msgstr "Registro"
+msgstr "Registrarse"
 
 #. Default: "3. Evaluation"
 #: euphorie/content/browser/templates/help_view.pt:43
@@ -5218,7 +5218,7 @@ msgstr "Más información sobre OiRA"
 #: euphorie/client/browser/templates/webhelpers.pt:607
 #: euphorie/content/browser/templates/risk_view.pt:133
 msgid "label_legal_reference"
-msgstr "Referencias legales y de política"
+msgstr "Referencias legales y de políticas"
 
 #. Default: "filters"
 #: euphorie/client/browser/templates/assessments.pt:108
@@ -5310,9 +5310,7 @@ msgstr "por"
 #: euphorie/content/module.py:51 euphorie/content/page.py:16
 #: euphorie/content/solution.py:28
 msgid "label_module_description"
-msgstr ""
-"Incluir cualquier información relevante que pueda ser útil para el usuario "
-"final."
+msgstr "Descripción"
 
 #. Default: "This module is optional"
 #: euphorie/content/module.py:63
@@ -5386,7 +5384,7 @@ msgstr "No"
 #: euphorie/client/browser/templates/risks_overview.pt:262
 #: euphorie/client/browser/templates/status_info.pt:234
 msgid "label_no_risk"
-msgstr "Sin riesgo"
+msgstr "OK"
 
 #. Default: "No risks"
 #: euphorie/client/browser/templates/risks_overview.pt:266
@@ -5632,7 +5630,7 @@ msgstr "Solicitar validación"
 #. Default: "Risk is always present"
 #: euphorie/content/risk.py:168
 msgid "label_risk_always_present"
-msgstr "Riesgo presente siempre"
+msgstr "El riesgo siempre está presente"
 
 #. Default: "Risk number"
 #: euphorie/client/browser/report.py:149
@@ -5836,7 +5834,7 @@ msgstr "Iniciar la identificación de Riesgos"
 #. Default: "Start"
 #: euphorie/client/browser/templates/start.pt:121
 msgid "label_start_survey"
-msgstr "Iniciar"
+msgstr "Comenzar"
 
 #. Default: "Start a test session"
 #: euphorie/client/browser/templates/login.pt:372
@@ -5949,7 +5947,7 @@ msgstr "basada en ${tool_title}"
 #. Default: "Tool notification message"
 #: euphorie/content/survey.py:270
 msgid "label_tool_notification"
-msgstr "Mensaje de notificación de la herramienta"
+msgstr "Mensaje de la notificación de la herramienta"
 
 #. Default: "Tool notification title"
 #: euphorie/content/survey.py:264
@@ -6143,12 +6141,12 @@ msgstr "Identifíquese"
 #: euphorie/client/browser/templates/assessments.pt:82
 #: euphorie/client/browser/templates/organisation.pt:29
 msgid "link_start_session"
-msgstr "iniciar una nueva sesión"
+msgstr "Iniciar una nueva evaluación de riesgos"
 
 #. Default: "start a new risk assessment"
 #: euphorie/client/browser/templates/portlet-my-ras.pt:65
 msgid "link_start_session_lower"
-msgstr ""
+msgstr "iniciar una nueva sesión"
 
 #. Default: "contents of the tool"
 #: euphorie/client/browser/templates/identification.pt:33
@@ -6650,7 +6648,7 @@ msgstr "Cerrar sessión"
 #. Default: "Settings"
 #: euphorie/client/browser/templates/webhelpers.pt:65
 msgid "navigation_settings"
-msgstr "Ajustes"
+msgstr "Configuración"
 
 #. Default: "Status"
 #: euphorie/client/browser/templates/more_menu.pt:35
@@ -7549,7 +7547,7 @@ msgstr "validación solicitada"
 #. Default: "Register"
 #: euphorie/client/browser/templates/login.pt:363
 msgid "verb_register"
-msgstr "Regístrese"
+msgstr "registrarse"
 
 #. Default: "Please verify if the profile is still accurate."
 #: euphorie/client/browser/templates/updated.pt:31

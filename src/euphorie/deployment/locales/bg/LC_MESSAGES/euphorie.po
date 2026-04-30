@@ -1963,7 +1963,7 @@ msgstr "Отменяне"
 #: euphorie/client/browser/templates/surveys.pt:49
 #: euphorie/client/browser/templates/training-slides.pt:153
 msgid "button_close"
-msgstr "затвори"
+msgstr "Затвори"
 
 #. Default: "Create"
 #: euphorie/content/browser/templates/survey_add.pt:41
@@ -1978,7 +1978,7 @@ msgstr "Създаване на нов OiRA инструмент"
 #. Default: "Yes, delete risk"
 #: euphorie/client/browser/templates/confirmation-delete-risk.pt:38
 msgid "button_delete_risk"
-msgstr "Да, изтриване на риска"
+msgstr "Да, изтрий риска"
 
 #. Default: "Yes, delete session"
 #: euphorie/client/browser/templates/confirmation-delete-session.pt:40
@@ -2404,7 +2404,7 @@ msgstr "Няма сектори за тази страна."
 #. Default: "Add an already implemented measure"
 #: euphorie/content/utils.py:174
 msgid "custom_button_add_existing_measure"
-msgstr "Добавете липсваща мярка"
+msgstr "Добавете липсваща мярка."
 
 #. Default: "Describe a measure that is already in place."
 #: euphorie/content/utils.py:136
@@ -3140,7 +3140,7 @@ msgstr ""
 #. Default: "Additional content"
 #: euphorie/content/module.py:113 euphorie/content/risk.py:315
 msgid "header_additional_content"
-msgstr "Допълнителна информация"
+msgstr "Допълнително съдържание"
 
 #. Default: "Additional resources to assess the risk"
 #: euphorie/client/browser/templates/webhelpers.pt:619
@@ -3475,7 +3475,7 @@ msgstr "Сектори"
 #. Default: "Standard measures"
 #: euphorie/content/browser/templates/risk_view.pt:138
 msgid "header_solutions"
-msgstr "Стандартни мерки"
+msgstr "Основни мерки"
 
 #. Default: "Submodules"
 #: euphorie/content/browser/templates/module_view.pt:53
@@ -4179,7 +4179,7 @@ msgstr "Ако не посочите име, то ще бъде взето от 
 #: euphorie/client/browser/templates/login.pt:299
 #: euphorie/client/browser/templates/shell.pt:135
 msgid "home_link"
-msgstr "Информационен панел"
+msgstr "Табло"
 
 #. Default: "Are the measures that are already implemented sufficient?"
 #: euphorie/content/utils.py:145
@@ -4511,7 +4511,7 @@ msgstr "Приемлив ли е рискът?"
 #. Default: "Available reports"
 #: euphorie/content/country.py:77
 msgid "label__default_reports"
-msgstr ""
+msgstr "Налични доклади"
 
 #. Default: "Expanded sections on risk page"
 #: euphorie/content/country.py:46
@@ -4576,7 +4576,7 @@ msgstr "Съгласен съм/ Приемам ${link_terms_conditions}."
 #. Default: "All organisations"
 #: euphorie/client/browser/templates/assessments.pt:36
 msgid "label_all_organisations"
-msgstr ""
+msgstr "Всички организации"
 
 #. Default: "Alphabetical"
 #: euphorie/client/browser/templates/assessments.pt:51
@@ -4609,7 +4609,7 @@ msgstr "пропускане"
 #: euphorie/client/browser/templates/panel-request-validation.pt:60
 #: euphorie/client/browser/templates/panel-validate-risk-assessment.pt:53
 msgid "label_cancel"
-msgstr ""
+msgstr "Отказ"
 
 #. Default: "Image caption"
 #: euphorie/content/module.py:96 euphorie/content/risk.py:262
@@ -4651,12 +4651,12 @@ msgstr "Клониране"
 #. Default: "Duplicate"
 #: euphorie/client/browser/templates/panel-invalidate-risk-assessment.pt:55
 msgid "label_clone_imp"
-msgstr ""
+msgstr "Клониране"
 
 #. Default: "Close this message"
 #: euphorie/client/browser/templates/browser-warning.pt:50
 msgid "label_close_message"
-msgstr ""
+msgstr "Затвори това съобщение"
 
 #. Default: "Compact"
 #: euphorie/client/browser/templates/report_landing.pt:45
@@ -4666,7 +4666,7 @@ msgstr "Компактен"
 #. Default: "Compact report options"
 #: euphorie/content/country.py:110
 msgid "label_compact_report_options"
-msgstr ""
+msgstr "Опции за компактен доклад"
 
 #. Default: "Your country"
 #: euphorie/client/browser/company.py:30
@@ -4690,7 +4690,7 @@ msgstr ""
 #: euphorie/client/browser/templates/consultants.pt:26
 #: euphorie/client/browser/webhelpers.py:1474
 msgid "label_consultancy"
-msgstr ""
+msgstr "Консултация"
 
 #. Default: "Contact email address"
 #: euphorie/content/user.py:81
@@ -4727,7 +4727,7 @@ msgstr "Текущ / Публикуван"
 #: euphorie/client/browser/session.py:483
 #: euphorie/client/browser/templates/module_identification_custom.pt:28
 msgid "label_custom_risks"
-msgstr "Базови рискове"
+msgstr "Добавени рискове (от Вас)"
 
 #. Default: "Data protection notice"
 #: euphorie/client/browser/templates/login.pt:230
@@ -4793,7 +4793,7 @@ msgstr "Дублиране"
 #. Default: "Edit Organisation"
 #: euphorie/client/browser/templates/panel-edit-organisation.pt:20
 msgid "label_edit_organisation"
-msgstr ""
+msgstr "Редактиране на организация"
 
 #. Default: "Email address"
 #: euphorie/client/browser/reset_password.py:47
@@ -4865,7 +4865,7 @@ msgstr "Мерки, които вече са изпълнени"
 #: euphorie/client/browser/templates/webhelpers.pt:692
 #: euphorie/client/browser/training.py:301
 msgid "label_existing_measures"
-msgstr ""
+msgstr "Вече внедрени мерки"
 
 #. Default: "Exit"
 #: euphorie/client/browser/templates/more_menu.pt:78
@@ -4886,7 +4886,7 @@ msgstr ""
 #. Default: "Export in eTranslate compatible XML"
 #: euphorie/content/browser/export.py:165
 msgid "label_export_etranslate_compatible"
-msgstr ""
+msgstr "Експортиране в XML, съвместим с eTranslate"
 
 #. Default: "Add an extra measure"
 #: euphorie/client/browser/templates/webhelpers.pt:1138
@@ -5018,7 +5018,7 @@ msgstr "Приложена мярка"
 #: euphorie/content/browser/templates/survey_view.pt:49
 #: euphorie/content/survey.py:166
 msgid "label_integrated_action_plan"
-msgstr ""
+msgstr "Интегриран план за действие"
 
 #. Default: "Introduction text"
 #: euphorie/content/survey.py:92
@@ -5089,7 +5089,7 @@ msgstr "Научете повече за OiRA"
 #: euphorie/client/browser/templates/webhelpers.pt:607
 #: euphorie/content/browser/templates/risk_view.pt:133
 msgid "label_legal_reference"
-msgstr "Правни източници и източници от политики"
+msgstr "Правни и политически препратки"
 
 #. Default: "filters"
 #: euphorie/client/browser/templates/assessments.pt:108
@@ -5179,9 +5179,7 @@ msgstr "от"
 #: euphorie/content/module.py:51 euphorie/content/page.py:16
 #: euphorie/content/solution.py:28
 msgid "label_module_description"
-msgstr ""
-"Включете подходящата информация, която може да е полезна за крайния "
-"потребител."
+msgstr "Описание"
 
 #. Default: "This module is optional"
 #: euphorie/content/module.py:63
@@ -5255,7 +5253,7 @@ msgstr ""
 #: euphorie/client/browser/templates/risks_overview.pt:262
 #: euphorie/client/browser/templates/status_info.pt:234
 msgid "label_no_risk"
-msgstr "Няма риск"
+msgstr "Правилно"
 
 #. Default: "No risks"
 #: euphorie/client/browser/templates/risks_overview.pt:266
@@ -5300,7 +5298,7 @@ msgstr "Бележки"
 #. Default: "Notifications"
 #: euphorie/client/browser/templates/preferences.pt:132
 msgid "label_notifications"
-msgstr ""
+msgstr "Известия"
 
 #. Default: "Number of questions asked after training"
 #: euphorie/content/survey.py:233
@@ -5310,7 +5308,7 @@ msgstr ""
 #. Default: "OSH Consultants"
 #: euphorie/client/browser/templates/consultants.pt:41
 msgid "label_oira_consultants"
-msgstr ""
+msgstr "Консултанти по БЗТ"
 
 #. Default: "Current Password"
 #: euphorie/client/browser/settings.py:97
@@ -5492,17 +5490,17 @@ msgstr "Персонал, участвал в оценката на риска"
 #: euphorie/client/browser/templates/panel-request-validation.pt:15
 #: euphorie/client/browser/templates/panel-validate-risk-assessment.pt:15
 msgid "label_request_validation"
-msgstr ""
+msgstr "Заявка за валидиране"
 
 #. Default: "Request validation"
 #: euphorie/client/browser/templates/consultancy.pt:84
 msgid "label_request_validation_imp"
-msgstr ""
+msgstr "Заявка за валидиране"
 
 #. Default: "Risk is always present"
 #: euphorie/content/risk.py:168
 msgid "label_risk_always_present"
-msgstr ""
+msgstr "Рисикът винаги е налице"
 
 #. Default: "Risk number"
 #: euphorie/client/browser/report.py:149
@@ -5566,7 +5564,7 @@ msgstr "Риск без набелязани мерки"
 #. Default: "Consultant"
 #: euphorie/client/browser/organisation.py:64
 msgid "label_role_consultant"
-msgstr ""
+msgstr "Консултант"
 
 #. Default: "Save and add new risk"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:326
@@ -5639,12 +5637,12 @@ msgstr ""
 #. Default: "Send password reminder"
 #: euphorie/client/browser/reset_password.py:89
 msgid "label_send_password_reminder"
-msgstr "Изпращане за възстановяване на парола"
+msgstr "Изпратете напомняне за парола"
 
 #. Default: "Send validation request"
 #: euphorie/client/browser/templates/panel-request-validation.pt:56
 msgid "label_send_validation_request_imp"
-msgstr ""
+msgstr "Изпратете заявка за валидиране"
 
 #. Default: "Enter a title for your Risk Assessment"
 #: euphorie/client/browser/session.py:80
@@ -5705,7 +5703,7 @@ msgstr "Стартиране на определянето на риска"
 #. Default: "Start"
 #: euphorie/client/browser/templates/start.pt:121
 msgid "label_start_survey"
-msgstr "Стартиране"
+msgstr "Започнете"
 
 #. Default: "Start a test session"
 #: euphorie/client/browser/templates/login.pt:372
@@ -5731,7 +5729,7 @@ msgstr "Изберете базова редакция"
 #. Default: "Evaluation algorithm"
 #: euphorie/content/surveygroup.py:66
 msgid "label_survey_evaluation_algorithm"
-msgstr "Алгоритъм на оценяването"
+msgstr "Алгоритъм за оценка"
 
 #. Default: "Include images"
 #: euphorie/content/browser/export.py:70
@@ -5746,7 +5744,7 @@ msgstr ""
 #. Default: "Include measures"
 #: euphorie/content/browser/export.py:137
 msgid "label_survey_export_include_measures"
-msgstr ""
+msgstr "Включете мерки"
 
 #. Default: "Include “Description” texts on modules"
 #: euphorie/content/browser/export.py:110
@@ -5781,7 +5779,7 @@ msgstr "Име на импортирания OiRA инструмент"
 #. Default: "Table of contents"
 #: euphorie/client/browser/templates/training.pt:41
 msgid "label_table_of_contents"
-msgstr ""
+msgstr "Съдържание"
 
 #. Default: "Test session"
 #: euphorie/client/browser/templates/shell.pt:174
@@ -5818,7 +5816,7 @@ msgstr "въз основа на ${tool_title}"
 #. Default: "Tool notification message"
 #: euphorie/content/survey.py:270
 msgid "label_tool_notification"
-msgstr "Текст на уведомлението в инструмента"
+msgstr "Съобщение на известие за инструмента"
 
 #. Default: "Tool notification title"
 #: euphorie/content/survey.py:264
@@ -5889,7 +5887,7 @@ msgstr "Без отговор"
 #. Default: "Update"
 #: euphorie/deployment/tiles/templates/versions.pt:140
 msgid "label_update"
-msgstr "Актуализация"
+msgstr "Актуализиране"
 
 #. Default: "XML file"
 #: euphorie/content/browser/upload.py:171
@@ -5919,17 +5917,17 @@ msgstr "Име"
 #. Default: "Validate"
 #: euphorie/client/browser/templates/panel-validate-risk-assessment.pt:49
 msgid "label_validate_imp"
-msgstr ""
+msgstr "Валидиране"
 
 #. Default: "Validate this risk assessment"
 #: euphorie/client/browser/templates/consultancy.pt:118
 msgid "label_validate_this_risk_assessment_imp"
-msgstr ""
+msgstr "Валидирайте тази оценка на риска"
 
 #. Default: "Validated"
 #: euphorie/client/browser/templates/locking_badge.pt:30
 msgid "label_validated"
-msgstr ""
+msgstr "Валидирано"
 
 #. Default: "(&ge;1 measures)"
 #: euphorie/client/browser/templates/risks_overview.pt:431
@@ -6012,12 +6010,12 @@ msgstr "Вход"
 #: euphorie/client/browser/templates/assessments.pt:82
 #: euphorie/client/browser/templates/organisation.pt:29
 msgid "link_start_session"
-msgstr "стартирайте нова сесия"
+msgstr "Започване на нова оценка на риска"
 
 #. Default: "start a new risk assessment"
 #: euphorie/client/browser/templates/portlet-my-ras.pt:65
 msgid "link_start_session_lower"
-msgstr ""
+msgstr "стартирайте нова сесия"
 
 #. Default: "contents of the tool"
 #: euphorie/client/browser/templates/identification.pt:33
@@ -6150,7 +6148,7 @@ msgstr ""
 #. &lsquo;${assessment}&rsquo; and give it an official validated status."
 #: euphorie/client/browser/templates/panel-validate-risk-assessment.pt:33
 msgid "message_click_to_validate"
-msgstr ""
+msgstr "Щракването върху „Валидирай"
 
 #. Default: "This is the only version of the OiRA Tool and can therefore not
 #. be deleted. Did you perhaps want to remove the OiRA Tool itself?"
@@ -6181,6 +6179,11 @@ msgstr "Моля, попълнете това поле."
 #: euphorie/client/browser/templates/consultancy.pt:40
 msgid "message_find_consultants"
 msgstr ""
+"Възможно е да се поиска помощ при попълването на оценка на риска или да се "
+"извърши анализ на риска от вас и да се валидира от консултант по БЗТ. "
+"Консултантът по БЗТ може да даде на вашата оценка на риска официален знак за"
+" валидиране. Валидирането може да бъде поискано само от потребители с ниво "
+"на разрешение „Управление\" или по-високо."
 
 #. Default: "When you invalidate this risk assessment, it will lose its
 #. validated status. You can still request for re-validation at a later time."
@@ -6277,7 +6280,7 @@ msgstr ""
 #. Default: "No validation is requested at this time."
 #: euphorie/client/browser/templates/consultancy.pt:100
 msgid "message_no_validation_requested"
-msgstr ""
+msgstr "В момента не е поискано валидиране."
 
 #. Default: "You can not delete a sector that contains published OiRA Tools."
 #: euphorie/content/browser/sector.py:89
@@ -6296,6 +6299,9 @@ msgstr ""
 #: euphorie/client/browser/templates/browser-warning.pt:26
 msgid "message_outdated_browser"
 msgstr ""
+"Използвате остарял уеб браузър. В резултат на това сайтът може да не "
+"функционира както се очаква. Моля, инсталирайте по-нов браузър, за да "
+"използвате оптимално този сайт."
 
 #. Default: "An email will be sent to ${email} if we can find an account for
 #. this email address. Please use the link inside the e-mail to reset your
@@ -6310,7 +6316,7 @@ msgstr ""
 #. Default: "Additional costs may be charged by your consultant."
 #: euphorie/client/browser/templates/panel-invalidate-risk-assessment.pt:34
 msgid "message_possible_extra_cost"
-msgstr ""
+msgstr "Вашият консултант може да начисли допълнителни разходи."
 
 #. Default: "Successfully created a preview for the OiRA Tool. It can be
 #. accessed at"
@@ -6328,12 +6334,16 @@ msgstr "Успешно публикуване на OiRA инструмента. 
 #: euphorie/client/browser/templates/panel-validate-risk-assessment.pt:39
 msgid "message_read_and_reviewd_assessment_and_approve"
 msgstr ""
+"Прочетох, прегледах и където е необходимо коригирах или подобрих тази оценка"
+" на риска и одобрявам нейното съдържание."
 
 #. Default: "Click on 'Send validation request' to ask the selected OSH
 #. consultant to review and validate your risk assessment."
 #: euphorie/client/browser/templates/panel-request-validation.pt:31
 msgid "message_request_validation"
 msgstr ""
+"Кликнете върху 'Изпрати заявка за валидиране', за да помолите избрания "
+"консултант по БЗР да прегледа и валидира вашата оценка на риска."
 
 #. Default: "Administrators can create, edit and remove user accounts.
 #. Administrators can also make risk assessments and edit existing ones, lock
@@ -6342,6 +6352,10 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:70
 msgid "message_role_administrator"
 msgstr ""
+"Администраторите могат да създават, редактират и премахват потребителски "
+"акаунти. Администраторите могат също да извършват оценки на риска и да "
+"редактират съществуващи такива, да заключват оценки на риска, да създават "
+"обучения и да участват в обучения."
 
 #. Default: "Consultants can make and edit risk assessments, validate and
 #. approve risk assessments and create trainings."
@@ -6349,6 +6363,8 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:76
 msgid "message_role_consultant"
 msgstr ""
+"Консултантите могат да извършват и редактират оценки на риска, да валидират "
+"и одобряват оценки на риска и да създават обучения."
 
 #. Default: "Managers/Policy makers can make and edit risk assessments, lock
 #. risk assessments, create trainings and take trainings."
@@ -6356,12 +6372,17 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:82
 msgid "message_role_manager"
 msgstr ""
+"Мениджърите/създателите на политики могат да извършват и редактират оценки "
+"на риска, да заключват оценки на риска, да създават обучения и да участват в"
+" обучения."
 
 #. Default: "Members can make risk assessments and take trainings."
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:70
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:91
 msgid "message_role_member"
 msgstr ""
+"Членовете могат само да четат оценки на риска и да участват в обучения. "
+"Членовете не могат да редактират оценки на риска."
 
 #. Default: "This risk assessment is currently under review by ${consultant}."
 #: euphorie/client/browser/templates/consultancy.pt:75
@@ -6382,6 +6403,10 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-invalidate-risk-assessment.pt:41
 msgid "message_unlock_or_duplicate"
 msgstr ""
+"Ако искате да продължите да работите върху копие на тази оценка, например за"
+" отчитане на нова година, можете да използвате опцията 'Дублиране'. "
+"Дублирането ще направи пълно копие на вашата оценка, което ще бъде "
+"отключено."
 
 #. Default: "Cancelled unpublish action."
 #: euphorie/content/browser/surveygroup.py:303
@@ -6409,11 +6434,14 @@ msgstr "Акаунт \"${title}\" е отключен."
 #: euphorie/client/browser/templates/panel-request-validation.pt:49
 msgid "message_warning_locking_after_validation"
 msgstr ""
+"След като вашият консултант валидира тази оценка на риска, тя ще бъде "
+"заключена. Ако желаете да редактирате оценката на риска отново, винаги "
+"можете да направите дубликат на тази оценка по-късно."
 
 #. Default: "You are requested to review and validate this risk assessment."
 #: euphorie/client/browser/templates/consultancy.pt:110
 msgid "message_you_are_requested_to_validate_assessment"
-msgstr ""
+msgstr "Молим ви да прегледате и валидирате тази оценка на риска."
 
 #. Default: "You haven&rsquo;t earned any certificates yet."
 #: euphorie/client/browser/templates/certificates.pt:29
@@ -6428,7 +6456,7 @@ msgstr "Все още нямате оценки на риска. Започне�
 #. Default: "You have reviewed and validated this risk assessment."
 #: euphorie/client/browser/templates/consultancy.pt:125
 msgid "message_you_reviewed_and_validated_risk_assessment"
-msgstr ""
+msgstr "Вие прегледахте и валидирахте тази оценка на риска."
 
 #. Default: "This ${number} is mandatory."
 #: euphorie/content/browser/templates/module_view.pt:40
@@ -7167,7 +7195,7 @@ msgstr ""
 #. Default: "Change password"
 #: euphorie/client/browser/settings.py:72
 msgid "title_change_password"
-msgstr "Смяна на парола"
+msgstr "Промяна на паролата"
 
 #. Default: "Client help text"
 #: euphorie/content/browser/templates/help_view.pt:13
@@ -7374,7 +7402,7 @@ msgstr ""
 #. Default: "Register"
 #: euphorie/client/browser/templates/login.pt:363
 msgid "verb_register"
-msgstr "Регистрирайте се"
+msgstr "регистрирайте се"
 
 #. Default: "Please verify if the profile is still accurate."
 #: euphorie/client/browser/templates/updated.pt:31
