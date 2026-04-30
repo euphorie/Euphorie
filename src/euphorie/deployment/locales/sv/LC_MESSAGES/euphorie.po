@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-02-03 12:35+0000\n"
+"POT-Creation-Date: 2026-04-30 11:45+0000\n"
 "PO-Revision-Date: 2025-08-20 15:14+0200\n"
 "Last-Translator: Robert <vansen@hotmail.com>\n"
 "Language-Team: sv <LL@li.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 
-#: euphorie/client/browser/templates/login.pt:327
+#: euphorie/client/browser/templates/login.pt:330
 msgid ""
 "${action-plan} In the fourth stage of the assessment you can decide what "
 "steps you will take to address the risks you have identified previously and "
@@ -30,14 +30,14 @@ msgid ""
 "automatically produced in the next step."
 msgstr ""
 
-#: euphorie/client/browser/templates/login.pt:325
+#: euphorie/client/browser/templates/login.pt:328
 msgid ""
 "${evaluation} Here you will be able to determine the level of risk attached "
 "to each of the items you identified as 'need to be addressed' in the "
 "'Identification' stage."
 msgstr ""
 
-#: euphorie/client/browser/templates/login.pt:323
+#: euphorie/client/browser/templates/login.pt:326
 msgid ""
 "${identification} OiRA will present a series of potential health and safety "
 "hazards or problems that could exist in your workplace. By answering the "
@@ -52,7 +52,7 @@ msgid ""
 "responsibilities, deadlines)."
 msgstr ""
 
-#: euphorie/client/browser/templates/login.pt:321
+#: euphorie/client/browser/templates/login.pt:324
 msgid ""
 "${preparation} This gives you an overview of the particular assessment you "
 "are about to begin and can allow you to further customise the assessment to "
@@ -120,7 +120,7 @@ msgstr "Lägg till Risk"
 msgid "Add Submodule"
 msgstr "Lägg till Delmodul"
 
-#: euphorie/client/browser/templates/consultancy.pt:136
+#: euphorie/client/browser/templates/consultancy.pt:149
 msgid "Add an OSH consultant to your organisation."
 msgstr ""
 
@@ -146,7 +146,7 @@ msgstr ""
 msgid "Added a copy of \"${title}\" to your OiRA tool."
 msgstr ""
 
-#: euphorie/client/browser/templates/webhelpers.pt:1002
+#: euphorie/client/browser/templates/webhelpers.pt:977
 msgid "Additional Measure"
 msgstr ""
 
@@ -166,11 +166,11 @@ msgstr ""
 msgid "Almost done&hellip;"
 msgstr ""
 
-#: euphorie/client/browser/login.py:225
+#: euphorie/client/browser/login.py:239
 msgid "An account was created for you with email address ${email}"
 msgstr ""
 
-#: euphorie/client/browser/settings.py:361
+#: euphorie/client/browser/settings.py:421
 msgid "An error occured while sending the confirmation email."
 msgstr "Ett fel har inträffat när lösenordspåminnelsen skulle skickas ut"
 
@@ -190,7 +190,7 @@ msgstr ""
 msgid "Archive risk assessment"
 msgstr ""
 
-#: euphorie/client/browser/country.py:456
+#: euphorie/client/browser/country.py:461
 msgid "Archived"
 msgstr ""
 
@@ -202,7 +202,7 @@ msgstr ""
 msgid "Are you sure you want to continue? This action can not be reverted."
 msgstr ""
 
-#: euphorie/client/browser/risk.py:60
+#: euphorie/client/browser/risk.py:63
 msgid ""
 "Are you sure you want to delete this measure? This action can not be "
 "reverted."
@@ -226,7 +226,7 @@ msgstr ""
 msgid "Are you sure you want to remove ${name} from ${organisation}?"
 msgstr ""
 
-#: euphorie/client/browser/templates/portlet-available-tools.pt:13
+#: euphorie/client/browser/templates/portlet-available-tools.pt:14
 msgid "Available OiRA tools"
 msgstr ""
 
@@ -264,7 +264,7 @@ msgstr ""
 msgid "Certificate"
 msgstr ""
 
-#: euphorie/client/browser/settings.py:75
+#: euphorie/client/browser/settings.py:78
 msgid "Change email address"
 msgstr "Okänd e-postadress"
 
@@ -300,7 +300,7 @@ msgstr ""
 msgid "Compact report (Word document)"
 msgstr ""
 
-#: euphorie/client/browser/settings.py:386
+#: euphorie/client/browser/settings.py:448
 msgid "Confirm OiRA email address change"
 msgstr ""
 
@@ -362,7 +362,7 @@ msgstr "Creative Commons-license"
 msgid "Decline"
 msgstr ""
 
-#: euphorie/client/browser/settings.py:81
+#: euphorie/client/browser/settings.py:84
 #: euphorie/client/browser/templates/account-delete.pt:41
 msgid "Delete account"
 msgstr ""
@@ -400,7 +400,7 @@ msgid "Did you like this tool? Share it with your colleagues and friends!"
 msgstr ""
 "Tycker du om det här verktyget? Dela det med dina kollegor och vänner!"
 
-#: euphorie/client/browser/templates/login.pt:351
+#: euphorie/client/browser/templates/login.pt:354
 msgid "Do I need to prepare?"
 msgstr ""
 
@@ -425,7 +425,7 @@ msgid "EU member state"
 msgstr ""
 
 #: euphorie/client/browser/templates/organisation-member-more-menu.pt:19
-#: euphorie/client/browser/templates/panel-edit-organisation.pt:20
+#: euphorie/client/browser/templates/training.pt:181
 msgid "Edit"
 msgstr ""
 
@@ -438,7 +438,7 @@ msgstr ""
 msgid "Edit Profile question"
 msgstr ""
 
-#: euphorie/client/browser/templates/shell.pt:363
+#: euphorie/client/browser/templates/shell.pt:367
 msgid "Edit link"
 msgstr ""
 
@@ -446,11 +446,11 @@ msgstr ""
 msgid "Edit organisation"
 msgstr ""
 
-#: euphorie/client/browser/templates/training.pt:282
+#: euphorie/client/browser/templates/training.pt:284
 msgid "Edit training card"
 msgstr ""
 
-#: euphorie/client/browser/settings.py:122
+#: euphorie/client/browser/settings.py:126
 msgid "Email address/account name"
 msgstr ""
 
@@ -492,7 +492,7 @@ msgstr ""
 msgid "Filters"
 msgstr ""
 
-#: euphorie/client/browser/templates/consultancy.pt:125
+#: euphorie/client/browser/templates/consultancy.pt:138
 msgid "Find an OSH consultant."
 msgstr ""
 
@@ -501,7 +501,7 @@ msgstr ""
 msgid "First wrong answer"
 msgstr ""
 
-#: euphorie/client/browser/templates/shell.pt:317
+#: euphorie/client/browser/templates/shell.pt:321
 msgid "Follow"
 msgstr ""
 
@@ -533,7 +533,7 @@ msgstr "Tyskland"
 msgid "Hide archived risk assessments"
 msgstr ""
 
-#: euphorie/client/browser/templates/login.pt:334
+#: euphorie/client/browser/templates/login.pt:337
 msgid "How long will it take?"
 msgstr ""
 
@@ -541,18 +541,18 @@ msgstr ""
 msgid "How to use this tool"
 msgstr ""
 
-#: euphorie/client/browser/templates/login.pt:311
+#: euphorie/client/browser/templates/login.pt:314
 msgid "However, OiRA is designed to be of most value to smaller businesses."
 msgstr ""
 
-#: euphorie/client/browser/templates/login.pt:337
+#: euphorie/client/browser/templates/login.pt:340
 msgid ""
 "However, you can spend whatever time you have available on an assessment and"
 " then return to it when convenient to pick up from the same point you left "
 "off."
 msgstr ""
 
-#: euphorie/client/browser/webhelpers.py:980
+#: euphorie/client/browser/webhelpers.py:997
 msgid "I wish to share the following with you"
 msgstr ""
 
@@ -560,7 +560,7 @@ msgstr ""
 msgid "Identifier"
 msgstr "Identifierare"
 
-#: euphorie/content/browser/upload.py:565
+#: euphorie/content/browser/upload.py:570
 msgid "Import OiRA Tool version"
 msgstr ""
 
@@ -569,7 +569,7 @@ msgid "Important"
 msgstr ""
 
 #: euphorie/client/browser/templates/plain.pt:226
-#: euphorie/client/browser/templates/shell.pt:173
+#: euphorie/client/browser/templates/shell.pt:174
 msgid "Info"
 msgstr ""
 
@@ -577,15 +577,15 @@ msgstr ""
 msgid "Information"
 msgstr "Information"
 
-#: euphorie/client/browser/templates/shell.pt:338
+#: euphorie/client/browser/templates/shell.pt:342
 msgid "Insert"
 msgstr ""
 
-#: euphorie/client/browser/risk.py:1140
+#: euphorie/client/browser/risk.py:1166
 msgid "Invalid file format for image. Please use PNG, JPEG or GIF."
 msgstr ""
 
-#: euphorie/client/browser/settings.py:277
+#: euphorie/client/browser/settings.py:336
 msgid "Invalid password"
 msgstr "Lösenord"
 
@@ -593,11 +593,11 @@ msgstr "Lösenord"
 msgid "Invalid security token, try to request a new one"
 msgstr ""
 
-#: euphorie/client/browser/training.py:731
+#: euphorie/client/browser/training.py:747
 msgid "It seems you missed a slide"
 msgstr ""
 
-#: euphorie/client/browser/templates/login.pt:336
+#: euphorie/client/browser/templates/login.pt:339
 msgid ""
 "It's impossible to say how long an assessment will take in general as the "
 "tools differ according to sectors and countries."
@@ -613,11 +613,11 @@ msgstr "Kosovo"
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:135
 #: euphorie/client/browser/templates/status_info.pt:72
-#: euphorie/client/browser/templates/tool_sessions.pt:163
+#: euphorie/client/browser/templates/tool_sessions.pt:165
 msgid "Last saved"
 msgstr ""
 
-#: euphorie/client/browser/templates/consultancy.pt:144
+#: euphorie/client/browser/templates/consultancy.pt:157
 msgid "Learn more about consultancy."
 msgstr ""
 
@@ -629,11 +629,11 @@ msgstr ""
 msgid "Legal and policy references"
 msgstr ""
 
-#: euphorie/client/browser/templates/shell.pt:328
+#: euphorie/client/browser/templates/shell.pt:332
 msgid "Link text"
 msgstr ""
 
-#: euphorie/client/browser/templates/shell.pt:289
+#: euphorie/client/browser/templates/shell.pt:293
 msgid "Loading Risk Assessments&hellip;"
 msgstr ""
 
@@ -644,6 +644,16 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-add-organisation.pt:45
 #: euphorie/client/browser/templates/panel-edit-organisation.pt:49
 msgid "Logo (Optional)"
+msgstr ""
+
+#: euphorie/deployment/profiles/default/actions.xml
+#: euphorie/upgrade/deployment/v1/20250327125832_install_the_maintenance_actions/actions.xml
+msgid "Maintenance actions"
+msgstr ""
+
+#: euphorie/deployment/browser/sitemenu.py:92
+#: euphorie/deployment/browser/templates/maintenance.pt:12
+msgid "Maintenance view"
 msgstr ""
 
 #: euphorie/client/browser/templates/report_landing.pt:110
@@ -658,7 +668,7 @@ msgstr ""
 msgid "Maximum similarity between titles"
 msgstr ""
 
-#: euphorie/client/browser/templates/webhelpers.pt:999
+#: euphorie/client/browser/templates/webhelpers.pt:974
 #: euphorie/content/profiles/default/types/euphorie.solution.xml
 msgid "Measure"
 msgstr ""
@@ -675,11 +685,11 @@ msgstr ""
 msgid "Member"
 msgstr ""
 
-#: euphorie/client/browser/organisation.py:825
+#: euphorie/client/browser/organisation.py:831
 msgid "Member removed"
 msgstr ""
 
-#: euphorie/client/browser/organisation.py:768
+#: euphorie/client/browser/organisation.py:774
 msgid "Member updated"
 msgstr ""
 
@@ -716,7 +726,7 @@ msgstr "Montenegro"
 
 #: euphorie/client/browser/templates/assessments.pt:211
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:167
-#: euphorie/client/browser/templates/tool_sessions.pt:174
+#: euphorie/client/browser/templates/tool_sessions.pt:176
 msgid "More"
 msgstr ""
 
@@ -760,7 +770,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/profile.pt:71
 #: euphorie/client/browser/templates/updated.pt:65
-#: euphorie/content/browser/templates/survey_view.pt:41
+#: euphorie/content/browser/templates/survey_view.pt:40
 msgid "No"
 msgstr ""
 
@@ -773,7 +783,7 @@ msgid "No risk assessments are available for this selection."
 msgstr ""
 
 #: euphorie/client/browser/templates/training-slides.pt:300
-#: euphorie/client/browser/templates/training.pt:391
+#: euphorie/client/browser/templates/training.pt:394
 msgid "No training content is available"
 msgstr ""
 
@@ -797,13 +807,13 @@ msgstr ""
 msgid "OiRA Tool where \"Measures that are already in place\" can be defined."
 msgstr ""
 
-#: euphorie/client/browser/templates/login.pt:310
+#: euphorie/client/browser/templates/login.pt:313
 msgid ""
 "OiRA can be used by anyone wishing to assess health and safety-related risks"
 " that might exist in their workplace."
 msgstr ""
 
-#: euphorie/client/browser/templates/login.pt:312
+#: euphorie/client/browser/templates/login.pt:315
 msgid ""
 "OiRA is designed specifically to support them in assessing the risks at work"
 " and helping them to produce a documented risk assessment including an "
@@ -814,11 +824,15 @@ msgstr ""
 msgid "OiRA password reset instructions"
 msgstr ""
 
-#: euphorie/client/browser/templates/login.pt:305
+#: euphorie/client/browser/templates/login.pt:308
 msgid ""
 "OiRA stands for Online Interactive Risk Assessment. It is a web-based tool "
 "that allows you to perform a health and safety risk assessment of your "
 "workplace."
+msgstr ""
+
+#: euphorie/client/browser/survey.py:95
+msgid "OiRA tool reminder"
 msgstr ""
 
 #: euphorie/content/browser/similar_titles.py:192
@@ -829,7 +843,7 @@ msgstr ""
 msgid "Organisation"
 msgstr ""
 
-#: euphorie/client/browser/organisation.py:187
+#: euphorie/client/browser/organisation.py:193
 msgid "Organisation added"
 msgstr ""
 
@@ -875,7 +889,7 @@ msgid "Pass information to the people concerned."
 msgstr ""
 
 #: euphorie/client/browser/reset_password.py:42
-#: euphorie/client/browser/settings.py:113
+#: euphorie/client/browser/settings.py:117
 #: euphorie/content/widgets/password.py:18
 msgid "Password doesn't compare with confirmation value"
 msgstr ""
@@ -900,7 +914,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/risks_overview.pt:325
 #: euphorie/client/browser/templates/status_info.pt:297
-#: euphorie/client/browser/webhelpers.py:116
+#: euphorie/client/browser/webhelpers.py:117
 msgid "Postponed"
 msgstr "${count} frågorna har skjutits upp"
 
@@ -977,7 +991,7 @@ msgstr ""
 msgid "Regions"
 msgstr ""
 
-#: euphorie/client/browser/templates/login.pt:345
+#: euphorie/client/browser/templates/login.pt:348
 msgid ""
 "Registering allows you to simply log in at any time to continue previous "
 "assessments or to start new ones."
@@ -1023,7 +1037,7 @@ msgstr ""
 msgid "Risk"
 msgstr "Risk"
 
-#: euphorie/client/browser/templates/history_popup.pt:17
+#: euphorie/client/browser/templates/history_popup.pt:16
 msgid "Risk assessment history"
 msgstr ""
 
@@ -1031,18 +1045,18 @@ msgstr ""
 msgid "Risk assessments"
 msgstr ""
 
-#: euphorie/client/browser/templates/tool_sessions.pt:136
+#: euphorie/client/browser/templates/tool_sessions.pt:138
 msgid "Risk assessments made with this tool"
 msgstr ""
 
-#: euphorie/client/browser/webhelpers.py:117
+#: euphorie/client/browser/webhelpers.py:118
 msgid "Risk not present"
 msgstr ""
 "Denna risk är inte närvarande inom din organisation, men eftersom "
 "branschorganisationen anser att detta är en av de fem mest kritiska riskerna"
 " måste den ingå i denna rapport."
 
-#: euphorie/client/browser/webhelpers.py:118
+#: euphorie/client/browser/webhelpers.py:119
 msgid "Risk present"
 msgstr "Du svarade nekande till ovanstående redovisning."
 
@@ -1055,13 +1069,13 @@ msgid "Run slideshow"
 msgstr ""
 
 #: euphorie/client/browser/reset_password.py:206
-#: euphorie/client/browser/settings.py:219
+#: euphorie/client/browser/settings.py:275
 #: euphorie/client/browser/templates/panel-add-organisation.pt:62
 msgid "Save"
 msgstr ""
 
 #: euphorie/client/browser/reset_password.py:230
-#: euphorie/client/browser/settings.py:254
+#: euphorie/client/browser/settings.py:313
 #: euphorie/client/browser/templates/account-settings.pt:45
 msgid "Save changes"
 msgstr "Spara ändringar"
@@ -1134,7 +1148,7 @@ msgstr ""
 msgid "Standard"
 msgstr "Standard"
 
-#: euphorie/client/browser/templates/webhelpers.pt:808
+#: euphorie/client/browser/templates/webhelpers.pt:783
 msgid "Standard measures"
 msgstr ""
 
@@ -1151,7 +1165,7 @@ msgstr ""
 msgid "Start the questions"
 msgstr ""
 
-#: euphorie/client/browser/login.py:409
+#: euphorie/client/browser/login.py:477
 #: euphorie/client/browser/templates/new-session-test.pt:119
 msgid "Starting a test session is not available in this OiRA application."
 msgstr ""
@@ -1190,14 +1204,14 @@ msgid ""
 "The basic architecture of an Online interactive Risk Assessment consists of:"
 msgstr ""
 
-#: euphorie/client/browser/risk.py:70
+#: euphorie/client/browser/risk.py:73
 msgid ""
 "The current text in the fields 'Action plan', 'Prevention plan' and "
 "'Requirements' of this measure will be overwritten. This action cannot be "
 "reverted. Are you sure you want to continue?"
 msgstr ""
 
-#: euphorie/client/browser/templates/login.pt:344
+#: euphorie/client/browser/templates/login.pt:347
 msgid ""
 "The first thing you will be asked to do when you begin your first risk "
 "assessment is to create an OiRA account - this is a simple and quick "
@@ -1208,7 +1222,7 @@ msgstr ""
 msgid "The following certificates were awarded for this assessment."
 msgstr ""
 
-#: euphorie/content/survey.py:62
+#: euphorie/content/survey.py:93
 msgid ""
 "The introduction text is shown when starting a new OiRA Tool session. If no "
 "introduction is provided here a standard text will be shown. Please keep "
@@ -1220,19 +1234,15 @@ msgstr ""
 msgid "The risk assessment has been cloned"
 msgstr ""
 
-#: euphorie/client/browser/organisation.py:324
+#: euphorie/client/browser/organisation.py:330
 msgid "The role is invalid"
 msgstr ""
 
-#: euphorie/content/colour.py:21
-msgid "The specified colour is not valid."
-msgstr "Den angivna färgen är ogiltig."
-
-#: euphorie/client/browser/templates/login.pt:319
+#: euphorie/client/browser/templates/login.pt:322
 msgid "There are four main stages to complete in the assessment process:"
 msgstr ""
 
-#: euphorie/content/browser/templates/survey_view.pt:118
+#: euphorie/content/browser/templates/survey_view.pt:117
 msgid "There are no training questions yet"
 msgstr ""
 
@@ -1240,7 +1250,7 @@ msgstr ""
 msgid "There is not enough information to proceed to the identification phase"
 msgstr ""
 
-#: euphorie/client/browser/settings.py:265
+#: euphorie/client/browser/settings.py:324
 msgid "There were no changes to be saved."
 msgstr ""
 
@@ -1256,11 +1266,11 @@ msgstr ""
 msgid "This certificate is presented to"
 msgstr ""
 
-#: euphorie/client/browser/settings.py:441
+#: euphorie/client/browser/settings.py:516
 msgid "This email address is not available."
 msgstr ""
 
-#: euphorie/content/surveygroup.py:90
+#: euphorie/content/surveygroup.py:91
 msgid "This is a simpler evaluation algorithm using only two criteria."
 msgstr ""
 
@@ -1268,7 +1278,7 @@ msgstr ""
 msgid "This is a unique identifier for this object."
 msgstr "Detta är en unik identifierare för det här projektet."
 
-#: euphorie/content/surveygroup.py:71
+#: euphorie/content/surveygroup.py:72
 msgid ""
 "This is the recommended evaluation algorithm, based on the Kinney method"
 msgstr ""
@@ -1291,7 +1301,7 @@ msgstr ""
 msgid "This question must ask the user if this profile applies to them."
 msgstr ""
 
-#: euphorie/client/browser/settings.py:472
+#: euphorie/client/browser/settings.py:547
 msgid "This request could not be processed."
 msgstr ""
 
@@ -1324,19 +1334,19 @@ msgstr ""
 msgid "Training question"
 msgstr ""
 
-#: euphorie/client/browser/templates/shell.pt:309
+#: euphorie/client/browser/templates/shell.pt:313
 msgid "URL"
 msgstr ""
 
-#: euphorie/client/browser/templates/shell.pt:368
+#: euphorie/client/browser/templates/shell.pt:372
 msgid "Unlink"
 msgstr ""
 
-#: euphorie/client/browser/webhelpers.py:115
+#: euphorie/client/browser/webhelpers.py:116
 msgid "Unvisited"
 msgstr ""
 
-#: euphorie/content/browser/upload.py:569
+#: euphorie/content/browser/upload.py:574
 msgid "Upload"
 msgstr "Ladda upp"
 
@@ -1360,11 +1370,11 @@ msgstr ""
 msgid "View the history of this risk assessment."
 msgstr ""
 
-#: euphorie/client/browser/templates/shell.pt:356
+#: euphorie/client/browser/templates/shell.pt:360
 msgid "Visit linked web page"
 msgstr ""
 
-#: euphorie/client/browser/templates/shell.pt:317
+#: euphorie/client/browser/templates/shell.pt:321
 msgid "Visit this URL"
 msgstr ""
 
@@ -1374,11 +1384,11 @@ msgid ""
 "assessment (report) available in your company!"
 msgstr ""
 
-#: euphorie/client/browser/templates/login.pt:317
+#: euphorie/client/browser/templates/login.pt:320
 msgid "What do I have to do?"
 msgstr ""
 
-#: euphorie/client/browser/templates/login.pt:304
+#: euphorie/client/browser/templates/login.pt:307
 msgid "What is OiRA (Online Interactive Risk Assessment)?"
 msgstr ""
 
@@ -1390,17 +1400,17 @@ msgid ""
 "to join your organisation."
 msgstr ""
 
-#: euphorie/client/browser/templates/login.pt:308
+#: euphorie/client/browser/templates/login.pt:311
 msgid "Who is the OiRA tool for?"
 msgstr ""
 
-#: euphorie/client/browser/templates/login.pt:342
+#: euphorie/client/browser/templates/login.pt:345
 msgid "Why do I have to register?"
 msgstr ""
 
 #: euphorie/client/browser/templates/profile.pt:63
 #: euphorie/client/browser/templates/updated.pt:57
-#: euphorie/content/browser/templates/survey_view.pt:38
+#: euphorie/content/browser/templates/survey_view.pt:37
 msgid "Yes"
 msgstr ""
 
@@ -1408,7 +1418,7 @@ msgstr ""
 msgid "Yes, clone risk assessment"
 msgstr ""
 
-#: euphorie/client/browser/organisation.py:176
+#: euphorie/client/browser/organisation.py:182
 msgid "You already have an organisation."
 msgstr ""
 
@@ -1433,7 +1443,7 @@ msgid ""
 "and it will be copied to your survey."
 msgstr ""
 
-#: euphorie/client/browser/templates/login.pt:353
+#: euphorie/client/browser/templates/login.pt:356
 msgid ""
 "You do not need any kind of specific preparation to start using the tool, "
 "however you should take some time to think about who is going to carry out "
@@ -1447,17 +1457,17 @@ msgid ""
 "this risk assessment in various forms in the ${download_section}."
 msgstr ""
 
-#: euphorie/client/browser/templates/login.pt:346
+#: euphorie/client/browser/templates/login.pt:349
 msgid ""
 "You have to make sure to be in possession of a printed, accurate and up-"
 "dated risk assessment (at any time)."
 msgstr ""
 
-#: euphorie/client/browser/organisation.py:172
+#: euphorie/client/browser/organisation.py:178
 msgid "You need to specify a title for the organisation."
 msgstr ""
 
-#: euphorie/client/browser/training.py:729
+#: euphorie/client/browser/training.py:745
 msgid "You should start the training from the beginning"
 msgstr ""
 
@@ -1465,16 +1475,16 @@ msgstr ""
 msgid "You're done with the training slides!"
 msgstr ""
 
-#: euphorie/client/browser/settings.py:485
+#: euphorie/client/browser/settings.py:560
 msgid "Your email address has been updated."
 msgstr ""
 
-#: euphorie/client/browser/settings.py:117
+#: euphorie/client/browser/settings.py:121
 msgid "Your password for confirmation"
 msgstr ""
 
 #: euphorie/client/browser/reset_password.py:297
-#: euphorie/client/browser/settings.py:280
+#: euphorie/client/browser/settings.py:339
 msgid "Your password was successfully changed."
 msgstr ""
 
@@ -1631,30 +1641,30 @@ msgid "about_partners_3_smb"
 msgstr "mikroföretag och små företag har vissa brister"
 
 #. Default: "Describe the specific measures required to reduce the risk."
-#: euphorie/client/browser/risk.py:364
+#: euphorie/client/browser/risk.py:387
 msgid "action_measures_false_solutions_false"
 msgstr ""
 
 #. Default: "Select or describe the specific measures required to reduce the
 #. risk."
-#: euphorie/client/browser/risk.py:356
+#: euphorie/client/browser/risk.py:379
 msgid "action_measures_false_solutions_true"
 msgstr ""
 
 #. Default: "Describe any further measure to reduce the risk."
-#: euphorie/client/browser/risk.py:347
+#: euphorie/client/browser/risk.py:370
 msgid "action_measures_true_solutions_false"
 msgstr ""
 
 #. Default: "Select or describe any further measure to reduce the risk."
-#: euphorie/client/browser/risk.py:339
+#: euphorie/client/browser/risk.py:362
 msgid "action_measures_true_solutions_true"
 msgstr ""
 
 #. Default: "Although some measures do not cost any money, most do. The
 #. measures should therefore be budgeted for; include them in the annual
 #. budget round if necessary."
-#: euphorie/client/browser/templates/webhelpers.pt:949
+#: euphorie/client/browser/templates/webhelpers.pt:924
 msgid "actionplan_measure_budget_tooltip"
 msgstr ""
 "Även fast inte alla åtgärder kostar pengar, gör de flesta det. Åtgärderna "
@@ -1664,7 +1674,7 @@ msgstr ""
 #. implementation of this measure. This person will have the authority to take
 #. the steps described in the Plan and/or the responsibility to ensure that
 #. they are carried out."
-#: euphorie/client/browser/templates/webhelpers.pt:931
+#: euphorie/client/browser/templates/webhelpers.pt:906
 msgid "actionplan_measure_responsible_tooltip"
 msgstr ""
 "Utse någon i ditt företag som ansvarar för genomförandet av denna åtgärd. "
@@ -1674,7 +1684,7 @@ msgstr ""
 #. Default: "Describe: 1) what is your general approach to eliminate or (if
 #. the risk is not avoidable) reduce the risk; 2) the specific action(s)
 #. required to implement this approach (to eliminate or to reduce the risk)"
-#: euphorie/client/browser/templates/webhelpers.pt:1029
+#: euphorie/client/browser/templates/webhelpers.pt:1005
 msgid "actionplan_measure_tooltip"
 msgstr ""
 "Skriv ner i planen vilken åtgärd du kommer att utföra med anledning av "
@@ -1692,7 +1702,7 @@ msgstr ""
 #. and/or consultation of OSH guidance required&rdquo;, or &ldquo;OSH
 #. expert&rdquo;. You can also describe here any other additional requirement
 #. (if any)."
-#: euphorie/client/browser/templates/webhelpers.pt:1059
+#: euphorie/client/browser/templates/webhelpers.pt:1036
 msgid "actionplan_requirements_tooltip"
 msgstr ""
 
@@ -1712,12 +1722,12 @@ msgid "agree_and_continue"
 msgstr "Fortsätt"
 
 #. Default: "Simplified two criteria"
-#: euphorie/content/surveygroup.py:89
+#: euphorie/content/surveygroup.py:90
 msgid "algorithm_french"
 msgstr ""
 
 #. Default: "Standard three criteria"
-#: euphorie/content/surveygroup.py:70
+#: euphorie/content/surveygroup.py:71
 msgid "algorithm_kinney"
 msgstr ""
 
@@ -1745,7 +1755,7 @@ msgstr ""
 #. register via the link below\n            and accept your membership.\n
 #. This link will stay valid for ${days_to_keep} days.\n\n
 #. ${link}\n            "
-#: euphorie/client/browser/organisation.py:264
+#: euphorie/client/browser/organisation.py:270
 msgid "body_add_user_to_organisation_email"
 msgstr ""
 
@@ -1769,7 +1779,7 @@ msgid "bullet_risks"
 msgstr ""
 
 #. Default: "Add"
-#: euphorie/client/browser/templates/webhelpers.pt:828
+#: euphorie/client/browser/templates/webhelpers.pt:803
 msgid "button_add"
 msgstr "Ladda upp"
 
@@ -1810,7 +1820,7 @@ msgstr ""
 
 #. Default: "Cancel"
 #: euphorie/client/browser/publish.py:288
-#: euphorie/client/browser/settings.py:282
+#: euphorie/client/browser/settings.py:341
 #: euphorie/client/browser/templates/confirmation-archive-session.pt:37
 msgid "button_cancel"
 msgstr "Avbryt"
@@ -1855,7 +1865,7 @@ msgid "button_edit"
 msgstr "Redigera"
 
 #. Default: "Information"
-#: euphorie/client/browser/templates/surveys.pt:212
+#: euphorie/client/browser/templates/surveys.pt:208
 msgid "button_information"
 msgstr ""
 
@@ -1893,13 +1903,13 @@ msgstr "Sök"
 #. Default: "Start risk assessment"
 #: euphorie/client/browser/templates/new-session-test.pt:104
 #: euphorie/client/browser/templates/new-session.pt:126
-#: euphorie/client/browser/templates/portlet-available-tools.pt:64
+#: euphorie/client/browser/templates/portlet-available-tools.pt:65
 msgid "button_start_session"
 msgstr ""
 
 #. Default: "Test session"
-#: euphorie/client/browser/templates/surveys.pt:202
-#: euphorie/client/browser/templates/tool_sessions.pt:85
+#: euphorie/client/browser/templates/surveys.pt:198
+#: euphorie/client/browser/templates/tool_sessions.pt:87
 msgid "button_start_test_session"
 msgstr ""
 
@@ -1917,7 +1927,7 @@ msgstr "Lås upp"
 #: euphorie/content/browser/templates/surveygroup_unpublish.pt:34
 #: euphorie/deployment/tiles/templates/versions.pt:43
 msgid "button_unpublish"
-msgstr "Publicera"
+msgstr "Avpublicera"
 
 #. Default: "Updated"
 #: euphorie/deployment/tiles/templates/versions.pt:91
@@ -2199,21 +2209,21 @@ msgstr ""
 #. Default: "Measures that are already in place (Only shown here for
 #. reference! Use the “Add Measure” button on the Risk for adding measures
 #. that are shown to the user during Identification.)"
-#: euphorie/content/risk.py:103
+#: euphorie/content/risk.py:104
 msgid "deprecated_label_existing_measures"
 msgstr ""
 
 #. Default: "Please tick anything that you might like to exclude from the
 #. training. Items that are greyed out will not be displayed on the training
 #. card."
-#: euphorie/client/browser/templates/webhelpers.pt:698
+#: euphorie/client/browser/templates/webhelpers.pt:675
 msgid "description-training-configuration"
 msgstr ""
 
 #. Default: "The risk evaluation has been automatically done by the tool. You
 #. will be able to change the priority for this risk &ndash; if you consider
 #. it necessary &ndash; in the action plan."
-#: euphorie/client/browser/templates/webhelpers.pt:619
+#: euphorie/client/browser/templates/webhelpers.pt:596
 msgid "description_automatic_evaluation"
 msgstr ""
 
@@ -2234,7 +2244,7 @@ msgstr ""
 #. Default: "If selected, the option to plan measures will be offered directly
 #. on the “Identification” page. There will be no separate “Action Plan” step
 #. in the navigation."
-#: euphorie/content/survey.py:136
+#: euphorie/content/survey.py:167
 msgid "description_integrated_action_plan"
 msgstr ""
 
@@ -2248,7 +2258,7 @@ msgstr ""
 #. user. Choose “Simple” if the texts for Description and General Approach are
 #. identical in your measures. Choose “Full” if the texts in General Approach
 #. provide more details than the Description."
-#: euphorie/content/survey.py:118
+#: euphorie/content/survey.py:149
 msgid "description_measures_text_handling"
 msgstr ""
 
@@ -2263,17 +2273,16 @@ msgstr ""
 #: euphorie/client/browser/publish.py:126
 msgid "description_other_risks"
 msgstr ""
-"Den grundläggande strukturen för en interaktiv riskbedömning online (OiRA) "
-"består av: - profilfrågor (frågor som definierar företagets profil) - "
-"moduler och eventuella delmoduler - risker (positiva rapporter) "
-"Profilfrågorna används för att avgöra om enskilda moduler överhuvudtaget "
-"gäller för slutanvändaren (TILLVAL), eller om de bör upprepas ett antal "
-"gånger (REPETERBAR). Sådana frågor ställs INNAN en riskidentifiering och "
-"utvärdering startas. Om slutanvändaren inte bekräftar att en profilfråga "
-"(tillval) är relevant (genom att kryssa i rutan), kommer motsvarande modul "
-"att hoppas över helt. Om slutanvändaren anger mer än ett alternativ till en "
-"repeterbar profilfråga kommer motsvarande modul att upprepas ett specifikt "
-"antal gånger."
+"Om du inte hittade en risk som du har identifierat i ditt företag kan du "
+"lägga till den i din egen riskbedömning nu:"
+
+#. Default: "Please enter the completion percentage above which the report is
+#. available on this tool. The user will be unable to view or download a
+#. report until the assessment is completed to the given percentage. Enter “0”
+#. to always have the report available."
+#: euphorie/content/survey.py:182
+msgid "description_report_completion_threshold"
+msgstr ""
 
 #: euphorie/client/browser/reset_password.py:226
 msgid "description_reset_password_form"
@@ -2288,7 +2297,7 @@ msgstr ""
 #. Default: "If selected, the user will not be able to answer \"Yes\" or
 #. \"No\", since the risk is considered to be always present. The Evaluation
 #. and Action Plan will behave in the same way as for regular risks."
-#: euphorie/content/risk.py:168
+#: euphorie/content/risk.py:169
 msgid "description_risk_always_present"
 msgstr ""
 
@@ -2369,7 +2378,7 @@ msgstr ""
 
 #. Default: "If you enter text here, it will be shown to users in a pop-up
 #. when they open the tool. It can be used for notifying users about changes."
-#: euphorie/content/survey.py:179
+#: euphorie/content/survey.py:252
 msgid "description_tool_notification"
 msgstr ""
 "Om du skriver in text här visas den i ett poppuppfönster när användarna "
@@ -2378,7 +2387,7 @@ msgstr ""
 
 #. Default: "This selection determines, which variant of an OiRA Tool will be
 #. created. If you are not sure, select \"Classic\"."
-#: euphorie/content/survey.py:103
+#: euphorie/content/survey.py:134
 msgid "description_tool_type"
 msgstr ""
 
@@ -2433,32 +2442,32 @@ msgid "download section"
 msgstr ""
 
 #. Default: "High (very high) severity"
-#: euphorie/content/risk.py:547
+#: euphorie/content/risk.py:548
 msgid "effect_high"
 msgstr "Hög (mycket hög) allvarlighetsgrad"
 
 #. Default: "Weak severity"
-#: euphorie/client/browser/templates/webhelpers.pt:449
+#: euphorie/client/browser/templates/webhelpers.pt:453
 msgid "effect_injury_no_absence"
 msgstr "Svag allvarlighetsgrad"
 
 #. Default: "Significant severity"
-#: euphorie/client/browser/templates/webhelpers.pt:455
+#: euphorie/client/browser/templates/webhelpers.pt:459
 msgid "effect_injury_with_absence"
 msgstr "Stark allvarlighetsgrad"
 
 #. Default: "High (very high) severity"
-#: euphorie/client/browser/templates/webhelpers.pt:461
+#: euphorie/client/browser/templates/webhelpers.pt:465
 msgid "effect_permanent_damage"
 msgstr "Hög (mycket hög) allvarlighetsgrad"
 
 #. Default: "Significant severity"
-#: euphorie/content/risk.py:542
+#: euphorie/content/risk.py:543
 msgid "effect_significant"
 msgstr "Betydande allvarlighetsgrad"
 
 #. Default: "Weak severity"
-#: euphorie/content/risk.py:538
+#: euphorie/content/risk.py:539
 msgid "effect_weak"
 msgstr "Låg allvarighetsgrad"
 
@@ -2484,6 +2493,7 @@ msgstr ""
 
 #. Default: "Dear user,"
 #: euphorie/client/browser/templates/confirm-email.pt:6
+#: euphorie/client/browser/templates/email_reminder_body.pt:6
 msgid "email_change_header"
 msgstr "Bäste användare!"
 
@@ -2496,7 +2506,7 @@ msgstr "Ändra land/språk"
 #. Default: "Please confirm your new email address by clicking on the link in
 #. the email that will be sent in a few minutes to \"${email}\". Please note
 #. that the new email address is also your new login name."
-#: euphorie/client/browser/settings.py:447
+#: euphorie/client/browser/settings.py:522
 msgid "email_change_pending"
 msgstr ""
 
@@ -2508,6 +2518,18 @@ msgstr ""
 #. Default: "${invitee} has accepted your invitation to join ${organisation}."
 #: euphorie/client/browser/templates/notify-invite-accept.pt:14
 msgid "email_invite_accept_main"
+msgstr ""
+
+#. Default: "If you would like to continue using this tool at a later point in
+#. time, we can send you a reminder email with a link to this assessment."
+#: euphorie/client/browser/templates/email_reminder.pt:32
+msgid "email_reminder_intro"
+msgstr ""
+
+#. Default: "This is your reminder to continue your assessment with the tool
+#. \"${tool_name}\":"
+#: euphorie/client/browser/templates/email_reminder_body.pt:8
+msgid "email_reminder_main"
 msgstr ""
 
 #. Default: "Dear ${recipient},"
@@ -2554,7 +2576,7 @@ msgid "employee_numbers_50_to_249"
 msgstr "50-249 anställda"
 
 #. Default: "An account with this email address already exists."
-#: euphorie/client/browser/login.py:202
+#: euphorie/client/browser/login.py:216
 msgid "error_email_in_use"
 msgstr "Ett konto med denna e-postadress existerar redan."
 
@@ -2564,12 +2586,12 @@ msgid "error_existing_login"
 msgstr "Detta inloggningsnamn är redan taget."
 
 #. Default: "Please enter the budget in whole Euros."
-#: euphorie/client/browser/templates/webhelpers.pt:945
+#: euphorie/client/browser/templates/webhelpers.pt:920
 msgid "error_invalid_budget"
 msgstr "Ange budget i euro (ental)."
 
 #. Default: "Please enter a valid email address"
-#: euphorie/client/browser/login.py:165
+#: euphorie/client/browser/login.py:174
 msgid "error_invalid_email"
 msgstr "Ange en giltig e-postadress"
 
@@ -2579,22 +2601,22 @@ msgid "error_invalid_login"
 msgstr "Inloggningsnamnet får endast bestå av små bokstäver och siffror."
 
 #. Default: "Please upload a valid XML file"
-#: euphorie/content/browser/upload.py:585
+#: euphorie/content/browser/upload.py:592
 msgid "error_invalid_xml"
 msgstr "Ladda upp en giltig XML-fil"
 
 #. Default: "Please enter your email address"
-#: euphorie/client/browser/login.py:161
+#: euphorie/client/browser/login.py:170
 msgid "error_missing_email"
 msgstr "Ange din e-postadress"
 
 #. Default: "Please enter a password"
-#: euphorie/client/browser/login.py:169
+#: euphorie/client/browser/login.py:178
 msgid "error_missing_password"
 msgstr "Ange ett lösenord"
 
 #. Default: "Passwords do not match"
-#: euphorie/client/browser/login.py:173
+#: euphorie/client/browser/login.py:182
 #: euphorie/client/browser/reset_password.py:256
 msgid "error_password_mismatch"
 msgstr "Lösenorden stämmer inte överens"
@@ -2602,63 +2624,63 @@ msgstr "Lösenorden stämmer inte överens"
 #. Default: "The password needs to be at least 12 characters long and needs to
 #. contain at least one lower case letter, one upper case letter and one
 #. digit."
-#: euphorie/client/browser/login.py:146
+#: euphorie/client/browser/login.py:155
 msgid "error_password_policy_violation"
 msgstr ""
 
 #. Default: "An accout can only be created for you if you accept the terms and
 #. conditions."
-#: euphorie/client/browser/login.py:181
+#: euphorie/client/browser/login.py:190
 msgid "error_terms_not_accepted"
 msgstr ""
 
 #. Default: "This date must be on or after the start date."
-#: euphorie/client/browser/risk.py:81
+#: euphorie/client/browser/risk.py:84
 msgid "error_validation_after_start_date"
 msgstr ""
 
 #. Default: "This date must be on or before the end date."
-#: euphorie/client/browser/risk.py:101
+#: euphorie/client/browser/risk.py:104
 msgid "error_validation_before_end_date"
 msgstr ""
 
 #. Default: "This value must be a valid date"
-#: euphorie/client/browser/webhelpers.py:1285
+#: euphorie/client/browser/webhelpers.py:1297
 msgid "error_validation_date"
 msgstr ""
 
 #. Default: "This value must be a valid date and time"
-#: euphorie/client/browser/webhelpers.py:1289
+#: euphorie/client/browser/webhelpers.py:1301
 msgid "error_validation_datetime"
 msgstr ""
 
 #. Default: "This value must be a valid email address"
-#: euphorie/client/browser/webhelpers.py:1296
+#: euphorie/client/browser/webhelpers.py:1308
 msgid "error_validation_email"
 msgstr ""
 
 #. Default: "This value must be a number"
-#: euphorie/client/browser/webhelpers.py:1303
+#: euphorie/client/browser/webhelpers.py:1315
 msgid "error_validation_number"
 msgstr ""
 
 #. Default: "This value must be a positive whole number."
-#: euphorie/client/browser/risk.py:91
+#: euphorie/client/browser/risk.py:94
 msgid "error_validation_positive_whole_number"
 msgstr ""
 
 #. Default: "Calculated"
-#: euphorie/content/risk.py:192
+#: euphorie/content/risk.py:193
 msgid "evalmethod_calculated"
 msgstr "Calculated"
 
 #. Default: "Estimated"
-#: euphorie/content/risk.py:189
+#: euphorie/content/risk.py:190
 msgid "evalmethod_direct"
 msgstr "Uppskattad"
 
 #. Default: "Skip evaluation"
-#: euphorie/content/risk.py:195
+#: euphorie/content/risk.py:196
 msgid "evalmethod_fixed"
 msgstr "Uppskattad"
 
@@ -2668,19 +2690,14 @@ msgstr "Uppskattad"
 #: euphorie/client/browser/templates/actionplan.pt:27
 msgid "expl_actionplan_1"
 msgstr ""
-"Du har identifierat riskens omfattning för varje flaskhals. I "
-"handlingsplanen kan du fastställa prioritering för samtliga flaskhalsar och "
-"hur de ska hanteras. Programmet kan erbjuda förslag som du kan använda eller"
-" så kan du lägga till egna åtgärder."
+"När du har identifierat riskerna behöver du upprätta en handlingsplan för "
+"att hantera riskerna. För att eliminera eller minska risker behöver du "
+"fastställa vilka förebyggande och skyddande åtgärder som ska vidtas."
 
 #. Default: "Among the things to be considered for this step are:"
 #: euphorie/client/browser/templates/actionplan.pt:33
 msgid "expl_actionplan_2"
-msgstr ""
-"Att radera orsakerna (angripa källan) är att föredra: på detta sätt kan "
-"ingen risk längre uppstå. Skriv sedan ner de uppgifter som måste utföras för"
-" att risken skall tas bort, samt den kunskap och erfarenhet som behövs för "
-"de arbetsuppgifter som skall utföras (plan för förebyggande och krav)."
+msgstr "Bland de saker som bör beaktas för detta steg är:"
 
 #. Default: "Is a risk avoidable? Can it be removed entirely? For example,
 #. this could be achieved by: ${expl_actionplan_4_and_5}"
@@ -2735,10 +2752,7 @@ msgstr "Den begärda sidan kunde inte hittas."
 #: euphorie/client/browser/templates/profile.pt:24
 msgid "expl_profile"
 msgstr ""
-"Läs följande meddelande(n) och kryssa i rutan om problemet är relevant för "
-"ditt företag/organisation. Om det inte är relevant, kryssar du inte i rutan "
-"och du kommer inte att bli tillfrågad igen om saker som inte gäller för din "
-"situation."
+"För att anpassa riskbedömningen till din organisation kan du bli ombedd att:"
 
 #. Default: "select or skip situation(s) relevant or not to your business
 #. activity and tick the box(es) if appropriate"
@@ -2762,7 +2776,7 @@ msgstr ""
 
 #. Default: "This risk was automatically set as being present. You cannot
 #. change this."
-#: euphorie/client/browser/templates/webhelpers.pt:288
+#: euphorie/client/browser/templates/webhelpers.pt:290
 msgid "explanation_risk_always_present"
 msgstr ""
 
@@ -2799,7 +2813,7 @@ msgid "filename_short_report_actionplan"
 msgstr ""
 
 #. Default: "Contents of OIRA tool ${title}"
-#: euphorie/content/browser/survey.py:478
+#: euphorie/content/browser/survey.py:476
 msgid "filename_tool_contents"
 msgstr ""
 
@@ -2809,68 +2823,48 @@ msgid "folder_no_children"
 msgstr "Denna mapp är tom."
 
 #. Default: "Almost never"
-#: euphorie/client/browser/templates/webhelpers.pt:418
+#: euphorie/client/browser/templates/webhelpers.pt:422
 msgid "frequency_almost_never"
 msgstr "Nästan aldrig"
 
 #. Default: "Almost never"
-#: euphorie/content/risk.py:511
+#: euphorie/content/risk.py:512
 msgid "frequency_almostnever"
 msgstr "Nästan aldrig"
 
 #. Default: "Constantly"
-#: euphorie/client/browser/templates/webhelpers.pt:430
-#: euphorie/content/risk.py:519
+#: euphorie/client/browser/templates/webhelpers.pt:434
+#: euphorie/content/risk.py:520
 msgid "frequency_constantly"
 msgstr "Konstant"
 
 #. Default: "Not very often"
-#: euphorie/client/browser/templates/webhelpers.pt:554
-#: euphorie/content/risk.py:454
+#: euphorie/client/browser/templates/webhelpers.pt:540
+#: euphorie/content/risk.py:455
 msgid "frequency_french_not_often"
 msgstr ""
 
-#. Default: "Once per month"
-#: euphorie/client/browser/templates/webhelpers.pt:555
-msgid "frequency_french_not_often_help"
-msgstr ""
-
 #. Default: "Often"
-#: euphorie/client/browser/templates/webhelpers.pt:566
-#: euphorie/content/risk.py:457
+#: euphorie/client/browser/templates/webhelpers.pt:548
+#: euphorie/content/risk.py:458
 msgid "frequency_french_often"
 msgstr ""
 
-#. Default: "Once per week"
-#: euphorie/client/browser/templates/webhelpers.pt:567
-msgid "frequency_french_often_help"
-msgstr "Konstant"
-
 #. Default: "Rare"
-#: euphorie/client/browser/templates/webhelpers.pt:542
-#: euphorie/content/risk.py:450
+#: euphorie/client/browser/templates/webhelpers.pt:532
+#: euphorie/content/risk.py:451
 msgid "frequency_french_rare"
 msgstr ""
 
-#. Default: "Once per year"
-#: euphorie/client/browser/templates/webhelpers.pt:543
-msgid "frequency_french_rare_help"
-msgstr "Regelbunden"
-
 #. Default: "Very often or regularly"
-#: euphorie/client/browser/templates/webhelpers.pt:578
-#: euphorie/content/risk.py:462
+#: euphorie/client/browser/templates/webhelpers.pt:556
+#: euphorie/content/risk.py:463
 msgid "frequency_french_regularly"
 msgstr ""
 
-#. Default: "Minimum once per day"
-#: euphorie/client/browser/templates/webhelpers.pt:579
-msgid "frequency_french_regularly_help"
-msgstr "Regelbunden"
-
 #. Default: "Regularly"
-#: euphorie/client/browser/templates/webhelpers.pt:424
-#: euphorie/content/risk.py:514
+#: euphorie/client/browser/templates/webhelpers.pt:428
+#: euphorie/content/risk.py:515
 msgid "frequency_regularly"
 msgstr "Regelbunden"
 
@@ -2888,17 +2882,17 @@ msgid "header_actions"
 msgstr ""
 
 #. Default: "Additional content"
-#: euphorie/content/module.py:113 euphorie/content/risk.py:314
+#: euphorie/content/module.py:113 euphorie/content/risk.py:315
 msgid "header_additional_content"
 msgstr ""
 
 #. Default: "Additional resources to assess the risk"
-#: euphorie/client/browser/templates/webhelpers.pt:642
+#: euphorie/client/browser/templates/webhelpers.pt:619
 msgid "header_additional_resources"
 msgstr ""
 
 #. Default: "Additional resources for this module"
-#: euphorie/client/browser/templates/webhelpers.pt:645
+#: euphorie/client/browser/templates/webhelpers.pt:622
 msgid "header_additional_resources_module"
 msgstr ""
 
@@ -2932,8 +2926,13 @@ msgstr "Utveckling och pilotfas – 2009-2011"
 msgid "header_development_partners"
 msgstr "Utvecklingspartners"
 
+#. Default: "Email reminder"
+#: euphorie/client/browser/templates/email_reminder.pt:31
+msgid "header_email_reminder"
+msgstr ""
+
 #. Default: "Evaluation"
-#: euphorie/content/risk.py:559
+#: euphorie/content/risk.py:560
 msgid "header_evaluation"
 msgstr "Utvärdering"
 
@@ -2964,13 +2963,13 @@ msgid "header_feedback"
 msgstr ""
 
 #. Default: "Identification"
-#: euphorie/content/risk.py:131
+#: euphorie/content/risk.py:132
 msgid "header_identification"
 msgstr "Identifiering"
 
 #. Default: "Information"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:240
-#: euphorie/client/browser/templates/risk_macros.pt:177
+#: euphorie/client/browser/templates/risk_macros.pt:179
 #: euphorie/content/browser/templates/module_view.pt:35
 msgid "header_information"
 msgstr "Information"
@@ -2981,7 +2980,7 @@ msgid "header_launch"
 msgstr "Officiell lansering av projektet – september 2011"
 
 #. Default: "Legal and policy references"
-#: euphorie/client/docx/compiler.py:365 euphorie/content/browser/survey.py:344
+#: euphorie/client/docx/compiler.py:365 euphorie/content/browser/survey.py:342
 msgid "header_legal_references"
 msgstr "Rättsliga och politiska referenser"
 
@@ -3001,7 +3000,7 @@ msgid "header_login"
 msgstr "Logga in"
 
 #. Default: "Main image"
-#: euphorie/content/risk.py:241
+#: euphorie/content/risk.py:242
 msgid "header_main_image"
 msgstr "Huvudbild"
 
@@ -3028,7 +3027,7 @@ msgid "header_modules"
 msgstr "Moduler"
 
 #. Default: "Modules and Profile Questions"
-#: euphorie/content/browser/templates/survey_view.pt:71
+#: euphorie/content/browser/templates/survey_view.pt:70
 msgid "header_modules_and_profile_questions"
 msgstr "Profilfrågor"
 
@@ -3127,7 +3126,7 @@ msgstr "Registrera"
 
 #. Default: "Reporting"
 #: euphorie/client/browser/templates/register_session.pt:27
-#: euphorie/client/browser/templates/report.pt:33
+#: euphorie/client/browser/templates/report.pt:36
 msgid "header_reporting"
 msgstr "Rapportering"
 
@@ -3142,25 +3141,25 @@ msgid "header_risk_aware"
 msgstr "Är du medveten om alla risker?"
 
 #. Default: "What is the severity of the damage?"
-#: euphorie/client/browser/templates/webhelpers.pt:439
+#: euphorie/client/browser/templates/webhelpers.pt:443
 msgid "header_risk_effect"
 msgstr "Vad för slags allvarighetsgrad har skadan?"
 
 #. Default: "How often are people exposed to this risk?"
-#: euphorie/client/browser/templates/webhelpers.pt:408
+#: euphorie/client/browser/templates/webhelpers.pt:412
 msgid "header_risk_frequency"
-msgstr "Hur ofta är personer utsatta för denna risk?"
+msgstr "Hur ofta utsätts människor för denna risk?"
 
 #. Default: "Select the priority of this risk"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:213
-#: euphorie/client/browser/templates/webhelpers.pt:596
+#: euphorie/client/browser/templates/webhelpers.pt:572
 msgid "header_risk_priority"
 msgstr "Välj prioritet för denna risk"
 
 #. Default: "What is the chance of this risk occurring?"
-#: euphorie/client/browser/templates/webhelpers.pt:377
+#: euphorie/client/browser/templates/webhelpers.pt:381
 msgid "header_risk_probability"
-msgstr "Vad är chansen att denna risk uppstår?"
+msgstr "Vad är chansen att denna risk inträffar?"
 
 #. Default: "Risks"
 #: euphorie/content/browser/templates/module_view.pt:71
@@ -3192,7 +3191,7 @@ msgid "header_search_results_for"
 msgstr ""
 
 #. Default: "Secondary images"
-#: euphorie/content/risk.py:266
+#: euphorie/content/risk.py:267
 msgid "header_secondary_images"
 msgstr "Sekundära bilder"
 
@@ -3233,7 +3232,7 @@ msgid "header_terms"
 msgstr "eller…"
 
 #. Default: "Training Questions"
-#: euphorie/content/browser/templates/survey_view.pt:105
+#: euphorie/content/browser/templates/survey_view.pt:104
 msgid "header_training_questions"
 msgstr ""
 
@@ -3473,13 +3472,13 @@ msgstr ""
 #. Default: "Please answer the following questions. As a result of your
 #. answers the system will calculate the priority of the risk. You will be
 #. able to modify the priority later."
-#: euphorie/client/browser/templates/webhelpers.pt:364
+#: euphorie/client/browser/templates/webhelpers.pt:367
 msgid "help_calculated_evaluation"
 msgstr ""
 
 #. Default: "A code identifying this sector. Classification codes are defined
 #. by national standards bodies and based on revision 2 of the NACE standard."
-#: euphorie/content/survey.py:92
+#: euphorie/content/survey.py:123
 msgid "help_classification_code"
 msgstr ""
 "En kod som identifierar denna bransch. Klassificeringskoderna definieras av "
@@ -3490,10 +3489,18 @@ msgstr ""
 msgid "help_compact_report_options"
 msgstr ""
 
+#. Default: "The content language determines which surveys you see on the
+#. dashboard. Visiting a survey in a different language (via the Tools tab)
+#. will automatically update this setting. This preference resets after
+#. quitting your browser."
+#: euphorie/client/browser/templates/preferences.pt:97
+msgid "help_content_language"
+msgstr ""
+
 #. Default: "Upload a file that contains additional information, like a PDF,
 #. Word document or spreadsheet. Optionally provide a descriptive caption for
 #. your file."
-#: euphorie/content/module.py:133 euphorie/content/risk.py:334
+#: euphorie/content/module.py:133 euphorie/content/risk.py:335
 msgid "help_content_upload"
 msgstr ""
 
@@ -3506,13 +3513,13 @@ msgstr ""
 "starta med en kopia av en befintlig undersökning."
 
 #. Default: "Indicate how often this risk occurs in a normal situation."
-#: euphorie/client/browser/risk.py:894 euphorie/content/risk.py:443
+#: euphorie/client/browser/risk.py:920 euphorie/content/risk.py:444
 msgid "help_default_frequency"
 msgstr "Ange hur ofta denna risk inträffar i en normal situation."
 
 #. Default: "You can help the end-user by selecting a default priority. He/she
 #. can still change the priority."
-#: euphorie/content/risk.py:222
+#: euphorie/content/risk.py:223
 msgid "help_default_priority"
 msgstr ""
 "Du kan hjälpa användaren genom att välja standard prioritet. Användaren kan "
@@ -3520,12 +3527,12 @@ msgstr ""
 
 #. Default: "Indicate how likely occurence of this risk is in a normal
 #. situation."
-#: euphorie/client/browser/risk.py:889 euphorie/content/risk.py:478
+#: euphorie/client/browser/risk.py:915 euphorie/content/risk.py:479
 msgid "help_default_probability"
 msgstr "Ange hur trolig förekomsten av denna risk är i en normal situation."
 
 #. Default: "Indicate the severity if this risk occurs."
-#: euphorie/client/browser/risk.py:898 euphorie/content/risk.py:414
+#: euphorie/client/browser/risk.py:924 euphorie/content/risk.py:415
 msgid "help_default_severity"
 msgstr "Ange allvarighetsgraden av att hantera denna risk om den inträffar."
 
@@ -3535,11 +3542,21 @@ msgstr "Ange allvarighetsgraden av att hantera denna risk om den inträffar."
 msgid "help_enable_consultancy_country"
 msgstr ""
 
+#. Default: "Offer to send an email reminder about this tool"
+#: euphorie/content/survey.py:208
+msgid "help_enable_email_reminder"
+msgstr ""
+
+#. Default: "If this option is activated, training questions will be shown
+#. during the training. If not activated, questions will only be asked at the
+#. end of the training."
+#: euphorie/content/survey.py:221
+msgid "help_enable_test_questions"
+msgstr ""
+
 #. Default: "If this option is activated, users will be able to take an online
-#. training with this OiRA tool. A successful training will be recorded and
-#. shown with a certificate on the user's dashbooard. You will be asked to
-#. provide Training Questions for the final exam."
-#: euphorie/content/survey.py:148
+#. training with this OiRA tool."
+#: euphorie/content/survey.py:197
 msgid "help_enable_web_training"
 msgstr ""
 
@@ -3558,12 +3575,12 @@ msgstr ""
 
 #. Default: "Select 'estimated' if calcuation is not necessary or not
 #. possible."
-#: euphorie/content/risk.py:182
+#: euphorie/content/risk.py:183
 msgid "help_evaluation_method"
 msgstr "Välj \"uppskattad\" om beräkningen inte är nödvändig eller möjlig."
 
 #. Default: "This option allows users to skip the evaluation phase."
-#: euphorie/content/survey.py:75
+#: euphorie/content/survey.py:106
 msgid "help_evaluation_optional"
 msgstr "Detta alternativ låter användaren hoppa över utvecklingsfasen."
 
@@ -3571,7 +3588,7 @@ msgstr "Detta alternativ låter användaren hoppa över utvecklingsfasen."
 #. have already implemented. Separate measures with a line break (Enter). The
 #. user will be able to deselect those measures that are not applicable to
 #. theirsituation."
-#: euphorie/content/risk.py:109
+#: euphorie/content/risk.py:110
 msgid "help_existing_measures"
 msgstr ""
 
@@ -3650,16 +3667,23 @@ msgstr ""
 #. Default: "Upload an image. Make sure your image is of format png, jpg or
 #. gif and does not contain any special characters. The minimum size is 1000
 #. (width) x 430 (height) pixels."
-#: euphorie/content/module.py:87 euphorie/content/risk.py:252
-#: euphorie/content/sector.py:75
+#: euphorie/content/module.py:87 euphorie/content/risk.py:253
 msgid "help_image_upload"
 msgstr ""
 "Ladda upp en bild. Se till att din bild är i formatet png, jpg eller gif och"
 " inte innehåller några specialtecken."
 
 #. Default: "Help"
-#: euphorie/client/browser/templates/shell.pt:197
+#: euphorie/client/browser/templates/shell.pt:198
 msgid "help_link"
+msgstr ""
+
+#. Default: "The logo will appear on the sector overview page of your country.
+#. Make sure your image is of format png, jpg or gif and does not contain any
+#. special characters. The new logo will only become visible after you have
+#. saved your changes and published the OiRA tool."
+#: euphorie/content/sector.py:72
+msgid "help_logo_upload"
 msgstr ""
 
 #. Default: "Describe your general approach to eliminate or (if the risk is
@@ -3723,7 +3747,7 @@ msgstr ""
 #. your training session. If the number is lower than the number of existing
 #. questions, the questions will be picked randomly. Empty the field to show
 #. all questions."
-#: euphorie/content/survey.py:164
+#: euphorie/content/survey.py:237
 msgid "help_num_training_questions"
 msgstr ""
 
@@ -3731,7 +3755,7 @@ msgstr ""
 #. contain at least one lower case letter, one upper case letter and one
 #. digit."
 #: euphorie/client/browser/templates/login.pt:216
-#: euphorie/client/browser/templates/register_session.pt:176
+#: euphorie/client/browser/templates/register_session.pt:203
 msgid "help_password_requirements"
 msgstr ""
 
@@ -3750,7 +3774,7 @@ msgstr "Förhandsgranskningen finns tillgänglig på ${url}."
 
 #. Default: "This is the inverse of the affirmative statement (e.g. The
 #. building is not well maintained.)"
-#: euphorie/content/risk.py:80
+#: euphorie/content/risk.py:81
 msgid "help_problem_description"
 msgstr ""
 "Detta är inversen av en redogörelse: en kort beskrivning av nuvarande "
@@ -3776,7 +3800,7 @@ msgstr ""
 
 #. Default: "Describe the risk. Include any relevant information that may be
 #. helpful for the end-user."
-#: euphorie/content/risk.py:92
+#: euphorie/content/risk.py:93
 msgid "help_risk_description"
 msgstr ""
 "Beskriv risken. Inkludera all relevant information som kan vara användbar "
@@ -3785,7 +3809,7 @@ msgstr ""
 #. Default: "\"Priority risk\" is one of the high risks in the sector.
 #. \"Risk\" is related to the workplace or to the work carried out. \"Policy\"
 #. refers to agreements, procedures, and management decisions."
-#: euphorie/content/risk.py:147
+#: euphorie/content/risk.py:148
 msgid "help_risk_type"
 msgstr ""
 "\"Risk\" är relaterad till arbetsplatsen. \"Politik\" är relaterat till "
@@ -3808,7 +3832,7 @@ msgstr ""
 
 #. Default: "Offer a `not applicable' option in addition to the standard
 #. yes/no options."
-#: euphorie/content/risk.py:137
+#: euphorie/content/risk.py:138
 msgid "help_show_notapplicable"
 msgstr ""
 "Erbjud ett \"ej tillämpligt \" alternativ utöver det vanliga ja/nej "
@@ -3839,14 +3863,14 @@ msgstr ""
 
 #. Default: "This is a short affirmative statement about a possible risk (e.g.
 #. The building is well maintained.)"
-#: euphorie/content/risk.py:68
+#: euphorie/content/risk.py:69
 msgid "help_statement"
 msgstr "Detta är en kort redgörelse om en möjlig risk."
 
 #. Default: "This method involves risk assessment by Severity x Exposure,
 #. whereas these have to be understood as follows; Severity of injury linked
 #. to hazard - Exposure (Frequency) to the hazard"
-#: euphorie/content/surveygroup.py:94
+#: euphorie/content/surveygroup.py:95
 msgid "help_survey_evaluation_algorithm_simplified"
 msgstr ""
 
@@ -3854,13 +3878,13 @@ msgstr ""
 #. Probability, whereas these have to be understood as follows; Severity of
 #. injury linked to hazard - Exposure (Frequency) to the hazard - Probability
 #. of the hazard occuring when exposed"
-#: euphorie/content/surveygroup.py:75
+#: euphorie/content/surveygroup.py:76
 msgid "help_survey_evaluation_algorithm_standard"
 msgstr ""
 
 #. Default: "This OiRA Tool is obsolete; it has been retired or replaced with
 #. another OiRA Tool."
-#: euphorie/content/surveygroup.py:54
+#: euphorie/content/surveygroup.py:55
 msgid "help_survey_obsolete"
 msgstr ""
 "This survey is obsolete; it has been retired or replaced with another "
@@ -3868,7 +3892,7 @@ msgstr ""
 
 #. Default: "This is the title of this OiRA Tool version. This name is never
 #. shown to users."
-#: euphorie/content/survey.py:49
+#: euphorie/content/survey.py:80
 msgid "help_survey_title"
 msgstr ""
 "Detta är titeln på denna version av undersökningen. Detta namn visas aldrig "
@@ -3876,11 +3900,19 @@ msgstr ""
 
 #. Default: "The title of this OiRA Tool. This title is used in the OiRA Tool
 #. overview in the clients."
-#: euphorie/content/surveygroup.py:41
+#: euphorie/content/surveygroup.py:42
 msgid "help_surveygroup_title"
 msgstr ""
 "Titeln på denna undersökning. Denna titel används i undersökningens översikt"
 " i klienterna."
+
+#. Default: "The UI language is used for showing the user interface. Initially
+#. this is determined by the language preference of your browser. This does
+#. not influence the language of the contents, especially which surveys are
+#. shown. This preference resets after quitting your browser."
+#: euphorie/client/browser/templates/preferences.pt:75
+msgid "help_ui_language"
+msgstr ""
 
 #. Default: "If you do not specify a title it will be taken from the input."
 #: euphorie/content/browser/upload.py:157
@@ -3888,8 +3920,8 @@ msgid "help_upload_surveygroup_title"
 msgstr "Om du inte specificerar en titel den kommer att tas från indatan."
 
 #. Default: "Dashboard"
-#: euphorie/client/browser/templates/login.pt:296
-#: euphorie/client/browser/templates/shell.pt:134
+#: euphorie/client/browser/templates/login.pt:299
+#: euphorie/client/browser/templates/shell.pt:135
 msgid "home_link"
 msgstr ""
 
@@ -4004,7 +4036,7 @@ msgid "intro_add_surveygroup"
 msgstr "Detta formulär låter dig skapa en ny undersökning"
 
 #. Default: "Attach any additional content you consider helpful for the user"
-#: euphorie/content/module.py:114 euphorie/content/risk.py:315
+#: euphorie/content/module.py:114 euphorie/content/risk.py:316
 msgid "intro_additional_content"
 msgstr ""
 
@@ -4028,7 +4060,7 @@ msgstr "online-klient"
 
 #. Default: "You can specify how the risks priority is evaluated. For more
 #. details see the online manual."
-#: euphorie/content/risk.py:560
+#: euphorie/content/risk.py:561
 msgid "intro_evaluation"
 msgstr ""
 "Du kan specificera hur riskernas prioritet utvärderas. För mer information "
@@ -4041,7 +4073,7 @@ msgstr "Här skriver du ut ${list-of-risks}."
 
 #. Default: "The main image will get a more prominent position in the client
 #. than the other images."
-#: euphorie/content/risk.py:242
+#: euphorie/content/risk.py:243
 msgid "intro_main_image"
 msgstr ""
 "Huvudbilden får en mer framträdande position i klienten än övriga bilder."
@@ -4194,17 +4226,17 @@ msgid "label_account_locked"
 msgstr "Kontot är låst"
 
 #. Default: "Action Plan"
-#: euphorie/client/browser/templates/login.pt:327
-#: euphorie/client/browser/webhelpers.py:1445
+#: euphorie/client/browser/templates/login.pt:330
+#: euphorie/client/browser/webhelpers.py:1457
 msgid "label_action_plan"
-msgstr "Handlingsplan"
+msgstr "Åtgärdsplan"
 
 #. Default: "Budget"
 #: euphorie/client/browser/report.py:147
-#: euphorie/client/browser/templates/webhelpers.pt:944
+#: euphorie/client/browser/templates/webhelpers.pt:919
 #: euphorie/client/docx/compiler.py:452
 msgid "label_action_plan_budget"
-msgstr "Budget (i euro)"
+msgstr "Budget"
 
 #. Default: "Action plan"
 #: euphorie/client/browser/templates/report_landing.pt:94
@@ -4213,28 +4245,28 @@ msgstr ""
 
 #. Default: "Planning end"
 #: euphorie/client/browser/report.py:124
-#: euphorie/client/browser/templates/webhelpers.pt:981
+#: euphorie/client/browser/templates/webhelpers.pt:956
 #: euphorie/client/docx/compiler.py:454
 msgid "label_action_plan_end"
-msgstr "Planerat slut"
+msgstr "Planeringsslut"
 
 #. Default: "Who is responsible?"
 #: euphorie/client/browser/report.py:145
-#: euphorie/client/browser/templates/webhelpers.pt:930
+#: euphorie/client/browser/templates/webhelpers.pt:905
 #: euphorie/client/docx/compiler.py:450
 msgid "label_action_plan_responsible"
 msgstr "Vem är ansvarig?"
 
 #. Default: "Planning start"
 #: euphorie/client/browser/report.py:119
-#: euphorie/client/browser/templates/webhelpers.pt:965
+#: euphorie/client/browser/templates/webhelpers.pt:940
 #: euphorie/client/docx/compiler.py:453
 msgid "label_action_plan_start"
-msgstr "Planerad start"
+msgstr "Planeringsstart"
 
 #. Default: "I agree with the ${link_terms_conditions}"
-#: euphorie/client/browser/templates/login.pt:228
-#: euphorie/client/browser/templates/register_session.pt:188
+#: euphorie/client/browser/templates/login.pt:230
+#: euphorie/client/browser/templates/register_session.pt:217
 msgid "label_agree_terms_conditions"
 msgstr ""
 
@@ -4249,14 +4281,8 @@ msgstr ""
 msgid "label_alphabetical"
 msgstr ""
 
-msgid "label_alternative_text"
-msgstr "Alternativ text"
-
-msgid "label_analysis"
-msgstr "Analys"
-
 #. Default: "Assessment"
-#: euphorie/client/browser/webhelpers.py:1412
+#: euphorie/client/browser/webhelpers.py:1424
 msgid "label_assessment"
 msgstr ""
 
@@ -4264,9 +4290,6 @@ msgstr ""
 #: euphorie/client/browser/templates/sessions-dashboard.pt:46
 msgid "label_assessments"
 msgstr ""
-
-msgid "label_attachment"
-msgstr "Bilaga"
 
 #. Default: "Page content"
 #: euphorie/content/page.py:27
@@ -4286,7 +4309,7 @@ msgid "label_cancel"
 msgstr ""
 
 #. Default: "Image caption"
-#: euphorie/content/module.py:96 euphorie/content/risk.py:261
+#: euphorie/content/module.py:96 euphorie/content/risk.py:262
 msgid "label_caption"
 msgstr "Bildtext"
 
@@ -4312,8 +4335,8 @@ msgid "label_choose_surveygroup"
 msgstr "Välj en undersökning"
 
 #. Default: "Classification code"
-#: euphorie/content/browser/templates/survey_view.pt:31
-#: euphorie/content/survey.py:91
+#: euphorie/content/browser/templates/survey_view.pt:30
+#: euphorie/content/survey.py:122
 msgid "label_classification_code"
 msgstr "Klassificeringskod"
 
@@ -4332,9 +4355,6 @@ msgstr ""
 msgid "label_close_message"
 msgstr ""
 
-msgid "label_colour"
-msgstr "Färg"
-
 #. Default: "Compact"
 #: euphorie/client/browser/templates/report_landing.pt:45
 msgid "label_compact"
@@ -4351,9 +4371,6 @@ msgstr ""
 msgid "label_company_country"
 msgstr "Ditt land"
 
-msgid "label_compressed_file"
-msgstr "Komprimerad fil"
-
 #. Default: "The risk assessment was conducted by"
 #: euphorie/client/browser/company.py:63
 #: euphorie/client/browser/templates/report_company.pt:110
@@ -4366,9 +4383,9 @@ msgid "label_confirm_password"
 msgstr ""
 
 #. Default: "Consultancy"
-#: euphorie/client/browser/templates/consultancy.pt:31
+#: euphorie/client/browser/templates/consultancy.pt:34
 #: euphorie/client/browser/templates/consultants.pt:26
-#: euphorie/client/browser/webhelpers.py:1462
+#: euphorie/client/browser/webhelpers.py:1474
 msgid "label_consultancy"
 msgstr ""
 
@@ -4382,22 +4399,15 @@ msgstr "E-postadress"
 msgid "label_contact_name"
 msgstr "Kontaktnamn"
 
-msgid "label_continue_to_consultancy"
-msgstr "Fortsätt till Konsultverksamhet"
-
-msgid "label_copy_imp"
-msgstr "Kopiera"
-
-msgid "label_copyright"
-msgstr "Upphovsrätt"
+#. Default: "Content language"
+#: euphorie/client/browser/templates/preferences.pt:96
+msgid "label_content_language"
+msgstr ""
 
 #. Default: "Create action plan"
 #: euphorie/client/browser/templates/actionplan.pt:64
 msgid "label_create_action_plan"
-msgstr "Skapa handlingsplan"
-
-msgid "label_create_imp"
-msgstr "Skapa"
+msgstr "Skapa åtgärdsplan"
 
 #. Default: "Current"
 #: euphorie/deployment/tiles/templates/versions.pt:59
@@ -4416,16 +4426,11 @@ msgstr "Nuvarande/publicerad"
 msgid "label_custom_risks"
 msgstr ""
 
-msgid "label_cut_imp"
-msgstr "Klipp ut"
-
 #. Default: "Data protection notice"
-#: euphorie/client/browser/templates/login.pt:228
+#: euphorie/client/browser/templates/login.pt:230
+#: euphorie/client/browser/templates/register_session.pt:217
 msgid "label_data_protection_notice"
 msgstr ""
-
-msgid "label_date"
-msgstr "Datum"
 
 #. Default: "Default severity"
 #: euphorie/content/browser/templates/risk_view.pt:117
@@ -4434,30 +4439,27 @@ msgstr "Standardeffekt"
 
 #. Default: "Default frequency"
 #: euphorie/content/browser/templates/risk_view.pt:108
-#: euphorie/content/risk.py:442
+#: euphorie/content/risk.py:443
 msgid "label_default_frequency"
 msgstr "Standardfrekvens"
 
 #. Default: "Default priority"
 #: euphorie/content/browser/templates/risk_view.pt:100
-#: euphorie/content/risk.py:221
+#: euphorie/content/risk.py:222
 msgid "label_default_priority"
 msgstr "Standard prioritet"
 
 #. Default: "Default probability"
 #: euphorie/content/browser/templates/risk_view.pt:113
-#: euphorie/content/risk.py:477
+#: euphorie/content/risk.py:478
 msgid "label_default_probability"
 msgstr "Standard sannolikhet"
 
 #. Default: "Default severity"
 #: euphorie/content/browser/templates/risk_view.pt:106
-#: euphorie/content/risk.py:413
+#: euphorie/content/risk.py:414
 msgid "label_default_severity"
 msgstr "Standard allvarlighetsgrad"
-
-msgid "label_default_view"
-msgstr "Standardvy"
 
 #. Default: "Delete"
 #: euphorie/client/browser/templates/more_menu.pt:44
@@ -4470,16 +4472,10 @@ msgid "label_delete_risk"
 msgstr ""
 
 #. Default: "Description"
-#: euphorie/client/browser/templates/webhelpers.pt:856
-#: euphorie/content/risk.py:91
+#: euphorie/client/browser/templates/webhelpers.pt:831
+#: euphorie/content/risk.py:92
 msgid "label_description"
 msgstr "Beskrivning"
-
-msgid "label_dialogue_panel"
-msgstr "Dialogpanel"
-
-msgid "label_download_imp"
-msgstr "Ladda ner"
 
 #. Default: "Download a tool preview"
 #: euphorie/client/browser/templates/involve.pt:52
@@ -4491,15 +4487,17 @@ msgstr ""
 msgid "label_duplicate"
 msgstr ""
 
-msgid "label_duplicate_imp"
-msgstr "Duplicera"
+#. Default: "Edit Organisation"
+#: euphorie/client/browser/templates/panel-edit-organisation.pt:20
+msgid "label_edit_organisation"
+msgstr ""
 
 #. Default: "Email address"
 #: euphorie/client/browser/reset_password.py:47
 #: euphorie/client/browser/templates/login.pt:50
-#: euphorie/client/browser/templates/register_session.pt:141
+#: euphorie/client/browser/templates/register_session.pt:168
 msgid "label_email"
-msgstr "E-postadress"
+msgstr "Din e-postadress"
 
 #. Default: "Number of employees"
 #: euphorie/client/browser/company.py:34
@@ -4512,36 +4510,43 @@ msgstr "Antal anställda"
 msgid "label_enable_consultancy"
 msgstr ""
 
+#. Default: "Enable email reminder?"
+#: euphorie/content/survey.py:207
+msgid "label_enable_email_reminder"
+msgstr ""
+
+#. Default: "Show training questions after the training"
+#: euphorie/content/survey.py:217
+msgid "label_enable_test_questions"
+msgstr ""
+
 #. Default: "Show a custom notification for this OiRA tool?"
-#: euphorie/content/browser/templates/survey_view.pt:37
-#: euphorie/content/survey.py:175
+#: euphorie/content/browser/templates/survey_view.pt:36
+#: euphorie/content/survey.py:248
 msgid "label_enable_tool_notification"
 msgstr "Vill du skapa ett anpassat meddelande för detta OiRA-verktyg?"
 
 #. Default: "Enable Web Based Training?"
-#: euphorie/content/country.py:144 euphorie/content/survey.py:147
+#: euphorie/content/country.py:144 euphorie/content/survey.py:196
 msgid "label_enable_web_training"
 msgstr ""
 
 #. Default: "Evaluation"
-#: euphorie/client/browser/templates/login.pt:325
-#: euphorie/client/browser/webhelpers.py:1415
+#: euphorie/client/browser/templates/login.pt:328
+#: euphorie/client/browser/webhelpers.py:1427
 msgid "label_evaluation"
 msgstr "Utvärdering"
 
 #. Default: "Evaluation method"
 #: euphorie/content/browser/templates/risk_view.pt:96
-#: euphorie/content/risk.py:181
+#: euphorie/content/risk.py:182
 msgid "label_evaluation_method"
 msgstr "Utvärderingsmetod"
 
 #. Default: "Evaluation may be skipped"
-#: euphorie/content/survey.py:74
+#: euphorie/content/survey.py:105
 msgid "label_evaluation_optional"
 msgstr "Utvärderingen kan hoppas över"
-
-msgid "label_excel_file"
-msgstr "Excel-fil"
 
 #. Default: "Existing risk assessment to use as a base"
 #: euphorie/client/browser/templates/new-session.pt:106
@@ -4554,19 +4559,19 @@ msgid "label_existing_measure"
 msgstr ""
 
 #. Default: "Already implemented measures"
-#: euphorie/client/browser/templates/webhelpers.pt:715
-#: euphorie/client/browser/training.py:288
+#: euphorie/client/browser/templates/webhelpers.pt:692
+#: euphorie/client/browser/training.py:301
 msgid "label_existing_measures"
 msgstr ""
 
 #. Default: "Exit"
 #: euphorie/client/browser/templates/more_menu.pt:78
-#: euphorie/client/browser/templates/shell.pt:255
+#: euphorie/client/browser/templates/shell.pt:261
 msgid "label_exit"
 msgstr ""
 
 #. Default: "Expertise"
-#: euphorie/client/browser/templates/webhelpers.pt:915
+#: euphorie/client/browser/templates/webhelpers.pt:890
 msgid "label_expertise"
 msgstr ""
 
@@ -4581,42 +4586,40 @@ msgid "label_export_etranslate_compatible"
 msgstr ""
 
 #. Default: "Add an extra measure"
-#: euphorie/client/browser/templates/webhelpers.pt:1161
+#: euphorie/client/browser/templates/webhelpers.pt:1138
 msgid "label_extra_add_measure"
 msgstr ""
 
 #. Default: "Content file"
-#: euphorie/content/module.py:132 euphorie/content/risk.py:333
+#: euphorie/content/module.py:132 euphorie/content/risk.py:334
 msgid "label_file"
 msgstr ""
 
 #. Default: "Content caption"
-#: euphorie/content/module.py:142 euphorie/content/risk.py:343
+#: euphorie/content/module.py:142 euphorie/content/risk.py:344
 msgid "label_file_caption"
 msgstr ""
 
 #. Default: "First name"
-#: euphorie/client/browser/settings.py:131
+#: euphorie/client/browser/settings.py:135
 msgid "label_first_name"
 msgstr ""
 
 #. Default: "First name (optional)"
 #: euphorie/client/browser/templates/login.pt:155
+#: euphorie/client/browser/templates/register_session.pt:142
 msgid "label_first_name_optional"
 msgstr ""
 
 #. Default: "I forgot my password"
 #: euphorie/client/browser/templates/login.pt:110
 msgid "label_forgot_password"
-msgstr "Jag har glömt bort mitt lösenord"
+msgstr "Jag har glömt mitt lösenord"
 
 #. Default: "Format"
 #: euphorie/client/browser/templates/report_landing.pt:53
 msgid "label_format"
 msgstr ""
-
-msgid "label_from"
-msgstr "Från"
 
 #. Default: "Full Report"
 #: euphorie/client/browser/templates/report_landing.pt:68
@@ -4693,29 +4696,29 @@ msgid "label_history"
 msgstr ""
 
 #. Default: "Identification"
-#: euphorie/client/browser/templates/login.pt:323
-#: euphorie/client/browser/webhelpers.py:1414
+#: euphorie/client/browser/templates/login.pt:326
+#: euphorie/client/browser/webhelpers.py:1426
 msgid "label_identification"
 msgstr "Identifiering"
 
 #. Default: "Image file"
-#: euphorie/content/module.py:86 euphorie/content/risk.py:251
+#: euphorie/content/module.py:86 euphorie/content/risk.py:252
 msgid "label_image"
-msgstr "Bildfil"
+msgstr "Bild"
 
 #. Default: "Implemented measure"
-#: euphorie/client/browser/templates/webhelpers.pt:853
+#: euphorie/client/browser/templates/webhelpers.pt:828
 msgid "label_implemented_measure"
 msgstr ""
 
 #. Default: "Integrated Action Plan"
-#: euphorie/content/browser/templates/survey_view.pt:50
-#: euphorie/content/survey.py:135
+#: euphorie/content/browser/templates/survey_view.pt:49
+#: euphorie/content/survey.py:166
 msgid "label_integrated_action_plan"
 msgstr ""
 
 #. Default: "Introduction text"
-#: euphorie/content/survey.py:61
+#: euphorie/content/survey.py:92
 msgid "label_introduction"
 msgstr "Introduktionstext"
 
@@ -4731,7 +4734,7 @@ msgid "label_invalidate_risk_assessment"
 msgstr ""
 
 #. Default: "Involve"
-#: euphorie/client/browser/webhelpers.py:1403
+#: euphorie/client/browser/webhelpers.py:1415
 msgid "label_involve"
 msgstr ""
 
@@ -4748,27 +4751,28 @@ msgstr "Gå till rapport"
 #. Default: "Keep me logged in."
 #: euphorie/client/browser/templates/login.pt:84
 msgid "label_keep_logged_in"
-msgstr "Kom ihåg mig"
+msgstr "Håll mig inloggad."
 
 #. Default: "Language"
 #: euphorie/client/browser/templates/surveys.pt:83
-#: euphorie/content/browser/templates/survey_view.pt:34
-#: euphorie/content/survey.py:84
+#: euphorie/content/browser/templates/survey_view.pt:33
+#: euphorie/content/survey.py:115
 msgid "label_language"
 msgstr "Språk"
 
 #. Default: "Last name"
-#: euphorie/client/browser/settings.py:134
+#: euphorie/client/browser/settings.py:138
 msgid "label_last_name"
 msgstr ""
 
 #. Default: "Last name (optional)"
 #: euphorie/client/browser/templates/login.pt:168
+#: euphorie/client/browser/templates/register_session.pt:155
 msgid "label_last_name_optional"
 msgstr ""
 
 #. Default: "Learn more"
-#: euphorie/client/browser/templates/login.pt:276
+#: euphorie/client/browser/templates/login.pt:279
 msgid "label_learn_more"
 msgstr ""
 
@@ -4779,7 +4783,7 @@ msgstr ""
 
 #. Default: "Legal and policy references"
 #: euphorie/client/browser/templates/panel-contents-preview.pt:77
-#: euphorie/client/browser/templates/webhelpers.pt:630
+#: euphorie/client/browser/templates/webhelpers.pt:607
 #: euphorie/content/browser/templates/risk_view.pt:133
 msgid "label_legal_reference"
 msgstr "Rättsliga och politiska referenser"
@@ -4793,9 +4797,6 @@ msgstr ""
 #: euphorie/client/browser/templates/surveys.pt:32
 msgid "label_link_register"
 msgstr ""
-
-msgid "label_loading"
-msgstr "Laddar"
 
 #. Default: "Lock Risk Assessment"
 #: euphorie/client/browser/templates/locking_menu.pt:84
@@ -4813,15 +4814,6 @@ msgstr ""
 msgid "label_locked_time"
 msgstr ""
 
-msgid "label_log_in"
-msgstr "Logga in"
-
-msgid "label_log_out"
-msgstr "Logga ut"
-
-msgid "label_log_out_imp"
-msgstr "Logga ut"
-
 #. Default: "Log in"
 #: euphorie/client/browser/templates/login.pt:92
 msgid "label_login"
@@ -4838,7 +4830,7 @@ msgid "label_login_password"
 msgstr "Lösenord"
 
 #. Default: "Logo"
-#: euphorie/content/sector.py:74
+#: euphorie/content/sector.py:71
 msgid "label_logo"
 msgstr "Logotyp"
 
@@ -4850,7 +4842,7 @@ msgstr ""
 
 #. Default: "General approach (to eliminate or reduce the risk)"
 #: euphorie/client/browser/report.py:129
-#: euphorie/client/browser/templates/webhelpers.pt:1040
+#: euphorie/client/browser/templates/webhelpers.pt:1016
 #: euphorie/client/docx/compiler.py:435
 msgid "label_measure_action_plan"
 msgstr "Handlingsplan"
@@ -4863,18 +4855,15 @@ msgstr "Förebyggande plan"
 
 #. Default: "Level of expertise and/or requirements needed"
 #: euphorie/client/browser/report.py:137
-#: euphorie/client/browser/templates/webhelpers.pt:1063
+#: euphorie/client/browser/templates/webhelpers.pt:1041
 #: euphorie/client/docx/compiler.py:444
 msgid "label_measure_requirements"
 msgstr "Krav"
 
-msgid "label_metadata"
-msgstr "Metadata"
-
 #. Default: "Title is missing"
-#: euphorie/client/browser/country.py:466
+#: euphorie/client/browser/country.py:471
 #: euphorie/client/browser/templates/assessments.pt:147
-#: euphorie/client/browser/templates/tool_sessions.pt:157
+#: euphorie/client/browser/templates/tool_sessions.pt:159
 msgid "label_missing_title"
 msgstr ""
 
@@ -4899,9 +4888,6 @@ msgstr "Denna modul är tillval"
 msgid "label_module_question"
 msgstr "Fråga"
 
-msgid "label_more_ell"
-msgstr "Mer…"
-
 #. Default: "More risk assessments…"
 #: euphorie/client/browser/templates/portlet-my-ras.pt:86
 msgid "label_more_risk_assessments"
@@ -4912,44 +4898,23 @@ msgstr ""
 msgid "label_more_risk_assessments_for"
 msgstr ""
 
-msgid "label_move"
-msgstr "Flytta"
-
-msgid "label_move_imp"
-msgstr "Flytta"
-
-msgid "label_mp3_file"
-msgstr "MP3-fil"
-
-msgid "label_name"
-msgstr "Namn"
-
-msgid "label_name_ra"
-msgstr "Namn på riskbedömning"
-
 #. Default: "Did this OiRA tool meet your needs?"
 #: euphorie/client/browser/company.py:149
 #: euphorie/client/browser/templates/report_company.pt:218
 msgid "label_needs_met"
 msgstr ""
 
-msgid "label_never"
-msgstr "Aldrig"
-
 #. Default: "Desired password"
 #: euphorie/client/browser/reset_password.py:33
-#: euphorie/client/browser/settings.py:99
+#: euphorie/client/browser/settings.py:103
 #: euphorie/client/browser/templates/login.pt:195
 msgid "label_new_password"
 msgstr "Önskat lösenord"
 
 #. Default: "Again password"
-#: euphorie/client/browser/settings.py:104
+#: euphorie/client/browser/settings.py:108
 msgid "label_new_password_confirmation"
 msgstr ""
-
-msgid "label_new_risk_assessment"
-msgstr "Ny riskbedömning"
 
 #. Default: "New test session"
 #: euphorie/client/browser/templates/new-session-test.pt:20
@@ -4975,9 +4940,6 @@ msgstr "Nästa"
 #: euphorie/client/browser/templates/report_company.pt:206
 msgid "label_no"
 msgstr "Nej"
-
-msgid "label_no_copyright_information"
-msgstr "Ingen upphovsrättsinformation"
 
 #. Default: "No"
 #: euphorie/content/utils.py:86
@@ -5025,18 +4987,18 @@ msgstr ""
 
 #. Default: "Notes"
 #: euphorie/client/browser/templates/training-slides.pt:245
-#: euphorie/client/browser/templates/training.pt:330
-#: euphorie/client/browser/templates/webhelpers.pt:763
+#: euphorie/client/browser/templates/training.pt:333
+#: euphorie/client/browser/templates/webhelpers.pt:738
 msgid "label_notes"
 msgstr ""
 
 #. Default: "Notifications"
-#: euphorie/client/browser/templates/preferences.pt:75
+#: euphorie/client/browser/templates/preferences.pt:132
 msgid "label_notifications"
 msgstr ""
 
 #. Default: "Number of questions asked after training"
-#: euphorie/content/survey.py:160
+#: euphorie/content/survey.py:233
 msgid "label_num_training_questions"
 msgstr ""
 
@@ -5046,12 +5008,9 @@ msgid "label_oira_consultants"
 msgstr ""
 
 #. Default: "Current Password"
-#: euphorie/client/browser/settings.py:94
+#: euphorie/client/browser/settings.py:97
 msgid "label_old_password"
 msgstr "Lösenord"
-
-msgid "label_on"
-msgstr "På"
 
 #. Default: "Online OiRA training"
 #: euphorie/client/browser/templates/training-slides.pt:43
@@ -5077,9 +5036,6 @@ msgstr ""
 msgid "label_page_of"
 msgstr ""
 
-msgid "label_pages"
-msgstr "Sidor"
-
 #. Default: "Password"
 #: euphorie/content/user.py:92
 msgid "label_password"
@@ -5087,35 +5043,26 @@ msgstr "Lösenord"
 
 #. Default: "Again password"
 #: euphorie/client/browser/templates/login.pt:208
-#: euphorie/client/browser/templates/register_session.pt:168
+#: euphorie/client/browser/templates/register_session.pt:195
 msgid "label_password_confirm"
-msgstr "Bekräfta lösenord"
-
-msgid "label_patterns_pn"
-msgstr "Patterns"
-
-msgid "label_pdf_file"
-msgstr "PDF-fil"
+msgstr "Upprepa lösenord"
 
 #. Default: "Planned measures"
-#: euphorie/client/browser/templates/webhelpers.pt:735
-#: euphorie/client/browser/training.py:291
+#: euphorie/client/browser/templates/webhelpers.pt:712
+#: euphorie/client/browser/training.py:304
 msgid "label_planned_measures"
 msgstr ""
 
-msgid "label_powerpoint_file"
-msgstr "PowerPoint-fil"
-
 #. Default: "Preparation"
-#: euphorie/client/browser/templates/login.pt:321
-#: euphorie/client/browser/webhelpers.py:1386
+#: euphorie/client/browser/templates/login.pt:324
+#: euphorie/client/browser/webhelpers.py:1398
 msgid "label_preparation"
 msgstr "Förberedelse"
 
 #. Default: "Preview"
 #: euphorie/deployment/tiles/templates/versions.pt:83
 msgid "label_preview"
-msgstr "Förhandsgranskning"
+msgstr "Förhandsvisning"
 
 #. Default: "Previous"
 #: euphorie/client/browser/templates/module_identification.pt:103
@@ -5132,9 +5079,9 @@ msgid "label_print_tool_preview"
 msgstr ""
 
 #. Default: "Negative statement"
-#: euphorie/content/browser/survey.py:321
+#: euphorie/content/browser/survey.py:319
 #: euphorie/content/browser/templates/risk_view.pt:84
-#: euphorie/content/risk.py:79
+#: euphorie/content/risk.py:80
 msgid "label_problem_description"
 msgstr "Inverterad redogörelse"
 
@@ -5150,14 +5097,8 @@ msgstr "Fråga"
 msgid "label_published"
 msgstr "Publicerad"
 
-msgid "label_quarterly"
-msgstr "Kvartalsvis"
-
-msgid "label_ra_title"
-msgstr "Namn på riskbedömning"
-
 #. Default: "Read more"
-#: euphorie/client/browser/templates/tool_sessions.pt:125
+#: euphorie/client/browser/templates/tool_sessions.pt:127
 msgid "label_read_more"
 msgstr ""
 
@@ -5207,25 +5148,29 @@ msgstr ""
 msgid "label_remove_filters"
 msgstr ""
 
-msgid "label_remove_imp"
-msgstr "Ta bort"
-
 #. Default: "Delete this measure"
-#: euphorie/client/browser/templates/webhelpers.pt:874
+#: euphorie/client/browser/templates/webhelpers.pt:849
 msgid "label_remove_measure"
 msgstr ""
 
 #. Default: "Report"
 #: euphorie/client/browser/templates/report_landing.pt:29
-#: euphorie/client/browser/webhelpers.py:1478
+#: euphorie/client/browser/webhelpers.py:1490
 msgid "label_report"
 msgstr "Rapport"
 
 #. Default: "Please leave any extra comments that should be included in the
 #. report in this field."
-#: euphorie/client/browser/templates/report.pt:46
+#: euphorie/client/browser/templates/report.pt:58
 msgid "label_report_comment"
-msgstr "Lämna gärna extra kommentarer som bör ingå i denna områdesrapport."
+msgstr ""
+"Lämna eventuella extra kommentarer som ska inkluderas i rapporten i det här "
+"fältet."
+
+#. Default: "Completion threshold for report availability"
+#: euphorie/content/survey.py:178
+msgid "label_report_completion_threshold"
+msgstr ""
 
 #. Default: "Date of editing"
 #: euphorie/client/docx/compiler.py:593
@@ -5244,12 +5189,12 @@ msgid "label_request_validation"
 msgstr ""
 
 #. Default: "Request validation"
-#: euphorie/client/browser/templates/consultancy.pt:81
+#: euphorie/client/browser/templates/consultancy.pt:84
 msgid "label_request_validation_imp"
 msgstr ""
 
 #. Default: "Risk is always present"
-#: euphorie/content/risk.py:167
+#: euphorie/content/risk.py:168
 msgid "label_risk_always_present"
 msgstr ""
 
@@ -5260,7 +5205,7 @@ msgstr "Risktyp"
 
 #. Default: "Risk type"
 #: euphorie/content/browser/templates/risk_view.pt:82
-#: euphorie/content/risk.py:146
+#: euphorie/content/risk.py:147
 msgid "label_risk_type"
 msgstr "Risktyp"
 
@@ -5317,23 +5262,14 @@ msgstr ""
 msgid "label_role_consultant"
 msgstr ""
 
-msgid "label_rule"
-msgstr "Regel"
-
-msgid "label_sample_at_regular_intervals"
-msgstr "Sampla med regelbundna intervall"
-
 #. Default: "Save and add new risk"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:326
 msgid "label_save_and_add_new"
 msgstr ""
 
-msgid "label_save_and_close_imp"
-msgstr "Spara och stäng"
-
 #. Default: "Save and continue"
 #: euphorie/client/browser/templates/profile.pt:186
-#: euphorie/client/browser/templates/report.pt:58
+#: euphorie/client/browser/templates/report.pt:72
 #: euphorie/client/browser/templates/report_company.pt:271
 msgid "label_save_and_continue"
 msgstr ""
@@ -5343,11 +5279,8 @@ msgstr ""
 msgid "label_save_and_finish"
 msgstr ""
 
-msgid "label_save_imp"
-msgstr "Spara"
-
 #. Default: "Search tools"
-#: euphorie/client/browser/templates/surveys.pt:129
+#: euphorie/client/browser/templates/surveys.pt:126
 msgid "label_search_tools"
 msgstr ""
 
@@ -5367,7 +5300,7 @@ msgid "label_select_assessment"
 msgstr "Välj en riskbedömning"
 
 #. Default: "Select one or more of the known common measures provided."
-#: euphorie/client/browser/templates/webhelpers.pt:814
+#: euphorie/client/browser/templates/webhelpers.pt:789
 msgid "label_select_measure"
 msgstr ""
 
@@ -5375,20 +5308,25 @@ msgstr ""
 #. tools."
 #: euphorie/client/browser/templates/new-session-test.pt:39
 #: euphorie/client/browser/templates/new-session.pt:32
-#: euphorie/client/browser/templates/portlet-available-tools.pt:28
+#: euphorie/client/browser/templates/portlet-available-tools.pt:29
 msgid "label_select_new_session"
 msgstr "Starta en ny session genom att välja en av följande branschverktyg"
 
 #. Default: "Select an OiRA tool"
 #: euphorie/client/browser/templates/new-session-test.pt:44
 #: euphorie/client/browser/templates/new-session.pt:75
-#: euphorie/client/browser/templates/portlet-available-tools.pt:35
+#: euphorie/client/browser/templates/portlet-available-tools.pt:36
 msgid "label_select_oira_tool"
 msgstr ""
 
 #. Default: "Select standard measures"
-#: euphorie/client/browser/templates/webhelpers.pt:1153
+#: euphorie/client/browser/templates/webhelpers.pt:1130
 msgid "label_select_standard_measures"
+msgstr ""
+
+#. Default: "Send email reminder"
+#: euphorie/client/browser/templates/email_reminder.pt:38
+msgid "label_send_email_reminder"
 msgstr ""
 
 #. Default: "Send password reminder"
@@ -5412,7 +5350,7 @@ msgid "label_show_more"
 msgstr ""
 
 #. Default: "Show `not applicable' option"
-#: euphorie/content/risk.py:136
+#: euphorie/content/risk.py:137
 msgid "label_show_notapplicable"
 msgstr "Visa \"ej tillämpliga\" alternativ"
 
@@ -5457,19 +5395,13 @@ msgstr ""
 msgid "label_start_identification"
 msgstr "Starta riskidentifiering"
 
-msgid "label_start_imp"
-msgstr "Starta"
-
-msgid "label_start_new_risk_assessment_imp"
-msgstr "Starta ny riskbedömning"
-
 #. Default: "Start"
 #: euphorie/client/browser/templates/start.pt:121
 msgid "label_start_survey"
 msgstr "Starta"
 
 #. Default: "Start a test session"
-#: euphorie/client/browser/templates/login.pt:369
+#: euphorie/client/browser/templates/login.pt:372
 msgid "label_start_test_session"
 msgstr ""
 
@@ -5480,15 +5412,9 @@ msgid "label_started"
 msgstr ""
 
 #. Default: "Affirmative statement"
-#: euphorie/content/risk.py:67
+#: euphorie/content/risk.py:68
 msgid "label_statement"
 msgstr "Redogörelse"
-
-msgid "label_submit_imp"
-msgstr "Skicka in"
-
-msgid "label_summary"
-msgstr "Sammanfattning"
 
 #. Default: "Choose a base revision"
 #: euphorie/content/browser/templates/survey_add.pt:31
@@ -5496,7 +5422,7 @@ msgid "label_survey_base"
 msgstr "Välj en undersökning översyn"
 
 #. Default: "Evaluation algorithm"
-#: euphorie/content/surveygroup.py:65
+#: euphorie/content/surveygroup.py:66
 msgid "label_survey_evaluation_algorithm"
 msgstr ""
 
@@ -5531,12 +5457,12 @@ msgid "label_survey_export_include_risk_legal_texts"
 msgstr ""
 
 #. Default: "Obsolete OiRA tool"
-#: euphorie/content/surveygroup.py:53
+#: euphorie/content/surveygroup.py:54
 msgid "label_survey_obsolete"
 msgstr "Obsolete survey"
 
 #. Default: "Version name"
-#: euphorie/content/survey.py:48
+#: euphorie/content/survey.py:79
 msgid "label_survey_title"
 msgstr "Version namn"
 
@@ -5550,19 +5476,8 @@ msgstr "Titel på importerad undersökning."
 msgid "label_table_of_contents"
 msgstr ""
 
-msgid "label_tag"
-msgstr "Tagg"
-
-msgid "label_tags"
-msgstr "Taggar"
-
-#. Default: "Terms and conditions"
-#: euphorie/client/browser/templates/register_session.pt:188
-msgid "label_terms_conditions"
-msgstr ""
-
 #. Default: "Test session"
-#: euphorie/client/browser/templates/shell.pt:173
+#: euphorie/client/browser/templates/shell.pt:174
 msgid "label_testsession"
 msgstr ""
 
@@ -5588,36 +5503,30 @@ msgstr "Medium"
 msgid "label_title"
 msgstr "Titel"
 
-msgid "label_toggle_on_screen_help_imp"
-msgstr "Aktivera/inaktivera skärmhjälp"
-
-msgid "label_tool"
-msgstr "Verktyg"
-
 #. Default: "based on ${tool_title}"
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:160
 msgid "label_tool_based_on"
 msgstr ""
 
 #. Default: "Tool notification message"
-#: euphorie/content/survey.py:197
+#: euphorie/content/survey.py:270
 msgid "label_tool_notification"
 msgstr "Meddelandetext"
 
 #. Default: "Tool notification title"
-#: euphorie/content/survey.py:191
+#: euphorie/content/survey.py:264
 msgid "label_tool_notification_title"
-msgstr "Meddelandets rubrik"
+msgstr "Verktygsaviseringstitel"
 
 #. Default: "Type of OiRA Tool"
-#: euphorie/content/browser/templates/survey_view.pt:44
-#: euphorie/content/survey.py:102
+#: euphorie/content/browser/templates/survey_view.pt:43
+#: euphorie/content/survey.py:133
 msgid "label_tool_type"
 msgstr ""
 
 #. Default: "Tools"
 #: euphorie/client/browser/templates/sessions-dashboard.pt:41
-#: euphorie/client/browser/templates/tool_sessions.pt:42
+#: euphorie/client/browser/templates/tool_sessions.pt:43
 msgid "label_tools"
 msgstr ""
 
@@ -5639,8 +5548,10 @@ msgstr ""
 msgid "label_try_oira"
 msgstr ""
 
-msgid "label_under_review"
-msgstr "Under granskning"
+#. Default: "UI language"
+#: euphorie/client/browser/templates/preferences.pt:74
+msgid "label_ui_language"
+msgstr ""
 
 #. Default: "Unlock Risk Assessment"
 #: euphorie/client/browser/templates/locking_menu.pt:96
@@ -5649,16 +5560,9 @@ msgstr ""
 
 #. Default: "Unlocked"
 #: euphorie/client/browser/templates/locking_badge.pt:39
+#: euphorie/client/browser/templates/status_info.pt:119
 msgid "label_unlocked"
 msgstr ""
-
-#. Default: "Unpublished"
-#: euphorie/client/browser/templates/status_info.pt:119
-msgid "label_unpublished"
-msgstr ""
-
-msgid "label_until"
-msgstr "Till"
 
 #. Default: "Unvisited"
 #: euphorie/client/browser/templates/risks_overview.pt:337
@@ -5675,9 +5579,6 @@ msgstr ""
 #. Default: "Update"
 #: euphorie/deployment/tiles/templates/versions.pt:140
 msgid "label_update"
-msgstr "Uppdatera"
-
-msgid "label_update_imp"
 msgstr "Uppdatera"
 
 #. Default: "XML file"
@@ -5700,9 +5601,6 @@ msgstr ""
 msgid "label_used_tool"
 msgstr ""
 
-msgid "label_user_it_to_colon"
-msgstr "Använd det till:"
-
 #. Default: "Name"
 #: euphorie/content/user.py:78
 msgid "label_user_title"
@@ -5714,7 +5612,7 @@ msgid "label_validate_imp"
 msgstr ""
 
 #. Default: "Validate this risk assessment"
-#: euphorie/client/browser/templates/consultancy.pt:106
+#: euphorie/client/browser/templates/consultancy.pt:118
 msgid "label_validate_this_risk_assessment_imp"
 msgstr ""
 
@@ -5722,9 +5620,6 @@ msgstr ""
 #: euphorie/client/browser/templates/locking_badge.pt:30
 msgid "label_validated"
 msgstr ""
-
-msgid "label_value"
-msgstr "Värde"
 
 #. Default: "(&ge;1 measures)"
 #: euphorie/client/browser/templates/risks_overview.pt:431
@@ -5735,9 +5630,6 @@ msgstr ""
 #: euphorie/client/browser/templates/risks_overview.pt:433
 msgid "label_without_measures"
 msgstr ""
-
-msgid "label_word_file"
-msgstr "Word-fil"
 
 #. Default: "Workers were invited to participate in the risk assessment"
 #: euphorie/client/browser/company.py:135
@@ -5761,9 +5653,6 @@ msgstr ""
 #: euphorie/content/utils.py:149
 msgid "label_yes_sufficient"
 msgstr ""
-
-msgid "label_zip_file"
-msgstr "ZIP-fil"
 
 #. Default: "Last edited by ${name} on ${date}."
 #: euphorie/client/browser/templates/locking_menu.pt:72
@@ -5798,7 +5687,7 @@ msgid "limitations"
 msgstr ""
 
 #. Default: "download the contents of this OiRA tool in Word format"
-#: euphorie/content/browser/templates/survey_view.pt:62
+#: euphorie/content/browser/templates/survey_view.pt:61
 msgid "link_download_tool_contents"
 msgstr ""
 
@@ -5808,10 +5697,15 @@ msgid "link_sign_in"
 msgstr ""
 
 #. Default: "Start a new risk assessment"
-#: euphorie/client/browser/country.py:714
+#: euphorie/client/browser/country.py:729
 #: euphorie/client/browser/templates/assessments.pt:82
 #: euphorie/client/browser/templates/organisation.pt:29
 msgid "link_start_session"
+msgstr ""
+
+#. Default: "start a new risk assessment"
+#: euphorie/client/browser/templates/portlet-my-ras.pt:65
+msgid "link_start_session_lower"
 msgstr ""
 
 #. Default: "contents of the tool"
@@ -5865,64 +5759,64 @@ msgid "lock unset"
 msgstr ""
 
 #. Default: "Handling of measures text (if measures-in-place are used)"
-#: euphorie/content/survey.py:114
+#: euphorie/content/survey.py:145
 msgid "measures_text_handling"
 msgstr ""
 
 #. Default: "Admin"
-#: euphorie/deployment/browser/sitemenu.py:42
+#: euphorie/deployment/browser/sitemenu.py:43
 msgid "menu_admin"
 msgstr ""
 
 #. Default: "Tools for this country"
-#: euphorie/deployment/browser/sitemenu.py:45
+#: euphorie/deployment/browser/sitemenu.py:46
 msgid "menu_country_tools"
 msgstr ""
 
 #. Default: "XML export"
-#: euphorie/deployment/browser/sitemenu.py:74
+#: euphorie/deployment/browser/sitemenu.py:75
 msgid "menu_export"
 msgstr "XML-export"
 
 #. Default: "Import OiRA Tool"
-#: euphorie/deployment/browser/sitemenu.py:83
+#: euphorie/deployment/browser/sitemenu.py:84
 msgid "menu_import"
 msgstr "Importera undersökning"
 
 #. Default: "Training"
-#: euphorie/client/browser/templates/webhelpers.pt:683
-#: euphorie/client/browser/webhelpers.py:1494
+#: euphorie/client/browser/templates/webhelpers.pt:660
+#: euphorie/client/browser/webhelpers.py:1506
 msgid "menu_training"
 msgstr ""
 
 #. Default: "You are already a member of the ${name} organisation."
-#: euphorie/client/browser/organisation.py:508
+#: euphorie/client/browser/organisation.py:514
 msgid "message_add_user_to_organisation_already_member"
 msgstr ""
 
 #. Default: "You have declined the invitation to the ${name} organisation."
-#: euphorie/client/browser/organisation.py:537
+#: euphorie/client/browser/organisation.py:543
 msgid "message_add_user_to_organisation_declined"
 msgstr ""
 
 #. Default: "The invitation from the ${name} organisation is not valid
 #. anymore."
-#: euphorie/client/browser/organisation.py:478
+#: euphorie/client/browser/organisation.py:484
 msgid "message_add_user_to_organisation_expired"
 msgstr ""
 
 #. Default: "We could not find the invitation you are looking for."
-#: euphorie/client/browser/organisation.py:467
+#: euphorie/client/browser/organisation.py:473
 msgid "message_add_user_to_organisation_invalid"
 msgstr ""
 
 #. Default: "You cannot add yourself to your organisation."
-#: euphorie/client/browser/organisation.py:491
+#: euphorie/client/browser/organisation.py:497
 msgid "message_add_user_to_organisation_self"
 msgstr ""
 
 #. Default: "You have been added to the ${name} organisation."
-#: euphorie/client/browser/organisation.py:525
+#: euphorie/client/browser/organisation.py:531
 msgid "message_add_user_to_organisation_success"
 msgstr ""
 
@@ -5938,29 +5832,24 @@ msgstr "Välj det land som du vill visa eller kopiera en undersökning för."
 msgid "message_click_to_validate"
 msgstr ""
 
-msgid "message_clone_or_start_new"
-msgstr ""
-"Du kan kopiera innehåll från en befintlig bedömning som gjorts med verktyget"
-" {0} eller börja från början."
-
 #. Default: "This is the only version of the OiRA Tool and can therefore not
 #. be deleted. Did you perhaps want to remove the OiRA Tool itself?"
-#: euphorie/content/browser/survey.py:251
+#: euphorie/content/browser/survey.py:249
 msgid "message_delete_no_last_survey"
 msgstr "Du kan inte radera den enda undersökningens version."
 
 #. Default: "Due to an internal policy, these settings cannot be changed."
-#: euphorie/client/browser/templates/preferences.pt:80
+#: euphorie/client/browser/templates/preferences.pt:137
 msgid "message_disallow_notification_settings"
 msgstr ""
 
 #. Default: "You can ${link_download_tool_contents}."
-#: euphorie/content/browser/templates/survey_view.pt:62
+#: euphorie/content/browser/templates/survey_view.pt:61
 msgid "message_download_tool_contents"
 msgstr ""
 
 #. Default: "Please fill out this field."
-#: euphorie/client/browser/webhelpers.py:1307
+#: euphorie/client/browser/webhelpers.py:1319
 msgid "message_field_required"
 msgstr ""
 
@@ -5969,30 +5858,15 @@ msgstr ""
 #. OSH consultant. An OSH consultant can give your risk assessment an offical
 #. validation mark. A validation can only be requested by users with the
 #. permission level &lsquo;Manage&rsquo; or higher."
-#: euphorie/client/browser/templates/consultancy.pt:37
+#: euphorie/client/browser/templates/consultancy.pt:40
 msgid "message_find_consultants"
 msgstr ""
-
-msgid "message_finetune_settings_assessment"
-msgstr "Finjustera inställningarna för denna riskbedömning."
-
-msgid "message_help_intro"
-msgstr "Välj något av ämnena nedan för att lära dig mer om hur OiRA fungerar."
-
-msgid "message_include_ellipsis"
-msgstr "Inkludera…"
 
 #. Default: "When you invalidate this risk assessment, it will lose its
 #. validated status. You can still request for re-validation at a later time."
 #: euphorie/client/browser/templates/panel-invalidate-risk-assessment.pt:33
 msgid "message_invalidate_ra"
 msgstr ""
-
-msgid "message_invite_for_training"
-msgstr ""
-"Bjud in en kollega att lära sig om relevanta risker och åtgärder i “{0}”. "
-"Den inbjudna användaren får automatiskt åtkomst till denna bedömning i "
-"träningssyfte."
 
 #. Default: "Decide on the best way to involve your staff! You can for example
 #. conduct a meeting or a focus group with workers and go through the
@@ -6042,7 +5916,7 @@ msgstr ""
 
 #. Default: "You cannot delete an OiRA Tool version that is published. Please
 #. unpublish it first."
-#: euphorie/content/browser/survey.py:232
+#: euphorie/content/browser/survey.py:229
 msgid "message_no_delete_published_survey"
 msgstr "Du kan inte radera den enda undersökningens version."
 
@@ -6054,6 +5928,11 @@ msgstr "Det finns inga branscher för detta land."
 #. Default: "There are no tools for this country."
 #: euphorie/content/browser/templates/country_tools.pt:25
 msgid "message_no_tools"
+msgstr ""
+
+#. Default: "No validation is requested at this time."
+#: euphorie/client/browser/templates/consultancy.pt:100
+msgid "message_no_validation_requested"
 msgstr ""
 
 #. Default: "You can not delete a sector that contains published OiRA Tools."
@@ -6080,29 +5959,6 @@ msgstr ""
 msgid "message_password_recovery_email_sent"
 msgstr ""
 
-msgid "message_permission_level_basic"
-msgstr "Användaren kan bara delta i utbildningar."
-
-msgid "message_permission_level_edit"
-msgstr ""
-"Användaren kan delta i utbildningar och visa och redigera alla "
-"riskbedömningar."
-
-msgid "message_permission_level_full"
-msgstr ""
-"Användaren kan visa och redigera allt innehåll samt lägga till eller ta bort"
-" användare från organisationen."
-
-msgid "message_permission_level_manage"
-msgstr ""
-"Användaren kan genomgå utbildningar, visa och redigera alla riskbedömningar,"
-" begära valideringar och låsa riskbedömningar."
-
-msgid "message_permission_level_validate"
-msgstr ""
-"Användaren kan genomgå utbildningar, visa och redigera alla riskbedömningar "
-"samt validera dem."
-
 #. Default: "Additional costs may be charged by your consultant."
 #: euphorie/client/browser/templates/panel-invalidate-risk-assessment.pt:34
 msgid "message_possible_extra_cost"
@@ -6125,11 +5981,6 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-validate-risk-assessment.pt:39
 msgid "message_read_and_reviewd_assessment_and_approve"
 msgstr ""
-
-msgid "message_report_downloads_intro"
-msgstr ""
-"Välj mellan flera format för att visa eller ladda ner din "
-"riskbedömningsrapport."
 
 #. Default: "Click on 'Send validation request' to ask the selected OSH
 #. consultant to review and validate your risk assessment."
@@ -6166,24 +6017,16 @@ msgid "message_role_member"
 msgstr ""
 
 #. Default: "This risk assessment is currently under review by ${consultant}."
-#: euphorie/client/browser/templates/consultancy.pt:72
+#: euphorie/client/browser/templates/consultancy.pt:75
 msgid "message_session_under_review"
 msgstr ""
 
 #. Default: "${validation_time}: ${consultant} has reviewed and validated this
 #. risk assessment"
-#: euphorie/client/browser/templates/consultancy.pt:62
+#: euphorie/client/browser/templates/consultancy.pt:65
 #: euphorie/client/browser/templates/locking_menu.pt:37
 msgid "message_session_validated"
 msgstr ""
-
-msgid "message_this_action_cannot_be_reverted"
-msgstr "Denna åtgärd kan inte ångras."
-
-msgid "message_training_promoted"
-msgstr ""
-"Utbildningsmaterialet för denna riskbedömning kommer att finnas under fliken"
-" 'utbildning' på OiRA-startskärmen."
 
 #. Default: "If you want to continue working on a copy of this assessment, for
 #. instance to report on a new year, then you can use the option 'Duplicate'.
@@ -6194,12 +6037,12 @@ msgid "message_unlock_or_duplicate"
 msgstr ""
 
 #. Default: "Cancelled unpublish action."
-#: euphorie/content/browser/surveygroup.py:291
+#: euphorie/content/browser/surveygroup.py:303
 msgid "message_unpublish_cancel"
 msgstr "${label} Version som för närvarande är online"
 
 #. Default: "This OiRA Tool is now no longer available in the client."
-#: euphorie/content/browser/surveygroup.py:281
+#: euphorie/content/browser/surveygroup.py:293
 msgid "message_unpublish_success"
 msgstr "${label} Version som för närvarande är online"
 
@@ -6221,23 +6064,22 @@ msgid "message_warning_locking_after_validation"
 msgstr ""
 
 #. Default: "You are requested to review and validate this risk assessment."
-#: euphorie/client/browser/templates/consultancy.pt:98
+#: euphorie/client/browser/templates/consultancy.pt:110
 msgid "message_you_are_requested_to_validate_assessment"
 msgstr ""
 
+#. Default: "You haven&rsquo;t earned any certificates yet."
+#: euphorie/client/browser/templates/certificates.pt:29
 msgid "message_you_dont_have_any_certificates_yet"
 msgstr "Du har inte tjänat några certifikat ännu."
 
 #. Default: "You don't have any risk assessments yet."
-#: euphorie/client/browser/templates/portlet_my_ras.pt:98
+#: euphorie/client/browser/templates/portlet-my-ras.pt:117
 msgid "message_you_dont_have_any_risk_assessments_yet"
 msgstr "Du har inga riskbedömningar ännu. Börja med att skapa en ny."
 
-msgid "message_you_dont_have_any_risk_assessments_yet_short"
-msgstr "Du har inga riskbedömningar ännu."
-
 #. Default: "You have reviewed and validated this risk assessment."
-#: euphorie/client/browser/templates/consultancy.pt:113
+#: euphorie/client/browser/templates/consultancy.pt:125
 msgid "message_you_reviewed_and_validated_risk_assessment"
 msgstr ""
 
@@ -6252,7 +6094,7 @@ msgid "module_optional"
 msgstr "Denna modul är ett tillval."
 
 #. Default: "More"
-#: euphorie/client/browser/templates/shell.pt:189
+#: euphorie/client/browser/templates/shell.pt:190
 msgid "more_link"
 msgstr ""
 
@@ -6276,6 +6118,11 @@ msgstr "Undersökningar"
 msgid "nav_usermanagement"
 msgstr "Användarhantering"
 
+#. Default: "Email reminder"
+#: euphorie/client/browser/webhelpers.py:1537
+msgid "navigation_email_reminder"
+msgstr ""
+
 #. Default: "Help"
 #: euphorie/client/browser/templates/conditions.pt:57
 #: euphorie/client/browser/templates/help-menu.pt:28
@@ -6284,7 +6131,7 @@ msgid "navigation_help"
 msgstr "Hjälp"
 
 #. Default: "Logout"
-#: euphorie/client/browser/settings.py:87
+#: euphorie/client/browser/settings.py:90
 #: euphorie/client/browser/templates/webhelpers.pt:53
 msgid "navigation_logout"
 msgstr "Logga ut"
@@ -6297,7 +6144,7 @@ msgstr "Status"
 #. Default: "Status"
 #: euphorie/client/browser/templates/more_menu.pt:35
 #: euphorie/client/browser/templates/webhelpers.pt:62
-#: euphorie/client/browser/webhelpers.py:1509
+#: euphorie/client/browser/webhelpers.py:1521
 msgid "navigation_status"
 msgstr "Status"
 
@@ -6312,17 +6159,17 @@ msgid "no"
 msgstr "Nej"
 
 #. Default: "No default"
-#: euphorie/content/risk.py:420
+#: euphorie/content/risk.py:421
 msgid "no default"
 msgstr "Ingen standard"
 
 #. Default: "No default"
-#: euphorie/content/risk.py:229
+#: euphorie/content/risk.py:230
 msgid "no_default"
 msgstr "Ingen standard"
 
 #. Default: "This OiRA Tool has no profile questions or modules"
-#: euphorie/content/browser/templates/survey_view.pt:73
+#: euphorie/content/browser/templates/survey_view.pt:72
 msgid "no_profile_questions_or_modules"
 msgstr "Denna undersökning har inga profilfrågor."
 
@@ -6353,7 +6200,7 @@ msgid "no_translate_link_published_success"
 msgstr ""
 
 #. Default: "Not set"
-#: euphorie/content/browser/templates/survey_view.pt:33
+#: euphorie/content/browser/templates/survey_view.pt:32
 msgid "not_set"
 msgstr "Ej inställt"
 
@@ -6408,13 +6255,13 @@ msgid "oira_consultation_workers"
 msgstr ""
 
 #. Default: "Online interactive"
-#: euphorie/client/browser/templates/login.pt:265
+#: euphorie/client/browser/templates/login.pt:268
 #: euphorie/client/browser/templates/webhelpers.pt:41
 msgid "oira_name_line_1"
 msgstr "Interaktiv"
 
 #. Default: "Risk Assessment"
-#: euphorie/client/browser/templates/login.pt:266
+#: euphorie/client/browser/templates/login.pt:269
 #: euphorie/client/browser/templates/webhelpers.pt:44
 msgid "oira_name_line_2"
 msgstr "Riskbedömning"
@@ -6454,13 +6301,13 @@ msgstr ""
 
 #. Default: "These notes will be visible in the report. Use it for anything
 #. else you might want to write about this risk."
-#: euphorie/client/browser/risk.py:386
+#: euphorie/client/browser/risk.py:409
 msgid "placeholder_comment_field"
 msgstr ""
 
 #. Default: "These notes will be visible in the report and the training. Use
 #. it for anything else you might want to write about this risk."
-#: euphorie/client/browser/risk.py:380
+#: euphorie/client/browser/risk.py:403
 msgid "placeholder_comment_field_training"
 msgstr ""
 
@@ -6488,40 +6335,40 @@ msgstr ""
 
 #. Default: "High"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:231
-#: euphorie/client/browser/templates/webhelpers.pt:614
-#: euphorie/content/risk.py:211
+#: euphorie/client/browser/templates/webhelpers.pt:590
+#: euphorie/content/risk.py:212
 msgid "priority_high"
 msgstr "Hög"
 
 #. Default: "Low"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:219
-#: euphorie/client/browser/templates/webhelpers.pt:602
-#: euphorie/content/risk.py:209
+#: euphorie/client/browser/templates/webhelpers.pt:578
+#: euphorie/content/risk.py:210
 msgid "priority_low"
 msgstr "Låg"
 
 #. Default: "Medium"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:225
-#: euphorie/client/browser/templates/webhelpers.pt:608
-#: euphorie/content/risk.py:210
+#: euphorie/client/browser/templates/webhelpers.pt:584
+#: euphorie/content/risk.py:211
 msgid "priority_medium"
 msgstr "Medium"
 
 #. Default: "Large"
-#: euphorie/client/browser/templates/webhelpers.pt:399
-#: euphorie/content/risk.py:490
+#: euphorie/client/browser/templates/webhelpers.pt:403
+#: euphorie/content/risk.py:491
 msgid "probability_large"
 msgstr "Stor"
 
 #. Default: "Medium"
-#: euphorie/client/browser/templates/webhelpers.pt:393
-#: euphorie/content/risk.py:488
+#: euphorie/client/browser/templates/webhelpers.pt:397
+#: euphorie/content/risk.py:489
 msgid "probability_medium"
 msgstr "Medium"
 
 #. Default: "Small"
-#: euphorie/client/browser/templates/webhelpers.pt:387
-#: euphorie/content/risk.py:486
+#: euphorie/client/browser/templates/webhelpers.pt:391
+#: euphorie/content/risk.py:487
 msgid "probability_small"
 msgstr "Liten"
 
@@ -6595,7 +6442,7 @@ msgid "report_end_date"
 msgstr ""
 
 #. Default: "by ${date}"
-#: euphorie/client/docx/compiler.py:1164
+#: euphorie/client/docx/compiler.py:1172
 msgid "report_end_date_short"
 msgstr ""
 
@@ -6612,22 +6459,22 @@ msgid "report_heading_activity"
 msgstr ""
 
 #. Default: "Comments:"
-#: euphorie/client/docx/compiler.py:1122
+#: euphorie/client/docx/compiler.py:1130
 msgid "report_heading_comments"
 msgstr ""
 
 #. Default: "Measures in Place"
-#: euphorie/client/docx/compiler.py:1069
+#: euphorie/client/docx/compiler.py:1070
 msgid "report_heading_measures_in_place"
 msgstr ""
 
 #. Default: "Planned Measures"
-#: euphorie/client/docx/compiler.py:1081
+#: euphorie/client/docx/compiler.py:1089
 msgid "report_heading_planned_measures"
 msgstr ""
 
 #. Default: "Legal and policy references:"
-#: euphorie/client/docx/compiler.py:1136
+#: euphorie/client/docx/compiler.py:1144
 msgid "report_heading_resources"
 msgstr ""
 
@@ -6637,7 +6484,7 @@ msgid "report_heading_risk_description"
 msgstr ""
 
 #. Default: "Situation"
-#: euphorie/client/docx/compiler.py:1075
+#: euphorie/client/docx/compiler.py:1083
 msgid "report_heading_situation"
 msgstr ""
 
@@ -6651,13 +6498,19 @@ msgstr ""
 #. organisation and created an action plan you can create a report which lists
 #. all your results. You can, if desired, add some extra comments that should
 #. be included in this report in the field below."
-#: euphorie/client/browser/templates/report.pt:34
+#: euphorie/client/browser/templates/report.pt:37
 msgid "report_intro"
 msgstr ""
-"Nu när du är klar med att identifiera alla risker inom din organisation och "
-"skapat en handlingsplan så kan du skapa en rapport som listar alla dina "
-"resultat. Du kan, om så önskas, lägga till extra kommentarer som bör ingå i "
-"denna rapport i fältet nedan."
+"Nu när du har avslutat identifieringen av alla risker i din organisation och"
+" skapat en handlingsplan kan du skapa en rapport som listar alla dina "
+"resultat. Du kan, om du vill, lägga till några extra kommentarer som ska "
+"inkluderas i denna rapport i fältet nedan."
+
+#. Default: "When you have finished the assessment to at least
+#. ${completion_threshold}% you will be able to create a report."
+#: euphorie/client/browser/templates/report.pt:49
+msgid "report_intro_incomplete"
+msgstr ""
 
 #. Default: "Measures already in place:"
 #: euphorie/client/docx/compiler.py:719
@@ -6684,7 +6537,7 @@ msgstr "Lämna gärna extra kommentarer som bör ingå i denna områdesrapport."
 
 #. Default: "Priority"
 #: euphorie/client/browser/report.py:151 euphorie/client/docx/compiler.py:689
-#: euphorie/content/risk.py:206
+#: euphorie/content/risk.py:207
 msgid "report_timeline_priority"
 msgstr "Detta är en ${priority} ."
 
@@ -6718,19 +6571,19 @@ msgstr "Detta är en ${priority} ."
 #: euphorie/client/browser/templates/risk_actionplan.pt:101
 #: euphorie/client/docx/compiler.py:321
 msgid "risk_priority_high"
-msgstr "högt prioriterad risk"
+msgstr "hög"
 
 #. Default: "low"
 #: euphorie/client/browser/templates/risk_actionplan.pt:93
 #: euphorie/client/docx/compiler.py:317
 msgid "risk_priority_low"
-msgstr "lågt prioriterad risk"
+msgstr "låg"
 
 #. Default: "medium"
 #: euphorie/client/browser/templates/risk_actionplan.pt:97
 #: euphorie/client/docx/compiler.py:319
 msgid "risk_priority_medium"
-msgstr "medium prioriterad risk"
+msgstr "medel"
 
 #. Default: "Show '${na}'"
 #: euphorie/content/browser/templates/risk_view.pt:86
@@ -6753,17 +6606,17 @@ msgid "risk_unanswered"
 msgstr "Denna risk måste fortfarande kartläggas"
 
 #. Default: "Policy"
-#: euphorie/content/risk.py:158
+#: euphorie/content/risk.py:159
 msgid "risktype_policy"
 msgstr "Policy"
 
 #. Default: "Risk"
-#: euphorie/content/risk.py:157
+#: euphorie/content/risk.py:158
 msgid "risktype_risk"
 msgstr "Risk"
 
 #. Default: "Priority risk"
-#: euphorie/content/risk.py:156
+#: euphorie/content/risk.py:157
 msgid "risktype_top5"
 msgstr "Topp 5"
 
@@ -6816,47 +6669,27 @@ msgstr ""
 "fått olika titlar."
 
 #. Default: "Not very severe"
-#: euphorie/client/browser/templates/webhelpers.pt:494
-#: euphorie/content/risk.py:425
+#: euphorie/client/browser/templates/webhelpers.pt:496
+#: euphorie/content/risk.py:426
 msgid "severity_not_severe"
 msgstr ""
 
-#. Default: "Need to stop working for less than 3 days"
-#: euphorie/client/browser/templates/webhelpers.pt:495
-msgid "severity_not_severe_help"
-msgstr ""
-
 #. Default: "Severe"
-#: euphorie/client/browser/templates/webhelpers.pt:505
-#: euphorie/content/risk.py:427
+#: euphorie/client/browser/templates/webhelpers.pt:503
+#: euphorie/content/risk.py:428
 msgid "severity_severe"
 msgstr ""
 
-#. Default: "Need to stop working for more than 3 days"
-#: euphorie/client/browser/templates/webhelpers.pt:506
-msgid "severity_severe_help"
-msgstr ""
-
 #. Default: "Very severe"
-#: euphorie/client/browser/templates/webhelpers.pt:517
-#: euphorie/content/risk.py:431
+#: euphorie/client/browser/templates/webhelpers.pt:511
+#: euphorie/content/risk.py:432
 msgid "severity_very_severe"
 msgstr ""
 
-#. Default: "Irreversible injury, incurable illness, death"
-#: euphorie/client/browser/templates/webhelpers.pt:518
-msgid "severity_very_severe_help"
-msgstr ""
-
 #. Default: "Weak"
-#: euphorie/client/browser/templates/webhelpers.pt:483
-#: euphorie/content/risk.py:421
+#: euphorie/client/browser/templates/webhelpers.pt:489
+#: euphorie/content/risk.py:422
 msgid "severity_weak"
-msgstr ""
-
-#. Default: "No need to stop working"
-#: euphorie/client/browser/templates/webhelpers.pt:484
-msgid "severity_weak_help"
 msgstr ""
 
 #: euphorie/client/adapters/history_item.py:52
@@ -6864,7 +6697,7 @@ msgid "started assessment"
 msgstr ""
 
 #. Default: "Confirm OiRA membership to ’${organisation}’"
-#: euphorie/client/browser/organisation.py:251
+#: euphorie/client/browser/organisation.py:257
 msgid "subject_add_user_to_organisation_email"
 msgstr ""
 
@@ -6874,7 +6707,7 @@ msgid "subject_assessment_validated"
 msgstr ""
 
 #. Default: "Membership to your organisation accepted"
-#: euphorie/client/browser/organisation.py:432
+#: euphorie/client/browser/organisation.py:438
 msgid "subject_notify_invite_accept"
 msgstr ""
 
@@ -6884,7 +6717,7 @@ msgid "subject_request_validation"
 msgstr ""
 
 #. Default: "Standard"
-#: euphorie/content/browser/surveygroup.py:248
+#: euphorie/content/browser/surveygroup.py:260
 msgid "survey_default_title"
 msgstr "Standard"
 
@@ -6937,12 +6770,12 @@ msgid "text_add_measures"
 msgstr ""
 
 #. Default: "${link_register} if you would like to use OiRA."
-#: euphorie/client/browser/templates/login.pt:360
+#: euphorie/client/browser/templates/login.pt:363
 msgid "text_create_account"
 msgstr ""
 
 #. Default: "${link_test_session} if you only want to taste OiRA."
-#: euphorie/client/browser/templates/login.pt:369
+#: euphorie/client/browser/templates/login.pt:372
 msgid "text_test_session"
 msgstr ""
 
@@ -6952,17 +6785,17 @@ msgid "title_about"
 msgstr "Om"
 
 #. Default: "Delete account"
-#: euphorie/client/browser/settings.py:295
+#: euphorie/client/browser/settings.py:354
 msgid "title_account_delete"
 msgstr "Dokumentation"
 
 #. Default: "Change email address"
-#: euphorie/client/browser/settings.py:331
+#: euphorie/client/browser/settings.py:390
 msgid "title_change_email"
 msgstr ""
 
 #. Default: "Change password"
-#: euphorie/client/browser/settings.py:69
+#: euphorie/client/browser/settings.py:72
 msgid "title_change_password"
 msgstr ""
 
@@ -7001,13 +6834,18 @@ msgstr "Hjälp"
 msgid "title_help_unpublished"
 msgstr "Publicera den markerade undersökningen med de senaste ändringarna."
 
+#. Default: "Language preferences"
+#: euphorie/client/browser/templates/preferences.pt:68
+msgid "title_language_prefs"
+msgstr ""
+
 #. Default: "Personal details"
 #: euphorie/client/browser/templates/preferences.pt:45
 msgid "title_personal_details"
 msgstr ""
 
 #. Default: "Preferences"
-#: euphorie/client/browser/settings.py:63
+#: euphorie/client/browser/settings.py:66
 msgid "title_preferences"
 msgstr ""
 
@@ -7032,7 +6870,7 @@ msgid "title_status_of"
 msgstr ""
 
 #. Default: "OiRA - Online interactive Risk Assessment"
-#: euphorie/client/browser/country.py:263
+#: euphorie/client/browser/country.py:268
 #: euphorie/client/browser/templates/layout.pt:18
 #: euphorie/client/browser/templates/modal-template.pt:21
 msgid "title_tool"
@@ -7040,7 +6878,7 @@ msgstr "OiRA"
 
 #. Default: "Tool category"
 #: euphorie/content/behaviors/toolcategory.py:12
-#: euphorie/content/browser/templates/survey_view.pt:47
+#: euphorie/content/browser/templates/survey_view.pt:46
 msgid "title_tool_category"
 msgstr ""
 
@@ -7066,12 +6904,12 @@ msgid "toc_header"
 msgstr "Innehåll"
 
 #. Default: "Show/hide menu"
-#: euphorie/client/browser/templates/shell.pt:160
+#: euphorie/client/browser/templates/shell.pt:161
 msgid "tooltip_menu_toggle"
 msgstr ""
 
 #. Default: "Start a new test session"
-#: euphorie/client/browser/templates/login.pt:369
+#: euphorie/client/browser/templates/login.pt:372
 msgid "tooltip_start_test_session"
 msgstr ""
 
@@ -7107,9 +6945,6 @@ msgstr ""
 "branschorganisationen anser att detta är en av de fem mest kritiska riskerna"
 " måste den ingå i denna rapport."
 
-msgid "unlocked_risk_assessments"
-msgstr "Upplåsta riskbedömningar"
-
 #. Default: "Are you sure you want to unpublish this OiRA Tool?"
 #: euphorie/content/browser/templates/surveygroup_unpublish.pt:25
 msgid "unpublish_confirm"
@@ -7118,14 +6953,8 @@ msgstr ""
 " kommer undersökningen att visas i online-klienten och finnas tillgänglig "
 "för alla användare."
 
-msgid "upload_file_imp"
-msgstr "Ladda upp fil"
-
-msgid "upload_files_imp"
-msgstr "Ladda upp filer"
-
 #. Default: "Successfully imported the OiRA Tool"
-#: euphorie/content/browser/upload.py:590
+#: euphorie/content/browser/upload.py:597
 msgid "upload_success"
 msgstr "Undersökningen har importerats"
 
@@ -7173,7 +7002,7 @@ msgid "validation requested"
 msgstr ""
 
 #. Default: "Register"
-#: euphorie/client/browser/templates/login.pt:360
+#: euphorie/client/browser/templates/login.pt:363
 msgid "verb_register"
 msgstr ""
 
@@ -7209,6 +7038,3148 @@ msgstr ""
 #: euphorie/content/browser/templates/risk_view.pt:89
 msgid "yes"
 msgstr "Ja"
+
+msgid "label_publish_imp"
+msgstr "Publicera"
+
+msgid "label_save_and_create_another_imp"
+msgstr "Spara och skapa en till"
+
+msgid "label_toggle_sidebar"
+msgstr "Växla sidofältet"
+
+msgid "label_grouping"
+msgstr "Gruppering"
+
+msgid "label_toggle_sidebar_size"
+msgstr "Växla storlek på sidofältet"
+
+msgid "label_toggle_sidebar_size_imp"
+msgstr "Växla storlek på sidofältet"
+
+msgid "label_help"
+msgstr "Hjälp"
+
+msgid "label_select_all"
+msgstr "Välj alla"
+
+msgid "label_deselect_all"
+msgstr "Avmarkera alla"
+
+msgid "label_follow_imp"
+msgstr "Följ"
+
+msgid "label_search"
+msgstr "Sök"
+
+msgid "label_search_imp"
+msgstr "Sök"
+
+msgid "label_copyright_all_rights_reserved"
+msgstr "Copyright, alla rättigheter förbehållna"
+
+msgid "label_public_domain"
+msgstr "Public domain"
+
+msgid "label_copyright"
+msgstr "Upphovsrätt"
+
+msgid "label_cc_by"
+msgstr "Creative Commons, Erkännande (CC BY)"
+
+msgid "label_cc_by_sa"
+msgstr "Creative Commons, Erkännande-DelaLika (CC BY-SA)"
+
+msgid "label_cc_by_nd"
+msgstr "Creative Commons, Erkännande-IngaBearbetningar (CC BY-ND)"
+
+msgid "label_cc_by_nc"
+msgstr "Creative Commons, Erkännande-IckeKommersiell (CC BY-NC)"
+
+msgid "label_cc_by_nc_sa"
+msgstr "Creative Commons, Erkännande-IckeKommersiell-DelaLika (CC BY-NC-SA)"
+
+msgid "label_cc_by_nc_nd"
+msgstr ""
+"Creative Commons, Erkännande-IckeKommersiell-IngaBearbetningar (CC BY-NC-ND)"
+
+msgid "label_select_all_imp"
+msgstr "Välj alla"
+
+msgid "label_deselect_all_imp"
+msgstr "Avmarkera alla"
+
+msgid "label_transfer_imp"
+msgstr "Flytta"
+
+msgid "label_tag_imp"
+msgstr "Tagga"
+
+msgid "label_select"
+msgstr "Välj"
+
+msgid "label_back"
+msgstr "Tillbaka"
+
+msgid "label_apply_filters"
+msgstr "Använd filter"
+
+msgid "label_filters"
+msgstr "Filter"
+
+msgid "label_mobile_phone_number"
+msgstr "Mobiltelefonnummer"
+
+msgid "label_phone_number"
+msgstr "Telefonnummer"
+
+msgid "label_delete_imp"
+msgstr "Radera"
+
+msgid "label_users"
+msgstr "Användare"
+
+msgid "label_user"
+msgstr "Användare"
+
+msgid "label_plain_text_file"
+msgstr "Ren textfil"
+
+msgid "label_import"
+msgstr "Importera"
+
+msgid "label_import_imp"
+msgstr "Importera"
+
+msgid "label_xml_file"
+msgstr "XML-fil"
+
+msgid "label_export"
+msgstr "Exportera"
+
+msgid "label_export_imp"
+msgstr "Exportera"
+
+msgid "label_start_imp"
+msgstr "Starta"
+
+msgid "label_update_imp"
+msgstr "Uppdatera"
+
+msgid "label_create_imp"
+msgstr "Skapa"
+
+msgid "label_pdf_file"
+msgstr "PDF-fil"
+
+msgid "label_mp3_file"
+msgstr "MP3-fil"
+
+msgid "label_metadata"
+msgstr "Metadata"
+
+msgid "label_tag"
+msgstr "Tagg"
+
+msgid "label_tags"
+msgstr "Taggar"
+
+msgid "label_more_ell"
+msgstr "Mer…"
+
+msgid "label_zip_file"
+msgstr "ZIP-fil"
+
+msgid "label_compressed_file"
+msgstr "Komprimerad fil"
+
+msgid "label_word_file"
+msgstr "Word-fil"
+
+msgid "label_excel_file"
+msgstr "Excel-fil"
+
+msgid "label_powerpoint_file"
+msgstr "PowerPoint-fil"
+
+msgid "label_alternative_text"
+msgstr "Alternativ text"
+
+msgid "label_no_copyright_information"
+msgstr "Ingen upphovsrättsinformation"
+
+msgid "label_author"
+msgstr "Författare"
+
+msgid "label_remove_imp"
+msgstr "Ta bort"
+
+msgid "label_patterns_pn"
+msgstr "Patterns"
+
+msgid "label_pages"
+msgstr "Sidor"
+
+msgid "label_dialogue_panel"
+msgstr "Dialogpanel"
+
+msgid "label_duplicate_imp"
+msgstr "Duplicera"
+
+msgid "message_this_action_cannot_be_reverted"
+msgstr "Denna åtgärd kan inte ångras."
+
+msgid "label_submit_imp"
+msgstr "Skicka in"
+
+msgid "label_summary"
+msgstr "Sammanfattning"
+
+msgid "label_attachment"
+msgstr "Bilaga"
+
+msgid "label_rule"
+msgstr "Regel"
+
+msgid "label_name"
+msgstr "Namn"
+
+msgid "label_value"
+msgstr "Värde"
+
+msgid "label_on"
+msgstr "På"
+
+msgid "label_loading_ell"
+msgstr "Laddar…"
+
+msgid "label_loading"
+msgstr "Laddar"
+
+msgid "label_upload_imp"
+msgstr "Ladda upp"
+
+msgid "label_time_zone"
+msgstr "Tidszon"
+
+msgid "upload_files_imp"
+msgstr "Ladda upp filer"
+
+msgid "upload_file_imp"
+msgstr "Ladda upp fil"
+
+msgid "label_nisan"
+msgstr "Nisan"
+
+msgid "label_iyar"
+msgstr "Ijar"
+
+msgid "label_sivan"
+msgstr "Sivan"
+
+msgid "label_tammuz"
+msgstr "Tammuz"
+
+msgid "label_av"
+msgstr "Av"
+
+msgid "label_elul"
+msgstr "Elul"
+
+msgid "label_tishrei"
+msgstr "Tishrei"
+
+msgid "label_cheshvan"
+msgstr "Cheshvan"
+
+msgid "label_kislev"
+msgstr "Kislev"
+
+msgid "label_tevet"
+msgstr "Tevet"
+
+msgid "label_shevat"
+msgstr "Shevat"
+
+msgid "label_adar"
+msgstr "Adar"
+
+msgid "label_adar-2"
+msgstr "Adar 2"
+
+msgid "label_apply_imp"
+msgstr "Tillämpa"
+
+msgid "label_unarchive_imp"
+msgstr "Avarkivera"
+
+msgid "label_archive_imp"
+msgstr "Arkiv"
+
+msgid "label_internal_link"
+msgstr "Intern länk"
+
+msgid "label_external_link"
+msgstr "Extern länk"
+
+msgid "label_new_table"
+msgstr "Ny tabell"
+
+msgid "label_remove_table_imp"
+msgstr "Ta bort tabell"
+
+msgid "label_add_column_to_the_left_imp"
+msgstr "Lägg till en kolumn till vänster"
+
+msgid "label_add_column_to_the_right_imp"
+msgstr "Lägg till en kolumn till höger"
+
+msgid "label_remove_column_imp"
+msgstr "Ta bort kolumn"
+
+msgid "label_remove_row_imp"
+msgstr "Ta bort rad"
+
+msgid "label_add_row_above_imp"
+msgstr "Lägg till en rad ovanför"
+
+msgid "label_add_row_below_imp"
+msgstr "Lägg till en rad nedanför"
+
+msgid "label_ordered_list"
+msgstr "Ordnad lista"
+
+msgid "label_unordered_list"
+msgstr "Osorterad lista"
+
+msgid "label_paragraph"
+msgstr "Stycke"
+
+msgid "label_quote"
+msgstr "Citat"
+
+msgid "label_header_level_1"
+msgstr "Rubrik nivå 1"
+
+msgid "label_header_level_2"
+msgstr "Rubrik nivå 2"
+
+msgid "label_header_level_3"
+msgstr "Rubrik nivå 3"
+
+msgid "label_header_level_4"
+msgstr "Rubrik nivå 4"
+
+msgid "label_header_level_5"
+msgstr "Rubrik nivå 5"
+
+msgid "label_header_level_6"
+msgstr "Rubrik nivå 6"
+
+msgid "label_undo"
+msgstr "Ångra"
+
+msgid "label_redo"
+msgstr "Gör om"
+
+msgid "label_code"
+msgstr "Kod"
+
+msgid "label_hyperlink"
+msgstr "Hyperlänk"
+
+msgid "label_bold"
+msgstr "Fet"
+
+msgid "label_italic"
+msgstr "Kursiv"
+
+msgid "label_formatting"
+msgstr "Formatering"
+
+msgid "label_strike_through"
+msgstr "Genomstruket"
+
+msgid "label_horizontal_rule"
+msgstr "Horisontell linje"
+
+msgid "label_lists"
+msgstr "Listor"
+
+msgid "label_video"
+msgstr "Video"
+
+msgid "label_table"
+msgstr "Tabell"
+
+msgid "label_paste"
+msgstr "Klistra in"
+
+msgid "label_paste_imp"
+msgstr "Klistra in"
+
+msgid "label_copy_imp"
+msgstr "Kopiera"
+
+msgid "label_cut_imp"
+msgstr "Klipp ut"
+
+msgid "label_move"
+msgstr "Flytta"
+
+msgid "label_move_imp"
+msgstr "Flytta"
+
+msgid "label_continue"
+msgstr "Fortsätt"
+
+msgid "label_url"
+msgstr "URL"
+
+msgid "label_thanks_form"
+msgstr "Tack"
+
+msgid "label_share"
+msgstr "Dela"
+
+msgid "label_share_imp"
+msgstr "Dela"
+
+msgid "label_homescreen"
+msgstr "Hem"
+
+msgid "label_download_imp"
+msgstr "Ladda ner"
+
+msgid "label_confirm_imp"
+msgstr "Bekräfta"
+
+msgid "label_personal_details"
+msgstr "Personliga uppgifter"
+
+msgid "label_optional"
+msgstr "Valfritt"
+
+msgid "label_allow_interaction"
+msgstr "Tillåt interaktion"
+
+msgid "label_behaviour"
+msgstr "Beteende"
+
+msgid "snippet_optional"
+msgstr "valfritt"
+
+msgid "label_height"
+msgstr "Höjd"
+
+msgid "label_position"
+msgstr "Position"
+
+msgid "label_reply_imp"
+msgstr "Svara"
+
+msgid "label_comment_imp"
+msgstr "Kommentar"
+
+msgid "label_like_imp"
+msgstr "Gilla"
+
+msgid "label_unlike_imp"
+msgstr "Ta bort gillande"
+
+msgid "label_post"
+msgstr "Publicera"
+
+msgid "label_post_imp"
+msgstr "Publicera"
+
+msgid "label_leave_comment"
+msgstr "Lämna en kommentar"
+
+msgid "label_from"
+msgstr "Från"
+
+msgid "label_until"
+msgstr "Till"
+
+msgid "label_sunday"
+msgstr "Söndag"
+
+msgid "label_monday"
+msgstr "Måndag"
+
+msgid "label_tuesday"
+msgstr "Tisdag"
+
+msgid "label_wednesday"
+msgstr "Onsdag"
+
+msgid "label_thursday"
+msgstr "Torsdag"
+
+msgid "label_friday"
+msgstr "Fredag"
+
+msgid "label_saturday"
+msgstr "Lördag"
+
+msgid "label_afghanistan"
+msgstr "Afghanistan"
+
+msgid "label_albania"
+msgstr "Albanien"
+
+msgid "label_algeria"
+msgstr "Algeriet"
+
+msgid "label_andorra"
+msgstr "Andorra"
+
+msgid "label_angola"
+msgstr "Angola"
+
+msgid "label_antigua-and-barbuda"
+msgstr "Antigua och Barbuda"
+
+msgid "label_argentina"
+msgstr "Argentina"
+
+msgid "label_armenia"
+msgstr "Armenien"
+
+msgid "label_australia"
+msgstr "Australien"
+
+msgid "label_austria"
+msgstr "Österrike"
+
+msgid "label_azerbaijan"
+msgstr "Azerbajdzjan"
+
+msgid "label_bahamas"
+msgstr "Bahamas"
+
+msgid "label_bahrain"
+msgstr "Bahrain"
+
+msgid "label_bangladesh"
+msgstr "Bangladesh"
+
+msgid "label_barbados"
+msgstr "Barbados"
+
+msgid "label_belarus"
+msgstr "Vitryssland"
+
+msgid "label_belgium"
+msgstr "Belgien"
+
+msgid "label_belize"
+msgstr "Belize"
+
+msgid "label_benin"
+msgstr "Benin"
+
+msgid "label_bhutan"
+msgstr "Bhutan"
+
+msgid "label_bolivia"
+msgstr "Bolivia"
+
+msgid "label_bosnia-and-herzegovina"
+msgstr "Bosnien och Hercegovina"
+
+msgid "label_botswana"
+msgstr "Botswana"
+
+msgid "label_brazil"
+msgstr "Brasilien"
+
+msgid "label_brunei"
+msgstr "Brunei"
+
+msgid "label_bulgaria"
+msgstr "Bulgarien"
+
+msgid "label_burkina-faso"
+msgstr "Burkina Faso"
+
+msgid "label_burundi"
+msgstr "Burundi"
+
+msgid "label_côte-d'ivoire"
+msgstr "Elfenbenskusten"
+
+msgid "label_cabo-verde"
+msgstr "Kap Verde"
+
+msgid "label_cambodia"
+msgstr "Kambodja"
+
+msgid "label_cameroon"
+msgstr "Kamerun"
+
+msgid "label_canada"
+msgstr "Kanada"
+
+msgid "label_central-african-republic"
+msgstr "Centralafrikanska republiken"
+
+msgid "label_chad"
+msgstr "Tchad"
+
+msgid "label_chile"
+msgstr "Chile"
+
+msgid "label_china"
+msgstr "Kina"
+
+msgid "label_colombia"
+msgstr "Colombia"
+
+msgid "label_comoros"
+msgstr "Komorerna"
+
+msgid "label_congo-(congo-brazzaville)"
+msgstr "Kongo (Kongo-Brazzaville)"
+
+msgid "label_costa-rica"
+msgstr "Costa Rica"
+
+msgid "label_croatia"
+msgstr "Kroatien"
+
+msgid "label_cuba"
+msgstr "Kuba"
+
+msgid "label_cyprus"
+msgstr "Cypern"
+
+msgid "label_czechia-(czech-republic)"
+msgstr "Tjeckien (Tjeckiska republiken)"
+
+msgid "label_democratic-republic-of-the-congo"
+msgstr "Demokratiska republiken Kongo"
+
+msgid "label_denmark"
+msgstr "Danmark"
+
+msgid "label_djibouti"
+msgstr "Djibouti"
+
+msgid "label_dominica"
+msgstr "Dominica"
+
+msgid "label_dominican-republic"
+msgstr "Dominikanska republiken"
+
+msgid "label_ecuador"
+msgstr "Ecuador"
+
+msgid "label_egypt"
+msgstr "Egypten"
+
+msgid "label_el-salvador"
+msgstr "El Salvador"
+
+msgid "label_equatorial-guinea"
+msgstr "Ekvatorialguinea"
+
+msgid "label_eritrea"
+msgstr "Eritrea"
+
+msgid "label_estonia"
+msgstr "Estland"
+
+msgid "label_eswatini-fmr-swaziland"
+msgstr "Eswatini (f.d. \"Swaziland\")"
+
+msgid "label_ethiopia"
+msgstr "Etiopien"
+
+msgid "label_fiji"
+msgstr "Fiji"
+
+msgid "label_finland"
+msgstr "Finland"
+
+msgid "label_france"
+msgstr "Frankrike"
+
+msgid "label_gabon"
+msgstr "Gabon"
+
+msgid "label_gambia"
+msgstr "Gambia"
+
+msgid "label_georgia"
+msgstr "Georgien"
+
+msgid "label_germany"
+msgstr "Tyskland"
+
+msgid "label_ghana"
+msgstr "Ghana"
+
+msgid "label_greece"
+msgstr "Grekland"
+
+msgid "label_grenada"
+msgstr "Grenada"
+
+msgid "label_guatemala"
+msgstr "Guatemala"
+
+msgid "label_guinea"
+msgstr "Guinea"
+
+msgid "label_guinea-bissau"
+msgstr "Guinea-Bissau"
+
+msgid "label_guyana"
+msgstr "Guyana"
+
+msgid "label_haiti"
+msgstr "Haiti"
+
+msgid "label_holy-see"
+msgstr "Heliga stolen"
+
+msgid "label_honduras"
+msgstr "Honduras"
+
+msgid "label_hungary"
+msgstr "Ungern"
+
+msgid "label_iceland"
+msgstr "Island"
+
+msgid "label_india"
+msgstr "Indien"
+
+msgid "label_indonesia"
+msgstr "Indonesien"
+
+msgid "label_iran"
+msgstr "Iran"
+
+msgid "label_iraq"
+msgstr "Irak"
+
+msgid "label_ireland"
+msgstr "Irland"
+
+msgid "label_israel"
+msgstr "Israel"
+
+msgid "label_italy"
+msgstr "Italien"
+
+msgid "label_jamaica"
+msgstr "Jamaica"
+
+msgid "label_japan"
+msgstr "Japan"
+
+msgid "label_jordan"
+msgstr "Jordanien"
+
+msgid "label_kazakhstan"
+msgstr "Kazakstan"
+
+msgid "label_kenya"
+msgstr "Kenya"
+
+msgid "label_kiribati"
+msgstr "Kiribati"
+
+msgid "label_kuwait"
+msgstr "Kuwait"
+
+msgid "label_kyrgyzstan"
+msgstr "Kirgizistan"
+
+msgid "label_laos"
+msgstr "Laos"
+
+msgid "label_latvia"
+msgstr "Lettland"
+
+msgid "label_lebanon"
+msgstr "Libanon"
+
+msgid "label_lesotho"
+msgstr "Lesotho"
+
+msgid "label_liberia"
+msgstr "Liberia"
+
+msgid "label_libya"
+msgstr "Libyen"
+
+msgid "label_liechtenstein"
+msgstr "Liechtenstein"
+
+msgid "label_lithuania"
+msgstr "Litauen"
+
+msgid "label_luxembourg"
+msgstr "Luxemburg"
+
+msgid "label_madagascar"
+msgstr "Madagaskar"
+
+msgid "label_malawi"
+msgstr "Malawi"
+
+msgid "label_malaysia"
+msgstr "Malaysia"
+
+msgid "label_maldives"
+msgstr "Maldiverna"
+
+msgid "label_mali"
+msgstr "Mali"
+
+msgid "label_malta"
+msgstr "Malta"
+
+msgid "label_marshall-islands"
+msgstr "Marshallöarna"
+
+msgid "label_mauritania"
+msgstr "Mauretanien"
+
+msgid "label_mauritius"
+msgstr "Mauritius"
+
+msgid "label_mexico"
+msgstr "Mexiko"
+
+msgid "label_micronesia"
+msgstr "Mikronesien"
+
+msgid "label_moldova"
+msgstr "Moldavien"
+
+msgid "label_monaco"
+msgstr "Monaco"
+
+msgid "label_mongolia"
+msgstr "Mongoliet"
+
+msgid "label_montenegro"
+msgstr "Montenegro"
+
+msgid "label_morocco"
+msgstr "Marocko"
+
+msgid "label_mozambique"
+msgstr "Moçambique"
+
+msgid "label_myanmar-(formerly-burma)"
+msgstr "Myanmar (tidigare Burma)"
+
+msgid "label_namibia"
+msgstr "Namibia"
+
+msgid "label_nauru"
+msgstr "Nauru"
+
+msgid "label_nepal"
+msgstr "Nepal"
+
+msgid "label_netherlands"
+msgstr "Nederländerna"
+
+msgid "label_new-zealand"
+msgstr "Nya Zeeland"
+
+msgid "label_nicaragua"
+msgstr "Nicaragua"
+
+msgid "label_niger"
+msgstr "Niger"
+
+msgid "label_nigeria"
+msgstr "Nigeria"
+
+msgid "label_north-korea"
+msgstr "Nordkorea"
+
+msgid "label_north-macedonia"
+msgstr "Nordmakedonien"
+
+msgid "label_norway"
+msgstr "Norge"
+
+msgid "label_oman"
+msgstr "Oman"
+
+msgid "label_pakistan"
+msgstr "Pakistan"
+
+msgid "label_palau"
+msgstr "Palau"
+
+msgid "label_palestine-state"
+msgstr "Palestina"
+
+msgid "label_panama"
+msgstr "Panama"
+
+msgid "label_papua-new-guinea"
+msgstr "Papua Nya Guinea"
+
+msgid "label_paraguay"
+msgstr "Paraguay"
+
+msgid "label_peru"
+msgstr "Peru"
+
+msgid "label_philippines"
+msgstr "Filippinerna"
+
+msgid "label_poland"
+msgstr "Polen"
+
+msgid "label_portugal"
+msgstr "Portugal"
+
+msgid "label_qatar"
+msgstr "Qatar"
+
+msgid "label_romania"
+msgstr "Rumänien"
+
+msgid "label_russia"
+msgstr "Ryssland"
+
+msgid "label_rwanda"
+msgstr "Rwanda"
+
+msgid "label_saint-kitts-and-nevis"
+msgstr "Saint Kitts och Nevis"
+
+msgid "label_saint-lucia"
+msgstr "Saint Lucia"
+
+msgid "label_saint-vincent-and-the-grenadines"
+msgstr "Saint Vincent och Grenadinerna"
+
+msgid "label_samoa"
+msgstr "Samoa"
+
+msgid "label_san-marino"
+msgstr "San Marino"
+
+msgid "label_sao-tome-and-principe"
+msgstr "São Tomé och Príncipe"
+
+msgid "label_saudi-arabia"
+msgstr "Saudiarabien"
+
+msgid "label_senegal"
+msgstr "Senegal"
+
+msgid "label_serbia"
+msgstr "Serbien"
+
+msgid "label_seychelles"
+msgstr "Seychellerna"
+
+msgid "label_sierra-leone"
+msgstr "Sierra Leone"
+
+msgid "label_singapore"
+msgstr "Singapore"
+
+msgid "label_slovakia"
+msgstr "Slovakien"
+
+msgid "label_slovenia"
+msgstr "Slovenien"
+
+msgid "label_solomon-islands"
+msgstr "Salomonöarna"
+
+msgid "label_somalia"
+msgstr "Somalia"
+
+msgid "label_south-africa"
+msgstr "Sydafrika"
+
+msgid "label_south-korea"
+msgstr "Sydkorea"
+
+msgid "label_south-sudan"
+msgstr "Sydsudan"
+
+msgid "label_spain"
+msgstr "Spanien"
+
+msgid "label_sri-lanka"
+msgstr "Sri Lanka"
+
+msgid "label_sudan"
+msgstr "Sudan"
+
+msgid "label_suriname"
+msgstr "Surinam"
+
+msgid "label_sweden"
+msgstr "Sverige"
+
+msgid "label_switzerland"
+msgstr "Schweiz"
+
+msgid "label_syria"
+msgstr "Syrien"
+
+msgid "label_tajikistan"
+msgstr "Tadzjikistan"
+
+msgid "label_tanzania"
+msgstr "Tanzania"
+
+msgid "label_thailand"
+msgstr "Thailand"
+
+msgid "label_timor-leste"
+msgstr "Östtimor"
+
+msgid "label_togo"
+msgstr "Togo"
+
+msgid "label_tonga"
+msgstr "Tonga"
+
+msgid "label_trinidad-and-tobago"
+msgstr "Trinidad och Tobago"
+
+msgid "label_tunisia"
+msgstr "Tunisien"
+
+msgid "label_turkey"
+msgstr "Turkiet"
+
+msgid "label_turkmenistan"
+msgstr "Turkmenistan"
+
+msgid "label_tuvalu"
+msgstr "Tuvalu"
+
+msgid "label_uganda"
+msgstr "Uganda"
+
+msgid "label_ukraine"
+msgstr "Ukraina"
+
+msgid "label_united-arab-emirates"
+msgstr "Förenade arabemiraten"
+
+msgid "label_united-kingdom"
+msgstr "Storbritannien"
+
+msgid "label_united-states-of-america"
+msgstr "Amerikas förenta stater"
+
+msgid "label_uruguay"
+msgstr "Uruguay"
+
+msgid "label_uzbekistan"
+msgstr "Uzbekistan"
+
+msgid "label_vanuatu"
+msgstr "Vanuatu"
+
+msgid "label_venezuela"
+msgstr "Venezuela"
+
+msgid "label_vietnam"
+msgstr "Vietnam"
+
+msgid "label_yemen"
+msgstr "Jemen"
+
+msgid "label_zambia"
+msgstr "Zambia"
+
+msgid "label_zimbabwe"
+msgstr "Zimbabwe"
+
+msgid "label_ok"
+msgstr "Okej"
+
+msgid "label_cancel_imp"
+msgstr "Avbryt"
+
+msgid "label_remove"
+msgstr "Ta bort"
+
+msgid "label_time"
+msgstr "Tid"
+
+msgid "label_date"
+msgstr "Datum"
+
+msgid "label_edit"
+msgstr "Redigera"
+
+msgid "label_edit_imp"
+msgstr "Redigera"
+
+msgid "label_never"
+msgstr "Aldrig"
+
+msgid "label_immediately"
+msgstr "Omedelbart"
+
+msgid "label_close"
+msgstr "Stäng"
+
+msgid "label_close_imp"
+msgstr "Stäng"
+
+msgid "label_daily"
+msgstr "Dagligen"
+
+msgid "label_weekly"
+msgstr "Veckovis"
+
+msgid "label_monthly"
+msgstr "Månadsvis"
+
+msgid "label_quarterly"
+msgstr "Kvartalsvis"
+
+msgid "label_contrast"
+msgstr "Kontrast"
+
+msgid "label_font_size"
+msgstr "Teckenstorlek"
+
+msgid "llabel_dashboard"
+msgstr "Instrumentpanel"
+
+msgid "label_accessibility"
+msgstr "Tillgänglighet"
+
+msgid "label_no_notification"
+msgstr "Ingen avisering"
+
+msgid "label_system_language"
+msgstr "Systemspråk"
+
+msgid "label_english"
+msgstr "Engelska"
+
+msgid "label_dutch"
+msgstr "Nederländska"
+
+msgid "label_german"
+msgstr "Tyska"
+
+msgid "label_german_native"
+msgstr "Deutsch"
+
+msgid "label_italian_native"
+msgstr "Italiano"
+
+msgid "label_french"
+msgstr "Franska"
+
+msgid "label_hebrew"
+msgstr "Hebreiska"
+
+msgid "label_hebrew_native"
+msgstr "Hebreiska"
+
+msgid "label_arabic"
+msgstr "Arabiska"
+
+msgid "label_arabic_native"
+msgstr "Arabiska"
+
+msgid "label_farsi_native"
+msgstr "Persiska"
+
+msgid "label_turkish_native"
+msgstr "Turkiska"
+
+msgid "label_greek_native"
+msgstr "Grekiska"
+
+msgid "label_french_native"
+msgstr "Français"
+
+msgid "label_dutch_native"
+msgstr "Nederlands"
+
+msgid "label_english_native"
+msgstr "English"
+
+msgid "label_danish_native"
+msgstr "Danska"
+
+msgid "label_maintenance"
+msgstr "Underhåll"
+
+msgid "label_visibility"
+msgstr "Synlighet"
+
+msgid "label_contributions"
+msgstr "Bidrag"
+
+msgid "label_account"
+msgstr "Konto"
+
+msgid "label_settings"
+msgstr "Inställningar"
+
+msgid "label_save_imp"
+msgstr "Spara"
+
+msgid "label_save_and_close_imp"
+msgstr "Spara och stäng"
+
+msgid "label_save"
+msgstr "Spara"
+
+msgid "label_job_title"
+msgstr "Jobbtitel"
+
+msgid "label_department"
+msgstr "Avdelning"
+
+msgid "label_primary_location"
+msgstr "Primär plats"
+
+msgid "label_telephone_number"
+msgstr "Telefonnummer"
+
+msgid "label_telephone_number_mobile"
+msgstr "Mobiltelefonnummer"
+
+msgid "label_telephone_number_internal"
+msgstr "Internt telefonnummer"
+
+msgid "label_email_address"
+msgstr "E-postadress"
+
+msgid "label_biography"
+msgstr "Biografi"
+
+msgid "label_day"
+msgstr "Dag"
+
+msgid "label_year"
+msgstr "År"
+
+msgid "label_january"
+msgstr "Januari"
+
+msgid "label_february"
+msgstr "Februari"
+
+msgid "label_march"
+msgstr "Mars"
+
+msgid "label_april"
+msgstr "April"
+
+msgid "label_may"
+msgstr "Maj"
+
+msgid "label_june"
+msgstr "Juni"
+
+msgid "label_july"
+msgstr "Juli"
+
+msgid "label_august"
+msgstr "Augusti"
+
+msgid "label_september"
+msgstr "September"
+
+msgid "label_october"
+msgstr "Oktober"
+
+msgid "label_november"
+msgstr "November"
+
+msgid "label_december"
+msgstr "December"
+
+msgid "label_birthdate"
+msgstr "Födelsedatum"
+
+msgid "label_options"
+msgstr "Alternativ"
+
+msgid "label_bookmarks"
+msgstr "Bokmärken"
+
+msgid "label_select_imp"
+msgstr "Välj"
+
+msgid "label_read_more_ell"
+msgstr "Läs mer…"
+
+msgid "label_step"
+msgstr "Steg"
+
+msgid "label_log_out"
+msgstr "Logga ut"
+
+msgid "label_log_in"
+msgstr "Logga in"
+
+msgid "label_my_profile"
+msgstr "Min profil"
+
+msgid "label_change_password"
+msgstr "Byt lösenord"
+
+msgid "label_preferences"
+msgstr "Inställningar"
+
+msgid "label_replace_photo"
+msgstr "Ersätt foto"
+
+msgid "label_upload_photo"
+msgstr "Ladda upp ett foto"
+
+msgid "label_upload_from_device"
+msgstr "Ladda upp från enhet"
+
+msgid "label_watch"
+msgstr "Bevaka"
+
+msgid "label_watching"
+msgstr "Bevakar"
+
+msgid "label_colour"
+msgstr "Färg"
+
+msgid "label_colour_black"
+msgstr "Svart"
+
+msgid "label_colour_blue"
+msgstr "Blå"
+
+msgid "label_colour_brown"
+msgstr "Brun"
+
+msgid "label_colour_cadet_blue"
+msgstr "Kadetblå"
+
+msgid "label_colour_crimson"
+msgstr "Karmosinröd"
+
+msgid "label_colour_dark_cyan"
+msgstr "Mörk cyan"
+
+msgid "label_colour_dark_golden_rod"
+msgstr "Mörk guldstav"
+
+msgid "label_colour_dark_green"
+msgstr "Mörkgrön"
+
+msgid "label_colour_dark_magenta"
+msgstr "Mörk magenta"
+
+msgid "label_colour_dark_olive_green"
+msgstr "Mörk olivgrön"
+
+msgid "label_colour_dark_orchid"
+msgstr "Mörk orkidé"
+
+msgid "label_colour_dark_slate_gray"
+msgstr "Mörk skiffergrå"
+
+msgid "label_colour_dark_turquoise"
+msgstr "Mörk turkos"
+
+msgid "label_colour_darkslate_blue"
+msgstr "Mörk skifferblå"
+
+msgid "label_colour_deep_pink"
+msgstr "Djuprosa"
+
+msgid "label_colour_deep_skyblue"
+msgstr "Djup himmelsblå"
+
+msgid "label_colour_dim_gray"
+msgstr "Dämpad grå"
+
+msgid "label_colour_dodger_blue"
+msgstr "Dodgerblå"
+
+msgid "label_colour_forest_green"
+msgstr "Skogsgrön"
+
+msgid "label_colour_fuchsia"
+msgstr "Fuchsia"
+
+msgid "label_colour_indian_red"
+msgstr "Indianröd"
+
+msgid "label_colour_indigo"
+msgstr "Indigo"
+
+msgid "label_colour_light_sea_green"
+msgstr "Ljus havsgrönt"
+
+msgid "label_colour_maroon"
+msgstr "Mörkröd"
+
+msgid "label_colour_medium_violet_red"
+msgstr "Mellanlilröd"
+
+msgid "label_colour_midnight_blue"
+msgstr "Midnattsblå"
+
+msgid "label_colour_olive"
+msgstr "Olivgrön"
+
+msgid "label_colour_olive_drab"
+msgstr "Mörk olivgrön"
+
+msgid "label_colour_pale_violet_red"
+msgstr "Blek lilaröd"
+
+msgid "label_colour_purple"
+msgstr "Lila"
+
+msgid "label_colour_red"
+msgstr "Röd"
+
+msgid "label_colour_royal_blue"
+msgstr "Kungblå"
+
+msgid "label_colour_sea_green"
+msgstr "Havsgrönt"
+
+msgid "label_colour_sienna"
+msgstr "Sienna"
+
+msgid "label_colour_slate_blue"
+msgstr "Skifferblå"
+
+msgid "label_colour_steel_blue"
+msgstr "Stålblå"
+
+msgid "label_colour_teal"
+msgstr "Blågrön"
+
+msgid "label_sector_name"
+msgstr "Sektorns namn"
+
+msgid "message_help_action_plan_budget"
+msgstr ""
+"Även om vissa åtgärder inte kostar något gör de flesta det. Åtgärderna bör "
+"därför budgeteras; inkludera dem vid behov i den årliga budgetprocessen."
+
+msgid "message_help_action_plan_responsible"
+msgstr ""
+"Utse en person i ditt företag som ansvarar för genomförandet av denna "
+"åtgärd. Denna person kommer att ha befogenhet att vidta de steg som beskrivs"
+" i planen och/eller ansvaret att säkerställa att de genomförs."
+
+msgid "label_edit_question_imp"
+msgstr "Redigera fråga"
+
+msgid "label_edit_question"
+msgstr "Redigera fråga"
+
+msgid "label_delete_question_imp"
+msgstr "Ta bort fråga"
+
+msgid "label_delete_question"
+msgstr "Ta bort fråga"
+
+msgid "message_delete_question"
+msgstr "Du håller på att ta bort den här frågan från träningen."
+
+msgid "message_answer_will_be_randomised"
+msgstr ""
+"Under utbildningen kommer ordningen på svaren att slumpas för varje fråga."
+
+msgid "label_add_a_question"
+msgstr "Lägg till en fråga"
+
+msgid "label_incorrect_answer_2"
+msgstr "Fel svar 2"
+
+msgid "label_incorrect_answer_1"
+msgstr "Fel svar 1"
+
+msgid "label_answer_3"
+msgstr "Svar 3"
+
+msgid "label_answer_2"
+msgstr "Svar 2"
+
+msgid "label_answer_1"
+msgstr "Svar 1"
+
+msgid "label_answers"
+msgstr "Svar"
+
+msgid "message_unpublish"
+msgstr ""
+"Att avpublicera ett verktyg tar bort det från allmän visning. Verktyget "
+"kommer fortfarande att vara tillgängligt på ditt konto och du kan publicera "
+"det igen när som helst."
+
+msgid "label_import_tool_imp"
+msgstr "Importera verktyg"
+
+msgid "message_tool_import"
+msgstr ""
+"Verktygets importfunktionalitet kan användas till exempel för att importera "
+"ett verktyg som har exporterats från ett annat land. Därmed skapar du en "
+"kopia av det ursprungliga verktyget, som du sedan kan redigera själv."
+
+msgid "message_tool_export_import"
+msgstr ""
+"Verktygets export- och importfunktionalitet kan användas för att skicka ett "
+"verktyg till en översättningsbyrå, men också för att exportera det och "
+"importera det igen för användning i ett annat land."
+
+msgid "label_xml"
+msgstr "XML"
+
+msgid "label_plain_text"
+msgstr "Vanlig text"
+
+msgid "label_xml_plus_plain_text_file"
+msgstr "XML plus vanlig textfil"
+
+msgid "label_xml_etranslate_compatible"
+msgstr "XML som är kompatibel med eTranslate"
+
+msgid "label_xml_only"
+msgstr "Endast XML"
+
+msgid "label_module_solution_texts"
+msgstr "Modulens lösningstexter"
+
+msgid "label_legal_and_policy_references"
+msgstr "Juridiska och policyreferenser"
+
+msgid "label_export_etranslate_compatible_xml"
+msgstr "Exportera i eTranslate-kompatibel XML"
+
+msgid "label_export_additional_plain_text_file"
+msgstr "Exportera ytterligare vanlig textfil"
+
+msgid "label_tool_summary"
+msgstr "Verktygsöversikt"
+
+msgid "label_module_summaries"
+msgstr "Modulöversikter"
+
+msgid "label_module_summary"
+msgstr "Modulöversikt"
+
+msgid "label_included_items"
+msgstr "Inkluderade objekt"
+
+msgid "label_export_for_translation"
+msgstr "Exportera för översättning"
+
+msgid "label_simplified_two_critera"
+msgstr "Förenklat, två kriterier"
+
+msgid "label_standard_three_criteria"
+msgstr "Standard, tre kriterier"
+
+msgid "label_evaluation_algorithm"
+msgstr "Utvärderingsalgoritm"
+
+msgid "label_revision"
+msgstr "Revision"
+
+msgid "label_base_on_an_existing_tool"
+msgstr "Baserat på ett befintligt verktyg"
+
+msgid "label_starting_point"
+msgstr "Utgångspunkt"
+
+msgid "label_tool_to_use_as_a_base"
+msgstr "Verktyg att använda som grund"
+
+msgid "message_update_oira_tool"
+msgstr ""
+"Är du säker på att du vill uppdatera det publicerade OiRA-verktyget? Detta "
+"uppdaterar den publicerade versionen med alla dina ändringar."
+
+msgid "label_change_configuration"
+msgstr "Ändra konfiguration"
+
+msgid "label_preview_selected_version"
+msgstr "Förhandsgranska vald version"
+
+msgid "label_update_published_version"
+msgstr "Uppdatera publicerad version"
+
+msgid "label_update_published_version_imp"
+msgstr "Uppdatera publicerad version"
+
+msgid "label_base_for_version"
+msgstr "Bas för versionen"
+
+msgid "label_create_new_version"
+msgstr "Skapa ny version"
+
+msgid "label_new_version"
+msgstr "Ny version"
+
+msgid "label_message_warning_force_open"
+msgstr ""
+"Tänk på att tvångsöppning av informationsavsnittet kan minska sannolikheten "
+"att användare märker de andra avsnitten och även minska sannolikheten att de"
+" slutför riskbedömningen."
+
+msgid "message_help_certificate_explanatory_sentence"
+msgstr ""
+"En kort förklaring som visas för användaren efter att ha nått den inledande "
+"tröskeln. Den kan användas för att länka till en extern webbplats med mer "
+"information."
+
+msgid "label_certificate_explanatory_sentence"
+msgstr "Förklarande mening till certifikatet"
+
+msgid "message_help_certificate_completion_threshhold"
+msgstr ""
+"När en sessions slutförandegrad överstiger denna gräns, får användaren ett "
+"certifikat."
+
+msgid "message_help_certificate_initial_threshhold"
+msgstr ""
+"När en sessions slutförandegrad överstiger denna gräns, informeras "
+"användaren om möjligheten att erhålla ett certifikat."
+
+msgid "label_certificate_completion_threshold"
+msgstr "Sluttröskel för certifikat"
+
+msgid "label_certificate_initial_threshold"
+msgstr "Inledande tröskel för certifikat"
+
+msgid "message_help_allow_certificates"
+msgstr ""
+"Om det här alternativet är aktiverat kan certifikat aktiveras i OiRA-"
+"verktygen i detta land."
+
+msgid "message_help_allow_consultancy"
+msgstr ""
+"Om det här alternativet är aktiverat kan konsulttjänster aktiveras i OiRA-"
+"verktygen i detta land."
+
+msgid "message_help_allow_training"
+msgstr ""
+"Om det här alternativet är aktiverat kan en onlineträning aktiveras i OiRA-"
+"verktygen i detta land."
+
+msgid "label_information_section"
+msgstr "Informationsavsnitt"
+
+msgid "message_help_available_reports"
+msgstr "Välj vilka rapporttyper som ska göras tillgängliga för användarna."
+
+msgid "message_help_compact_report_options"
+msgstr "Välj vilka valfria delar som ska användas i den kompakta rapporten."
+
+msgid "label_include_legal_and_policy_references"
+msgstr "Inkludera juridiska och politiska referenser"
+
+msgid "label_include_responsible_person_and_date"
+msgstr "Inkludera ansvarig person och datum"
+
+msgid "label_include_measures"
+msgstr "Inkludera åtgärder"
+
+msgid "label_include_notes"
+msgstr "Inkludera anteckningar"
+
+msgid "label_include_risk_descriptions"
+msgstr "Inkludera riskbeskrivningar"
+
+msgid "label_compact_report"
+msgstr "Kompakt rapport"
+
+msgid "label_overview_of_risks"
+msgstr "Översikt över risker"
+
+msgid "label_overview_of_measures"
+msgstr "Översikt över åtgärder"
+
+msgid "label_available_reports"
+msgstr "Tillgängliga rapporter"
+
+msgid "message_help_force_open_sections"
+msgstr ""
+"Ange om och vilka sektioner som ska vara öppna som standard. Forskning visar"
+" att användare är mer benägna att slutföra en riskbedömning när sektionerna "
+"initialt är stängda. Användare öppnar vanligtvis själva de delar de behöver."
+" När en användare öppnar eller stänger en sektion sparas denna inställning "
+"lokalt i webbläsaren. På så sätt anpassar sig applikationen automatiskt till"
+" användarens beteende."
+
+msgid "label_country_configuration"
+msgstr "Landskonfiguration"
+
+msgid "label_force_open_sections"
+msgstr "Tvinga öppna sektioner"
+
+msgid "message_delete_sector"
+msgstr ""
+"Du håller på att ta bort denna sektor och alla dess relaterade verktyg."
+
+msgid "label_version_name"
+msgstr "Versionsnamn"
+
+msgid "label_duplicate_name"
+msgstr "Duplicerat namn"
+
+msgid "label_duplicate_version"
+msgstr "Duplicera version"
+
+msgid "label_base_for_duplicate"
+msgstr "Bas för duplicering"
+
+msgid "message_help_version_name"
+msgstr ""
+"Detta är namnet på versionen av detta verktyg. Versionsnamnet är endast för "
+"redaktörer och kommer aldrig att visas för användare av verktyget."
+
+msgid "message_help_duplicate_name"
+msgstr ""
+"Detta är namnet på den nya versionen av detta verktyg. Namnet är endast för "
+"redaktörer och kommer aldrig att visas för användarna av verktyget."
+
+msgid "message_help_oira_tool_name"
+msgstr ""
+"Använd ett kort och kraftfullt namn som användarna kommer att känna igen i "
+"sina omständigheter. Titeln visas i översikter, både för användare och "
+"redaktörer."
+
+msgid "message_help_oira_tool_description"
+msgstr ""
+"Beskrivningen av verktyget visas i översikter och sökresultat. "
+"Innehållsmässigt bör beskrivningen bekräfta för användaren att det är rätt "
+"verktyg för dem."
+
+msgid "label_new_tool"
+msgstr "Nytt verktyg"
+
+msgid "message_click_on_the_plus_above_to_create_module"
+msgstr "Klicka på plusset ovanför för att skapa en ny modul."
+
+msgid "message_delete_module"
+msgstr "Du håller på att ta bort den här modulen och allt dess innehåll."
+
+msgid "label_delete_sector"
+msgstr "Ta bort sektor"
+
+msgid "label_delete_sector_imp"
+msgstr "Ta bort sektor"
+
+msgid "label_new_sector"
+msgstr "Ny sektor"
+
+msgid "message_delete_risk"
+msgstr "Du håller på att ta bort denna risk."
+
+msgid "label_delete_module"
+msgstr "Ta bort modul"
+
+msgid "label_delete_module_imp"
+msgstr "Ta bort modul"
+
+msgid "label_delete_risk_imp"
+msgstr "Ta bort risk"
+
+msgid "message_delete_version"
+msgstr "Du är på väg att ta bort detta verktyg."
+
+msgid "message_delete_tool"
+msgstr "Du håller på att ta bort detta verktyg."
+
+msgid "label_delete_tool"
+msgstr "Ta bort verktyget"
+
+msgid "label_delete_tool_imp"
+msgstr "Ta bort verktyget"
+
+msgid "label_add_measure"
+msgstr "Lägg till åtgärd"
+
+msgid "label_ask_user_about_locations"
+msgstr "Fråga användaren om platser"
+
+msgid "label_additional_image"
+msgstr "Ytterligare bild"
+
+msgid "message_help_standard_measure_description"
+msgstr ""
+"Inkludera all relevant information som kan vara till hjälp för "
+"slutanvändaren."
+
+msgid "message_help_standard_measure_general_approach"
+msgstr ""
+"Beskriv din allmänna strategi för att eliminera eller (om risken inte kan "
+"undvikas) minska risken. + Beskriv den specifika åtgärd (erna) som krävs för"
+" att genomföra denna strategi (för att eliminera eller minska risken)."
+
+msgid "message_help_standard_measure_level_of_expertise"
+msgstr ""
+"Beskriv den kunskapsnivå som krävs för att genomföra åtgärden, till exempel "
+"\"sunt förnuft (ingen kunskap om arbetsmiljö krävs)\", \"ingen specifik "
+"arbetsmiljöexpertis krävs, men grundläggande kunskap eller utbildning inom "
+"arbetsmiljö krävs och/eller konsultation av arbetsmiljöriktlinjer krävs\", "
+"eller \"arbetsmiljöexpert\". Du kan också beskriva eventuella ytterligare "
+"krav här (om det finns några)."
+
+msgid "label_general_approach"
+msgstr "Allmänt tillvägagångssätt"
+
+msgid "label_level_of_expertise"
+msgstr "Expertisnivå"
+
+msgid "label_add_attachment"
+msgstr "Lägg till bilaga"
+
+msgid "label_criteria"
+msgstr "Kriterier"
+
+msgid "message_training_add_questions"
+msgstr ""
+"Om så önskas, lägg till frågor till ditt verktyg nedan. Frågorna kommer att "
+"ställas i slutet av träningen."
+
+msgid "message_training_author_info"
+msgstr ""
+"Lägg till en utbildningsmodul i ditt verktyg. Användarna får en "
+"automatgenererad presentation som förklarar potentiella risker och åtgärder."
+" Användare som är behöriga att genomföra riskbedömningar kan själva förlänga"
+" eller förkorta den automatgenererade utbildningen. Du kan lägga till frågor"
+" i verktyget som kommer att ställas i slutet av utbildningen."
+
+msgid "label_training_settings"
+msgstr "Träningsinställningar"
+
+msgid "label_optional_module"
+msgstr "Valfritt modul"
+
+msgid "message_author_training_question_answer_order_notice"
+msgstr ""
+"Under träningen kommer frågorna att ordnas i en slumpmässig ordning. "
+"Dessutom kommer svaren på varje fråga också att presenteras i en slumpmässig"
+" sekvens för att öka engagemanget i lärandet."
+
+msgid "label_correct_answer"
+msgstr "Korrekt svar"
+
+msgid "label_multiple_item_question"
+msgstr "Fråga med flera objekt"
+
+msgid "label_single_occurance_prompt"
+msgstr "Enstaka förekomstprompt"
+
+msgid "label_question"
+msgstr "Fråga"
+
+msgid "label_add_question"
+msgstr "Lägg till fråga"
+
+msgid "label_enable_training"
+msgstr "Aktivera träning"
+
+msgid "message_add_questions_to_the_training_from_the_sidebar"
+msgstr ""
+"Du kan lägga till frågor i träningen i träningsavsnittet. Träningsavsnittet "
+"kan nås från sidofältet efter att ha sparat inställningarna."
+
+msgid "label_integrated"
+msgstr "Integrerad"
+
+msgid "label_separate"
+msgstr "Separat"
+
+msgid "label_specificity"
+msgstr "Specificitet"
+
+msgid "label_criteria_specific_for_tool"
+msgstr "Kriterierna är specifika för detta verktyg"
+
+msgid "label_solution"
+msgstr "Lösning"
+
+msgid "label_criteria_not_specific_for_tool"
+msgstr "Kriterierna är inte specifika för detta verktyg"
+
+msgid "label_enabled"
+msgstr "Aktiverad"
+
+msgid "label_disabled"
+msgstr "Inaktiverad"
+
+msgid "label_style"
+msgstr "Stil"
+
+msgid "label_questions"
+msgstr "Frågor"
+
+msgid "label_probability"
+msgstr "Sannolikhet"
+
+msgid "label_multiple_occurance_prompt"
+msgstr "Flerfaldig förekomst prompt"
+
+msgid "label_frequency"
+msgstr "Frekvens"
+
+msgid "label_severity"
+msgstr "Allvarlighet"
+
+msgid "label_lead_image_caption"
+msgstr "Bildtext för huvudbild"
+
+msgid "label_show_custom_notification_for_this_tool"
+msgstr "Visa en anpassad avisering för detta verktyg"
+
+msgid "label_tool_notification_message"
+msgstr "Verktygsavisningsmeddelande"
+
+msgid "label_include_logo_external_website"
+msgstr "Inkludera en logotyp som länkar till en extern webbplats"
+
+msgid "label_external_site_url"
+msgstr "Extern webbplats-URL"
+
+msgid "label_external_site_name"
+msgstr "Namn på extern webbplats"
+
+msgid "label_external_site_logo"
+msgstr "Logotyp för extern webbplats"
+
+msgid "label_full_show_description_and_general_approach"
+msgstr "Visa (fullständig beskrivning och allmänt tillvägagångssätt)"
+
+msgid "label_simple_show_only_general_approach"
+msgstr "Enkelt (visa endast allmänt tillvägagångssätt)"
+
+msgid "label_handling_of_measures_text"
+msgstr "Hantering av åtgärdstext"
+
+msgid ""
+"label_oira_tool_where_measures_that_are_already_in_place_can_be_defined"
+msgstr "OiRA-verktyg där \"åtgärder som redan är på plats\" kan definieras"
+
+msgid "label_classic_oira_tool_with_positive_and_negative_statements"
+msgstr "Klassiskt OiRA-verktyg med positiva och negativa påståenden"
+
+msgid "label_type_of_oira_tool"
+msgstr "Typ av OiRA-verktyg"
+
+msgid "label_sector_information"
+msgstr "Sektorsinformation"
+
+msgid "label_new_submodule"
+msgstr "Nytt undermodul"
+
+msgid "label_new_risk"
+msgstr "Ny risk"
+
+msgid "label_new_module"
+msgstr "Ny modul"
+
+msgid "label_new_profile_question"
+msgstr "Ny profilfråga"
+
+msgid "label_select_a_tool"
+msgstr "Välj ett verktyg"
+
+msgid "label_select_sector"
+msgstr "Välj sektor"
+
+msgid "label_insert_module_from_other_tool"
+msgstr "Infoga modul från annat verktyg"
+
+msgid "label_insert_module_from_other_tool_imp"
+msgstr "Infoga modul från annat verktyg"
+
+msgid "label_insert_risk_from_other_tool_imp"
+msgstr "Infoga risk från annat verktyg"
+
+msgid "label_insert_from_other_tool_imp"
+msgstr "Infoga från annat verktyg"
+
+msgid "message_insert_module_from_other_tool_instruction"
+msgstr ""
+"Välj en modul från ett annat verktyg och infoga en kopia i detta verktyg."
+
+msgid "label_risks"
+msgstr "Risker"
+
+msgid "message_report_downloads_intro"
+msgstr ""
+"Spara rapporten på din dator och skriv ut den. Du kan också ändra den eller "
+"lägga till mer information. Observera att ändringar som gjorts på din dator "
+"INTE kommer att sparas i OiRA-riskbedömningen."
+
+msgid "unlocked_risk_assessments"
+msgstr "Upplåsta riskbedömningar"
+
+msgid "label_user_it_to_colon"
+msgstr "Använd det till:"
+
+msgid "label_continue_to_consultancy"
+msgstr "Fortsätt till Konsultverksamhet"
+
+msgid "message_help_subscriptions"
+msgstr ""
+"Nyhetsbreven kan anpassas efter dina preferenser, de verktyg din "
+"organisation använder, din bransch och ditt lands nivå."
+
+msgid "label_invite_imp"
+msgstr "Bjud in"
+
+msgid "label_invite"
+msgstr "Bjud in"
+
+msgid "label_invite_to_training"
+msgstr "Bjud in en kollega till den här utbildningen"
+
+msgid "label_countries"
+msgstr "Länder"
+
+msgid "message_contact_consultant"
+msgstr "Ta reda på hur du kommer i kontakt med en OSH-konsult på ${email}."
+
+msgid "message_find_consultant"
+msgstr ""
+"Hitta en OSH-konsult som du vill kontakta eller lägga till i din "
+"organisation för att erbjuda stöd."
+
+msgid "message_help_system_language"
+msgstr ""
+"Systemspråket är språket för knappar, menyer och andra kontroller. Språket "
+"för ditt innehåll eller de verktyg du använder ändras inte med den här "
+"inställningen."
+
+msgid "message_assessment_under_review"
+msgstr "Denna riskbedömning granskas för närvarande av ${user}."
+
+msgid "message_find_osh_consultant"
+msgstr "Hitta en OSH-konsult."
+
+msgid "message_add_osh_consultant_to_organisation"
+msgstr "Lägg till en OSH-konsult i din organisation."
+
+msgid "message_learn_about_consultancy"
+msgstr "Lär dig mer om rådgivning."
+
+msgid "label_find_osh_consultant"
+msgstr "Hitta en OSH-konsult"
+
+msgid "label_add_osh_consultant_to_organisation"
+msgstr "Lägg till en OSH-konsult i din organisation"
+
+msgid "label_learn_about_consultancy"
+msgstr "Lär dig mer om rådgivning"
+
+msgid "message_consultant_has_reviewed"
+msgstr "${user} har granskat, validerat och låst denna riskbedömning."
+
+msgid "label_role_administrator"
+msgstr "Administratör"
+
+msgid "label_role_manager"
+msgstr "Chef/policyansvarig"
+
+msgid "label_role_editor"
+msgstr "Redaktör"
+
+msgid "label_role_member"
+msgstr "Medlem"
+
+msgid "label_permission_level"
+msgstr "Behörighetsnivå"
+
+msgid "label_permission_level_basic"
+msgstr "Grundläggande"
+
+msgid "message_permission_level_basic"
+msgstr "Användaren kan endast genomföra utbildningar."
+
+msgid "label_permission_level_edit"
+msgstr "Redigera"
+
+msgid "message_permission_level_edit"
+msgstr ""
+"Användaren kan genomföra utbildningar och visa och redigera alla "
+"riskbedömningar."
+
+msgid "label_permission_level_manage"
+msgstr "Hantera"
+
+msgid "message_permission_level_manage"
+msgstr ""
+"Användaren kan genomföra utbildningar, visa och redigera alla "
+"riskbedömningar, begära valideringar och låsa riskbedömningar."
+
+msgid "label_permission_level_validate"
+msgstr "Validera"
+
+msgid "label_retract_validation"
+msgstr "Återkalla validering"
+
+msgid "label_retract_validation_imp"
+msgstr "Återkalla validering"
+
+msgid "message_permission_level_validate"
+msgstr ""
+"Användaren kan genomföra utbildningar, visa och redigera alla "
+"riskbedömningar och validera riskbedömningar."
+
+msgid "label_permission_level_full"
+msgstr "Full"
+
+msgid "message_permission_level_full"
+msgstr ""
+"Användaren visar och redigerar allt innehåll och lägger till eller tar bort "
+"användare från organisationen."
+
+msgid "label_email_invite_user_subject"
+msgstr "Bekräfta OiRA-medlemskap i '${organisation}'"
+
+msgid "message_email_invite_user_body"
+msgstr ""
+"Härmed bjuder jag in dig att gå med i vår organisation på OiRA. När du har "
+"accepterat ditt medlemskap kan vi samarbeta om riskbedömningar. \\n\\n "
+"Vänligen logga in eller registrera dig via länken nedan och acceptera ditt "
+"medlemskap. Denna länk är giltig i 5 dagar."
+
+msgid "message_invite_user"
+msgstr ""
+"När du klickar på 'Bjud in via e-post' öppnas din e-postklient med ett nytt "
+"e-postmeddelande med en länk som folk kan använda för att gå med i din "
+"organisation. Länken är giltig i fem dagar och du kan skicka den till så "
+"många personer du vill ska gå med i din organisation."
+
+msgid "label_select_role_new_member"
+msgstr "Välj den roll din nya medlem ska få"
+
+msgid "label_select_access_level_new_member"
+msgstr "Välj den åtkomstnivå din nya medlem ska få"
+
+msgid "label_invite_by_email"
+msgstr "Bjud in via e-post"
+
+msgid "message_unlock_ra"
+msgstr ""
+"När du låser upp denna riskbedömning kommer den att förlora sin validerade "
+"status. Du kan fortfarande begära omvalidering vid ett senare tillfälle."
+
+msgid "message_unlock_and_invalidate_by_consultant"
+msgstr ""
+"Du håller på att ogiltigförklara och låsa upp denna riskbedömning. Om du "
+"bara vill göra några korrigeringar, glöm inte att omvalidera när du är redo."
+
+msgid "message_training"
+msgstr ""
+"Obs: Detta är en förhandsgranskning. Använd PowerPoint för utbildning."
+
+msgid "message_find_consultant_in_country"
+msgstr "Hitta en arbetsmiljökonsult i ditt land."
+
+msgid "label_approve_risk_assessment"
+msgstr "Godkänn riskbedömning"
+
+msgid "label_risk_assessment"
+msgstr "Riskbedömning"
+
+msgid "label_risk_assessments"
+msgstr "Riskbedömningar"
+
+msgid "label_default_view"
+msgstr "Standardvy"
+
+msgid "message_name_is_used_for"
+msgstr ""
+"Att fylla i dina namn ger en mer personlig användarupplevelse för dig och "
+"dina medarbetare. Ditt namn visas i automatiska e-postmeddelanden och på "
+"olika skärmar i hela applikationen."
+
+msgid "label_insert"
+msgstr "Infoga"
+
+msgid "label_upload_files"
+msgstr "Ladda upp filer"
+
+msgid "label_remove_document"
+msgstr "Ta bort dokument"
+
+msgid "message_remove_document"
+msgstr ""
+"Du håller på att ta bort det här dokumentet. Denna åtgärd kan inte ångras."
+
+msgid "label_documents"
+msgstr "Dokument"
+
+msgid "label_trainings"
+msgstr "Utbildningar"
+
+msgid "label_training_material"
+msgstr "Utbildningsmaterial"
+
+msgid "label_briefing_documents"
+msgstr "Briefingdokument"
+
+msgid "message_downloaded_understood_document"
+msgstr "Jag har laddat ned, läst och förstått ovanstående dokument."
+
+msgid "message_downloaded_understood_documents"
+msgstr "Jag har laddat ned, läst och förstått ovanstående dokument."
+
+msgid "message_downloaded_understood_thank_you"
+msgstr "Vi har registrerat din bekräftelse. Tack för din tid."
+
+msgid "label_organisation_off_user_name"
+msgstr "Organisation för ${user}"
+
+msgid "label_i_am_sure_remove_user"
+msgstr "Ja, jag är säker, ta bort den här användaren"
+
+msgid "label_i_am_sure_delete_organisation"
+msgstr "Ja, jag är säker, ta bort den här organisationen"
+
+msgid "label_delete_organisation"
+msgstr "Ta bort organisation"
+
+msgid "label_remove_user"
+msgstr "Ta bort användare"
+
+msgid "label_remove_user_imp"
+msgstr "Ta bort användare"
+
+msgid "label_logo_optional"
+msgstr "Logotyp (valfritt)"
+
+msgid "label_remove_image_imp"
+msgstr "Ta bort bild"
+
+msgid "label_organisation_name"
+msgstr "Organisationsnamn"
+
+msgid "label_add_organisation"
+msgstr "Lägg till organisation"
+
+msgid "label_add_organisation_imp"
+msgstr "Lägg till organisation"
+
+msgid "label_edit_training_card"
+msgstr "Redigera träningskort"
+
+msgid "action_search"
+msgstr "Sök"
+
+msgid "add_another_item"
+msgstr "Lägg till ett till objekt"
+
+msgid "add_existing_measures"
+msgstr "lägg till alla åtgärder som redan har implementerats."
+
+msgid "add_missing_existing_measure"
+msgstr "Lägg till ytterligare en redan genomförd åtgärd"
+
+msgid "add_training_notes"
+msgstr "Lägg till dina utbildningsanteckningar här…"
+
+msgid "additional_resources"
+msgstr "Ytterligare resurser"
+
+msgid "are_you_sure"
+msgstr "Är du säker på att du vill fortsätta?"
+
+msgid "are_you_sure_delete"
+msgstr ""
+"Är du säker på att du vill ta bort denna session? Denna åtgärd kan inte "
+"ångras."
+
+msgid "button_continue"
+msgstr "Fortsätt"
+
+msgid "button_print"
+msgstr "Skriv ut"
+
+msgid "button_save_and_continue"
+msgstr "Spara och fortsätt"
+
+msgid "button_skip"
+msgstr "Hoppa över"
+
+msgid "cancel"
+msgstr "Avbryt"
+
+msgid "comments"
+msgstr "Kommentarer"
+
+msgid "confirmation_ra_archive"
+msgstr "Ja, arkivera riskbedömning"
+
+msgid "confirmation_ra_clone"
+msgstr "Ja, klona riskbedömningen"
+
+msgid "confirmation_ra_delete"
+msgstr "Ja, radera riskbedömningen"
+
+msgid "confirmation_risk_delete"
+msgstr "Ja, ta bort risk"
+
+msgid "confirmation_send_briefing_documents"
+msgstr "Skicka informationsdokument"
+
+msgid "confirmation_unlock_ra"
+msgstr "Ja, lås upp"
+
+msgid "label_unlock_imp"
+msgstr "Lås upp"
+
+msgid "describe_item"
+msgstr "Beskriv det här objektet"
+
+msgid "describe_new_measure"
+msgstr "Beskriv en åtgärd som redan är på plats men ännu inte listad här."
+
+msgid "describe_risk"
+msgstr "Beskriv risken…"
+
+msgid "description_calculated_evaluation"
+msgstr ""
+"Vänligen svara på följande frågor. Som ett resultat av dina svar kommer "
+"systemet att beräkna prioriteten för risken. Du kommer att kunna ändra "
+"prioriteten senare."
+
+msgid "email_address"
+msgstr "E-postadress"
+
+msgid "explanation_briefing_documents"
+msgstr ""
+"Informationsdokumenten omfattar förberedelsedokument, utbildningsmaterial "
+"och rapporten i PDF."
+
+msgid "explanation_password_reminder"
+msgstr ""
+"Ange din e-postadress. Du kommer att få ett e-postmeddelande med "
+"instruktioner för att återställa ditt lösenord."
+
+msgid "label_archived"
+msgstr "Arkiverad"
+
+msgid "label_archiving"
+msgstr "Arkivering"
+
+msgid "label_show_archived"
+msgstr "Visa arkiverade"
+
+msgid "explanation_ra_archive"
+msgstr ""
+"Genom att arkivera denna riskbedömning kommer den att bli skrivskyddad och "
+"dold i översikter om inte filtret 'visa arkiverade riskbedömningar' "
+"tillämpas."
+
+msgid "explanation_ra_clone"
+msgstr ""
+"Genom att duplicera en riskbedömning skapar du en ny riskbedömning baserad "
+"på innehållet i denna riskbedömning som utgångspunkt."
+
+msgid "explanation_ra_delete"
+msgstr ""
+"Den här åtgärden tar bort riskbedömningen 'Private Security EU'. Detta kan "
+"inte ångras."
+
+msgid "explanation_risk_delete"
+msgstr "Du håller på att ta bort risken:"
+
+msgid "explanation_session_locked"
+msgstr ""
+"Om du vill göra några ändringar i den här riskbedömningen bör du låsa upp "
+"den först."
+
+msgid "header_risk_severity"
+msgstr "Vad är skadans allvarlighetsgrad?"
+
+msgid "higher_ranking_ras"
+msgstr "Bedömningar av högre rang"
+
+msgid "identified"
+msgstr "Risk identifierad"
+
+msgid "identified_with_measures"
+msgstr "Risk med åtgärder"
+
+msgid "if_applicable"
+msgstr "Är denna risk acceptabel eller under kontroll? Om tillämpligt,"
+
+msgid "information"
+msgstr "Information"
+
+msgid "label_about_this_risk"
+msgstr "om denna risk."
+
+msgid "label_add_existing_measures"
+msgstr "Lägg till åtgärder som <strong>redan är genomförda</strong>."
+
+msgid "label_addition_measure"
+msgstr "Ytterligare åtgärd"
+
+msgid "label_advanced_search"
+msgstr "Avancerad sökning"
+
+msgid "label_all_ra_types"
+msgstr "Alla typer av riskbedömningar"
+
+msgid "label_all_types"
+msgstr "Alla typer"
+
+msgid "label_locking"
+msgstr "Låsning"
+
+msgid "label_all_locking_state"
+msgstr "Alla låsningstillstånd"
+
+msgid "label_locked_and_unlocked"
+msgstr "Låst och olåst"
+
+msgid "label_all"
+msgstr "Alla"
+
+msgid "label_almost_done"
+msgstr "Nästan klart…"
+
+msgid "label_almost_never"
+msgstr "Nästan aldrig"
+
+msgid "label_and"
+msgstr "Och…"
+
+msgid "label_any_text_field"
+msgstr "Vilket textfält som helst"
+
+msgid "label_any_user"
+msgstr "Alla användare"
+
+msgid "label_archive"
+msgstr "Arkiv"
+
+msgid "label_archive_ra"
+msgstr ""
+"Arkivera den här riskbedömningen. Den här riskbedömningen kommer att bli "
+"skrivskyddad och dold i översikter om inte filtret 'visa arkiverade "
+"riskbedömningar' tillämpas."
+
+msgid "label_authored_by"
+msgstr "Skapad av…"
+
+msgid "label_automatic_language"
+msgstr "Automatisk (Baserad på webbläsarens språk)"
+
+msgid "label_tool"
+msgstr "Verktyg"
+
+msgid "label_based_on_system_language"
+msgstr "Baserad på systemspråk"
+
+msgid "label_available_tools"
+msgstr "Tillgängliga OiRA-verktyg"
+
+msgid "label_certificate"
+msgstr "Certifikat"
+
+msgid "label_certificate_datetime_example"
+msgstr "den <time class=\"certificate-date\">7 september 2019</time>"
+
+msgid "label_certificate_department"
+msgstr "Avdelning/Region"
+
+msgid "label_complete"
+msgstr "Slutförd"
+
+msgid "label_youve_earned_a_certificate_for_this_tool"
+msgstr "Du har tjänat ett certifikat för detta verktyg"
+
+msgid "label_certificate_benefits"
+msgstr ""
+"Med detta certifikat kan du ansöka om en minskning av ditt företags "
+"försäkringspriser."
+
+msgid "label_certificate_learn_more_about_the_benefits"
+msgstr "Läs mer om fördelarna…"
+
+msgid "label_certificate_view"
+msgstr "Visa certifikat"
+
+msgid "label_awarded_certificates"
+msgstr "Tilldelade certifikat"
+
+msgid "label_certificate_awarded"
+msgstr "Följande certifikat tilldelades för denna bedömning."
+
+msgid "label_certificate_country"
+msgstr "land"
+
+msgid "label_certificate_company_identification_number"
+msgstr "Företagets identifikationsnummer"
+
+msgid "label_certificate_contact_name"
+msgstr "Kontaktnamn"
+
+msgid "label_certificate_for_conducting"
+msgstr "För att genomföra en riskbedömning med verktyget"
+
+msgid "label_certificate_presented_to"
+msgstr "Detta certifikat tilldelas"
+
+msgid "label_certificate_your_certificate_for"
+msgstr "Ditt certifikat för"
+
+msgid "label_confirm"
+msgstr "Bekräfta"
+
+msgid "label_confirm_recipients"
+msgstr ""
+"Bekräfta att du har fått ett e-postsvar från en eller flera mottagare som "
+"anger att de godkänner villkoren."
+
+msgid "label_constantly"
+msgstr "Ständigt"
+
+msgid "label_contains"
+msgstr "Innehåller"
+
+msgid "label_contains_not"
+msgstr "Innehåller inte"
+
+msgid "label_continue_action_plan"
+msgstr "Fortsätt till åtgärdsplan"
+
+msgid "label_date_of_onsite_inspection"
+msgstr "Datum för inspektion på plats"
+
+msgid "label_date_of_sample"
+msgstr "Datum för prov"
+
+msgid "label_days"
+msgstr "dagar"
+
+msgid "label_all_departments"
+msgstr "Alla avdelningar"
+
+msgid "label_documents_sent"
+msgstr "Dokument skickade"
+
+msgid "label_done_training_slides"
+msgstr "Du är klar med utbildningsbilderna!"
+
+msgid "label_download_pptx"
+msgstr "Ladda ner som PowerPoint-fil"
+
+msgid "label_download_report"
+msgstr ""
+"Vi rekommenderar att du alltid håller en uppdaterad utskriven version av din"
+" riskbedömning (rapport) tillgänglig i ditt företag!"
+
+msgid "label_end_date"
+msgstr "Slutdatum"
+
+msgid "label_equals"
+msgstr "Är lika med"
+
+msgid "label_equals_not"
+msgstr "Är inte lika med"
+
+msgid "label_expand_sidebar"
+msgstr "Expandera sidopanel"
+
+msgid "label_also_include_ellipsis"
+msgstr "Inkludera även…"
+
+msgid "label_extra_measures"
+msgstr "Extra åtgärder"
+
+msgid "planned_extra_measures"
+msgstr "Planerade åtgärder"
+
+msgid "label_risk_is_always_present"
+msgstr "Risk är alltid närvarande"
+
+msgid "label_measure"
+msgstr "Åtgärd"
+
+msgid "label_solutions"
+msgstr "Lösningar"
+
+msgid "label_measures"
+msgstr "Åtgärder"
+
+msgid "label_ff_ra_types"
+msgstr "Endast riskbedömningar för entreprenörer"
+
+msgid "label_finish"
+msgstr "Avsluta"
+
+msgid "label_finish_with_certificate"
+msgstr "Avsluta och tjäna certifikat"
+
+msgid "label_hide_unarchived_ras"
+msgstr "Dölj arkiverade riskbedömningar"
+
+msgid "label_high"
+msgstr "Hög"
+
+msgid "label_high_severity"
+msgstr "Hög (mycket hög) allvarlighetsgrad"
+
+msgid "label_is"
+msgstr "Är"
+
+msgid "label_is_after"
+msgstr "Är efter"
+
+msgid "label_is_before"
+msgstr "Är före"
+
+msgid "label_large"
+msgstr "Stor"
+
+msgid "label_last_modified"
+msgstr "Senast ändrad"
+
+msgid "label_last_on_site"
+msgstr "Senaste riskbedömning på plats"
+
+msgid "label_last_published"
+msgstr "Senast publicerad"
+
+msgid "label_last_sampled"
+msgstr "Senast samplade"
+
+msgid "label_low"
+msgstr "Låg"
+
+msgid "label_mailings"
+msgstr "Utskick"
+
+msgid "label_me"
+msgstr "Mig"
+
+msgid "label_measures_overview"
+msgstr "Översikt över åtgärder"
+
+msgid "label_medium"
+msgstr "Medel"
+
+msgid "label_more"
+msgstr "Mer…"
+
+msgid "label_name_on_certificate"
+msgstr "Namn på certifikat"
+
+msgid "label_name_ra"
+msgstr "Namn på riskbedömning"
+
+msgid "label_new_sample_required"
+msgstr "Ett nytt urval krävs."
+
+msgid "label_new_search_rule"
+msgstr "Lägg till ytterligare en sökregel"
+
+msgid "label_new_user"
+msgstr "Ny användare"
+
+msgid "label_add_user"
+msgstr "Lägg till användare"
+
+msgid "label_on_site_ras"
+msgstr "Bedömningar på plats"
+
+msgid "label_or"
+msgstr "Eller…"
+
+msgid "label_preferred_content_language"
+msgstr "Önskat innehållsspråk"
+
+msgid "label_print"
+msgstr "Skriv ut"
+
+msgid "label_profiling"
+msgstr "Anpassa riskbedömningen till din organisation"
+
+msgid "label_ra_history"
+msgstr "Historia för riskbedömning"
+
+msgid "label_ra_title"
+msgstr "Ange ett namn för din riskbedömning"
+
+msgid "label_received_briefing_documents_confirmed"
+msgstr "Bekräfta mottagande av brifingdokument av entreprenören"
+
+msgid "label_recipients_replied"
+msgstr "Mottagare som svarade"
+
+msgid "label_regular_ra_types"
+msgstr "Endast vanliga riskbedömningar"
+
+msgid "label_regularly"
+msgstr "Regelbundet"
+
+msgid "label_risks_overview"
+msgstr "Översikt över risker"
+
+msgid "label_sample_every"
+msgstr "Sampla var"
+
+msgid "label_sampling"
+msgstr "Sampling"
+
+msgid "label_select_applicable_options"
+msgstr ""
+"Kryssa i alla tillämpliga rutor eller lägg till nya poster om det behövs."
+
+msgid "label_select_or_add_existing_measures"
+msgstr ""
+"Välj eller lägg till åtgärder som <strong>redan är genomförda</strong>."
+
+msgid "label_select_risk_priority"
+msgstr "Välj prioritet för denna risk"
+
+msgid "label_send_briefing_documents_to_contractor"
+msgstr "Skicka informationsdokument till entreprenören"
+
+msgid "label_share_training"
+msgstr "Dela utbildning"
+
+msgid "label_share_training_imp"
+msgstr "Dela utbildning"
+
+msgid "label_show_archived_ras"
+msgstr "Visa arkiverade riskbedömningar"
+
+msgid "label_significant_severity"
+msgstr "Betydande allvarlighetsgrad"
+
+msgid "label_small"
+msgstr "Liten"
+
+msgid "label_standard_measures"
+msgstr "Standardåtgärder"
+
+msgid "label_standard_search"
+msgstr "Standardsökning"
+
+msgid "label_standing_order"
+msgstr "Stående order"
+
+msgid "label_start_date"
+msgstr "Startdatum"
+
+msgid "label_start_ra"
+msgstr "Starta riskbedömning"
+
+msgid "label_status"
+msgstr "Status"
+
+msgid "label_subscriptions"
+msgstr "Prenumerationer"
+
+msgid "label_type"
+msgstr "Typ"
+
+msgid "label_take_training"
+msgstr "Ta utbildning"
+
+msgid "label_training_and_test"
+msgstr "Utbildning och test"
+
+msgid "label_external_company"
+msgstr "Externa företag"
+
+msgid "label_external_companies"
+msgstr "Externt företag"
+
+msgid "label_any_external_company"
+msgstr "Valfritt externt företag"
+
+msgid "label_external_company_coordination"
+msgstr "Koordinering av externt företag"
+
+msgid "label_this_is_a"
+msgstr "Detta är en"
+
+msgid "label_this_is_a_xx_priority_risk"
+msgstr "prioritetsrisk."
+
+msgid "label_topics"
+msgstr "Ämnen"
+
+msgid "label_training"
+msgstr "Utbildning"
+
+msgid "label_training_answer_questions"
+msgstr ""
+"Du kan nu svara på några frågor för att bevisa att du behärskar det här "
+"ämnet och tjäna ditt certifikat."
+
+msgid "label_training_start_questions"
+msgstr "Starta frågorna"
+
+msgid "label_unlock_session"
+msgstr "Lås upp den här riskbedömningen"
+
+msgid "label_unlock_and_invalidate_imp"
+msgstr "Lås upp och ogiltigförklara"
+
+msgid "label_lock_assessment"
+msgstr "Lås den här bedömningen"
+
+msgid "label_upload_image"
+msgstr "Ladda upp bild"
+
+msgid "label_waiting_for_confimation"
+msgstr "Väntar på bekräftelse"
+
+msgid "label_weak_severity"
+msgstr "Svag allvarlighetsgrad"
+
+msgid "last_saved"
+msgstr "Senast sparad"
+
+msgid "legal_references"
+msgstr "Rättsliga referenser"
+
+msgid "link_learn_more_about_tool"
+msgstr "Lär dig mer om det här verktyget…"
+
+msgid "login"
+msgstr "Logga in"
+
+msgid "message_assessment_state_will_change_to_documents_sent"
+msgstr ""
+"Statusen för riskbedömningen ändras från \"Pågående\" till "
+"\"Informationsdokument skickade\". Riskbedömningen låses vid detta tillfälle"
+" för att förhindra ytterligare ändringar."
+
+msgid "message_briefing_documents_will_be_sent_to_address"
+msgstr ""
+"En nedladdningslänk till informationsdokumenten skickas till "
+"<strong>lizz@jabiesenstiel.de</strong>. "
+
+msgid "message_briefing_documents_will_get_notification"
+msgstr ""
+"Du får ett meddelande när användaren har bekräftat att hen har läst, laddat "
+"ned och förstått dokumenten."
+
+msgid "message_certificate_incentive"
+msgstr ""
+"I vissa europeiska länder kan detta certifikat användas för att ansöka om en"
+" skatteförmån eller en reducerad försäkringsavgift."
+
+msgid "message_intro_send_briefing_documents"
+msgstr "Om du fortsätter kommer följande att hända."
+
+msgid "message_password_requirements"
+msgstr ""
+"Lösenordet måste vara minst 12 tecken långt och måste innehålla minst en "
+"gemen bokstav, en versal bokstav och en siffra."
+
+msgid "message_register_onsite_inspection"
+msgstr "Registrera en platskontroll för den här riskbedömningen."
+
+msgid "message_register_sample"
+msgstr "Registrera provtagning för den här riskbedömningen."
+
+msgid "message_session_locked_v2"
+msgstr ""
+"Den här riskbedömningen är låst eftersom informationsdokumenten redan har "
+"skickats till entreprenören."
+
+msgid "message_session_locked_v3"
+msgstr ""
+"Den här riskbedömningen är låst eftersom informationsdokumenten redan har "
+"skickats till och godkänts av entreprenören."
+
+msgid "message_system_language"
+msgstr ""
+"Vissa appar kanske inte använder det nya språket förrän du startar om dem."
+
+msgid "message_waiting_for_confimation"
+msgstr ""
+"Dessa riskbedömningar väntar på en bekräftelse att entreprenören har tagit "
+"emot informationsdokumenten."
+
+msgid "message_you_are_about_to_unlock"
+msgstr ""
+"Du håller på att låsa upp riskbedömningen <strong>„Einweisung Fremdfirmen: "
+"Reinigungskräfte“</strong>."
+
+msgid "message_you_are_about_to_unlock_consequences"
+msgstr ""
+"När du har låst upp måste du skicka om informationsdokumenten till "
+"entreprenören för validering."
+
+msgid "message_you_are_about_to_unlock_explanation"
+msgstr ""
+"Denna riskbedömning är låst eftersom brifingdokumenten redan skickats till "
+"entreprenören."
+
+msgid "my_ras"
+msgstr "Mina riskbedömningar"
+
+msgid "new_ra"
+msgstr "Ny riskbedömning"
+
+msgid "new_test_ra"
+msgstr "Ny testsession"
+
+msgid "no_measures_required"
+msgstr "Nej, fler åtgärder krävs"
+
+msgid "no_risk"
+msgstr "Ingen risk"
+
+msgid "not_applicable"
+msgstr "Ej tillämpligt"
+
+msgid "notice_cannot_clone"
+msgstr "Duplicering är inte aktiverat för denna riskbedömning."
+
+msgid "notice_read_only"
+msgstr ""
+"Du har inte redigeringsrättigheter för denna riskbedömning, men du kan ladda"
+" ner denna riskbedömning i olika former i <a href='/report-"
+"download.html'>nedladdningssektionen</a>."
+
+msgid "on_is_accpetable"
+msgstr "Är denna risk acceptabel eller under kontroll?"
+
+msgid "other_risks"
+msgstr "Anpassade risker"
+
+msgid "placeholder_approach_action_plan"
+msgstr "Allmänt tillvägagångssätt (för att eliminera eller minska risken)"
+
+msgid "placeholder_comment"
+msgstr ""
+"Dessa anteckningar kommer att vara synliga i rapporten och utbildningen. "
+"Använd det för allt annat du kanske vill skriva om denna risk."
+
+msgid "placeholder_custom_risk_description"
+msgstr "Ange ytterligare information om denna risk."
+
+msgid "placeholder_search_contractor_name"
+msgstr "Sök en entreprenör efter namn"
+
+msgid "placeholder_search_contractor_name_number"
+msgstr "Sök en entreprenör efter namn eller entreprenörsnummer"
+
+msgid "postponed"
+msgstr "Uppskjuten"
+
+msgid "probe_custom_interval"
+msgstr "Annat"
+
+msgid "probe_high_risk"
+msgstr "7 dagar (Hög risk)"
+
+msgid "probe_low_risk"
+msgstr "30 dagar (Låg risk)"
+
+msgid "probe_medium_risk"
+msgstr "14 dagar (Medelhög risk)"
+
+msgid "probe_no_risk"
+msgstr "Ej obligatoriskt (Ingen risk)"
+
+msgid "question_measures_sufficient"
+msgstr "Är de åtgärder som redan är genomförda tillräckliga?"
+
+msgid "ra_with_this_tool"
+msgstr "Riskbedömningar gjorda med detta verktyg"
+
+msgid "recommended_tools"
+msgstr "Rekommenderade verktyg"
+
+msgid "remove"
+msgstr "Ta bort"
+
+msgid "remove_measure"
+msgstr "Ta bort denna redan implementerade åtgärd"
+
+msgid "rename"
+msgstr "Byt namn"
+
+msgid "resources"
+msgstr "Resurser"
+
+msgid "save"
+msgstr "Spara"
+
+msgid "save_and_add_risk"
+msgstr "Spara och lägg till ny risk"
+
+msgid "select_earlier_session"
+msgstr "Välj en tidigare riskbedömning att slutföra eller granska eller"
+
+msgid "send_password_reminder"
+msgstr "Skicka påminnelse om lösenord"
+
+msgid "start_new_ra"
+msgstr "Starta en ny riskbedömning"
+
+msgid "start_new_ra_imp"
+msgstr "Starta en ny riskbedömning"
+
+msgid "start_new_ra_with_this_tool"
+msgstr "Starta en ny riskbedömning med detta verktyg"
+
+msgid "start_new_session"
+msgstr "starta en ny riskbedömning"
+
+msgid "start_ra"
+msgstr "Starta riskbedömning"
+
+msgid "start_session_by_selecting"
+msgstr "Starta en ny riskbedömning med ett av följande verktyg."
+
+msgid "start_test_ra"
+msgstr "Starta testsession"
+
+msgid "title_byline"
+msgstr "Interaktiv riskbedömning online"
+
+msgid "title_delete_risk"
+msgstr "Ta bort risk"
+
+msgid "title_download_report"
+msgstr "Ladda ner och skriv ut din rapport"
+
+msgid "title_our_contractors"
+msgstr "Våra entreprenörer"
+
+msgid "title_password_reminder"
+msgstr "Påminnelse om lösenord"
+
+msgid "title_ra_archive"
+msgstr "Arkivera riskbedömning"
+
+msgid "title_ra_clone"
+msgstr "Duplicera riskbedömning"
+
+msgid "title_ra_delete"
+msgstr "Ta bort riskbedömning"
+
+msgid "title_recent_ff_ras"
+msgstr "Nyligen behandlade externa företag"
+
+msgid "title_register_onsite_inspection"
+msgstr "Registrera riskbedömning på plats"
+
+msgid "title_register_sample"
+msgstr "Registrera provtagning"
+
+msgid "title_registration"
+msgstr "Registrering"
+
+msgid "title_risk_delete"
+msgstr "Ta bort risk"
+
+msgid "title_share_training"
+msgstr "Dela utbildning"
+
+msgid "to_sign_off"
+msgstr "För godkännande"
+
+msgid "training_material"
+msgstr "Utbildningsmaterial"
+
+msgid "unanswered"
+msgstr "Obesvarat"
+
+msgid "unvisited"
+msgstr "Obesökt"
+
+msgid "yes_acceptable"
+msgstr "Ja, den återstående risken är acceptabel"
+
+msgid "label_additional_content"
+msgstr "Ytterligare innehåll"
+
+#~ msgid "The specified colour is not valid."
+#~ msgstr "Den angivna färgen är ogiltig."
+
+#~ msgid "frequency_french_often_help"
+#~ msgstr "Konstant"
+
+#~ msgid "frequency_french_rare_help"
+#~ msgstr "Regelbunden"
+
+#~ msgid "frequency_french_regularly_help"
+#~ msgstr "Regelbunden"
+
+#~ msgid "label_analysis"
+#~ msgstr "Analys"
+
+#~ msgid "label_log_out_imp"
+#~ msgstr "Logga ut"
+
+#~ msgid "label_new_risk_assessment"
+#~ msgstr "Ny riskbedömning"
+
+#~ msgid "label_sample_at_regular_intervals"
+#~ msgstr "Sampla med regelbundna intervall"
+
+#~ msgid "label_start_new_risk_assessment_imp"
+#~ msgstr "Starta ny riskbedömning"
+
+#~ msgid "label_toggle_on_screen_help_imp"
+#~ msgstr "Aktivera/inaktivera skärmhjälp"
+
+#~ msgid "label_under_review"
+#~ msgstr "Under granskning"
+
+#~ msgid "message_clone_or_start_new"
+#~ msgstr ""
+#~ "Du kan kopiera innehåll från en befintlig bedömning som gjorts med verktyget"
+#~ " {0} eller börja från början."
+
+#~ msgid "message_finetune_settings_assessment"
+#~ msgstr "Finjustera inställningarna för denna riskbedömning."
+
+#~ msgid "message_help_intro"
+#~ msgstr "Välj något av ämnena nedan för att lära dig mer om hur OiRA fungerar."
+
+#~ msgid "message_include_ellipsis"
+#~ msgstr "Inkludera…"
+
+#~ msgid "message_invite_for_training"
+#~ msgstr ""
+#~ "Bjud in en kollega att lära sig om relevanta risker och åtgärder i “{0}”. "
+#~ "Den inbjudna användaren får automatiskt åtkomst till denna bedömning i "
+#~ "träningssyfte."
+
+#~ msgid "message_training_promoted"
+#~ msgstr ""
+#~ "Utbildningsmaterialet för denna riskbedömning kommer att finnas under fliken"
+#~ " 'utbildning' på OiRA-startskärmen."
+
+#~ msgid "message_you_dont_have_any_risk_assessments_yet_short"
+#~ msgstr "Du har inga riskbedömningar ännu."
 
 #~ msgid "A folder for all documentation for a specific language."
 #~ msgstr "En mapp för all dokumentation av ett visst språk."
@@ -7302,9 +10273,6 @@ msgstr "Ja"
 
 #~ msgid "Unknown email address"
 #~ msgstr "Okänd e-postadress"
-
-#~ msgid "button_print"
-#~ msgstr "Skriv ut"
 
 #~ msgid "button_save_changes"
 #~ msgstr "Spara ändringar"
