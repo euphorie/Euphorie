@@ -18,7 +18,6 @@ import sys
 import transaction
 import zExceptions
 
-
 log = logging.getLogger(__name__)
 
 
@@ -198,7 +197,7 @@ def main(app, args):
         default="default",
     )
 
-    (options, args) = parser.parse_args(args)
+    options, args = parser.parse_args(args)
 
     if not args:
         raise Abort("Please specify a (single) XML file to import.")

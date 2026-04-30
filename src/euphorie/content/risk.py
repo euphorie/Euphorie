@@ -45,7 +45,6 @@ from zope.schema.vocabulary import SimpleVocabulary
 
 import sys
 
-
 TextLines4Rows = FieldWidgetFactory(
     "z3c.form.browser.textlines.TextLinesFieldWidget", rows=4
 )

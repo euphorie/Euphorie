@@ -7,7 +7,6 @@ from z3c.saconfig import Session
 from zope.component import getAdapter
 from zope.interface.interfaces import ComponentLookupError
 
-
 logger = getLogger(__name__)
 
 

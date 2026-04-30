@@ -5,7 +5,6 @@ from logging import getLogger
 
 import sqlalchemy as sa
 
-
 logger = getLogger()
 
 

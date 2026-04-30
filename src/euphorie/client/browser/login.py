@@ -38,7 +38,6 @@ import logging
 import os
 import re
 
-
 log = logging.getLogger(__name__)
 
 # I know this is a stupid regular expression, but it Works For Us(tm)

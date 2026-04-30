@@ -5,7 +5,6 @@ from plone.memoize.view import memoize
 from plone.memoize.view import memoize_contextless
 from Products.Five import BrowserView
 
-
 TYPES_MAP = {
     "euphorie.documentation": "Documentation",
     "euphorie.help": "Help",

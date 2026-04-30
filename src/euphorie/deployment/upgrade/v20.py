@@ -9,7 +9,6 @@ from zope.sqlalchemy import datamanager
 
 import logging
 
-
 log = logging.getLogger(__name__)
 
 

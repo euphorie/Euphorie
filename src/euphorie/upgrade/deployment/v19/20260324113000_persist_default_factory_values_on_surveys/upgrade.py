@@ -3,7 +3,6 @@ from ftw.upgrade import UpgradeStep
 from logging import getLogger
 from plone import api
 
-
 logger = getLogger(__name__)
 
 

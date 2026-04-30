@@ -1,7 +1,6 @@
 from plone import api
 from plone.app.testing.interfaces import SITE_OWNER_NAME
 
-
 EMPTY_SURVEY = """<sector xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
              <survey>
               <title>Software development</title>

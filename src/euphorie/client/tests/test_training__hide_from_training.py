@@ -7,7 +7,6 @@ from plone import api
 from z3c.saconfig import Session
 from zope.interface import alsoProvides
 
-
 SURVEY_1 = """
 <sector xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
   <title>sector</title>
