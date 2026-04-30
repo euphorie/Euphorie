@@ -40,7 +40,6 @@ from zope.interface import implementer
 import datetime
 import logging
 
-
 log = logging.getLogger(__name__)
 
 

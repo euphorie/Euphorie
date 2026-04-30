@@ -40,7 +40,6 @@ import lxml.objectify
 import mimetypes
 import random
 
-
 try:
     from base64 import decodebytes
 except ImportError:
@@ -316,7 +315,7 @@ class SurveyImporter:
 
         for index, child in enumerate(node.iterchildren(tag=XMLNS + "image")):
             postfix = "" if not index else str(index + 1)
-            (image, caption) = self.ImportImage(child)
+            image, caption = self.ImportImage(child)
             setattr(risk, "image" + postfix, image)
             setattr(risk, "caption" + postfix, caption)
             if index == 3:
@@ -355,7 +354,7 @@ class SurveyImporter:
 
         image = getattr(node, "image", None)
         if image is not None:
-            (image, caption) = self.ImportImage(image)
+            image, caption = self.ImportImage(image)
             module.image = image
             module.caption = caption
 
@@ -461,11 +460,11 @@ class SurveyImporter:
         survey.external_id = attr_unicode(node, "external-id")
         external_site_logo = getattr(node, "external_site_logo", None)
         if external_site_logo is not None:
-            (image, caption) = self.ImportImage(external_site_logo)
+            image, caption = self.ImportImage(external_site_logo)
             survey.external_site_logo = image
         lead_image = getattr(node, "image", None)
         if lead_image is not None:
-            (image, caption) = self.ImportImage(lead_image)
+            image, caption = self.ImportImage(lead_image)
             survey.image = image
 
         if IToolCategory.providedBy(survey):
@@ -573,7 +572,7 @@ class ImportSurvey(AutoExtensibleForm, form.Form):
 
     @button.buttonAndHandler(_("Upload"))
     def handleUpload(self, action):
-        (data, errors) = self.extractData()
+        data, errors = self.extractData()
         if errors:
             return
         input = data["file"].data

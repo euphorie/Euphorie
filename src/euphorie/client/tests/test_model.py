@@ -83,14 +83,14 @@ class SurveySessionTests(EuphorieIntegrationTestCase):
             self.assertFalse(context_filter)
 
     def testNoChildren(self):
-        (ses, survey) = createSurvey()
+        ses, survey = createSurvey()
         root = survey.addChild(model.Module(title="Root", module_id="1", zodb_path="1"))
         ses.add(root)
         ses.flush()
         self.assertEqual(root.children().count(), 0)
 
     def testAddChild(self):
-        (ses, survey) = createSurvey()
+        ses, survey = createSurvey()
         root = survey.addChild(model.Module(title="Root", module_id="1", zodb_path="1"))
         ses.add(root)
         root.addChild(model.Module(title="Module", module_id="1", zodb_path="1/1"))
@@ -98,7 +98,7 @@ class SurveySessionTests(EuphorieIntegrationTestCase):
         self.assertEqual(root.children().count(), 1)
 
     def testChildOrder(self):
-        (ses, survey) = createSurvey()
+        ses, survey = createSurvey()
         root = survey.addChild(model.Module(title="Root", module_id="1", zodb_path="1"))
         ses.add(root)
         ses.flush()
@@ -109,7 +109,7 @@ class SurveySessionTests(EuphorieIntegrationTestCase):
         self.assertEqual([c.module_id for c in list(root.children())], ["5", "1", "3"])
 
     def testReset_NoChildren(self):
-        (ses, survey) = createSurvey()
+        ses, survey = createSurvey()
         survey.reset()
         children = ses.query(model.SurveyTreeItem.id).filter(
             model.SurveyTreeItem.session == survey
@@ -117,7 +117,7 @@ class SurveySessionTests(EuphorieIntegrationTestCase):
         self.assertEqual(children.count(), 0)
 
     def testReset_SingleChild(self):
-        (ses, survey) = createSurvey()
+        ses, survey = createSurvey()
         root = survey.addChild(model.Module(title="Root", module_id="1", zodb_path="1"))
         ses.add(root)
         children = ses.query(model.SurveyTreeItem.id).filter(
@@ -128,11 +128,11 @@ class SurveySessionTests(EuphorieIntegrationTestCase):
         self.assertEqual(children.count(), 0)
 
     def testHasTree_NoChildren(self):
-        (ses, survey) = createSurvey()
+        ses, survey = createSurvey()
         self.assertEqual(survey.hasTree(), False)
 
     def testHasTree_SingleChild(self):
-        (ses, survey) = createSurvey()
+        ses, survey = createSurvey()
         root = survey.addChild(model.Module(title="Root", module_id="1", zodb_path="1"))
         ses.add(root)
         self.assertEqual(survey.hasTree(), True)
@@ -153,7 +153,7 @@ class SurveySessionTests(EuphorieIntegrationTestCase):
 
 class RiskPresentFilterTests(EuphorieIntegrationTestCase):
     def createData(self):
-        (self.session, self.survey) = createSurvey()
+        self.session, self.survey = createSurvey()
         self.mod1 = model.Module(
             title="Module 1", module_id="1", zodb_path="1", skip_children=False
         )
@@ -189,7 +189,7 @@ class RiskPresentFilterTests(EuphorieIntegrationTestCase):
 
 class RiskPresentNoTop5FilterTests(EuphorieIntegrationTestCase):
     def createData(self):
-        (self.session, self.survey) = createSurvey()
+        self.session, self.survey = createSurvey()
         self.mod1 = model.Module(
             title="Module 1", module_id="1", zodb_path="1", skip_children=False
         )
@@ -230,7 +230,7 @@ class RiskPresentNoTop5FilterTests(EuphorieIntegrationTestCase):
 
 class ModuleWithRiskFilterTests(EuphorieIntegrationTestCase):
     def createData(self):
-        (self.session, self.survey) = createSurvey()
+        self.session, self.survey = createSurvey()
         self.mod1 = model.Module(
             title="Module 1", module_id="1", zodb_path="1", skip_children=False
         )
@@ -264,7 +264,7 @@ class ModuleWithRiskFilterTests(EuphorieIntegrationTestCase):
         self.assertEqual(self.query().count(), 0)
 
     def testNoChildren(self):
-        (self.session, self.survey) = createSurvey()
+        self.session, self.survey = createSurvey()
         self.session.add(self.survey)
         self.mod1 = model.Module(
             title="Module 1", module_id="1", zodb_path="1", skip_children=False
@@ -291,7 +291,7 @@ class AccountTests(DatabaseTests):
         self.assertEqual(user.has_permission("Euphorie: View a Survey", None), True)
 
     def testAccountType(self):
-        (self.session, self.survey) = createSurvey()
+        self.session, self.survey = createSurvey()
         account = self.survey.account
         self.assertEqual(account.account_type, config.FULL_ACCOUNT)
         account.account_type = config.GUEST_ACCOUNT

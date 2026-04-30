@@ -8,7 +8,6 @@ from zExceptions.ExceptionFormatter import format_exception
 import logging
 import sys
 
-
 log = logging.getLogger(__name__)
 
 

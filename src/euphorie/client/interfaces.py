@@ -5,7 +5,6 @@ from zope.interface import Interface
 from zope.interface.interfaces import ObjectEvent
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 
-
 INTERVAL_DAILY = "daily"
 INTERVAL_HOURLY = "hourly"
 INTERVAL_MINUTELY = "minutely"

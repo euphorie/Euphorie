@@ -21,7 +21,7 @@ class ParentAttributeField(AttributeField):
         return (name, context)
 
     def get(self):
-        (name, context) = self._name_and_context()
+        name, context = self._name_and_context()
         return getattr(context, name)
 
     def set(self, value):
@@ -35,17 +35,17 @@ class ParentAttributeField(AttributeField):
                     self.context.__class__.__name__,
                 )
             )
-        (name, context) = self._name_and_context()
+        name, context = self._name_and_context()
         setattr(context, name, value)
 
     def canAccess(self):
-        (name, context) = self._name_and_context()
+        name, context = self._name_and_context()
         if isinstance(context, Proxy):
             return canAccess(context, name)
         return True
 
     def canWrite(self):
-        (name, context) = self._name_and_context()
+        name, context = self._name_and_context()
         if isinstance(context, Proxy):
             return canWrite(context, name)
         return True

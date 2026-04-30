@@ -1,6 +1,5 @@
 from zope.interface import implementer
 
-
 try:
     from plone.base.interfaces.installable import INonInstallable
 except ImportError:

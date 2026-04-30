@@ -26,7 +26,6 @@ from zope.sqlalchemy.datamanager import NO_SAVEPOINT_SUPPORT
 
 import euphorie.deployment
 
-
 NO_SAVEPOINT_SUPPORT.remove("sqlite")
 
 

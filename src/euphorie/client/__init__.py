@@ -5,7 +5,6 @@ from zope.i18nmessageid import MessageFactory as mf
 
 import mimetypes
 
-
 mimetypes.add_type("image/svg+xml", ".svg")
 
 

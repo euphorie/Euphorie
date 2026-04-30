@@ -3,7 +3,6 @@ from importlib.util import find_spec
 from logging import getLogger
 from plone import api
 
-
 logger = getLogger(__name__)
 
 

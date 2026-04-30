@@ -21,7 +21,6 @@ import logging
 import random
 import threading
 
-
 locals = threading.local()
 log = logging.getLogger(__name__)
 

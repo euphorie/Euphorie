@@ -22,7 +22,6 @@ from z3c.saconfig import Session
 import decimal
 import logging
 
-
 log = logging.getLogger(__name__)
 
 
