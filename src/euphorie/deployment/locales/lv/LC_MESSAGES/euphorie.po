@@ -23,28 +23,63 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 
 #: euphorie/client/browser/templates/login.pt:327
-msgid "${action-plan} In the fourth stage of the assessment you can decide what steps you will take to address the risks you have identified previously and what resources this might require. Based on this, a report will be automatically produced in the next step."
-msgstr "${action-plan} Ceturtajā novērtēšanas posmā Jūs varat izlemt, kādus pasākumus  veiksiet, lai risinātu iepriekš noteiktos riska faktorus un kādi resursi tam būs nepieciešami. Pamatojoties uz šo, nākamajā posmā tiks automātiski sagatavots ziņojums."
+msgid ""
+"${action-plan} In the fourth stage of the assessment you can decide what "
+"steps you will take to address the risks you have identified previously and "
+"what resources this might require. Based on this, a report will be "
+"automatically produced in the next step."
+msgstr ""
+"${action-plan} Ceturtajā novērtēšanas posmā Jūs varat izlemt, kādus "
+"pasākumus  veiksiet, lai risinātu iepriekš noteiktos riska faktorus un kādi "
+"resursi tam būs nepieciešami. Pamatojoties uz šo, nākamajā posmā tiks "
+"automātiski sagatavots ziņojums."
 
 #: euphorie/client/browser/templates/login.pt:325
-msgid "${evaluation} Here you will be able to determine the level of risk attached to each of the items you identified as 'need to be addressed' in the 'Identification' stage."
-msgstr "${evaluation} Šajā posmā Jūs varēsiet noteikt riska pakāpi tiem jautājumiem, kurus Jūs iepriekš atzīmējāt ar atbildi „nē”. "
+msgid ""
+"${evaluation} Here you will be able to determine the level of risk attached "
+"to each of the items you identified as 'need to be addressed' in the "
+"'Identification' stage."
+msgstr ""
+"${evaluation} Šajā posmā Jūs varēsiet noteikt riska pakāpi tiem jautājumiem,"
+" kurus Jūs iepriekš atzīmējāt ar atbildi „nē”. "
 
 #: euphorie/client/browser/templates/login.pt:323
-msgid "${identification} OiRA will present a series of potential health and safety hazards or problems that could exist in your workplace. By answering the statements/questions with either yes or no, you state if such hazards or problems are present. You can also decide to leave a question unanswered and thus put it on hold to be answered at a later stage."
-msgstr "${identification} OiRA piedāvās sarakstu ar darba vides riska faktoriem un iespējamām problēmām, kas var pastāvēt Jūsu darbavietā. Atbildot uz apgalvojumiem ar „jā” vai „nē”, Jūs šos riska faktorus vai problēmas identificējat. Turklāt Jūs varat izlemt neatbildēt uz kādu jautājumu uzreiz, bet atbildēt uz to vēlākā posmā."
+msgid ""
+"${identification} OiRA will present a series of potential health and safety "
+"hazards or problems that could exist in your workplace. By answering the "
+"statements/questions with either yes or no, you state if such hazards or "
+"problems are present. You can also decide to leave a question unanswered and"
+" thus put it on hold to be answered at a later stage."
+msgstr ""
+"${identification} OiRA piedāvās sarakstu ar darba vides riska faktoriem un "
+"iespējamām problēmām, kas var pastāvēt Jūsu darbavietā. Atbildot uz "
+"apgalvojumiem ar „jā” vai „nē”, Jūs šos riska faktorus vai problēmas "
+"identificējat. Turklāt Jūs varat izlemt neatbildēt uz kādu jautājumu uzreiz,"
+" bet atbildēt uz to vēlākā posmā."
 
 #: euphorie/client/browser/templates/report_landing.pt:110
-msgid "${manage} the problems/risks in your workplace (specific tasks, expertise, responsibilities, deadlines)."
-msgstr "${manage} preventīvos pasākumus, kas novērstu vai samazinātu Jūsu darbavietā pastāvošās problēmas/riskus (t.sk. specifiski pasākumi, nepieciešamā papildus ekspertīze, atbildīgās personas, pasākumu izpildes termiņi)."
+msgid ""
+"${manage} the problems/risks in your workplace (specific tasks, expertise, "
+"responsibilities, deadlines)."
+msgstr ""
+"${manage} preventīvos pasākumus, kas novērstu vai samazinātu Jūsu darbavietā"
+" pastāvošās problēmas/riskus (t.sk. specifiski pasākumi, nepieciešamā "
+"papildus ekspertīze, atbildīgās personas, pasākumu izpildes termiņi)."
 
 #: euphorie/client/browser/templates/login.pt:321
-msgid "${preparation} This gives you an overview of the particular assessment you are about to begin and can allow you to further customise the assessment to the specific nature of your business."
-msgstr "${preparation} Tā sniedz Jums informāciju par novērtējumu, ko gatavojaties uzsākt, un ļauj pielāgot novērtējumu uzņēmuma konkrētajiem darba apstākļiem."
+msgid ""
+"${preparation} This gives you an overview of the particular assessment you "
+"are about to begin and can allow you to further customise the assessment to "
+"the specific nature of your business."
+msgstr ""
+"${preparation} Tā sniedz Jums informāciju par novērtējumu, ko gatavojaties "
+"uzsākt, un ļauj pielāgot novērtējumu uzņēmuma konkrētajiem darba apstākļiem."
 
 #: euphorie/client/browser/templates/report_landing.pt:82
 msgid "${provide-evidence} for supervisory authorities (labour inspectorate)."
-msgstr "${provide-evidence} Valsts darba inspekcijai vai citām uzraudzības iestādēm,."
+msgstr ""
+"${provide-evidence} Valsts darba inspekcijai vai citām uzraudzības "
+"iestādēm,."
 
 #: euphorie/client/browser/templates/measures_overview.pt:64
 msgid "(measures to be implemented in the coming months)"
@@ -183,14 +218,20 @@ msgstr ""
 
 #: euphorie/client/browser/templates/confirmation-delete-risk.pt:29
 msgid "Are you sure you want to continue? This action can not be reverted."
-msgstr "Vai esat pārliecināts, ka vēlaties turpināt? Šī ir neatgriezeniska darbība."
+msgstr ""
+"Vai esat pārliecināts, ka vēlaties turpināt? Šī ir neatgriezeniska darbība."
 
 #: euphorie/client/browser/risk.py:60
-msgid "Are you sure you want to delete this measure? This action can not be reverted."
-msgstr "Vai tiešām vēlaties dzēst šo līdzekli? Šāda rīcība ir neatgriezeniska."
+msgid ""
+"Are you sure you want to delete this measure? This action can not be "
+"reverted."
+msgstr ""
+"Vai tiešām vēlaties dzēst šo līdzekli? Šāda rīcība ir neatgriezeniska."
 
 #: euphorie/client/browser/templates/confirmation-delete-session.pt:31
-msgid "Are you sure you want to delete this session? This action can not be reverted."
+msgid ""
+"Are you sure you want to delete this session? This action can not be "
+"reverted."
 msgstr "Vai tiešām vēlaties dzēst šo sesiju? Šī darbība ir neatgriezeniska."
 
 #: euphorie/client/browser/templates/confirmation-clone-session.pt:28
@@ -216,8 +257,12 @@ msgstr ""
 
 #: euphorie/client/browser/templates/confirmation-clone-session.pt:25
 #: euphorie/client/browser/templates/more_menu.pt:62
-msgid "By cloning a risk assessment you will create a new risk assessment based on the contents of this risk assessment as a starting point."
-msgstr "Dublējot riska novērtējumu, jūs izveidosiet jaunu riska novērtējumu, kura saturs sākotnēji būs identisks ar iepriekšējo riska novērtējumu."
+msgid ""
+"By cloning a risk assessment you will create a new risk assessment based on "
+"the contents of this risk assessment as a starting point."
+msgstr ""
+"Dublējot riska novērtējumu, jūs izveidosiet jaunu riska novērtējumu, kura "
+"saturs sākotnēji būs identisks ar iepriekšējo riska novērtējumu."
 
 #: euphorie/client/browser/reset_password.py:212
 #: euphorie/client/browser/templates/account-delete.pt:46
@@ -278,12 +323,20 @@ msgid "Confirm OiRA email address change"
 msgstr "Apstipriniet OiRA e-pasta adreses maiņu"
 
 #: euphorie/client/browser/templates/report_landing.pt:54
-msgid "Contains: Concise information and input provided by you throughout the risk assessment process."
-msgstr "Satur: Īsu informāciju un informāciju, ko sniedzāt riska novērtēšanas procesā."
+msgid ""
+"Contains: Concise information and input provided by you throughout the risk "
+"assessment process."
+msgstr ""
+"Satur: Īsu informāciju un informāciju, ko sniedzāt riska novērtēšanas "
+"procesā."
 
 #: euphorie/client/browser/templates/report_landing.pt:77
-msgid "Contains: all the information and input provided by you throughout the risk assessment process."
-msgstr "Ietver: visu Jūsu informāciju un datus, ko sniedzāt, veicot darba vides riska novērtējumu."
+msgid ""
+"Contains: all the information and input provided by you throughout the risk "
+"assessment process."
+msgstr ""
+"Ietver: visu Jūsu informāciju un datus, ko sniedzāt, veicot darba vides "
+"riska novērtējumu."
 
 #: euphorie/client/browser/templates/report_landing.pt:167
 msgid "Contains: an overview of the measures to be implemented."
@@ -294,7 +347,8 @@ msgid "Contains: an overview of the risks identified"
 msgstr "Satur: pārskatu par identificētajiem riskiem"
 
 #: euphorie/client/browser/templates/report_landing.pt:105
-msgid "Contains: main elements to effectively manage the risks at your workplace."
+msgid ""
+"Contains: main elements to effectively manage the risks at your workplace."
 msgstr "Satur: galvenos elementus, lai efektīvi novērstu darba vides riskus."
 
 #: euphorie/client/browser/templates/slide_question.pt:42
@@ -365,7 +419,8 @@ msgstr ""
 
 #: euphorie/client/browser/templates/report_landing.pt:199
 msgid "Did you like this tool? Share it with your colleagues and friends!"
-msgstr "Vai jums patīk šis rīks? Dalieties ar to ar saviem kolēģiem un draugiem!"
+msgstr ""
+"Vai jums patīk šis rīks? Dalieties ar to ar saviem kolēģiem un draugiem!"
 
 #: euphorie/client/browser/templates/login.pt:351
 msgid "Do I need to prepare?"
@@ -474,7 +529,8 @@ msgstr ""
 
 #: euphorie/client/browser/templates/training_certificate_inner.pt:34
 msgid "For successfully finishing the training for ${session} on ${date}."
-msgstr "Izsniegts, pabeidzot apmācības par rīku &ldquo;${session}&rdquo; ${date}."
+msgstr ""
+"Izsniegts, pabeidzot apmācības par rīku &ldquo;${session}&rdquo; ${date}."
 
 #: euphorie/client/browser/templates/report_landing.pt:104
 msgid "Format: Office Open XML Workbook (.xlsx)"
@@ -513,8 +569,14 @@ msgid "However, OiRA is designed to be of most value to smaller businesses."
 msgstr "Taču OiRA ir vairāk piemērots mazo uzņēmumu vajadzībām."
 
 #: euphorie/client/browser/templates/login.pt:337
-msgid "However, you can spend whatever time you have available on an assessment and then return to it when convenient to pick up from the same point you left off."
-msgstr "Tomēr Jūs varat novērtēšanai izmantot visu laiku, kas ir Jūsu rīcībā dotajā brīdī, un atgriezties jebkurā laikā, lai turpinātu procesu no vietas, kurā apstājāties iepriekšējā reizē."
+msgid ""
+"However, you can spend whatever time you have available on an assessment and"
+" then return to it when convenient to pick up from the same point you left "
+"off."
+msgstr ""
+"Tomēr Jūs varat novērtēšanai izmantot visu laiku, kas ir Jūsu rīcībā dotajā "
+"brīdī, un atgriezties jebkurā laikā, lai turpinātu procesu no vietas, kurā "
+"apstājāties iepriekšējā reizē."
 
 #: euphorie/client/browser/webhelpers.py:980
 msgid "I wish to share the following with you"
@@ -562,8 +624,12 @@ msgid "It seems you missed a slide"
 msgstr ""
 
 #: euphorie/client/browser/templates/login.pt:336
-msgid "It's impossible to say how long an assessment will take in general as the tools differ according to sectors and countries."
-msgstr "Tā kā rīki atšķiras atkarībā no nozarēm un valstīm, ir neiespējams atbildēt uz jautājumu par to, cik ilgi notiek novērtēšana kopumā."
+msgid ""
+"It's impossible to say how long an assessment will take in general as the "
+"tools differ according to sectors and countries."
+msgstr ""
+"Tā kā rīki atšķiras atkarībā no nozarēm un valstīm, ir neiespējams atbildēt "
+"uz jautājumu par to, cik ilgi notiek novērtēšana kopumā."
 
 #: euphorie/client/browser/templates/panel-edit-organisation.pt:74
 msgid "Keep the existing logo"
@@ -760,20 +826,36 @@ msgid "OiRA Tool where \"Measures that are already in place\" can be defined."
 msgstr "OiRA rīks, kurā var definēt “Pasākumus, kas jau tiek īstenoti”."
 
 #: euphorie/client/browser/templates/login.pt:310
-msgid "OiRA can be used by anyone wishing to assess health and safety-related risks that might exist in their workplace."
-msgstr "OiRA var izmantot ikviens, kas vēlas novērtēt iespējamos darba vides riska faktorus savā uzņēmumā."
+msgid ""
+"OiRA can be used by anyone wishing to assess health and safety-related risks"
+" that might exist in their workplace."
+msgstr ""
+"OiRA var izmantot ikviens, kas vēlas novērtēt iespējamos darba vides riska "
+"faktorus savā uzņēmumā."
 
 #: euphorie/client/browser/templates/login.pt:312
-msgid "OiRA is designed specifically to support them in assessing the risks at work and helping them to produce a documented risk assessment including an action plan tailored to the business's requirements."
-msgstr "OiRA paredzēts, lai sniegtu atbalstu šiem uzņēmumiem riska novērtēšanā un palīdzētu sagatavot novērtējuma dokumentus, ieskaitot rīcības plānu, kas atbilst uzņēmuma prasībām."
+msgid ""
+"OiRA is designed specifically to support them in assessing the risks at work"
+" and helping them to produce a documented risk assessment including an "
+"action plan tailored to the business's requirements."
+msgstr ""
+"OiRA paredzēts, lai sniegtu atbalstu šiem uzņēmumiem riska novērtēšanā un "
+"palīdzētu sagatavot novērtējuma dokumentus, ieskaitot rīcības plānu, kas "
+"atbilst uzņēmuma prasībām."
 
 #: euphorie/client/browser/reset_password.py:143
 msgid "OiRA password reset instructions"
 msgstr "OiRA paroles atiestatīšanas norādījumi"
 
 #: euphorie/client/browser/templates/login.pt:305
-msgid "OiRA stands for Online Interactive Risk Assessment. It is a web-based tool that allows you to perform a health and safety risk assessment of your workplace."
-msgstr "OiRA atšifrējums ir tiešsaistes interaktīvs riska novērtējums (Online interactive Risk Assessment). Tas ir tīmekļa rīks, kas ļauj veikt darba vides riska novērtēšanu Jūsu darbavietā. "
+msgid ""
+"OiRA stands for Online Interactive Risk Assessment. It is a web-based tool "
+"that allows you to perform a health and safety risk assessment of your "
+"workplace."
+msgstr ""
+"OiRA atšifrējums ir tiešsaistes interaktīvs riska novērtējums (Online "
+"interactive Risk Assessment). Tas ir tīmekļa rīks, kas ļauj veikt darba "
+"vides riska novērtēšanu Jūsu darbavietā. "
 
 #: euphorie/content/browser/similar_titles.py:192
 msgid "Operation cancelled."
@@ -817,8 +899,13 @@ msgid "Owner"
 msgstr "Īpašnieks"
 
 #: euphorie/client/browser/templates/report_landing.pt:184
-msgid "Pass information on to the people concerned (workers, safety representatives, employers, experts in occupational safety and health, etc.)"
-msgstr "informēt visas iesaistītās puses (darbiniekus, viņu pārstāvjus, uzticības personas, darba devējus, struktūrvienību vadītājiem, darba aizsardzības speciālistiem u. c.),"
+msgid ""
+"Pass information on to the people concerned (workers, safety "
+"representatives, employers, experts in occupational safety and health, etc.)"
+msgstr ""
+"informēt visas iesaistītās puses (darbiniekus, viņu pārstāvjus, uzticības "
+"personas, darba devējus, struktūrvienību vadītājiem, darba aizsardzības "
+"speciālistiem u. c.),"
 
 #: euphorie/client/browser/templates/measures_overview.pt:69
 #: euphorie/client/browser/templates/report_landing.pt:142
@@ -833,12 +920,22 @@ msgid "Password doesn't compare with confirmation value"
 msgstr "Ievadītās paroles nesakrīt"
 
 #: euphorie/client/browser/templates/new-email.pt:26
-msgid "Please bear in mind that by changing the email address, your login name will also change."
-msgstr "Lūdzu, ņemiet vērā: mainot e-pasta adresi, mainīsies arī jūsu Jūsu lietotājvārds."
+msgid ""
+"Please bear in mind that by changing the email address, your login name will"
+" also change."
+msgstr ""
+"Lūdzu, ņemiet vērā: mainot e-pasta adresi, mainīsies arī jūsu Jūsu "
+"lietotājvārds."
 
 #: euphorie/content/browser/templates/library.pt:28
-msgid "Please note that you may not be able to use all available content: profile questions can only be used at the top level of your survey, and modules may be too deeply nested to fit in ${title}."
-msgstr "Lūdzu, ņemiet vērā, ka jūs, iespējams, nevarēsiet izmantot visu pieejamo saturu: profila jautājumus var izmantot tikai augstākajā jūsu apsekojuma līmenī, bet moduļi var būt pārāk dziļi ietverti, lai iederētos ${title}."
+msgid ""
+"Please note that you may not be able to use all available content: profile "
+"questions can only be used at the top level of your survey, and modules may "
+"be too deeply nested to fit in ${title}."
+msgstr ""
+"Lūdzu, ņemiet vērā, ka jūs, iespējams, nevarēsiet izmantot visu pieejamo "
+"saturu: profila jautājumus var izmantot tikai augstākajā jūsu apsekojuma "
+"līmenī, bet moduļi var būt pārāk dziļi ietverti, lai iederētos ${title}."
 
 #: euphorie/content/browser/templates/profilequestion_add.pt:70
 #: euphorie/content/browser/templates/profilequestion_edit.pt:77
@@ -874,12 +971,22 @@ msgstr "Profila jautājums"
 
 #: euphorie/content/browser/templates/profilequestion_add.pt:64
 #: euphorie/content/browser/templates/profilequestion_edit.pt:71
-msgid "Profile questions are used to determine whether particular modules apply to the end user at all (i.e. the modules inside the profile question are OPTIONAL), and if they apply, whether they should be repeated a number of times (i.e. the modules are REPEATABLE)."
-msgstr "Profila jautājumi tiek izmantoti, lai noteiktu, vai atsevišķi moduļi vispār attiecas uz galalietotāju (t.i., profila jautājumu moduļi ir IZVĒLES), un, ja attiecas, vai tie ir jāatkārto vairākreiz (t. i., šie moduļi ir ATKĀRTOJAMI)."
+msgid ""
+"Profile questions are used to determine whether particular modules apply to "
+"the end user at all (i.e. the modules inside the profile question are "
+"OPTIONAL), and if they apply, whether they should be repeated a number of "
+"times (i.e. the modules are REPEATABLE)."
+msgstr ""
+"Profila jautājumi tiek izmantoti, lai noteiktu, vai atsevišķi moduļi vispār "
+"attiecas uz galalietotāju (t.i., profila jautājumu moduļi ir IZVĒLES), un, "
+"ja attiecas, vai tie ir jāatkārto vairākreiz (t. i., šie moduļi ir "
+"ATKĀRTOJAMI)."
 
 #: euphorie/client/browser/templates/report_landing.pt:59
 msgid "Provide a concise overview over your current status for internal use."
-msgstr "Sniedziet īsu pārskatu par savu pašreizējo situāciju - paredzēts iekšējai lietošanai."
+msgstr ""
+"Sniedziet īsu pārskatu par savu pašreizējo situāciju - paredzēts iekšējai "
+"lietošanai."
 
 #: euphorie/client/browser/templates/report_landing.pt:82
 msgid "Provide evidence"
@@ -887,7 +994,9 @@ msgstr "uzrādīt darba vides riska novērtēšanas dokumentus"
 
 #: euphorie/client/browser/templates/report_landing.pt:183
 msgid "Provide evidence for supervisory authorities."
-msgstr "Uzrādītu darba vides riska novērtēšanas dokumentus Valsts darba inspekcijai vai citām uzraudzības iestādēm,"
+msgstr ""
+"Uzrādītu darba vides riska novērtēšanas dokumentus Valsts darba inspekcijai "
+"vai citām uzraudzības iestādēm,"
 
 #: euphorie/client/browser/templates/slide_question.pt:28
 #: euphorie/content/training_question.py:16
@@ -903,8 +1012,14 @@ msgid "Read more"
 msgstr "Lasīt vairāk"
 
 #: euphorie/client/browser/templates/report_landing.pt:186
-msgid "Record any revision if circumstances change (new machines, new workers, as a result of findings of any accident investigations, etc.)"
-msgstr "precizēt darba vides riska novērtējumu gadījumā, ja darba vide ir mainījusies (jaunas iekārtas, jauni darbinieki, pēc nelaimes gadījuma darbā u. c.), un reģistrētu dokumentu pārskatīšanu atkārtotas darba vides riska novērtēšanas gadījumā. "
+msgid ""
+"Record any revision if circumstances change (new machines, new workers, as a"
+" result of findings of any accident investigations, etc.)"
+msgstr ""
+"precizēt darba vides riska novērtējumu gadījumā, ja darba vide ir "
+"mainījusies (jaunas iekārtas, jauni darbinieki, pēc nelaimes gadījuma darbā "
+"u. c.), un reģistrētu dokumentu pārskatīšanu atkārtotas darba vides riska "
+"novērtēšanas gadījumā. "
 
 #: euphorie/client/browser/templates/locking_menu.pt:106
 msgid "Refresh locking date"
@@ -919,8 +1034,12 @@ msgid "Regions"
 msgstr "Reìioni"
 
 #: euphorie/client/browser/templates/login.pt:345
-msgid "Registering allows you to simply log in at any time to continue previous assessments or to start new ones."
-msgstr "Pēc reģistrēšanās varēsiet ielogoties jebkurā laikā, lai turpinātu iepriekš uzsāktos novērtējumus vai veiktu jaunus."
+msgid ""
+"Registering allows you to simply log in at any time to continue previous "
+"assessments or to start new ones."
+msgstr ""
+"Pēc reģistrēšanās varēsiet ielogoties jebkurā laikā, lai turpinātu iepriekš "
+"uzsāktos novērtējumus vai veiktu jaunus."
 
 #: euphorie/client/browser/templates/organisation-member-more-menu.pt:26
 #: euphorie/client/browser/templates/panel-organisation-member-remove.pt:17
@@ -1003,8 +1122,14 @@ msgid "Save changes"
 msgstr "Saglabāt izmaiņas"
 
 #: euphorie/client/browser/templates/report_landing.pt:31
-msgid "Save the report on your computer and print it. You can also modify it or add more information. Please note that changes made on your pc will NOT be saved in the OiRA tool"
-msgstr "Saglabājiet pārskatu datorā un izdrukājiet to. Jūs varat to arī pārveidot vai pievienot vairāk informācijas. Ņemiet vērā, ka datorā veiktās izmaiņas NETIKS saglabātas OiRA rīkā. "
+msgid ""
+"Save the report on your computer and print it. You can also modify it or add"
+" more information. Please note that changes made on your pc will NOT be "
+"saved in the OiRA tool"
+msgstr ""
+"Saglabājiet pārskatu datorā un izdrukājiet to. Jūs varat to arī pārveidot "
+"vai pievienot vairāk informācijas. Ņemiet vērā, ka datorā veiktās izmaiņas "
+"NETIKS saglabātas OiRA rīkā. "
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:103
 #: euphorie/content/browser/similar_titles.py:176
@@ -1089,14 +1214,26 @@ msgstr "Sākt jautājumus"
 msgid "Starting a test session is not available in this OiRA application."
 msgstr ""
 
-#: euphorie/content/browser/module.py:20 euphorie/deployment/tiles/addbar.py:19
+#: euphorie/content/browser/module.py:20
+#: euphorie/deployment/tiles/addbar.py:19
 msgid "Submodule"
 msgstr "Apakšmodulis"
 
 #: euphorie/content/browser/templates/profilequestion_add.pt:67
 #: euphorie/content/browser/templates/profilequestion_edit.pt:74
-msgid "Such questions are asked BEFORE the end-user starts the risk identification and evaluation. If the end-user does not confirm that an optional profile question is relevant (by ticking the box), then the corresponding module will be skipped entirely. If the end-user enters more than one option to a repeatable profile question then the corresponding module will be repeated the specified number of times."
-msgstr "Šādi jautājumi tiek uzdoti, PIRMS galalietotājs sāk riska noteikšanu un novērtēšanu. Ja galalietotājs neapstiprina izvēles profila jautājuma atbilstību (atķeksējot rūtiņu), attiecīgais modulis tiks pilnīgi izlaists. Ja galalietotājs ievada vairāk nekā vienu izvēli atbildei uz atkārtojamu profila jautājumu, attiecīgais modulis tiks atkārtots noteiktu reižu skaitu."
+msgid ""
+"Such questions are asked BEFORE the end-user starts the risk identification "
+"and evaluation. If the end-user does not confirm that an optional profile "
+"question is relevant (by ticking the box), then the corresponding module "
+"will be skipped entirely. If the end-user enters more than one option to a "
+"repeatable profile question then the corresponding module will be repeated "
+"the specified number of times."
+msgstr ""
+"Šādi jautājumi tiek uzdoti, PIRMS galalietotājs sāk riska noteikšanu un "
+"novērtēšanu. Ja galalietotājs neapstiprina izvēles profila jautājuma "
+"atbilstību (atķeksējot rūtiņu), attiecīgais modulis tiks pilnīgi izlaists. "
+"Ja galalietotājs ievada vairāk nekā vienu izvēli atbildei uz atkārtojamu "
+"profila jautājumu, attiecīgais modulis tiks atkārtots noteiktu reižu skaitu."
 
 #: euphorie/content/behaviour/richdescription.py:39
 msgid "Summary"
@@ -1112,23 +1249,41 @@ msgstr "Nīderlande"
 
 #: euphorie/content/browser/templates/profilequestion_add.pt:44
 #: euphorie/content/browser/templates/profilequestion_edit.pt:51
-msgid "The basic architecture of an Online interactive Risk Assessment consists of:"
-msgstr "Riska interaktīvā novērtēšanas tiešsaistes rīka arhitektūra sastāv no:"
+msgid ""
+"The basic architecture of an Online interactive Risk Assessment consists of:"
+msgstr ""
+"Riska interaktīvā novērtēšanas tiešsaistes rīka arhitektūra sastāv no:"
 
 #: euphorie/client/browser/risk.py:70
-msgid "The current text in the fields 'Action plan', 'Prevention plan' and 'Requirements' of this measure will be overwritten. This action cannot be reverted. Are you sure you want to continue?"
-msgstr "Esošie teksti šī līdzekļa laukos ”Vispārējā pieeja (riska novēršana vai samazināšana)”, ”Specifiskas darbības, lai īstenotu šo pieeju” un ”Nepieciešamais pieredzes līmenis un/vai prasības” tiks pārrakstīti. Tā ir neatgriežama darbība. Vai esat pārliecināts, ka gribt turpināt?"
+msgid ""
+"The current text in the fields 'Action plan', 'Prevention plan' and "
+"'Requirements' of this measure will be overwritten. This action cannot be "
+"reverted. Are you sure you want to continue?"
+msgstr ""
+"Esošie teksti šī līdzekļa laukos ”Vispārējā pieeja (riska novēršana vai "
+"samazināšana)”, ”Specifiskas darbības, lai īstenotu šo pieeju” un "
+"”Nepieciešamais pieredzes līmenis un/vai prasības” tiks pārrakstīti. Tā ir "
+"neatgriežama darbība. Vai esat pārliecināts, ka gribt turpināt?"
 
 #: euphorie/client/browser/templates/login.pt:344
-msgid "The first thing you will be asked to do when you begin your first risk assessment is to create an OiRA account - this is a simple and quick process."
-msgstr "Kad Jūs uzsāksiet jūsu pirmo riska novērtēšanu, vajadzēs izveidot OiRA kontu – tas ir vienkāršs un ātrs process."
+msgid ""
+"The first thing you will be asked to do when you begin your first risk "
+"assessment is to create an OiRA account - this is a simple and quick "
+"process."
+msgstr ""
+"Kad Jūs uzsāksiet jūsu pirmo riska novērtēšanu, vajadzēs izveidot OiRA kontu"
+" – tas ir vienkāršs un ātrs process."
 
 #: euphorie/client/browser/templates/status_info.pt:147
 msgid "The following certificates were awarded for this assessment."
 msgstr "Par šo novērtējumu tika piešķirti šādi sertifikāti."
 
 #: euphorie/content/survey.py:62
-msgid "The introduction text is shown when starting a new OiRA Tool session. If no introduction is provided here a standard text will be shown. Please keep this text brief so it will easily fit on screens of small devices such as phones and PDAs."
+msgid ""
+"The introduction text is shown when starting a new OiRA Tool session. If no "
+"introduction is provided here a standard text will be shown. Please keep "
+"this text brief so it will easily fit on screens of small devices such as "
+"phones and PDAs."
 msgstr ""
 
 #: euphorie/client/browser/session.py:785
@@ -1177,15 +1332,20 @@ msgstr "Šī e-pasta adrese nav pieejama."
 
 #: euphorie/content/surveygroup.py:90
 msgid "This is a simpler evaluation algorithm using only two criteria."
-msgstr "Šis ir vienkāršāks novērtēšanas algoritms, kas izmanto tikai divus kritērijus."
+msgstr ""
+"Šis ir vienkāršāks novērtēšanas algoritms, kas izmanto tikai divus "
+"kritērijus."
 
 #: euphorie/content/behaviour/uniqueid.py:41
 msgid "This is a unique identifier for this object."
 msgstr "Šis ir šī objekta unikāls identifikators."
 
 #: euphorie/content/surveygroup.py:71
-msgid "This is the recommended evaluation algorithm, based on the Kinney method"
-msgstr "Šis ir ieteicamais novērtēšanas algoritms, kura pamatā ir Kinnija (Kinney) metode"
+msgid ""
+"This is the recommended evaluation algorithm, based on the Kinney method"
+msgstr ""
+"Šis ir ieteicamais novērtēšanas algoritms, kura pamatā ir Kinnija (Kinney) "
+"metode"
 
 #: euphorie/content/profilequestion.py:81
 msgid "This must ask the user for the name of the relevant location."
@@ -1196,7 +1356,9 @@ msgid "This must ask the user for the names of all relevant locations."
 msgstr ""
 
 #: euphorie/content/profilequestion.py:71
-msgid "This question must ask the user if the service is offered in more than one location."
+msgid ""
+"This question must ask the user if the service is offered in more than one "
+"location."
 msgstr ""
 
 #: euphorie/content/profilequestion.py:43
@@ -1281,8 +1443,12 @@ msgid "Visit this URL"
 msgstr ""
 
 #: euphorie/client/browser/templates/report_landing.pt:190
-msgid "We recommend that you always keep an updated printed version of your risk assessment (report) available in your company!"
-msgstr "Iesakām vienmēr izdrukāt darba vides riska novērtējuma (pārskata) atjaunināto versiju."
+msgid ""
+"We recommend that you always keep an updated printed version of your risk "
+"assessment (report) available in your company!"
+msgstr ""
+"Iesakām vienmēr izdrukāt darba vides riska novērtējuma (pārskata) "
+"atjaunināto versiju."
 
 #: euphorie/client/browser/templates/login.pt:317
 msgid "What do I have to do?"
@@ -1293,8 +1459,16 @@ msgid "What is OiRA (Online Interactive Risk Assessment)?"
 msgstr "Kas ir OiRA? (Online Interactive Risk Assessment)"
 
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:31
-msgid "When you click continue, your e-mail client will open with a new e-mail with a link in it that people can use to join your organisation. The link is valid for five days and you may send it to as many people as you would like to join your organisation."
-msgstr "Kad Jūs uzklikšķināsiet turpināt, atvērsies Jūsu epasts ar jaunu vēstuli, kas saturēs saiti, ar kuras palīdzību cilvēki varēs pievienoties Jūsu organizācijai. Šī saite būs derīga piecas dienas, un jūs varat to nosūtīt tik daudz jūsu organizācijas darbiniekiem, cik vēlaties."
+msgid ""
+"When you click continue, your e-mail client will open with a new e-mail with"
+" a link in it that people can use to join your organisation. The link is "
+"valid for five days and you may send it to as many people as you would like "
+"to join your organisation."
+msgstr ""
+"Kad Jūs uzklikšķināsiet turpināt, atvērsies Jūsu epasts ar jaunu vēstuli, "
+"kas saturēs saiti, ar kuras palīdzību cilvēki varēs pievienoties Jūsu "
+"organizācijai. Šī saite būs derīga piecas dienas, un jūs varat to nosūtīt "
+"tik daudz jūsu organizācijas darbiniekiem, cik vēlaties."
 
 #: euphorie/client/browser/templates/login.pt:308
 msgid "Who is the OiRA tool for?"
@@ -1327,24 +1501,49 @@ msgid "You are almost there. The following questions were answered wrongly."
 msgstr ""
 
 #: euphorie/client/browser/templates/slide_question_intro.pt:32
-msgid "You can now answer a few questions to prove that you master this topic and earn your certificate."
-msgstr "Tagad Jūs varat atbildēt uz dažiem jautājumiem, lai pierādītu, ka esat apguvis tēmu un lai iegūtu apliecinājumu (sertifikātu)."
+msgid ""
+"You can now answer a few questions to prove that you master this topic and "
+"earn your certificate."
+msgstr ""
+"Tagad Jūs varat atbildēt uz dažiem jautājumiem, lai pierādītu, ka esat "
+"apguvis tēmu un lai iegūtu apliecinājumu (sertifikātu)."
 
 #: euphorie/content/browser/templates/library.pt:18
-msgid "You can use content from the standard libary as provided by OSHA in your own surveys. Just select the module or risk you want to use in the list below and it will be copied to your survey."
-msgstr "Jūs varat izmantot saturu no standarta bibliotēkas, ko nodrošinājusi DDVA jūsu apsekojumos. Vienkārši no zemāk esošā saraksta atlasiet moduli vai risku, kuru vēlaties izmantot, un to iekopēs jūsu apsekojumā."
+msgid ""
+"You can use content from the standard libary as provided by OSHA in your own"
+" surveys. Just select the module or risk you want to use in the list below "
+"and it will be copied to your survey."
+msgstr ""
+"Jūs varat izmantot saturu no standarta bibliotēkas, ko nodrošinājusi DDVA "
+"jūsu apsekojumos. Vienkārši no zemāk esošā saraksta atlasiet moduli vai "
+"risku, kuru vēlaties izmantot, un to iekopēs jūsu apsekojumā."
 
 #: euphorie/client/browser/templates/login.pt:353
-msgid "You do not need any kind of specific preparation to start using the tool, however you should take some time to think about who is going to carry out the risk assessment, how workers are going to be involved in the process, etc."
-msgstr "Lai sāktu darbu ar OiRA, nav nepieciešama īpašas priekšzināšanas vai sagatavošanās. Tomēr Jums ir jāizdomā, kas veiks riska novērtēšanu, kādā veidā darbinieki būs iesaistīti šajā procesā utt."
+msgid ""
+"You do not need any kind of specific preparation to start using the tool, "
+"however you should take some time to think about who is going to carry out "
+"the risk assessment, how workers are going to be involved in the process, "
+"etc."
+msgstr ""
+"Lai sāktu darbu ar OiRA, nav nepieciešama īpašas priekšzināšanas vai "
+"sagatavošanās. Tomēr Jums ir jāizdomā, kas veiks riska novērtēšanu, kādā "
+"veidā darbinieki būs iesaistīti šajā procesā utt."
 
 #: euphorie/client/browser/session.py:184
-msgid "You don't have edit rights for this risk assessment, but you can download this risk assessment in various forms in the ${download_section}."
-msgstr "Jums nav tiesības labot šo darba vides riska novērtējumu, bet Jūs varat to lejuplādēt dažādos formātos sadaļā ${download_section}."
+msgid ""
+"You don't have edit rights for this risk assessment, but you can download "
+"this risk assessment in various forms in the ${download_section}."
+msgstr ""
+"Jums nav tiesības labot šo darba vides riska novērtējumu, bet Jūs varat to "
+"lejuplādēt dažādos formātos sadaļā ${download_section}."
 
 #: euphorie/client/browser/templates/login.pt:346
-msgid "You have to make sure to be in possession of a printed, accurate and up-dated risk assessment (at any time)."
-msgstr "Normatīvie akti nosaka, ka Jums obligāti jābūt aktuālam darba vides riska novērtējumam."
+msgid ""
+"You have to make sure to be in possession of a printed, accurate and up-"
+"dated risk assessment (at any time)."
+msgstr ""
+"Normatīvie akti nosaka, ka Jums obligāti jābūt aktuālam darba vides riska "
+"novērtējumam."
 
 #: euphorie/client/browser/organisation.py:172
 msgid "You need to specify a title for the organisation."
@@ -1396,7 +1595,9 @@ msgstr "Sīkāka informācija par OiRA projektu (angļu valodā)"
 #. 2007-2012"
 #: euphorie/client/browser/templates/about.pt:87
 msgid "about_paragraph3_agency"
-msgstr " Eiropas Kopienas Stratēģija attiecībā uz veselības aizsardzību un drošību darbā (2007.-2012.)"
+msgstr ""
+" Eiropas Kopienas Stratēģija attiecībā uz veselības aizsardzību un drošību "
+"darbā (2007.-2012.)"
 
 #. Default: "Experience shows that ${key}. This is why EU-OSHA developed an
 #. ${easy} (the &ldquo;OiRA&rdquo; - Online interactive Risk Assessment) that
@@ -1406,7 +1607,13 @@ msgstr " Eiropas Kopienas Stratēģija attiecībā uz veselības aizsardzību un
 #. to monitoring and ${reporting}."
 #: euphorie/client/browser/templates/about.pt:70
 msgid "about_paragraph_1"
-msgstr "Pieredze rāda, ka ${key}. Tāpēc EU-OSHA izstrādāja OiRA projektu interaktīvai risku novērtēšanai tiešsaistē: tā ir ${easy} un var palīdzēt mikrouzņēmumiem un nelielām organizācijām ieviest ${step} – sākot ar darba vietā esošo ${identification} un ${evaluation} un beidzot ar lēmumu pieņemšanu par ${preventive_actions}  un to ieviešanu, uzraudzību un ${reporting}."
+msgstr ""
+"Pieredze rāda, ka ${key}. Tāpēc EU-OSHA izstrādāja OiRA projektu "
+"interaktīvai risku novērtēšanai tiešsaistē: tā ir ${easy} un var palīdzēt "
+"mikrouzņēmumiem un nelielām organizācijām ieviest ${step} – sākot ar darba "
+"vietā esošo ${identification} un ${evaluation} un beidzot ar lēmumu "
+"pieņemšanu par ${preventive_actions}  un to ieviešanu, uzraudzību un "
+"${reporting}."
 
 #. Default: "easy-to-use and cost-free web application"
 #: euphorie/client/browser/templates/about.pt:42
@@ -1448,7 +1655,9 @@ msgstr "pakāpenisku riska novērtēšanas procesu"
 #. national level."
 #: euphorie/client/browser/templates/about.pt:76
 msgid "about_paragraph_2"
-msgstr "OiRA tīmekļa lietotne jums ļauj piekļūt sektora risku izvērtēšanas rīkiem, kurus izveidojušas un uztur valsts līmeņa sektoru organizācijas."
+msgstr ""
+"OiRA tīmekļa lietotne jums ļauj piekļūt sektora risku izvērtēšanas rīkiem, "
+"kurus izveidojušas un uztur valsts līmeņa sektoru organizācijas."
 
 #. Default: "The ${agency} calls for the development of simple tools to
 #. facilitate risk assessment. Since the adoption of the European Framework
@@ -1460,7 +1669,14 @@ msgstr "OiRA tīmekļa lietotne jums ļauj piekļūt sektora risku izvērtēšan
 #. OiRA project aims to overcome."
 #: euphorie/client/browser/templates/about.pt:91
 msgid "about_paragraph_3"
-msgstr "${agency} aicina izstrādāt vienkāršus rīkus, lai atvieglotu riska novērtēšanu. Kopš  Eiropas Pamatdirektīvas pieņemšanas 1989. gadā riska novērtēšana ir kļuvusi par labi zināmu jēdzienu saistībā ar profilaktisku pasākumu ieviešanu darba vietā. Simtiem tūkstošu uzņēmumu visā Eiropā regulāri veic riska novērtēšanu. Tomēr ir pietiekams pamats domāt, ka ${smb} riska novērtēšanas un aizsardzības politikas ieviešanā. OiRA projekta mērķis ir šos trūkumus novērst."
+msgstr ""
+"${agency} aicina izstrādāt vienkāršus rīkus, lai atvieglotu riska "
+"novērtēšanu. Kopš  Eiropas Pamatdirektīvas pieņemšanas 1989. gadā riska "
+"novērtēšana ir kļuvusi par labi zināmu jēdzienu saistībā ar profilaktisku "
+"pasākumu ieviešanu darba vietā. Simtiem tūkstošu uzņēmumu visā Eiropā "
+"regulāri veic riska novērtēšanu. Tomēr ir pietiekams pamats domāt, ka ${smb}"
+" riska novērtēšanas un aizsardzības politikas ieviešanā. OiRA projekta "
+"mērķis ir šos trūkumus novērst."
 
 #. Default: "The OiRA project and its related web application has been
 #. developed by the ${eu-osha} based on the Dutch RA-instrument (called
@@ -1471,7 +1687,13 @@ msgstr "${agency} aicina izstrādāt vienkāršus rīkus, lai atvieglotu riska n
 #. and participation of trade unions FNV, CNV and MHP."
 #: euphorie/client/browser/templates/about.pt:128
 msgid "about_partners_1"
-msgstr "OiRA projektu un tam domāto tīmekļa lietotni izstrādāja ${eu-osha}, par pamatu izmantojot riska novērtēšanas rīku (${RIE}) no Nīderlandes. Šo rīku ar Nīderlandes valdības finansējuma palīdzību izstrādāja TNO, sadarbojoties ar darba devēju organizāciju maziem un vidējiem uzņēmumiem: \"MKB-Nederland\", kā arī Nīderlandes Nodarbinātības ministriju. Arodbiedrības FNV, CNV un MHP palīdzēja turpināt lietotnes izstrādi."
+msgstr ""
+"OiRA projektu un tam domāto tīmekļa lietotni izstrādāja ${eu-osha}, par "
+"pamatu izmantojot riska novērtēšanas rīku (${RIE}) no Nīderlandes. Šo rīku "
+"ar Nīderlandes valdības finansējuma palīdzību izstrādāja TNO, sadarbojoties "
+"ar darba devēju organizāciju maziem un vidējiem uzņēmumiem: \"MKB-"
+"Nederland\", kā arī Nīderlandes Nodarbinātības ministriju. Arodbiedrības "
+"FNV, CNV un MHP palīdzēja turpināt lietotnes izstrādi."
 
 #. Default: "The following technical partners contributed to the development
 #. of the OiRA project:"
@@ -1485,7 +1707,11 @@ msgstr "OiRA projekta izstrādē piedalījās šādi tehniskie partneri:"
 #. the interest groups at the Board, by the Commission and by EU-OSHA."
 #: euphorie/client/browser/templates/about.pt:163
 msgid "about_partners_3"
-msgstr "OiRA projekta izstrādes un ieviešanas laikā Aģentūra saņēma stratēģiskus un ekspertu padomus no Koordinācijas komitejas.  Komitejas locekļus un viņu aizstājējus iecēla padomes interešu grupas, Komisija un EU-OSHA organizācija."
+msgstr ""
+"OiRA projekta izstrādes un ieviešanas laikā Aģentūra saņēma stratēģiskus un "
+"ekspertu padomus no Koordinācijas komitejas.  Komitejas locekļus un viņu "
+"aizstājējus iecēla padomes interešu grupas, Komisija un EU-OSHA "
+"organizācija."
 
 #. Default: "micro and small enterprises have some shortcomings"
 #: euphorie/client/browser/templates/about.pt:91
@@ -1495,13 +1721,16 @@ msgstr "mikrouzņēmumiem un maziem uzņēmumiem ir daži trūkumi"
 #. Default: "Describe the specific measures required to reduce the risk."
 #: euphorie/client/browser/risk.py:364
 msgid "action_measures_false_solutions_false"
-msgstr "Aprakstiet specifiskos pasākumus, kas nepieciešami, lai samazinātu risku."
+msgstr ""
+"Aprakstiet specifiskos pasākumus, kas nepieciešami, lai samazinātu risku."
 
 #. Default: "Select or describe the specific measures required to reduce the
 #. risk."
 #: euphorie/client/browser/risk.py:356
 msgid "action_measures_false_solutions_true"
-msgstr "Izvēlieties vai aprakstiet specifiskos pasākumus, kas nepieciešami, lai samazinātu risku."
+msgstr ""
+"Izvēlieties vai aprakstiet specifiskos pasākumus, kas nepieciešami, lai "
+"samazinātu risku."
 
 #. Default: "Describe any further measure to reduce the risk."
 #: euphorie/client/browser/risk.py:347
@@ -1511,7 +1740,9 @@ msgstr "Aprakstiet citus papildus veicamos pasākumus, kas samazinātu risku."
 #. Default: "Select or describe any further measure to reduce the risk."
 #: euphorie/client/browser/risk.py:339
 msgid "action_measures_true_solutions_true"
-msgstr "Izvēieties vai aprakstiet citus papildus veicamos pasākumus, kas samazinātu risku."
+msgstr ""
+"Izvēieties vai aprakstiet citus papildus veicamos pasākumus, kas samazinātu "
+"risku."
 
 msgid "action_search"
 msgstr "Meklēt"
@@ -1521,7 +1752,10 @@ msgstr "Meklēt"
 #. budget round if necessary."
 #: euphorie/client/browser/templates/webhelpers.pt:949
 msgid "actionplan_measure_budget_tooltip"
-msgstr "Lai gan daži pasākumi riska novēršanai ir bezmaksas, lielākā daļa tomēr rada izmaksas. Tādēļ tiem jāatvēl vieta budžetā. Ja nepieciešams, iekļaujiet šos pasākumus ikgadējā uzņēmuma budžetā."
+msgstr ""
+"Lai gan daži pasākumi riska novēršanai ir bezmaksas, lielākā daļa tomēr rada"
+" izmaksas. Tādēļ tiem jāatvēl vieta budžetā. Ja nepieciešams, iekļaujiet šos"
+" pasākumus ikgadējā uzņēmuma budžetā."
 
 #. Default: "Appoint someone in your company to be responsible for the
 #. implementation of this measure. This person will have the authority to take
@@ -1529,14 +1763,20 @@ msgstr "Lai gan daži pasākumi riska novēršanai ir bezmaksas, lielākā daļa
 #. they are carried out."
 #: euphorie/client/browser/templates/webhelpers.pt:931
 msgid "actionplan_measure_responsible_tooltip"
-msgstr "Uzticiet kādam uzņēmuma darbiniekam atbildību par šī pasākuma ieviešanu. Šim darbiniekam būs pilnvaras veikt plānā minētās darbības un/vai pienākums gādāt par to izpildi."
+msgstr ""
+"Uzticiet kādam uzņēmuma darbiniekam atbildību par šī pasākuma ieviešanu. Šim"
+" darbiniekam būs pilnvaras veikt plānā minētās darbības un/vai pienākums "
+"gādāt par to izpildi."
 
 #. Default: "Describe: 1) what is your general approach to eliminate or (if
 #. the risk is not avoidable) reduce the risk; 2) the specific action(s)
 #. required to implement this approach (to eliminate or to reduce the risk)"
 #: euphorie/client/browser/templates/webhelpers.pt:1029
 msgid "actionplan_measure_tooltip"
-msgstr "Aprakstiet: 1) savu pasākumu, lai risku novērstu vai samazinātu (ja tas nav novēršams) – obligāts lauks; 2) specifiskās darbības, kas jāveic, lai īstenotu šo pieeju (lai samazinātu vai novērstu risku) – nav obligāts lauks."
+msgstr ""
+"Aprakstiet: 1) savu pasākumu, lai risku novērstu vai samazinātu (ja tas nav "
+"novēršams) – obligāts lauks; 2) specifiskās darbības, kas jāveic, lai "
+"īstenotu šo pieeju (lai samazinātu vai novērstu risku) – nav obligāts lauks."
 
 #. Default: "Describe the level of expertise needed to implement the measure,
 #. for instance &ldquo;common sense (no OSH knowledge required)&rdquo;,
@@ -1546,7 +1786,13 @@ msgstr "Aprakstiet: 1) savu pasākumu, lai risku novērstu vai samazinātu (ja t
 #. (if any)."
 #: euphorie/client/browser/templates/webhelpers.pt:1059
 msgid "actionplan_requirements_tooltip"
-msgstr "Aprakstiet: 3) pieredzes līmeni, kas nepieciešams šo pasākumu īstenotu, piemēram, \"vispārīga izpratne (nav nepieciešamas zināšanas par darba aizsardzību)\", \"nav nepieciešamas specifiskas padziļinātas zināšanas par darba aizsardzību, bet jābūt minimālām zināšanām par darba aizsardzību” vai „mērījumu laboratorijai jābūt akreditētai\". Šeit varat arī aprakstīt jebkādas papildu prasības (ja jums tādas ir)."
+msgstr ""
+"Aprakstiet: 3) pieredzes līmeni, kas nepieciešams šo pasākumu īstenotu, "
+"piemēram, \"vispārīga izpratne (nav nepieciešamas zināšanas par darba "
+"aizsardzību)\", \"nav nepieciešamas specifiskas padziļinātas zināšanas par "
+"darba aizsardzību, bet jābūt minimālām zināšanām par darba aizsardzību” vai "
+"„mērījumu laboratorijai jābūt akreditētai\". Šeit varat arī aprakstīt "
+"jebkādas papildu prasības (ja jums tādas ir)."
 
 msgid "add_another_item"
 msgstr "Pievienot vēl vienu struktūrvienību"
@@ -1626,7 +1872,8 @@ msgstr ""
 #: euphorie/content/browser/templates/profilequestion_add.pt:53
 #: euphorie/content/browser/templates/profilequestion_edit.pt:60
 msgid "bullet_modules"
-msgstr "${Modules} (un, potenciāli, apakšmoduļi): konteineri ar loģisku struktūru"
+msgstr ""
+"${Modules} (un, potenciāli, apakšmoduļi): konteineri ar loģisku struktūru"
 
 #. Default: "${Profile-Questions}: questions defining the company profile"
 #: euphorie/content/browser/templates/profilequestion_add.pt:49
@@ -1829,14 +2076,21 @@ msgstr "Komentāri"
 #. <strong>This data will not appear in your reports.</strong>"
 #: euphorie/client/browser/templates/report_company.pt:40
 msgid "company_report_intro"
-msgstr "Paldies, ka izmantojat OiRA rīku. Pirms izveidot dokumentus, mēs lūdzam Jūs sniegt atgriezenisko saiti, atbildot uz dažiem jautājumiem. Šī informācija tiks izmantota tikai, lai uzlabotu rīkus un piedāvātos pakalpojumus. <strong>Šī informācija netiks iekļauta Jūsu dokumentos.</strong>"
+msgstr ""
+"Paldies, ka izmantojat OiRA rīku. Pirms izveidot dokumentus, mēs lūdzam Jūs "
+"sniegt atgriezenisko saiti, atbildot uz dažiem jautājumiem. Šī informācija "
+"tiks izmantota tikai, lai uzlabotu rīkus un piedāvātos pakalpojumus. "
+"<strong>Šī informācija netiks iekļauta Jūsu dokumentos.</strong>"
 
 #. Default: "For any further information regarding the handling of their
 #. personal data, data subjects can address their request to EU-OSHA Data
 #. Protection Officer at: dpo(at)osha.europa.eu."
 #: euphorie/client/browser/templates/conditions-bare.pt:110
 msgid "conditions_part10_entry"
-msgstr "Lai iegūtu papildinformāciju par personas datu apstrādi, datu subjekti var nosūtīt pieprasījumu EU-OSHA datu aizsardzības speciālistam, rakstot uz adresi: dpo(at)osha.europa.eu."
+msgstr ""
+"Lai iegūtu papildinformāciju par personas datu apstrādi, datu subjekti var "
+"nosūtīt pieprasījumu EU-OSHA datu aizsardzības speciālistam, rakstot uz "
+"adresi: dpo(at)osha.europa.eu."
 
 #. Default: "Request for information"
 #: euphorie/client/browser/templates/conditions-bare.pt:108
@@ -1848,7 +2102,10 @@ msgstr "Informācijas pieprasījums"
 #. operations do not comply with the Regulation."
 #: euphorie/client/browser/templates/conditions-bare.pt:118
 msgid "conditions_part11_entry"
-msgstr "Datu subjektiem ir tiesības vērsties pie Eiropas Datu aizsardzības uzraudzītāja (EDAU) vietnē ${url}, ja viņi uzskata, ka apstrādes darbības neatbilst Regulai."
+msgstr ""
+"Datu subjektiem ir tiesības vērsties pie Eiropas Datu aizsardzības "
+"uzraudzītāja (EDAU) vietnē ${url}, ja viņi uzskata, ka apstrādes darbības "
+"neatbilst Regulai."
 
 #. Default: "Recourse to the EDPS"
 #: euphorie/client/browser/templates/conditions-bare.pt:114
@@ -1874,7 +2131,8 @@ msgstr "Datums, kad sākas datu apstrāde"
 #. (information(at)osha.europa.eu)"
 #: euphorie/client/browser/templates/conditions-bare.pt:34
 msgid "conditions_part1_entry"
-msgstr "Profilakses un pētniecības nodaļas vadītājs (information(at)osha.europa.eu)"
+msgstr ""
+"Profilakses un pētniecības nodaļas vadītājs (information(at)osha.europa.eu)"
 
 #. Default: "Organisational part of the Agency entrusted with the processing
 #. of personal data"
@@ -1892,7 +2150,14 @@ msgstr "Aģentūras organizatoriskā daļa, kurai uzticēta personas datu apstr�
 #. the framework of the OiRA application."
 #: euphorie/client/browser/templates/conditions-bare.pt:40
 msgid "conditions_part2_entry"
-msgstr "Apstrādes darbības mērķis ir izveidot un pieslēgties jūsu OiRA (tiešsaistes interaktīvā riska novērtējuma) kontam, izveidot riska novērtējumus, rīcības plānus un ziņojumus. Biļetenu nosūtīšanai var izmantot e-pasta adreses (ja ir izvēlēta opcija). OiRA lietotne ir rīks, ko jums nodrošina Eiropas Darba drošības un veselības aizsardzības aģentūra (EU-OSHA). Šo privātuma politiku piemēro visiem EU-OSHA piedāvātajiem produktiem, pakalpojumiem un tīmekļa vietnēm OiRA lietotnes ietvaros."
+msgstr ""
+"Apstrādes darbības mērķis ir izveidot un pieslēgties jūsu OiRA (tiešsaistes "
+"interaktīvā riska novērtējuma) kontam, izveidot riska novērtējumus, rīcības "
+"plānus un ziņojumus. Biļetenu nosūtīšanai var izmantot e-pasta adreses (ja "
+"ir izvēlēta opcija). OiRA lietotne ir rīks, ko jums nodrošina Eiropas Darba "
+"drošības un veselības aizsardzības aģentūra (EU-OSHA). Šo privātuma politiku"
+" piemēro visiem EU-OSHA piedāvātajiem produktiem, pakalpojumiem un tīmekļa "
+"vietnēm OiRA lietotnes ietvaros."
 
 #. Default: "Purpose"
 #: euphorie/client/browser/templates/conditions-bare.pt:38
@@ -1905,7 +2170,10 @@ msgstr "Nolūks"
 #. No 2062/94."
 #: euphorie/client/browser/templates/conditions-bare.pt:46
 msgid "conditions_part3_entry"
-msgstr "Eiropas Parlamenta un Padomes 2019. gada 16. janvāra Regula (ES) 2019/126, ar ko izveido Eiropas Darba drošības un veselības aizsardzības aģentūru (EU-OSHA) un atceļ Padomes Regulu (EK) Nr. 2062/94."
+msgstr ""
+"Eiropas Parlamenta un Padomes 2019. gada 16. janvāra Regula (ES) 2019/126, "
+"ar ko izveido Eiropas Darba drošības un veselības aizsardzības aģentūru (EU-"
+"OSHA) un atceļ Padomes Regulu (EK) Nr. 2062/94."
 
 #. Default: "Legal basis"
 #: euphorie/client/browser/templates/conditions-bare.pt:44
@@ -1918,7 +2186,10 @@ msgstr "Juridiskais pamats"
 #. selected)."
 #: euphorie/client/browser/templates/conditions-bare.pt:54
 msgid "conditions_part4_1_entry"
-msgstr "E-pasta adrese: e-pasts ir nepieciešams, lai piekļūtu tiešsaistes lietotnei, rediģētu ievades datus un dzēstu OiRA kontu. E-pasta adresi izmanto arī, lai nosūtītu biļetenus (ja ir izvēlēta opcija)."
+msgstr ""
+"E-pasta adrese: e-pasts ir nepieciešams, lai piekļūtu tiešsaistes lietotnei,"
+" rediģētu ievades datus un dzēstu OiRA kontu. E-pasta adresi izmanto arī, "
+"lai nosūtītu biļetenus (ja ir izvēlēta opcija)."
 
 #. Default: "Any information you provide in the free text fields of the
 #. application of the OiRA tools and in the action plan of your risk
@@ -1928,7 +2199,12 @@ msgstr "E-pasta adrese: e-pasts ir nepieciešams, lai piekļūtu tiešsaistes li
 #. voluntarily and based on consent."
 #: euphorie/client/browser/templates/conditions-bare.pt:55
 msgid "conditions_part4_2_entry"
-msgstr "Visa informācija, ko jūs sniedzat OiRA rīku lietotnes brīvajos teksta laukos un jūsu riska novērtējumu rīcības plānā (piem., ja jūs ievadāt riska novēršanas pasākumu, par pasākumu atbildīgo personu u. tml.). Informāciju brīvajos teksta laukos un jebkurus citus rīkā sniegtos personas datus ievada brīvprātīgi, un to pamatā ir piekrišana."
+msgstr ""
+"Visa informācija, ko jūs sniedzat OiRA rīku lietotnes brīvajos teksta laukos"
+" un jūsu riska novērtējumu rīcības plānā (piem., ja jūs ievadāt riska "
+"novēršanas pasākumu, par pasākumu atbildīgo personu u. tml.). Informāciju "
+"brīvajos teksta laukos un jebkurus citus rīkā sniegtos personas datus ievada"
+" brīvprātīgi, un to pamatā ir piekrišana."
 
 #. Default: "This website collects web statistics with Matomo that is entirely
 #. hosted in EU- OSHA&rsquo;s servers, located in the European Union. The IP
@@ -1936,14 +2212,21 @@ msgstr "Visa informācija, ko jūs sniedzat OiRA rīku lietotnes brīvajos tekst
 #. (country, region and city)."
 #: euphorie/client/browser/templates/conditions-bare.pt:58
 msgid "conditions_part4_3_entry"
-msgstr "Šajā tīmekļa vietnē ir apkopota tīmekļa statistika ar lietotni Matomo, ko pilnībā mitina EU-OSHA serveros, kuri atrodas Eiropas Savienībā. Matomo saņem IP adresi tikai ģeogrāfiskās statistikas nolūkos (valsti, reģionu un pilsētu)."
+msgstr ""
+"Šajā tīmekļa vietnē ir apkopota tīmekļa statistika ar lietotni Matomo, ko "
+"pilnībā mitina EU-OSHA serveros, kuri atrodas Eiropas Savienībā. Matomo "
+"saņem IP adresi tikai ģeogrāfiskās statistikas nolūkos (valsti, reģionu un "
+"pilsētu)."
 
 #. Default: "The OiRA software does collect statistics from logged in users
 #. based on aggregated data on number of accounts and risk assessments per
 #. tool by country, broken down to months."
 #: euphorie/client/browser/templates/conditions-bare.pt:62
 msgid "conditions_part4_4_entry"
-msgstr "OiRA programmatūra apkopo statistiku no aktīvajiem lietotājiem, pamatojoties uz apkopotajiem datiem par vairākiem kontiem un riska novērtējumiem par katru rīku pēc valsts, iedalot tos pa mēnešiem."
+msgstr ""
+"OiRA programmatūra apkopo statistiku no aktīvajiem lietotājiem, pamatojoties"
+" uz apkopotajiem datiem par vairākiem kontiem un riska novērtējumiem par "
+"katru rīku pēc valsts, iedalot tos pa mēnešiem."
 
 #. Default: "Type of data processed"
 #: euphorie/client/browser/templates/conditions-bare.pt:51
@@ -1960,7 +2243,14 @@ msgstr "Apstrādāto datu veids"
 #. Regulation)."
 #: euphorie/client/browser/templates/conditions-bare.pt:68
 msgid "conditions_part5_entry"
-msgstr "Datu apstrāde ir pamatota ar Eiropas Parlamenta un Padomes 2018. gada 23. oktobra <a href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv%3AOJ.L_.2018.295.01.0039.01.ENG&toc=OJ%3AL%3A2018%3A295%3ATOC\">Regulas (ES) 2018/1725</a> par fizisku personu aizsardzību attiecībā uz personas datu apstrādi Savienības iestādēs, struktūrās, birojos un aģentūrās un par šādu datu brīvu apriti (turpmāk “Regulas”) 5. panta 1. punkta d) un a) apakšpunktu."
+msgstr ""
+"Datu apstrāde ir pamatota ar Eiropas Parlamenta un Padomes 2018. gada 23. "
+"oktobra <a href=\"https://eur-lex.europa.eu/legal-"
+"content/EN/TXT/?uri=uriserv%3AOJ.L_.2018.295.01.0039.01.ENG&toc=OJ%3AL%3A2018%3A295%3ATOC\">Regulas"
+" (ES) 2018/1725</a> par fizisku personu aizsardzību attiecībā uz personas "
+"datu apstrādi Savienības iestādēs, struktūrās, birojos un aģentūrās un par "
+"šādu datu brīvu apriti (turpmāk “Regulas”) 5. panta 1. punkta d) un a) "
+"apakšpunktu."
 
 #. Default: "Lawfulness of processing"
 #: euphorie/client/browser/templates/conditions-bare.pt:66
@@ -1974,7 +2264,12 @@ msgstr "Datu apstrādes likumība"
 #. reports."
 #: euphorie/client/browser/templates/conditions-bare.pt:77
 msgid "conditions_part6_entry"
-msgstr "Personas datiem var piekļūt EU-OSHA darbinieki, kas atbild par OiRA, un EU-OSHA tehniskie pakalpojumu sniedzēji, pamatojoties uz OiRA lietotāju pieprasījumiem tehnisku problēmu gadījumā. Turklāt OiRA lietotāji var piešķirt citiem OiRA lietotājiem piekļuvi saviem riska novērtējumiem, rīcības plāniem un ziņojumiem."
+msgstr ""
+"Personas datiem var piekļūt EU-OSHA darbinieki, kas atbild par OiRA, un EU-"
+"OSHA tehniskie pakalpojumu sniedzēji, pamatojoties uz OiRA lietotāju "
+"pieprasījumiem tehnisku problēmu gadījumā. Turklāt OiRA lietotāji var "
+"piešķirt citiem OiRA lietotājiem piekļuvi saviem riska novērtējumiem, "
+"rīcības plāniem un ziņojumiem."
 
 #. Default: "Data recipients"
 #: euphorie/client/browser/templates/conditions-bare.pt:75
@@ -1989,7 +2284,13 @@ msgstr "Datu saņēmēji"
 #. withdrawal (Articles 17, 18, 19, 20, 22, 23 and 24 of the Regulation)."
 #: euphorie/client/browser/templates/conditions-bare.pt:83
 msgid "conditions_part7_1_entry"
-msgstr "Datu subjektiem ir tiesības pieprasīt no pārziņa piekļuvi personas datiem un to labošanu vai dzēšanu, vai ierobežot tādu datu apstrādi, kas attiecas uz datu subjektu, vai attiecīgā gadījumā tiesības iebilst pret apstrādi vai tiesības jebkurā brīdī atsaukt piekrišanu, neietekmējot tādas apstrādes likumīgumu, kuras pamatā ir pirms atsaukuma sniegta piekrišana (Regulas 17., 18., 19., 20., 22., 23. un 24. pants)."
+msgstr ""
+"Datu subjektiem ir tiesības pieprasīt no pārziņa piekļuvi personas datiem un"
+" to labošanu vai dzēšanu, vai ierobežot tādu datu apstrādi, kas attiecas uz "
+"datu subjektu, vai attiecīgā gadījumā tiesības iebilst pret apstrādi vai "
+"tiesības jebkurā brīdī atsaukt piekrišanu, neietekmējot tādas apstrādes "
+"likumīgumu, kuras pamatā ir pirms atsaukuma sniegta piekrišana (Regulas 17.,"
+" 18., 19., 20., 22., 23. un 24. pants)."
 
 #. Default: "Any requests to exercise one of those rights should be directed
 #. per email to information(at)osha.europa.eu, mentioning the organisational
@@ -1998,13 +2299,20 @@ msgstr "Datu subjektiem ir tiesības pieprasīt no pārziņa piekļuvi personas 
 #. in the subject the words &ldquo;data protection&rdquo;."
 #: euphorie/client/browser/templates/conditions-bare.pt:87
 msgid "conditions_part7_2_entry"
-msgstr "Pieprasījumi par iepriekšminēto tiesību īstenošanu jānosūta pa e-pastu uz information@osha.europa.eu, norādot to aģentūras organizatorisko daļu, kurai uzticēta apstrādes darbība, kā norādīts šajā paziņojumā par privātumu, un apstrādes darbības nosaukumu, tostarp temata laukā norādot vārdus “datu aizsardzība”."
+msgstr ""
+"Pieprasījumi par iepriekšminēto tiesību īstenošanu jānosūta pa e-pastu uz "
+"information@osha.europa.eu, norādot to aģentūras organizatorisko daļu, kurai"
+" uzticēta apstrādes darbība, kā norādīts šajā paziņojumā par privātumu, un "
+"apstrādes darbības nosaukumu, tostarp temata laukā norādot vārdus “datu "
+"aizsardzība”."
 
 #. Default: "Data subjects&rsquo; rights can be restricted only in the cases
 #. foreseen in Art 25 of the Regulation."
 #: euphorie/client/browser/templates/conditions-bare.pt:91
 msgid "conditions_part7_3_entry"
-msgstr "Tikai gadījumos, kas norādīti Regulas 25. pantā, var ierobežot subjektu tiesības."
+msgstr ""
+"Tikai gadījumos, kas norādīti Regulas 25. pantā, var ierobežot subjektu "
+"tiesības."
 
 #. Default: "The data subject&rsquo;s rights"
 #: euphorie/client/browser/templates/conditions-bare.pt:81
@@ -2016,7 +2324,10 @@ msgstr "Datu subjekta tiesības"
 #. servers located in EU territory."
 #: euphorie/client/browser/templates/conditions-bare.pt:97
 msgid "conditions_part8_entry"
-msgstr "Jūsu dati nav pieejami ārējiem lietotājiem, un mēs tos glabāsim, līdz jūs izdzēsīsiet savu kontu un/vai savu(-as) sesiju(-as). EU-OSHA glabā datus mūsu serveros, kas atrodas ES teritorijā."
+msgstr ""
+"Jūsu dati nav pieejami ārējiem lietotājiem, un mēs tos glabāsim, līdz jūs "
+"izdzēsīsiet savu kontu un/vai savu(-as) sesiju(-as). EU-OSHA glabā datus "
+"mūsu serveros, kas atrodas ES teritorijā."
 
 #. Default: "Information on the conservation period of data"
 #: euphorie/client/browser/templates/conditions-bare.pt:95
@@ -2031,7 +2342,13 @@ msgstr "Informācija par datu glabāšanas periodu"
 #. systems where we store personal data."
 #: euphorie/client/browser/templates/conditions-bare.pt:104
 msgid "conditions_part9_entry"
-msgstr "Mēs veicam piemērotus drošības pasākumus, lai aizsargātu pret nesankcionētu piekļuvi datiem, to nesankcionētu pārveidošanu un datu atklāšanu vai iznīcināšanu. Tie ietver datu vākšanas, uzglabāšanas un apstrādes prakses iekšēju pārskatīšanu, saziņas atbilstošu šifrēšanu un fiziskus drošības pasākumus aizsardzībai pret nesankcionētu piekļuvi sistēmām, kurās mēs glabājam personas datus."
+msgstr ""
+"Mēs veicam piemērotus drošības pasākumus, lai aizsargātu pret nesankcionētu "
+"piekļuvi datiem, to nesankcionētu pārveidošanu un datu atklāšanu vai "
+"iznīcināšanu. Tie ietver datu vākšanas, uzglabāšanas un apstrādes prakses "
+"iekšēju pārskatīšanu, saziņas atbilstošu šifrēšanu un fiziskus drošības "
+"pasākumus aizsardzībai pret nesankcionētu piekļuvi sistēmām, kurās mēs "
+"glabājam personas datus."
 
 #. Default: "Security measures"
 #: euphorie/client/browser/templates/conditions-bare.pt:102
@@ -2100,7 +2417,8 @@ msgid "deprecated_label_existing_measures"
 msgstr ""
 
 msgid "describe_new_measure"
-msgstr "Aprakstiet pasākumu, kas jau tiek īstenots, bet vēl nav norādīts šeit."
+msgstr ""
+"Aprakstiet pasākumu, kas jau tiek īstenots, bet vēl nav norādīts šeit."
 
 msgid "describe_risk"
 msgstr "Aprakstiet risku…"
@@ -2110,24 +2428,33 @@ msgstr "Aprakstiet risku…"
 #. card."
 #: euphorie/client/browser/templates/webhelpers.pt:698
 msgid "description-training-configuration"
-msgstr "Lūdzu uzklikšķiniet, ja vēlaties daļu no teksta izslēgt no apmācībām. Teksts, kas tiek iekrāsots pelēks, netiks parādīts apmācību sadaļā."
+msgstr ""
+"Lūdzu uzklikšķiniet, ja vēlaties daļu no teksta izslēgt no apmācībām. "
+"Teksts, kas tiek iekrāsots pelēks, netiks parādīts apmācību sadaļā."
 
 #. Default: "The risk evaluation has been automatically done by the tool. You
 #. will be able to change the priority for this risk &ndash; if you consider
 #. it necessary &ndash; in the action plan."
 #: euphorie/client/browser/templates/webhelpers.pt:619
 msgid "description_automatic_evaluation"
-msgstr "Riska novērtējumu automātiski ir veicis rīks. Jūs varēsiet mainīt šim riska pakāpi rīcības plānā (ja jūs to uzskatīsiet par vajadzīgu)."
+msgstr ""
+"Riska novērtējumu automātiski ir veicis rīks. Jūs varēsiet mainīt šim riska "
+"pakāpi rīcības plānā (ja jūs to uzskatīsiet par vajadzīgu)."
 
 msgid "description_calculated_evaluation"
-msgstr "Lūdzu, atbildiet uz zemāk norādītajiem jautājumiem. Balstoties uz jūsu atbildēm, sistēma aprēķinās riska pakāpi. Jūs vēlāk varēsiet to mainīt."
+msgstr ""
+"Lūdzu, atbildiet uz zemāk norādītajiem jautājumiem. Balstoties uz jūsu "
+"atbildēm, sistēma aprēķinās riska pakāpi. Jūs vēlāk varēsiet to mainīt."
 
 #. Default: "${user} has invited you to join this userʼs organisation. Once
 #. you&rsquo;ve accepted your membership, you can collaborate on risk
 #. assessments."
 #: euphorie/client/browser/templates/confirm-organisation-invite.pt:35
 msgid "description_confirm_organisation_invite"
-msgstr "${user} ir uzaicinājis Jūs pievienoties savai organizācijai. Kad Jūs būsiet apstiprinājis savu pievienošanos, jūs varēsiet sadarboties, veicot darba vides riska novērtēšanu."
+msgstr ""
+"${user} ir uzaicinājis Jūs pievienoties savai organizācijai. Kad Jūs būsiet "
+"apstiprinājis savu pievienošanos, jūs varēsiet sadarboties, veicot darba "
+"vides riska novērtēšanu."
 
 #. Default: "The plain text file will contain all translatable text without
 #. formatting. This file can be used to determine a word count for estimating
@@ -2167,7 +2494,9 @@ msgstr ""
 #. are able to add them now:"
 #: euphorie/client/browser/publish.py:126
 msgid "description_other_risks"
-msgstr "Gadījumā, ja esat identificējis(-usi) riskus, kuri nav iekļauti rīkā, varat tos pievienot tagad:"
+msgstr ""
+"Gadījumā, ja esat identificējis(-usi) riskus, kuri nav iekļauti rīkā, varat "
+"tos pievienot tagad:"
 
 #: euphorie/client/browser/reset_password.py:226
 msgid "description_reset_password_form"
@@ -2192,7 +2521,9 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:81
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:96
 msgid "description_role_admin__training_disabled"
-msgstr "Administrators var izveidot, labot un dzēst lietotājus. Administrators var arī veikt darba vides riska novērtējumu un slēgt riska noērtējumus."
+msgstr ""
+"Administrators var izveidot, labot un dzēst lietotājus. Administrators var "
+"arī veikt darba vides riska novērtējumu un slēgt riska noērtējumus."
 
 #. Default: "Consultants can make, edit, validate and approve risk
 #. assessments."
@@ -2265,7 +2596,9 @@ msgstr ""
 #. when they open the tool. It can be used for notifying users about changes."
 #: euphorie/content/survey.py:179
 msgid "description_tool_notification"
-msgstr "Teksts, ko šeit ievadīsiet, lietotājiem tiks parādīts uznirstošā logā, kad viņi šo rīku atvērs. To var izmantot, lai paziņotu lietotājiem par izmaiņām."
+msgstr ""
+"Teksts, ko šeit ievadīsiet, lietotājiem tiks parādīts uznirstošā logā, kad "
+"viņi šo rīku atvērs. To var izmantot, lai paziņotu lietotājiem par izmaiņām."
 
 #. Default: "This selection determines, which variant of an OiRA Tool will be
 #. created. If you are not sure, select \"Classic\"."
@@ -2289,13 +2622,21 @@ msgstr ""
 #. guidance services."
 #: euphorie/client/browser/templates/about.pt:110
 msgid "devel_phase"
-msgstr "2009. gadā notika rīka tehniskā izstrāde, bet 2010. gadā (līdz 2011. gada pirmajai pusei) aģentūra izmēģināja izstrādes un izplatīšanas modeli gan ES līmenī (sadarbojoties ar sektoru sociālā dialoga komitejām), gan dalībvalstu līmenī (sadarbojoties ar atsevišķām dalībvalstīm). Moduļa izmēģināšana bija daļa no rīka testēšanas un piemērotu palīdzības un padomu sniegšanas pakalpojumu izstrādes."
+msgstr ""
+"2009. gadā notika rīka tehniskā izstrāde, bet 2010. gadā (līdz 2011. gada "
+"pirmajai pusei) aģentūra izmēģināja izstrādes un izplatīšanas modeli gan ES "
+"līmenī (sadarbojoties ar sektoru sociālā dialoga komitejām), gan dalībvalstu"
+" līmenī (sadarbojoties ar atsevišķām dalībvalstīm). Moduļa izmēģināšana bija"
+" daļa no rīka testēšanas un piemērotu palīdzības un padomu sniegšanas "
+"pakalpojumu izstrādes."
 
 #. Default: "Pages created in the ${appendix} folder are available via links
 #. in the footer of the online client."
 #: euphorie/content/browser/templates/documentation_view.pt:30
 msgid "documentation_appendix"
-msgstr "Lapas, kas izveidotas mapē \"${appendix}\", ir pieejamas, izmantojot saites, kas redzamas tiešsaistes klienta lapas apakšdaļā."
+msgstr ""
+"Lapas, kas izveidotas mapē \"${appendix}\", ir pieejamas, izmantojot saites,"
+" kas redzamas tiešsaistes klienta lapas apakšdaļā."
 
 #. Default: "appendix"
 #: euphorie/content/browser/templates/documentation_view.pt:30
@@ -2367,7 +2708,8 @@ msgstr ""
 #. Default: "Please ignore this email if you didn't request for a change."
 #: euphorie/client/browser/templates/confirm-email.pt:21
 msgid "email_change_epilogue"
-msgstr "Ja šādas izmaiņas nepieprasījāt, lūdzu, ignorējiet šo e-pasta ziņojumu."
+msgstr ""
+"Ja šādas izmaiņas nepieprasījāt, lūdzu, ignorējiet šo e-pasta ziņojumu."
 
 #. Default: "Dear user,"
 #: euphorie/client/browser/templates/confirm-email.pt:6
@@ -2378,14 +2720,20 @@ msgstr "Ļ. cien. lietotāj!"
 #. '${email}' when you click the confirmation link below."
 #: euphorie/client/browser/templates/confirm-email.pt:14
 msgid "email_change_intro"
-msgstr "Noklikšķinot uz tālāk redzamās apstiprināšanas saites, jūsu e-pasta adrese un konta nosaukums vietnē ${url} tiks mainīts uz '${email}'."
+msgstr ""
+"Noklikšķinot uz tālāk redzamās apstiprināšanas saites, jūsu e-pasta adrese "
+"un konta nosaukums vietnē ${url} tiks mainīts uz '${email}'."
 
 #. Default: "Please confirm your new email address by clicking on the link in
 #. the email that will be sent in a few minutes to \"${email}\". Please note
 #. that the new email address is also your new login name."
 #: euphorie/client/browser/settings.py:447
 msgid "email_change_pending"
-msgstr "Lūdzu, apstipriniet jauno e-pasta adresi, noklikšķinot uz saites e-pasta ziņojumā,  kas pēc brīža tiks nosūtīts uz šo e-pasta adresi: \"${email}\". Lūdzu, ņemiet vērā, ka jaunā e-pasta adrese būs arī jūsu jaunais pieteikumvārds."
+msgstr ""
+"Lūdzu, apstipriniet jauno e-pasta adresi, noklikšķinot uz saites e-pasta "
+"ziņojumā,  kas pēc brīža tiks nosūtīts uz šo e-pasta adresi: \"${email}\". "
+"Lūdzu, ņemiet vērā, ka jaunā e-pasta adrese būs arī jūsu jaunais "
+"pieteikumvārds."
 
 #. Default: "Dear ${recipient},"
 #: euphorie/client/browser/templates/notify-invite-accept.pt:7
@@ -2395,7 +2743,9 @@ msgstr ""
 #. Default: "${invitee} has accepted your invitation to join ${organisation}."
 #: euphorie/client/browser/templates/notify-invite-accept.pt:14
 msgid "email_invite_accept_main"
-msgstr "${invitee} ir pieņēmis/-usi Jūsu uzaicinājumu pievienoties ${organisation} organizācijai."
+msgstr ""
+"${invitee} ir pieņēmis/-usi Jūsu uzaicinājumu pievienoties ${organisation} "
+"organizācijai."
 
 #. Default: "Dear ${recipient},"
 #: euphorie/client/browser/templates/notify-request-validation.pt:6
@@ -2491,7 +2841,9 @@ msgstr "Paroles nesakrīt."
 #. digit."
 #: euphorie/client/browser/login.py:146
 msgid "error_password_policy_violation"
-msgstr "Parolei ir jābūt vismaz 12 zīmes garai un jāsatur vismaz viens lielais burts, vismaz viens mazais burts un viens cipars."
+msgstr ""
+"Parolei ir jābūt vismaz 12 zīmes garai un jāsatur vismaz viens lielais "
+"burts, vismaz viens mazais burts un viens cipars."
 
 #. Default: "An accout can only be created for you if you accept the terms and
 #. conditions."
@@ -2554,7 +2906,10 @@ msgstr "Aptuvens novērtējums"
 #. determine which preventive and protective measures are to be taken."
 #: euphorie/client/browser/templates/actionplan.pt:27
 msgid "expl_actionplan_1"
-msgstr "Pēc risku identificēšanas jums jāievieš rīcības plāns to novēršanai. Lai novērstu vai samazinātu riskus, jums jāizlemj, kurus preventīvos un aizsardzības līdzekļus izmantot."
+msgstr ""
+"Pēc risku identificēšanas jums jāievieš rīcības plāns to novēršanai. Lai "
+"novērstu vai samazinātu riskus, jums jāizlemj, kurus preventīvos un "
+"aizsardzības līdzekļus izmantot."
 
 #. Default: "Among the things to be considered for this step are:"
 #: euphorie/client/browser/templates/actionplan.pt:33
@@ -2565,7 +2920,9 @@ msgstr "Šajā posmā jums jāapsver šādi jautājumi:"
 #. this could be achieved by: ${expl_actionplan_4_and_5}"
 #: euphorie/client/browser/templates/actionplan.pt:39
 msgid "expl_actionplan_3"
-msgstr "Vai no šī riska var izvairīties? Vai to var pilnībā novērst?  Vai to var panākt ar šīm metodēm: ${expl_actionplan_4_and_5}"
+msgstr ""
+"Vai no šī riska var izvairīties? Vai to var pilnībā novērst?  Vai to var "
+"panākt ar šīm metodēm: ${expl_actionplan_4_and_5}"
 
 #. Default: "considering whether the task or job is necessary"
 #: euphorie/client/browser/templates/actionplan.pt:40
@@ -2581,7 +2938,10 @@ msgstr "Bīstamības faktora novēršana."
 #. level at which the health and safety of those exposed is not compromised?"
 #: euphorie/client/browser/templates/actionplan.pt:44
 msgid "expl_actionplan_6"
-msgstr "Ja no dažiem riskiem nevar izvairīties, kā tos varētu samazināt līdz tādam līmenim, lai netiktu apdraudēta tiem pakļauto darbinieku veselība un drošība?"
+msgstr ""
+"Ja no dažiem riskiem nevar izvairīties, kā tos varētu samazināt līdz tādam "
+"līmenim, lai netiktu apdraudēta tiem pakļauto darbinieku veselība un "
+"drošība?"
 
 #. Default: "Once you have decided how to eliminate or reduce a particular
 #. risk, then you describe the specific action(s) required to achieve this.
@@ -2589,7 +2949,11 @@ msgstr "Ja no dažiem riskiem nevar izvairīties, kā tos varētu samazināt lī
 #. requirements needed for those actions to be effective."
 #: euphorie/client/browser/templates/actionplan.pt:48
 msgid "expl_actionplan_7"
-msgstr "Kad esat izlēmis par noteikta riska novēršanas vai samazināšanas veidu, jums jāapraksta specifiskas darbības, kas šim nolūkam jāizmanto. Jums arī jāiekļauj informācija par nepieciešamo pieredzes līmeni un/vai citām prasībām, kas jāizpilda, lai riska novēršanas darbības būtu efektīvas."
+msgstr ""
+"Kad esat izlēmis par noteikta riska novēršanas vai samazināšanas veidu, jums"
+" jāapraksta specifiskas darbības, kas šim nolūkam jāizmanto. Jums arī "
+"jāiekļauj informācija par nepieciešamo pieredzes līmeni un/vai citām "
+"prasībām, kas jāizpilda, lai riska novēršanas darbības būtu efektīvas."
 
 #. Default: "No risks were identified. Please proceed directly to the report."
 #: euphorie/client/browser/templates/actionplan.pt:54
@@ -2610,28 +2974,38 @@ msgstr "Jūsu pieprasīto lapu nevarēja atrast."
 #. may be asked to:"
 #: euphorie/client/browser/templates/profile.pt:24
 msgid "expl_profile"
-msgstr "Lai pielāgotu riska novērtēšanu jūsu organizācijai, jums var lūgts veikt šādas darbības:"
+msgstr ""
+"Lai pielāgotu riska novērtēšanu jūsu organizācijai, jums var lūgts veikt "
+"šādas darbības:"
 
 #. Default: "select or skip situation(s) relevant or not to your business
 #. activity and tick the box(es) if appropriate"
 #: euphorie/client/browser/templates/profile.pt:29
 msgid "expl_profile_bullet1"
-msgstr "Atlasīt vai izlaist situācijas, kas atbilst vai neatbilst jūsu uzņēmējdarbībai, un atzīmēt lodziņus, kas ir uz jums attiecināmi."
+msgstr ""
+"Atlasīt vai izlaist situācijas, kas atbilst vai neatbilst jūsu "
+"uzņēmējdarbībai, un atzīmēt lodziņus, kas ir uz jums attiecināmi."
 
 #. Default: "list multiple business units, or branches, or stores, etc. These
 #. related risks will be repeated for each name you have entered."
 #: euphorie/client/browser/templates/profile.pt:32
 msgid "expl_profile_bullet2"
-msgstr "Norādīt vairākas uzņēmuma struktūrvienības, filiāles, veikalus u.c. Šie saistītie riski tiks atkārtoti katram jūsu ievadītajam nosaukumam."
+msgstr ""
+"Norādīt vairākas uzņēmuma struktūrvienības, filiāles, veikalus u.c. Šie "
+"saistītie riski tiks atkārtoti katram jūsu ievadītajam nosaukumam."
 
 #. Default: "This OiRA tool has changed since you last accessed it. Before you
 #. can continue, you need to update to these changes."
 #: euphorie/client/browser/templates/updated.pt:24
 msgid "expl_update"
-msgstr "OiRA rīks ir mainījies, kopš jūs tam pēdējoreiz piekļuvāt. Pirms turpināt, jums ir jāievieš šie atjauninājumi."
+msgstr ""
+"OiRA rīks ir mainījies, kopš jūs tam pēdējoreiz piekļuvāt. Pirms turpināt, "
+"jums ir jāievieš šie atjauninājumi."
 
 msgid "explanation_ra_clone"
-msgstr "Klonējot riska novērtējumu, jūs izveidosiet jaunu riska novērtējumu, kura saturs sākotnēji būs identisks ar iepriekšējo riska novērtējumu."
+msgstr ""
+"Klonējot riska novērtējumu, jūs izveidosiet jaunu riska novērtējumu, kura "
+"saturs sākotnēji būs identisks ar iepriekšējo riska novērtējumu."
 
 #. Default: "This risk was automatically set as being present. You cannot
 #. change this."
@@ -2645,7 +3019,10 @@ msgstr ""
 #. ${label_link_register}."
 #: euphorie/client/browser/templates/surveys.pt:32
 msgid "explanation_try_oira"
-msgstr "Izmēģiniet jebkuru turpmāk minēto rīku anonīmi, noklikšķinot uz pogas “Testa sesija” jūsu izvēlētajā rīkā. Testa sesijā jūs nevarat saglabāt savu darbu. Ja ${label_link_register}, viss paveiktais pazudīs."
+msgstr ""
+"Izmēģiniet jebkuru turpmāk minēto rīku anonīmi, noklikšķinot uz pogas “Testa"
+" sesija” jūsu izvēlētajā rīkā. Testa sesijā jūs nevarat saglabāt savu darbu."
+" Ja ${label_link_register}, viss paveiktais pazudīs."
 
 #: euphorie/client/browser/session.py:474
 msgid "extra_text_identification"
@@ -2753,7 +3130,11 @@ msgstr "Regulāri"
 #. link at the top right of the page."
 #: euphorie/client/browser/templates/tooltips.pt:11
 msgid "guest_login_warning"
-msgstr "Pašlaik Jūs novērtējat OiRA kā viesis. Jūs nevarēsiet saglabāt darbu vai lejupielādēt kādus dokumentus. Lai saglabātu savu darbu, lūdzu, piesakieties vai reģistrējieties, noklikšķinot uz \"${link_sign_in}\" saites lapas augšā labajā pusē."
+msgstr ""
+"Pašlaik Jūs novērtējat OiRA kā viesis. Jūs nevarēsiet saglabāt darbu vai "
+"lejupielādēt kādus dokumentus. Lai saglabātu savu darbu, lūdzu, piesakieties"
+" vai reģistrējieties, noklikšķinot uz \"${link_sign_in}\" saites lapas augšā"
+" labajā pusē."
 
 #. Default: "Actions"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:183
@@ -2959,7 +3340,8 @@ msgstr "Navigācijas rīks"
 #. Plan"
 #: euphorie/client/docx/views.py:231
 msgid "header_present_risks"
-msgstr "Riski, kas ir identificēti, novērtēti un kuriem ir paredzēts rīcības plāns."
+msgstr ""
+"Riski, kas ir identificēti, novērtēti un kuriem ir paredzēts rīcības plāns."
 
 #. Default: "Preview OiRA Tool"
 #: euphorie/client/browser/templates/preview.pt:15
@@ -3049,7 +3431,9 @@ msgstr "Riski"
 #. your organisation"
 #: euphorie/client/docx/views.py:252
 msgid "header_risks_not_present"
-msgstr "Kaitīgie faktori/problēmas, kas ir novērsti vai neattiecas uz attiecīgo uzņēmumu"
+msgstr ""
+"Kaitīgie faktori/problēmas, kas ir novērsti vai neattiecas uz attiecīgo "
+"uzņēmumu"
 
 #. Default: "Search"
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:91
@@ -3117,12 +3501,16 @@ msgstr ""
 #. dealt with"
 #: euphorie/client/docx/views.py:245
 msgid "header_unanswered_risks"
-msgstr "Bīstamības faktori/problēmas, kam ir \"pagaidu\" statuss un kuras nav atrisinātas."
+msgstr ""
+"Bīstamības faktori/problēmas, kam ir \"pagaidu\" statuss un kuras nav "
+"atrisinātas."
 
 #. Default: "Risks that have been identified but do NOT have an Action Plan"
 #: euphorie/client/docx/views.py:238
 msgid "header_unevaluated_risks"
-msgstr "Riski, kas ir identificēti, bet kuru novēršanai NAV identificēti veicamie pasākumi"
+msgstr ""
+"Riski, kas ir identificēti, bet kuru novēršanai NAV identificēti veicamie "
+"pasākumi"
 
 #. Default: "Manage users in ${country}"
 #: euphorie/content/browser/templates/user_mgmt.pt:16
@@ -3347,13 +3735,17 @@ msgstr "Šim tekstam jāizskaidro reģistrēšanās un pieteikšanās process."
 #. able to modify the priority later."
 #: euphorie/client/browser/templates/webhelpers.pt:364
 msgid "help_calculated_evaluation"
-msgstr "Lūdzu, atbildiet uz zemāk norādītajiem jautājumiem. Balstoties uz jūsu atbildēm, sistēma aprēķinās riska pakāpi. Jūs vēlāk varēsiet to mainīt."
+msgstr ""
+"Lūdzu, atbildiet uz zemāk norādītajiem jautājumiem. Balstoties uz jūsu "
+"atbildēm, sistēma aprēķinās riska pakāpi. Jūs vēlāk varēsiet to mainīt."
 
 #. Default: "A code identifying this sector. Classification codes are defined
 #. by national standards bodies and based on revision 2 of the NACE standard."
 #: euphorie/content/survey.py:92
 msgid "help_classification_code"
-msgstr "Kods, ar ko apzīmē šo sektoru. Klasifikācijas kodus nosaka valstu standartu iestādes, un to pamatā ir NACE standarta 2. versija."
+msgstr ""
+"Kods, ar ko apzīmē šo sektoru. Klasifikācijas kodus nosaka valstu standartu "
+"iestādes, un to pamatā ir NACE standarta 2. versija."
 
 #. Default: "Select which optional elements are used in the compact report"
 #: euphorie/content/country.py:111
@@ -3371,7 +3763,9 @@ msgstr ""
 #. want to start off with a copy of an existing OiRA Tool."
 #: euphorie/deployment/tiles/templates/versions.pt:111
 msgid "help_create_new_version"
-msgstr "Sāciet rakstīt jaunu OiRA rīku. Jums tiks vaicāts, vai vēlaties sākt darbu ar esoša OiRA rīka kopiju."
+msgstr ""
+"Sāciet rakstīt jaunu OiRA rīku. Jums tiks vaicāts, vai vēlaties sākt darbu "
+"ar esoša OiRA rīka kopiju."
 
 #. Default: "Indicate how often this risk occurs in a normal situation."
 #: euphorie/client/browser/risk.py:894 euphorie/content/risk.py:443
@@ -3382,7 +3776,9 @@ msgstr "Norādiet, cik bieži šāds risks pastāv normālos apstākļos."
 #. can still change the priority."
 #: euphorie/content/risk.py:222
 msgid "help_default_priority"
-msgstr "Varat palīdzēt gala lietotājam, atlasot prioritāti, kas tiks lietota pēc noklusējuma. Lietotājs tik un tā varēs pats mainīt prioritātes līmeni."
+msgstr ""
+"Varat palīdzēt gala lietotājam, atlasot prioritāti, kas tiks lietota pēc "
+"noklusējuma. Lietotājs tik un tā varēs pats mainīt prioritātes līmeni."
 
 #. Default: "Indicate how likely occurence of this risk is in a normal
 #. situation."
@@ -3424,7 +3820,9 @@ msgstr "Šim tekstam jāizskaidro, kā novērtēt identificētos riskus."
 #. possible."
 #: euphorie/content/risk.py:182
 msgid "help_evaluation_method"
-msgstr "Ja aprēķini nav nepieciešami vai iespējami, atlasiet \"aptuvens novērtējums\"."
+msgstr ""
+"Ja aprēķini nav nepieciešami vai iespējami, atlasiet \"aptuvens "
+"novērtējums\"."
 
 #. Default: "This option allows users to skip the evaluation phase."
 #: euphorie/content/survey.py:75
@@ -3511,7 +3909,9 @@ msgstr "Šim tekstam jāizskaidro, kā notiek riska identificēšana."
 #: euphorie/content/module.py:87 euphorie/content/risk.py:252
 #: euphorie/content/sector.py:75
 msgid "help_image_upload"
-msgstr "Augšupielādējiet attēlu. Tam jābūt png, jpg vai gif formātā, un tajā nedrīkst būt nekādu īpašu rakstzīmju."
+msgstr ""
+"Augšupielādējiet attēlu. Tam jābūt png, jpg vai gif formātā, un tajā "
+"nedrīkst būt nekādu īpašu rakstzīmju."
 
 #. Default: "Help"
 #: euphorie/client/browser/templates/shell.pt:197
@@ -3529,13 +3929,17 @@ msgstr ""
 #. not avoidable) reduce the risk."
 #: euphorie/content/solution.py:43
 msgid "help_measure_action_plan"
-msgstr "Aprakstiet savu vispārējo pieeju, lai risku novērstu vai samazinātu (ja tas nav novēršams)."
+msgstr ""
+"Aprakstiet savu vispārējo pieeju, lai risku novērstu vai samazinātu (ja tas "
+"nav novēršams)."
 
 #. Default: "Describe the specific action(s) required to implement this
 #. approach (to eliminate or to reduce the risk)."
 #: euphorie/content/solution.py:56
 msgid "help_measure_prevention_plan"
-msgstr "Aprakstiet specifiskās darbības, kas jāveic, lai īstenotu šo pieeju (lai samazinātu vai novērstu risku)."
+msgstr ""
+"Aprakstiet specifiskās darbības, kas jāveic, lai īstenotu šo pieeju (lai "
+"samazinātu vai novērstu risku)."
 
 #. Default: "Describe the level of expertise needed to implement the measure,
 #. for instance \"common sense (no OSH knowledge required)\", \"no specific
@@ -3544,14 +3948,21 @@ msgstr "Aprakstiet specifiskās darbības, kas jāveic, lai īstenotu šo pieeju
 #. other additional requirement (if any)."
 #: euphorie/content/solution.py:91
 msgid "help_measure_requirements"
-msgstr "Aprakstiet pieredzes līmeni, kas nepieciešams šī līdzekļa realizēšanai, piemēram, \"vispārīgu izpratni (nav nepieciešamas zināšanas par OSH)\", \"nav nepieciešamas specifiskas zināšanas par OSH, bet jābūt minimālām zināšanām par OSH vai saņemtai apmācībai un/vai konsultācijai, kas nodrošina ievadu OSH\" vai \"OSH eksperts\". Šeit varat arī aprakstīt jebkādas papildu prasības (ja jums tādas ir)."
+msgstr ""
+"Aprakstiet pieredzes līmeni, kas nepieciešams šī līdzekļa realizēšanai, "
+"piemēram, \"vispārīgu izpratni (nav nepieciešamas zināšanas par OSH)\", "
+"\"nav nepieciešamas specifiskas zināšanas par OSH, bet jābūt minimālām "
+"zināšanām par OSH vai saņemtai apmācībai un/vai konsultācijai, kas nodrošina"
+" ievadu OSH\" vai \"OSH eksperts\". Šeit varat arī aprakstīt jebkādas "
+"papildu prasības (ja jums tādas ir)."
 
 #. Default: "Include any relevant information that may be helpful for the end-
 #. user."
 #: euphorie/content/module.py:52 euphorie/content/page.py:17
 #: euphorie/content/solution.py:29
 msgid "help_module_description"
-msgstr "Iekļaujiet jebkādu atbilstīgu un gala lietotājam noderīgu informāciju."
+msgstr ""
+"Iekļaujiet jebkādu atbilstīgu un gala lietotājam noderīgu informāciju."
 
 #. Default: "Allows the end-user to skip this module and everything inside
 #. it."
@@ -3564,7 +3975,10 @@ msgstr "Ļauj gala lietotājiem izlaist šo moduli un visu tā saturu."
 #. have to tick a box) or NO"
 #: euphorie/content/module.py:76
 msgid "help_module_question"
-msgstr "Jautājums, kas jāuzdod gala lietotājam, ja šis modulis ir neobligāts. Tas ir jānoformulē tā, lai uz to varētu atbildēt ar JĀ (gala lietotājam būs jāatzīmē lodziņš) vai NĒ."
+msgstr ""
+"Jautājums, kas jāuzdod gala lietotājam, ja šis modulis ir neobligāts. Tas ir"
+" jānoformulē tā, lai uz to varētu atbildēt ar JĀ (gala lietotājam būs "
+"jāatzīmē lodziņš) vai NĒ."
 
 #. Default: "Please enter the number of questions to be shown at the end of
 #. your training session. If the number is lower than the number of existing
@@ -3580,7 +3994,9 @@ msgstr ""
 #: euphorie/client/browser/templates/login.pt:216
 #: euphorie/client/browser/templates/register_session.pt:176
 msgid "help_password_requirements"
-msgstr "Parolei ir jābūt vismaz 12 zīmes garai un jāsatur vismaz viens lielais burts, vismaz viens mazais burts un viens cipars."
+msgstr ""
+"Parolei ir jābūt vismaz 12 zīmes garai un jāsatur vismaz viens lielais "
+"burts, vismaz viens mazais burts un viens cipars."
 
 #. Default: "This text should explain the 2 types of profile questions."
 #: euphorie/content/help.py:53
@@ -3596,7 +4012,9 @@ msgstr "Priekšskatījums būs pieejams vietnē ${url}."
 #. building is not well maintained.)"
 #: euphorie/content/risk.py:80
 msgid "help_problem_description"
-msgstr "Tas ir apstiprinoša apgalvojuma pretējais variants (piemēram, \"ēka netiek uzturēta labā kārtībā\")."
+msgstr ""
+"Tas ir apstiprinoša apgalvojuma pretējais variants (piemēram, \"ēka netiek "
+"uzturēta labā kārtībā\")."
 
 #. Default: "Publish the selected OiRA Tool live with its latest changes."
 #: euphorie/deployment/tiles/templates/versions.pt:34
@@ -3618,14 +4036,19 @@ msgstr "Šim tekstam jāizskaidro, kā var saglabāt vai izdrukāt pārskatu."
 #. helpful for the end-user."
 #: euphorie/content/risk.py:92
 msgid "help_risk_description"
-msgstr "Aprakstiet risku. Iekļaujiet jebkādu atbilstīgu informāciju, kas var gala lietotājiem noderēt."
+msgstr ""
+"Aprakstiet risku. Iekļaujiet jebkādu atbilstīgu informāciju, kas var gala "
+"lietotājiem noderēt."
 
 #. Default: "\"Priority risk\" is one of the high risks in the sector.
 #. \"Risk\" is related to the workplace or to the work carried out. \"Policy\"
 #. refers to agreements, procedures, and management decisions."
 #: euphorie/content/risk.py:147
 msgid "help_risk_type"
-msgstr "\"Prioritārs risks\" ir viens no vislielākajiem riskiem konkrētā nozarē. \"Risks\" ir saistīts ar darba vietu. \"Politika\" ir saistīta ar argumentiem, procedūrām un vadības lēmumiem."
+msgstr ""
+"\"Prioritārs risks\" ir viens no vislielākajiem riskiem konkrētā nozarē. "
+"\"Risks\" ir saistīts ar darba vietu. \"Politika\" ir saistīta ar "
+"argumentiem, procedūrām un vadības lēmumiem."
 
 #. Default: "If you do not specify a title it will be taken from the input
 #. file."
@@ -3642,20 +4065,27 @@ msgstr "Šim tekstam jāapraksta galvenās OiRA rīka funkcijas."
 #. yes/no options."
 #: euphorie/content/risk.py:137
 msgid "help_show_notapplicable"
-msgstr "Piedāvā rādīt opciju \"nav attiecināms\" papildus standarta opcijām \"jā\" un \"nē\"."
+msgstr ""
+"Piedāvā rādīt opciju \"nav attiecināms\" papildus standarta opcijām \"jā\" "
+"un \"nē\"."
 
 #. Default: "This information will appear in the Action plan step and should
 #. include an overview of general solution(s) related to this module."
 #: euphorie/content/module.py:101
 msgid "help_solution_direction"
-msgstr "Šī informācija tiks rādīta rīcības plāna posmā, un tai jāietver pārskats par vispārējiem risinājumiem saistībā ar šo moduli."
+msgstr ""
+"Šī informācija tiks rādīta rīcības plāna posmā, un tai jāietver pārskats par"
+" vispārējiem risinājumiem saistībā ar šo moduli."
 
 #. Default: "Start based on an existing risk assessment. All content of the
 #. existing risk assessment will be copied over into the new risk assessment,
 #. which you can edit and augment at will."
 #: euphorie/client/browser/templates/new-session.pt:58
 msgid "help_start_base_on_existing"
-msgstr "Sākt, pamatojoties uz esošo riska novērtējumu. Viss esošā riska novērtējuma saturs tiks pārkopēts jaunajā riska novērtējumā, kuru var rediģēt un papildināt pēc saviem ieskatiem."
+msgstr ""
+"Sākt, pamatojoties uz esošo riska novērtējumu. Viss esošā riska novērtējuma "
+"saturs tiks pārkopēts jaunajā riska novērtējumā, kuru var rediģēt un "
+"papildināt pēc saviem ieskatiem."
 
 #. Default: "Start from scratch with an empty risk assessment."
 #: euphorie/client/browser/templates/new-session.pt:52
@@ -3666,7 +4096,9 @@ msgstr "Sākt no 0 ar tukšu riska novērtējumu"
 #. The building is well maintained.)"
 #: euphorie/content/risk.py:68
 msgid "help_statement"
-msgstr "Šis ir īss, apstiprinošs apgalvojums par iespējamu risku (piemēram, \"ēka tiek uzturēta labā kārtībā\")."
+msgstr ""
+"Šis ir īss, apstiprinošs apgalvojums par iespējamu risku (piemēram, \"ēka "
+"tiek uzturēta labā kārtībā\")."
 
 #. Default: "This method involves risk assessment by Severity x Exposure,
 #. whereas these have to be understood as follows; Severity of injury linked
@@ -3687,19 +4119,24 @@ msgstr ""
 #. another OiRA Tool."
 #: euphorie/content/surveygroup.py:54
 msgid "help_survey_obsolete"
-msgstr "Šis ir šīs aptaujas versijas nosaukums. Tas nekad netiek rādīts lietotājiem."
+msgstr ""
+"Šis ir šīs aptaujas versijas nosaukums. Tas nekad netiek rādīts lietotājiem."
 
 #. Default: "This is the title of this OiRA Tool version. This name is never
 #. shown to users."
 #: euphorie/content/survey.py:49
 msgid "help_survey_title"
-msgstr "Šis ir šīs OiRA rīka versijas nosaukums. Tas nekad netiek rādīts lietotājiem."
+msgstr ""
+"Šis ir šīs OiRA rīka versijas nosaukums. Tas nekad netiek rādīts "
+"lietotājiem."
 
 #. Default: "The title of this OiRA Tool. This title is used in the OiRA Tool
 #. overview in the clients."
 #: euphorie/content/surveygroup.py:41
 msgid "help_surveygroup_title"
-msgstr "Šī OiRA rīka nosaukums. Šo nosaukumu izmanto OiRA rīka priekšskatījumā klientos."
+msgstr ""
+"Šī OiRA rīka nosaukums. Šo nosaukumu izmanto OiRA rīka priekšskatījumā "
+"klientos."
 
 #. Default: "If you do not specify a title it will be taken from the input."
 #: euphorie/content/browser/upload.py:157
@@ -3724,7 +4161,10 @@ msgstr "Vai ar iepriekš atlasītajiem pasākumiem pietiek?"
 #. check and try again or ${request_an_email_reminder}."
 #: euphorie/client/browser/templates/login.pt:73
 msgid "incorrect_login"
-msgstr "Ievadītais pieteikumvārds un/vai parole nebija pareiza. Lūdzu, pārbaudiet šos datus un mēģiniet vēlreiz vai  izmantojiet funkciju: ${request_an_email_reminder}"
+msgstr ""
+"Ievadītais pieteikumvārds un/vai parole nebija pareiza. Lūdzu, pārbaudiet "
+"šos datus un mēģiniet vēlreiz vai  izmantojiet funkciju: "
+"${request_an_email_reminder}"
 
 #. Default: "The menu toggle lets you hide and show the risk assessment
 #. browser to find previously made risk assessments. Hide the menu when you
@@ -3732,13 +4172,19 @@ msgstr "Ievadītais pieteikumvārds un/vai parole nebija pareiza. Lūdzu, pārba
 #. clicking about between various parts of the application."
 #: euphorie/client/browser/templates/tooltips.pt:52
 msgid "info_osh_hamburger"
-msgstr "Izvēlnes poga ļauj Jums paslēpt un parādīt \"izslīdošo\" izvēlni, līdz ar to tā parādās tikai tad, kad Jums to vajag. Paslēpiet izvēlni, kad Jūs koncentrējaties uz to, lai aizpildītu rīku, vai parādiet to, kad Jūs klikšķināt starp dažādām rīka sadaļām."
+msgstr ""
+"Izvēlnes poga ļauj Jums paslēpt un parādīt \"izslīdošo\" izvēlni, līdz ar to"
+" tā parādās tikai tad, kad Jums to vajag. Paslēpiet izvēlni, kad Jūs "
+"koncentrējaties uz to, lai aizpildītu rīku, vai parādiet to, kad Jūs "
+"klikšķināt starp dažādām rīka sadaļām."
 
 #. Default: "The new off canvas menu provides access to the core functions of
 #. the applications. Also on mobile!"
 #: euphorie/client/browser/templates/tooltips.pt:80
 msgid "info_osh_menu"
-msgstr "Jaunā izslīdošā izvēlne nodrošina piekļuvi lietojumprogrammu pamatfunkcijām. Arī mobilajā tālrunī!"
+msgstr ""
+"Jaunā izslīdošā izvēlne nodrošina piekļuvi lietojumprogrammu pamatfunkcijām."
+" Arī mobilajā tālrunī!"
 
 #. Default: "The risk assessment browser allows you to find risk assessments
 #. that were previously made by you. Start a new risk assessment by clicking
@@ -3747,7 +4193,12 @@ msgstr "Jaunā izslīdošā izvēlne nodrošina piekļuvi lietojumprogrammu pama
 #. &lsquo;clone&rsquo; ."
 #: euphorie/client/browser/templates/tooltips.pt:110
 msgid "info_osh_ra_browser"
-msgstr "Šis riska novērtējuma pārlūks ļauj atrast tos riska novērtējumus, ko pats esat agrāk izveidojis. Lai sāktu jaunu riska novērtējumu, uzklikšķiniet uz &lsquo;+&rsquo; vai izveidojiet esoša novērtējuma kopija, uzklikšķinot uz simbola &lsquo;…&rsquo;, kas atrodas blakus konkrētajam novērtējumam un izvēlieties &lsquo;dublikāts&rsquo;."
+msgstr ""
+"Šis riska novērtējuma pārlūks ļauj atrast tos riska novērtējumus, ko pats "
+"esat agrāk izveidojis. Lai sāktu jaunu riska novērtējumu, uzklikšķiniet uz "
+"&lsquo;+&rsquo; vai izveidojiet esoša novērtējuma kopija, uzklikšķinot uz "
+"simbola &lsquo;…&rsquo;, kas atrodas blakus konkrētajam novērtējumam un "
+"izvēlieties &lsquo;dublikāts&rsquo;."
 
 #. Default: "From this menu you can start a new session of an OiRA tool, or
 #. pick up a previous session to continue working on it. If you do not have an
@@ -3755,7 +4206,11 @@ msgstr "Šis riska novērtējuma pārlūks ļauj atrast tos riska novērtējumus
 #. it out immediately."
 #: euphorie/client/browser/templates/tooltips.pt:89
 msgid "info_osh_session_menu"
-msgstr "No šīs izvēlnes Jūs varat sākt OiRA rīka jaunu sesiju vai turpināt iepriekšēju sesiju, lai pabeigtu pie tās strādāt. Ja Jums vēl nav OiRA lietotāja konts, Jūs varat sākt testa sesiju, lai nekavējoties to izmēģinātu."
+msgstr ""
+"No šīs izvēlnes Jūs varat sākt OiRA rīka jaunu sesiju vai turpināt "
+"iepriekšēju sesiju, lai pabeigtu pie tās strādāt. Ja Jums vēl nav OiRA "
+"lietotāja konts, Jūs varat sākt testa sesiju, lai nekavējoties to "
+"izmēģinātu."
 
 #. Default: "This menu lets you navigate over all steps of your risk
 #. assessment. When you enter <em>Identification + Evaluation</em> or
@@ -3764,25 +4219,36 @@ msgstr "No šīs izvēlnes Jūs varat sākt OiRA rīka jaunu sesiju vai turpinā
 #. all parts of the tool at will."
 #: euphorie/client/browser/templates/tooltips.pt:98
 msgid "info_osh_tool_navigation"
-msgstr "Šī izvēlne ļauj Jums pārvietoties pa dažādiem riska novērtējuma posmiem. Ja izvēlēsieties <em>Identifikācija + Novērtēšana</em> vai <em>Pasākumu plāns</em>, Jūs redzēsiet konkrētā riska novērtējuma moduļus un riska faktorus. Izmantojot šo navigācijas izvēlni, varat brīvi pārvietoties tur un atpakaļ pa dažādiem novērtēšanas posmiem."
+msgstr ""
+"Šī izvēlne ļauj Jums pārvietoties pa dažādiem riska novērtējuma posmiem. Ja "
+"izvēlēsieties <em>Identifikācija + Novērtēšana</em> vai <em>Pasākumu "
+"plāns</em>, Jūs redzēsiet konkrētā riska novērtējuma moduļus un riska "
+"faktorus. Izmantojot šo navigācijas izvēlni, varat brīvi pārvietoties tur un"
+" atpakaļ pa dažādiem novērtēšanas posmiem."
 
 #. Default: "The European Agency for Safety and Health at Work, European
 #. social partners, etc."
 #: euphorie/client/browser/templates/report_company.pt:168
 msgid "info_referer_eu_institution"
-msgstr "Eiropas Darba drošības un veselības aizsardzības aģentūra, Eiropas sociālie partneri utt."
+msgstr ""
+"Eiropas Darba drošības un veselības aizsardzības aģentūra, Eiropas sociālie "
+"partneri utt."
 
 #. Default: "Ministry, Labour Inspectorate, National Institute for Safety and
 #. Health at Work, etc."
 #: euphorie/client/browser/templates/report_company.pt:161
 msgid "info_referer_national_public_institution"
-msgstr "Ministrija, darba inspekcija, nacionālais darba drošības un veselības aizsardzības institūts utt."
+msgstr ""
+"Ministrija, darba inspekcija, nacionālais darba drošības un veselības "
+"aizsardzības institūts utt."
 
 #. Default: "You can register in one single step just by entering a valid
 #. email address."
 #: euphorie/client/browser/templates/tooltips.pt:40
 msgid "info_register1"
-msgstr "Jūs varat reģistrēties vienā acumirklī, vienkārši ievadot spēkā esošu e-pasta adresi."
+msgstr ""
+"Jūs varat reģistrēties vienā acumirklī, vienkārši ievadot spēkā esošu "
+"e-pasta adresi."
 
 #. Default: "Main benefits of having an account:"
 #: euphorie/client/browser/templates/tooltips.pt:41
@@ -3794,13 +4260,18 @@ msgstr "Galvenās priekšrocības, ja izveidosiet savu kontu"
 #. right on the toolbar."
 #: euphorie/client/browser/templates/tooltips.pt:61
 msgid "info_screen_help"
-msgstr "Jūs varat jebkurā laikā ieslēgt vai izslēgt šo uz ekrāna esošo palīdzības funkciju, noklikšķinot uz “Ieslēdziet ekrāna palīdzību” augšā rīkjoslas labajā pusē."
+msgstr ""
+"Jūs varat jebkurā laikā ieslēgt vai izslēgt šo uz ekrāna esošo palīdzības "
+"funkciju, noklikšķinot uz “Ieslēdziet ekrāna palīdzību” augšā rīkjoslas "
+"labajā pusē."
 
 #. Default: "Select an earlier session to complete or review or
 #. ${start_session}."
 #: euphorie/client/browser/templates/portlet-my-ras.pt:65
 msgid "info_select_session"
-msgstr "Izvēlēties iepriekšēju sesiju, lai to pabeigtu vai pārskatītu, vai ${start_session}."
+msgstr ""
+"Izvēlēties iepriekšēju sesiju, lai to pabeigtu vai pārskatītu, vai "
+"${start_session}."
 
 #. Default: "You have completed ${completed}% of the risk assessment."
 #: euphorie/client/browser/templates/status-tooltip.pt:19
@@ -3828,7 +4299,9 @@ msgstr "Ar šo veidlapu varēsit izveidot jaunu OiRA rīku."
 #. Default: "Attach any additional content you consider helpful for the user"
 #: euphorie/content/module.py:114 euphorie/content/risk.py:315
 msgid "intro_additional_content"
-msgstr "Pievienojiet jebkuru papildu saturu, kuru jūs uzskatāt par noderīgu lietotājam"
+msgstr ""
+"Pievienojiet jebkuru papildu saturu, kuru jūs uzskatāt par noderīgu "
+"lietotājam"
 
 #. Default: "Workers or workers' representatives with specific responsibility
 #. for the safety and health of workers shall take part in a balanced way or
@@ -3836,7 +4309,11 @@ msgstr "Pievienojiet jebkuru papildu saturu, kuru jūs uzskatāt par noderīgu l
 #. to risk assessment"
 #: euphorie/client/browser/templates/default_introduction.pt:21
 msgid "intro_consultation_of_workers"
-msgstr "Darbiniekiem vai viņu pārstāvjiem, kam ir uzticēta specifiska atbildība par darbinieku veselības aizsardzību un darba drošību, ir līdzsvarotā veidā jāpiedalās risku novērtēšanā vai arī darba devējam ar viņiem laicīgi jākonsultējas saistībā ar risku novērtēšanu."
+msgstr ""
+"Darbiniekiem vai viņu pārstāvjiem, kam ir uzticēta specifiska atbildība par "
+"darbinieku veselības aizsardzību un darba drošību, ir līdzsvarotā veidā "
+"jāpiedalās risku novērtēšanā vai arī darba devējam ar viņiem laicīgi "
+"jākonsultējas saistībā ar risku novērtēšanu."
 
 #. Default: "Here you can manage the documentation for the ${client}."
 #: euphorie/content/browser/templates/documentation_view.pt:25
@@ -3852,7 +4329,9 @@ msgstr "tiešsaistes klients"
 #. details see the online manual."
 #: euphorie/content/risk.py:560
 msgid "intro_evaluation"
-msgstr "Varat norādīt riska prioritātes novērtēšanas veidu. Sīkāku informāciju skatiet tiešsaistes rokasgrāmatā."
+msgstr ""
+"Varat norādīt riska prioritātes novērtēšanas veidu. Sīkāku informāciju "
+"skatiet tiešsaistes rokasgrāmatā."
 
 #. Default: "You can print the ${list-of-risks}."
 #: euphorie/client/browser/templates/identification.pt:33
@@ -3872,20 +4351,31 @@ msgstr "Galvenais attēls klientā būs pamanāmākā vietā, nekā citi attēli
 #. preventive measures are unlikely to be found or put in place."
 #: euphorie/client/browser/templates/default_introduction.pt:18
 msgid "intro_not_complicated"
-msgstr "Sarežģīti? Nepavisam nē, taču riska novērtēšana aizņem nedaudz laika. Taču riska novērtēšana ir tik svarīga, ka tā ir kļuvusi par juridisku prasību un ne velti. Ja riski netiek novērtēti vai uz tiem netiek pienācīgi reaģēts, nav iespējams sākt piemērotu risku pārvaldības procesu un ir mazticami, ka tiks atklāti vai ieviesti piemēroti aizsardzības līdzekļi."
+msgstr ""
+"Sarežģīti? Nepavisam nē, taču riska novērtēšana aizņem nedaudz laika. Taču "
+"riska novērtēšana ir tik svarīga, ka tā ir kļuvusi par juridisku prasību un "
+"ne velti. Ja riski netiek novērtēti vai uz tiem netiek pienācīgi reaģēts, "
+"nav iespējams sākt piemērotu risku pārvaldības procesu un ir mazticami, ka "
+"tiks atklāti vai ieviesti piemēroti aizsardzības līdzekļi."
 
 #. Default: "This risk assessment tool is mainly intended for micro (less than
 #. 10 workers) and small (less than 50 workers) enterprises/organisations."
 #: euphorie/client/browser/templates/default_introduction.pt:24
 msgid "intro_oira_tool"
-msgstr "Šis riska novērtēšanas rīks ir galvenokārt paredzēts mikrouzņēmumiem (mazāk nekā 10 darbinieki) un maziem uzņēmumiem/organizācijām (mazāk nekā 50 darbinieki)."
+msgstr ""
+"Šis riska novērtēšanas rīks ir galvenokārt paredzēts mikrouzņēmumiem (mazāk "
+"nekā 10 darbinieki) un maziem uzņēmumiem/organizācijām (mazāk nekā 50 "
+"darbinieki)."
 
 #. Default: "Are you sure you want to create a preview of this OiRA Tool? You
 #. can give the URL for the preview to others so they can test the OiRA Tool.
 #. To access the preview a standard OiRA client login is required."
 #: euphorie/client/browser/templates/preview.pt:23
 msgid "intro_preview"
-msgstr "Vai tiešām vēlaties izveidot šī OiRA rīka priekšskatījumu? Priekšskatījuma adresi URL varat nodot citiem, lai pārbaudītu OiRA rīku. Lai piekļūtu priekšskatījumam, ir nepieciešama standarta pieteikšanās OiRA sistēmā."
+msgstr ""
+"Vai tiešām vēlaties izveidot šī OiRA rīka priekšskatījumu? Priekšskatījuma "
+"adresi URL varat nodot citiem, lai pārbaudītu OiRA rīku. Lai piekļūtu "
+"priekšskatījumam, ir nepieciešama standarta pieteikšanās OiRA sistēmā."
 
 #. Default: "It is possible for you to print out the contents of the tool to
 #. enable you to look for the information at the relevant workplace (by
@@ -3895,7 +4385,12 @@ msgstr "Vai tiešām vēlaties izveidot šī OiRA rīka priekšskatījumu? Priek
 #: euphorie/client/browser/templates/identification.pt:29
 #: euphorie/client/browser/templates/panel-contents-preview.pt:34
 msgid "intro_print_identification_1"
-msgstr "Varat izdrukāt sarakstu ar riskiem, par kuriem nevarat uzreiz atbildēt, un tad meklēt nepieciešamo informāciju attiecīgajā darba vietā (izstaigājot darba vietu, meklējot iespējamus apdraudējuma avotus, vaicājot darbiniekiem par problēmām, ar ko viņi saskārušies). Tad iegūto informāciju varat ievadīt rīkā."
+msgstr ""
+"Varat izdrukāt sarakstu ar riskiem, par kuriem nevarat uzreiz atbildēt, un "
+"tad meklēt nepieciešamo informāciju attiecīgajā darba vietā (izstaigājot "
+"darba vietu, meklējot iespējamus apdraudējuma avotus, vaicājot darbiniekiem "
+"par problēmām, ar ko viņi saskārušies). Tad iegūto informāciju varat ievadīt"
+" rīkā."
 
 #. Default: "You may also wish to distribute the contents among the workers
 #. and/or their representatives and invite them to participate in identifying
@@ -3905,26 +4400,35 @@ msgstr "Varat izdrukāt sarakstu ar riskiem, par kuriem nevarat uzreiz atbildēt
 #: euphorie/client/browser/templates/identification.pt:30
 #: euphorie/client/browser/templates/panel-contents-preview.pt:35
 msgid "intro_print_identification_2"
-msgstr "Varat arī šo sarakstu izsniegt darbiniekiem un/vai viņu pārstāvjiem un viņiem lūgt piedalīties bīstamu situāciju/problēmu noteikšanā, risku izvērtēšanā un lemšanā par pasākumiem to novēršanai. Darbinieku sniegtās atsauksmes ieteicams ņemt vērā, ievadot informāciju rīkā."
+msgstr ""
+"Varat arī šo sarakstu izsniegt darbiniekiem un/vai viņu pārstāvjiem un "
+"viņiem lūgt piedalīties bīstamu situāciju/problēmu noteikšanā, risku "
+"izvērtēšanā un lemšanā par pasākumiem to novēršanai. Darbinieku sniegtās "
+"atsauksmes ieteicams ņemt vērā, ievadot informāciju rīkā."
 
 #. Default: "Are you sure you want to publish this OiRA Tool? After
 #. publication the OiRA Tool will appear in the online client and be
 #. accessible by all users."
 #: euphorie/client/browser/templates/publish.pt:23
 msgid "intro_publish_first_time"
-msgstr "Vai tiešām vēlaties publicēt šo OiRA rīku? Pēc publicēšanas OiRA rīks parādīsies tiešsaistes klientā un tam varēs piekļūt visi lietotāji."
+msgstr ""
+"Vai tiešām vēlaties publicēt šo OiRA rīku? Pēc publicēšanas OiRA rīks "
+"parādīsies tiešsaistes klientā un tam varēs piekļūt visi lietotāji."
 
 #. Default: "Are you sure you want to publish this OiRA Tool version? This
 #. will replace the current version."
 #: euphorie/client/browser/templates/publish.pt:32
 msgid "intro_publish_other_survey_published"
-msgstr "Vai tiešām vēlaties publicēt šo OiRA rīka versiju? Tā aizstās esošo versiju."
+msgstr ""
+"Vai tiešām vēlaties publicēt šo OiRA rīka versiju? Tā aizstās esošo versiju."
 
 #. Default: "Are you sure you want to republish this OiRA Tool? This will make
 #. all changes made public."
 #: euphorie/client/browser/templates/publish.pt:28
 msgid "intro_publish_survey_published"
-msgstr "Vai tiešām vēlaties pārpublicēt šo OiRA rīku? Visas veiktās izmaiņas kļūs publiskas."
+msgstr ""
+"Vai tiešām vēlaties pārpublicēt šo OiRA rīku? Visas veiktās izmaiņas kļūs "
+"publiskas."
 
 #. Default: "The structure of your OiRA tool has changed. If you publish now,
 #. existing users of this OiRA tool will lose parts of their answers. Please
@@ -3945,7 +4449,14 @@ msgstr ""
 #. company, and therefore the financial risk."
 #: euphorie/client/browser/templates/default_introduction.pt:11
 msgid "intro_risk_aware"
-msgstr "Tostarp jūsu darbinieku un aprīkojuma apdraudējumu? Ja nu notiktu negadījums ar kādu no iekārtām? Ja nu darbinieks saskaras ar bīstamām vielām? Riska novērtēšana ļauj jums noteikt riskus un tos risināt. Riska novērtēšanai ir divas daļas: <dynamic element>, kas norāda visus riskus attiecībā uz uzņēmumu, un <dynamic element>, kas attiecas uz šo risku novēršanu. Šie divi elementi ļauj jums ierobežot riskus, kam pakļauti jūsu darbinieki un uzņēmums, tādējādi samazinot arī finanšu risku."
+msgstr ""
+"Tostarp jūsu darbinieku un aprīkojuma apdraudējumu? Ja nu notiktu negadījums"
+" ar kādu no iekārtām? Ja nu darbinieks saskaras ar bīstamām vielām? Riska "
+"novērtēšana ļauj jums noteikt riskus un tos risināt. Riska novērtēšanai ir "
+"divas daļas: <dynamic element>, kas norāda visus riskus attiecībā uz "
+"uzņēmumu, un <dynamic element>, kas attiecas uz šo risku novēršanu. Šie divi"
+" elementi ļauj jums ierobežot riskus, kam pakļauti jūsu darbinieki un "
+"uzņēmums, tādējādi samazinot arī finanšu risku."
 
 #. Default: "Select a sector for which you would like to view or copy an OiRA
 #. Tool."
@@ -4104,7 +4615,9 @@ msgid "label_certificate_awarded"
 msgstr "Šim novērtējumam tika piešķirti šādi sertifikāti."
 
 msgid "label_certificate_benefits"
-msgstr "Ar šo sertifikātu jūs varat pieteikties uz uzņēmuma apdrošināšanas maksas samazinājumu"
+msgstr ""
+"Ar šo sertifikātu jūs varat pieteikties uz uzņēmuma apdrošināšanas maksas "
+"samazinājumu"
 
 msgid "label_certificate_company_identification_number"
 msgstr "Uzņēmuma identifikācijas numurs"
@@ -4125,7 +4638,9 @@ msgid "label_certificate_for_conducting"
 msgstr "Lai veiktu riska novērtējumu ar rīku"
 
 msgid "label_certificate_is_private"
-msgstr "ir privāts, ja vien neizlemjat to padarīt publisku. Ja noklikšķināsiet zemāk esošo “Publicēt” pogu, jūsu sertifikāts tiks publicēts oficiālajā"
+msgstr ""
+"ir privāts, ja vien neizlemjat to padarīt publisku. Ja noklikšķināsiet zemāk"
+" esošo “Publicēt” pogu, jūsu sertifikāts tiks publicēts oficiālajā"
 
 msgid "label_certificate_learn_more_about_the_benefits"
 msgstr "Uzziniet vairāk par priekšrocībām…"
@@ -4343,7 +4858,9 @@ msgid "label_download_imp"
 msgstr "Lejupielādēt"
 
 msgid "label_download_report"
-msgstr "Iesakām vienmēr izdrukāt darba vides riska novērtējuma (pārskata) atjaunināto versiju."
+msgstr ""
+"Iesakām vienmēr izdrukāt darba vides riska novērtējuma (pārskata) "
+"atjaunināto versiju."
 
 #. Default: "Download a tool preview"
 #: euphorie/client/browser/templates/involve.pt:52
@@ -5098,7 +5615,9 @@ msgstr "Jūs varat saglabāt savu darbu tiešsaistē."
 #: euphorie/client/browser/templates/register_session.pt:32
 #: euphorie/client/browser/templates/tooltips.pt:45
 msgid "label_register_benefit_3"
-msgstr "Jūs varat lejupielādēt pilnu darba vides riska novērtējumu un pasākumu plānu."
+msgstr ""
+"Jūs varat lejupielādēt pilnu darba vides riska novērtējumu un pasākumu "
+"plānu."
 
 #. Default: "register"
 #: euphorie/client/browser/templates/login.pt:103
@@ -5131,7 +5650,8 @@ msgstr "Ziņojums"
 #. report in this field."
 #: euphorie/client/browser/templates/report.pt:46
 msgid "label_report_comment"
-msgstr "Šajā laukā lūdzu norādīt papildus komentārus par augstāk minēto jautājumu"
+msgstr ""
+"Šajā laukā lūdzu norādīt papildus komentārus par augstāk minēto jautājumu"
 
 #. Default: "Date of editing"
 #: euphorie/client/docx/compiler.py:593
@@ -5571,7 +6091,10 @@ msgstr "Temati"
 #. print your certificate if you like."
 #: euphorie/client/browser/templates/slide_question_success.pt:32
 msgid "label_training_achievement_listed"
-msgstr "Jūsu sasniegumi tiks parādīti informācijas paneļa sadaļā &ldquo;Manas apmācības&rdquo;. Šajā vietā pieejamos apliecinājumus (sertifikātus) Jūs vienmēr varēsiet apskatīties un izdrukāt arī vēlāk."
+msgstr ""
+"Jūsu sasniegumi tiks parādīti informācijas paneļa sadaļā &ldquo;Manas "
+"apmācības&rdquo;. Šajā vietā pieejamos apliecinājumus (sertifikātus) Jūs "
+"vienmēr varēsiet apskatīties un izdrukāt arī vēlāk."
 
 #. Default: "Congratulations, you have now earned your certificate for this
 #. topic."
@@ -5746,7 +6269,10 @@ msgstr "${label}: versija, kas pašlaik ir pieejama tiešsaistē"
 #. unpublished. Click the update icon to bring all the changes live"
 #: euphorie/deployment/tiles/templates/versions.pt:140
 msgid "legend_updated"
-msgstr "${label} = šajā versijā ir izmaiņas, kas pašlaik nav publicētas. Noklikšķiniet uz atjaunināšanas ikonas, lai visas izmaiņas publicētu tiešsaistē."
+msgstr ""
+"${label} = šajā versijā ir izmaiņas, kas pašlaik nav publicētas. "
+"Noklikšķiniet uz atjaunināšanas ikonas, lai visas izmaiņas publicētu "
+"tiešsaistē."
 
 #: euphorie/client/browser/templates/new-session-test.pt:82
 msgid "limitations"
@@ -5786,7 +6312,9 @@ msgstr "Atklājiet, cik viegli ir izveidot riska novērtējumu ar OiRA."
 #. reduce them."
 #: euphorie/client/browser/templates/tooltips.pt:34
 msgid "list_test_session_benefits2"
-msgstr "Nosakiet iespējamos darba vides riskus savā uzņēmumā un pasākumus to mazināšanai."
+msgstr ""
+"Nosakiet iespējamos darba vides riskus savā uzņēmumā un pasākumus to "
+"mazināšanai."
 
 #. Default: "Use it for vocational training."
 #: euphorie/client/browser/templates/tooltips.pt:35
@@ -5797,7 +6325,9 @@ msgstr "Izmantojiet to apmācībai."
 #. progess will be lost unless you register."
 #: euphorie/client/browser/templates/tooltips.pt:21
 msgid "list_test_session_limitations1"
-msgstr "${important} Testa sesijā Jūs nevarat saglabāt savu darbu. Ja nereģistrēsieties, viss paveiktais pazudīs."
+msgstr ""
+"${important} Testa sesijā Jūs nevarat saglabāt savu darbu. Ja "
+"nereģistrēsieties, viss paveiktais pazudīs."
 
 #. Default: "You will not be able to print or download reports."
 #: euphorie/client/browser/templates/tooltips.pt:24
@@ -5808,7 +6338,9 @@ msgstr "Jūs nevarēsiet izdrukāt vai lejupielādēt dokumentus."
 #. to register by clicking on the \"Register\" link at the top."
 #: euphorie/client/browser/templates/tooltips.pt:25
 msgid "list_test_session_limitations3"
-msgstr "Testa sesijas laikā Jums būs iespēja jebkurā laikā reģistrēties, noklikšķinot uz \"Pieteikties\" saites augšā."
+msgstr ""
+"Testa sesijas laikā Jums būs iespēja jebkurā laikā reģistrēties, "
+"noklikšķinot uz \"Pieteikties\" saites augšā."
 
 #: euphorie/client/adapters/history_item.py:123
 msgid "lock refreshed"
@@ -5900,7 +6432,9 @@ msgid "message_click_to_validate"
 msgstr ""
 
 msgid "message_clone_or_start_new"
-msgstr "Jūs varat nokopēt saturu no esoša novērtējuma, kas veikts ar rīku {0}, vai sākt no jauna."
+msgstr ""
+"Jūs varat nokopēt saturu no esoša novērtējuma, kas veikts ar rīku {0}, vai "
+"sākt no jauna."
 
 #. Default: "This is the only version of the OiRA Tool and can therefore not
 #. be deleted. Did you perhaps want to remove the OiRA Tool itself?"
@@ -5948,7 +6482,10 @@ msgid "message_invalidate_ra"
 msgstr ""
 
 msgid "message_invite_for_training"
-msgstr "Uzaicini kolēģi iepazīties ar attiecīgajiem riskiem un pasākumiem “{0}”. Uzaicinātais lietotājs automātiski saņems piekļuvi šim novērtējumam apmācības nolūkos."
+msgstr ""
+"Uzaicini kolēģi iepazīties ar attiecīgajiem riskiem un pasākumiem “{0}”. "
+"Uzaicinātais lietotājs automātiski saņems piekļuvi šim novērtējumam "
+"apmācības nolūkos."
 
 #. Default: "Decide on the best way to involve your staff! You can for example
 #. conduct a meeting or a focus group with workers and go through the
@@ -5957,7 +6494,12 @@ msgstr "Uzaicini kolēģi iepazīties ar attiecīgajiem riskiem un pasākumiem �
 #. and feedback with your workers."
 #: euphorie/client/browser/templates/involve.pt:35
 msgid "message_involve_workers_how_to"
-msgstr "<p>Izlemiet, kurš būs labākais veids, kā iesaistīt komandu. Jūs varat gan organizēt sanāksmi, gan darbinieku fokusgrupu diskusiju, kopā pārskatot darba vides riska novērtējuma daļas. Jūs varat arī lejuplādēt vai izdrukāt rīka saturu vai tā daļas, lai dalītos ar informāciju un saņemtu no darbiniekiem atgriezenisko saiti.</p>"
+msgstr ""
+"<p>Izlemiet, kurš būs labākais veids, kā iesaistīt komandu. Jūs varat gan "
+"organizēt sanāksmi, gan darbinieku fokusgrupu diskusiju, kopā pārskatot "
+"darba vides riska novērtējuma daļas. Jūs varat arī lejuplādēt vai izdrukāt "
+"rīka saturu vai tā daļas, lai dalītos ar informāciju un saņemtu no "
+"darbiniekiem atgriezenisko saiti.</p>"
 
 #. Default: "One of the keys to good OSH leadership is getting workers
 #. involved. Employers have a <a
@@ -5969,7 +6511,18 @@ msgstr "<p>Izlemiet, kurš būs labākais veids, kā iesaistīt komandu. Jūs va
 #. a dialogue between employees and management."
 #: euphorie/client/browser/templates/involve.pt:30
 msgid "message_involve_workers_requirement"
-msgstr "<p>Viena no labas darba aizsardzības sistēmas vadības pazīmēm ir darbinieku iesaistīšana. Darba devējiem normatīvajos aktos ir noteikts pienākums konsultēties ar darbiniekiem par darba aizsardzības jautājumiem. Tomēr tam, ka tiek darīts vairāk nekā normatīvie akti prasa, ir pievienotā vērtība. Darba vide kļūst labāka un produktīvāka, ja tiek veicināta aktīva darbinieku iesaiste un tiek veidots dialogs strap darbiniekiem un vadību.</p><p>Izlemiet, kurš būs labākais veids, kā iesaistīt komandu. Jūs varat gan organizēt sanāksmi, gan darbinieku fokusgrupu diskusiju, kopā pārskatot darba vides riska novērtējuma daļas. Jūs varat arī lejuplādēt vai izdrukāt rīka saturu vai tā daļas, lai dalītos ar informāciju un saņemtu no darbiniekiem atgriezenisko saiti.</p>"
+msgstr ""
+"<p>Viena no labas darba aizsardzības sistēmas vadības pazīmēm ir darbinieku "
+"iesaistīšana. Darba devējiem normatīvajos aktos ir noteikts pienākums "
+"konsultēties ar darbiniekiem par darba aizsardzības jautājumiem. Tomēr tam, "
+"ka tiek darīts vairāk nekā normatīvie akti prasa, ir pievienotā vērtība. "
+"Darba vide kļūst labāka un produktīvāka, ja tiek veicināta aktīva darbinieku"
+" iesaiste un tiek veidots dialogs strap darbiniekiem un "
+"vadību.</p><p>Izlemiet, kurš būs labākais veids, kā iesaistīt komandu. Jūs "
+"varat gan organizēt sanāksmi, gan darbinieku fokusgrupu diskusiju, kopā "
+"pārskatot darba vides riska novērtējuma daļas. Jūs varat arī lejuplādēt vai "
+"izdrukāt rīka saturu vai tā daļas, lai dalītos ar informāciju un saņemtu no "
+"darbiniekiem atgriezenisko saiti.</p>"
 
 #. Default: "Learn more about certificates."
 #: euphorie/client/browser/templates/certificates.pt:34
@@ -5981,7 +6534,10 @@ msgstr ""
 #. a newer browser to be able to use OiRA tools."
 #: euphorie/client/browser/templates/browser-warning.pt:31
 msgid "message_lesser_experience_no_javascript"
-msgstr "Godātais lietotāj, jūs izmantojat novecojušu tīmekļa pārlūkprogrammu. Jūsu tīmekļa pārlūkprogramma nav saderīga ar OiRA izmantoto tehnoloģiju. Lūdzam instalēt jaunāku pārlūkprogrammu, lai varētu izmantot OiRA rīkus."
+msgstr ""
+"Godātais lietotāj, jūs izmantojat novecojušu tīmekļa pārlūkprogrammu. Jūsu "
+"tīmekļa pārlūkprogramma nav saderīga ar OiRA izmantoto tehnoloģiju. Lūdzam "
+"instalēt jaunāku pārlūkprogrammu, lai varētu izmantot OiRA rīkus."
 
 #. Default: "Please be aware that you have %s more login attempts before your
 #. account will be locked."
@@ -5994,13 +6550,17 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:71
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:92
 msgid "message_member_see_all"
-msgstr "Dalībnieki var redzēt un labot visus Jūsu organizācijas darba vides riska novērtējumus."
+msgstr ""
+"Dalībnieki var redzēt un labot visus Jūsu organizācijas darba vides riska "
+"novērtējumus."
 
 #. Default: "You cannot delete an OiRA Tool version that is published. Please
 #. unpublish it first."
 #: euphorie/content/browser/survey.py:232
 msgid "message_no_delete_published_survey"
-msgstr "Jūs nevarat izdzēst jau publicētu OiRA rīku. Lūdzu, vispirms atsauciet tā publikāciju."
+msgstr ""
+"Jūs nevarat izdzēst jau publicētu OiRA rīku. Lūdzu, vispirms atsauciet tā "
+"publikāciju."
 
 #. Default: "There are no sectors for this country."
 #: euphorie/content/browser/templates/country_view.pt:19
@@ -6034,22 +6594,33 @@ msgstr ""
 #. password."
 #: euphorie/client/browser/reset_password.py:189
 msgid "message_password_recovery_email_sent"
-msgstr "Uz adresi ${email} tiks nosūtīts e-pasts, ja datu bāzē varēsim atrast kontu, kas saistīts ar šo adresi. Izmantojiet saiti, ko atradīsiet savā epastā, lai nomainītu paroli."
+msgstr ""
+"Uz adresi ${email} tiks nosūtīts e-pasts, ja datu bāzē varēsim atrast kontu,"
+" kas saistīts ar šo adresi. Izmantojiet saiti, ko atradīsiet savā epastā, "
+"lai nomainītu paroli."
 
 msgid "message_permission_level_basic"
 msgstr "Lietotājs var tikai piedalīties apmācībās."
 
 msgid "message_permission_level_edit"
-msgstr "Lietotājs var piedalīties apmācībās un skatīt un rediģēt visus riska novērtējumus."
+msgstr ""
+"Lietotājs var piedalīties apmācībās un skatīt un rediģēt visus riska "
+"novērtējumus."
 
 msgid "message_permission_level_full"
-msgstr "Lietotājs var skatīt un rediģēt visu saturu, kā arī pievienot vai noņemt lietotājus no organizācijas."
+msgstr ""
+"Lietotājs var skatīt un rediģēt visu saturu, kā arī pievienot vai noņemt "
+"lietotājus no organizācijas."
 
 msgid "message_permission_level_manage"
-msgstr "Lietotājs var apgūt apmācības, skatīt un rediģēt visus riska novērtējumus, pieprasīt validācijas un bloķēt riska novērtējumus."
+msgstr ""
+"Lietotājs var apgūt apmācības, skatīt un rediģēt visus riska novērtējumus, "
+"pieprasīt validācijas un bloķēt riska novērtējumus."
 
 msgid "message_permission_level_validate"
-msgstr "Lietotājs var apgūt apmācības, skatīt un rediģēt visus riska novērtējumus un tos apstiprināt."
+msgstr ""
+"Lietotājs var apgūt apmācības, skatīt un rediģēt visus riska novērtējumus un"
+" tos apstiprināt."
 
 #. Default: "Additional costs may be charged by your consultant."
 #: euphorie/client/browser/templates/panel-invalidate-risk-assessment.pt:34
@@ -6060,7 +6631,8 @@ msgstr ""
 #. accessed at"
 #: euphorie/client/browser/publish.py:371
 msgid "message_preview_success"
-msgstr "OiRA rīka priekšskatījums tika veiksmīgi izveidots. Tam var piekļūt vietnē:"
+msgstr ""
+"OiRA rīka priekšskatījums tika veiksmīgi izveidots. Tam var piekļūt vietnē:"
 
 #. Default: "Successfully published the OiRA Tool. It can be accessed at"
 #: euphorie/client/browser/publish.py:306
@@ -6074,7 +6646,9 @@ msgid "message_read_and_reviewd_assessment_and_approve"
 msgstr ""
 
 msgid "message_report_downloads_intro"
-msgstr "Izvēlies kādu no vairākiem formātiem, lai skatītu vai lejupielādētu sava riska novērtējuma pārskatu."
+msgstr ""
+"Izvēlies kādu no vairākiem formātiem, lai skatītu vai lejupielādētu sava "
+"riska novērtējuma pārskatu."
 
 #. Default: "Click on 'Send validation request' to ask the selected OSH
 #. consultant to review and validate your risk assessment."
@@ -6126,10 +6700,17 @@ msgid "message_this_action_cannot_be_reverted"
 msgstr "Šī darbība nevar tikt atsaukta."
 
 msgid "message_training_enabled"
-msgstr "Apmācību iespējotājs atbloķēs apmācību funkcijas šim riska novērtējumam. Apmācība būs pieejama visiem jūsu organizācijas lietotājiem, izmantojot cilni 'apmācība' kreisajā sānjoslā. Lietotāji ar atļaujas līmeni 'Pamata' var veikt apmācību un saņemt sertifikātu tikai tad, ja riska novērtējums ir bloķēts."
+msgstr ""
+"Apmācību iespējotājs atbloķēs apmācību funkcijas šim riska novērtējumam. "
+"Apmācība būs pieejama visiem jūsu organizācijas lietotājiem, izmantojot "
+"cilni 'apmācība' kreisajā sānjoslā. Lietotāji ar atļaujas līmeni 'Pamata' "
+"var veikt apmācību un saņemt sertifikātu tikai tad, ja riska novērtējums ir "
+"bloķēts."
 
 msgid "message_training_promoted"
-msgstr "Apmācību materiāls šim riska novērtējumam būs pieejams cilnē 'apmācība' OiRA sākuma ekrānā."
+msgstr ""
+"Apmācību materiāls šim riska novērtējumam būs pieejams cilnē 'apmācība' OiRA"
+" sākuma ekrānā."
 
 #. Default: "If you want to continue working on a copy of this assessment, for
 #. instance to report on a new year, then you can use the option 'Duplicate'.
@@ -6397,39 +6978,52 @@ msgstr "Jūsu pievienotie riski"
 #. consulted on the content of this document."
 #: euphorie/client/docx/compiler.py:508
 msgid "paragraph_oira_consultation_of_workers"
-msgstr "Ar parakstu tiek apliecināts, ka notikusi konsultēšanās ar darbiniekiem saistībā ar šo dokumentu."
+msgstr ""
+"Ar parakstu tiek apliecināts, ka notikusi konsultēšanās ar darbiniekiem "
+"saistībā ar šo dokumentu."
 
 #. Default: "Your password must contain at least 5 characters, including at
 #. least one capital letter, one number and one special character (e.g. $, #
 #. or @)."
 #: euphorie/content/passwordpolicy.py:55
 msgid "password_policy_conditions"
-msgstr "Your password must contain at least 5 characters, including at least one capital letter, one number and one special character (e.g. $, # or @)."
+msgstr ""
+"Your password must contain at least 5 characters, including at least one "
+"capital letter, one number and one special character (e.g. $, # or @)."
 
 #. Default: "The official launch of the tool is planned for September 2011,
 #. once the objectives of the testing phase have been reached and once the
 #. OiRA website, the OiRA training scheme and OiRA help desk will be ready."
 #: euphorie/client/browser/templates/about.pt:114
 msgid "phase_launch"
-msgstr "Pēc izmēģinājuma posma mērķu sasniegšanas un OiRA tīmekļa vietnes, mācību shēmas un palīdzības dienesta sagatavošanas 2011. gada septembrī notika OiRA rīka oficiālā atklāšana."
+msgstr ""
+"Pēc izmēģinājuma posma mērķu sasniegšanas un OiRA tīmekļa vietnes, mācību "
+"shēmas un palīdzības dienesta sagatavošanas 2011. gada septembrī notika OiRA"
+" rīka oficiālā atklāšana."
 
 msgid "placeholder_approach_action_plan"
 msgstr "Vispārējā pieeja (riska novēršana vai samazināšana)"
 
 msgid "placeholder_comment"
-msgstr "Šajā laukā lūdzu norādīt papildus komentārus par augstāk minēto jautājumu. Šie komentāri tiks izmantoti pasākumu plānā."
+msgstr ""
+"Šajā laukā lūdzu norādīt papildus komentārus par augstāk minēto jautājumu. "
+"Šie komentāri tiks izmantoti pasākumu plānā."
 
 #. Default: "These notes will be visible in the report. Use it for anything
 #. else you might want to write about this risk."
 #: euphorie/client/browser/risk.py:386
 msgid "placeholder_comment_field"
-msgstr "Šo komentāru varēs redzēt atskaitē. Izmantojiet šo lauku visiem tiem komentāriem, kurus vēlaties redzēt dokumentos."
+msgstr ""
+"Šo komentāru varēs redzēt atskaitē. Izmantojiet šo lauku visiem tiem "
+"komentāriem, kurus vēlaties redzēt dokumentos."
 
 #. Default: "These notes will be visible in the report and the training. Use
 #. it for anything else you might want to write about this risk."
 #: euphorie/client/browser/risk.py:380
 msgid "placeholder_comment_field_training"
-msgstr "Šo piezīmi varēs redzēt pārskatā un apmācību datos. Izmantojiet šo lauku visiem tiem komentāriem, kurus vēlaties atspoguļot dokumentos."
+msgstr ""
+"Šo piezīmi varēs redzēt pārskatā un apmācību datos. Izmantojiet šo lauku "
+"visiem tiem komentāriem, kurus vēlaties atspoguļot dokumentos."
 
 msgid "placeholder_custom_risk_description"
 msgstr "Sniedziet plašāku informāciju par šo risku."
@@ -6438,7 +7032,8 @@ msgstr "Sniedziet plašāku informāciju par šo risku."
 #. here."
 #: euphorie/content/utils.py:131
 msgid "placeholder_new_existing"
-msgstr "Aprakstiet pasākumu, kas jau tiek īstenots, bet vēl nav norādīts šeit."
+msgstr ""
+"Aprakstiet pasākumu, kas jau tiek īstenots, bet vēl nav norādīts šeit."
 
 #. Default: "Search risk assessments"
 #: euphorie/client/browser/templates/assessments.pt:75
@@ -6510,9 +7105,13 @@ msgstr "Vai ar iepriekš atlasītajiem pasākumiem pietiek?"
 #. risks, we strongly recommend you to go first through all the previous
 #. modules, if you have not done it yet.</p><p>If you don't need to add risks,
 #. please continue.</p>"
-#: euphorie/client/browser/publish.py:132 euphorie/deployment/upgrade/v23.py:34
+#: euphorie/client/browser/publish.py:132
+#: euphorie/deployment/upgrade/v23.py:34
 msgid "question_other_risks"
-msgstr "<p><strong>Svarīgi</strong>: Lai izvairītos no risku atkārtošanās, mēs ļoti iesakās vispirms novērtēt visus piedāvātos riskus (ja vien Jūs to jau neesat izdarījis (usi)).</p><p>Ja jums nav jāpievieno riski, lūdzu, turpiniet.</p>"
+msgstr ""
+"<p><strong>Svarīgi</strong>: Lai izvairītos no risku atkārtošanās, mēs ļoti "
+"iesakās vispirms novērtēt visus piedāvātos riskus (ja vien Jūs to jau neesat"
+" izdarījis (usi)).</p><p>Ja jums nav jāpievieno riski, lūdzu, turpiniet.</p>"
 
 msgid "ra_with_this_tool"
 msgstr "Ar šo rīku veidotie riska novērtējumi"
@@ -6585,7 +7184,10 @@ msgstr ""
 #. benefits:"
 #: euphorie/client/browser/templates/register_session.pt:28
 msgid "report_guest_register_intro"
-msgstr "Diemžēl šī ir izmēģinājuma versija, un lejupielādes funkciju nevar izmantot. Reģistrējieties vienā acumirklī un iegūstiet piekļuvi turpmāk minētajām priekšrocībām."
+msgstr ""
+"Diemžēl šī ir izmēģinājuma versija, un lejupielādes funkciju nevar izmantot."
+" Reģistrējieties vienā acumirklī un iegūstiet piekļuvi turpmāk minētajām "
+"priekšrocībām."
 
 #. Default: "Activity"
 #: euphorie/client/docx/compiler.py:1057
@@ -6626,7 +7228,9 @@ msgstr "Situācija"
 #. date ${date}."
 #: euphorie/client/docx/compiler.py:991
 msgid "report_identification_revision"
-msgstr "Šī dokumenta pamats ir OiRA rīks '${title}', kurš pēdējoreiz pārskatīts šādā datumā: ${date}."
+msgstr ""
+"Šī dokumenta pamats ir OiRA rīks '${title}', kurš pēdējoreiz pārskatīts šādā"
+" datumā: ${date}."
 
 #. Default: "Now that you have finished identifying all the risks in your
 #. organisation and created an action plan you can create a report which lists
@@ -6634,7 +7238,11 @@ msgstr "Šī dokumenta pamats ir OiRA rīks '${title}', kurš pēdējoreiz pārs
 #. be included in this report in the field below."
 #: euphorie/client/browser/templates/report.pt:34
 msgid "report_intro"
-msgstr "Tā kā esat beidzis identificēt organizācijā esošos riskus un izveidojis rīcības plānu, tagad varat izveidot pārskatu, kurā būs iekļauti visi rezultāti. Ja vēlaties, tālāk redzamajā laukā varat ierakstīt papildu komentārus, kas jāiekļauj pārskatā."
+msgstr ""
+"Tā kā esat beidzis identificēt organizācijā esošos riskus un izveidojis "
+"rīcības plānu, tagad varat izveidot pārskatu, kurā būs iekļauti visi "
+"rezultāti. Ja vēlaties, tālāk redzamajā laukā varat ierakstīt papildu "
+"komentārus, kas jāiekļauj pārskatā."
 
 #. Default: "Measures already in place:"
 #: euphorie/client/docx/compiler.py:719
@@ -6650,7 +7258,9 @@ msgstr ""
 #. date ${date}."
 #: euphorie/client/docx/compiler.py:231
 msgid "report_survey_revision"
-msgstr "Šī pārskata pamats ir OiRA rīks '${title}', kas pēdējoreiz pārskatīts šādā datumā: ${date}."
+msgstr ""
+"Šī pārskata pamats ir OiRA rīks '${title}', kas pēdējoreiz pārskatīts šādā "
+"datumā: ${date}."
 
 #. Default: "Comments"
 #: euphorie/client/browser/report.py:152
@@ -6792,7 +7402,14 @@ msgstr "Izvēlēties iepriekšēju sesiju, lai to pabeigtu vai pārskatītu, vai
 #. better to actively log out."
 #: euphorie/client/browser/session.py:84
 msgid "session_title_tooltip"
-msgstr "Pēc OiRA rīka sesijas sākuma varēsit to pārtraukt pirms beigām. Jūs varēsit to atkal atsākt vēlāk, atlasot attiecīgās OiRA rīka sesijas nosaukumu. Varat saglabāt vairākas sesijas, ja vien piešķirat tām atšķirīgus nosaukumus. Lūdzu, atcerieties savu e-pasta adresi, paroli un OiRA rīka sesijai piešķirto nosaukumu. Noklikšķinot uz pogas Iziet, jūs pametat sistēmu. Iziešana no sistēmas notiek arī tad, ja aizverat pārlūkprogrammu. Drošības iemeslu dēļ ir labāk iziet no sistēmas."
+msgstr ""
+"Pēc OiRA rīka sesijas sākuma varēsit to pārtraukt pirms beigām. Jūs varēsit "
+"to atkal atsākt vēlāk, atlasot attiecīgās OiRA rīka sesijas nosaukumu. Varat"
+" saglabāt vairākas sesijas, ja vien piešķirat tām atšķirīgus nosaukumus. "
+"Lūdzu, atcerieties savu e-pasta adresi, paroli un OiRA rīka sesijai "
+"piešķirto nosaukumu. Noklikšķinot uz pogas Iziet, jūs pametat sistēmu. "
+"Iziešana no sistēmas notiek arī tad, ja aizverat pārlūkprogrammu. Drošības "
+"iemeslu dēļ ir labāk iziet no sistēmas."
 
 #. Default: "Not very severe"
 #: euphorie/client/browser/templates/webhelpers.pt:494
@@ -6882,13 +7499,17 @@ msgstr "Jūs varat arī ${add_link}."
 #. organisation"
 #: euphorie/content/widgets/survey_source_selection.py:30
 msgid "survey_source_local"
-msgstr "Izveidot jaunu OiRA rīku uz esoša, manā organizācijā izmantota OiRA rīka pamata"
+msgstr ""
+"Izveidot jaunu OiRA rīku uz esoša, manā organizācijā izmantota OiRA rīka "
+"pamata"
 
 #. Default: "Base my new OiRA Tool on an existing OiRA Tool of another
 #. organisation"
 #: euphorie/content/widgets/survey_source_selection.py:40
 msgid "survey_source_other"
-msgstr "Izveidot jaunu OiRA rīku uz esoša, citā organizācijā izmantota OiRA rīka pamata"
+msgstr ""
+"Izveidot jaunu OiRA rīku uz esoša, citā organizācijā izmantota OiRA rīka "
+"pamata"
 
 #. Default: "Create a new OiRA Tool from scratch"
 #: euphorie/content/widgets/survey_source_selection.py:23
@@ -6899,19 +7520,25 @@ msgstr "Izveidot jaunu OiRA rīku no paša sākuma"
 #. Please read the new terms and conditions carefully before proceding."
 #: euphorie/client/browser/templates/conditions.pt:20
 msgid "terms_changed"
-msgstr "Kopš jūsu pēdējā apmeklējuma ir mainījušies noteikumi un nosacījumi. Pirms turpināt, lūdzu, rūpīgi izlasiet jaunos noteikumus un nosacījumus."
+msgstr ""
+"Kopš jūsu pēdējā apmeklējuma ir mainījušies noteikumi un nosacījumi. Pirms "
+"turpināt, lūdzu, rūpīgi izlasiet jaunos noteikumus un nosacījumus."
 
 #. Default: "Read here about the ${benefits}${tooltip_benefits} and
 #. ${limitations}${tooltip_limitations} of a test session."
 #: euphorie/client/browser/templates/new-session-test.pt:84
 msgid "testsession_benefits_limitations"
-msgstr "Lasiet šeit par testa sesijas ${benefits}${tooltip_benefits} un ${limitations}${tooltip_limitations} ."
+msgstr ""
+"Lasiet šeit par testa sesijas ${benefits}${tooltip_benefits} un "
+"${limitations}${tooltip_limitations} ."
 
 #. Default: "Or ${register_link} instead. Find out why you should
 #. register${tooltip_register}."
 #: euphorie/client/browser/templates/new-session-test.pt:95
 msgid "testsession_register"
-msgstr "Vai ${register_link} tā vietā. Uzziniet, kāpēc vajadzētu reģistrēties${tooltip_register}."
+msgstr ""
+"Vai ${register_link} tā vietā. Uzziniet, kāpēc vajadzētu "
+"reģistrēties${tooltip_register}."
 
 #. Default: "add all measures that have already been implemented"
 #: euphorie/content/utils.py:58
@@ -7072,14 +7699,18 @@ msgstr ""
 #: euphorie/client/browser/templates/risk_macros.pt:130
 #: euphorie/client/docx/compiler.py:292
 msgid "top5_risk_not_present"
-msgstr "Šāds risks jūsu organizācijā nepastāv, taču sektora organizācija to uzskata par vienu no prioritārajiem riskiem, tāpēc tas jāiekļauj pārskatā."
+msgstr ""
+"Šāds risks jūsu organizācijā nepastāv, taču sektora organizācija to uzskata "
+"par vienu no prioritārajiem riskiem, tāpēc tas jāiekļauj pārskatā."
 
 #. Default: "This risk is not present in your organisation, but since the
 #. sector organisation considers this one of the priority risks it must be
 #. included in this report."
 #: euphorie/client/docx/compiler.py:301
 msgid "top5_risk_not_present_answer_yes"
-msgstr "Šāds risks jūsu organizācijā nepastāv, taču sektora organizācija to uzskata par vienu no prioritārajiem riskiem, tāpēc tas jāiekļauj pārskatā."
+msgstr ""
+"Šāds risks jūsu organizācijā nepastāv, taču sektora organizācija to uzskata "
+"par vienu no prioritārajiem riskiem, tāpēc tas jāiekļauj pārskatā."
 
 #. Default: "This risk has not yet been assessed, but since it is considered
 #. \"high priority\" by the OiRA tool developers, it will always be included
@@ -7087,7 +7718,9 @@ msgstr "Šāds risks jūsu organizācijā nepastāv, taču sektora organizācija
 #. statement."
 #: euphorie/client/browser/templates/risk_macros.pt:135
 msgid "top5_risk_not_present_postponed"
-msgstr "Šo risku Jūs neesat norādījuši kā sava uzņēmuma risku, tomēr nozarei šis risks ir raksturīgs, tāpēc tas tiks iekļauts novērtējumā."
+msgstr ""
+"Šo risku Jūs neesat norādījuši kā sava uzņēmuma risku, tomēr nozarei šis "
+"risks ir raksturīgs, tāpēc tas tiks iekļauts novērtējumā."
 
 msgid "unanswered"
 msgstr "Neatbildēts"
@@ -7181,14 +7814,19 @@ msgstr "Jūs uz iepriekšējo apgalvojumu atbildējāt noliedzoši."
 #. deleted. This action is irreversable."
 #: euphorie/client/browser/templates/account-delete.pt:22
 msgid "warning_account_delete_irreversible"
-msgstr "Noklikšķinot uz \"Dzēst kontu\", jūsu konts tiks uz visiem laikiem dzēsts. Konta dzēšana ir neatgriezeniska."
+msgstr ""
+"Noklikšķinot uz \"Dzēst kontu\", jūsu konts tiks uz visiem laikiem dzēsts. "
+"Konta dzēšana ir neatgriezeniska."
 
 #. Default: "Please note that by deleting your account, you will also delete
 #. all your sessions. Please make sure you download your reports from the
 #. Report step prior to deleting your account, if you want to keep any."
 #: euphorie/client/browser/templates/account-delete.pt:25
 msgid "warning_account_delete_surveys"
-msgstr "Lūdzu, ņemiet vērā: dzēšot kontu, tiks izdzēstas arī visas sesijas. Ja vēlaties tās paturēt, pirms konta dzēšanas noteikti lejupielādējiet aptaujas., izmantojot sadaļu \"Pārskats\"."
+msgstr ""
+"Lūdzu, ņemiet vērā: dzēšot kontu, tiks izdzēstas arī visas sesijas. Ja "
+"vēlaties tās paturēt, pirms konta dzēšanas noteikti lejupielādējiet "
+"aptaujas., izmantojot sadaļu \"Pārskats\"."
 
 #. Default: "Yes"
 #: euphorie/content/browser/templates/risk_view.pt:89
@@ -7234,14 +7872,24 @@ msgstr "Jā, atlikušais risks ir pieņemams"
 #~ msgid "Added risks have been removed."
 #~ msgstr "Pievienotie riski ir dzēsti."
 
-#~ msgid "Administrators can create, edit and remove user accounts. Administrators can also make risk assessments, lock risk assessments, create trainings and take trainings."
-#~ msgstr "Administratori var izveidot, labot un dzēst lietotāju kontus. Administratori arī var veikt riska novērtējumu, slēgt riska novērtējumus, izveidot apmācības un piedalīties apmācībās"
+#~ msgid ""
+#~ "Administrators can create, edit and remove user accounts. Administrators can"
+#~ " also make risk assessments, lock risk assessments, create trainings and "
+#~ "take trainings."
+#~ msgstr ""
+#~ "Administratori var izveidot, labot un dzēst lietotāju kontus. Administratori"
+#~ " arī var veikt riska novērtējumu, slēgt riska novērtējumus, izveidot "
+#~ "apmācības un piedalīties apmācībās"
 
 #~ msgid "An added risk has been removed."
 #~ msgstr "Pievienotais risks ir dzēsts."
 
-#~ msgid "An email will be sent if we can find an account for the inserted email address"
-#~ msgstr "E-pasts tiks nosūtīts, ja mēs varēsim atrast kontu ierakstītajai e-pasta adresei."
+#~ msgid ""
+#~ "An email will be sent if we can find an account for the inserted email "
+#~ "address"
+#~ msgstr ""
+#~ "E-pasts tiks nosūtīts, ja mēs varēsim atrast kontu ierakstītajai e-pasta "
+#~ "adresei."
 
 #~ msgid "An email with a password reminder has been sent to your address."
 #~ msgstr "Uz jūsu e-pasta adresi ir nosūtīts ziņojums ar paroles atgādinājumu."
@@ -7294,8 +7942,12 @@ msgstr "Jā, atlikušais risks ir pieņemams"
 #~ msgid "Manager/Policy maker"
 #~ msgstr "Vadītājs/Politikas veidotājs"
 
-#~ msgid "Managers/Policy makers can make risk assessments, lock risk assessments, create trainings and take trainings."
-#~ msgstr "Vadītāji/Politikas veidotāji var veikt riska novērtējumu, slēgt riska novērtējumu, izveidot apmācības un piedalīties apmācībās"
+#~ msgid ""
+#~ "Managers/Policy makers can make risk assessments, lock risk assessments, "
+#~ "create trainings and take trainings."
+#~ msgstr ""
+#~ "Vadītāji/Politikas veidotāji var veikt riska novērtējumu, slēgt riska "
+#~ "novērtējumu, izveidot apmācības un piedalīties apmācībās"
 
 #~ msgid "Members can make risk assessments and take trainings."
 #~ msgstr "Dalībnieki var veikt riska novērtējumu un piedalīties apmācībās."
@@ -7315,8 +7967,12 @@ msgstr "Jā, atlikušais risks ir pieņemams"
 #~ msgid "OiRA registration reminder"
 #~ msgstr "Atgādinājums par OiRA reģistrāciju"
 
-#~ msgid "One-state workflow for sector objects, giving edit access to its contents to the sector user."
-#~ msgstr "Viena stāvokļa darbplūsma sektora objektiem, ar kuru nozares lietotājs saņem atļauju to rediģēt."
+#~ msgid ""
+#~ "One-state workflow for sector objects, giving edit access to its contents to"
+#~ " the sector user."
+#~ msgstr ""
+#~ "Viena stāvokļa darbplūsma sektora objektiem, ar kuru nozares lietotājs saņem"
+#~ " atļauju to rediģēt."
 
 #~ msgid "Online help"
 #~ msgstr "Tiešsaistes palīdzība"
@@ -7400,19 +8056,26 @@ msgstr "Jā, atlikušais risks ir pieņemams"
 #~ msgstr "Sākt jaunu sesiju ar šo rīku"
 
 #~ msgid "company_details_intro"
-#~ msgstr "Jūs varat brīvi sniegt tālāk minēto informāciju. Tā ir paredzēta piedāvāto rīku un pakalpojumu uzlabošanai. Šī informācija neparādīsies pārskatā."
+#~ msgstr ""
+#~ "Jūs varat brīvi sniegt tālāk minēto informāciju. Tā ir paredzēta piedāvāto "
+#~ "rīku un pakalpojumu uzlabošanai. Šī informācija neparādīsies pārskatā."
 
 #~ msgid "conditions_conservation_header"
 #~ msgstr "Informācijas uzglabāšana un apstrāde"
 
 #~ msgid "conditions_conservation_keep_data"
-#~ msgstr "Līdz konta un sesiju dzēšanas brīdim mēs uzglabājam jūsu datus tā, lai tie nebūtu pieejami ārējiem lietotājiem."
+#~ msgstr ""
+#~ "Līdz konta un sesiju dzēšanas brīdim mēs uzglabājam jūsu datus tā, lai tie "
+#~ "nebūtu pieejami ārējiem lietotājiem."
 
 #~ msgid "conditions_conservation_storage"
 #~ msgstr "EU-OSHA uzglabā datus mūsu serveros Zamudio, Spānija."
 
 #~ msgid "conditions_contact"
-#~ msgstr "EU-OSHA regulāri pārskata organizācijas atbilstību šai Privātuma politikai. Visus jautājumus un sūdzības par mūsu privātuma politiku var sūtīt DPO EU-OSHA uz šādu adresi: ${dpo-email} vai EDPS uz šādu adresi: ${edps-email}."
+#~ msgstr ""
+#~ "EU-OSHA regulāri pārskata organizācijas atbilstību šai Privātuma politikai. "
+#~ "Visus jautājumus un sūdzības par mūsu privātuma politiku var sūtīt DPO EU-"
+#~ "OSHA uz šādu adresi: ${dpo-email} vai EDPS uz šādu adresi: ${edps-email}."
 
 #~ msgid "conditions_contact_header"
 #~ msgstr "Kontaktinformācija"
@@ -7421,55 +8084,111 @@ msgstr "Jā, atlikušais risks ir pieņemams"
 #~ msgstr "Datu izmantošanas uzraugs"
 
 #~ msgid "conditions_datareview"
-#~ msgstr "Varat izmantot konta iestatījumus un saglabātās OiRA sesijas, lai pārskatītu, kontrolētu un dzēstu informāciju, kas saglabāta jūsu kontā un sesijās."
+#~ msgstr ""
+#~ "Varat izmantot konta iestatījumus un saglabātās OiRA sesijas, lai "
+#~ "pārskatītu, kontrolētu un dzēstu informāciju, kas saglabāta jūsu kontā un "
+#~ "sesijās."
 
 #~ msgid "conditions_datareview_header"
 #~ msgstr "Savas informācijas pārskatīšana un izņemšana"
 
 #~ msgid "conditions_info_cookies"
-#~ msgstr "Sīkfaili – brīdī, kad apmeklējat šo vietni un atlasāt valodu, mēs uz jūsu datoru vai citu ierīci nosūtām sīkfailu, lai tas saglabātu informāciju par izvēlēto valodu. Sīkfails paliek jūsu pārlūkprogrammā līdz brīdim, kad to aizverat. Kad apmeklējat vietni un piesakāties sistēmā, mēs nosūtām sīkfailu ar jūsu pieteikšanās informāciju, lai jūs apmeklējuma laikā paliktu pieteicies sistēmā. Sīkfails paliek datorā līdz pārlūkprogrammas aizvēršanai. Daudzām pārlūkprogrammām sākotnējie iestatījumi paredz pieņemt sīkfailus, taču jūs varat mainīt iestatījumus tā, lai visi sīkfaili tiktu noraidīti vai arī lai parādītos brīdinājums par sīkfaila sūtīšanu. Tomēr atcerieties, ka atspējotu sīkfailu dēļ dažas funkcijas un pakalpojumi var darboties nepilnīgi."
+#~ msgstr ""
+#~ "Sīkfaili – brīdī, kad apmeklējat šo vietni un atlasāt valodu, mēs uz jūsu "
+#~ "datoru vai citu ierīci nosūtām sīkfailu, lai tas saglabātu informāciju par "
+#~ "izvēlēto valodu. Sīkfails paliek jūsu pārlūkprogrammā līdz brīdim, kad to "
+#~ "aizverat. Kad apmeklējat vietni un piesakāties sistēmā, mēs nosūtām sīkfailu"
+#~ " ar jūsu pieteikšanās informāciju, lai jūs apmeklējuma laikā paliktu "
+#~ "pieteicies sistēmā. Sīkfails paliek datorā līdz pārlūkprogrammas "
+#~ "aizvēršanai. Daudzām pārlūkprogrammām sākotnējie iestatījumi paredz pieņemt "
+#~ "sīkfailus, taču jūs varat mainīt iestatījumus tā, lai visi sīkfaili tiktu "
+#~ "noraidīti vai arī lai parādītos brīdinājums par sīkfaila sūtīšanu. Tomēr "
+#~ "atcerieties, ka atspējotu sīkfailu dēļ dažas funkcijas un pakalpojumi var "
+#~ "darboties nepilnīgi."
 
 #~ msgid "conditions_info_email"
-#~ msgstr "E-pasta konts: tas ir nepieciešams , lai piekļūtu tiešsaistes lietotnei, rediģētu ievadītos datus un dzēstu OiRA kontu. Varat ievadīt jebkuru derīgu e-pasta adresi. E-pasta adreses netiks izmantotas komerciālos nolūkos."
+#~ msgstr ""
+#~ "E-pasta konts: tas ir nepieciešams , lai piekļūtu tiešsaistes lietotnei, "
+#~ "rediģētu ievadītos datus un dzēstu OiRA kontu. Varat ievadīt jebkuru derīgu "
+#~ "e-pasta adresi. E-pasta adreses netiks izmantotas komerciālos nolūkos."
 
 #~ msgid "conditions_info_entry"
-#~ msgstr "Kādu informāciju mēs ievācam: kad jūs reģistrējat OiRA kontu un ievadāt datus lietotnē (interaktīvai riska novērtēšanai tiešsaistē), mēs jums lūdzam norādīt tālāk minēto informāciju."
+#~ msgstr ""
+#~ "Kādu informāciju mēs ievācam: kad jūs reģistrējat OiRA kontu un ievadāt "
+#~ "datus lietotnē (interaktīvai riska novērtēšanai tiešsaistē), mēs jums lūdzam"
+#~ " norādīt tālāk minēto informāciju."
 
 #~ msgid "conditions_info_header"
 #~ msgstr "Ievāktās informācijas veidi un nolūki"
 
 #~ msgid "conditions_info_logs"
-#~ msgstr "Žurnālu informācija – kad jūs piekļūstat šim pakalpojumam, mūsu serveri automātiski reģistrē informāciju, ko jūsu pārlūkprogramma nosūta ikreiz, kad apmeklējat kādu tīmekļa vietni. Šajos servera žurnālos var būt tāda informācija kā jūsu tīmekļa pieprasījums, mijiedarbība ar pakalpojumu, pārlūkprogrammas veids, pārlūkprogrammas valoda, pieprasījuma datums un laiks. Sistēmā netiek saglabātas IP adreses."
+#~ msgstr ""
+#~ "Žurnālu informācija – kad jūs piekļūstat šim pakalpojumam, mūsu serveri "
+#~ "automātiski reģistrē informāciju, ko jūsu pārlūkprogramma nosūta ikreiz, kad"
+#~ " apmeklējat kādu tīmekļa vietni. Šajos servera žurnālos var būt tāda "
+#~ "informācija kā jūsu tīmekļa pieprasījums, mijiedarbība ar pakalpojumu, "
+#~ "pārlūkprogrammas veids, pārlūkprogrammas valoda, pieprasījuma datums un "
+#~ "laiks. Sistēmā netiek saglabātas IP adreses."
 
 #~ msgid "conditions_info_text"
-#~ msgstr "Visa informācija, ko ievadāt brīvajos teksta laukos lietotnē un rīcības plānā (piemēram, kad ievadāt riska novēršanas līdzekli, par to atbildīgo personu u.c.). Informācijas ievadīšana brīvajos teksta laukos nav obligāta."
+#~ msgstr ""
+#~ "Visa informācija, ko ievadāt brīvajos teksta laukos lietotnē un rīcības "
+#~ "plānā (piemēram, kad ievadāt riska novēršanas līdzekli, par to atbildīgo "
+#~ "personu u.c.). Informācijas ievadīšana brīvajos teksta laukos nav obligāta."
 
 #~ msgid "conditions_info_use_intro"
-#~ msgstr "Papildus iepriekš minētajiem nolūkiem jūsu informāciju varam izmantot, arī lai sniegtu, uzturētu, aizsargātu un uzlabotu mūsu pakalpojumus un izstrādātu jaunus. Datu apstrādē nekādā gadījumā netiks izmantoti personas dati."
+#~ msgstr ""
+#~ "Papildus iepriekš minētajiem nolūkiem jūsu informāciju varam izmantot, arī "
+#~ "lai sniegtu, uzturētu, aizsargātu un uzlabotu mūsu pakalpojumus un "
+#~ "izstrādātu jaunus. Datu apstrādē nekādā gadījumā netiks izmantoti personas "
+#~ "dati."
 
 #~ msgid "conditions_intro1"
-#~ msgstr "OiRA lietotne jeb interaktīvā riska novērtēšana tiešsaistē ir rīks, ko piedāvā Eiropas Darba drošības un veselības aizsardzības aģentūra (EU-OSHA). Šī privātuma politika attiecas uz visiem produktiem, pakalpojumiem un tīmekļa vietnēm, kuras EU-OSHA piedāvā OiRA lietotnē."
+#~ msgstr ""
+#~ "OiRA lietotne jeb interaktīvā riska novērtēšana tiešsaistē ir rīks, ko "
+#~ "piedāvā Eiropas Darba drošības un veselības aizsardzības aģentūra (EU-OSHA)."
+#~ " Šī privātuma politika attiecas uz visiem produktiem, pakalpojumiem un "
+#~ "tīmekļa vietnēm, kuras EU-OSHA piedāvā OiRA lietotnē."
 
 #~ msgid "conditions_intro2"
-#~ msgstr "Jūsu personas dati tiek apstrādāti atbilstoši Regulai (EK) Nr. 45/2001 par fizisku personu aizsardzību attiecībā uz personas datu apstrādi Kopienas iestādēs un struktūrās un par šādu datu brīvu apriti. Plašāku informāciju par EU-OSHA privātuma politiku un pilno regulas tekstu var saņemt vietnē: ${url}."
+#~ msgstr ""
+#~ "Jūsu personas dati tiek apstrādāti atbilstoši Regulai (EK) Nr. 45/2001 par "
+#~ "fizisku personu aizsardzību attiecībā uz personas datu apstrādi Kopienas "
+#~ "iestādēs un struktūrās un par šādu datu brīvu apriti. Plašāku informāciju "
+#~ "par EU-OSHA privātuma politiku un pilno regulas tekstu var saņemt vietnē: "
+#~ "${url}."
 
 #~ msgid "conditions_security"
-#~ msgstr "Mēs izmantojam piemērotus drošības līdzekļus, lai nepieļautu nesankcionētu piekļuvi datiem, to nesankcionētu mainīšanu, atklāšanu vai iznīcināšanu: datu krājuma iekšējas pārbaudes, noteiktas uzglabāšanas un apstrādes metodes, un aizsardzības līdzekļus, piemēram, pienācīgu saziņas šifrēšanu un fiziskus aizsardzības līdzekļus, lai nepieļautu nesankcionētu piekļuvi sistēmām, kurās uzglabājam personas datus. Dati nevienam nav nekādā veidā pieejami. Mēs nesaglabājam IP adreses, lai tās nevarētu izmantot lietotāja identificēšanai."
+#~ msgstr ""
+#~ "Mēs izmantojam piemērotus drošības līdzekļus, lai nepieļautu nesankcionētu "
+#~ "piekļuvi datiem, to nesankcionētu mainīšanu, atklāšanu vai iznīcināšanu: "
+#~ "datu krājuma iekšējas pārbaudes, noteiktas uzglabāšanas un apstrādes "
+#~ "metodes, un aizsardzības līdzekļus, piemēram, pienācīgu saziņas šifrēšanu un"
+#~ " fiziskus aizsardzības līdzekļus, lai nepieļautu nesankcionētu piekļuvi "
+#~ "sistēmām, kurās uzglabājam personas datus. Dati nevienam nav nekādā veidā "
+#~ "pieejami. Mēs nesaglabājam IP adreses, lai tās nevarētu izmantot lietotāja "
+#~ "identificēšanai."
 
 #~ msgid "conditions_security_header"
 #~ msgstr "Informācijas drošība"
 
 #~ msgid "condtions_datacontroller"
-#~ msgstr "Datu izmantošanas uzraugs ir Endrjū Smits (Andrew Smith), Eiropas darba drošības un veselības aizsardzības aģentūra, Bilbao."
+#~ msgstr ""
+#~ "Datu izmantošanas uzraugs ir Endrjū Smits (Andrew Smith), Eiropas darba "
+#~ "drošības un veselības aizsardzības aģentūra, Bilbao."
 
 #~ msgid "description_password_reminder"
-#~ msgstr "Lūdzu, ievadiet savu e-pasta adresi. Jums nosūtīs jūsu reģistrācijas informāciju."
+#~ msgstr ""
+#~ "Lūdzu, ievadiet savu e-pasta adresi. Jums nosūtīs jūsu reģistrācijas "
+#~ "informāciju."
 
 #~ msgid "french"
 #~ msgstr "Vienkāršoti divi kritēriji"
 
 #~ msgid "hader_company_details"
-#~ msgstr "Jūs gatavojaties izdrukāt pārskatu. Lūdzu, aizpildiet neobligāto veidlapu un tad turpiniet."
+#~ msgstr ""
+#~ "Jūs gatavojaties izdrukāt pārskatu. Lūdzu, aizpildiet neobligāto veidlapu un"
+#~ " tad turpiniet."
 
 #~ msgid "header_or"
 #~ msgstr "vai..."
@@ -7487,13 +8206,20 @@ msgstr "Jā, atlikušais risks ir pieņemams"
 #~ msgstr "Laipni lūgti!"
 
 #~ msgid "help_sector_contactperson"
-#~ msgstr "Ievadiet tās kontaktpersonas vārdu, kura ir atbildīga par OiRA rīkiem šajā sektorā."
+#~ msgstr ""
+#~ "Ievadiet tās kontaktpersonas vārdu, kura ir atbildīga par OiRA rīkiem šajā "
+#~ "sektorā."
 
 #~ msgid "help_sector_logo"
-#~ msgstr "Logotips būs redzams gan klienta puses lietotnē, kuru redzēs jūsu lietotāju grupa, gan šajā rediģēšanas vidē augšējā kreisajā stūrī. Attēlam jābūt png, jpg vai gif formātā, un tajā nedrīkst būt nekādu īpašu rakstzīmju. Jaunais logotips kļūst redzams tikai pēc izmaiņu saglabāšanas."
+#~ msgstr ""
+#~ "Logotips būs redzams gan klienta puses lietotnē, kuru redzēs jūsu lietotāju "
+#~ "grupa, gan šajā rediģēšanas vidē augšējā kreisajā stūrī. Attēlam jābūt png, "
+#~ "jpg vai gif formātā, un tajā nedrīkst būt nekādu īpašu rakstzīmju. Jaunais "
+#~ "logotips kļūst redzams tikai pēc izmaiņu saglabāšanas."
 
 #~ msgid "help_sector_password"
-#~ msgstr "Šī ir parole, kas jums būs nepieciešama, lai pieteiktos rediģēšanas vidē."
+#~ msgstr ""
+#~ "Šī ir parole, kas jums būs nepieciešama, lai pieteiktos rediģēšanas vidē."
 
 #~ msgid "invalid_email"
 #~ msgstr "Lūdzu, ievadiet derīgu e-pasta adresi."
@@ -7523,7 +8249,9 @@ msgstr "Jā, atlikušais risks ir pieņemams"
 #~ msgstr "Pievienot citus riska faktorus"
 
 #~ msgid "label_comment"
-#~ msgstr "Šajā laukā lūdzu norādīt papildus komentārus par augstāk minēto jautājumu. Šie komentāri tiks izmantoti pasākumu plānā."
+#~ msgstr ""
+#~ "Šajā laukā lūdzu norādīt papildus komentārus par augstāk minēto jautājumu. "
+#~ "Šie komentāri tiks izmantoti pasākumu plānā."
 
 #~ msgid "label_contact_person"
 #~ msgstr "Kontaktpersona"
@@ -7577,7 +8305,11 @@ msgstr "Jā, atlikušais risks ir pieņemams"
 #~ msgstr "ienāciet"
 
 #~ msgid "logo_instructions"
-#~ msgstr "Vislabākos rezultātus gūsit, ja augšupielādēsit ${transparent} kā PNG failu, kura augstums ir vismaz 100 pikseļi. Var augšupielādēt arī lielākus attēlus, bet šādā gadījumā logotips tiks automātiski samazināts līdz pareizajam izmēram."
+#~ msgstr ""
+#~ "Vislabākos rezultātus gūsit, ja augšupielādēsit ${transparent} kā PNG failu,"
+#~ " kura augstums ir vismaz 100 pikseļi. Var augšupielādēt arī lielākus "
+#~ "attēlus, bet šādā gadījumā logotips tiks automātiski samazināts līdz "
+#~ "pareizajam izmēram."
 
 #~ msgid "logo_instructions_transparent"
 #~ msgstr "caurspīdīgu logotipu"
@@ -7634,7 +8366,11 @@ msgstr "Jā, atlikušais risks ir pieņemams"
 #~ msgstr "Informācija par uzņēmumu"
 
 #~ msgid "plan_report_intro_1"
-#~ msgstr "Aizpildot jautājumu sarakstu, jūs esat pabeidzis riska novērtēšanu. Šo vērtējumu izmanto rīcības plāna izveidei. Rīcības plāna izpildes rezultāti ir reizi gadā jāapspriež, un par tiem jāuzraksta īss ziņojums. Iespējams, daļa plāna būs paveikta vai tas būs jāpapildina."
+#~ msgstr ""
+#~ "Aizpildot jautājumu sarakstu, jūs esat pabeidzis riska novērtēšanu. Šo "
+#~ "vērtējumu izmanto rīcības plāna izveidei. Rīcības plāna izpildes rezultāti "
+#~ "ir reizi gadā jāapspriež, un par tiem jāuzraksta īss ziņojums. Iespējams, "
+#~ "daļa plāna būs paveikta vai tas būs jāpapildina."
 
 #~ msgid "plan_report_intro_header"
 #~ msgstr "Ievads"
@@ -7646,7 +8382,9 @@ msgstr "Jā, atlikušais risks ir pieņemams"
 #~ msgstr "Ļ. cien. lietotāj!"
 
 #~ msgid "reminder_email_intro"
-#~ msgstr "Jūs pieprasījāt paroles atgādinājumu OiRA tīmekļa vietnei. Jūsu pieteikšanās informācija ir šāda:"
+#~ msgstr ""
+#~ "Jūs pieprasījāt paroles atgādinājumu OiRA tīmekļa vietnei. Jūsu pieteikšanās"
+#~ " informācija ir šāda:"
 
 #~ msgid "reminder_email_login"
 #~ msgstr "E-pasts"
@@ -7664,7 +8402,8 @@ msgstr "Jā, atlikušais risks ir pieņemams"
 #~ msgstr "Šī uzdevuma beigas ir: ${end}."
 
 #~ msgid "report_measure_full"
-#~ msgstr "${responsible} atbild par šo uzdevumu, kas sākas ${start} un beidzas ${end}."
+#~ msgstr ""
+#~ "${responsible} atbild par šo uzdevumu, kas sākas ${start} un beidzas ${end}."
 
 #~ msgid "report_measure_preventionplan"
 #~ msgstr "Specifiskas darbības, kas jāveic, lai šo pieeju īstenotu:"
@@ -7703,7 +8442,9 @@ msgstr "Jā, atlikušais risks ir pieņemams"
 #~ msgstr "Pastāv ar [*] iezīmētie riski."
 
 #~ msgid "teaser_try_oira"
-#~ msgstr "Vēlaties izmēģināt OiRA? Jūs varat ${tryout_link} vai ${register_link}, lai sāktu pa īstam."
+#~ msgstr ""
+#~ "Vēlaties izmēģināt OiRA? Jūs varat ${tryout_link} vai ${register_link}, lai "
+#~ "sāktu pa īstam."
 
 #~ msgid "title_account_settings"
 #~ msgstr "Konta iestatījumi"
