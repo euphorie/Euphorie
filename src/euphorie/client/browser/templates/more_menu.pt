@@ -72,7 +72,7 @@
              href="${here/absolute_url}/@@panel-contents-preview#document-content"
              data-pat-modal="class: sheet"
              i18n:translate="label_print_tool_preview"
-          >Preview or print the tool for preparation</a>
+          >Print a tool preview</a>
         </li>
         <li>
           <a class="pat-inject close-panel icon-cancel"

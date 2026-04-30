@@ -23,6 +23,7 @@ from zope.deprecation import deprecate
 from zope.interface import directlyProvides
 
 import json
+import warnings
 
 
 logger = getLogger(__name__)
@@ -714,6 +715,16 @@ class MyRAsPortlet(PortletBase):
 
     @property
     def label_start_session(self):
+        warnings.warn("property label_start_session should no longer be used.")
+        # At first the default was 'start a new session' lowercase.
+        # Later it was changed to 'Start a new session' uppercase.
+        # So calling 'capitalize' on it no longer makes sense.
+        # I think in the place this is used it should be lowercase,
+        # as it is in the middle of a sentence.  And we meanwhile have
+        # two different defaults for 'link_start_session', which makes things
+        # difficult.  Anyway, Proto seems to have a translation for both
+        # variants.  So let's just define two separate msgids.
+        # That is done in the template though.
         label = api.portal.translate(
             _("link_start_session", default="Start a new risk assessment")
         )
