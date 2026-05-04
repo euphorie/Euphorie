@@ -54,7 +54,7 @@ copyright = "2009-2013, Simplon B.V. and SYSLAB.com GmbH"
 # The default replacements for |version| and |release|, also used in various
 # other places throughout the built documents.
 #
-(version, release) = get_version()
+version, release = get_version()
 
 # There are two options for replacing |today|: either, you set today to
 # some non-false value, then it is used:

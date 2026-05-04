@@ -17,7 +17,6 @@ from euphorie.content.risk import IRisk
 from sqlalchemy import sql
 from z3c.saconfig import Session
 
-
 always_present_default = "no"
 
 

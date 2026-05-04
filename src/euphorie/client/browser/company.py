@@ -252,7 +252,7 @@ class Company(AutoExtensibleForm, form.Form):
 
     @button.buttonAndHandler("Previous")
     def handlePrevious(self, action):
-        (data, errors) = self.extractData()
+        data, errors = self.extractData()
         if errors:
             self.status = self.formErrorsMessage
             return
@@ -263,7 +263,7 @@ class Company(AutoExtensibleForm, form.Form):
 
     @button.buttonAndHandler("Next")
     def handleNext(self, action):
-        (data, errors) = self.extractData()
+        data, errors = self.extractData()
         if errors:
             self.status = self.formErrorsMessage
             return

@@ -14,7 +14,6 @@ from zope.interface import alsoProvides
 
 import logging
 
-
 log = logging.getLogger(__name__)
 
 

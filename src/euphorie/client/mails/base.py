@@ -17,7 +17,6 @@ from urllib.parse import quote
 import markdown
 import stoneagehtml
 
-
 logger = getLogger(__name__)
 
 

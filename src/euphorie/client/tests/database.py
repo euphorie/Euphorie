@@ -1,7 +1,6 @@
 import unittest
 import z3c.saconfig.tests
 
-
 z3c.saconfig.tests  # Keep PyFlakes happy
 
 

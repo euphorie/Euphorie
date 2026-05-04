@@ -24,7 +24,6 @@ from zope.interface import directlyProvides
 
 import json
 
-
 logger = getLogger(__name__)
 
 

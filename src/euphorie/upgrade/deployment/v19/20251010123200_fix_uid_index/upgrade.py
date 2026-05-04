@@ -11,7 +11,6 @@ import logging
 import os
 import transaction
 
-
 logger = logging.getLogger(__name__)
 # By default we do intermediate commits, to have less chance of ConflictErrors.
 # Set the environment variable EUPHORIE_DISABLE_INTERMEDIATE_COMMITS=1

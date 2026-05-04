@@ -25,7 +25,6 @@ from zope.lifecycleevent import ObjectCopiedEvent
 import datetime
 import logging
 
-
 log = logging.getLogger(__name__)
 
 

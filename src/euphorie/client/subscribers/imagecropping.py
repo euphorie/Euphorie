@@ -5,7 +5,6 @@ from zope.component import getMultiAdapter
 from zope.component._api import getUtility
 from zope.globalrequest import getRequest
 
-
 FIELDNAMES = ("image", "external_site_logo")
 
 

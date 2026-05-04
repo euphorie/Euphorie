@@ -14,7 +14,6 @@ from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope.event import notify
 
-
 logger = getLogger(__name__)
 
 

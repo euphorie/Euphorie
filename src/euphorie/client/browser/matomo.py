@@ -8,7 +8,6 @@ import json
 import logging
 import urllib.parse
 
-
 logger = logging.getLogger("MatomoView")
 
 

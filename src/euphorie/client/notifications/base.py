@@ -7,7 +7,6 @@ from plone import api
 from plone.memoize.view import memoize
 from z3c.saconfig import Session
 
-
 logger = getLogger(__name__)
 
 

@@ -28,7 +28,6 @@ from zope.publisher.interfaces import IPublishTraverse
 
 import markdown
 
-
 logger = getLogger(__name__)
 
 

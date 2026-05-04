@@ -24,7 +24,6 @@ from zope.publisher.interfaces import IPublishTraverse
 
 import smtplib
 
-
 logger = getLogger(__name__)
 
 
@@ -249,7 +248,7 @@ class ResetPasswordForm(BaseForm):
 
     def do_save(self):
         """Execute the save action."""
-        (data, errors) = self.extractData()
+        data, errors = self.extractData()
         if errors:
             for err in errors:
                 if isinstance(err.error, Exception):

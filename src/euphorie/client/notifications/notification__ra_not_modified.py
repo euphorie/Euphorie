@@ -15,7 +15,6 @@ from zope.interface import implementer
 
 import datetime
 
-
 logger = getLogger(__name__)
 
 

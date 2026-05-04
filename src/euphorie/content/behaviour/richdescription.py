@@ -19,7 +19,6 @@ from plone.supermodel import model
 from plonetheme.nuplone.z3cform.widget import WysiwygFieldWidget
 from zope import schema
 
-
 try:
     from html import unescape
 except ImportError:

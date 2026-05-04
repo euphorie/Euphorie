@@ -35,7 +35,6 @@ import logging
 import sqlalchemy.exc
 import traceback
 
-
 log = logging.getLogger(__name__)
 
 
@@ -67,7 +66,7 @@ def generate_token(user):
 
 def authenticate_cms_token(context, token):
     try:
-        (login, hash) = token.split("-")
+        login, hash = token.split("-")
     except ValueError:
         return None
     user = _get_user(context, login)

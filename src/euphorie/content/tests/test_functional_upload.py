@@ -45,7 +45,7 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
             "/yH5BAEAAAEALAAAAAABAAEAAAIBTAA7</image>"
         )
         importer = upload.SurveyImporter(None)
-        (image, caption) = importer.ImportImage(snippet)
+        image, caption = importer.ImportImage(snippet)
         self.assertEqual(caption, "Key image")
         self.assertTrue(isinstance(caption, str))
         self.assertEqual(image.contentType, "image/gif")
@@ -59,7 +59,7 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
             "TAA7</image>"
         )
         importer = upload.SurveyImporter(None)
-        (image, caption) = importer.ImportImage(snippet)
+        image, caption = importer.ImportImage(snippet)
         self.assertTrue(image.filename.endswith(".bmp"))
 
     def testImportImage_MimeFromFilename(self):
@@ -68,7 +68,7 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
             "EALAAAAAABAAEAAAIBTAA7</image>"
         )
         importer = upload.SurveyImporter(None)
-        (image, caption) = importer.ImportImage(snippet)
+        image, caption = importer.ImportImage(snippet)
         self.assertEqual(caption, None)
         self.assertEqual(image.filename, "tiny.gif")
         # Required by the interface :(
@@ -394,13 +394,11 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         self.assertEqual(profile.keys(), [])
 
     def testImportProfileQuestion_optional_type(self):
-        snippet = objectify.fromstring(
-            """<profile-question type="optional"
+        snippet = objectify.fromstring("""<profile-question type="optional"
                 xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
              <title>Laptop usage</title>
              <question>Do your employees use laptops?</question>
-           </profile-question>"""
-        )
+           </profile-question>""")
         self.loginAsPortalOwner()
         survey = self.createSurvey()
         importer = upload.SurveyImporter(None)
@@ -572,15 +570,13 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         self.assertEqual(children[3].title, "Profile two")
 
     def testImportTrainingQuestion(self):
-        snippet = objectify.fromstring(
-            """<training_question>
+        snippet = objectify.fromstring("""<training_question>
               <title>How many rivets were used in the Titanic?</title>
               <right_answer>3,000,000</right_answer>
               <wrong_answer_1>None, it was glued together</wrong_answer_1>
               <wrong_answer_2>300,000</wrong_answer_2>
             </training_question>
-            """
-        )
+            """)
         self.loginAsPortalOwner()
         survey = self.createSurvey()
         survey.enable_web_training = True
