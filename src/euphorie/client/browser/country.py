@@ -25,7 +25,6 @@ from zope.interface import directlyProvides
 import json
 import warnings
 
-
 logger = getLogger(__name__)
 
 

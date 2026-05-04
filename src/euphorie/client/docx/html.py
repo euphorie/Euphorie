@@ -4,7 +4,6 @@ from lxml import etree
 import docx
 import lxml.html
 
-
 # tag to style mapping which will be used over styles from the source document.
 ENFORCE_STYLES = {
     "ul": "List Bullet",

@@ -22,7 +22,6 @@ from zope.i18n import translate
 
 import re
 
-
 all_breaks = re.compile("(\n|\r)+")
 multi_spaces = re.compile("( )+")
 

@@ -7,7 +7,6 @@ from pkg_resources import resource_filename
 from sqlalchemy import inspect
 from zope.deprecation import deprecate
 
-
 logger = getLogger(__name__)
 
 

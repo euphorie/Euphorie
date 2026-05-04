@@ -5,7 +5,6 @@ from lxml.html import defs
 
 import re
 
-
 INLINE_TAGS = defs.special_inline_tags | defs.phrase_tags | defs.font_style_tags
 TAG = re.compile("<.*?>")
 ANCHORS = etree.XPath(

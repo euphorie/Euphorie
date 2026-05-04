@@ -1,6 +1,5 @@
 from zope.deferredimport import deprecated
 
-
 deprecated(
     (
         "It will be removed in future versions. "

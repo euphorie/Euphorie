@@ -46,7 +46,6 @@ import datetime
 import logging
 import smtplib
 
-
 log = logging.getLogger(__name__)
 
 
@@ -175,7 +174,7 @@ class Preferences(AutoExtensibleForm, form.Form):
     @property
     def show_content_language_preference(self):
         return api.portal.get_registry_record(
-            "euphorie.content_language_preference__enabled", default=True
+            "euphorie.content_language_preference__enabled", default=False
         )
 
     @property
@@ -275,7 +274,7 @@ class Preferences(AutoExtensibleForm, form.Form):
     @button.buttonAndHandler(_("Save"), name="save")
     def handleSave(self, action):
         flash = IStatusMessage(self.request).addStatusMessage
-        (data, errors) = self.extractData()
+        data, errors = self.extractData()
         if errors:
             for error in errors:
                 flash(error.message, "notice")
@@ -313,7 +312,7 @@ class AccountSettings(AutoExtensibleForm, form.Form):
     @button.buttonAndHandler(_("Save changes"), name="save")
     def handleSave(self, action):
         flash = IStatusMessage(self.request).addStatusMessage
-        (data, errors) = self.extractData()
+        data, errors = self.extractData()
         if errors:
             for error in errors:
                 flash(error.message, "notice")
@@ -363,7 +362,7 @@ class DeleteAccount(AutoExtensibleForm, form.Form):
 
     @button.buttonAndHandler(_("Delete account"), name="delete")
     def handleDelete(self, action):
-        (data, errors) = self.extractData()
+        data, errors = self.extractData()
         if errors:
             return
 
@@ -494,7 +493,7 @@ class NewEmail(AutoExtensibleForm, form.Form):
     def handleSave(self, action):
         flash = IStatusMessage(self.request).addStatusMessage
 
-        (data, errors) = self.extractData()
+        data, errors = self.extractData()
         if errors:
             return
         url = self.context.absolute_url()

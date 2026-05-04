@@ -10,7 +10,6 @@ from euphorie.deployment.upgrade.utils import has_column
 
 import sqlalchemy as sa
 
-
 # revision identifiers, used by Alembic.
 revision = "27"
 down_revision = "26"
@@ -35,14 +34,12 @@ def upgrade():
             op.f("ix_action_plan_plan_type"), "action_plan", ["plan_type"], unique=False
         )
         op.execute("UPDATE action_plan SET plan_type = 'measure_custom'")
-        op.execute(
-            """
+        op.execute("""
 UPDATE action_plan ap
     SET "action" = CASE
     WHEN ap.prevention_plan is not NULL
     THEN ap.action_plan || E'\n' || ap.prevention_plan
-    ELSE ap.action_plan END"""
-        )
+    ELSE ap.action_plan END""")
         op.alter_column("action_plan", "plan_type", nullable=False)
 
     if not has_column("session", "migrated"):

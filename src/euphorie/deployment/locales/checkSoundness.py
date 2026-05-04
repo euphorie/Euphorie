@@ -15,7 +15,6 @@ import re
 import subprocess
 import sys
 
-
 # Define here the patterns for all error messages you want to ignore
 messages_to_ignore = [
     ".*?entry ignored",

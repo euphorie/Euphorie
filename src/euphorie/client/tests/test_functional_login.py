@@ -261,8 +261,8 @@ class ResetPasswordTests(EuphorieFunctionalTestCase):
         browser.getControl(name="form.widgets.email").value = "jane@example.com"
         browser.getControl(name="form.buttons.save").click()
         self.assertEqual(len(mail_fixture.storage), 1)
-        (args, kw) = mail_fixture.storage[0]
-        (mail, mto, mfrom) = args[:3]
+        args, kw = mail_fixture.storage[0]
+        mail, mto, mfrom = args[:3]
         self.assertEqual(mfrom, "discard@simplon.biz")
         self.assertEqual(mto, "jane@example.com")
         self.assertEqual(

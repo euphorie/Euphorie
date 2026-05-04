@@ -2,7 +2,6 @@ from euphorie.deployment.upgrade.utils import alembic_upgrade_to
 
 import logging
 
-
 log = logging.getLogger(__name__)
 
 
