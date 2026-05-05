@@ -3371,6 +3371,14 @@ msgstr "Un codi que identifica aquest sector. Els organismes nacionals de normal
 msgid "help_compact_report_options"
 msgstr ""
 
+#. Default: "The content language determines which surveys you see on the
+#. dashboard. Visiting a survey in a different language (via the Tools tab)
+#. will automatically update this setting. This preference resets after
+#. quitting your browser."
+#: euphorie/client/browser/templates/preferences.pt:97
+msgid "help_content_language"
+msgstr "L’idioma del contingut determina quines eines veieu al tauler. Visitar una eina en un idioma diferent (mitjançant la pestanya Eines) actualitzarà automàticament aquesta configuració. Aquesta preferència es restableix en tancar el navegador."
+
 #. Default: "Upload a file that contains additional information, like a PDF,
 #. Word document or spreadsheet. Optionally provide a descriptive caption for
 #. your file."
@@ -3710,7 +3718,17 @@ msgstr "Aquest és el títol de la versió d'aquesta eina OiRA. Aquest nom no es
 #. overview in the clients."
 #: euphorie/content/surveygroup.py:41
 msgid "help_surveygroup_title"
-msgstr "El títol d'aquesta eina OiRA. Aquest títol s'utilitza a la visió general de l'eina OiRA dels clients."
+msgstr ""
+"El títol d'aquesta eina OiRA. Aquest títol s'utilitza a la visió general de "
+"l'eina OiRA dels clients."
+
+#. Default: "The UI language is used for showing the user interface. Initially
+#. this is determined by the language preference of your browser. This does
+#. not influence the language of the contents, especially which surveys are
+#. shown. This preference resets after quitting your browser."
+#: euphorie/client/browser/templates/preferences.pt:75
+msgid "help_ui_language"
+msgstr "L’idioma de la interfície s’utilitza per mostrar la interfície d’usuari. Inicialment es determina segons les preferències d’idioma del vostre navegador. Això no influeix en l’idioma del contingut, especialment en quines eines es mostren. Aquesta preferència es restableix en tancar el navegador."
 
 #. Default: "If you do not specify a title it will be taken from the input."
 #: euphorie/content/browser/upload.py:157
@@ -4241,6 +4259,11 @@ msgstr "Següent"
 
 msgid "label_continue_action_plan"
 msgstr "Continuar amb el pla d’acció"
+
+#. Default: "Content language"
+#: euphorie/client/browser/templates/preferences.pt:96
+msgid "label_content_language"
+msgstr "Idioma del contingut"
 
 #. Default: "Create action plan"
 #: euphorie/client/browser/templates/actionplan.pt:64
@@ -5444,6 +5467,11 @@ msgstr "Enhorabona, ja heu obtingut el vostre certificat."
 #: euphorie/client/browser/templates/surveys.pt:26
 msgid "label_try_oira"
 msgstr "Provar OiRA"
+
+#. Default: "UI language"
+#: euphorie/client/browser/templates/preferences.pt:74
+msgid "label_ui_language"
+msgstr "Idioma de la interfície"
 
 #. Default: "Unlock Risk Assessment"
 #: euphorie/client/browser/templates/locking_menu.pt:96
@@ -6786,6 +6814,11 @@ msgstr "Ajuda"
 #: euphorie/deployment/tiles/templates/versions.pt:43
 msgid "title_help_unpublished"
 msgstr "Elimini aquesta eina OiRA del client en línia."
+
+#. Default: "Language preferences"
+#: euphorie/client/browser/templates/preferences.pt:68
+msgid "title_language_prefs"
+msgstr "Preferències d’idioma"
 
 #. Default: "Personal details"
 #: euphorie/client/browser/templates/preferences.pt:45

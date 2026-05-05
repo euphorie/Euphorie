@@ -3359,7 +3359,16 @@ msgstr "Un codice che identifica questo settore. I codici di classificazione son
 #. Default: "Select which optional elements are used in the compact report"
 #: euphorie/content/country.py:111
 msgid "help_compact_report_options"
-msgstr "Seleziona quali elementi opzionali vengono utilizzati nel rapporto compatto"
+msgstr ""
+"Seleziona quali elementi opzionali vengono utilizzati nel rapporto compatto"
+
+#. Default: "The content language determines which surveys you see on the
+#. dashboard. Visiting a survey in a different language (via the Tools tab)
+#. will automatically update this setting. This preference resets after
+#. quitting your browser."
+#: euphorie/client/browser/templates/preferences.pt:97
+msgid "help_content_language"
+msgstr "La lingua dei contenuti determina quali strumenti vedi nella dashboard. Visitare uno strumento in una lingua diversa (tramite la scheda Strumenti) aggiornerà automaticamente questa impostazione. Questa preferenza si reimposta dopo la chiusura del browser."
 
 #. Default: "Upload a file that contains additional information, like a PDF,
 #. Word document or spreadsheet. Optionally provide a descriptive caption for
@@ -3700,7 +3709,17 @@ msgstr "Questo è il titolo della versione OiRA. Questo nome non verrà mai indi
 #. overview in the clients."
 #: euphorie/content/surveygroup.py:41
 msgid "help_surveygroup_title"
-msgstr "Il titolo di questo strumento OiRA. Questo titolo è utilizzato nella panoramica OiRA dei client."
+msgstr ""
+"Il titolo di questo strumento OiRA. Questo titolo è utilizzato nella "
+"panoramica OiRA dei client."
+
+#. Default: "The UI language is used for showing the user interface. Initially
+#. this is determined by the language preference of your browser. This does
+#. not influence the language of the contents, especially which surveys are
+#. shown. This preference resets after quitting your browser."
+#: euphorie/client/browser/templates/preferences.pt:75
+msgid "help_ui_language"
+msgstr "La lingua dell’interfaccia viene utilizzata per mostrare l’interfaccia utente. Inizialmente è determinata dalle preferenze linguistiche del tuo browser. Questo non influisce sulla lingua dei contenuti, in particolare su quali strumenti vengono mostrati. Questa preferenza si reimposta dopo la chiusura del browser."
 
 #. Default: "If you do not specify a title it will be taken from the input."
 #: euphorie/content/browser/upload.py:157
@@ -4252,6 +4271,11 @@ msgstr "Copia"
 
 msgid "label_copyright"
 msgstr "Copyright"
+
+#. Default: "Content language"
+#: euphorie/client/browser/templates/preferences.pt:96
+msgid "label_content_language"
+msgstr "Lingua dei contenuti"
 
 #. Default: "Create action plan"
 #: euphorie/client/browser/templates/actionplan.pt:64
@@ -5587,6 +5611,11 @@ msgstr "Prova OiRA"
 
 msgid "label_under_review"
 msgstr "In revisione"
+
+#. Default: "UI language"
+#: euphorie/client/browser/templates/preferences.pt:74
+msgid "label_ui_language"
+msgstr "Lingua dell’interfaccia"
 
 #. Default: "Unlock Risk Assessment"
 #: euphorie/client/browser/templates/locking_menu.pt:96
@@ -7011,6 +7040,11 @@ msgstr "Aiuto"
 #: euphorie/deployment/tiles/templates/versions.pt:43
 msgid "title_help_unpublished"
 msgstr "Rimuovere lo strumento OiRA dal client online"
+
+#. Default: "Language preferences"
+#: euphorie/client/browser/templates/preferences.pt:68
+msgid "title_language_prefs"
+msgstr "Preferenze della lingua"
 
 #. Default: "Personal details"
 #: euphorie/client/browser/templates/preferences.pt:45

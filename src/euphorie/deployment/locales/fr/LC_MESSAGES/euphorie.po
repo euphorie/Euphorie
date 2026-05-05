@@ -3403,6 +3403,14 @@ msgstr ""
 msgid "help_compact_report_options"
 msgstr ""
 
+#. Default: "The content language determines which surveys you see on the
+#. dashboard. Visiting a survey in a different language (via the Tools tab)
+#. will automatically update this setting. This preference resets after
+#. quitting your browser."
+#: euphorie/client/browser/templates/preferences.pt:97
+msgid "help_content_language"
+msgstr "La langue du contenu détermine quels outils vous voyez sur le tableau de bord. La visite d’un outil dans une autre langue (via l’onglet Outils) mettra automatiquement à jour ce paramètre. Cette préférence est réinitialisée après la fermeture de votre navigateur."
+
 #. Default: "Upload a file that contains additional information, like a PDF,
 #. Word document or spreadsheet. Optionally provide a descriptive caption for
 #. your file."
@@ -3745,6 +3753,14 @@ msgstr "Ceci est le titre de la version de cet Outil OiRA. Ce nom n’est jamais
 #: euphorie/content/surveygroup.py:41
 msgid "help_surveygroup_title"
 msgstr "Le titre de cet outil OiRA. Ce titre est utilisé dans la vue d’ensemble de l’outil OiRA dans les clients."
+
+#. Default: "The UI language is used for showing the user interface. Initially
+#. this is determined by the language preference of your browser. This does
+#. not influence the language of the contents, especially which surveys are
+#. shown. This preference resets after quitting your browser."
+#: euphorie/client/browser/templates/preferences.pt:75
+msgid "help_ui_language"
+msgstr "La langue de l’interface est utilisée pour afficher l’interface utilisateur. Elle est initialement déterminée par la préférence linguistique de votre navigateur. Cela n’influence pas la langue du contenu, notamment les outils affichés. Cette préférence est réinitialisée après la fermeture de votre navigateur."
 
 #. Default: "If you do not specify a title it will be taken from the input."
 #: euphorie/content/browser/upload.py:157
@@ -4512,6 +4528,11 @@ msgstr "Adresse e-mail de contact"
 #: euphorie/content/sector.py:65
 msgid "label_contact_name"
 msgstr "Nom du contact"
+
+#. Default: "Content language"
+#: euphorie/client/browser/templates/preferences.pt:96
+msgid "label_content_language"
+msgstr "Langue du contenu"
 
 msgid "label_continue"
 msgstr "Suivant"
@@ -6244,6 +6265,11 @@ msgstr "Formations"
 msgid "label_try_oira"
 msgstr "Essayez OiRA"
 
+#. Default: "UI language"
+#: euphorie/client/browser/templates/preferences.pt:74
+msgid "label_ui_language"
+msgstr "Langue de l’interface"
+
 msgid "label_tuesday"
 msgstr "Mardi"
 
@@ -7797,6 +7823,11 @@ msgstr "Aide"
 #: euphorie/deployment/tiles/templates/versions.pt:43
 msgid "title_help_unpublished"
 msgstr "Supprimer cet outil OiRA des clients en ligne."
+
+#. Default: "Language preferences"
+#: euphorie/client/browser/templates/preferences.pt:68
+msgid "title_language_prefs"
+msgstr "Préférences de langue"
 
 #. Default: "Personal details"
 #: euphorie/client/browser/templates/preferences.pt:45

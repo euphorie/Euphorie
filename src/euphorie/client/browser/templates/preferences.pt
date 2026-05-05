@@ -77,7 +77,7 @@
                        i18n:translate="help_ui_language"
                   >The UI language is used for showing the user interface.
                   Initially this is determined by the language preference of your browser.
-                  This does not influence the language of the contents, especially which surveys are shown.
+                  This does not influence the language of the contents, especially which tools are shown.
                   This preference resets after quitting your browser.
                   </dfn>
                   <select name="ui_language"
@@ -97,8 +97,8 @@
                   <dfn class="icon help help-icon pat-tooltip tooltip-active-click"
                        data-pat-tooltip="class: info; trigger: click; source: content; position-list: tl"
                        i18n:translate="help_content_language"
-                  >The content language determines which surveys you see on the dashboard.
-                  Visiting a survey in a different language (via the Tools tab) will automatically update this setting.
+                  >The content language determines which tools you see on the dashboard.
+                  Visiting a tool in a different language (via the Tools tab) will automatically update this setting.
                   This preference resets after quitting your browser.
                   </dfn>
                   <select name="content_language"

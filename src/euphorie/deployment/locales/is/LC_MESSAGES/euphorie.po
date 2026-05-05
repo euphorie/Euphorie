@@ -3628,6 +3628,14 @@ msgstr "Kóði sem táknar þennan geira. Flokkunarkóðar eru skilgreindir af �
 msgid "help_compact_report_options"
 msgstr "Veldu hvaða valfrjáls atriði er notað í samanþjappaðri skýrslu"
 
+#. Default: "The content language determines which surveys you see on the
+#. dashboard. Visiting a survey in a different language (via the Tools tab)
+#. will automatically update this setting. This preference resets after
+#. quitting your browser."
+#: euphorie/client/browser/templates/preferences.pt:97
+msgid "help_content_language"
+msgstr "Tungumál efnisins ákvarðar hvaða verkfæri þú sérð á stjórnborðinu. Að heimsækja verkfæri á öðru tungumáli (í gegnum flipann Verkfæri) uppfærir þessa stillingu sjálfkrafa. Þessi stilling er endurstillt þegar þú lokar vafranum."
+
 #. Default: "Upload a file that contains additional information, like a PDF,
 #. Word document or spreadsheet. Optionally provide a descriptive caption for
 #. your file."
@@ -4005,7 +4013,16 @@ msgstr "Heiti þessarar útgáfu af OiRA, það birtist aldrei notendum."
 #. overview in the clients."
 #: euphorie/content/surveygroup.py:41
 msgid "help_surveygroup_title"
-msgstr "Nafn á OiRA verkfærinu. Nafnið er notað í yfirliti fyrir OiRA verkfærin."
+msgstr ""
+"Nafn á OiRA verkfærinu. Nafnið er notað í yfirliti fyrir OiRA verkfærin."
+
+#. Default: "The UI language is used for showing the user interface. Initially
+#. this is determined by the language preference of your browser. This does
+#. not influence the language of the contents, especially which surveys are
+#. shown. This preference resets after quitting your browser."
+#: euphorie/client/browser/templates/preferences.pt:75
+msgid "help_ui_language"
+msgstr "Tungumál notendaviðmótsins er notað til að birta viðmótið. Upphaflega er það ákvarðað af tungumálastillingum vafrans þíns. Þetta hefur ekki áhrif á tungumál efnisins, sérstaklega hvaða verkfæri eru sýnd. Þessi stilling er endurstillt þegar þú lokar vafranum."
 
 #. Default: "If you do not specify a title it will be taken from the input."
 #: euphorie/content/browser/upload.py:158
@@ -4487,6 +4504,11 @@ msgstr "Nafn samskiptaaðila"
 #: euphorie/client/browser/templates/choice_identification_feedback.pt:50
 msgid "label_continue"
 msgstr "Næsta"
+
+#. Default: "Content language"
+#: euphorie/client/browser/templates/preferences.pt:96
+msgid "label_content_language"
+msgstr "Tungumál efnis"
 
 #. Default: "Create action plan"
 #: euphorie/client/browser/templates/actionplan.pt:64
@@ -5723,6 +5745,11 @@ msgstr "Til hamingju, nú hefur þú öðlast vottorð fyrir þetta efni."
 #: euphorie/client/browser/templates/surveys.pt:26
 msgid "label_try_oira"
 msgstr "Prófaðu OiRA"
+
+#. Default: "UI language"
+#: euphorie/client/browser/templates/preferences.pt:74
+msgid "label_ui_language"
+msgstr "Tungumál notendaviðmóts"
 
 #. Default: "Unlock Risk Assessment"
 #: euphorie/client/browser/templates/locking_menu.pt:96
@@ -7068,7 +7095,14 @@ msgstr "Aðstoð"
 #. Default: "Remove this OiRA Tool from the online client."
 #: euphorie/deployment/tiles/templates/versions.pt:43
 msgid "title_help_unpublished"
-msgstr "Draga útgáfu af þessu OiRA verkfæri til baka, þe birta hana ekki gagnvart notendum."
+msgstr ""
+"Draga útgáfu af þessu OiRA verkfæri til baka, þe birta hana ekki gagnvart "
+"notendum."
+
+#. Default: "Language preferences"
+#: euphorie/client/browser/templates/preferences.pt:68
+msgid "title_language_prefs"
+msgstr "Tungumálastillingar"
 
 #. Default: "Personal details"
 #. AI-generated

@@ -3368,6 +3368,14 @@ msgstr "Kód identifikující tento sektor. Klasifikační kódy jsou definován
 msgid "help_compact_report_options"
 msgstr ""
 
+#. Default: "The content language determines which surveys you see on the
+#. dashboard. Visiting a survey in a different language (via the Tools tab)
+#. will automatically update this setting. This preference resets after
+#. quitting your browser."
+#: euphorie/client/browser/templates/preferences.pt:97
+msgid "help_content_language"
+msgstr "Jazyk obsahu určuje, které nástroje vidíte na panelu. Návštěva nástroje v jiném jazyce (prostřednictvím karty Nástroje) toto nastavení automaticky aktualizuje. Toto nastavení se po ukončení prohlížeče resetuje."
+
 #. Default: "Upload a file that contains additional information, like a PDF,
 #. Word document or spreadsheet. Optionally provide a descriptive caption for
 #. your file."
@@ -3707,7 +3715,17 @@ msgstr "Toto je název verze tohoto nástroje OiRA. Tento název se nikdy nezobr
 #. overview in the clients."
 #: euphorie/content/surveygroup.py:41
 msgid "help_surveygroup_title"
-msgstr "Název tohoto nástroje OiRA. Tento název se používá v přehledu nástroje OiRA u klientů."
+msgstr ""
+"Název tohoto nástroje OiRA. Tento název se používá v přehledu nástroje OiRA "
+"u klientů."
+
+#. Default: "The UI language is used for showing the user interface. Initially
+#. this is determined by the language preference of your browser. This does
+#. not influence the language of the contents, especially which surveys are
+#. shown. This preference resets after quitting your browser."
+#: euphorie/client/browser/templates/preferences.pt:75
+msgid "help_ui_language"
+msgstr "Jazyk uživatelského rozhraní se používá pro zobrazení rozhraní. Zpočátku je určen jazykovým nastavením vašeho prohlížeče. Nemá vliv na jazyk obsahu, zejména na to, které nástroje jsou zobrazeny. Toto nastavení se po ukončení prohlížeče resetuje."
 
 #. Default: "If you do not specify a title it will be taken from the input."
 #: euphorie/content/browser/upload.py:157
@@ -4259,6 +4277,11 @@ msgstr "Kopírovat"
 
 msgid "label_copyright"
 msgstr "Autorská práva"
+
+#. Default: "Content language"
+#: euphorie/client/browser/templates/preferences.pt:96
+msgid "label_content_language"
+msgstr "Jazyk obsahu"
 
 #. Default: "Create action plan"
 #: euphorie/client/browser/templates/actionplan.pt:64
@@ -5594,6 +5617,11 @@ msgstr "Vyzkoušejte si nástroje OiRA"
 
 msgid "label_under_review"
 msgstr "V přezkumu"
+
+#. Default: "UI language"
+#: euphorie/client/browser/templates/preferences.pt:74
+msgid "label_ui_language"
+msgstr "Jazyk uživatelského rozhraní"
 
 #. Default: "Unlock Risk Assessment"
 #: euphorie/client/browser/templates/locking_menu.pt:96
@@ -6999,6 +7027,11 @@ msgstr "Nápověda"
 #: euphorie/deployment/tiles/templates/versions.pt:43
 msgid "title_help_unpublished"
 msgstr "Odstraňte tento nástroj OiRA z online klienta."
+
+#. Default: "Language preferences"
+#: euphorie/client/browser/templates/preferences.pt:68
+msgid "title_language_prefs"
+msgstr "Jazykové preference"
 
 #. Default: "Personal details"
 #: euphorie/client/browser/templates/preferences.pt:45

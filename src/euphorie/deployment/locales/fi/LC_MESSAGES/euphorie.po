@@ -3360,6 +3360,14 @@ msgstr "Tämän toimialan luokittava koodi. Luokittelukoodit ovat kansallisten s
 msgid "help_compact_report_options"
 msgstr ""
 
+#. Default: "The content language determines which surveys you see on the
+#. dashboard. Visiting a survey in a different language (via the Tools tab)
+#. will automatically update this setting. This preference resets after
+#. quitting your browser."
+#: euphorie/client/browser/templates/preferences.pt:97
+msgid "help_content_language"
+msgstr "Sisällön kieli määrittää, mitkä työkalut näet hallintapaneelissa. Työkalun avaaminen toisella kielellä (Työkalut-välilehden kautta) päivittää tämän asetuksen automaattisesti. Tämä asetus nollautuu, kun suljet selaimen."
+
 #. Default: "Upload a file that contains additional information, like a PDF,
 #. Word document or spreadsheet. Optionally provide a descriptive caption for
 #. your file."
@@ -3699,7 +3707,17 @@ msgstr "Tämä on tämän OiRA-työkaluversion otsikko. Käyttäjät eivät näe
 #. overview in the clients."
 #: euphorie/content/surveygroup.py:41
 msgid "help_surveygroup_title"
-msgstr "Tämän OiRA-työkalun otsikko. Tätä otsikkoa käytetään asiakkaissa OiRA-työkalun yleiskatsauksessa."
+msgstr ""
+"Tämän OiRA-työkalun otsikko. Tätä otsikkoa käytetään asiakkaissa OiRA-"
+"työkalun yleiskatsauksessa."
+
+#. Default: "The UI language is used for showing the user interface. Initially
+#. this is determined by the language preference of your browser. This does
+#. not influence the language of the contents, especially which surveys are
+#. shown. This preference resets after quitting your browser."
+#: euphorie/client/browser/templates/preferences.pt:75
+msgid "help_ui_language"
+msgstr "Käyttöliittymän kieltä käytetään käyttöliittymän näyttämiseen. Aluksi se määräytyy selaimesi kieliasetusten perusteella. Tämä ei vaikuta sisällön kieleen, erityisesti siihen, mitkä työkalut näytetään. Tämä asetus nollautuu, kun suljet selaimen."
 
 #. Default: "If you do not specify a title it will be taken from the input."
 #: euphorie/content/browser/upload.py:157
@@ -4251,6 +4269,11 @@ msgstr "Kopioi"
 
 msgid "label_copyright"
 msgstr "Tekijänoikeus"
+
+#. Default: "Content language"
+#: euphorie/client/browser/templates/preferences.pt:96
+msgid "label_content_language"
+msgstr "Sisällön kieli"
 
 #. Default: "Create action plan"
 #: euphorie/client/browser/templates/actionplan.pt:64
@@ -5586,6 +5609,11 @@ msgstr "Kokeile OiRAaa"
 
 msgid "label_under_review"
 msgstr "Tarkistettavana"
+
+#. Default: "UI language"
+#: euphorie/client/browser/templates/preferences.pt:74
+msgid "label_ui_language"
+msgstr "Käyttöliittymän kieli"
 
 #. Default: "Unlock Risk Assessment"
 #: euphorie/client/browser/templates/locking_menu.pt:96
@@ -6991,6 +7019,11 @@ msgstr "Ohjeet"
 #: euphorie/deployment/tiles/templates/versions.pt:43
 msgid "title_help_unpublished"
 msgstr "Poista tämä OiRA-työkalu online-asiakkaasta."
+
+#. Default: "Language preferences"
+#: euphorie/client/browser/templates/preferences.pt:68
+msgid "title_language_prefs"
+msgstr "Kieliasetukset"
 
 #. Default: "Personal details"
 #: euphorie/client/browser/templates/preferences.pt:45

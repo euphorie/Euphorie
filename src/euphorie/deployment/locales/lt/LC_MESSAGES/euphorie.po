@@ -3524,7 +3524,16 @@ msgstr "Šią ekonominę veiklą identifikuojantis kodas. Klasifikacijos kodai y
 #. AI-generated
 #: euphorie/content/country.py:111
 msgid "help_compact_report_options"
-msgstr "Pasirinkite, kokie neprivalomi elementai naudojami sutrauktinėje ataskaitoje"
+msgstr ""
+"Pasirinkite, kokie neprivalomi elementai naudojami sutrauktinėje ataskaitoje"
+
+#. Default: "The content language determines which surveys you see on the
+#. dashboard. Visiting a survey in a different language (via the Tools tab)
+#. will automatically update this setting. This preference resets after
+#. quitting your browser."
+#: euphorie/client/browser/templates/preferences.pt:97
+msgid "help_content_language"
+msgstr "Turinio kalba nustato, kokius įrankius matote valdymo skydelyje. Apsilankius įrankyje kita kalba (per skirtuką Priemonės), ši nuostata bus automatiškai atnaujinta. Ši nuostata atstatoma uždarius naršyklę."
 
 #. Default: "Upload a file that contains additional information, like a PDF,
 #. Word document or spreadsheet. Optionally provide a descriptive caption for
@@ -3904,7 +3913,17 @@ msgstr "Tai OiRA priemonės versijos pavadinimas. Šio pavadinimo naudotojai nie
 #. overview in the clients."
 #: euphorie/content/surveygroup.py:41
 msgid "help_surveygroup_title"
-msgstr "Šios OiRA priemonės pavadinimas. Šis pavadinimas yra naudojamas OiRA priemonės apžvalgoje."
+msgstr ""
+"Šios OiRA priemonės pavadinimas. Šis pavadinimas yra naudojamas OiRA "
+"priemonės apžvalgoje."
+
+#. Default: "The UI language is used for showing the user interface. Initially
+#. this is determined by the language preference of your browser. This does
+#. not influence the language of the contents, especially which surveys are
+#. shown. This preference resets after quitting your browser."
+#: euphorie/client/browser/templates/preferences.pt:75
+msgid "help_ui_language"
+msgstr "Vartotojo sąsajos kalba naudojama rodyti sąsają. Iš pradžių ji nustatoma pagal jūsų naršyklės kalbos nuostatas. Tai neturi įtakos turinio kalbai, ypač kokie įrankiai rodomi. Ši nuostata atstatoma uždarius naršyklę."
 
 #. Default: "If you do not specify a title it will be taken from the input."
 #: euphorie/content/browser/upload.py:158
@@ -4381,6 +4400,11 @@ msgstr "Kontaktinio asmens pavardė"
 #: euphorie/client/browser/templates/choice_identification_feedback.pt:50
 msgid "label_continue"
 msgstr "Toliau"
+
+#. Default: "Content language"
+#: euphorie/client/browser/templates/preferences.pt:96
+msgid "label_content_language"
+msgstr "Turinio kalba"
 
 #. Default: "Create action plan"
 #: euphorie/client/browser/templates/actionplan.pt:64
@@ -5585,6 +5609,11 @@ msgstr "Sveikiname, gavote šios temos sertifikatą."
 #: euphorie/client/browser/templates/surveys.pt:26
 msgid "label_try_oira"
 msgstr "Išbandykite OiRA"
+
+#. Default: "UI language"
+#: euphorie/client/browser/templates/preferences.pt:74
+msgid "label_ui_language"
+msgstr "Vartotojo sąsajos kalba"
 
 #. Default: "Unlock Risk Assessment"
 #: euphorie/client/browser/templates/locking_menu.pt:96
@@ -6893,6 +6922,11 @@ msgstr "Žinynas"
 #: euphorie/deployment/tiles/templates/versions.pt:43
 msgid "title_help_unpublished"
 msgstr "Šią OiRA priemonę iš internetinės programos pašalinkite."
+
+#. Default: "Language preferences"
+#: euphorie/client/browser/templates/preferences.pt:68
+msgid "title_language_prefs"
+msgstr "Kalbos nuostatos"
 
 #. Default: "Personal details"
 #: euphorie/client/browser/templates/preferences.pt:45
