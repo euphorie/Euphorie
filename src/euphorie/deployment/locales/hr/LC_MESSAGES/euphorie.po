@@ -3373,6 +3373,14 @@ msgstr "Šifra identificira ovaj sektor. Šifre klasifikacije određuju nacional
 msgid "help_compact_report_options"
 msgstr ""
 
+#. Default: "The content language determines which surveys you see on the
+#. dashboard. Visiting a survey in a different language (via the Tools tab)
+#. will automatically update this setting. This preference resets after
+#. quitting your browser."
+#: euphorie/client/browser/templates/preferences.pt:97
+msgid "help_content_language"
+msgstr "Jezik sadržaja određuje koje alate vidite na nadzornoj ploči. Posjet alatu na drugom jeziku (putem kartice Alati) automatski će ažurirati ovu postavku. Ova se postavka poništava nakon zatvaranja preglednika."
+
 #. Default: "Upload a file that contains additional information, like a PDF,
 #. Word document or spreadsheet. Optionally provide a descriptive caption for
 #. your file."
@@ -3712,7 +3720,17 @@ msgstr "Ovo je naslov ove verzije OiRA alata. Ovaj se naziv nikada ne prikazuje 
 #. overview in the clients."
 #: euphorie/content/surveygroup.py:41
 msgid "help_surveygroup_title"
-msgstr "Naziv ovog OiRA alata. Ovaj se naziv koristi u pregledu OiRA alata na razini klijenta."
+msgstr ""
+"Naziv ovog OiRA alata. Ovaj se naziv koristi u pregledu OiRA alata na razini"
+" klijenta."
+
+#. Default: "The UI language is used for showing the user interface. Initially
+#. this is determined by the language preference of your browser. This does
+#. not influence the language of the contents, especially which surveys are
+#. shown. This preference resets after quitting your browser."
+#: euphorie/client/browser/templates/preferences.pt:75
+msgid "help_ui_language"
+msgstr "Jezik korisničkog sučelja koristi se za prikaz sučelja. U početku se određuje prema jezičnim postavkama vašeg preglednika. To ne utječe na jezik sadržaja, posebno na to koji se alati prikazuju. Ova se postavka poništava nakon zatvaranja preglednika."
 
 #. Default: "If you do not specify a title it will be taken from the input."
 #: euphorie/content/browser/upload.py:157
@@ -4270,6 +4288,11 @@ msgstr "Kopiraj"
 
 msgid "label_copyright"
 msgstr "Autorsko pravo"
+
+#. Default: "Content language"
+#: euphorie/client/browser/templates/preferences.pt:96
+msgid "label_content_language"
+msgstr "Jezik sadržaja"
 
 #. Default: "Create action plan"
 #: euphorie/client/browser/templates/actionplan.pt:64
@@ -5611,6 +5634,11 @@ msgstr "Isprobajte OiRA"
 
 msgid "label_under_review"
 msgstr "Na pregledu"
+
+#. Default: "UI language"
+#: euphorie/client/browser/templates/preferences.pt:74
+msgid "label_ui_language"
+msgstr "Jezik korisničkog sučelja"
 
 #. Default: "Unlock Risk Assessment"
 #: euphorie/client/browser/templates/locking_menu.pt:96
@@ -7019,6 +7047,11 @@ msgstr "Pomoć"
 #: euphorie/deployment/tiles/templates/versions.pt:43
 msgid "title_help_unpublished"
 msgstr "Ukloni ovaj OiRA alat s mrežnog klijenta."
+
+#. Default: "Language preferences"
+#: euphorie/client/browser/templates/preferences.pt:68
+msgid "title_language_prefs"
+msgstr "Jezične postavke"
 
 #. Default: "Personal details"
 #: euphorie/client/browser/templates/preferences.pt:45

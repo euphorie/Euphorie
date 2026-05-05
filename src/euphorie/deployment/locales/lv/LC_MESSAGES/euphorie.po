@@ -3360,6 +3360,14 @@ msgstr "Kods, ar ko apzīmē šo sektoru. Klasifikācijas kodus nosaka valstu st
 msgid "help_compact_report_options"
 msgstr ""
 
+#. Default: "The content language determines which surveys you see on the
+#. dashboard. Visiting a survey in a different language (via the Tools tab)
+#. will automatically update this setting. This preference resets after
+#. quitting your browser."
+#: euphorie/client/browser/templates/preferences.pt:97
+msgid "help_content_language"
+msgstr "Satura valoda nosaka, kurus rīkus redzat informācijas panelī. Apmeklējot rīku citā valodā (cilnē Rīki), šis iestatījums tiks automātiski atjaunināts. Šis iestatījums tiek atiestatīts pēc pārlūkprogrammas aizvēršanas."
+
 #. Default: "Upload a file that contains additional information, like a PDF,
 #. Word document or spreadsheet. Optionally provide a descriptive caption for
 #. your file."
@@ -3699,7 +3707,17 @@ msgstr "Šis ir šīs OiRA rīka versijas nosaukums. Tas nekad netiek rādīts l
 #. overview in the clients."
 #: euphorie/content/surveygroup.py:41
 msgid "help_surveygroup_title"
-msgstr "Šī OiRA rīka nosaukums. Šo nosaukumu izmanto OiRA rīka priekšskatījumā klientos."
+msgstr ""
+"Šī OiRA rīka nosaukums. Šo nosaukumu izmanto OiRA rīka priekšskatījumā "
+"klientos."
+
+#. Default: "The UI language is used for showing the user interface. Initially
+#. this is determined by the language preference of your browser. This does
+#. not influence the language of the contents, especially which surveys are
+#. shown. This preference resets after quitting your browser."
+#: euphorie/client/browser/templates/preferences.pt:75
+msgid "help_ui_language"
+msgstr "Lietotāja saskarnes valoda tiek izmantota saskarnes attēlošanai. Sākotnēji to nosaka jūsu pārlūkprogrammas valodas iestatījumi. Tas neietekmē satura valodu, īpaši to, kuri rīki tiek rādīti. Šis iestatījums tiek atiestatīts pēc pārlūkprogrammas aizvēršanas."
 
 #. Default: "If you do not specify a title it will be taken from the input."
 #: euphorie/content/browser/upload.py:157
@@ -4251,6 +4269,11 @@ msgstr "Kopēt"
 
 msgid "label_copyright"
 msgstr "Autortiesības"
+
+#. Default: "Content language"
+#: euphorie/client/browser/templates/preferences.pt:96
+msgid "label_content_language"
+msgstr "Satura valoda"
 
 #. Default: "Create action plan"
 #: euphorie/client/browser/templates/actionplan.pt:64
@@ -5586,6 +5609,11 @@ msgstr "Izmēģiniet OiRA"
 
 msgid "label_under_review"
 msgstr "Pārskatīšanā"
+
+#. Default: "UI language"
+#: euphorie/client/browser/templates/preferences.pt:74
+msgid "label_ui_language"
+msgstr "Lietotāja saskarnes valoda"
 
 #. Default: "Unlock Risk Assessment"
 #: euphorie/client/browser/templates/locking_menu.pt:96
@@ -6988,6 +7016,11 @@ msgstr "Palīdzība"
 #: euphorie/deployment/tiles/templates/versions.pt:43
 msgid "title_help_unpublished"
 msgstr "Šī OiRA rīka noņemšana no tiešsaistes klienta"
+
+#. Default: "Language preferences"
+#: euphorie/client/browser/templates/preferences.pt:68
+msgid "title_language_prefs"
+msgstr "Valodas preferences"
 
 #. Default: "Personal details"
 #: euphorie/client/browser/templates/preferences.pt:45

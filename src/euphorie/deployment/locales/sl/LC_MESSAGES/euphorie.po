@@ -3527,7 +3527,16 @@ msgstr "Koda, ki označuje ta sektor. Klasifikacijske kode opredelijo državni o
 #. AI-generated
 #: euphorie/content/country.py:111
 msgid "help_compact_report_options"
-msgstr "Izberite, kateri neobvezni elementi se uporabljajo v zgoščenem poročilu"
+msgstr ""
+"Izberite, kateri neobvezni elementi se uporabljajo v zgoščenem poročilu"
+
+#. Default: "The content language determines which surveys you see on the
+#. dashboard. Visiting a survey in a different language (via the Tools tab)
+#. will automatically update this setting. This preference resets after
+#. quitting your browser."
+#: euphorie/client/browser/templates/preferences.pt:97
+msgid "help_content_language"
+msgstr "Jezik vsebine določa, katera orodja vidite na nadzorni plošči. Obisk orodja v drugem jeziku (prek zavihka Orodja) bo samodejno posodobil to nastavitev. Ta nastavitev se ponastavi po zaprtju brskalnika."
 
 #. Default: "Upload a file that contains additional information, like a PDF,
 #. Word document or spreadsheet. Optionally provide a descriptive caption for
@@ -3907,7 +3916,17 @@ msgstr "To je naziv te različice orodja OiRA. To ime nikoli ni prikazano uporab
 #. overview in the clients."
 #: euphorie/content/surveygroup.py:41
 msgid "help_surveygroup_title"
-msgstr "Naslov tega orodja OiRA. Ta naslov se bo uporabil v pregledu orodja OiRA v odjemalcih."
+msgstr ""
+"Naslov tega orodja OiRA. Ta naslov se bo uporabil v pregledu orodja OiRA v "
+"odjemalcih."
+
+#. Default: "The UI language is used for showing the user interface. Initially
+#. this is determined by the language preference of your browser. This does
+#. not influence the language of the contents, especially which surveys are
+#. shown. This preference resets after quitting your browser."
+#: euphorie/client/browser/templates/preferences.pt:75
+msgid "help_ui_language"
+msgstr "Jezik uporabniškega vmesnika se uporablja za prikaz vmesnika. Sprva ga določi jezikovna nastavitev vašega brskalnika. To ne vpliva na jezik vsebine, zlasti na to, katera orodja so prikazana. Ta nastavitev se ponastavi po zaprtju brskalnika."
 
 #. Default: "If you do not specify a title it will be taken from the input."
 #: euphorie/content/browser/upload.py:158
@@ -4384,6 +4403,11 @@ msgstr "Ime stika"
 #: euphorie/client/browser/templates/choice_identification_feedback.pt:50
 msgid "label_continue"
 msgstr "Naprej"
+
+#. Default: "Content language"
+#: euphorie/client/browser/templates/preferences.pt:96
+msgid "label_content_language"
+msgstr "Jezik vsebine"
 
 #. Default: "Create action plan"
 #: euphorie/client/browser/templates/actionplan.pt:64
@@ -5589,6 +5613,11 @@ msgstr "Čestitamo, prislužili ste si certifikat za to temo."
 #: euphorie/client/browser/templates/surveys.pt:26
 msgid "label_try_oira"
 msgstr "Preizkusite orodja OiRA"
+
+#. Default: "UI language"
+#: euphorie/client/browser/templates/preferences.pt:74
+msgid "label_ui_language"
+msgstr "Jezik uporabniškega vmesnika"
 
 #. Default: "Unlock Risk Assessment"
 #: euphorie/client/browser/templates/locking_menu.pt:96
@@ -6896,6 +6925,11 @@ msgstr "Pomoč"
 #: euphorie/deployment/tiles/templates/versions.pt:43
 msgid "title_help_unpublished"
 msgstr "Odstrani to orodje OiRA s spletnega odjemalca."
+
+#. Default: "Language preferences"
+#: euphorie/client/browser/templates/preferences.pt:68
+msgid "title_language_prefs"
+msgstr "Jezikovne nastavitve"
 
 #. Default: "Personal details"
 #: euphorie/client/browser/templates/preferences.pt:45

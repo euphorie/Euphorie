@@ -3366,6 +3366,14 @@ msgstr "Een code die deze sector identificeert. Classificatiecodes worden omschr
 msgid "help_compact_report_options"
 msgstr ""
 
+#. Default: "The content language determines which surveys you see on the
+#. dashboard. Visiting a survey in a different language (via the Tools tab)
+#. will automatically update this setting. This preference resets after
+#. quitting your browser."
+#: euphorie/client/browser/templates/preferences.pt:97
+msgid "help_content_language"
+msgstr "De inhoudstaal bepaalt welke tools u ziet op het dashboard. Het bezoeken van een tool in een andere taal (via het tabblad Tools) zal deze instelling automatisch bijwerken. Deze voorkeur wordt gereset na het sluiten van uw browser."
+
 #. Default: "Upload a file that contains additional information, like a PDF,
 #. Word document or spreadsheet. Optionally provide a descriptive caption for
 #. your file."
@@ -3705,7 +3713,17 @@ msgstr "Dit is de titel van deze versie van het OiRA-instrument. Deze naam wordt
 #. overview in the clients."
 #: euphorie/content/surveygroup.py:41
 msgid "help_surveygroup_title"
-msgstr "De titel van dit OiRA-instrument. Deze titel wordt gebruikt in het overzicht van het OiRA-instrument bij de gebruikers."
+msgstr ""
+"De titel van dit OiRA-instrument. Deze titel wordt gebruikt in het overzicht"
+" van het OiRA-instrument bij de gebruikers."
+
+#. Default: "The UI language is used for showing the user interface. Initially
+#. this is determined by the language preference of your browser. This does
+#. not influence the language of the contents, especially which surveys are
+#. shown. This preference resets after quitting your browser."
+#: euphorie/client/browser/templates/preferences.pt:75
+msgid "help_ui_language"
+msgstr "De interfacetaal wordt gebruikt om de gebruikersinterface weer te geven. Deze wordt in eerste instantie bepaald door de taalvoorkeur van uw browser. Dit heeft geen invloed op de taal van de inhoud, met name welke tools worden weergegeven. Deze voorkeur wordt gereset na het sluiten van uw browser."
 
 #. Default: "If you do not specify a title it will be taken from the input."
 #: euphorie/content/browser/upload.py:157
@@ -4236,6 +4254,11 @@ msgstr "Volgende"
 
 msgid "label_continue_action_plan"
 msgstr "Begin plan van aanpak"
+
+#. Default: "Content language"
+#: euphorie/client/browser/templates/preferences.pt:96
+msgid "label_content_language"
+msgstr "Inhoudstaal"
 
 #. Default: "Create action plan"
 #: euphorie/client/browser/templates/actionplan.pt:64
@@ -5463,6 +5486,11 @@ msgstr "Test OiRA"
 
 msgid "label_under_review"
 msgstr "In beoordeling"
+
+#. Default: "UI language"
+#: euphorie/client/browser/templates/preferences.pt:74
+msgid "label_ui_language"
+msgstr "Interfacetaal"
 
 #. Default: "Unlock Risk Assessment"
 #: euphorie/client/browser/templates/locking_menu.pt:96
@@ -6821,6 +6849,11 @@ msgstr "Help"
 #: euphorie/deployment/tiles/templates/versions.pt:43
 msgid "title_help_unpublished"
 msgstr "Dit OiRA-instrument van de online gebruikerssite verwijderen."
+
+#. Default: "Language preferences"
+#: euphorie/client/browser/templates/preferences.pt:68
+msgid "title_language_prefs"
+msgstr "Taalvoorkeuren"
 
 #. Default: "Personal details"
 #: euphorie/client/browser/templates/preferences.pt:45

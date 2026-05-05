@@ -3360,6 +3360,14 @@ msgstr "Код, идентифициращ този сектор. Кодовет
 msgid "help_compact_report_options"
 msgstr ""
 
+#. Default: "The content language determines which surveys you see on the
+#. dashboard. Visiting a survey in a different language (via the Tools tab)
+#. will automatically update this setting. This preference resets after
+#. quitting your browser."
+#: euphorie/client/browser/templates/preferences.pt:97
+msgid "help_content_language"
+msgstr "Езикът на съдържанието определя кои инструменти виждате в таблото. Посещаването на инструмент на различен език (чрез раздела Инструменти) автоматично ще актуализира тази настройка. Тази настройка се нулира след затваряне на браузъра."
+
 #. Default: "Upload a file that contains additional information, like a PDF,
 #. Word document or spreadsheet. Optionally provide a descriptive caption for
 #. your file."
@@ -4251,6 +4259,11 @@ msgstr "Копирай"
 
 msgid "label_copyright"
 msgstr "Авторски права"
+
+#. Default: "Content language"
+#: euphorie/client/browser/templates/preferences.pt:96
+msgid "label_content_language"
+msgstr "Език на съдържанието"
 
 #. Default: "Create action plan"
 #: euphorie/client/browser/templates/actionplan.pt:64
@@ -6991,6 +7004,11 @@ msgstr "Помощ"
 #: euphorie/deployment/tiles/templates/versions.pt:43
 msgid "title_help_unpublished"
 msgstr "Премахнете този OiRA инструмент от онлайн клиента."
+
+#. Default: "Language preferences"
+#: euphorie/client/browser/templates/preferences.pt:68
+msgid "title_language_prefs"
+msgstr "Предпочитания за език"
 
 #. Default: "Personal details"
 #: euphorie/client/browser/templates/preferences.pt:45
