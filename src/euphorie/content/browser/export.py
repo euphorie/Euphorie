@@ -43,7 +43,6 @@ from zope.interface import Interface
 
 import re
 
-
 all_breaks = re.compile("(\n|\r)+")
 
 try:
@@ -209,7 +208,7 @@ class ExportSurvey(AutoExtensibleForm, form.Form):
 
     @button.buttonAndHandler(_("Export"))
     def handleExport(self, action):
-        (data, errors) = self.extractData()
+        data, errors = self.extractData()
         self.include_images = data.get("include_images")
         self.include_intro_text = data.get("include_intro_text")
         self.include_module_solution_texts = data.get("include_module_solution_texts")

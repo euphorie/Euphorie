@@ -31,13 +31,13 @@ class MockRequest:
 
 class FindNextQuestionTests(EuphorieIntegrationTestCase):
     def testSingleQuestion(self):
-        (session, survey) = createSurvey()
+        session, survey = createSurvey()
         child = model.Risk(title="Risk", risk_id="1", zodb_path="1")
         survey.addChild(child)
         self.assertTrue(navigation.FindNextQuestion(child, survey) is None)
 
     def test_Question_at_same_level_as_module(self):
-        (session, survey) = createSurvey()
+        session, survey = createSurvey()
         session.add(survey)
         child = model.Risk(title="Risk", risk_id="1", zodb_path="1")
         survey.addChild(child)
@@ -46,7 +46,7 @@ class FindNextQuestionTests(EuphorieIntegrationTestCase):
         self.assertTrue(navigation.FindNextQuestion(child, survey) is sister)
 
     def testQuestionIsNextModule(self):
-        (session, survey) = createSurvey()
+        session, survey = createSurvey()
         mod1 = model.Module(title="Module 1", module_id="1", zodb_path="1")
         survey.addChild(mod1)
         q1 = model.Risk(title="Risk 1", risk_id="1", zodb_path="1/2")
@@ -58,7 +58,7 @@ class FindNextQuestionTests(EuphorieIntegrationTestCase):
         self.assertTrue(navigation.FindNextQuestion(q1, survey) is mod2)
 
     def testSkipChildren(self):
-        (session, survey) = createSurvey()
+        session, survey = createSurvey()
         mod1 = model.Module(
             title="Module 1", module_id="1", zodb_path="1", skip_children=True
         )
@@ -74,7 +74,7 @@ class FindNextQuestionTests(EuphorieIntegrationTestCase):
         self.assertTrue(navigation.FindNextQuestion(mod1, survey) is mod2)
 
     def test_ignore_module_without_description(self):
-        (session, survey) = createSurvey()
+        session, survey = createSurvey()
         mod1 = model.Module(title="Module 1", module_id="1", zodb_path="1")
         survey.addChild(mod1)
         q1 = model.Risk(title="Risk 1", risk_id="1", zodb_path="1/1")
@@ -92,13 +92,13 @@ class FindNextQuestionTests(EuphorieIntegrationTestCase):
 
 class FindPreviousQuestionTests(EuphorieIntegrationTestCase):
     def testSingleQuestion(self):
-        (session, survey) = createSurvey()
+        session, survey = createSurvey()
         child = model.Risk(title="Risk", risk_id="1", zodb_path="1")
         survey.addChild(child)
         self.assertTrue(navigation.FindPreviousQuestion(child, survey) is None)
 
     def testQuestionAtSameModule(self):
-        (session, survey) = createSurvey()
+        session, survey = createSurvey()
         child = model.Risk(title="Risk 1", risk_id="1", zodb_path="1")
         survey.addChild(child)
         sister = model.Risk(title="Risk 2", risk_id="2", zodb_path="2")
@@ -106,7 +106,7 @@ class FindPreviousQuestionTests(EuphorieIntegrationTestCase):
         self.assertTrue(navigation.FindPreviousQuestion(sister, survey) is child)
 
     def testQuestionAtPreviousModule(self):
-        (session, survey) = createSurvey()
+        session, survey = createSurvey()
         mod1 = model.Module(title="Module 1", module_id="1", zodb_path="1")
         survey.addChild(mod1)
         q1 = model.Risk(title="Risk 1", risk_id="1", zodb_path="1/1")
@@ -116,7 +116,7 @@ class FindPreviousQuestionTests(EuphorieIntegrationTestCase):
         self.assertTrue(navigation.FindPreviousQuestion(mod2, survey) is q1)
 
     def testQuestionAtPreviousModuleWithSkippedChildren(self):
-        (session, survey) = createSurvey()
+        session, survey = createSurvey()
         mod1 = model.Module(
             title="Module 1",
             module_id="1",
@@ -132,7 +132,7 @@ class FindPreviousQuestionTests(EuphorieIntegrationTestCase):
         self.assertTrue(navigation.FindPreviousQuestion(mod2, survey) is mod1)
 
     def test_skip_module_without_description(self):
-        (session, survey) = createSurvey()
+        session, survey = createSurvey()
         mod1 = model.Module(
             title="Module 1", module_id="1", zodb_path="1", has_description=True
         )
@@ -156,7 +156,7 @@ class ActionPlanNavigationTests(EuphorieIntegrationTestCase):
         return ActionPlanView.question_filter
 
     def testSkipModuleWithoutRisks(self):
-        (session, survey) = createSurvey()
+        session, survey = createSurvey()
         mod1 = model.Module(
             title="Module 1", module_id="1", zodb_path="1", skip_children=False
         )
@@ -168,7 +168,7 @@ class ActionPlanNavigationTests(EuphorieIntegrationTestCase):
         self.assertEqual(navigation.FindNextQuestion(mod1, survey, self.filter()), None)
 
     def testSkipModuleIfNoRisksPresent(self):
-        (session, survey) = createSurvey()
+        session, survey = createSurvey()
         mod1 = model.Module(
             title="Module 1", module_id="1", zodb_path="1", skip_children=False
         )
@@ -184,7 +184,7 @@ class ActionPlanNavigationTests(EuphorieIntegrationTestCase):
         self.assertEqual(navigation.FindNextQuestion(mod1, survey, self.filter()), None)
 
     def testShowModuleWithTop5RiskEvenIfNotPresent(self):
-        (session, survey) = createSurvey()
+        session, survey = createSurvey()
         mod1 = model.Module(
             title="Module 1", module_id="1", zodb_path="1", skip_children=False
         )
@@ -210,7 +210,7 @@ class ActionPlanNavigationTests(EuphorieIntegrationTestCase):
         )
 
     def testSkipRiskIfNotPresent(self):
-        (session, survey) = createSurvey()
+        session, survey = createSurvey()
         mod1 = model.Module(
             title="Module 1", module_id="1", zodb_path="1", skip_children=False
         )
@@ -222,7 +222,7 @@ class ActionPlanNavigationTests(EuphorieIntegrationTestCase):
         self.assertEqual(navigation.FindNextQuestion(mod1, survey, self.filter()), None)
 
     def testShowTop5RiskEvenIfNotPresent(self):
-        (session, survey) = createSurvey()
+        session, survey = createSurvey()
         mod1 = model.Module(
             title="Module 1", module_id="1", zodb_path="1", skip_children=False
         )
@@ -241,7 +241,7 @@ class ActionPlanNavigationTests(EuphorieIntegrationTestCase):
 class GetTreeDataTests(EuphorieIntegrationTestCase):
     def createSqlData(self):
         self.request = MockRequest()
-        (self.session, self.survey) = createSurvey()
+        self.session, self.survey = createSurvey()
         self.survey.restrictedTraverse = lambda x: None
         self.request.survey = self.survey
         self.survey.absolute_url = lambda self=None: "http://nohost"

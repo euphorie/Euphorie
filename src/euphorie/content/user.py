@@ -37,7 +37,6 @@ import bcrypt
 import logging
 import re
 
-
 log = logging.getLogger(__name__)
 RE_LOGIN = re.compile(r"^[a-z][a-z0-9-]+$")
 

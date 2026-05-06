@@ -8,7 +8,6 @@ from zope.sqlalchemy.datamanager import SessionDataManager
 import logging
 import os
 
-
 logger = logging.getLogger(__name__)
 SAFE_WRITE_KEY = "euphorie.protect.safe_sql_ids"
 _marker = object()

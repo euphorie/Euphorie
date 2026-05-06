@@ -26,7 +26,6 @@ from zope.i18n import translate
 
 import logging
 
-
 log = logging.getLogger(__name__)
 
 
@@ -332,10 +331,7 @@ class ReportInventory(BrowserView):
 
             if selected_options:
                 if include_choice:
-                    yield {
-                        "choice": choice,
-                        "options": selected_options
-                    }
+                    yield {"choice": choice, "options": selected_options}
                 else:
                     for option in selected_options:
                         yield option

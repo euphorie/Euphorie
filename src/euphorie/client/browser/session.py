@@ -51,7 +51,6 @@ from zope.lifecycleevent import ObjectModifiedEvent
 import json
 import re
 
-
 try:
     from urllib import quote  # Python 2.X
 except ImportError:

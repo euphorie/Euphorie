@@ -22,7 +22,6 @@ from zope.schema.vocabulary import SimpleVocabulary
 import csv
 import re
 
-
 csv.register_dialect(
     "bilbomatica",
     delimiter=",",

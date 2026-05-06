@@ -58,11 +58,13 @@
                  tal:replace="structure python:view.get_intro(module, idx=repeat.module.index)"
               ></p>
               <tal:recom repeat="selected python:view.get_selected_options(module, include_choice=True)">
-                <tal:choice_recommendation
-                    define="recommendation selected/choice/recommendation|nothing"
-                    condition="recommendation">
+                <tal:choice_recommendation define="
+                                             recommendation selected/choice/recommendation|nothing;
+                                           "
+                                           condition="recommendation"
+                >
                   <h3 i18n:translate="">Measures:</h3>
-                  <p tal:replace="structure recommendation"/>
+                  <p tal:replace="structure recommendation"></p>
                 </tal:choice_recommendation>
                 <tal:answers repeat="option selected/options">
                   <h4>${selected/choice/title}</h4>
@@ -71,7 +73,7 @@
                   <h4 i18n:translate="">Measures:</h4>
                   <p tal:repeat="recommendation option/values"
                      tal:replace="structure recommendation/text"
-                     >
+                  >
                   </p>
                 </tal:answers>
               </tal:recom>

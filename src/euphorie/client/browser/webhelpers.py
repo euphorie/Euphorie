@@ -51,7 +51,6 @@ from zope.deprecation import deprecate
 from zope.i18n import translate
 from zope.i18nmessageid import MessageFactory
 
-
 pl_message = MessageFactory("plonelocales")
 pae_message = MessageFactory("plone.app.event")
 logger = getLogger(__name__)

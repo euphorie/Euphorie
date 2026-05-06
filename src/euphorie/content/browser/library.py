@@ -25,7 +25,6 @@ from zope.lifecycleevent import ObjectCopiedEvent
 import collections
 import logging
 
-
 log = logging.getLogger(__name__)
 
 
@@ -117,7 +116,7 @@ def build_survey_tree(context, root):
     }
     todo = collections.deque([(root, [], tree["children"])])
     while todo:
-        (node, index, child_list) = todo.popleft()
+        node, index, child_list = todo.popleft()
         for ix, child in enumerate(node.values(), 1):
             if not (IQuestionContainer.providedBy(child) or IRisk.providedBy(child)):
                 continue
@@ -140,7 +139,7 @@ def assign_ids(context, tree):
     uid_handler = getToolByName(context, "portal_uidhandler")
     todo = collections.deque([(None, tree)])
     while todo:
-        (parent, item) = todo.popleft()
+        parent, item = todo.popleft()
         uid_handler.register(item)
         if INameFromUniqueId.providedBy(item):
             if parent is not None:

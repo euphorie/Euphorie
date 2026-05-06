@@ -9,7 +9,6 @@ from weasyprint import HTML
 
 import logging
 
-
 try:
     from tempfile import TemporaryDirectory
 except ImportError:

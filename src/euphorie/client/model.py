@@ -51,7 +51,6 @@ import pytz
 import random
 import re
 
-
 BCRYPTED_PATTERN = re.compile(r"^\$2[aby]?\$\d{1,2}\$[.\/A-Za-z0-9]{53}$")
 
 metadata = schema.MetaData()

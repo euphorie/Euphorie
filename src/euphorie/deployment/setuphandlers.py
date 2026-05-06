@@ -11,7 +11,6 @@ from zope.interface import alsoProvides
 
 import logging
 
-
 log = logging.getLogger(__name__)
 
 
@@ -89,7 +88,7 @@ def setupInitialContent(site):
 
     sectors = site.sectors
     for country_id, info in COUNTRIES.items():
-        (title, country_type) = info
+        title, country_type = info
         if country_id not in sectors:
             sectors.invokeFactory(
                 "euphorie.country",

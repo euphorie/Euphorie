@@ -22,7 +22,6 @@ from zope.interface import alsoProvides
 
 import datetime
 
-
 # import unittest
 
 
@@ -530,7 +529,7 @@ class UnansweredQueryTests(EuphorieIntegrationTestCase):
     """
 
     def createData(self):
-        (self.session, self.survey_session) = createSurvey()
+        self.session, self.survey_session = createSurvey()
 
         self.q1 = model.Module(
             **{

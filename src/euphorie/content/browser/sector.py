@@ -13,7 +13,6 @@ from Products.statusmessages.interfaces import IStatusMessage
 import logging
 import zExceptions
 
-
 log = logging.getLogger(__name__)
 
 
