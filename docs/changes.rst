@@ -8,12 +8,15 @@ Changelog
 
 .. towncrier release notes start
 
-19.3.0 (2026-05-06)
--------------------
+
+
+19.3.0a1+dsetool.0 (2026-05-06)
+-------------------------------
 
 New features:
 
 
+- Add Recommendation field to Choice objects and include it in the report inventory. (`Issue #4607 <https://github.com/syslabcom/scrum/issues/4607>`_)
 - Keep UI language and content language separate.
   Update language settings: `use_request_negotiation=True`.
   `utils.setLanguage`: set new `CONTENT_LANGUAGE` cookie instead of `I18N_LANGUAGE` cookie.
