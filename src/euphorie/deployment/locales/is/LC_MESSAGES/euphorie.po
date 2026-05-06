@@ -652,6 +652,10 @@ msgstr "Síðast vistað"
 msgid "Learn more about consultancy."
 msgstr "Fræðast meira um ráðgjöf."
 
+#: euphorie/client/browser/templates/start.pt:57
+msgid "Learn more about this tool&hellip;"
+msgstr "Fáðu frekari upplýsingar um þetta verkfæri…"
+
 #: euphorie/content/country.py:129
 msgid "Legal and policy references"
 msgstr "Tilvísanir í önnur gögn s.s. lög, reglur og önnur opinber gögn"

@@ -628,6 +628,10 @@ msgstr "išsaugota"
 msgid "Learn more about consultancy."
 msgstr "Sužinokite daugiau apie konsultacijas."
 
+#: euphorie/client/browser/templates/start.pt:57
+msgid "Learn more about this tool&hellip;"
+msgstr "Sužinokite daugiau apie šį įrankį…"
+
 #: euphorie/content/country.py:129
 msgid "Legal and policy references"
 msgstr "Nuorodos į teisės aktus"

@@ -628,6 +628,10 @@ msgstr "Guardado"
 msgid "Learn more about consultancy."
 msgstr "Aprende más sobre la consultoría."
 
+#: euphorie/client/browser/templates/start.pt:57
+msgid "Learn more about this tool&hellip;"
+msgstr "Más información sobre esta herramienta…"
+
 #: euphorie/content/country.py:129
 msgid "Legal and policy references"
 msgstr "Referencias legales y de política"

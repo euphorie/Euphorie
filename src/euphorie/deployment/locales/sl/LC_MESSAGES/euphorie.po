@@ -630,6 +630,10 @@ msgstr "shranjeno"
 msgid "Learn more about consultancy."
 msgstr "Več o svetovanju."
 
+#: euphorie/client/browser/templates/start.pt:57
+msgid "Learn more about this tool&hellip;"
+msgstr "Izvedite več o tem orodju…"
+
 #: euphorie/content/country.py:129
 msgid "Legal and policy references"
 msgstr "Zakonodaja in drugi viri"
