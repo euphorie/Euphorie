@@ -55,6 +55,8 @@ class CountryManagerLocalRoleProvider:
     role within their country.
     """
 
+    _managed_roles = ("CountryManager", "Editor", "Contributor", "Reader", "Reviewer")
+
     def __init__(self, context):
         self.context = context
 
@@ -69,7 +71,7 @@ class CountryManagerLocalRoleProvider:
             return ()
 
         if user.getPhysicalPath()[:-1] == aq_inner(self.context).getPhysicalPath():
-            return ("CountryManager", "Editor", "Contributor", "Reader", "Reviewer")
+            return self._managed_roles
         else:
             return ()
 
@@ -82,7 +84,7 @@ class CountryManagerLocalRoleProvider:
         return [
             (
                 manager.getUserId(),
-                ("CountryyManager", "Editor", "Contributor", "Reader", "Reviewer"),
+                self._managed_roles,
             )
             for manager in managers
         ]

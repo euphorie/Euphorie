@@ -174,7 +174,7 @@ class Preferences(AutoExtensibleForm, form.Form):
     @property
     def show_content_language_preference(self):
         return api.portal.get_registry_record(
-            "euphorie.content_language_preference__enabled", default=True
+            "euphorie.content_language_preference__enabled", default=False
         )
 
     @property

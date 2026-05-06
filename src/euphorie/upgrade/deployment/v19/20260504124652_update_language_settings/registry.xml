@@ -18,10 +18,10 @@
   <record name="euphorie.content_language_preference__enabled">
     <field type="plone.registry.field.Bool">
       <title>Allow to modify content language preference in the settings panel</title>
-      <default>True</default>
-      <missing_value>True</missing_value>
+      <default>False</default>
+      <missing_value>False</missing_value>
       <required>False</required>
     </field>
-    <value>True</value>
+    <value>False</value>
   </record>
 </registry>
