@@ -8,6 +8,36 @@ Changelog
 
 .. towncrier release notes start
 
+19.3.0 (2026-05-06)
+-------------------
+
+New features:
+
+
+- Keep UI language and content language separate.
+  Update language settings: `use_request_negotiation=True`.
+  `utils.setLanguage`: set new `CONTENT_LANGUAGE` cookie instead of `I18N_LANGUAGE` cookie.
+  When you visit a survey with a language, this sets a content preference, without changing the UI language.
+  In user Preferences: support setting language preferences.
+  [maurits] (`Issue #3642 <https://github.com/syslabcom/scrum/issues/3642>`_)
+
+
+Bug fixes:
+
+
+- Update the markup to fix the edit slide icon. @ale-rt (`Issue #4718 <https://github.com/syslabcom/scrum/issues/4718>`_)
+- Fix the sidebar display when viewing a survey. @ale-rt (`Issue #4754 <https://github.com/syslabcom/scrum/issues/4754>`_)
+- Fix typo when reporting all roles for country managers.
+  This had ``CountryyManager`` with two instead of one ``y``.
+  [maurits]
+
+
+Internal:
+
+
+- Remove the obsolete checkSoundness.py script as it was replaced by pre-commit. @ale-rt (`Issue #4776 <https://github.com/syslabcom/scrum/issues/4776>`_)
+
+
 19.2.1 (2026-04-13)
 -------------------
 
