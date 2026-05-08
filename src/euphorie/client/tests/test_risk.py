@@ -8,6 +8,7 @@ from euphorie.content.risk import IKinneyEvaluation as IKi
 from euphorie.content.survey import Survey
 from euphorie.content.tests.utils import BASIC_SURVEY
 from euphorie.testing import EuphorieIntegrationTestCase
+from importlib import import_module
 from plone import api
 from plone.base.utils import safe_text
 from Products.CMFPlone.tests.dummy import Image
@@ -15,6 +16,10 @@ from unittest import mock
 from zope.publisher.interfaces import NotFound
 
 import unittest
+
+HAS_PLONE_62 = getattr(
+    import_module("Products.CMFPlone.factory"), "PLONE62MARKER", False
+)
 
 
 class EvaluationViewTests(unittest.TestCase):
@@ -211,29 +216,54 @@ class TestRiskImageDownloadUpload(EuphorieIntegrationTestCase):
                 self.risk.image_data = Image.data
                 self.risk.image_filename = safe_text(Image.filename)
                 self.assertTrue(view().startswith(b"GIF"))
-                self.assertDictEqual(
-                    view.request.response.headers,
-                    {
-                        "accept-ranges": "bytes",
-                        "content-length": "168",
-                        "content-type": "image/gif",
-                        "link": '<http://nohost/plone/client/nl/ict/software-development/%2B%2Bsession%2B%2B1/1/@@download/None/dummy.gif>; rel="canonical"',  # noqa: E501
-                    },
-                )
+
+                if HAS_PLONE_62:
+                    self.assertDictEqual(
+                        view.request.response.headers,
+                        {
+                            "accept-ranges": "bytes",
+                            "content-disposition": "inline; filename*=UTF-8''dummy.gif",
+                            "content-length": "168",
+                            "content-type": "image/gif",
+                            "link": '<http://nohost/plone/client/nl/ict/software-development/%2B%2Bsession%2B%2B1/1/@@download/None/dummy.gif>; rel="canonical"',  # noqa: E501
+                        },
+                    )
+                else:
+                    self.assertDictEqual(
+                        view.request.response.headers,
+                        {
+                            "accept-ranges": "bytes",
+                            "content-length": "168",
+                            "content-type": "image/gif",
+                            "link": '<http://nohost/plone/client/nl/ict/software-development/%2B%2Bsession%2B%2B1/1/@@download/None/dummy.gif>; rel="canonical"',  # noqa: E501
+                        },
+                    )
 
                 # Check that we can crop and scale the image on the fly
                 view.fieldname = "image_training"
                 self.assertTrue(view().startswith(b"\x89PNG"))
 
                 headers = view.request.response.headers.copy()
+
                 self.assertAlmostEqual(
                     int(headers.pop("content-length")), 6971, delta=10
                 )
-                self.assertDictEqual(
-                    headers,
-                    {
-                        "accept-ranges": "bytes",
-                        "content-type": "image/png",
-                        "link": '<http://nohost/plone/client/nl/ict/software-development/%2B%2Bsession%2B%2B1/1/@@download/image_training/dummy.gif>; rel="canonical"',  # noqa: E501
-                    },
-                )
+                if HAS_PLONE_62:
+                    self.assertDictEqual(
+                        headers,
+                        {
+                            "accept-ranges": "bytes",
+                            "content-disposition": "inline; filename*=UTF-8''dummy.gif",
+                            "content-type": "image/png",
+                            "link": '<http://nohost/plone/client/nl/ict/software-development/%2B%2Bsession%2B%2B1/1/@@download/image_training/dummy.gif>; rel="canonical"',  # noqa: E501
+                        },
+                    )
+                else:
+                    self.assertDictEqual(
+                        headers,
+                        {
+                            "accept-ranges": "bytes",
+                            "content-type": "image/png",
+                            "link": '<http://nohost/plone/client/nl/ict/software-development/%2B%2Bsession%2B%2B1/1/@@download/image_training/dummy.gif>; rel="canonical"',  # noqa: E501
+                        },
+                    )
