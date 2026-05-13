@@ -120,12 +120,6 @@ command::
     $ bin/buildout
     $ bin/instance initdb
 
-.. note::
-
-   You need Zope 2.12.12 or later to be able to use the ``initdb`` command. For
-   earlier Zope versions you need to specify the path for the
-   :py:mod:`euphorie.deployment.commands.xmlimport` module on the command line.
-
 
 Virtual hosts
 -------------

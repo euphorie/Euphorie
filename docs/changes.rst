@@ -8,6 +8,26 @@ Changelog
 
 .. towncrier release notes start
 
+19.4.0 (2026-05-13)
+-------------------
+
+New features:
+
+
+- Fix errors that might happen in help pages when the template engine tries to compile them. @ale-rt (`Issue #4798 <https://github.com/syslabcom/scrum/issues/4798>`_)
+
+
+Bug fixes:
+
+
+- Remove the unused xmlimport script as it was not used in years. @ale-rt (`Issue #4776 <https://github.com/syslabcom/scrum/issues/4776>`_)
+- Removed text duplicated by the msgid message_involve_workers_how_to from message_involve_workers_requirement. Both are  displayed together so the same or similar text appeared twice for languages bg, cs, fi, fr, lv. (`Issue #4811 <https://github.com/syslabcom/scrum/issues/4811>`_)
+
+
+Tests
+
+
+- Adapt the tests to work with Plone 6.2.0rc2. @ale-rt
 
 
 19.3.0a1+dsetool.0 (2026-05-06)

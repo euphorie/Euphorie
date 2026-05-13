@@ -1,1 +1,0 @@
-Adapt the tests to work with Plone 6.2.0rc2. @ale-rt

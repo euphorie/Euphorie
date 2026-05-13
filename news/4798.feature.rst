@@ -1,1 +1,0 @@
-Fix errors that might happen in help pages when the template engine tries to compile them. @ale-rt
