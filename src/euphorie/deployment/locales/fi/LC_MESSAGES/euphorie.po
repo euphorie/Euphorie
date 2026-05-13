@@ -6000,7 +6000,7 @@ msgstr "Tunnista, mikä olisi teillä paras tapa saada henkilöstö mukaan. Onni
 #. a dialogue between employees and management."
 #: euphorie/client/browser/templates/involve.pt:30
 msgid "message_involve_workers_requirement"
-msgstr "<p>Hyvän turvallisuusjohtamisen yksi avaintekijä on se, miten hyvin henkilöstö saadaan osallistumaan mukaan turvallisuustoimintaan. Myös laki edellyttää työantajan ylläpitävän ja parantavan työturvallisuutta yhdessä työntekijöiden kanssa. Kun johto kannustaa henkilöstöä osallistumaan ja kuuntelee heidän ajatuksiaan, sitä paremmin turvallisuuden hallinnassa todennäköisesti onnistutaan.</p><p>Tunnista, mikä olisi teillä paras tapa saada henkilöstö mukaan. Onnistuisiko riskinarvioinnin toteutus esimerkiksi osana työyhteisöpalaveria tai kokoamalla henkilöstön edustajista arviointiryhmä, joka osallistuu riskinarviointiin? Yhteisen keskustelun pohjaksi ja palautteen saamiseksi voit myös ladata tai tulostaa riskinarvioitilomakkeen tai sen osioita henkilöstölle.</p>"
+msgstr "<p>Hyvän turvallisuusjohtamisen yksi avaintekijä on se, miten hyvin henkilöstö saadaan osallistumaan mukaan turvallisuustoimintaan. Myös laki edellyttää työantajan ylläpitävän ja parantavan työturvallisuutta yhdessä työntekijöiden kanssa. Kun johto kannustaa henkilöstöä osallistumaan ja kuuntelee heidän ajatuksiaan, sitä paremmin turvallisuuden hallinnassa todennäköisesti onnistutaan.</p>"
 
 #. Default: "Learn more about certificates."
 #: euphorie/client/browser/templates/certificates.pt:34

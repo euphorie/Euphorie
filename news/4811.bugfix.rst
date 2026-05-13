@@ -1,0 +1,1 @@
+Removed text duplicated by the msgid message_involve_workers_how_to from message_involve_workers_requirement. Both are  displayed together so the same or similar text appeared twice for languages bg, cs, fi, fr, lv.
