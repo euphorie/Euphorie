@@ -5997,7 +5997,7 @@ msgstr "<p>Izlemiet, kurš būs labākais veids, kā iesaistīt komandu. Jūs va
 #. a dialogue between employees and management."
 #: euphorie/client/browser/templates/involve.pt:30
 msgid "message_involve_workers_requirement"
-msgstr "<p>Viena no labas darba aizsardzības sistēmas vadības pazīmēm ir darbinieku iesaistīšana. Darba devējiem normatīvajos aktos ir noteikts pienākums konsultēties ar darbiniekiem par darba aizsardzības jautājumiem. Tomēr tam, ka tiek darīts vairāk nekā normatīvie akti prasa, ir pievienotā vērtība. Darba vide kļūst labāka un produktīvāka, ja tiek veicināta aktīva darbinieku iesaiste un tiek veidots dialogs strap darbiniekiem un vadību.</p><p>Izlemiet, kurš būs labākais veids, kā iesaistīt komandu. Jūs varat gan organizēt sanāksmi, gan darbinieku fokusgrupu diskusiju, kopā pārskatot darba vides riska novērtējuma daļas. Jūs varat arī lejuplādēt vai izdrukāt rīka saturu vai tā daļas, lai dalītos ar informāciju un saņemtu no darbiniekiem atgriezenisko saiti.</p>"
+msgstr "<p>Viena no labas darba aizsardzības sistēmas vadības pazīmēm ir darbinieku iesaistīšana. Darba devējiem normatīvajos aktos ir noteikts pienākums konsultēties ar darbiniekiem par darba aizsardzības jautājumiem. Tomēr tam, ka tiek darīts vairāk nekā normatīvie akti prasa, ir pievienotā vērtība. Darba vide kļūst labāka un produktīvāka, ja tiek veicināta aktīva darbinieku iesaiste un tiek veidots dialogs strap darbiniekiem un vadību.</p>"
 
 #. Default: "Learn more about certificates."
 #: euphorie/client/browser/templates/certificates.pt:34
