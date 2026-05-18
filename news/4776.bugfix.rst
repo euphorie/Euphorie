@@ -1,0 +1,4 @@
+Improve the security in generating random strings.
+Fixes Veracode complaints about
+[CWE-331: Insufficient Entropy](https://cwe.mitre.org/data/definitions/331.html).
+@ale-rt
