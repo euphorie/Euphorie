@@ -38,7 +38,7 @@ from zope.interface import Invalid
 import lxml.etree
 import lxml.objectify
 import mimetypes
-import random
+import secrets
 
 try:
     from base64 import decodebytes
@@ -224,7 +224,7 @@ class SurveyImporter:
         filename = attr_unicode(node, "filename")
         contentType = node.get("content-type", None)
         if not filename:
-            basename = "image%d.%%s" % random.randint(1, 2**16)
+            basename = "image%d.%%s" % secrets.randbelow(2**16)
             if contentType and "/" in contentType:
                 filename = basename % contentType.split("/")[1]
             else:
