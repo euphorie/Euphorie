@@ -38,7 +38,7 @@ setup(
         "anytree",
         "Chameleon",
         "decorator",
-        "ftw.upgrade",
+        "collective.ftw.upgrade",
         "lxml",
         "markdownify",
         "nltk",
