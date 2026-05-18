@@ -26,7 +26,7 @@ from zope.interface import alsoProvides
 
 import datetime
 import logging
-import random
+import secrets
 
 log = logging.getLogger(__name__)
 
@@ -140,7 +140,14 @@ def EnableCustomRisks(survey):
     try:
         module = api.content.create(**args)
     except api.exc.InvalidParameterError:
-        args["id"] = "custom-risks-" + str(random.randint(0, 99999999))
+        for _counter in range(1000):
+            args["id"] = "custom-risks-" + str(secrets.randbelow(100000000))
+            if args["id"] not in survey:
+                break
+        else:
+            raise api.exc.InvalidParameterError(
+                "Could not generate a unique ID for custom risks module"
+            )
         module = api.content.create(**args)
     alsoProvides(module, ICustomRisksModule)
     return args["id"]
