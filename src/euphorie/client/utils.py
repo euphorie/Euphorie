@@ -18,7 +18,7 @@ from zope.i18nmessageid import MessageFactory
 
 import email.utils as emailutils
 import logging
-import random
+import secrets
 import threading
 
 locals = threading.local()
@@ -51,7 +51,7 @@ def randomString(length=16):
     URLs are generated.
     """
     safe_characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-"
-    return "".join(random.choice(safe_characters) for idx in range(length))
+    return "".join(secrets.choice(safe_characters) for idx in range(length))
 
 
 def get_translated_custom_risks_title(request):
