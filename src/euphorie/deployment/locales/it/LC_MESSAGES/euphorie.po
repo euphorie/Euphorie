@@ -490,7 +490,7 @@ msgstr "Full (mostra la descrizione e l'approccio generale)"
 
 #: euphorie/content/country.py:88
 msgid "Full report (Word document)"
-msgstr "Rapporto completo (documento Word)"
+msgstr "Report completo (documento Word)"
 
 #: euphorie/client/browser/templates/about.pt:160
 msgid "Germany"
@@ -1893,7 +1893,7 @@ msgstr "Sezione organizzativa dell’Agenzia incaricata del trattamento dei dati
 #. the framework of the OiRA application."
 #: euphorie/client/browser/templates/conditions-bare.pt:40
 msgid "conditions_part2_entry"
-msgstr "La finalità del trattamento è la creazione e l’accesso all’account OiRA (valutazione interattiva dei rischi online), la creazione delle valutazioni dei rischi, di piani d’azione e di relazioni. Gli indirizzi di posta elettronica potrebbero essere usati per l’invio di newsletter (qualora l’opzione sia stata selezionata). L’applicazione OiRA è uno strumento messo a disposizione dall’Agenzia europea per la sicurezza e la salute sul lavoro (EU-OSHA). La presente politica in materia di privacy si applica a tutti i prodotti, servizi e siti web offerti dall’EU-OSHA nel quadro dell’applicazione OiRA."
+msgstr "La finalità del trattamento è la creazione e l’accesso all’account OiRA (valutazione interattiva dei rischi online), la creazione delle valutazioni dei rischi, di piani d’azione e di report. Gli indirizzi di posta elettronica potrebbero essere usati per l’invio di newsletter (qualora l’opzione sia stata selezionata). L’applicazione OiRA è uno strumento messo a disposizione dall’Agenzia europea per la sicurezza e la salute sul lavoro (EU-OSHA). La presente politica in materia di privacy si applica a tutti i prodotti, servizi e siti web offerti dall’EU-OSHA nel quadro dell’applicazione OiRA."
 
 #. Default: "Purpose"
 #: euphorie/client/browser/templates/conditions-bare.pt:38
@@ -1975,7 +1975,7 @@ msgstr "Liceità del trattamento"
 #. reports."
 #: euphorie/client/browser/templates/conditions-bare.pt:77
 msgid "conditions_part6_entry"
-msgstr "I membri del personale dell’EU-OSHA responsabili di OiRA e i fornitori dei servizi tecnici dell’EU-OSHA possono accedere ai dati personali sulla base di richieste da parte degli utenti OiRA in caso di problemi tecnici. Inoltre, gli utenti possono consentire ad altri utenti OiRA l’accesso alle proprie valutazioni dei rischi, ai piani d’azione e alle relazioni."
+msgstr "I membri del personale dell’EU-OSHA responsabili di OiRA e i fornitori dei servizi tecnici dell’EU-OSHA possono accedere ai dati personali sulla base di richieste da parte degli utenti OiRA in caso di problemi tecnici. Inoltre, gli utenti possono consentire ad altri utenti OiRA l’accesso alle proprie valutazioni dei rischi, ai piani d’azione e ai report."
 
 #. Default: "Data recipients"
 #: euphorie/client/browser/templates/conditions-bare.pt:75
@@ -2595,7 +2595,7 @@ msgstr " "
 #. Default: "No risks were identified. Please proceed directly to the report."
 #: euphorie/client/browser/templates/actionplan.pt:54
 msgid "expl_actionplan_empty"
-msgstr "Non sono stati identificati rischi. Procedere direttamente con il rapporto."
+msgstr "Non sono stati identificati rischi. Procedere direttamente con il report."
 
 #. Default: "We're sorry, but an unforseen error has occured."
 #: euphorie/client/browser/templates/error.pt:22
@@ -2655,7 +2655,7 @@ msgstr ""
 #. Default: "Report ${title}"
 #: euphorie/client/docx/views.py:303
 msgid "filename_report_actionplan"
-msgstr "Rapporto ${title}"
+msgstr "Report ${title}"
 
 #. Default: "Identification report ${title}"
 #: euphorie/client/docx/views.py:359
@@ -2924,7 +2924,7 @@ msgstr "Consultazione dei lavoratori"
 #. Default: "OiRA Report: “${title}”"
 #: euphorie/client/docx/views.py:220
 msgid "header_oira_report_download"
-msgstr "Rapporto OiRA: \"${title}\""
+msgstr "Report OiRA: \"${title}\""
 
 #. Default: "The OiRA tool"
 #: euphorie/client/browser/templates/default_introduction.pt:23
@@ -3360,7 +3360,7 @@ msgstr "Un codice che identifica questo settore. I codici di classificazione son
 #: euphorie/content/country.py:111
 msgid "help_compact_report_options"
 msgstr ""
-"Seleziona quali elementi opzionali vengono utilizzati nel rapporto compatto"
+"Seleziona quali elementi opzionali vengono utilizzati nel report compatto"
 
 #. Default: "The content language determines which surveys you see on the
 #. dashboard. Visiting a survey in a different language (via the Tools tab)
@@ -3622,7 +3622,7 @@ msgstr "Dopo la pubblicazione, lo strumento OiRA è disponibile su ${url}."
 #. printed."
 #: euphorie/content/help.py:93
 msgid "help_reports"
-msgstr "Questo testo descrive come salvare o stampare il rapporto."
+msgstr "Questo testo descrive come salvare o stampare il report."
 
 #. Default: "Describe the risk. Include any relevant information that may be
 #. helpful for the end-user."
@@ -3988,7 +3988,7 @@ msgstr "Il rischio è accettabile?"
 #. Default: "Available reports"
 #: euphorie/content/country.py:77
 msgid "label__default_reports"
-msgstr "Rapporti disponibili"
+msgstr "Report disponibili"
 
 #. Default: "Expanded sections on risk page"
 #: euphorie/content/country.py:46
@@ -4513,7 +4513,7 @@ msgstr "Da"
 #. Default: "Full Report"
 #: euphorie/client/browser/templates/report_landing.pt:68
 msgid "label_full_report"
-msgstr "Rapporto completo"
+msgstr "Report completo"
 
 #. Default: "General information"
 #: euphorie/client/browser/templates/status_info.pt:36
@@ -4644,7 +4644,7 @@ msgstr "Importa traduzione XML da Etranslate"
 #. Default: "Go to report"
 #: euphorie/client/browser/templates/actionplan.pt:70
 msgid "label_jump_to_report"
-msgstr "Andare al rapporto"
+msgstr "Andare al report"
 
 #. Default: "Keep me logged in."
 #: euphorie/client/browser/templates/login.pt:84
@@ -5150,7 +5150,7 @@ msgstr "Eliminare questa misura"
 #: euphorie/client/browser/templates/report_landing.pt:29
 #: euphorie/client/browser/webhelpers.py:1478
 msgid "label_report"
-msgstr "Rapporto"
+msgstr "Report"
 
 #. Default: "Please leave any extra comments that should be included in the
 #. report in this field."
@@ -6107,7 +6107,7 @@ msgid "message_read_and_reviewd_assessment_and_approve"
 msgstr "Ho letto e rivisto e, ove necessario, ho corretto Orenhald questa valutazione del rischio e approvo il suo contenuto."
 
 msgid "message_report_downloads_intro"
-msgstr "Scegli tra diversi formati per visualizzare o scaricare il rapporto della tua valutazione dei rischi."
+msgstr "Scegli tra diversi formati per visualizzare o scaricare il report della tua valutazione dei rischi."
 
 #. Default: "Click on 'Send validation request' to ask the selected OSH
 #. consultant to review and validate your risk assessment."
@@ -6702,7 +6702,7 @@ msgstr "RESPONSABILE: ${responsible_name}"
 #. date ${date}."
 #: euphorie/client/docx/compiler.py:231
 msgid "report_survey_revision"
-msgstr "Questo rapporto è stato basato allo strumento OiRA '${title}' con data di revisione del ${date}."
+msgstr "Questo report è stato basato allo strumento OiRA '${title}' con data di revisione del ${date}."
 
 #. Default: "Comments"
 #: euphorie/client/browser/report.py:152
@@ -7245,7 +7245,7 @@ msgstr "Cliccando su 'Elimina account', il vostro account sarà eliminato irreve
 #. Report step prior to deleting your account, if you want to keep any."
 #: euphorie/client/browser/templates/account-delete.pt:25
 msgid "warning_account_delete_surveys"
-msgstr "Si prega di considerare che eliminando il proprio account si elimineranno anche le proprie sedute. Assicurarsi di scaricare i rapporti, se si desidera conservarli, dal rispettivo ambito prima di procedere con l'eliminazione dell'account."
+msgstr "Si prega di considerare che eliminando il proprio account si elimineranno anche le proprie sedute. Assicurarsi di scaricare i report, se si desidera conservarli, dal rispettivo ambito prima di procedere con l'eliminazione dell'account."
 
 #. Default: "Yes"
 #: euphorie/content/browser/templates/risk_view.pt:89
@@ -7448,7 +7448,7 @@ msgstr "No, il rischio è gestito con le misure già adottate e non sono previst
 #~ msgstr "Avvia una nuova sessione con questo strumento"
 
 #~ msgid "company_details_intro"
-#~ msgstr "Potete fornire le informazioni qui di seguito. Queste informazioni hanno lo scopo di migliorare gli strumenti e i servizi forniti. Questi dati non appariranno nel rapporto."
+#~ msgstr "Potete fornire le informazioni qui di seguito. Queste informazioni hanno lo scopo di migliorare gli strumenti e i servizi forniti. Questi dati non appariranno nel report."
 
 #~ msgid "conditions_conservation_header"
 #~ msgstr "Conservazione e trattamento delle informazioni"
@@ -7517,7 +7517,7 @@ msgstr "No, il rischio è gestito con le misure già adottate e non sono previst
 #~ msgstr "Due criteri semplificati"
 
 #~ msgid "hader_company_details"
-#~ msgstr "State per stampare il rapporto... si prega di compilare il modulo facoltativo per poi procedere."
+#~ msgstr "State per stampare il report... si prega di compilare il modulo facoltativo per poi procedere."
 
 #~ msgid "header_or"
 #~ msgstr "oppure…"
@@ -7685,7 +7685,7 @@ msgstr "No, il rischio è gestito con le misure già adottate e non sono previst
 #~ msgstr "Informazioni sulla ditta"
 
 #~ msgid "plan_report_intro_1"
-#~ msgstr "Compilando l'elenco delle domande, si completa la valutazione del rischio. Tale valutazione viene utilizzata per elaborare un piano d'azione. L'avanzamento di questo piano d'azione dovrà essere discusso ogni anno e sarà  necessario mettere a punto un piccolo rapporto sui progressi realizzati. Alcuni argomenti potrebbero essere stati portati a termine e molto probabilmente ne dovranno essere aggiunti dei nuovi."
+#~ msgstr "Compilando l'elenco delle domande, si completa la valutazione del rischio. Tale valutazione viene utilizzata per elaborare un piano d'azione. L'avanzamento di questo piano d'azione dovrà essere discusso ogni anno e sarà  necessario mettere a punto un piccolo report sui progressi realizzati. Alcuni argomenti potrebbero essere stati portati a termine e molto probabilmente ne dovranno essere aggiunti dei nuovi."
 
 #~ msgid "plan_report_intro_header"
 #~ msgstr "Introduzione"
