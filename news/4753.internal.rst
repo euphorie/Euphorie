@@ -1,0 +1,1 @@
+Upgrade plone.patternslib to 9.10.6.
