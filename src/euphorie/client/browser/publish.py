@@ -31,12 +31,14 @@ import secrets
 log = logging.getLogger(__name__)
 
 
-def CopyToClient(survey, preview=False):
+def CopyToClient(survey, preview=False, readonly=False):
     """Copy the survey to the online client part of the site.
 
     :param survey: the survey to copy
     :param bool preview: indicates if this is a preview or a normal publication
-    :rtype: :py:class:`euphorie.content.survey.Survey`
+    :param bool readonly: indicates if we want to avoid make changes, default False.
+      Set this to True if you only want to check if the client has the survey.
+    :rtype: :py:class:`euphorie.content.survey.Survey` or None
 
     The public area is hardcoded to be a container with id ``client``
     within the site root.
@@ -72,6 +74,8 @@ def CopyToClient(survey, preview=False):
     assert ISector.providedBy(sector)
 
     if country.id not in client:
+        if readonly:
+            return None
         client.invokeFactory(
             "euphorie.clientcountry",
             country.id,
@@ -81,17 +85,22 @@ def CopyToClient(survey, preview=False):
     cl_country = client[country.id]
 
     if sector.id not in cl_country:
+        if readonly:
+            return None
         cl_country.invokeFactory("euphorie.clientsector", sector.id)
     target = cl_country[sector.id]
-    target.title = sector.title
-    target.logo = sector.logo
-    # Clear any scaled logos
-    AnnotationStorage(target).storage.clear()
+    if not readonly:
+        target.title = sector.title
+        target.logo = sector.logo
+        # Clear any scaled logos
+        AnnotationStorage(target).storage.clear()
 
     if preview:
         new_id = "preview"
     else:
         new_id = surveygroup.id
+    if readonly:
+        return getattr(target, new_id, None)
     if new_id in target:
         api.content.delete(obj=target[new_id], check_linkintegrity=False)
 
