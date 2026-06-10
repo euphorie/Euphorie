@@ -1,3 +1,0 @@
-Add ``readonly`` parameter to ``CopyToClient``.
-Useful for getting an existing client survey or preview.
-[maurits]
