@@ -8,6 +8,33 @@ Changelog
 
 .. towncrier release notes start
 
+19.5.0 (2026-06-10)
+-------------------
+
+New features:
+
+
+- Add ``readonly`` parameter to ``CopyToClient``.
+  Useful for getting an existing client survey or preview.
+  [maurits] (`Issue #4608 <https://github.com/syslabcom/scrum/issues/4608>`_)
+
+
+Bug fixes:
+
+
+- Improve the security in generating random strings.
+  Fixes Veracode complaints about
+  [CWE-331: Insufficient Entropy](https://cwe.mitre.org/data/definitions/331.html).
+  @ale-rt (`Issue #4776 <https://github.com/syslabcom/scrum/issues/4776>`_)
+- Update translataions. @angeldasangel (`Issue #4828 <https://github.com/syslabcom/scrum/issues/4828>`_)
+
+
+Internal:
+
+
+- Upgrade plone.patternslib to 9.10.6. (`Issue #4753 <https://github.com/syslabcom/scrum/issues/4753>`_)
+
+
 19.4.0 (2026-05-13)
 -------------------
 
