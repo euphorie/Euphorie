@@ -8,8 +8,8 @@ Changelog
 
 .. towncrier release notes start
 
-19.5.0 (2026-06-10)
--------------------
+19.5.0a1+dsetool.0 (2026-06-10)
+-------------------------------
 
 New features:
 
