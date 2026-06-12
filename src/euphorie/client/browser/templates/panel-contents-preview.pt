@@ -62,7 +62,21 @@
                               solutions python:view.get_solutions(node);
                             "
                         >
-                          <em>${node/title}</em>
+                          <tal:switch switch="node/depth">
+                            <tal:case case="python:2">
+                              <h3>${python:view.get_title(node)}</h3>
+                            </tal:case>
+                            <tal:case case="python:3">
+                              <h4>${python:view.get_title(node)}</h4>
+                            </tal:case>
+                            <tal:case case="python:4">
+                              <h5>${python:view.get_title(node)}</h5>
+                            </tal:case>
+                            <tal:case case="python:5">
+                              <h6>${python:view.get_title(node)}</h6>
+                            </tal:case>
+                          </tal:switch>
+
                           <p tal:replace="structure python:webhelpers.get_safe_html(description)"></p>
                           <ul class="manual-checklist"
                               tal:condition="solutions"
@@ -74,13 +88,13 @@
                           >
                             <tal:switch switch="node/depth">
                               <tal:case case="python:2">
-                                <h3 i18n:translate="label_legal_reference">Legal and policy references</h3>
-                              </tal:case>
-                              <tal:case case="python:3">
                                 <h4 i18n:translate="label_legal_reference">Legal and policy references</h4>
                               </tal:case>
-                              <tal:case case="python:4">
+                              <tal:case case="python:3">
                                 <h5 i18n:translate="label_legal_reference">Legal and policy references</h5>
+                              </tal:case>
+                              <tal:case case="python:4">
+                                <h6 i18n:translate="label_legal_reference">Legal and policy references</h6>
                               </tal:case>
                               <tal:case case="python:5">
                                 <h6 i18n:translate="label_legal_reference">Legal and policy references</h6>
