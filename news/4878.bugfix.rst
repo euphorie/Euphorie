@@ -1,0 +1,1 @@
+Fix headings in the tools print preview.  [maurits]

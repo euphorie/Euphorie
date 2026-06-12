@@ -461,7 +461,7 @@ class Involve(SessionMixin, BrowserView):
 class ContentsPreview(BrowserView):
     """A View for displaying the full contents of a tool and printing them.
 
-    View name: @@contents-preview
+    View name: @@panel-contents-preview
     """
 
     no_splash = True
