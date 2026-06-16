@@ -8,6 +8,16 @@ Changelog
 
 .. towncrier release notes start
 
+19.5.1a1+dsetool.0 (2026-06-16)
+-------------------------------
+
+Bug fixes:
+
+
+- Fix headings in the tools print preview.  [maurits] (`Issue #4878 <https://github.com/syslabcom/scrum/issues/4878>`_)
+- Fix DOCX HTML conversion when markup is actually plain text. @ale-rt (`Issue #4885 <https://github.com/syslabcom/scrum/issues/4885>`_)
+
+
 19.5.0a1+dsetool.0 (2026-06-10)
 -------------------------------
 
