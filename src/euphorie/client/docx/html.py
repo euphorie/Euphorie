@@ -116,19 +116,31 @@ class HtmlToWord:
     def __call__(self, markup, doc, style=None, next_style=None):
         if not markup or not markup.strip():
             return doc
+
         try:
             markup_doc = lxml.html.document_fromstring(markup)
         except etree.XMLSyntaxError:
             text = strip_markup(markup)
             text = text.replace("&#13", "\n")
-            doc.add_paragraph(text)
+            doc.add_paragraph(text, style=style)
             return doc
 
-        for idx, node in enumerate(markup_doc.find("body")):
-            if idx == 0:
-                p_style = style
-            else:
+        body = markup_doc.find("body")
+        if body is None:
+            text = strip_markup(markup)
+            text = text.replace("&#13", "\n")
+            doc.add_paragraph(text, style=style)
+            return doc
+
+        body_text = body.text and body.text.strip()
+        if body_text:
+            doc.add_paragraph(body_text, style=style)
+
+        for idx, node in enumerate(body):
+            if idx != 0 or body_text:
                 p_style = next_style or style
+            else:
+                p_style = style
             doc = self.handleElement(node, doc, p_style)
 
         return doc
