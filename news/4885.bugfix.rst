@@ -1,1 +1,0 @@
-Fix DOCX HTML conversion when markup is actually plain text. @ale-rt
