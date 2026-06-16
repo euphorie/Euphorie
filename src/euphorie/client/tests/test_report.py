@@ -1,10 +1,8 @@
-# from cStringIO import StringIO
-# from euphorie.client.report import HtmlToRtf
-# from euphorie.client.report import IdentificationReport
-# from euphorie.content.risk import Risk
+from docx.api import Document
 from euphorie.client import model
 from euphorie.client import utils
 from euphorie.client.adapters.session_traversal import TraversedSurveySession
+from euphorie.client.docx.html import HtmlToWord
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.model import SurveySession
 from euphorie.client.tests.test_model import createSurvey
@@ -19,8 +17,52 @@ from z3c.saconfig import Session
 from zope.interface import alsoProvides
 
 import datetime
+import unittest
 
-# import unittest
+
+class HtmlToWordTests(unittest.TestCase):
+    def test_text_only_markup_creates_paragraph(self):
+        doc = Document()
+        markup = "Plain text only"
+        HtmlToWord()(markup, doc, style="Normal", next_style="List")
+
+        self.assertListEqual(
+            [paragraph.text.strip() for paragraph in doc.paragraphs],
+            ["Plain text only"],
+        )
+        self.assertListEqual(
+            [paragraph.style.name for paragraph in doc.paragraphs],
+            ["Normal"],
+        )
+
+    def test_text_before_elements(self):
+        doc = Document()
+        markup = "foo <p>bar</p> <p>baz</p>"
+        HtmlToWord()(markup, doc, style="Normal", next_style="List")
+
+        self.assertListEqual(
+            [paragraph.text.strip() for paragraph in doc.paragraphs],
+            ["foo", "bar", "baz"],
+        )
+        self.assertListEqual(
+            [paragraph.style.name for paragraph in doc.paragraphs],
+            ["Normal", "List", "List"],
+        )
+
+    def test_consecutive_elements(self):
+        doc = Document()
+        markup = "<p>foo</p><p>bar</p>"
+
+        HtmlToWord()(markup, doc, style="Normal", next_style="List")
+
+        self.assertListEqual(
+            [paragraph.text.strip() for paragraph in doc.paragraphs],
+            ["foo", "bar"],
+        )
+        self.assertListEqual(
+            [paragraph.style.name for paragraph in doc.paragraphs],
+            ["Normal", "List"],
+        )
 
 
 class ReportIntegrationTests(EuphorieIntegrationTestCase):
