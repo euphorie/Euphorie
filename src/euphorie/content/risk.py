@@ -129,7 +129,7 @@ class IRisk(model.Schema, IRichDescription, IBasic):
     model.fieldset(
         "identification",
         label=_("header_identification", default="Identification"),
-        fields=["show_notapplicable"],
+        fields=["show_notapplicable", "use_scaled_answer", "scaled_answers"],
     )
 
     show_notapplicable = schema.Bool(
@@ -140,6 +140,17 @@ class IRisk(model.Schema, IRichDescription, IBasic):
             "to the standard yes/no options.",
         ),
         default=False,
+    )
+
+    use_scaled_answer = schema.Bool(
+        title=_("Use scaled answers instead of Yes/No"),
+        default=False,
+        required=False,
+    )
+    scaled_answers = schema.Text(
+        title=_("Answers"),
+        default="\n".join(["never", "sometimes", "often", "almost always", "always"]),
+        required=False,
     )
 
     type = schema.Choice(
