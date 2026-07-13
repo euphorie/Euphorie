@@ -1,0 +1,2 @@
+Allow to customize the static resources used in the client.
+@ale-rt
