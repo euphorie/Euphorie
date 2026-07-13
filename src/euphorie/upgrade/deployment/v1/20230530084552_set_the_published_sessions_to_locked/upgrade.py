@@ -1,5 +1,5 @@
+from collective.ftw.upgrade import UpgradeStep
 from euphorie.client import model
-from ftw.upgrade import UpgradeStep
 
 
 class SetThePublishedSessionsToLocked(UpgradeStep):

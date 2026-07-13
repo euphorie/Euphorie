@@ -1,5 +1,5 @@
+from collective.ftw.upgrade import UpgradeStep
 from euphorie.deployment.upgrade.utils import alembic_upgrade
-from ftw.upgrade import UpgradeStep
 
 
 class UpgradeToAlembicHead(UpgradeStep):

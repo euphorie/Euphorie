@@ -1,5 +1,5 @@
+from collective.ftw.upgrade import UpgradeStep
 from euphorie.deployment.setuphandlers import setupSecureSessionCookie
-from ftw.upgrade import UpgradeStep
 from plone import api
 
 
