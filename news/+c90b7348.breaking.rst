@@ -1,0 +1,2 @@
+Remove obsolete upgrade steps.
+@ale-rt
