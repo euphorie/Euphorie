@@ -8,6 +8,29 @@ Changelog
 
 .. towncrier release notes start
 
+20.0.0 (2026-07-14)
+-------------------
+
+Breaking changes:
+
+
+- Remove obsolete upgrade steps.
+  @ale-rt
+
+
+New features:
+
+
+- Allow to customize the static resources used in the client.
+  @ale-rt (`Issue #4926 <https://github.com/syslabcom/scrum/issues/4926>`_)
+
+
+Internal:
+
+
+- Switch to collective.ftw.upgrade
+
+
 19.5.1 (2026-06-16)
 -------------------
 
