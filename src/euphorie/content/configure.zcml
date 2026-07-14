@@ -7,7 +7,7 @@
     i18n_domain="untranslated"
     >
 
-  <include package="ftw.upgrade" />
+  <include package="collective.ftw.upgrade" />
   <include package="plone.app.z3cform" />
   <include package="plone.namedfile" />
   <include package="plone.formwidget.namedfile" />

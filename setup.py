@@ -1,7 +1,7 @@
 from setuptools import find_packages
 from setuptools import setup
 
-version = "19.5.2a1+dsetool.0.dev0"
+version = "20.0.0a1+dsetool.0.dev0"
 
 setup(
     name="Euphorie",
@@ -37,6 +37,7 @@ setup(
         "alembic",
         "anytree",
         "Chameleon",
+        "collective.ftw.upgrade",
         "decorator",
         "ftw.upgrade",
         "lxml",

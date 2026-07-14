@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<registry>
+  <record name="euphorie.client.brand">
+    <field type="plone.registry.field.TextLine">
+      <title>Brand</title>
+    </field>
+    <value>oira</value>
+  </record>
+  <record name="euphorie.client.resource_traverser">
+    <field type="plone.registry.field.TextLine">
+      <title>Resource Traverser</title>
+    </field>
+    <value>++resource++euphorie.resources</value>
+  </record>
+</registry>

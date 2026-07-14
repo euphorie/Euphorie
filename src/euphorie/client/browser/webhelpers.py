@@ -90,21 +90,8 @@ class WebHelpers(BrowserView):
     View name: @@webhelpers
     """
 
-    certificates_path = "++resource++euphorie.resources/assets/oira/certificates"
-    media_path = "++resource++euphorie.resources/media"
-    style_path = "++resource++euphorie.resources/assets/oira/style"
     script_path = "++resource++patternslib"
-
-    brand = "oira"
-
-    css_path = "++resource++euphorie.resources/assets/{brand}/style/all.css"
-    css_path_min = "++resource++euphorie.resources/assets/{brand}/style/all.css"
-
     js_name = "bundle.min.js"
-
-    favicon_path = (
-        "++resource++euphorie.resources/assets/{brand}/favicon/apple-touch-icon.png"
-    )
 
     group_model = Group
     hide_organisation_tab = False
@@ -120,8 +107,67 @@ class WebHelpers(BrowserView):
         return Decimal(value)
 
     @property
+    @memoize_contextless
+    def brand(self) -> str:
+        """Return the brand to use for the current sector.
+
+        This is stored in the registry under the key `euphorie.client.brand`.
+        Defaults to `oira` if not set.
+        """
+        return api.portal.get_registry_record("euphorie.client.brand", default="oira")
+
+    @property
+    @memoize_contextless
+    def resource_traverser_path(self) -> str:
+        """Return the traverser path that we should use to fetch the static resources.
+
+        This is stored in the registry under the key
+        `euphorie.client.resource_traverser`.
+        Defaults to `++resource++euphorie.resources` if not set.
+        """
+        return api.portal.get_registry_record(
+            "euphorie.client.resource_traverser",
+            default="++resource++euphorie.resources",
+        )
+
+    @property
+    @memoize_contextless
+    def resources_base_path(self) -> str:
+        return f"{self.resource_traverser_path}/assets/{self.brand}"
+
+    @property
+    @memoize_contextless
+    def media_path(self) -> str:
+        return f"{self.resource_traverser_path}/media"
+
+    @property
+    @memoize_contextless
+    def certificates_path(self) -> str:
+        return f"{self.resources_base_path}/certificates"
+
+    @property
+    @memoize_contextless
+    def css_path(self) -> str:
+        return f"{self.style_path}/all.css"
+
+    @property
+    @memoize_contextless
+    def css_path_min(self) -> str:
+        return f"{self.style_path}/all.css"
+
+    @property
+    @memoize_contextless
+    def style_path(self) -> str:
+        return f"{self.resources_base_path}/style"
+
+    @property
+    @memoize_contextless
+    def favicon_path(self) -> str:
+        return f"{self.resources_base_path}/favicon/apple-touch-icon.png"
+
+    @property
     @memoize
-    def resources_timestamp(self):
+    def resources_timestamp(self) -> str:
         return api.portal.get_registry_record(
             "euphorie.deployment.resources_timestamp", default=""
         )
@@ -604,8 +650,17 @@ class WebHelpers(BrowserView):
         return self._base_url()
 
     @property
+    @memoize_contextless
+    def resources_base_url(self):
+        return f"{self.client_url}/{self.resources_base_path}"
+
+    @property
     @memoize
     def certificates_url(self):
+        """Construct the URL to the certificates folder.
+
+        This is based on the traverser path and the brand.
+        """
         return f"{self.client_url}/{self.certificates_path}"
 
     @property
@@ -620,35 +675,22 @@ class WebHelpers(BrowserView):
 
     @property
     @memoize
-    def css_url(self):
-        return "{}/{}?t={}".format(
-            self.client_url,
-            (
-                self.css_path.format(brand=self.brand)
-                if not self.debug_mode
-                else self.css_path_min.format(brand=self.brand)
-            ),
-            self.resources_timestamp,
-        )
+    def css_url(self) -> str:
+        """Construct the URL to the CSS bundle"""
+        qs = urlencode({"t": self.resources_timestamp})
+        return f"{self.style_url}/all.css?{qs}"
 
     @property
     @memoize
     def js_url(self):
-        return "{}/{}/{}?t={}".format(
-            self.client_url,
-            self.script_path,
-            self.js_name,
-            self.resources_timestamp,
-        )
+        script_base_url = f"{self.client_url}/{self.script_path}"
+        qs = urlencode({"t": self.resources_timestamp})
+        return f"{script_base_url}/{self.js_name}?{qs}"
 
     @property
     @memoize
     def favicon_url(self):
-        return "{}/{}?t={}".format(
-            self.client_url,
-            self.favicon_path.format(brand=self.brand),
-            self.resources_timestamp,
-        )
+        return f"{self.resources_base_url}/favicon/apple-touch-icon.png?t={self.resources_timestamp}"  # noqa: E501
 
     @property
     @memoize

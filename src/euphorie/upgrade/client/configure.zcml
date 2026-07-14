@@ -1,16 +1,16 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
-    xmlns:upgrade-step="http://namespaces.zope.org/ftw.upgrade"
+    xmlns:upgrade-step="http://namespaces.zope.org/collective.ftw.upgrade"
     >
 
   <include
-      package="ftw.upgrade"
+      package="collective.ftw.upgrade"
       file="meta.zcml"
       />
 
   <upgrade-step:directory
       profile="euphorie.client:default"
-      directory="v1"
+      directory="v20"
       />
 
 </configure>

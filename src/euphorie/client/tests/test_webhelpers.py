@@ -6,6 +6,7 @@ from euphorie.content.tests.utils import BASIC_SURVEY
 from euphorie.testing import EuphorieIntegrationTestCase
 from plone import api
 from plone.app.testing.interfaces import SITE_OWNER_NAME
+from typing import cast
 from unittest import mock
 from unittest import TestCase
 
@@ -739,6 +740,102 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                             self.assertEqual(nav_tree[3]["disabled"], False)
                             self.assertEqual(nav_tree[4]["disabled"], False)
                             self.assertEqual(nav_tree[5]["disabled"], False)
+
+    def test_resource_urls_defaults(self):
+        with self._get_view("webhelpers", self.portal.client) as view:
+            self.assertIsInstance(view, WebHelpers)
+            cast(WebHelpers, view)
+            self.assertEqual(view.brand, "oira")
+            self.assertEqual(
+                view.resource_traverser_path, "++resource++euphorie.resources"
+            )
+
+            self.assertEqual(
+                view.certificates_path,
+                "++resource++euphorie.resources/assets/oira/certificates",
+            )
+            self.assertEqual(view.media_path, "++resource++euphorie.resources/media")
+            self.assertEqual(
+                view.style_path, "++resource++euphorie.resources/assets/oira/style"
+            )
+            self.assertEqual(view.script_path, "++resource++patternslib")
+            self.assertEqual(
+                view.css_path,
+                "++resource++euphorie.resources/assets/oira/style/all.css",
+            )
+            self.assertEqual(
+                view.css_path_min,
+                "++resource++euphorie.resources/assets/oira/style/all.css",
+            )
+            self.assertEqual(
+                view.favicon_path,
+                "++resource++euphorie.resources/assets/oira/favicon/apple-touch-icon.png",  # noqa: E501
+            )
+            self.assertEqual(
+                view.certificates_url,
+                "http://nohost/plone/client/++resource++euphorie.resources/assets/oira/certificates",  # noqa: E501
+            )
+            self.assertEqual(
+                view.media_url,
+                "http://nohost/plone/client/++resource++euphorie.resources/media",
+            )
+            self.assertEqual(
+                view.style_url,
+                "http://nohost/plone/client/++resource++euphorie.resources/assets/oira/style",  # noqa: E501
+            )
+            self.assertEqual(
+                view.css_url,
+                "http://nohost/plone/client/++resource++euphorie.resources/assets/oira/style/all.css?t=None",  # noqa: E501,
+            )
+            self.assertEqual(
+                view.js_url,
+                "http://nohost/plone/client/++resource++patternslib/bundle.min.js?t=None",  # noqa: E501
+            )
+            self.assertEqual(
+                view.favicon_url,
+                "http://nohost/plone/client/++resource++euphorie.resources/assets/oira/favicon/apple-touch-icon.png?t=None",  # noqa: E501
+            )
+
+    def test_resource_urls_custom(self):
+        api.portal.set_registry_record("euphorie.client.brand", "acme")
+        api.portal.set_registry_record("euphorie.client.resource_traverser", "foo.bar")
+
+        with self._get_view("webhelpers", self.portal.client) as view:
+            self.assertIsInstance(view, WebHelpers)
+            cast(WebHelpers, view)
+
+            self.assertEqual(view.brand, "acme")
+            self.assertEqual(view.resource_traverser_path, "foo.bar")
+
+            self.assertEqual(view.certificates_path, "foo.bar/assets/acme/certificates")
+            self.assertEqual(view.media_path, "foo.bar/media")
+            self.assertEqual(view.style_path, "foo.bar/assets/acme/style")
+            self.assertEqual(view.script_path, "++resource++patternslib")
+            self.assertEqual(view.css_path, "foo.bar/assets/acme/style/all.css")
+            self.assertEqual(view.css_path_min, "foo.bar/assets/acme/style/all.css")
+            self.assertEqual(
+                view.favicon_path, "foo.bar/assets/acme/favicon/apple-touch-icon.png"
+            )
+            self.assertEqual(
+                view.certificates_url,
+                "http://nohost/plone/client/foo.bar/assets/acme/certificates",
+            )
+            self.assertEqual(view.media_url, "http://nohost/plone/client/foo.bar/media")
+            self.assertEqual(
+                view.style_url, "http://nohost/plone/client/foo.bar/assets/acme/style"
+            )
+            self.assertEqual(
+                view.css_url,
+                "http://nohost/plone/client/foo.bar/assets/acme/style/all.css?t=None",
+            )
+            self.assertEqual(
+                view.js_url,
+                "http://nohost/plone/client/++resource++patternslib/bundle.min.js?t=None",  # noqa: E501
+            )
+            self.assertEqual(
+                view.favicon_url,
+                "http://nohost/plone/client/foo.bar/assets/acme/favicon/apple-touch-icon.png?t=None",  # noqa: E501
+            )
 
 
 class TestWebhelpersUnit(TestCase):

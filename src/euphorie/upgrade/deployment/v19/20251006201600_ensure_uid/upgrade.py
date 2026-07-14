@@ -1,5 +1,5 @@
 from Acquisition import aq_base
-from ftw.upgrade import UpgradeStep
+from collective.ftw.upgrade import UpgradeStep
 from plone import api
 from plone.uuid.interfaces import ATTRIBUTE_NAME
 from plone.uuid.interfaces import IUUIDGenerator
