@@ -1,0 +1,1 @@
+Fix editing risk in OiRA Creator when using French (simple) evaluation.  [maurits]
