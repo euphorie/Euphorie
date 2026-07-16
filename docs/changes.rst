@@ -8,6 +8,15 @@ Changelog
 
 .. towncrier release notes start
 
+20.0.1 (2026-07-16)
+-------------------
+
+Bug fixes:
+
+
+- Fix editing risk in OiRA Creator when using French (simple) evaluation.  [maurits] (`Issue #4978 <https://github.com/syslabcom/scrum/issues/4978>`_)
+
+
 20.0.0 (2026-07-14)
 -------------------
 
