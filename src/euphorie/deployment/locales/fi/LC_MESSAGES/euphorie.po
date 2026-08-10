@@ -279,7 +279,7 @@ msgstr "Vahvista OiRA-sähköpostiosoitteen muutos"
 
 #: euphorie/client/browser/templates/report_landing.pt:54
 msgid "Contains: Concise information and input provided by you throughout the risk assessment process."
-msgstr "Sisältää: Tiivistä tietoa ja panoksia, jotka annoit riskinarvioinnin aikana."
+msgstr "Sisältää: Koosteen riskeistä, suunnitelluista toimenpiteistä ja muista riskinarviointiin kirjaamistasi tiedoista."
 
 #: euphorie/client/browser/templates/report_landing.pt:77
 msgid "Contains: all the information and input provided by you throughout the risk assessment process."
@@ -879,7 +879,7 @@ msgstr "Profiilikysymyksiä käytetään sen määrittämiseen, ovatko tietyt mo
 
 #: euphorie/client/browser/templates/report_landing.pt:59
 msgid "Provide a concise overview over your current status for internal use."
-msgstr "Anna tiivis yleiskuva nykytilanteestasi sisäiseen käyttöön."
+msgstr "Riskinarvioinnin nykytilaa koskevan tiedon jakamiseen työpaikallanne."
 
 #: euphorie/client/browser/templates/report_landing.pt:82
 msgid "Provide evidence"
@@ -4205,7 +4205,7 @@ msgstr "Väri"
 #. Default: "Compact"
 #: euphorie/client/browser/templates/report_landing.pt:45
 msgid "label_compact"
-msgstr "Kompakti"
+msgstr "Koosteraportti"
 
 #. Default: "Compact report options"
 #: euphorie/content/country.py:110
