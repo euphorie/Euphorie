@@ -1,1 +1,0 @@
-FI translations updated for compact report description on report page. This was requested by the FI partners in order to enable compact report for FI country and for OiRA teaser video for FI.
