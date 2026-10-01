@@ -6574,7 +6574,7 @@ msgstr "Medidas em vigor"
 #. Default: "Planned Measures"
 #: euphorie/client/docx/compiler.py:1089
 msgid "report_heading_planned_measures"
-msgstr "Medidas planejadas"
+msgstr "Medidas planeadas"
 
 #. Default: "Legal and policy references:"
 #: euphorie/client/docx/compiler.py:1144
