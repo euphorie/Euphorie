@@ -8,6 +8,31 @@ Changelog
 
 .. towncrier release notes start
 
+20.0.2 (2026-08-11)
+-------------------
+
+New features:
+
+
+- FI translations updated for compact report description on report page. This was requested by the FI partners in order to enable compact report for FI country and for OiRA teaser video for FI. (`Issue #5043 <https://github.com/syslabcom/scrum/issues/5043>`_)
+
+
+Internal:
+
+
+- Test Products.membrane 8.0.0.
+  @ale-rt
+
+
+20.0.1 (2026-07-16)
+-------------------
+
+Bug fixes:
+
+
+- Fix editing risk in OiRA Creator when using French (simple) evaluation.  [maurits] (`Issue #4978 <https://github.com/syslabcom/scrum/issues/4978>`_)
+
+
 20.0.0 (2026-07-14)
 -------------------
 

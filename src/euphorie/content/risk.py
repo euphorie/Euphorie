@@ -39,6 +39,7 @@ from zope.interface import alsoProvides
 from zope.interface import implementer
 from zope.interface import Interface
 from zope.interface import Invalid
+from zope.interface import invariant
 from zope.interface import noLongerProvides
 from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
@@ -432,7 +433,7 @@ class IFrenchEvaluation(model.Schema):
                 ),
             ]
         ),
-        required=True,
+        required=False,
         default=0,
     )
 
@@ -465,9 +466,20 @@ class IFrenchEvaluation(model.Schema):
                 ),
             ]
         ),
-        required=True,
+        required=False,
         default=0,
     )
+
+    @invariant
+    def french_invariant(data):
+        if data.type != "risk" or data.evaluation_method != "calculated":
+            return
+        if data.default_severity is None and data.default_frequency is None:
+            raise Invalid(_("Default frequency and severity are missing."))
+        if data.default_severity is None:
+            raise Invalid(_("Default severity is missing."))
+        if data.default_frequency is None:
+            raise Invalid(_("Default frequency is missing."))
 
 
 class IKinneyEvaluation(model.Schema):

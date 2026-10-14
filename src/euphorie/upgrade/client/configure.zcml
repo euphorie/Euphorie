@@ -9,8 +9,8 @@
       />
 
   <upgrade-step:directory
-      profile="euphorie.client:default"
       directory="v20"
+      profile="euphorie.client:default"
       />
 
 </configure>

@@ -1,7 +1,7 @@
 from setuptools import find_packages
 from setuptools import setup
 
-version = "20.0.0a1+dsetool.1.dev0"
+version = "20.0.3a1+dsetool.1.dev0"
 
 setup(
     name="Euphorie",
@@ -19,6 +19,7 @@ setup(
         "Programming Language :: Python :: 3.11",
         "Programming Language :: Python :: 3.12",
         "Programming Language :: Python :: 3.13",
+        "Programming Language :: Python :: 3.14",
         "Topic :: Internet :: WWW/HTTP",
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
