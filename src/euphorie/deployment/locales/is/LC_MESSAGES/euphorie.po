@@ -1007,8 +1007,8 @@ msgid "Profile questions are used to determine whether particular modules apply 
 msgstr "Spurningar um starfsemi eru notaðar til að ákveða hvort einstakir flokkar gagnist notandanum og hvort notandinn hafi val um að endurtaka flokkinn að vild (t.d. ef fyrirtækið hefur eitt eða fleiri útibú)."
 
 #: euphorie/client/browser/templates/report_landing.pt:59
-msgid "Provide a concise overview over your current status for internal use."
-msgstr "Gefðu stutta yfirlit yfir núverandi stöðu þína til innri nota."
+msgid "Provide a full overview of your current status."
+msgstr "Gefðu heildaryfirlit yfir núverandi stöðu þína."
 
 #: euphorie/client/browser/templates/report_landing.pt:82
 msgid "Provide evidence"

@@ -878,8 +878,8 @@ msgid "Profile questions are used to determine whether particular modules apply 
 msgstr "Les preguntes perfil es fan servir per determinar si els mòduls particulars són d’aplicacióa l’usuari (els mòduls inclosos dins les preguntes perfil sónOPCIONALS), i si són d’aplicació, es poden repetir el nombre de vegades que calgui (són REPETIBLES)."
 
 #: euphorie/client/browser/templates/report_landing.pt:59
-msgid "Provide a concise overview over your current status for internal use."
-msgstr "Proporcionar una visió concisa del vostre estat actual, per a ús intern."
+msgid "Provide a full overview of your current status."
+msgstr "Proporcionar una visió completa del vostre estat actual."
 
 #: euphorie/client/browser/templates/report_landing.pt:82
 msgid "Provide evidence"

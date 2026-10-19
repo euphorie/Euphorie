@@ -970,8 +970,8 @@ msgid "Profile questions are used to determine whether particular modules apply 
 msgstr "Vprašanja o profilu so namenjena določanju, ali so določeni moduli sploh uporabni za končnega uporabnika (tj. moduli znotraj vprašanj o profilu so PO IZBIRI), in če so ustrezni, ali bi jih bilo treba ponoviti(tj. moduli se MORAJO PONOVITI)."
 
 #: euphorie/client/browser/templates/report_landing.pt:59
-msgid "Provide a concise overview over your current status for internal use."
-msgstr "Predstavite jedrnat pregled vašega trenutnega stanja za notranjo uporabo."
+msgid "Provide a full overview of your current status."
+msgstr "Predstavite celovit pregled vašega trenutnega stanja."
 
 #: euphorie/client/browser/templates/report_landing.pt:82
 msgid "Provide evidence"

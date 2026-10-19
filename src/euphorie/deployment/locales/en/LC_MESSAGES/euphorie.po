@@ -873,8 +873,8 @@ msgid "Profile questions are used to determine whether particular modules apply 
 msgstr ""
 
 #: euphorie/client/browser/templates/report_landing.pt:59
-msgid "Provide a concise overview over your current status for internal use."
-msgstr ""
+msgid "Provide a full overview of your current status."
+msgstr "Provide a full overview of your current status."
 
 #: euphorie/client/browser/templates/report_landing.pt:82
 msgid "Provide evidence"

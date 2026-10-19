@@ -1079,8 +1079,8 @@ msgstr "Profilspørsmål brukes til å bestemme om spesielle moduler i det hele 
 
 #. AI-generated
 #: euphorie/client/browser/templates/report_landing.pt:59
-msgid "Provide a concise overview over your current status for internal use."
-msgstr "Gi en kort oversikt over din nåværende status for internt bruk."
+msgid "Provide a full overview of your current status."
+msgstr "Gi en fullstendig oversikt over din nåværende status."
 
 #. AI-generated
 #: euphorie/client/browser/templates/report_landing.pt:82

@@ -882,7 +882,7 @@ msgid "Profile questions are used to determine whether particular modules apply 
 msgstr "Les questions sur le profil sont utilisées pour déterminer si des modules particuliers s’appliquent à l’utilisateur final (c’est-à-dire que les modules dans la question sur le profil sont OPTIONNELS) et, le cas échéant, s’il convient de les répéter plusieurs fois (c’est-à-dire que les modules sont RÉPÉTABLES)."
 
 #: euphorie/client/browser/templates/report_landing.pt:59
-msgid "Provide a concise overview over your current status for internal use."
+msgid "Provide a full overview of your current status."
 msgstr ""
 
 #: euphorie/client/browser/templates/report_landing.pt:82

@@ -878,8 +878,8 @@ msgid "Profile questions are used to determine whether particular modules apply 
 msgstr "Pitanja o profilu koriste se za određivanje treba li pojedine module uopće primijeniti na krajnjeg korisnika (npr. moduli unutar pitanja o profilu su OPCIONALNI) i ako se primijene, treba li ih ponoviti nekoliko puta (npr. moduli su PONAVLJAJUĆI)."
 
 #: euphorie/client/browser/templates/report_landing.pt:59
-msgid "Provide a concise overview over your current status for internal use."
-msgstr "Pružite sažeti pregled svog trenutnog stanja za internu upotrebu."
+msgid "Provide a full overview of your current status."
+msgstr "Pružite potpuni pregled svog trenutnog stanja."
 
 #: euphorie/client/browser/templates/report_landing.pt:82
 msgid "Provide evidence"
