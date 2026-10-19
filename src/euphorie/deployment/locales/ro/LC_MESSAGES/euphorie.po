@@ -1112,8 +1112,8 @@ msgstr "Întrebările din profil sunt folosite pentru a determina dacă anumite 
 
 #. AI-generated
 #: euphorie/client/browser/templates/report_landing.pt:59
-msgid "Provide a concise overview over your current status for internal use."
-msgstr "Furnizați o prezentare concisă a stării dumneavoastră actuale pentru uz intern."
+msgid "Provide a full overview of your current status."
+msgstr "Furnizați o prezentare completă a stării dumneavoastră actuale."
 
 #. AI-generated
 #: euphorie/client/browser/templates/report_landing.pt:82

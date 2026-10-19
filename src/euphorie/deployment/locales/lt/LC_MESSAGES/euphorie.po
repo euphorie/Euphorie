@@ -968,8 +968,8 @@ msgid "Profile questions are used to determine whether particular modules apply 
 msgstr "Profilio klausimais siekiama sužinoti, ar konkretūs moduliai apskritai aktualūs galutiniam vartotojui (t.y. profilio klausimo moduliai yra NEPRIVALOMI), o jei jie aktualūs, ar juos reikia pakartotinai pateikti kelis kartus (t.y. moduliai gali KARTOTIS)."
 
 #: euphorie/client/browser/templates/report_landing.pt:59
-msgid "Provide a concise overview over your current status for internal use."
-msgstr "Pateikite glaustą dabartinės būklės apžvalgą vidaus naudojimui."
+msgid "Provide a full overview of your current status."
+msgstr "Pateikite išsamią dabartinės būklės apžvalgą."
 
 #: euphorie/client/browser/templates/report_landing.pt:82
 msgid "Provide evidence"

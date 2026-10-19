@@ -56,7 +56,7 @@
 
               <h4><tal:span i18n:translate="use_it_to_compact_report">Use it to</tal:span>:</h4>
               <ul>
-                <li i18n:translate="">Provide a concise overview over your current status for internal use.</li>
+                <li i18n:translate="">Provide a full overview of your current status.</li>
               </ul>
             </div>
           </div>

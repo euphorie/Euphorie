@@ -979,8 +979,8 @@ msgstr "Mithilfe von Profilfragen kann abgefragt werden, ob bestimmte Module den
 
 #. AI-generated
 #: euphorie/client/browser/templates/report_landing.pt:59
-msgid "Provide a concise overview over your current status for internal use."
-msgstr "Geben Sie einen prägnanten Überblick über Ihren aktuellen Status zur internen Verwendung."
+msgid "Provide a full overview of your current status."
+msgstr "Geben Sie einen vollen Überblick über Ihren aktuellen Status."
 
 #: euphorie/client/browser/templates/report_landing.pt:82
 msgid "Provide evidence"

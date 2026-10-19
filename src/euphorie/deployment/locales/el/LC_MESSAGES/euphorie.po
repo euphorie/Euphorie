@@ -881,8 +881,8 @@ msgid "Profile questions are used to determine whether particular modules apply 
 msgstr "Οι ερωτήσεις προφίλ χρησιμοποιούνται για να καθοριστεί κατά πόσο ισχύουν συγκεκριμένες ενότητες για τον τελικό χρήστη (δηλ. οι ενότητες στην ερώτηση προφίλ είναι ΠΡΟΑΙΡΕΤΙΚΕΣ), και εάν ισχύουν, κατά πόσο πρέπει να επαναλαμβάνονται ορισμένο αριθμό φορών (δηλ. οι ενότητες είναι ΕΠΑΝΑΛΑΜΒΑΝΟΜΕΝΕΣ)."
 
 #: euphorie/client/browser/templates/report_landing.pt:59
-msgid "Provide a concise overview over your current status for internal use."
-msgstr "Παρέχει μια συνοπτική επισκόπηση της τρέχουσας κατάστασης για εσωτερική χρήση."
+msgid "Provide a full overview of your current status."
+msgstr "Παρέχετε μια πλήρη επισκόπηση της τρέχουσας κατάστασής σας."
 
 #: euphorie/client/browser/templates/report_landing.pt:82
 msgid "Provide evidence"

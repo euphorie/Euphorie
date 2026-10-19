@@ -878,8 +878,8 @@ msgid "Profile questions are used to determine whether particular modules apply 
 msgstr "Il-mistoqsijiet dwar il-profil jintużaw biex jiġi stabbilit jekk moduli partikolari japplikawx għall-utent aħħari (i.e. il-moduli fil-mistoqsija dwar il-profil huma FAKULTATTIVI), u jekk japplikaw, jekk għandhomx jiġu ripetuti numru ta’ drabi (i.e. il-moduli JISTGĦU JIĠU RIPETUTI)."
 
 #: euphorie/client/browser/templates/report_landing.pt:59
-msgid "Provide a concise overview over your current status for internal use."
-msgstr "Ipprovdi ħarsa ġenerali konċiża fuq l-istatus attwali tiegħek għal użu intern."
+msgid "Provide a full overview of your current status."
+msgstr "Ipprovdi ħarsa ġenerali sħiħa tal-istatus attwali tiegħek."
 
 #: euphorie/client/browser/templates/report_landing.pt:82
 msgid "Provide evidence"

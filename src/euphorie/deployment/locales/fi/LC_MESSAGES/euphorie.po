@@ -878,7 +878,7 @@ msgid "Profile questions are used to determine whether particular modules apply 
 msgstr "Profiilikysymyksiä käytetään sen määrittämiseen, ovatko tietyt moduulit ylipäänsä sovellettavissa loppukäyttäjään (profiilikysymysten sisäiset moduulit ovat VAIHTOEHTOISIA), ja jos ne ovat sovellettavissa, onko ne toistettava useaan kertaan (moduulien TOISTETTAVUUS)."
 
 #: euphorie/client/browser/templates/report_landing.pt:59
-msgid "Provide a concise overview over your current status for internal use."
+msgid "Provide a full overview of your current status."
 msgstr "Riskinarvioinnin nykytilaa koskevan tiedon jakamiseen työpaikallanne."
 
 #: euphorie/client/browser/templates/report_landing.pt:82

@@ -882,8 +882,8 @@ msgid "Profile questions are used to determine whether particular modules apply 
 msgstr "Profielvragen worden gebruikt om te bepalen of bepaalde modules wel op de eindgebruiker van toepassing zijn (d.w.z. de modules binnen de profielvraag zijn OPTIONEEL) en zo ja, of de vragen een aantal keren moeten worden herhaald (d.w.z. HERHALING van de modules)."
 
 #: euphorie/client/browser/templates/report_landing.pt:59
-msgid "Provide a concise overview over your current status for internal use."
-msgstr "Geef een beknopt overzicht van uw huidige status voor intern gebruik."
+msgid "Provide a full overview of your current status."
+msgstr "Geef een volledig overzicht van uw huidige status."
 
 #: euphorie/client/browser/templates/report_landing.pt:82
 msgid "Provide evidence"

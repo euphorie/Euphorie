@@ -879,8 +879,8 @@ msgid "Profile questions are used to determine whether particular modules apply 
 msgstr "A profilkérdéseket annak megállapítására használják, hogy az egyes modulok egyáltalán alkalmazhatók-e a végfelhasználóra (azaz a profilkérdéseken belüli modulok FAKULTATÍVAK), és mennyiben alkalmazhatók, meg kell-e ismételni őket (azaz a modulok MEGISMÉTELHETŐK)."
 
 #: euphorie/client/browser/templates/report_landing.pt:59
-msgid "Provide a concise overview over your current status for internal use."
-msgstr "Adjon rövid áttekintést jelenlegi állapotáról belső használatra."
+msgid "Provide a full overview of your current status."
+msgstr "Adjon teljes áttekintést jelenlegi állapotáról."
 
 #: euphorie/client/browser/templates/report_landing.pt:82
 msgid "Provide evidence"
