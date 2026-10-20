@@ -34,6 +34,7 @@ from plone.protect.utils import addTokenToUrl
 from plone.supermodel import model
 from Products.CMFPlone import PloneLocalesMessageFactory
 from Products.Five import BrowserView
+from sqlalchemy import inspect
 from sqlalchemy import sql
 from sqlalchemy.orm import object_session
 from z3c.form.form import EditForm
@@ -54,20 +55,21 @@ except ImportError:
     from urllib.parse import quote  # Python 3+
 
 
-def sql_clone(obj, skip={}, session=None):
+def sql_clone(obj, skip=None, session=None):
     """Clone a sql object avoiding the properties in the skip parameter.
 
     The skip parameter is optional but you probably want to always pass
     the primary key
     """
-    # Never copy the _sa_instance_state attribute
-    skip.add("_sa_instance_state")
+    skip = set(skip or [])
+    mapper = inspect(obj).mapper
 
-    # Populate the __dict__. This is necessary for some special session types
-    for column in obj.__table__.columns:
-        if column.key not in skip:
-            getattr(obj, column.key, None)
-    params = {key: value for key, value in obj.__dict__.items() if key not in skip}
+    params = {
+        attr.key: getattr(obj, attr.key)
+        for attr in mapper.column_attrs
+        if attr.key not in skip
+    }
+
     clone = obj.__class__(**params)
     if session:
         session.add(clone)
