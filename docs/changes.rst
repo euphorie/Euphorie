@@ -8,6 +8,22 @@ Changelog
 
 .. towncrier release notes start
 
+20.1.0 (2026-10-21)
+-------------------
+
+New features:
+
+
+- Changed explanatory sentence for short report.
+  @angeldasangel, @ale-rt (`Issue #4957 <https://github.com/syslabcom/scrum/issues/4957>`_)
+
+
+Internal:
+
+
+- Update plone.patternslib to 9.11.1.
+
+
 20.0.2 (2026-08-11)
 -------------------
 
