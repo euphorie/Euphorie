@@ -8,15 +8,8 @@ Changelog
 
 .. towncrier release notes start
 
-20.1.0 (2026-10-21)
--------------------
-
-New features:
-
-
-- Changed explanatory sentence for short report.
-  @angeldasangel, @ale-rt (`Issue #4957 <https://github.com/syslabcom/scrum/issues/4957>`_)
-
+20.1.0a1+dsetool.0 (2026-10-21)
+-------------------------------
 
 Internal:
 
