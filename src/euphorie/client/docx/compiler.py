@@ -12,8 +12,8 @@ from euphorie.content.solution import ISolution
 from euphorie.content.survey import get_tool_type
 from euphorie.content.utils import IToolTypesInfo
 from euphorie.content.utils import UNWANTED
+from importlib.resources import files
 from lxml import etree
-from pkg_resources import resource_filename
 from plone import api
 from plone.memoize.view import memoize
 from plonetheme.nuplone.utils import formatDate
@@ -171,9 +171,7 @@ class DocxCompiler(BaseOfficeCompiler):
 
     @property
     def _template_filename(self):
-        return resource_filename(
-            "euphorie.client.docx", f"templates/{self._base_filename}"
-        )
+        return str(files("euphorie.client.docx") / "templates" / self._base_filename)
 
     # In case of templates that contain additional content before the actual
     # first page, this can be defined by providing offsets to the first

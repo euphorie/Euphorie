@@ -2,8 +2,6 @@
 
 from datetime import datetime
 from euphorie.client import model
-from pkg_resources import get_distribution
-from pkg_resources import parse_version
 from sqlalchemy import sql
 from sqlalchemy.engine.reflection import Inspector
 from sys import argv
@@ -19,8 +17,6 @@ formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s -  %(messa
 handler.setFormatter(formatter)
 logger.setLevel(logging.INFO)
 logger.addHandler(handler)
-
-euphorie_version = get_distribution("euphorie").parsed_version
 
 try:
     config = argv[1]
@@ -228,18 +224,6 @@ def main():
     # It is always a good idea to run this one
     create_missing_tables()
     add_archived_to_session()
-    if euphorie_version < parse_version("10.0.1"):
-        add_group_id_to_account()
-        add_brand_to_session()
-        add_group_id_to_session()
-        add_published_to_session()
-        add_last_modifier_id_to_session()
-        add_last_publisher_id_to_session()
-        hash_passwords()
-    if euphorie_version < parse_version("10.0.4"):
-        add_brand_to_group()
-    if euphorie_version < parse_version("11.0.5"):
-        add_custom_description_to_risk()
 
 
 if __name__ == "__main__":
