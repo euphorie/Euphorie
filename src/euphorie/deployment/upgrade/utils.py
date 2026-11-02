@@ -2,8 +2,8 @@ from alembic import command
 from alembic import op
 from alembic.config import Config
 from euphorie.client.model import Session
+from importlib.resources import files
 from logging import getLogger
-from pkg_resources import resource_filename
 from sqlalchemy import inspect
 from zope.deprecation import deprecate
 
@@ -26,7 +26,7 @@ def has_column(table_name, column_name):
 
 def alembic_upgrade():
     """Upgrade the database to the alembic head."""
-    script_location = resource_filename("euphorie.deployment.upgrade", "alembic")
+    script_location = str(files("euphorie.deployment.upgrade") / "alembic")
     url = Session().bind.engine.url.__to_string__(hide_password=False)
     alembic_cfg = Config()
     alembic_cfg.set_main_option("script_location", script_location)
@@ -38,7 +38,7 @@ def alembic_upgrade():
     "Use alembic_upgrade() to reach the head alembic revision",
 )
 def alembic_upgrade_to(revision):
-    script_location = resource_filename("euphorie.deployment.upgrade", "alembic")
+    script_location = str(files("euphorie.deployment.upgrade") / "alembic")
     url = Session().bind.engine.url.__to_string__(hide_password=False)
     alembic_cfg = Config()
     alembic_cfg.set_main_option("script_location", script_location)
