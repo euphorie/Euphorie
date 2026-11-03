@@ -8,7 +8,7 @@ Changelog
 
 .. towncrier release notes start
 
-20.1.1a1+dsetool.0 (unreleased)
+20.1.1a1+dsetool.0 (2026-11-03)
 -------------------------------
 
 New release based on Euphorie 20.1.1.
