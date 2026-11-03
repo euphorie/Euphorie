@@ -8,6 +8,22 @@ Changelog
 
 .. towncrier release notes start
 
+20.1.1 (2026-11-03)
+-------------------
+
+Bug fixes:
+
+
+- Fix and improve the way we clone sessions.
+  @ale-rt (`Issue #5358 <https://github.com/syslabcom/scrum/issues/5358>`_)
+
+
+Internal:
+
+
+- Replace pkg_resources with equivalent functionality from importlib
+
+
 20.1.0 (2026-10-21)
 -------------------
 
