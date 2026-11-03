@@ -12,9 +12,9 @@ from datetime import date
 from euphorie.client import model
 from euphorie.client import survey
 from euphorie.client import utils
+from importlib.resources import files
 from openpyxl.workbook import Workbook
 from openpyxl.writer.excel import save_workbook
-from pkg_resources import resource_filename
 from plone import api
 from plone.memoize.view import memoize
 from Products.Five import BrowserView
@@ -284,9 +284,10 @@ class ReportInventory(BrowserView):
     @property
     @memoize
     def cover(self):
-        filename = resource_filename(
-            "euphorie.client.browser",
-            f"templates/dsetool_cover_{self.country_code}.png",
+        filename = str(
+            files("euphorie.client.browser").joinpath(
+                f"templates/dsetool_cover_{self.country_code}.png"
+            )
         )
         with open(filename, "rb") as data:
             return b64encode(data.read())
@@ -294,9 +295,10 @@ class ReportInventory(BrowserView):
     @property
     @memoize
     def logo(self):
-        filename = resource_filename(
-            "euphorie.client.browser",
-            f"templates/dsetool_report_logo_{self.country_code}.png",
+        filename = str(
+            files("euphorie.client.browser").joinpath(
+                f"templates/dsetool_report_logo_{self.country_code}.png"
+            )
         )
         with open(filename, "rb") as data:
             return b64encode(data.read())

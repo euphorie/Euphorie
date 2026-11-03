@@ -8,6 +8,16 @@ Changelog
 
 .. towncrier release notes start
 
+20.1.1a1+dsetool.1 (2026-11-03)
+-------------------------------
+
+Bug fixes:
+
+
+- Remove pkg_resources from custom report.
+  @alert
+
+
 20.1.1a1+dsetool.0 (2026-11-03)
 -------------------------------
 
