@@ -23,10 +23,10 @@ from euphorie.content.survey import ISurvey
 from euphorie.content.utils import getRegionTitle
 from euphorie.content.utils import StripMarkup
 from functools import cached_property
+from importlib.resources import files
 from json import dumps
 from logging import getLogger
 from os import path
-from pkg_resources import resource_listdir
 from plone import api
 from plone.i18n.interfaces import ILanguageUtility
 from plone.i18n.normalizer import idnormalizer
@@ -510,10 +510,12 @@ class WebHelpers(BrowserView):
     @forever.memoize
     def available_help_languages(self):
         exclude = {"illustrations"}
-        return (
-            set(resource_listdir("plonestatic.euphorie", "resources/assets/oira/help"))
-            - exclude
-        )
+        return {
+            item.name
+            for item in (
+                files("plonestatic.euphorie") / "resources" / "assets" / "oira" / "help"
+            ).iterdir()
+        } - exclude
 
     @property
     @memoize
