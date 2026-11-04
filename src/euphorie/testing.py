@@ -16,6 +16,7 @@ from plone.app.testing import TEST_USER_PASSWORD
 from plone.testing import zope
 from plone.testing.zope import Browser
 from sqlalchemy import event
+from sqlalchemy import text
 from transaction import commit
 from unittest import mock
 from unittest import TestCase
@@ -59,7 +60,7 @@ class EuphorieFixture(PloneSandboxLayer):
         @event.listens_for(engine, "begin")
         def do_begin(conn):
             # emit our own BEGIN
-            conn.execute("BEGIN")
+            conn.execute(text("BEGIN"))
 
         # Start fresh
         self.testTearDown()

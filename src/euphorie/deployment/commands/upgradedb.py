@@ -2,8 +2,9 @@
 
 from datetime import datetime
 from euphorie.client import model
+from sqlalchemy import inspect
 from sqlalchemy import sql
-from sqlalchemy.engine.reflection import Inspector
+from sqlalchemy import text
 from sys import argv
 from transaction import commit
 from z3c.saconfig import Session
@@ -25,15 +26,15 @@ except IndexError:
 
 load_config(config)
 session = Session()
-inspector = Inspector.from_engine(session.bind)
+inspector = inspect(session.bind)
 
 
 def execute(statement):
     """Execute the given SQL statement and commit immediately after it is
     executed."""
     logger.info(statement)
-    session.execute(statement)
-    session.execute("COMMIT;")
+    session.execute(text(statement))
+    commit()
 
 
 def create_missing_tables():

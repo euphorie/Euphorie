@@ -547,7 +547,7 @@ class ChangeEmail(BrowserView):
             self.request.response.redirect(url)
             return
 
-        request = Session.query(AccountChangeRequest).get(key)
+        request = Session.get(AccountChangeRequest, key)
         if request is None:
             flash(_("This request could not be processed."), "warning")
             self.request.response.redirect(url)

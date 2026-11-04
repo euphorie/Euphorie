@@ -34,6 +34,7 @@ from Products.CMFPlone.utils import getAllowedSizes
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from sqlalchemy import and_
+from sqlalchemy import update
 from z3c.saconfig import Session
 from zope.component import getUtility
 from zope.deprecation import deprecate
@@ -854,16 +855,16 @@ class IdentificationView(RiskBase):
             # care of training measures that need to be activated or deactivated
             if active_measures_in_place:
                 session.execute(
-                    "UPDATE action_plan set used_in_training=true where id in ({ids})".format(  # noqa: E501
-                        ids=",".join(active_measures_in_place)
-                    )
+                    update(model.ActionPlan)
+                    .where(model.ActionPlan.id.in_(active_measures_in_place))
+                    .values(used_in_training=True)
                 )
                 changed = True
             if deselected_in_place_measures:
                 session.execute(
-                    "UPDATE action_plan set used_in_training=false where id in ({ids})".format(  # noqa: E501
-                        ids=",".join(deselected_in_place_measures)
-                    )
+                    update(model.ActionPlan)
+                    .where(model.ActionPlan.id.in_(deselected_in_place_measures))
+                    .values(used_in_training=False)
                 )
                 changed = True
         # In case we're not dealing with an integrated action plan, de-/ activate
@@ -871,16 +872,16 @@ class IdentificationView(RiskBase):
         if not self.webhelpers.integrated_action_plan:
             if active_measures_planned:
                 session.execute(
-                    "UPDATE action_plan set used_in_training=true where id in ({ids})".format(  # noqa: E501
-                        ids=",".join(active_measures_planned)
-                    )
+                    update(model.ActionPlan)
+                    .where(model.ActionPlan.id.in_(active_measures_planned))
+                    .values(used_in_training=True)
                 )
                 changed = True
             if deselected_planned_measures:
                 session.execute(
-                    "UPDATE action_plan set used_in_training=false where id in ({ids})".format(  # noqa: E501
-                        ids=",".join(deselected_planned_measures)
-                    )
+                    update(model.ActionPlan)
+                    .where(model.ActionPlan.id.in_(deselected_planned_measures))
+                    .values(used_in_training=False)
                 )
                 changed = True
         return changed

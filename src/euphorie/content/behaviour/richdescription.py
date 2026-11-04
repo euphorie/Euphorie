@@ -13,19 +13,12 @@ a catalog indexer which returns a plain text version of the description.
 
 from euphorie.content import MessageFactory as _
 from euphorie.content.utils import StripMarkup
+from html import unescape
 from plone.autoform import directives
 from plone.indexer import indexer
 from plone.supermodel import model
 from plonetheme.nuplone.z3cform.widget import WysiwygFieldWidget
 from zope import schema
-
-try:
-    from html import unescape
-except ImportError:
-    # PY2
-    import HTMLParser
-
-    unescape = HTMLParser.HTMLParser().unescape
 
 
 class IRichDescription(model.Schema):

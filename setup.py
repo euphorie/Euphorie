@@ -1,7 +1,7 @@
 from setuptools import find_packages
 from setuptools import setup
 
-version = "20.1.2.dev0"
+version = "21.0.0.dev0"
 
 setup(
     name="Euphorie",
@@ -12,7 +12,6 @@ setup(
         "Development Status :: 5 - Production/Stable",
         "Environment :: Web Environment",
         "Framework :: Plone",
-        "Framework :: Plone :: 6.1",
         "Framework :: Plone :: 6.2",
         "License :: OSI Approved :: GNU General Public License (GPL)",
         "Programming Language :: Python :: 3",
@@ -47,7 +46,7 @@ setup(
         "NuPlone >= 4.0.1",
         "openpyxl",
         "path.py",
-        "Plone >=6.0",
+        "Plone >=6.2",
         "plone.api",
         "plone.app.imagecropping",
         "plone.app.redirector",
@@ -68,7 +67,7 @@ setup(
         "scikit-learn",
         "setuptools",
         "sh",
-        "SQLAlchemy >=1.2.999999",
+        "SQLAlchemy >=2.1,<2.2",
         "stoneagehtml",
         "user_agents",
         "weasyprint",

@@ -246,7 +246,7 @@ class SessionsView(BrowserView, SurveyTemplatesMixin):
 
     def _ContinueSurvey(self, info):
         """Utility method to continue an existing session."""
-        session = Session.query(self.survey_session_model).get(info["session"])
+        session = Session.get(self.survey_session_model, info["session"])
         extra = ""
         if info.get("new_clone", None):
             extra = "&new_clone=1"
@@ -255,7 +255,7 @@ class SessionsView(BrowserView, SurveyTemplatesMixin):
         )
 
     def _CloneSurvey(self, info):
-        session = Session.query(self.survey_session_model).get(info["session"])
+        session = Session.get(self.survey_session_model, info["session"])
         clone_view = api.content.get_view(
             "clone-session", session.traversed_session, self.request
         )

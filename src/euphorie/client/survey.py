@@ -41,41 +41,37 @@ class _StatusHelper:
     def module_query(self, sessionid, optional_modules):
         if optional_modules:
             case_clause = case(
-                [
-                    (
-                        sql.and_(
-                            model.SurveyTreeItem.profile_index != -1,
-                            model.SurveyTreeItem.zodb_path.in_(optional_modules),
-                        ),
-                        func.substr(model.SurveyTreeItem.path, 1, 6),
+                (
+                    sql.and_(
+                        model.SurveyTreeItem.profile_index != -1,
+                        model.SurveyTreeItem.zodb_path.in_(optional_modules),
                     ),
-                    (
-                        sql.and_(
-                            model.SurveyTreeItem.profile_index == -1,
-                            model.SurveyTreeItem.zodb_path.in_(optional_modules),
-                        ),
-                        func.substr(model.SurveyTreeItem.path, 1, 3) + "000-profile",
+                    func.substr(model.SurveyTreeItem.path, 1, 6),
+                ),
+                (
+                    sql.and_(
+                        model.SurveyTreeItem.profile_index == -1,
+                        model.SurveyTreeItem.zodb_path.in_(optional_modules),
                     ),
-                    (
-                        sql.and_(
-                            model.SurveyTreeItem.profile_index != -1,
-                            model.SurveyTreeItem.depth < 2,
-                        ),
-                        func.substr(model.SurveyTreeItem.path, 1, 3),
+                    func.substr(model.SurveyTreeItem.path, 1, 3) + "000-profile",
+                ),
+                (
+                    sql.and_(
+                        model.SurveyTreeItem.profile_index != -1,
+                        model.SurveyTreeItem.depth < 2,
                     ),
-                ]
+                    func.substr(model.SurveyTreeItem.path, 1, 3),
+                ),
             )
         else:
             case_clause = case(
-                [
-                    (
-                        sql.and_(
-                            model.SurveyTreeItem.profile_index != -1,
-                            model.SurveyTreeItem.depth < 2,
-                        ),
-                        func.substr(model.SurveyTreeItem.path, 1, 3),
-                    )
-                ]
+                (
+                    sql.and_(
+                        model.SurveyTreeItem.profile_index != -1,
+                        model.SurveyTreeItem.depth < 2,
+                    ),
+                    func.substr(model.SurveyTreeItem.path, 1, 3),
+                )
             )
 
         query = (
@@ -313,13 +309,11 @@ class _StatusHelper:
                 )
             )
             .join(
-                (
-                    model.Risk,
-                    sql.and_(
-                        model.Risk.path.startswith(model.Module.path),
-                        model.Risk.session_id == session_id,
-                    ),
-                )
+                model.Risk,
+                sql.and_(
+                    model.Risk.path.startswith(model.Module.path),
+                    model.Risk.session_id == session_id,
+                ),
             )
             .order_by(model.Risk.path)
         )
