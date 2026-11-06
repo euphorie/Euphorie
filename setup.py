@@ -39,7 +39,6 @@ setup(
         "Chameleon",
         "collective.ftw.upgrade",
         "decorator",
-        "ftw.upgrade",
         "lxml",
         "markdownify",
         "nltk",

@@ -1,0 +1,2 @@
+Remove the stale dependency from ftw.upgrade.
+@ale-rt
