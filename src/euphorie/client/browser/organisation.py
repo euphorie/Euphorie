@@ -222,8 +222,8 @@ class PanelAddUser(OrganisationBaseView):
         if not organisation_id:
             return account.organisation
 
-        organisation = self.sqlsession.query(Organisation).get(
-            self.request.get(self.organisation_id_key)
+        organisation = self.sqlsession.get(
+            Organisation, self.request.get(self.organisation_id_key)
         )
         if not organisation:
             return
@@ -364,9 +364,7 @@ class ConfirmInvite(BaseView):
     def organisation(self):
         if not self.token_value:
             return
-        return self.sqlsession.query(Organisation).get(
-            self.token_value["organisation_id"]
-        )
+        return self.sqlsession.get(Organisation, self.token_value["organisation_id"])
 
     @property
     @memoize_contextless
@@ -571,8 +569,8 @@ class PanelEditOrganisation(OrganisationBaseView):
         if not organisation_id:
             return account.organisation
 
-        organisation = self.sqlsession.query(Organisation).get(
-            self.request.get(self.organisation_id_key)
+        organisation = self.sqlsession.get(
+            Organisation, self.request.get(self.organisation_id_key)
         )
         if not organisation:
             return
@@ -648,8 +646,8 @@ class OrganisationLogo(OrganisationBaseView):
         if not organisation_id:
             return account.organisation
 
-        organisation = self.sqlsession.query(Organisation).get(
-            self.request.get(self.organisation_id_key)
+        organisation = self.sqlsession.get(
+            Organisation, self.request.get(self.organisation_id_key)
         )
         if not organisation:
             return
@@ -746,7 +744,7 @@ class PanelMemberEdit(OrganisationBaseView):
     @memoize
     def edited_member(self):
         """Return the member to edit."""
-        return self.sqlsession.query(Account).get(self.membership.member_id)
+        return self.sqlsession.get(Account, self.membership.member_id)
 
     @property
     def role_options(self):
@@ -818,7 +816,7 @@ class PanelMemberRemove(OrganisationBaseView):
     @property
     @memoize
     def member_to_remove(self):
-        return self.sqlsession.query(Account).get(self.membership.member_id)
+        return self.sqlsession.get(Account, self.membership.member_id)
 
     def validate(self):
         if not self.membership:

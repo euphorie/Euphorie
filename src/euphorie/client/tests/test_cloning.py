@@ -37,7 +37,7 @@ class TestCloningViews(EuphorieIntegrationTestCase):
         risk = module.addChild(
             model.Risk(title="question 1", risk_id="1", zodb_path="a/b")
         )
-        model.ActionPlan(action_plan="This is the plan", risk=risk)
+        model.Session.add(model.ActionPlan(action_plan="This is the plan", risk=risk))
         model.Session.add(survey_session)
 
     def test_clone(self):
@@ -68,7 +68,7 @@ class TestCloningViews(EuphorieIntegrationTestCase):
 
         with api.env.adopt_user(user=self.john):
             with self._get_view("clone-session", traversed_session) as view:
-                original = model.Session.query(model.SurveySession).get(1)
+                original = model.Session.get(model.SurveySession, 1)
                 clone = view.get_cloned_session()
                 # The cloned session has a lot in common with the original one
                 # The title is prefixed with a COPY marker

@@ -249,6 +249,7 @@ class Company(AutoExtensibleForm, form.Form):
     def applyChanges(self, data):
         content = self.getContent()
         applyChanges(self, content, data)
+        model.Session.add(content)
 
     @button.buttonAndHandler("Previous")
     def handlePrevious(self, action):

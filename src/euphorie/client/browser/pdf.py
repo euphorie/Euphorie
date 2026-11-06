@@ -3,17 +3,12 @@ from path import Path
 from plone import api
 from plone.memoize.view import memoize
 from Products.Five import BrowserView
+from tempfile import TemporaryDirectory
 from urllib.parse import quote
 from weasyprint import CSS
 from weasyprint import HTML
 
 import logging
-
-try:
-    from tempfile import TemporaryDirectory
-except ImportError:
-    # PY2
-    from backports.tempfile import TemporaryDirectory
 
 log = logging.getLogger(__name__)
 

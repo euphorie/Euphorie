@@ -4,7 +4,8 @@ Installation
 Euphorie is implemented as a set of add-on products for `Plone`_. The
 requirements for running an Euphorie site are:
 
-* Plone 4.0 or later.
+* Plone 6.2 or later.
+* Python 3.11 or later.
 * a SQL database
 * two separate virtual hosts
 

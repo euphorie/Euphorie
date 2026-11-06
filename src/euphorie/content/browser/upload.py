@@ -14,6 +14,7 @@ from ..risk import IRisk
 from ..user import LoginField
 from ..user import validLoginValue
 from Acquisition import aq_inner
+from base64 import decodebytes
 from euphorie.content import MessageFactory as _
 from euphorie.content.behaviors.hide_from_training import IHideFromTraining
 from euphorie.content.behaviors.toolcategory import IToolCategory
@@ -39,12 +40,6 @@ import lxml.etree
 import lxml.objectify
 import mimetypes
 import secrets
-
-try:
-    from base64 import decodebytes
-except ImportError:
-    # PY27
-    from base64 import decodestring as decodebytes
 
 ProfileQuestionLocationFields = [
     "label_multiple_present",

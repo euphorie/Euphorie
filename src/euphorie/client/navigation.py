@@ -105,12 +105,11 @@ class TreeDataCreator(BrowserView):
         if not element:
             element = self.context
 
-        query = Session.query(model.SurveyTreeItem)
         title_custom_risks = utils.get_translated_custom_risks_title(self.request)
         root = element
         parents = []
         while root.parent_id is not None:
-            parent = query.get(root.parent_id)
+            parent = Session.get(model.SurveyTreeItem, root.parent_id)
             parents.append(parent)
             root = parent
         parents.reverse()
