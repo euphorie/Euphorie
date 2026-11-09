@@ -8,6 +8,22 @@ Changelog
 
 .. towncrier release notes start
 
+21.0.0 (2026-11-09)
+-------------------
+
+Breaking changes:
+
+
+- Remove the stale dependency from ftw.upgrade.
+  @ale-rt
+
+
+Internal:
+
+
+- Use SQLAlchemy 2.1. Support only Plone 6.2 Python3.11+ (`Issue #5421 <https://github.com/syslabcom/scrum/issues/5421>`_)
+
+
 20.1.1 (2026-11-03)
 -------------------
 

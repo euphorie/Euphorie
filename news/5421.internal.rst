@@ -1,1 +1,0 @@
-Use SQLAlchemy 2.1. Support only Plone 6.2 Python3.11+
