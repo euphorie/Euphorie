@@ -8,9 +8,4 @@
       file="meta.zcml"
       />
 
-  <upgrade-step:directory
-      directory="v1"
-      profile="euphorie.content:default"
-      />
-
 </configure>
