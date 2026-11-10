@@ -222,9 +222,7 @@ class PanelAddUser(OrganisationBaseView):
         if not organisation_id:
             return account.organisation
 
-        organisation = self.sqlsession.get(
-            Organisation, self.request.get(self.organisation_id_key)
-        )
+        organisation = self.sqlsession.get(Organisation, int(organisation_id))
         if not organisation:
             return
 
@@ -569,9 +567,7 @@ class PanelEditOrganisation(OrganisationBaseView):
         if not organisation_id:
             return account.organisation
 
-        organisation = self.sqlsession.get(
-            Organisation, self.request.get(self.organisation_id_key)
-        )
+        organisation = self.sqlsession.get(Organisation, int(organisation_id))
         if not organisation:
             return
 
@@ -646,9 +642,7 @@ class OrganisationLogo(OrganisationBaseView):
         if not organisation_id:
             return account.organisation
 
-        organisation = self.sqlsession.get(
-            Organisation, self.request.get(self.organisation_id_key)
-        )
+        organisation = self.sqlsession.get(Organisation, int(organisation_id))
         if not organisation:
             return
 
@@ -711,7 +705,7 @@ class PanelMemberEdit(OrganisationBaseView):
     @memoize
     def membership(self):
         """Return the role of the member in the organisation."""
-        membership_id = self.request.get("membership_id")
+        membership_id = int(self.request.get("membership_id"))
         account = self.webhelpers.get_current_account()
         membership = (
             self.sqlsession.query(OrganisationMembership)
@@ -784,7 +778,7 @@ class PanelMemberRemove(OrganisationBaseView):
     @memoize
     def membership(self):
         """Return the role of the member in the organisation."""
-        membership_id = self.request.get("membership_id")
+        membership_id = int(self.request.get("membership_id"))
         account = self.webhelpers.get_current_account()
         membership = (
             self.sqlsession.query(OrganisationMembership)

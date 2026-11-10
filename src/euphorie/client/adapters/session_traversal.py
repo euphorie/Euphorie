@@ -53,7 +53,7 @@ class SessionTraversal(SimpleHandler):
 
     def get_redirect(self, session_id):
         query = Session.query(SessionRedirect).filter(
-            SessionRedirect.old_session_id == session_id
+            SessionRedirect.old_session_id == int(session_id)
         )
         if query.count() == 0:
             return None

@@ -337,6 +337,7 @@ class TrainingView(BrowserView, survey._StatusHelper):
 
     def get_training_by_id(self, training_id):
         """Return the training for this session with the given id."""
+        training_id = int(training_id)
         # check the session id to make sure we are not displaying a training in the
         # context of a different session
         session_id = self.webhelpers.session_id
@@ -518,7 +519,8 @@ class TrainingView(BrowserView, survey._StatusHelper):
 
     def handle_measure_configuration(self, reply):
         session = Session()
-        risk = session.query(Risk).filter(Risk.id == reply["risk_id"]).first()
+        risk_id = int(reply.get("risk_id"))
+        risk = session.query(Risk).filter(Risk.id == risk_id).first()
         if not risk:
             return
         # Gather all (database-) ids of the active measures. That means, those
@@ -529,19 +531,19 @@ class TrainingView(BrowserView, survey._StatusHelper):
         active_measures_planned = []
         for entry in reply:
             if entry.startswith("training-measure-in-place") and entry.find("-") >= 0:
-                measure_id = entry.split("-")[-1]
+                measure_id = int(entry.split("-")[-1])
                 active_measures_in_place.append(measure_id)
             elif entry.startswith("training-measure-planned") and entry.find("-") >= 0:
-                measure_id = entry.split("-")[-1]
+                measure_id = int(entry.split("-")[-1])
                 active_measures_planned.append(measure_id)
         # Get the (database-) ids of all measures-in-place / planned measures
         all_in_place_measures = {
-            str(measure.id)
+            measure.id
             for measure in list(risk.in_place_standard_measures)
             + list(risk.in_place_custom_measures)
         }
         all_planned_measures = {
-            str(measure.id)
+            measure.id
             for measure in list(risk.standard_measures) + list(risk.custom_measures)
         }
         # Additionally store the (database-) ids of all measures that have been
