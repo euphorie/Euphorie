@@ -1106,7 +1106,7 @@ class SurveySession(BaseObject):
             "old_sessionid": other.id,
             "new_sessionid": self.id,
         }
-        session.execute(statement)
+        session.execute(text(statement))
 
         # Copy over previous session metadata. Specifically, we don't want to
         # create a new modification timestamp, just because the underlying

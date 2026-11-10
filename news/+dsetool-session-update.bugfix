@@ -1,0 +1,1 @@
+Fix copying inventory answers when updating a session with SQLAlchemy 2.1.
