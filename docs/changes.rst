@@ -8,6 +8,16 @@ Changelog
 
 .. towncrier release notes start
 
+21.0.0a1+dsetool.0 (2026-11-10)
+-------------------------------
+
+Bug fixes:
+
+
+- Fix copying inventory answers when updating a session with SQLAlchemy 2.1.
+- Fix the inventory choice and option mapping for SQLAlchemy 2.1.
+- Preserve inventory choices and selected options when cloning a session.
+
 
 21.0.0 (2026-11-09)
 -------------------

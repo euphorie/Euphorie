@@ -1,7 +1,7 @@
 from setuptools import find_packages
 from setuptools import setup
 
-version = "20.1.1a1+dsetool.2.dev0"
+version = "21.0.0a1+dsetool.0"
 
 setup(
     name="Euphorie",
