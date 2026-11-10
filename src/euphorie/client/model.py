@@ -30,9 +30,9 @@ from sqlalchemy import func
 from sqlalchemy import orm
 from sqlalchemy import schema
 from sqlalchemy import sql
+from sqlalchemy import text
 from sqlalchemy import types
 from sqlalchemy.event import listen
-from sqlalchemy.ext.declarative.extensions import instrument_declarative
 from sqlalchemy.orm.decl_base import _declarative_constructor
 from sqlalchemy.sql import functions
 from z3c.saconfig import Session
@@ -195,7 +195,7 @@ class SurveyTreeItem(BaseObject):
     @property
     def parent(self):
         # XXX Evil! Figure out why the parent relation does not work
-        return self.parent_id and Session.query(SurveyTreeItem).get(self.parent_id)
+        return self.parent_id and Session.get(SurveyTreeItem, self.parent_id)
 
     def getId(self):
         return self.path[-3:].lstrip("0")
@@ -939,6 +939,9 @@ class SurveySession(BaseObject):
 
     def addChild(self, item):
         sqlsession = Session()
+        # The parent needs an id before a new child can be traversed.
+        if self not in sqlsession:
+            sqlsession.add(self)
         query = (
             sqlsession.query(SurveyTreeItem.path)
             .filter(SurveyTreeItem.session_id == self.id)
@@ -980,12 +983,12 @@ class SurveySession(BaseObject):
             SurveyTreeItem.zodb_path == old_tree.zodb_path,
             SurveyTreeItem.profile_index == old_tree.profile_index,
         )
-        skip_children = sql.select([old_tree.skip_children], in_old_tree).limit(1)
-        postponed = sql.select([old_tree.postponed], in_old_tree).limit(1)
+        skip_children = sql.select(old_tree.skip_children).where(in_old_tree).limit(1)
+        postponed = sql.select(old_tree.postponed).where(in_old_tree).limit(1)
         new_items = (
             session.query(SurveyTreeItem)
             .filter(SurveyTreeItem.session == self)
-            .filter(sql.exists(sql.select([old_tree.id]).where(in_old_tree)))
+            .filter(sql.exists(sql.select(old_tree.id).where(in_old_tree)))
         )
         new_items.update(
             {"skip_children": skip_children, "postponed": postponed},
@@ -1052,7 +1055,7 @@ class SurveySession(BaseObject):
             new_sessionid=self.id,
             skip_preset_to_no_clause=skip_preset_to_no_clause,
         )
-        session.execute(statement)
+        session.execute(text(statement))
 
         statement = """\
         INSERT INTO action_plan (risk_id, action_plan, prevention_plan, action,
@@ -1082,7 +1085,7 @@ class SurveySession(BaseObject):
             "old_sessionid": other.id,
             "new_sessionid": self.id,
         }
-        session.execute(statement)
+        session.execute(text(statement))
 
         # Copy over answered options for choice items
         statement = """\
@@ -1122,7 +1125,7 @@ class SurveySession(BaseObject):
             "old_sessionid": other.id,
             "new_sessionid": self.id,
         }
-        session.execute(statement)
+        session.execute(text(statement))
 
         session.query(Company).filter(Company.session == other).update(
             {"session_id": self.id}, synchronize_session=False
@@ -1749,7 +1752,13 @@ class NotificationSubscription(BaseObject):
 
 _instrumented = False
 if not _instrumented:
-    metadata._decl_registry = {}
+    mapper_registry = orm.registry(metadata=metadata)
+
+    def copy_column(name, column):
+        copied = column.copy()
+        copied.name = copied.name or name
+        return copied
+
     for cls in [
         Consultancy,
         SurveyTreeItem,
@@ -1770,7 +1779,32 @@ if not _instrumented:
         OrganisationMembership,
         NotificationSubscription,
     ]:
-        instrument_declarative(cls, metadata._decl_registry, metadata)
+        # Mapping a concrete parent also maps its single-table-inheritance
+        # subclasses (Module and Risk).
+        if issubclass(cls, SurveyTreeItem) and cls is not SurveyTreeItem:
+            table = schema.Table(
+                cls.__tablename__,
+                metadata,
+                *[
+                    copy_column(name, column)
+                    for name, column in cls.__dict__.items()
+                    if isinstance(column, schema.Column)
+                ],
+            )
+            properties = {
+                name: value
+                for name, value in cls.__dict__.items()
+                if isinstance(value, orm.RelationshipProperty)
+            }
+            mapper_registry.map_imperatively(
+                cls,
+                table,
+                inherits=SurveyTreeItem,
+                polymorphic_identity=cls.__mapper_args__["polymorphic_identity"],
+                properties=properties,
+            )
+        else:
+            mapper_registry.map_declaratively(cls)
     orm.configure_mappers()
     _instrumented = True
 
@@ -1803,7 +1837,7 @@ NO_CUSTOM_RISKS_FILTER = sql.not_(
     sql.and_(
         SurveyTreeItem.type == "risk",
         sql.exists(
-            sql.select([Risk.sql_risk_id]).where(
+            sql.select(Risk.sql_risk_id).where(
                 sql.and_(
                     Risk.sql_risk_id == SurveyTreeItem.id,
                     Risk.is_custom_risk == True,  # noqa: E712
@@ -1821,16 +1855,17 @@ RISK_OR_MODULE_WITH_DESCRIPTION_FILTER = sql.or_(
 # Used by tno.euphorie
 def _MODULE_WITH_RISK_FILTER_factory():
     child_node = orm.aliased(SurveyTreeItem)
+    risk = Risk.__table__
     return sql.and_(
         SurveyTreeItem.type == "module",
         SurveyTreeItem.skip_children == False,  # noqa: E712
         sql.exists(
-            sql.select([child_node.id]).where(
+            sql.select(child_node.id).where(
                 sql.and_(
                     child_node.session_id == SurveyTreeItem.session_id,
-                    child_node.id == Risk.sql_risk_id,
+                    child_node.id == risk.c.id,
                     child_node.type == "risk",
-                    Risk.identification == "no",
+                    risk.c.identification == "no",
                     child_node.depth > SurveyTreeItem.depth,
                     child_node.path.like(SurveyTreeItem.path + "%"),
                 )
@@ -1844,16 +1879,17 @@ MODULE_WITH_RISK_FILTER = _MODULE_WITH_RISK_FILTER_factory()
 
 def _MODULE_WITH_RISK_OR_TOP5_FILTER_factory():
     child_node = orm.aliased(SurveyTreeItem)
+    risk = Risk.__table__
     return sql.and_(
         SurveyTreeItem.type == "module",
         SurveyTreeItem.skip_children == False,  # noqa: E712
         sql.exists(
-            sql.select([child_node.id]).where(
+            sql.select(child_node.id).where(
                 sql.and_(
                     child_node.session_id == SurveyTreeItem.session_id,
-                    child_node.id == Risk.sql_risk_id,
+                    child_node.id == risk.c.id,
                     child_node.type == "risk",
-                    sql.or_(Risk.identification == "no", Risk.risk_type == "top5"),
+                    sql.or_(risk.c.identification == "no", risk.c.risk_type == "top5"),
                     child_node.depth > SurveyTreeItem.depth,
                     child_node.path.like(SurveyTreeItem.path + "%"),
                 )
@@ -1867,22 +1903,23 @@ MODULE_WITH_RISK_OR_TOP5_FILTER = _MODULE_WITH_RISK_OR_TOP5_FILTER_factory()
 
 def _MODULE_WITH_RISK_TOP5_TNO_FILTER_factory():
     child_node = orm.aliased(SurveyTreeItem)
+    risk = Risk.__table__
     return sql.and_(
         SurveyTreeItem.type == "module",
         SurveyTreeItem.skip_children == False,  # noqa: E712
         sql.exists(
-            sql.select([child_node.id]).where(
+            sql.select(child_node.id).where(
                 sql.and_(
                     child_node.session_id == SurveyTreeItem.session_id,
-                    child_node.id == Risk.sql_risk_id,
+                    child_node.id == risk.c.id,
                     child_node.type == "risk",
                     sql.or_(
-                        Risk.identification == "no",
+                        risk.c.identification == "no",
                         sql.and_(
-                            Risk.risk_type == "top5",
+                            risk.c.risk_type == "top5",
                             sql.or_(
-                                sql.not_(Risk.identification.in_(["n/a", "yes"])),
-                                Risk.identification is None,
+                                sql.not_(risk.c.identification.in_(["n/a", "yes"])),
+                                risk.c.identification == None,  # noqa: E711
                             ),
                         ),
                     ),
@@ -1900,18 +1937,19 @@ MODULE_WITH_RISK_TOP5_TNO_FILTER = _MODULE_WITH_RISK_TOP5_TNO_FILTER_factory()
 
 def _MODULE_WITH_RISK_NO_TOP5_NO_POLICY_DO_EVALUTE_FILTER_factory():
     child_node = orm.aliased(SurveyTreeItem)
+    risk = Risk.__table__
     return sql.and_(
         SurveyTreeItem.type == "module",
         SurveyTreeItem.skip_children == False,  # noqa: E712
         sql.exists(
-            sql.select([child_node.id]).where(
+            sql.select(child_node.id).where(
                 sql.and_(
                     child_node.session_id == SurveyTreeItem.session_id,
-                    child_node.id == Risk.sql_risk_id,
+                    child_node.id == risk.c.id,
                     child_node.type == "risk",
-                    sql.not_(Risk.risk_type.in_(["top5", "policy"])),
-                    sql.not_(Risk.skip_evaluation is True),
-                    Risk.identification == "no",
+                    sql.not_(risk.c.risk_type.in_(["top5", "policy"])),
+                    risk.c.skip_evaluation == False,  # noqa: E712
+                    risk.c.identification == "no",
                     child_node.depth > SurveyTreeItem.depth,
                     child_node.path.like(SurveyTreeItem.path + "%"),
                 )
@@ -1928,7 +1966,7 @@ MODULE_WITH_RISK_NO_TOP5_NO_POLICY_DO_EVALUTE_FILTER = (
 RISK_PRESENT_FILTER = sql.and_(
     SurveyTreeItem.type == "risk",
     sql.exists(
-        sql.select([Risk.sql_risk_id]).where(
+        sql.select(Risk.sql_risk_id).where(
             sql.and_(Risk.sql_risk_id == SurveyTreeItem.id, Risk.identification == "no")
         )
     ),
@@ -1940,7 +1978,7 @@ def _RISK_PRESENT_FILTER_TOP5_TNO_FILTER_factory():
     return sql.and_(
         SurveyTreeItem.type == "risk",
         sql.exists(
-            sql.select([Risk_.sql_risk_id]).where(
+            sql.select(Risk_.sql_risk_id).where(
                 sql.and_(
                     Risk_.sql_risk_id == SurveyTreeItem.id,
                     sql.or_(
@@ -1963,16 +2001,16 @@ RISK_PRESENT_FILTER_TOP5_TNO_FILTER = _RISK_PRESENT_FILTER_TOP5_TNO_FILTER_facto
 
 
 def _RISK_PRESENT_OR_TOP5_FILTER_factory():
-    Risk_ = orm.aliased(Risk)
+    risk = Risk.__table__
     return sql.and_(
         SurveyTreeItem.type == "risk",
         sql.exists(
-            sql.select([Risk_.sql_risk_id]).where(
+            sql.select(risk.c.id).where(
                 sql.and_(
-                    Risk_.sql_risk_id == SurveyTreeItem.id,
+                    risk.c.id == SurveyTreeItem.id,
                     sql.or_(
-                        Risk_.identification == "no",
-                        Risk_.risk_type == "top5",
+                        risk.c.identification == "no",
+                        risk.c.risk_type == "top5",
                     ),
                 )
             )
@@ -1985,7 +2023,7 @@ RISK_PRESENT_OR_TOP5_FILTER = _RISK_PRESENT_OR_TOP5_FILTER_factory()
 RISK_PRESENT_NO_TOP5_NO_POLICY_DO_EVALUTE_FILTER = sql.and_(
     SurveyTreeItem.type == "risk",
     sql.exists(
-        sql.select([Risk.sql_risk_id]).where(
+        sql.select(Risk.sql_risk_id).where(
             sql.and_(
                 Risk.sql_risk_id == SurveyTreeItem.id,
                 sql.not_(Risk.risk_type.in_(["top5", "policy"])),
@@ -2022,14 +2060,14 @@ SKIPPED_MODULE = _SKIPPED_MODULE_factory()
 
 
 def _UNANSWERED_RISKS_FILTER_factory():
-    Risk_ = orm.aliased(Risk)
+    risk = Risk.__table__
     return sql.and_(
         SurveyTreeItem.type == "risk",
         sql.exists(
-            sql.select([Risk_.sql_risk_id]).where(
+            sql.select(risk.c.id).where(
                 sql.and_(
-                    Risk_.sql_risk_id == SurveyTreeItem.id,
-                    Risk_.identification == None,  # noqa: E711
+                    risk.c.id == SurveyTreeItem.id,
+                    risk.c.identification == None,  # noqa: E711
                 )
             )
         ),
@@ -2041,16 +2079,17 @@ UNANSWERED_RISKS_FILTER = _UNANSWERED_RISKS_FILTER_factory()
 
 def _MODULE_WITH_UNANSWERED_RISKS_FILTER_factory():
     child_node = orm.aliased(SurveyTreeItem)
+    risk = Risk.__table__
     return sql.and_(
         SurveyTreeItem.type == "module",
         SurveyTreeItem.skip_children == False,  # noqa: E712
         sql.exists(
-            sql.select([child_node.id]).where(
+            sql.select(child_node.id).where(
                 sql.and_(
                     child_node.session_id == SurveyTreeItem.session_id,
-                    child_node.id == Risk.sql_risk_id,
+                    child_node.id == risk.c.id,
                     child_node.type == "risk",
-                    Risk.identification is None,
+                    risk.c.identification == None,  # noqa: E711
                     child_node.depth > SurveyTreeItem.depth,
                     child_node.path.like(SurveyTreeItem.path + "%"),
                 )
@@ -2064,16 +2103,17 @@ MODULE_WITH_UNANSWERED_RISKS_FILTER = _MODULE_WITH_UNANSWERED_RISKS_FILTER_facto
 
 def _MODULE_WITH_RISKS_NOT_PRESENT_FILTER_factory():
     child_node = orm.aliased(SurveyTreeItem)
+    risk = Risk.__table__
     return sql.and_(
         SurveyTreeItem.type == "module",
         SurveyTreeItem.skip_children == False,  # noqa: E712
         sql.exists(
-            sql.select([child_node.id]).where(
+            sql.select(child_node.id).where(
                 sql.and_(
                     child_node.session_id == SurveyTreeItem.session_id,
-                    child_node.id == Risk.sql_risk_id,
+                    child_node.id == risk.c.id,
                     child_node.type == "risk",
-                    Risk.identification == "yes",
+                    risk.c.identification == "yes",
                     child_node.depth > SurveyTreeItem.depth,
                     child_node.path.like(SurveyTreeItem.path + "%"),
                 )
@@ -2086,14 +2126,14 @@ MODULE_WITH_RISKS_NOT_PRESENT_FILTER = _MODULE_WITH_RISKS_NOT_PRESENT_FILTER_fac
 
 
 def RISK_NOT_PRESENT_FILTER_factory():
-    Risk_ = orm.aliased(Risk)
+    risk = Risk.__table__
     return sql.and_(
         SurveyTreeItem.type == "risk",
         sql.exists(
-            sql.select([Risk_.sql_risk_id]).where(
+            sql.select(risk.c.id).where(
                 sql.and_(
-                    Risk_.sql_risk_id == SurveyTreeItem.id,
-                    Risk_.identification == "yes",
+                    risk.c.id == SurveyTreeItem.id,
+                    risk.c.identification == "yes",
                 )
             )
         ),
@@ -2151,7 +2191,7 @@ class DefaultView(BrowserView):
 
 @ram.cache(lambda _: "show_timezone_cache_key")
 def show_timezone():
-    timezone = Session.execute("SHOW TIMEZONE").first()
+    timezone = Session.execute(text("SHOW TIMEZONE")).first()
     return pytz.timezone(timezone[0])
 
 

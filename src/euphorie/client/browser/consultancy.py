@@ -13,6 +13,7 @@ from plone.memoize import instance
 from plone.memoize.view import memoize
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from sqlalchemy import inspect as sqlalchemy_inspect
 
 import html
 import json
@@ -296,7 +297,14 @@ class PanelInvalidateRiskAssessment(ConsultancyBaseView):
             action="invalidated",
         )
         self.sqlsession.add(invalidated_event)
-        self.sqlsession.delete(self.context.session.consultancy)
+        consultancy = self.context.session.consultancy
+        if consultancy is not None:
+            state = sqlalchemy_inspect(consultancy)
+            if state.persistent:
+                self.sqlsession.delete(consultancy)
+            elif state.pending:
+                self.sqlsession.expunge(consultancy)
+                self.context.session.consultancy = None
         self.redirect()
 
     def __call__(self):

@@ -1,3 +1,4 @@
+from plone.base.utils import is_truthy
 from plone.protect.authenticator import check
 from plone.protect.auto import ProtectTransform
 from zExceptions import Forbidden
@@ -16,20 +17,9 @@ _marker = object()
 # existing code and tests.  Set the environment variable
 # EUPHORIE_ENABLE_CSRF_PROTECTION_FOR_SQL=1 to enable CSRF protection
 # for SQL writes.
-EUPHORIE_ENABLE_CSRF_PROTECTION_FOR_SQL = os.getenv(
-    "EUPHORIE_ENABLE_CSRF_PROTECTION_FOR_SQL", 0
+EUPHORIE_ENABLE_CSRF_PROTECTION_FOR_SQL = is_truthy(
+    os.getenv("EUPHORIE_ENABLE_CSRF_PROTECTION_FOR_SQL", 0)
 )
-try:
-    from plone.base.utils import is_truthy
-
-    EUPHORIE_ENABLE_CSRF_PROTECTION_FOR_SQL = is_truthy(
-        EUPHORIE_ENABLE_CSRF_PROTECTION_FOR_SQL
-    )
-except ImportError:
-    # BBB for Plone 6.1.1 and earlier
-    EUPHORIE_ENABLE_CSRF_PROTECTION_FOR_SQL = bool(
-        int(EUPHORIE_ENABLE_CSRF_PROTECTION_FOR_SQL)
-    )
 
 
 def _get_obj_key(obj):

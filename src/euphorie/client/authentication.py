@@ -229,7 +229,7 @@ class EuphorieAccountPlugin(BasePlugin):
             user_id = int(user_id)
         except (TypeError, ValueError):
             return None
-        return Session().query(model.Account).get(user_id)
+        return Session().get(model.Account, user_id)
 
     @graceful_recovery()
     def enumerateUsers(

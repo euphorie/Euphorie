@@ -9,6 +9,7 @@ View name: @@export
 
 from Acquisition import aq_inner
 from Acquisition import aq_parent
+from base64 import encodebytes
 from bs4 import BeautifulSoup
 from euphorie.client.utils import HasText
 from euphorie.content import MessageFactory as _
@@ -44,12 +45,6 @@ from zope.interface import Interface
 import re
 
 all_breaks = re.compile("(\n|\r)+")
-
-try:
-    from base64 import encodebytes
-except ImportError:
-    # PY27
-    from base64 import encodestring as encodebytes
 
 
 def getToken(field, value, default=None):

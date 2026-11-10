@@ -327,6 +327,7 @@ class MeasureChangeTests(TreeTests):
             plan_type="in_place_standard",
             risk=risk,
         )
+        self.sqlsession.add(solution)
 
         session.update_measure_types(survey)
         self.assertEqual(solution.plan_type, "in_place_standard")

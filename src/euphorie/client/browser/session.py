@@ -40,6 +40,7 @@ from sqlalchemy import inspect
 from sqlalchemy import orm
 from sqlalchemy import sql
 from sqlalchemy.orm import object_session
+from urllib.parse import quote
 from z3c.form.form import EditForm
 from z3c.saconfig import Session
 from zExceptions import Unauthorized
@@ -51,11 +52,6 @@ from zope.lifecycleevent import ObjectModifiedEvent
 
 import json
 import re
-
-try:
-    from urllib import quote  # Python 2.X
-except ImportError:
-    from urllib.parse import quote  # Python 3+
 
 
 def sql_clone(obj, skip=None, session=None):
@@ -1191,7 +1187,7 @@ class MeasuresOverview(Status):
             .join(Risk, Risk.parent_id == Module.id)
             .join(ActionPlan, ActionPlan.risk_id == Risk.id)
             .order_by(
-                sql.case(value=Risk.priority, whens={"high": 0, "medium": 1}, else_=2),
+                sql.case(("high", 0), ("medium", 1), value=Risk.priority, else_=2),
                 Risk.path,
             )
         )
