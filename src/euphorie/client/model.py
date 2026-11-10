@@ -1581,7 +1581,7 @@ class Option(BaseObject):
     id = schema.Column(types.Integer(), primary_key=True, autoincrement=True)
     choice_id = schema.Column(
         types.Integer(),
-        schema.ForeignKey(Choice.id, onupdate="CASCADE", ondelete="CASCADE"),
+        schema.ForeignKey("choice.id", onupdate="CASCADE", ondelete="CASCADE"),
         nullable=False,
         index=True,
     )
