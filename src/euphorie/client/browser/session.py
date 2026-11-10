@@ -12,6 +12,7 @@ from euphorie.client.model import Choice
 from euphorie.client.model import get_current_account
 from euphorie.client.model import Module
 from euphorie.client.model import MODULE_WITH_RISK_OR_TOP5_FILTER
+from euphorie.client.model import Option
 from euphorie.client.model import Risk
 from euphorie.client.model import RISK_PRESENT_OR_TOP5_FILTER
 from euphorie.client.model import SessionRedirect
@@ -755,6 +756,25 @@ class CloneSession(SessionMixin, BrowserView):
             )
             module_mapping[old_module.id] = new_module
             new_module.session = new_session
+
+        for old_module in old_modules:
+            if old_module.parent_id is not None:
+                module_mapping[old_module.id].parent_id = module_mapping[
+                    old_module.parent_id
+                ].id
+
+        old_choices = sql_session.query(Choice).filter(
+            SurveyTreeItem.session == old_session
+        )
+        for old_choice in old_choices:
+            new_choice = sql_clone(
+                old_choice, skip=risk_module_skipped_attributes, session=sql_session
+            )
+            if old_choice.parent_id is not None:
+                new_choice.parent_id = module_mapping[old_choice.parent_id].id
+            new_choice.session = new_session
+            for old_option in old_choice.options:
+                new_choice.options.append(Option(zodb_path=old_option.zodb_path))
 
         old_risks = sql_session.query(Risk).filter(
             SurveyTreeItem.session == old_session

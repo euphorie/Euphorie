@@ -94,3 +94,33 @@ class TestCloningViews(EuphorieIntegrationTestCase):
                 # Also verify that the cloned risk has
                 # the cloned module as a parent
                 self.assertEqual(risk.parent, module)
+
+    def test_clone_inventory_choices(self):
+        original = model.Session.get(model.SurveySession, 1)
+        module = original.children().first()
+        submodule = module.addChild(
+            model.Module(title="Submodule", module_id="sub", zodb_path="a/sub")
+        )
+        choice = submodule.addChild(
+            model.Choice(title="Choice", zodb_path="a/sub/choice", condition="a/option")
+        )
+        choice.options.append(model.Option(zodb_path="a/sub/choice/option"))
+        model.Session.flush()
+        traversed = self.portal.client.nl.ict[
+            "software-development"
+        ].restrictedTraverse("++session++1")
+        with api.env.adopt_user(user=self.john):
+            with self._get_view("clone-session", traversed) as view:
+                clone = view.get_cloned_session()
+
+        model.Session.flush()
+        cloned_module = clone.children().first()
+        cloned_submodule = cloned_module.children().filter_by(type="module").first()
+        cloned_choice = cloned_submodule.children().filter_by(type="choice").first()
+        self.assertEqual(cloned_choice.condition, choice.condition)
+        self.assertEqual(cloned_choice.session_id, clone.id)
+        self.assertEqual(
+            [option.zodb_path for option in cloned_choice.options],
+            ["a/sub/choice/option"],
+        )
+        self.assertNotEqual(cloned_choice.options[0].id, choice.options[0].id)
