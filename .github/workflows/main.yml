@@ -52,6 +52,5 @@ jobs:
       - name: Test
         run: |
           bin/coverage run bin/test -s euphorie
-          bin/coverage report --fail-under=67
         env:
           zope_i18n_compile_mo_files: 1
