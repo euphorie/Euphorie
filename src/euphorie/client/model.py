@@ -265,7 +265,8 @@ class SurveyTreeItem(BaseObject):
         self.session.touch()
         return item
 
-    def removeChildren(self, excluded=[]):
+    def removeChildren(self, excluded=None):
+        excluded = list(excluded or ())
         if self.id not in excluded:
             excluded.append(self.id)
         session = Session()

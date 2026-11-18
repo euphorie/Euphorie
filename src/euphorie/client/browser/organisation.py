@@ -9,11 +9,11 @@ from euphorie.client.utils import CreateEmailTo
 from plone import api
 from plone.memoize.view import memoize
 from plone.memoize.view import memoize_contextless
+from plone.namedfile.utils import getAllowedSizes
 from plone.protect.auto import safeWrite
 from plone.protect.interfaces import IDisableCSRFProtection
 from plone.scale.scale import scaleImage
 from plone.uuid.interfaces import IUUIDGenerator
-from Products.CMFPlone.utils import getAllowedSizes
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from sqlalchemy import sql
 from textwrap import dedent
