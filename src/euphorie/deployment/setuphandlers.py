@@ -2,9 +2,9 @@ from euphorie.content.passwordpolicy import EuphoriePasswordPolicy
 from euphorie.content.utils import REGION_NAMES
 from plone import api
 from plone.app.layout.navigation.interfaces import INavigationRoot
+from plone.base.utils import unrestricted_construct_instance
 from plone.dexterity.utils import createContentInContainer
 from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.utils import _createObjectByType
 from Products.PlonePAS.plugins.passwordpolicy import PasswordPolicyPlugin
 from Products.PluggableAuthService.interfaces.plugins import IValidationPlugin
 from zope.interface import alsoProvides
@@ -150,7 +150,7 @@ def setupInitialContent(site):
             )
             log.info("Added online help text for language %s (%s)", name, code)
         if "appendix" not in docs:
-            _createObjectByType(
+            unrestricted_construct_instance(
                 "euphorie.page",
                 docs,
                 "appendix",

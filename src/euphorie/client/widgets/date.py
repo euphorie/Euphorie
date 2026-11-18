@@ -1,5 +1,5 @@
 from plone.app.event.base import first_weekday
-from plone.app.z3cform.widget import DateWidget
+from plone.app.z3cform.widgets.datetime import DateWidget
 from z3c.form.interfaces import IFieldWidget
 from z3c.form.widget import FieldWidget
 from zope.component import ComponentLookupError

@@ -28,11 +28,11 @@ from euphorie.content.solution import ISolution
 from plone import api
 from plone.app.event.base import localized_now
 from plone.autoform.form import AutoExtensibleForm
+from plone.base import PloneLocalesMessageFactory
 from plone.memoize.view import memoize
 from plone.memoize.view import memoize_contextless
 from plone.protect.utils import addTokenToUrl
 from plone.supermodel import model
-from Products.CMFPlone import PloneLocalesMessageFactory
 from Products.Five import BrowserView
 from sqlalchemy import inspect
 from sqlalchemy import sql

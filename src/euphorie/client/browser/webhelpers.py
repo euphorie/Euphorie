@@ -28,6 +28,7 @@ from json import dumps
 from logging import getLogger
 from os import path
 from plone import api
+from plone.base.interfaces import ISecuritySchema
 from plone.i18n.interfaces import ILanguageUtility
 from plone.i18n.normalizer import idnormalizer
 from plone.memoize import forever
@@ -37,7 +38,6 @@ from plone.registry.interfaces import IRegistry
 from plonetheme.nuplone.utils import isAnonymous
 from Products.CMFCore.interfaces import ISiteRoot
 from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.interfaces import ISecuritySchema
 from Products.Five import BrowserView
 from Products.statusmessages.interfaces import IStatusMessage
 from sqlalchemy import and_
