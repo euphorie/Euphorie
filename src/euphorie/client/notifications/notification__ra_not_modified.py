@@ -110,40 +110,55 @@ class Notification(BaseNotification):
             )
         )
 
-    def notify(self):
-        if not self.available:
-            return
-
+    @property
+    def notifications_query(self):
+        """Return the query for overdue assessments."""
         today = datetime.date.today()
-
         base_query = self.webhelpers.get_sessions_query(
             context=self.context,
             include_archived=False,
             filter_by_account=False,
         )
-        query = base_query.filter(
+        return base_query.filter(
             SurveySession.modified
             <= (today - datetime.timedelta(days=self.reminder_days))
         )
 
-        # TODO filter for already sent notifications
-
-        sessions = query.all()
-
-        notifications = {}
-        for session in sessions:
+    def iter_candidate_session_recipients(self):
+        """Yield (assessment, candidate recipient) pairs before eligibility checks."""
+        for session in self.notifications_query.all():
             for account in self.get_responsible_users(session):
-                if not self.notification_enabled(account):
-                    continue
-                notifications.setdefault(
-                    account.id,
-                    {
-                        "account": account,
-                        "sessions": [],
-                    },
-                )["sessions"].append(session)
+                yield session, account
 
-        for notification in notifications.values():
+    def can_notify_for_session(self, session, account):
+        """Allow subclasses to exclude a recipient for a specific assessment."""
+        return True
+
+    @property
+    def notifications(self):
+        """Group eligible assessments by the account ID of subscribed recipients."""
+        # TODO filter for already sent notifications
+        notifications = {}
+        for session, account in self.iter_candidate_session_recipients():
+            if not self.can_notify_for_session(session, account):
+                continue
+            if not self.notification_enabled(account):
+                continue
+            notifications.setdefault(
+                account.id,
+                {
+                    "account": account,
+                    "sessions": [],
+                },
+            )["sessions"].append(session)
+        return notifications
+
+    def notify(self):
+        """Send one email per eligible recipient when this category is available."""
+        if not self.available:
+            return
+
+        for notification in self.notifications.values():
             mail = api.content.get_view(
                 name="notification__ra-not-modified__email",
                 context={
