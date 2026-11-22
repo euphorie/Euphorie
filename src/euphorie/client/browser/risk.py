@@ -647,14 +647,16 @@ class IdentificationView(RiskBase):
     def get_identification_from_scaled_answer(self, scaled_answer):
         """Determine the yes/no identification based on the scaled answer.
 
-        A simplistic implementation could be:
+        The default is meant for the dangerous substances etool where we only want to
+        show that a question has been answered and simply always return "no".
+
+        Another simplistic implementation could be:
 
           return "no" if scaled_answer in ("1", "2") else "yes"
-
-        You likely want to override this if you actually use scaled answers,
-        so by default we return nothing, making the identification empty.
         """
-        pass
+        if self.risk.use_scaled_answer:
+            return "yes"
+        return None
 
     def set_answer_data(self, reply):
         """Set answer data from the reply.
