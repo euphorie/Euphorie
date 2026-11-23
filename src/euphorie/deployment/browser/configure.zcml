@@ -5,7 +5,7 @@
 
   <browser:page
       name="nuplone-view"
-      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      for="plone.base.interfaces.IPloneSiteRoot"
       class=".site.Frontpage"
       permission="zope2.Public"
       layer="euphorie.content.interfaces.IEuphorieContentLayer"
@@ -20,7 +20,7 @@
 
   <browser:page
       name="get-resources-timestamp"
-      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      for="plone.base.interfaces.IPloneSiteRoot"
       class=".site.GetEuphorieResourcesTimestamp"
       permission="zope2.Public"
       />
@@ -74,7 +74,7 @@
 
   <browser:page
       name="clean-up-last-modifier-id"
-      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      for="plone.base.interfaces.IPloneSiteRoot"
       class=".maintenance.CleanUpLastModifierId"
       permission="cmf.ManagePortal"
       layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"

@@ -180,7 +180,7 @@
       title="Euphorie content types"
       description="Content types for defining sectors and surveys"
       provides="Products.GenericSetup.interfaces.EXTENSION"
-      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      for="plone.base.interfaces.IPloneSiteRoot"
       directory="profiles/default"
       />
 
@@ -188,7 +188,7 @@
 
   <browser:page
       name="clean-content"
-      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      for="plone.base.interfaces.IPloneSiteRoot"
       class=".upgrade.CleanupContent"
       permission="cmf.ManagePortal"
       />

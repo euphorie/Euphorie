@@ -95,7 +95,7 @@
       title="Euphorie online client"
       description="The online risk assessment client interface for an Euphorie website"
       provides="Products.GenericSetup.interfaces.EXTENSION"
-      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      for="plone.base.interfaces.IPloneSiteRoot"
       directory="profiles/default"
       post_handler=".setuphandlers.setupVarious"
       />

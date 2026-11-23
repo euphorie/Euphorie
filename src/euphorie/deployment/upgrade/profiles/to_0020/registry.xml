@@ -3,7 +3,7 @@
           i18n:domain="ploneintranet"
 >
   <record field="displayed_types"
-          interface="Products.CMFPlone.interfaces.controlpanel.INavigationSchema"
+          interface="plone.base.interfaces.controlpanel.INavigationSchema"
           name="plone.displayed_types"
   >
     <value purge="false">

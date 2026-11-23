@@ -379,13 +379,13 @@
     </field>
   </record>
   <record field="enable_self_reg"
-          interface="Products.CMFPlone.interfaces.controlpanel.ISecuritySchema"
+          interface="plone.base.interfaces.controlpanel.ISecuritySchema"
           name="plone.enable_self_reg"
   >
     <value>True</value>
   </record>
   <record field="displayed_types"
-          interface="Products.CMFPlone.interfaces.controlpanel.INavigationSchema"
+          interface="plone.base.interfaces.controlpanel.INavigationSchema"
           name="plone.displayed_types"
   >
     <value purge="false">

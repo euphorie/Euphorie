@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <registry>
   <record field="allowed_sizes"
-          interface="Products.CMFPlone.interfaces.controlpanel.IImagingSchema"
+          interface="plone.base.interfaces.controlpanel.IImagingSchema"
           name="plone.allowed_sizes"
   >
     <value purge="false">
