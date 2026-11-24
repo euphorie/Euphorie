@@ -29,8 +29,8 @@ from plone.memoize.instance import memoize
 from plone.memoize.view import memoize_contextless
 from plone.namedfile import NamedBlobImage
 from plone.namedfile.browser import DisplayFile
+from plone.namedfile.utils import getAllowedSizes
 from plone.scale.scale import scaleImage
-from Products.CMFPlone.utils import getAllowedSizes
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from sqlalchemy import update

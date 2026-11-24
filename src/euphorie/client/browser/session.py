@@ -11,12 +11,12 @@ from euphorie.client.model import ActionPlan
 from euphorie.client.model import Choice
 from euphorie.client.model import get_current_account
 from euphorie.client.model import Module
-from euphorie.client.model import MODULE_WITH_RISK_OR_TOP5_FILTER
 from euphorie.client.model import Option
 from euphorie.client.model import Risk
 from euphorie.client.model import RISK_PRESENT_OR_TOP5_FILTER
 from euphorie.client.model import SessionRedirect
 from euphorie.client.model import SKIPPED_PARENTS
+from euphorie.client.model import skipped_parents_filter
 from euphorie.client.model import SurveyTreeItem
 from euphorie.client.navigation import FindFirstQuestion
 from euphorie.client.navigation import getTreeData
@@ -30,11 +30,11 @@ from euphorie.content.solution import ISolution
 from plone import api
 from plone.app.event.base import localized_now
 from plone.autoform.form import AutoExtensibleForm
+from plone.base import PloneLocalesMessageFactory
 from plone.memoize.view import memoize
 from plone.memoize.view import memoize_contextless
 from plone.protect.utils import addTokenToUrl
 from plone.supermodel import model
-from Products.CMFPlone import PloneLocalesMessageFactory
 from Products.Five import BrowserView
 from sqlalchemy import func
 from sqlalchemy import inspect
@@ -1196,19 +1196,22 @@ class MeasuresOverview(Status):
             for month in self.months
         ]
 
+        # Module and Risk both map to the ``tree`` table, so the risk needs an
+        # explicit alias. Relying on SQLAlchemy's implicit aliasing, combined
+        # with the generic ``SurveyTreeItem`` based filters, generates invalid
+        # SQL with SQLAlchemy 2.1.
+        risk = orm.aliased(Risk, flat=True)
         query = (
-            Session.query(Module, Risk, ActionPlan)
+            Session.query(Module, risk, ActionPlan)
             .select_from(Module)
+            .join(risk, risk.parent_id == Module.id)
+            .join(ActionPlan, ActionPlan.risk_id == risk.id)
             .filter(sql.and_(Module.session == self.session, Module.profile_index > -1))
-            .filter(sql.not_(SKIPPED_PARENTS))
-            .filter(
-                sql.or_(MODULE_WITH_RISK_OR_TOP5_FILTER, RISK_PRESENT_OR_TOP5_FILTER)
-            )
-            .join(Risk, Risk.parent_id == Module.id)
-            .join(ActionPlan, ActionPlan.risk_id == Risk.id)
+            .filter(sql.not_(skipped_parents_filter(risk)))
+            .filter(sql.or_(risk.identification == "no", risk.risk_type == "top5"))
             .order_by(
-                sql.case(("high", 0), ("medium", 1), value=Risk.priority, else_=2),
-                Risk.path,
+                sql.case(("high", 0), ("medium", 1), value=risk.priority, else_=2),
+                risk.path,
             )
         )
 

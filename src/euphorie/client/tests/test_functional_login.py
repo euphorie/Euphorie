@@ -7,8 +7,8 @@ from euphorie.content.tests.utils import BASIC_SURVEY
 from euphorie.testing import EuphorieFunctionalTestCase
 from euphorie.testing import EuphorieIntegrationTestCase
 from plone import api
+from plone.base.interfaces import ISecuritySchema
 from plone.registry.interfaces import IRegistry
-from Products.CMFPlone.interfaces import ISecuritySchema
 from transaction import commit
 from z3c.saconfig import Session
 from zExceptions import Unauthorized
