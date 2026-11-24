@@ -1710,20 +1710,28 @@ schema.Index(
 )
 
 
-def _SKIPPED_PARENTS_factory():
+def skipped_parents_filter(item=SurveyTreeItem):
+    """Return an EXISTS clause matching ``item`` if any of its parents has
+    ``skip_children`` set.
+
+    ``item`` must be the (possibly aliased) tree entity of the outer query the
+    clause is correlated with. Pass an explicit alias when the outer query
+    contains the ``tree`` table more than once, e.g. when selecting both
+    ``Module`` and ``Risk``.
+    """
     # XXX This can be optimized by doing short-circuit on parent.type!=module
     parent = orm.aliased(SurveyTreeItem)
     return sql.exists().where(
         sql.and_(
-            parent.session_id == SurveyTreeItem.session_id,
-            SurveyTreeItem.depth > parent.depth,
-            SurveyTreeItem.path.like(parent.path + "%"),
+            parent.session_id == item.session_id,
+            item.depth > parent.depth,
+            item.path.like(parent.path + "%"),
             parent.skip_children == True,  # noqa: E712
         )
     )
 
 
-SKIPPED_PARENTS = _SKIPPED_PARENTS_factory()
+SKIPPED_PARENTS = skipped_parents_filter()
 
 
 NO_CUSTOM_RISKS_FILTER = sql.not_(
@@ -2094,6 +2102,7 @@ __all__ = [
     "Risk",
     "ActionPlan",
     "SKIPPED_PARENTS",
+    "skipped_parents_filter",
     "MODULE_WITH_RISK_FILTER",
     "MODULE_WITH_RISK_TOP5_TNO_FILTER",
     "RISK_PRESENT_FILTER",
