@@ -9,7 +9,7 @@
       title="Upgrade profile that includes registry record for the navigation types"
       description=""
       provides="Products.GenericSetup.interfaces.EXTENSION"
-      for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+      for="plone.base.interfaces.IMigratingPloneSiteRoot"
       directory="profiles/to_0020"
       />
 
@@ -18,7 +18,7 @@
       title="Upgrade profile that includes registry record for invalidating the static resources"
       description=""
       provides="Products.GenericSetup.interfaces.EXTENSION"
-      for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+      for="plone.base.interfaces.IMigratingPloneSiteRoot"
       directory="profiles/to_0021"
       />
 
@@ -27,7 +27,7 @@
       title="Upgrade profile that includes registry record for tool category vocabulary"
       description=""
       provides="Products.GenericSetup.interfaces.EXTENSION"
-      for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+      for="plone.base.interfaces.IMigratingPloneSiteRoot"
       directory="profiles/to_0022"
       />
 
@@ -36,7 +36,7 @@
       title="Register new image scales for training"
       description=""
       provides="Products.GenericSetup.interfaces.EXTENSION"
-      for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+      for="plone.base.interfaces.IMigratingPloneSiteRoot"
       directory="profiles/to_0024"
       />
 

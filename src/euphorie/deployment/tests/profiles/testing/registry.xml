@@ -3,19 +3,19 @@
           i18n:domain="euphorie"
 >
   <record field="email_from_address"
-          interface="Products.CMFPlone.interfaces.IMailSchema"
+          interface="plone.base.interfaces.IMailSchema"
           name="plone.email_from_address"
   >
     <value>discard@simplon.biz</value>
   </record>
   <record field="email_from_name"
-          interface="Products.CMFPlone.interfaces.IMailSchema"
+          interface="plone.base.interfaces.IMailSchema"
           name="plone.email_from_name"
   >
     <value>Euphorie website</value>
   </record>
   <record field="site_title"
-          interface="Products.CMFPlone.interfaces.ISiteSchema"
+          interface="plone.base.interfaces.ISiteSchema"
           name="plone.site_title"
   >
     <value>OiRA</value>
