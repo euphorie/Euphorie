@@ -1,0 +1,4 @@
+Fix broken @@measures_overview and PDF generation.
+Since the two columns in the JOIN clause in the skipped parents filter are on
+the same table like the outer SELECT, they need to be aliased. This is a
+problem occured with SQLAlchemy 2.1, which deprecates auto-aliased tables.
