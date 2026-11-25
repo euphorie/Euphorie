@@ -8,6 +8,33 @@ Changelog
 
 .. towncrier release notes start
 
+21.1.0 (2026-11-25)
+-------------------
+
+New features:
+
+
+- Improve the notification adapter in such a way that it is easier to override it.
+  @ale-rt (`Issue #5430 <https://github.com/syslabcom/scrum/issues/5430>`_)
+
+
+Bug fixes:
+
+
+- Fix broken @@measures_overview and PDF generation.
+  Since the two columns in the JOIN clause in the skipped parents filter are on
+  the same table like the outer SELECT, they need to be aliased. This is a
+  problem occured with SQLAlchemy 2.1, which deprecates auto-aliased tables.
+
+
+Internal:
+
+
+- Remove deprecations.
+  @ale-rt
+- Remove warnings
+
+
 21.0.0 (2026-11-09)
 -------------------
 
