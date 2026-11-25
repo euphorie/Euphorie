@@ -1,2 +1,0 @@
-Improve the notification adapter in such a way that it is easier to override it.
-@ale-rt
